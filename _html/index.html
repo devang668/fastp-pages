@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>我的导航</title>
+<style>
+  /* ============ 可按需微调的视觉变量 ============ */
+  :root{
+    --card-bg: rgba(18,18,22,.42);
+    --card-brd: rgba(255,255,255,.18);
+    --txt: #f4f4f6;
+    --txt-dim: rgba(244,244,246,.72);
+    --input-bg: rgba(255,255,255,.94);
+    --input-txt: #1c1c1e;
+    --accent: #f0a93b;          /* 与本站/回车高亮同色，呼应金色背景 */
+    --radius: 18px;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ height:100%; margin:0; }
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--txt);
+    min-height: 100vh; min-height: 100dvh;
+    display:flex; align-items:center; justify-content:center;
+    padding: 24px;
+    /* 背景图：cover 居中，PC/移动都沉浸；叠加一层轻暗角提升搜索卡对比 */
+    background:
+      radial-gradient(circle at 50% 40%, rgba(0,0,0,0) 0%, rgba(0,0,0,.30) 100%),
+      var(--bg-url) center / cover no-repeat;
+    background-color:#2a2118; /* 图加载前的兜底色 */
+  }
+
+  .wrap{ width:100%; max-width:680px; }
+
+  /* ============ 搜索卡片（毛玻璃） ============ */
+  .card{
+    position:relative;
+    background: var(--card-bg);
+    border:1px solid var(--card-brd);
+    border-radius: var(--radius);
+    padding: 22px 22px 18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    -webkit-backdrop-filter: blur(16px) saturate(125%);
+    backdrop-filter: blur(16px) saturate(125%);
+  }
+
+  .hint{
+    font-size:12.5px; color:var(--txt-dim);
+    text-align:center; margin:0 0 12px; line-height:1.5;
+  }
+  .hint b{ color:var(--accent); font-weight:600; }
+
+  /* ============ 输入行 ============ */
+  .field{ position:relative; display:flex; align-items:center;
+          background:var(--input-bg); border-radius:14px;
+          box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+  .field .lead{ width:42px; display:grid; place-items:center; color:#8a8a8e; flex:0 0 auto; }
+  .field .lead svg{ width:20px; height:20px; }
+  #q{
+    flex:1 1 auto; border:0; outline:0; background:transparent;
+    color:var(--input-txt); font-size:16px; /* 16px 防 iOS 自动放大 */
+    padding:15px 6px; min-width:0;
+  }
+  #q::placeholder{ color:#9a9a9e; }
+  .go-local{
+    flex:0 0 auto; margin:5px 6px 5px 0; padding:9px 13px;
+    border:0; border-radius:10px; cursor:pointer;
+    background:linear-gradient(180deg,#ffb84d,#e8920f);
+    color:#241500; font-weight:700; font-size:13.5px; white-space:nowrap;
+    display:flex; align-items:center; gap:6px;
+    box-shadow:0 2px 8px rgba(232,146,15,.4);
+  }
+  .go-local:active{ transform:translateY(1px); }
+  .go-local kbd{
+    background:rgba(0,0,0,.18); border-radius:5px; padding:1px 5px;
+    font:inherit; font-size:12px;
+  }
+
+  /* ============ 历史下拉 ============ */
+  .suggest{
+    position:absolute; left:0; right:0; top:calc(100% + 8px);
+    background:rgba(20,20,24,.92);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border:1px solid var(--card-brd); border-radius:14px;
+    box-shadow:0 14px 36px rgba(0,0,0,.5);
+    padding:6px; z-index:30; max-height:54vh; overflow:auto;
+    display:none;
+  }
+  .suggest.open{ display:block; }
+  .sg-item{
+    display:flex; align-items:center; gap:10px;
+    padding:10px 10px; border-radius:10px; cursor:pointer; color:var(--txt);
+    font-size:14.5px;
+  }
+  .sg-item:hover, .sg-item.active{ background:rgba(255,255,255,.10); }
+  .sg-item .ico{ color:var(--txt-dim); display:grid; place-items:center; width:18px; }
+  .sg-item .ico svg{ width:16px; height:16px; }
+  .sg-item .txt{ flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .sg-item .txt mark{ background:transparent; color:var(--accent); font-weight:700; }
+  .sg-item .del{
+    flex:0 0 auto; width:24px; height:24px; border:0; background:transparent;
+    color:var(--txt-dim); border-radius:7px; cursor:pointer; font-size:16px; line-height:1;
+    display:grid; place-items:center;
+  }
+  .sg-item .del:hover{ background:rgba(255,80,80,.25); color:#ffd2d2; }
+  .sg-empty{ padding:12px 12px; color:var(--txt-dim); font-size:13px; }
+  .sg-foot{ display:flex; justify-content:flex-end; padding:6px 8px 2px; }
+  .sg-foot button{
+    background:transparent; border:0; color:var(--txt-dim); cursor:pointer;
+    font-size:12.5px; padding:6px 8px; border-radius:8px;
+  }
+  .sg-foot button:hover{ color:var(--txt); background:rgba(255,255,255,.08); }
+
+  /* ============ 引擎快捷排 ============ */
+  .engines{
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap:14px 10px; margin-top:18px;
+  }
+  .eng{
+    width:64px; display:flex; flex-direction:column; align-items:center; gap:7px;
+    background:transparent; border:0; cursor:pointer; color:var(--txt);
+    font-size:12px; padding:4px 2px; border-radius:12px; position:relative;
+  }
+  .eng:hover{ background:rgba(255,255,255,.07); }
+  .eng .badge{
+    width:46px; height:46px; border-radius:14px; display:grid; place-items:center;
+    color:#fff; font-weight:800; font-size:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,.35);
+    user-select:none;
+  }
+  .eng .badge svg{ width:24px; height:24px; }
+  /* 本站（=回车目标）高亮 */
+  .eng.is-local .badge{ outline:2px solid var(--accent); outline-offset:2px; }
+  .eng.is-local .name{ color:var(--accent); font-weight:700; }
+  /* 添加按钮：虚线风格 */
+  .eng.is-add .badge{
+    background:transparent !important;
+    border:2px dashed rgba(255,255,255,.4); box-shadow:none; font-size:24px; font-weight:400;
+    color:var(--txt-dim);
+  }
+  /* 自定义引擎的删除角标 */
+  .eng .rm{
+    position:absolute; top:0; right:6px; width:18px; height:18px; border-radius:50%;
+    background:rgba(0,0,0,.55); color:#fff; border:0; cursor:pointer; font-size:12px;
+    line-height:1; display:none; place-items:center;
+  }
+  .eng:hover .rm{ display:grid; }
+
+  /* ============ 响应式 ============ */
+  @media (max-width:600px){
+    body{ padding:16px; align-items:flex-start; padding-top:14vh; }
+    .card{ padding:18px 14px 14px; }
+    .eng{ width:58px; }
+    .eng .badge{ width:44px; height:44px; }
+    .engines{ gap:12px 6px; }
+    .go-local span.label{ display:none; }   /* 窄屏只留回车图标，省空间 */
+    .go-local{ padding:9px 11px; }
+  }
+  @media (max-height:540px){              /* 横屏手机 */
+    body{ align-items:flex-start; padding-top:24px; }
+    .hint{ margin-bottom:8px; }
+    .engines{ margin-top:12px; }
+  }
+  @media (hover:hover) and (pointer:fine){
+    body{ background-attachment: fixed, fixed; } /* 仅桌面固定背景，更沉浸 */
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <p class="hint">回车 <b>↵</b> 打开本站目录 · 点击下方图标用对应引擎搜索网页</p>
+
+      <div class="field" id="field">
+        <span class="lead" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <input id="q" type="text" autocomplete="off" spellcheck="false"
+               placeholder="输入目录名（如 goal）回车跳转，或输入关键词搜索…" />
+        <button class="go-local" id="goLocal" title="打开本站目录（等同回车）">
+          <span class="label">本站</span>
+          <kbd>↵</kbd>
+        </button>
+
+        <div class="suggest" id="suggest" role="listbox"></div>
+      </div>
+
+      <div class="engines" id="engines"></div>
+    </div>
+  </div>
+
+<script>
+/* =====================================================================
+   配置区：改这里即可自定义。
+   - bg        : 背景图。建议把图下载到本地后改成 './bg.png'
+   - ENGINES   : 引擎按钮。local=本站(回车目标)；url=搜索引擎，用 %s 代表关键词；add=添加按钮
+   - 想加回截图里的“综合搜索”？把下面注释的那行取消注释即可。
+   ===================================================================== */
+const CONFIG = {
+  bg: 'https://bee-reg-ab.imagency.cn/p/31783f0288dd62711574fe04357318d3.png',
+  historyMax: 8,
+};
+
+const ENGINES = [
+  { key:'local',  name:'本站',     local:true, color:'linear-gradient(135deg,#ffce7a,#e8920f)', glyph:'⌂' },
+  // { key:'multi',  name:'综合搜索', url:'https://search.chongbuluo.com/?q=%s', color:'linear-gradient(135deg,#7aa2ff,#3b6fe0)', glyph:'🌐' },
+  { key:'baidu',  name:'百度',     url:'https://www.baidu.com/s?wd=%s',        color:'linear-gradient(135deg,#5b8cff,#2932e1)', glyph:'du' },
+  { key:'bing',   name:'必应',     url:'https://cn.bing.com/search?q=%s',      color:'linear-gradient(135deg,#33c2a8,#00897b)', glyph:'b' },
+  { key:'google', name:'Google',   url:'https://www.google.com/search?q=%s',   color:'linear-gradient(135deg,#6ea8ff,#4285f4)', glyph:'G' },
+  { key:'metaso', name:'秘塔AI',   url:'https://metaso.cn/?q=%s',              color:'linear-gradient(135deg,#9b8cff,#6a4cf0)', glyph:'✦' },
+  { key:'add',    name:'添加',     add:true },
+];
+
+const LS_HISTORY = 'nav_history_v1';
+const LS_CUSTOM  = 'nav_custom_engines_v1';
+
+/* ---------------- 工具 ---------------- */
+const $ = s => document.querySelector(s);
+const qInput = $('#q'), suggest = $('#suggest'), enginesEl = $('#engines');
+const read  = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+const write = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// 应用背景图（用 CSS 变量，方便统一控制遮罩层）
+document.body.style.setProperty('--bg-url', `url("${CONFIG.bg}")`);
+
+/* ---------------- 历史 ---------------- */
+function getHistory(){ return read(LS_HISTORY, []); }
+function pushHistory(term){
+  term = (term||'').trim(); if(!term) return;
+  let h = getHistory().filter(x => x.toLowerCase() !== term.toLowerCase());
+  h.unshift(term); h = h.slice(0, CONFIG.historyMax);
+  write(LS_HISTORY, h);
+}
+function removeHistory(term){ write(LS_HISTORY, getHistory().filter(x => x !== term)); renderSuggest(); }
+function clearHistory(){ write(LS_HISTORY, []); renderSuggest(); }
+
+/* ---------------- 行为：本站 / 搜索 ---------------- */
+function goLocal(value){
+  value = (value||'').trim(); if(!value) { qInput.focus(); return; }
+  pushHistory(value);
+  const suffix = (value.endsWith('/') || value.includes('.')) ? '' : '/';
+  location.assign(encodeURI(value) + suffix);   // 相对当前目录 → goal/ 等
+}
+function searchWith(urlTpl, value){
+  value = (value||'').trim(); if(!value) { qInput.focus(); return; }
+  pushHistory(value);
+  const url = urlTpl.includes('%s')
+    ? urlTpl.replace('%s', encodeURIComponent(value))
+    : urlTpl + (urlTpl.includes('?') ? '&' : '?') + 'q=' + encodeURIComponent(value);
+  window.open(url, '_blank', 'noopener');
+}
+
+/* ---------------- 渲染：引擎排 ---------------- */
+function customEngines(){ return read(LS_CUSTOM, []); }
+function saveCustom(arr){ write(LS_CUSTOM, arr); renderEngines(); }
+
+function addCustomEngine(){
+  const name = prompt('新引擎名称（如：GitHub）：'); if(!name) return;
+  let url = prompt('搜索 URL 模板，用 %s 代表关键词\n例如：https://github.com/search?q=%s', 'https://www.baidu.com/s?wd=%s');
+  if(!url) return;
+  if(!url.includes('%s')){ url += (url.includes('?') ? '&' : '?') + 'q=%s'; alert('未检测到 %s，已自动在末尾补上查询参数。'); }
+  const arr = customEngines();
+  arr.push({ key:'c_'+Date.now(), name:name.trim(), url, custom:true,
+             color:'linear-gradient(135deg,#888,#444)', glyph:(name.trim()[0]||'?').toUpperCase() });
+  saveCustom(arr);
+}
+
+function renderEngines(){
+  const list = [...ENGINES.filter(e=>!e.add), ...customEngines(), ENGINES.find(e=>e.add)];
+  enginesEl.innerHTML = '';
+  list.forEach(e => {
+    const b = document.createElement('button');
+    b.className = 'eng' + (e.local?' is-local':'') + (e.add?' is-add':'');
+    b.type = 'button';
+    const glyph = e.glyph && e.glyph.length<=2 && !/[\u4e00-\u9fa5]/.test(e.glyph)
+      ? `<span style="font-size:${e.add?24:18}px">${esc(e.glyph)}</span>`
+      : `<span>${esc(e.glyph||'?')}</span>`;
+    b.innerHTML =
+      `<span class="badge" style="${e.color?`background:${e.color}`:''}">${e.add?'+':glyph}</span>`+
+      `<span class="name">${esc(e.name)}</span>`+
+      (e.custom?`<span class="rm" title="删除">×</span>`:'');
+    if(e.custom){
+      b.querySelector('.rm').addEventListener('click', ev => {
+        ev.stopPropagation();
+        saveCustom(customEngines().filter(x => x.key !== e.key));
+      });
+    }
+    b.addEventListener('click', () => {
+      if(e.add) return addCustomEngine();
+      if(e.local) return goLocal(qInput.value);
+      searchWith(e.url, qInput.value);
+    });
+    enginesEl.appendChild(b);
+  });
+}
+
+/* ---------------- 渲染：历史下拉 ---------------- */
+let activeIdx = -1, currentItems = [];
+
+function highlight(text, kw){
+  if(!kw) return esc(text);
+  const i = text.toLowerCase().indexOf(kw.toLowerCase());
+  if(i < 0) return esc(text);
+  return esc(text.slice(0,i)) + '<mark>' + esc(text.slice(i,i+kw.length)) + '</mark>' + esc(text.slice(i+kw.length));
+}
+
+function renderSuggest(){
+  const kw = qInput.value.trim();
+  let h = getHistory();
+  if(kw) h = h.filter(x => x.toLowerCase().includes(kw.toLowerCase()));
+  activeIdx = -1; currentItems = h;
+
+  if(h.length === 0){
+    suggest.innerHTML = `<div class="sg-empty">${kw?'没有匹配的历史记录':'暂无历史 · 输入目录名回车即可跳转本站'}</div>`;
+  } else {
+    const clock = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>';
+    suggest.innerHTML = h.map((x,i) =>
+      `<div class="sg-item" data-i="${i}" role="option">`+
+        `<span class="ico">${clock}</span>`+
+        `<span class="txt">${highlight(x,kw)}</span>`+
+        `<button class="del" data-del="${esc(x)}" title="删除">×</button>`+
+      `</div>`).join('') +
+      `<div class="sg-foot"><button id="clearHist">清空历史</button></div>`;
+
+    suggest.querySelectorAll('.sg-item').forEach(el => {
+      el.addEventListener('mousedown', ev => {           // 用 mousedown 抢在 blur 前
+        if(ev.target.closest('.del')) return;
+        qInput.value = currentItems[+el.dataset.i];
+        closeSuggest(); qInput.focus();
+      });
+    });
+    suggest.querySelectorAll('.del').forEach(btn => {
+      btn.addEventListener('mousedown', ev => { ev.stopPropagation(); removeHistory(btn.dataset.del); });
+    });
+    const cf = $('#clearHist'); if(cf) cf.addEventListener('mousedown', ev => { ev.stopPropagation(); clearHistory(); });
+  }
+  suggest.classList.add('open');
+}
+function closeSuggest(){ suggest.classList.remove('open'); activeIdx = -1; }
+function setActive(i){
+  const items = suggest.querySelectorAll('.sg-item');
+  items.forEach(el => el.classList.remove('active'));
+  if(i>=0 && items[i]){ items[i].classList.add('active'); items[i].scrollIntoView({block:'nearest'}); }
+}
+
+/* ---------------- 事件绑定 ---------------- */
+qInput.addEventListener('focus', renderSuggest);
+qInput.addEventListener('input', renderSuggest);
+qInput.addEventListener('keydown', e => {
+  const items = suggest.querySelectorAll('.sg-item');
+  if(e.key === 'ArrowDown'){ e.preventDefault(); if(!suggest.classList.contains('open')) renderSuggest();
+    activeIdx = Math.min(activeIdx+1, currentItems.length-1); setActive(activeIdx); }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIdx = Math.max(activeIdx-1, -1); setActive(activeIdx); }
+  else if(e.key === 'Enter'){
+    e.preventDefault();
+    if(activeIdx >= 0 && currentItems[activeIdx]) qInput.value = currentItems[activeIdx];
+    closeSuggest(); goLocal(qInput.value);
+  }
+  else if(e.key === 'Escape'){ closeSuggest(); }
+});
+$('#goLocal').addEventListener('click', () => { closeSuggest(); goLocal(qInput.value); });
+
+// 点击卡片外关闭下拉
+document.addEventListener('mousedown', e => { if(!$('#field').contains(e.target)) closeSuggest(); });
+
+// 仅桌面自动聚焦（避免移动端一进来就弹键盘）
+if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){ qInput.focus(); }
+
+/* ---------------- 初始化 ---------------- */
+renderEngines();
+</script>
+</body>
+</html>
