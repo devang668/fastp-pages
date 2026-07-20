@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时间 · 此刻</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    min-height: 100vh;
+    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
+    color: #e8e6e1;
+    background: #0f1419;
+    overflow-x: hidden;
+  }
+
+  /* 背景：静谧的河面 */
+  body {
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(120, 140, 170, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(90, 110, 140, 0.15) 0%, transparent 55%),
+      linear-gradient(180deg, #0b0f14 0%, #141a22 45%, #0b0f14 100%);
+    position: relative;
+  }
+
+  /* 淡淡的波纹 */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 255, 255, 0.015) 3px,
+        rgba(255, 255, 255, 0.015) 4px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 28px 120px;
+  }
+
+  /* 顶部时间 */
+  .clock {
+    text-align: center;
+    margin-bottom: 64px;
+    letter-spacing: 0.08em;
+  }
+  .clock .date {
+    font-size: 14px;
+    color: #8a95a5;
+    margin-bottom: 10px;
+    font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  }
+  .clock .time {
+    font-size: 56px;
+    font-weight: 300;
+    color: #f0ece4;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+    font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  }
+  .clock .seconds {
+    font-size: 22px;
+    color: #8a95a5;
+    vertical-align: super;
+    margin-left: 4px;
+  }
+  .clock .weekday {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    font-size: 12px;
+    color: #a8b0bc;
+    letter-spacing: 0.2em;
+    font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  }
+
+  /* 引言 */
+  .quote {
+    text-align: center;
+    margin: 0 auto 80px;
+    max-width: 620px;
+    position: relative;
+    padding: 0 20px;
+  }
+  .quote::before, .quote::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 0 auto 28px;
+  }
+  .quote::after {
+    margin: 28px auto 0;
+  }
+  .quote p {
+    font-size: 20px;
+    line-height: 2;
+    color: #d8d4cc;
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+  .quote .author {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #8a95a5;
+    font-style: normal;
+    letter-spacing: 0.15em;
+  }
+
+  /* 白色框 */
+  .card {
+    background: #fdfcfa;
+    color: #2a2a2a;
+    border-radius: 14px;
+    padding: 48px 44px 40px;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+    position: relative;
+  }
+
+  .card h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+  }
+  .card .subtitle {
+    font-size: 13px;
+    color: #8a8a8a;
+    margin-bottom: 36px;
+    letter-spacing: 0.05em;
+  }
+
+  .field {
+    margin-bottom: 28px;
+  }
+  .field label {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+    font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  }
+  .field label .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .field:nth-child(1) label .dot { background: #3a6ea5; }
+  .field:nth-child(2) label .dot { background: #7a9e7e; }
+  .field:nth-child(3) label .dot { background: #b08968; }
+
+  .field textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 14px 16px;
+    border: 1px solid #e5e2db;
+    border-radius: 8px;
+    background: #fafaf7;
+    font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2a2a2a;
+    resize: vertical;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .field textarea:focus {
+    outline: none;
+    border-color: #3a6ea5;
+    background: #fff;
+  }
+  .field textarea::placeholder {
+    color: #b5b0a5;
+    font-style: italic;
+  }
+
+  .save-status {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #8a8a8a;
+    min-height: 16px;
+    letter-spacing: 0.05em;
+    font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  }
+  .save-status.saved { color: #5a8a5e; }
+
+  /* 隐私提示 */
+  .privacy {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px dashed #e0ddd5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: #8a8a8a;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+  }
+  .privacy .icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #8a8a8a;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 2px;
+  }
+  .privacy .icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #8a8a8a;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* 底部 */
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 12px;
+    color: #5a6470;
+    letter-spacing: 0.2em;
+    font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 50px 20px 80px; }
+    .clock .time { font-size: 42px; }
+    .quote p { font-size: 17px; }
+    .card { padding: 32px 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 时间 -->
+  <div class="clock">
+    <div class="date" id="date">—</div>
+    <div class="time">
+      <span id="hm">—:—</span><span class="seconds" id="sec">—</span>
+    </div>
+    <div class="weekday" id="weekday">—</div>
+  </div>
+
+  <!-- 引言 -->
+  <div class="quote">
+    <p>生命平静地逝去，没有声响，没有浪花，<br>甚至连波纹都看不见，无声无息。<br>我多么厌恶这平坦的河床，它吸收了任何感觉。</p>
+    <div class="author">—— 周国平</div>
+  </div>
+
+  <!-- 白色卡片 -->
+  <div class="card">
+    <h2>在此刻，留下一些痕迹</h2>
+    <div class="subtitle">让时间不再无声无息</div>
+
+    <div class="field">
+      <label><span class="dot"></span>今天，我想完成的事</label>
+      <textarea id="today" placeholder="哪怕只有一件，也值得被记住……"></textarea>
+    </div>
+
+    <div class="field">
+      <label><span class="dot"></span>这一周，我愿意走向的方向</label>
+      <textarea id="week" placeholder="不必宏大，只要真实……"></textarea>
+    </div>
+
+    <div class="field">
+      <label><span class="dot"></span>这一周，我愿意放弃什么</label>
+      <textarea id="giveup" placeholder="一些消耗，一些执念，一些不必……"></textarea>
+    </div>
+
+    <div class="save-status" id="status"></div>
+
+    <div class="privacy">
+      <div class="icon"></div>
+      <div>
+        你的文字只保存在你此刻使用的浏览器中（localStorage），<br>
+        不会上传、不会被收集、不会被任何服务器看见。<br>
+        清除浏览器数据后，它们会随之消失——如同时间本身。
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">时 间 在 此 刻</div>
+
+</div>
+
+<script>
+  // 时钟
+  const weekNames = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  function updateClock() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mm = String(now.getMinutes()).padStart(2, '0');
+    const ss = String(now.getSeconds()).padStart(2, '0');
+
+    document.getElementById('date').textContent = `${y} 年 ${m} 月 ${d} 日`;
+    document.getElementById('hm').textContent = `${hh}:${mm}`;
+    document.getElementById('sec').textContent = ss;
+    document.getElementById('weekday').textContent = weekNames[now.getDay()];
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 本地存储
+  const KEY = 'time_moment_data_v1';
+  const fields = ['today', 'week', 'giveup'];
+  const statusEl = document.getElementById('status');
+
+  function load() {
+    try {
+      const data = JSON.parse(localStorage.getItem(KEY) || '{}');
+      fields.forEach(f => {
+        if (data[f]) document.getElementById(f).value = data[f];
+      });
+    } catch (e) {}
+  }
+
+  let saveTimer = null;
+  function save() {
+    clearTimeout(saveTimer);
+    statusEl.textContent = '正在保存…';
+    statusEl.classList.remove('saved');
+    saveTimer = setTimeout(() => {
+      const data = {};
+      fields.forEach(f => data[f] = document.getElementById(f).value);
+      try {
+        localStorage.setItem(KEY, JSON.stringify(data));
+        const now = new Date();
+        const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+        statusEl.textContent = `已保存于 ${t}`;
+        statusEl.classList.add('saved');
+      } catch (e) {
+        statusEl.textContent = '保存失败（可能存储空间已满）';
+      }
+    }, 400);
+  }
+
+  fields.forEach(f => {
+    document.getElementById(f).addEventListener('input', save);
+  });
+
+  load();
+</script>
+
+</body>
+</html>
