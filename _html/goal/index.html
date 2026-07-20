@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>My Goals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #0066cc;
+    }
+    .time {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #cc0000;
+    }
+    .goals {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    audio {
+      margin-top: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>我的近期目标</h1>
+  
+  <div class="time" id="time">加载新加坡时间中...</div>
+  
+  <div class="goals">
+    <ul>
+      <li>雅思刷完 4 本书的题目，争取 7.5 分</li>
+      <li>拍摄 120 支视频，涨粉丝 1000 个</li>
+      <li>找工作，投出简历 100 份</li>
+      <li>研究 A 股量化和美股交易</li>
+      <li>搭建一个 100 美元的量化系统</li>
+    </ul>
+  </div>
+  
+  <h2>音频播放</h2>
+  <audio controls>
+    <source src="https://raw.githubusercontent.com/devang668/yusen_quant/master/refer/amazing.mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放。
+  </audio>
+  
+  <script>
+    function updateTime() {
+      const options = { timeZone: 'Asia/Singapore', hour12: false };
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('zh-CN', {
+        ...options,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById('time').textContent = "当前新加坡时间：" + formatter.format(now);
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+</body>
+</html>
