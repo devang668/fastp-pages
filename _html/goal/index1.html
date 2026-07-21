@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的近期目标</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    min-height: 100vh;
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #2a2a2a;
+    overflow-x: hidden;
+  }
+
+  /* 背景图 */
+  body {
+    background: url('https://bee-reg-ab.imagency.cn/p/06e02d1b29a0cf693acf85d968c616f2.png') center center / cover no-repeat fixed;
+    position: relative;
+  }
+  /* 轻柔遮罩，保证可读性 */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.10) 40%,
+      rgba(255, 255, 255, 0.20) 100%
+    );
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 70px 28px 100px;
+  }
+
+  /* 头部 */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 8px rgba(255,255,255,0.5);
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #5a6a7a;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  /* 毛玻璃卡片通用 */
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  /* 时间 */
+  .time-card {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 28px 24px;
+  }
+  .time-card .label {
+    font-size: 11px;
+    color: #7a8a9a;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .time-card .clock {
+    font-size: 46px;
+    font-weight: 200;
+    color: #1a1a2e;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+  .time-card .date {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6a7a8a;
+    letter-spacing: 0.1em;
+  }
+
+  /* 目标列表 */
+  .goals-title {
+    font-size: 13px;
+    color: #5a6a7a;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-left: 6px;
+  }
+
+  .goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+  }
+  .goal-item:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .goal-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+  }
+  .goal-item:nth-child(1) .goal-num { background: linear-gradient(135deg, #667eea, #764ba2); }
+  .goal-item:nth-child(2) .goal-num { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .goal-item:nth-child(3) .goal-num { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .goal-item:nth-child(4) .goal-num { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+  .goal-item:nth-child(5) .goal-num { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+  .goal-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #2a2a3a;
+    padding-top: 5px;
+  }
+
+  /* 音频区 */
+  .audio-section {
+    margin-top: 48px;
+    padding: 26px 28px;
+  }
+  .audio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .audio-title {
+    font-size: 12px;
+    color: #5a6a7a;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* 循环开关 */
+  .loop-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .loop-toggle .loop-label {
+    font-size: 12px;
+    color: #6a7a8a;
+    letter-spacing: 0.08em;
+  }
+  .loop-toggle input { display: none; }
+  .loop-switch {
+    width: 40px;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 11px;
+    position: relative;
+    transition: background 0.25s;
+  }
+  .loop-switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: all 0.25s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  .loop-toggle input:checked + .loop-switch {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+  .loop-toggle input:checked + .loop-switch::after {
+    left: 21px;
+  }
+
+  /* 播放器 */
+  .player {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .play-btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
+  }
+  .play-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 22px rgba(102, 126, 234, 0.45);
+  }
+  .play-btn:active { transform: scale(0.97); }
+  .play-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+  }
+  .play-btn .icon-pause { display: none; }
+  .play-btn.playing .icon-play { display: none; }
+  .play-btn.playing .icon-pause { display: block; }
+
+  .progress-wrap { flex: 1; }
+  .progress-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  .time-display {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #7a8a9a;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .audio-status {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #8a95a5;
+    letter-spacing: 0.05em;
+    min-height: 14px;
+  }
+
+  /* 底部 */
+  .footer {
+    text-align: center;
+    margin-top: 56px;
+    font-size: 11px;
+    color: #7a8a9a;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 50px 18px 80px; }
+    .header h1 { font-size: 26px; }
+    .time-card .clock { font-size: 34px; }
+    .goal-item { padding: 16px 14px; gap: 12px; }
+    .goal-text { font-size: 14px; }
+    .player { flex-wrap: wrap; }
+    .progress-wrap { width: 100%; order: 3; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 头部 -->
+  <div class="header">
+    <h1>我的近期目标</h1>
+    <div class="subtitle">Focus · Execute · Iterate</div>
+  </div>
+
+  <!-- 时间 -->
+  <div class="time-card glass">
+    <div class="label">Singapore Time</div>
+    <div class="clock" id="clock">--:--:--</div>
+    <div class="date" id="date">----年--月--日</div>
+  </div>
+
+  <!-- 目标 -->
+  <div class="goals-title">Goals</div>
+
+  <div class="goal-item glass">
+    <div class="goal-num">01</div>
+    <div class="goal-text">雅思刷完 4 本书的题目，争取 7.5 分</div>
+  </div>
+  <div class="goal-item glass">
+    <div class="goal-num">02</div>
+    <div class="goal-text">拍摄 120 支视频，涨粉丝 1000 个</div>
+  </div>
+  <div class="goal-item glass">
+    <div class="goal-num">03</div>
+    <div class="goal-text">找工作，投出简历 100 份</div>
+  </div>
+  <div class="goal-item glass">
+    <div class="goal-num">04</div>
+    <div class="goal-text">研究 A 股量化和美股交易</div>
+  </div>
+  <div class="goal-item glass">
+    <div class="goal-num">05</div>
+    <div class="goal-text">搭建一个 100 美元的量化系统</div>
+  </div>
+
+  <!-- 音频 -->
+  <div class="audio-section glass">
+    <div class="audio-header">
+      <div class="audio-title">Background Music</div>
+      <label class="loop-toggle">
+        <span class="loop-label">循环播放</span>
+        <input type="checkbox" id="loopToggle" checked>
+        <span class="loop-switch"></span>
+      </label>
+    </div>
+
+    <div class="player">
+      <button class="play-btn" id="playBtn">
+        <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="audio-status" id="audioStatus"></div>
+
+    <audio id="audio" preload="metadata">
+      <source src="https://acrichly.dpdns.org/_locol_data/refer_amazing.mp3" type="audio/mpeg">
+      您的浏览器不支持音频播放。
+    </audio>
+  </div>
+
+  <div class="footer">Stay Hungry · Stay Foolish</div>
+
+</div>
+
+<script>
+  // 时钟
+  function updateClock() {
+    const now = new Date();
+    const options = { timeZone: 'Asia/Singapore', hour12: false };
+    const timeStr = new Intl.DateTimeFormat('zh-CN', {
+      ...options, hour: '2-digit', minute: '2-digit', second: '2-digit'
+    }).format(now);
+    const dateStr = new Intl.DateTimeFormat('zh-CN', {
+      ...options, year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long'
+    }).format(now);
+
+    document.getElementById('clock').textContent = timeStr;
+    document.getElementById('date').textContent = dateStr;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 音频
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('playBtn');
+  const loopToggle = document.getElementById('loopToggle');
+  const progressBar = document.getElementById('progressBar');
+  const progressFill = document.getElementById('progressFill');
+  const currentTimeEl = document.getElementById('currentTime');
+  const durationEl = document.getElementById('duration');
+  const audioStatus = document.getElementById('audioStatus');
+
+  audio.loop = loopToggle.checked;
+
+  loopToggle.addEventListener('change', () => {
+    audio.loop = loopToggle.checked;
+    audioStatus.textContent = loopToggle.checked ? '循环播放已开启' : '循环播放已关闭';
+    setTimeout(() => { if (audioStatus.textContent.includes('循环')) audioStatus.textContent = ''; }, 2000);
+  });
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(() => {
+        audioStatus.textContent = '播放失败，请检查网络或音频链接';
+      });
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio.addEventListener('play', () => {
+    playBtn.classList.add('playing');
+    audioStatus.textContent = '正在播放';
+  });
+  audio.addEventListener('pause', () => {
+    playBtn.classList.remove('playing');
+    if (!audio.ended) audioStatus.textContent = '已暂停';
+  });
+  audio.addEventListener('ended', () => {
+    playBtn.classList.remove('playing');
+    audioStatus.textContent = '播放结束';
+  });
+  audio.addEventListener('error', () => {
+    audioStatus.textContent = '音频加载失败，请检查链接';
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+  });
+
+  progressBar.addEventListener('click', (e) => {
+    if (audio.duration) {
+      const rect = progressBar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    }
+  });
+
+  function formatTime(sec) {
+    if (isNaN(sec)) return '0:00';
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${String(s).padStart(2, '0')}`;
+  }
+</script>
+
+</body>
+</html>
