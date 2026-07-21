@@ -121,7 +121,7 @@
     letter-spacing: 0.15em;
   }
 
-  /* 白色框 */
+  /* 白色卡片 */
   .card {
     background: #fdfcfa;
     color: #2a2a2a;
@@ -196,15 +196,83 @@
     font-style: italic;
   }
 
+  /* 按钮区 */
+  .actions {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .save-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: #2a3a3a;
+    color: #f0ece4;
+    border: none;
+    border-radius: 8px;
+    font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(42, 58, 58, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .save-btn:hover {
+    background: #3a4a4a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(42, 58, 58, 0.35);
+  }
+  .save-btn:active {
+    transform: translateY(0);
+  }
+  .save-btn .icon {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    position: relative;
+  }
+  .save-btn .icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .save-btn.success {
+    background: #5a8a5e;
+    color: #fff;
+  }
+  .save-btn.success .icon::after {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+    border: 1.5px solid #fff;
+    border-top: none;
+    border-left: none;
+    border-radius: 0;
+    transform: translate(-50%, -60%) rotate(45deg);
+  }
+
   .save-status {
-    margin-top: 16px;
     font-size: 12px;
     color: #8a8a8a;
-    min-height: 16px;
     letter-spacing: 0.05em;
     font-family: "Helvetica Neue", "PingFang SC", sans-serif;
   }
   .save-status.saved { color: #5a8a5e; }
+  .save-status.unsaved { color: #b08968; }
 
   /* 隐私提示 */
   .privacy {
@@ -255,6 +323,7 @@
     .clock .time { font-size: 42px; }
     .quote p { font-size: 17px; }
     .card { padding: 32px 24px 28px; }
+    .save-btn { width: 100%; justify-content: center; }
   }
 </style>
 </head>
@@ -297,7 +366,14 @@
       <textarea id="giveup" placeholder="一些消耗，一些执念，一些不必……"></textarea>
     </div>
 
-    <div class="save-status" id="status"></div>
+    <!-- 按钮区 -->
+    <div class="actions">
+      <button class="save-btn" id="saveBtn">
+        <span class="icon"></span>
+        <span class="label">刻下此刻</span>
+      </button>
+      <div class="save-status" id="status"></div>
+    </div>
 
     <div class="privacy">
       <div class="icon"></div>
@@ -335,8 +411,11 @@
 
   // 本地存储
   const KEY = 'time_moment_data_v1';
+  const META_KEY = 'time_moment_meta_v1';
   const fields = ['today', 'week', 'giveup'];
   const statusEl = document.getElementById('status');
+  const saveBtn = document.getElementById('saveBtn');
+  const btnLabel = saveBtn.querySelector('.label');
 
   function load() {
     try {
@@ -344,31 +423,51 @@
       fields.forEach(f => {
         if (data[f]) document.getElementById(f).value = data[f];
       });
+      const meta = JSON.parse(localStorage.getItem(META_KEY) || 'null');
+      if (meta && meta.savedAt) {
+        statusEl.textContent = `上次刻下于 ${meta.savedAt}`;
+        statusEl.classList.add('saved');
+      }
     } catch (e) {}
   }
 
-  let saveTimer = null;
-  function save() {
-    clearTimeout(saveTimer);
-    statusEl.textContent = '正在保存…';
-    statusEl.classList.remove('saved');
-    saveTimer = setTimeout(() => {
-      const data = {};
-      fields.forEach(f => data[f] = document.getElementById(f).value);
-      try {
-        localStorage.setItem(KEY, JSON.stringify(data));
-        const now = new Date();
-        const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
-        statusEl.textContent = `已保存于 ${t}`;
-        statusEl.classList.add('saved');
-      } catch (e) {
-        statusEl.textContent = '保存失败（可能存储空间已满）';
-      }
-    }, 400);
-  }
-
+  // 标记"有未保存的修改"
+  let dirty = false;
   fields.forEach(f => {
-    document.getElementById(f).addEventListener('input', save);
+    document.getElementById(f).addEventListener('input', () => {
+      dirty = true;
+      if (statusEl.classList.contains('saved')) {
+        statusEl.textContent = '有未保存的修改';
+        statusEl.classList.remove('saved');
+        statusEl.classList.add('unsaved');
+      }
+    });
+  });
+
+  saveBtn.addEventListener('click', () => {
+    const data = {};
+    fields.forEach(f => data[f] = document.getElementById(f).value);
+    try {
+      localStorage.setItem(KEY, JSON.stringify(data));
+      const now = new Date();
+      const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+      localStorage.setItem(META_KEY, JSON.stringify({ savedAt: t }));
+
+      // 按钮成功态
+      saveBtn.classList.add('success');
+      btnLabel.textContent = '已刻下';
+      statusEl.textContent = `已刻下于 ${t}`;
+      statusEl.classList.remove('unsaved');
+      statusEl.classList.add('saved');
+      dirty = false;
+
+      setTimeout(() => {
+        saveBtn.classList.remove('success');
+        btnLabel.textContent = '刻下此刻';
+      }, 1800);
+    } catch (e) {
+      statusEl.textContent = '保存失败（可能存储空间已满）';
+    }
   });
 
   load();

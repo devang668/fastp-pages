@@ -1,73 +1,482 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>My Goals</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    h1 {
-      color: #0066cc;
-    }
-    .time {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      color: #cc0000;
-    }
-    .goals {
-      margin-top: 20px;
-      padding: 15px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-    audio {
-      margin-top: 20px;
-      width: 100%;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的近期目标</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    min-height: 100vh;
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e8e6e1;
+    background: #0f1419;
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at 15% 5%, rgba(56, 189, 248, 0.10) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 95%, rgba(74, 158, 255, 0.08) 0%, transparent 50%),
+      linear-gradient(180deg, #0b0f14 0%, #141a22 50%, #0b0f14 100%);
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 255, 255, 0.012) 3px,
+        rgba(255, 255, 255, 0.012) 4px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 70px 28px 100px;
+  }
+
+  /* 头部 */
+  .header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .header h1 {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #f0ece4;
+    margin-bottom: 16px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #7a8595;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* 时间 */
+  .time-card {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+  }
+  .time-card .label {
+    font-size: 11px;
+    color: #7a8595;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .time-card .clock {
+    font-size: 42px;
+    font-weight: 300;
+    color: #38bdf8;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+  .time-card .date {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #8a95a5;
+    letter-spacing: 0.1em;
+  }
+
+  /* 目标列表 */
+  .goals-title {
+    font-size: 14px;
+    color: #7a8595;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+
+  .goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    background: #fdfcfa;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+  }
+  .goal-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .goal-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+  }
+  .goal-item:nth-child(1) .goal-num { background: #3a6ea5; }
+  .goal-item:nth-child(2) .goal-num { background: #7a9e7e; }
+  .goal-item:nth-child(3) .goal-num { background: #b08968; }
+  .goal-item:nth-child(4) .goal-num { background: #8a6ea5; }
+  .goal-item:nth-child(5) .goal-num { background: #a56e6e; }
+
+  .goal-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #2a2a2a;
+    padding-top: 6px;
+    font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+  }
+
+  /* 音频区 */
+  .audio-section {
+    margin-top: 56px;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+  }
+  .audio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .audio-title {
+    font-size: 13px;
+    color: #7a8595;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* 循环开关 */
+  .loop-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .loop-toggle .loop-label {
+    font-size: 12px;
+    color: #8a95a5;
+    letter-spacing: 0.1em;
+  }
+  .loop-toggle input {
+    display: none;
+  }
+  .loop-switch {
+    width: 40px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 11px;
+    position: relative;
+    transition: background 0.25s;
+  }
+  .loop-switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #8a95a5;
+    border-radius: 50%;
+    transition: all 0.25s;
+  }
+  .loop-toggle input:checked + .loop-switch {
+    background: rgba(56, 189, 248, 0.3);
+  }
+  .loop-toggle input:checked + .loop-switch::after {
+    left: 21px;
+    background: #38bdf8;
+  }
+
+  /* 播放器 */
+  .player {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .play-btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #38bdf8;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+  }
+  .play-btn:hover {
+    background: #5cc9f9;
+    transform: scale(1.05);
+  }
+  .play-btn:active {
+    transform: scale(0.98);
+  }
+  .play-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #0b0f14;
+  }
+  .play-btn .icon-pause { display: none; }
+  .play-btn.playing .icon-play { display: none; }
+  .play-btn.playing .icon-pause { display: block; }
+
+  .progress-wrap {
+    flex: 1;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: #38bdf8;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  .time-display {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #7a8595;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+
+  .audio-status {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #5a6470;
+    letter-spacing: 0.05em;
+    min-height: 14px;
+  }
+
+  /* 底部 */
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 11px;
+    color: #4a5460;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 50px 20px 80px; }
+    .header h1 { font-size: 26px; }
+    .time-card .clock { font-size: 32px; }
+    .goal-item { padding: 18px 16px; gap: 14px; }
+    .goal-text { font-size: 14px; }
+    .player { flex-wrap: wrap; }
+    .progress-wrap { width: 100%; order: 3; margin-top: 4px; }
+  }
+</style>
 </head>
 <body>
-  <h1>我的近期目标</h1>
-  
-  <div class="time" id="time">加载新加坡时间中...</div>
-  
-  <div class="goals">
-    <ul>
-      <li>雅思刷完 4 本书的题目，争取 7.5 分</li>
-      <li>拍摄 120 支视频，涨粉丝 1000 个</li>
-      <li>找工作，投出简历 100 份</li>
-      <li>研究 A 股量化和美股交易</li>
-      <li>搭建一个 100 美元的量化系统</li>
-    </ul>
-  </div>
-  
- 
 
-  
- <h2>音频播放</h2>
-  <audio controls>
-  <source src="https://acrichly.dpdns.org/_locol_data/refer_amazing.mp3" type="audio/mpeg">
-  您的浏览器不支持音频播放。
-</audio>
-  
-  <script>
-    function updateTime() {
-      const options = { timeZone: 'Asia/Singapore', hour12: false };
-      const now = new Date();
-      const formatter = new Intl.DateTimeFormat('zh-CN', {
-        ...options,
-        year: 'numeric', month: '2-digit', day: '2-digit',
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
+<div class="container">
+
+  <!-- 头部 -->
+  <div class="header">
+    <h1>我的近期目标</h1>
+    <div class="subtitle">Focus · Execute · Iterate</div>
+  </div>
+
+  <!-- 时间 -->
+  <div class="time-card">
+    <div class="label">Singapore Time</div>
+    <div class="clock" id="clock">--:--:--</div>
+    <div class="date" id="date">----年--月--日</div>
+  </div>
+
+  <!-- 目标 -->
+  <div class="goals-title">Goals</div>
+
+  <div class="goal-item">
+    <div class="goal-num">01</div>
+    <div class="goal-text">雅思刷完 4 本书的题目，争取 7.5 分</div>
+  </div>
+  <div class="goal-item">
+    <div class="goal-num">02</div>
+    <div class="goal-text">拍摄 120 支视频，涨粉丝 1000 个</div>
+  </div>
+  <div class="goal-item">
+    <div class="goal-num">03</div>
+    <div class="goal-text">找工作，投出简历 100 份</div>
+  </div>
+  <div class="goal-item">
+    <div class="goal-num">04</div>
+    <div class="goal-text">研究 A 股量化和美股交易</div>
+  </div>
+  <div class="goal-item">
+    <div class="goal-num">05</div>
+    <div class="goal-text">搭建一个 100 美元的量化系统</div>
+  </div>
+
+  <!-- 音频 -->
+  <div class="audio-section">
+    <div class="audio-header">
+      <div class="audio-title">Background Music</div>
+      <label class="loop-toggle">
+        <span class="loop-label">循环播放</span>
+        <input type="checkbox" id="loopToggle" checked>
+        <span class="loop-switch"></span>
+      </label>
+    </div>
+
+    <div class="player">
+      <button class="play-btn" id="playBtn">
+        <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="audio-status" id="audioStatus"></div>
+
+    <audio id="audio" preload="metadata">
+      <source src="https://acrichly.dpdns.org/_locol_data/refer_amazing.mp3" type="audio/mpeg">
+      您的浏览器不支持音频播放。
+    </audio>
+  </div>
+
+  <div class="footer">Stay Hungry · Stay Foolish</div>
+
+</div>
+
+<script>
+  // 时钟
+  function updateClock() {
+    const now = new Date();
+    const options = { timeZone: 'Asia/Singapore', hour12: false };
+    const timeStr = new Intl.DateTimeFormat('zh-CN', {
+      ...options, hour: '2-digit', minute: '2-digit', second: '2-digit'
+    }).format(now);
+    const dateStr = new Intl.DateTimeFormat('zh-CN', {
+      ...options, year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long'
+    }).format(now);
+
+    document.getElementById('clock').textContent = timeStr;
+    document.getElementById('date').textContent = dateStr;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 音频
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('playBtn');
+  const loopToggle = document.getElementById('loopToggle');
+  const progressBar = document.getElementById('progressBar');
+  const progressFill = document.getElementById('progressFill');
+  const currentTimeEl = document.getElementById('currentTime');
+  const durationEl = document.getElementById('duration');
+  const audioStatus = document.getElementById('audioStatus');
+
+  audio.loop = loopToggle.checked;
+
+  loopToggle.addEventListener('change', () => {
+    audio.loop = loopToggle.checked;
+    audioStatus.textContent = loopToggle.checked ? '循环播放已开启' : '循环播放已关闭';
+    setTimeout(() => { if (audioStatus.textContent.includes('循环')) audioStatus.textContent = ''; }, 2000);
+  });
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(() => {
+        audioStatus.textContent = '播放失败，请检查网络或音频链接';
       });
-      document.getElementById('time').textContent = "当前新加坡时间：" + formatter.format(now);
+    } else {
+      audio.pause();
     }
-    setInterval(updateTime, 1000);
-    updateTime();
-  </script>
+  });
+
+  audio.addEventListener('play', () => {
+    playBtn.classList.add('playing');
+    audioStatus.textContent = '正在播放';
+  });
+  audio.addEventListener('pause', () => {
+    playBtn.classList.remove('playing');
+    if (!audio.ended) audioStatus.textContent = '已暂停';
+  });
+  audio.addEventListener('ended', () => {
+    playBtn.classList.remove('playing');
+    audioStatus.textContent = '播放结束';
+  });
+  audio.addEventListener('error', () => {
+    audioStatus.textContent = '音频加载失败，请检查链接';
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+  });
+
+  progressBar.addEventListener('click', (e) => {
+    if (audio.duration) {
+      const rect = progressBar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    }
+  });
+
+  function formatTime(sec) {
+    if (isNaN(sec)) return '0:00';
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${String(s).padStart(2, '0')}`;
+  }
+</script>
+
 </body>
 </html>
