@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>书签</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#f3f4f6;padding:30px}
+.btn{padding:6px 12px;border:none;border-radius:4px;background:#2563eb;color:#fff;font-size:13px;cursor:pointer}
+.btn:hover{background:#1e40af}
+.header{display:flex;gap:10px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:10px;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.card:hover{border-color:#2563eb}
+.card .acts{display:flex;gap:6px;visibility:hidden;font-size:11px}
+.card:hover .acts{visibility:visible}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4)}
+.panel{position:absolute;top:50%;left:50%;translate:-50% -50%;background:#fff;padding:20px;border-radius:8px;width:90%;max-width:350px}
+.panel input,textarea{width:100%;padding:6px;margin-top:4px;margin-bottom:10px;border:1px solid #d1d5db;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <button class="btn" onclick="add()">新建</button>
+  <button class="btn" onclick="exportJSON()">导出</button>
+  <button class="btn" onclick="file.click()">导入</button>
+  <input type="file" id="file" accept=".json" style="display:none" onchange="importJSON(event)">
+</div>
+
+<div id="grid" class="grid"></div>
+
+<div id="modal" class="modal">
+  <form class="panel" onsubmit="save(event)">
+    <h3 id="formTitle">新建书签</h3>
+    <input id="title" placeholder="标题" required>
+    <input id="url" type="url" placeholder="https://" required>
+    <textarea id="notes" placeholder="备注（可选）"></textarea>
+    <div style="text-align:right">
+      <button type="button" class="btn" onclick="modal.style.display='none'">取消</button>
+      <button class="btn">保存</button>
+    </div>
+  </form>
+</div>
+
+<script>
+let list = JSON.parse(localStorage.bookmarks||'[]');
+let editId = null;
+
+function render(){
+  grid.innerHTML = list.map(it=>`
+    <div class="card">
+      <div style="cursor:pointer" onclick="window.open('${it.url}','_blank')">${it.title}</div>
+      <div class="acts">
+        <span style="color:#2563eb;cursor:pointer" onclick="event.stopPropagation();edit('${it.timestamp}')">编辑</span>
+        <span style="color:#ef4444;cursor:pointer" onclick="event.stopPropagation();del('${it.timestamp}')">删除</span>
+      </div>
+    </div>`).join('');
+}
+function add(){ editId=null; formTitle.textContent='新建书签'; modal.style.display='block'; modal.querySelector('form').reset(); }
+function edit(ts){
+  editId=ts;
+  const it=list.find(x=>x.timestamp===ts);
+  formTitle.textContent='编辑书签';
+  title.value=it.title; url.value=it.url; notes.value=it.notes||'';
+  modal.style.display='block';
+}
+function del(ts){ list=list.filter(x=>x.timestamp!==ts); saveLocal(); render(); }
+function save(e){
+  e.preventDefault();
+  const item={title:title.value.trim(),url:url.value.trim(),notes:notes.value.trim(),timestamp:editId||new Date().toISOString()};
+  if(editId){ const i=list.findIndex(x=>x.timestamp===editId); list[i]=item; }
+  else list.unshift(item);
+  modal.style.display='none'; saveLocal(); render();
+}
+function saveLocal(){ localStorage.bookmarks=JSON.stringify(list); }
+function exportJSON(){
+  const a=document.createElement('a');
+  a.href='data:application/json,'+encodeURIComponent(JSON.stringify(list,null,2));
+  a.download='bookmarks.json'; a.click();
+}
+function importJSON(e){
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const arr=JSON.parse(r.result);
+      if(!Array.isArray(arr))throw 0;
+      const add=arr.filter(x=>x.title&&x.url&&x.timestamp);
+      list=[...list,...add]; saveLocal(); render();
+    }catch{ alert('格式错误'); }
+  };
+  r.readAsText(f);
+  e.target.value='';
+}
+render();
+</script>
+</body>
+</html>

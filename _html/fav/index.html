@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书签管理器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        #bookmark-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 行列布局 */
+            gap: 15px;
+        }
+        .bookmark-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            word-break: break-all;
+            display: flex;
+            flex-direction: column;
+        }
+        .bookmark-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 1em;
+            flex-grow: 0;
+        }
+        .bookmark-card a {
+            text-decoration: none;
+            color: #1a0dab;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            word-break: break-all;
+            flex-grow: 0;
+        }
+        .bookmark-card a:hover {
+            text-decoration: underline;
+        }
+        .bookmark-card .notes {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: auto; /* 将备注推到底部 */
+            margin-bottom: 5px;
+            display: none; /* 默认隐藏备注 */
+            flex-grow: 0;
+        }
+        .bookmark-card:hover .notes {
+            display: block; /* 悬停时显示备注 */
+        }
+        .card-actions {
+            margin-top: auto; /* 将操作按钮推到底部 */
+            flex-grow: 0;
+        }
+        .card-actions button {
+            margin-right: 5px;
+            padding: 3px 6px;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+        #controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        #controls button {
+            padding: 8px 15px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        #controls button:hover {
+            background-color: #45a049;
+        }
+        #file-input, #export-link {
+            display: none;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        #modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+        #modal-content h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .modal-actions {
+            text-align: right;
+        }
+        .modal-actions button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        #save-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #cancel-btn {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div id="controls">
+    <button id="add-btn">新建书签</button>
+    <button id="import-btn">导入书签</button>
+    <button id="export-btn">导出书签</button>
+    <input type="file" id="file-input" accept=".json">
+    <a id="export-link" download="bookmarks.json"></a> <!-- 隐藏的下载链接 -->
+</div>
+
+<div id="bookmark-container"></div>
+
+<!-- Modal -->
+<div id="modal">
+    <div id="modal-content">
+        <h2 id="modal-title">添加书签</h2>
+        <div class="form-group">
+            <label for="title">标题:</label>
+            <input type="text" id="title" required>
+        </div>
+        <div class="form-group">
+            <label for="url">链接:</label>
+            <input type="url" id="url" required>
+        </div>
+        <div class="form-group">
+            <label for="notes">备注:</label>
+            <textarea id="notes"></textarea>
+        </div>
+        <div class="modal-actions">
+            <button id="cancel-btn">取消</button>
+            <button id="save-btn">保存</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const STORAGE_KEY = 'bookmarks';
+    let bookmarks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    let editingIndex = -1; // 标记正在编辑的书签索引
+
+    const bookmarkContainer = document.getElementById('bookmark-container');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const titleInput = document.getElementById('title');
+    const urlInput = document.getElementById('url');
+    const notesInput = document.getElementById('notes');
+    const saveBtn = document.getElementById('save-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const addBtn = document.getElementById('add-btn');
+    const importBtn = document.getElementById('import-btn');
+    const exportBtn = document.getElementById('export-btn');
+    const fileInput = document.getElementById('file-input');
+    const exportLink = document.getElementById('export-link'); // 获取隐藏的下载链接
+
+    // 渲染书签列表
+    function renderBookmarks() {
+        bookmarkContainer.innerHTML = '';
+        bookmarks.forEach((bookmark, index) => {
+            const card = document.createElement('div');
+            card.className = 'bookmark-card';
+            card.innerHTML = `
+                <h3>${escapeHtml(bookmark.title)}</h3>
+                <a href="${escapeHtml(bookmark.url)}" target="_blank">${escapeHtml(formatUrl(bookmark.url))}</a>
+                ${bookmark.notes ? `<div class="notes">${escapeHtml(bookmark.notes)}</div>` : ''}
+                <div class="card-actions">
+                    <button class="edit-btn" data-index="${index}">编辑</button>
+                    <button class="delete-btn" data-index="${index}">删除</button>
+                </div>
+            `;
+            bookmarkContainer.appendChild(card);
+        });
+
+        // 为新添加的按钮绑定事件
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = parseInt(e.target.getAttribute('data-index'));
+                openEditModal(index);
+            });
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = parseInt(e.target.getAttribute('data-index'));
+                deleteBookmark(index);
+            });
+        });
+    }
+
+    // 打开添加书签模态框
+    function openAddModal() {
+        editingIndex = -1;
+        modalTitle.textContent = '添加书签';
+        titleInput.value = '';
+        urlInput.value = '';
+        notesInput.value = '';
+        modal.style.display = 'block';
+    }
+
+    // 打开编辑书签模态框
+    function openEditModal(index) {
+        editingIndex = index;
+        const bookmark = bookmarks[index];
+        modalTitle.textContent = '编辑书签';
+        titleInput.value = bookmark.title || '';
+        urlInput.value = bookmark.url || '';
+        notesInput.value = bookmark.notes || '';
+        modal.style.display = 'block';
+    }
+
+    // 关闭模态框
+    function closeModal() {
+        modal.style.display = 'none';
+        editingIndex = -1;
+    }
+
+    // 保存书签（添加或编辑）
+    function saveBookmark() {
+        const title = titleInput.value.trim();
+        const url = urlInput.value.trim();
+        const notes = notesInput.value.trim();
+
+        if (!title || !url) {
+            alert('标题和链接不能为空');
+            return;
+        }
+
+        try {
+            new URL(url); // 验证URL格式
+        } catch (e) {
+            alert('请输入有效的URL');
+            return;
+        }
+
+        if (editingIndex === -1) {
+            // 添加新书签
+            bookmarks.push({ title, url, notes });
+        } else {
+            // 更新现有书签
+            bookmarks[editingIndex] = { title, url, notes };
+        }
+
+        saveToLocalStorage();
+        renderBookmarks();
+        closeModal();
+    }
+
+    // 删除书签
+    function deleteBookmark(index) {
+        if (confirm('确定要删除这个书签吗？')) {
+            bookmarks.splice(index, 1);
+            saveToLocalStorage();
+            renderBookmarks();
+        }
+    }
+
+    // 保存到本地存储
+    function saveToLocalStorage() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
+    }
+
+    // 导入书签
+    function importBookmarksFromFile(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const importedBookmarks = JSON.parse(e.target.result);
+                if (Array.isArray(importedBookmarks)) {
+                    // 追加到现有书签
+                    bookmarks = bookmarks.concat(importedBookmarks);
+                    saveToLocalStorage();
+                    renderBookmarks();
+                    alert(`成功导入 ${importedBookmarks.length} 个书签。`);
+                } else {
+                    alert('文件格式不正确，应为包含书签数组的JSON文件。');
+                }
+            } catch (error) {
+                console.error('导入失败:', error);
+                alert('导入失败，请检查文件内容是否为有效的JSON格式。');
+            }
+        };
+        reader.readAsText(file);
+        // 重置文件输入，以便下次选择同一文件也能触发change事件
+        fileInput.value = '';
+    }
+
+    // 导出书签
+    function exportBookmarks() {
+        if (bookmarks.length === 0) {
+             alert('没有书签可导出。');
+             return;
+        }
+        const dataStr = JSON.stringify(bookmarks, null, 2); // 格式化JSON
+        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+
+        const url = URL.createObjectURL(dataBlob);
+        exportLink.href = url;
+        exportLink.click(); // 触发下载
+        // 清理URL对象
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+    }
+
+    // 辅助函数：转义HTML以防止XSS
+    function escapeHtml(unsafe) {
+        if (typeof unsafe !== 'string') return unsafe;
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+    }
+
+    // 辅助函数：格式化URL显示
+    function formatUrl(urlStr) {
+        try {
+            const urlObj = new URL(urlStr);
+            // 移除协议和www前缀
+            let formatted = urlObj.hostname.replace(/^www\./, '') + urlObj.pathname;
+            // 如果路径是根路径，则不显示
+            if (formatted.endsWith('/')) {
+                formatted = formatted.slice(0, -1);
+            }
+            // 如果格式化后为空或只剩域名，则显示原链接
+            return formatted || urlStr;
+        } catch (e) {
+            // 如果不是有效URL，直接返回
+            return urlStr;
+        }
+    }
+
+    // 事件监听器
+    addBtn.addEventListener('click', openAddModal);
+    importBtn.addEventListener('click', () => fileInput.click());
+    exportBtn.addEventListener('click', exportBookmarks); // 添加导出按钮事件
+    fileInput.addEventListener('change', importBookmarksFromFile);
+    saveBtn.addEventListener('click', saveBookmark);
+    cancelBtn.addEventListener('click', closeModal);
+
+    // 点击模态框外部关闭
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // 初始化渲染
+    renderBookmarks();
+</script>
+
+</body>
+</html>
+
+
+
