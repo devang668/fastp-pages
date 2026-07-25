@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的导航页</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, sans-serif;
+    color: #333;
+    min-height: 100vh;
+    /* 想换壁纸：把下面这行换成  background: url('你的图片地址') center/cover fixed;  */
+    background: linear-gradient(165deg, #aad4a6 0%, #80b1a6 45%, #5a8aa3 100%);
+    background-attachment: fixed;
+  }
+
+  /* ---------- 顶部：时钟 + 搜索 ---------- */
+  header { text-align: center; padding-top: 26px; }
+  .clock {
+    color: #fff; font-weight: 300; letter-spacing: 2px;
+    font-size: clamp(38px, 7vw, 66px);
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .date { color: rgba(255,255,255,.92); font-size: 14px; margin-top: 2px;
+          text-shadow: 0 1px 4px rgba(0,0,0,.25); }
+  .search {
+    display: flex; align-items: center; gap: 4px;
+    width: min(620px, 92vw); margin: 18px auto 0;
+    background: rgba(255,255,255,.92); border-radius: 999px;
+    padding: 4px 4px 4px 6px; box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  }
+  .search select { border: none; background: transparent; font-size: 13px;
+                   padding: 0 6px; outline: none; cursor: pointer; color: #555; }
+  .search input { flex: 1; border: none; outline: none; background: transparent;
+                  font-size: 15px; padding: 0 10px; min-width: 0; }
+  .search button { border: none; background: #4a90e2; color: #fff; cursor: pointer;
+                   width: 42px; height: 36px; border-radius: 999px; font-size: 15px; }
+
+  /* ---------- 图标网格（固定列宽，居中，不拉伸） ---------- */
+  /* 想让“无论屏幕多宽列数都固定”，把 auto-fill 改成固定数字，如 repeat(8, 92px) */
+  main { max-width: 1080px; margin: 0 auto; padding: 26px 16px 90px; }
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 92px);
+    justify-content: center;
+    gap: 22px 10px;
+  }
+  .tile {
+    position: relative; display: flex; flex-direction: column; align-items: center;
+    cursor: pointer; user-select: none;
+  }
+  .icon {
+    width: 74px; height: 74px; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,.18);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .tile:hover .icon { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0,0,0,.28); }
+  .icon.img { display: block; }
+  .icon.img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .txt { color: #fff; font-weight: 600; line-height: 1;
+         text-shadow: 0 1px 2px rgba(0,0,0,.25); }
+  .label {
+    align-self: stretch; min-width: 0; margin-top: 7px; text-align: center;
+    color: #fff; font-size: 12.5px;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .del-badge {
+    position: absolute; top: -8px; right: 2px; display: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #ff4d4f; color: #fff; font-size: 16px; line-height: 20px;
+    align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  }
+  body.edit-mode .del-badge { display: flex; }
+  body.edit-mode .icon { outline: 2px dashed rgba(255,255,255,.8); outline-offset: 2px; }
+  body.edit-mode .tile:hover .icon { transform: none; }
+  .empty { grid-column: 1 / -1; text-align: center; color: rgba(255,255,255,.9); padding: 40px; }
+
+  /* ---------- 右下角浮动按钮 ---------- */
+  .fab { position: fixed; right: 18px; bottom: 18px; display: flex;
+         flex-direction: column; gap: 10px; z-index: 40; }
+  .fab button { width: 48px; height: 48px; border-radius: 50%; border: none;
+    background: rgba(255,255,255,.92); box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    font-size: 20px; cursor: pointer; }
+  .fab button.on { background: #4a90e2; }
+
+  /* ---------- 管理弹窗 ---------- */
+  .modal-mask { position: fixed; inset: 0; background: rgba(0,0,0,.45);
+    display: none; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+  .modal-mask.open { display: flex; }
+  .modal { background: #fff; border-radius: 16px; width: min(760px, 96vw);
+    max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+  .modal-head { display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 18px; border-bottom: 1px solid #eee; }
+  .modal-head h3 { margin: 0; font-size: 17px; }
+  .modal-head .x { border: none; background: none; font-size: 24px; cursor: pointer; color: #888; line-height: 1; }
+  .mgr-tools { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 18px 0; }
+  .list { padding: 12px 18px; overflow: auto; flex: 1; }
+  .modal-foot { padding: 12px 18px; border-top: 1px solid #eee; text-align: right; }
+
+  .btn { border: 1px solid #d8d8d8; background: #fff; border-radius: 8px;
+    padding: 7px 12px; font-size: 13px; cursor: pointer; }
+  .btn:hover { background: #f3f5f7; }
+  .btn.primary { background: #4a90e2; color: #fff; border-color: #4a90e2; }
+  .btn.primary:hover { background: #3a7fcf; }
+  .btn.danger { color: #d33; border-color: #f0c0c0; }
+
+  .row { background: #f7f8fa; border-radius: 10px; padding: 10px; margin-bottom: 8px; }
+  .row.hl { animation: hl 1.2s; }
+  @keyframes hl { 0% { box-shadow: 0 0 0 3px #4a90e2; } 100% { box-shadow: 0 0 0 0 transparent; } }
+  .row-main { display: flex; gap: 8px; }
+  .row-main input { border: 1px solid #ddd; border-radius: 8px; padding: 7px 9px;
+    font-size: 13px; outline: none; min-width: 0; }
+  .row-main input:focus { border-color: #4a90e2; }
+  .f-name { flex: 1; }
+  .f-url { flex: 2; }
+  .row-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+  .row-sub select, .row-sub .f-icon {
+    border: 1px solid #ddd; border-radius: 8px; padding: 6px 8px; font-size: 13px; outline: none; }
+  .row-sub .f-icon { flex: 1; min-width: 130px; }
+  .row-sub .f-icon:disabled { background: #ececec; color: #999; }
+  .row-sub button { width: 34px; height: 32px; padding: 0; border: 1px solid #ddd;
+    background: #fff; border-radius: 8px; cursor: pointer; font-size: 14px; }
+  .row-sub button:hover { background: #eef3fa; }
+  .f-del { color: #d33; }
+  .f-color { width: 36px; height: 32px; padding: 0; border: 1px solid #ddd;
+    border-radius: 8px; background: none; cursor: pointer; }
+  .auto-color .f-color { outline: 2px dashed #b9d4f2; outline-offset: 1px; }
+  .grow { flex: 1; }
+
+  /* ---------- 轻提示 ---------- */
+  #toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+    background: rgba(0,0,0,.82); color: #fff; padding: 10px 18px; border-radius: 10px;
+    font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 99; }
+  #toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="clock" id="clock">--:--:--</div>
+  <div class="date" id="date"></div>
+  <form class="search" id="search" autocomplete="off">
+    <select id="engine">
+      <option value="https://www.baidu.com/s?wd=">百度</option>
+      <option value="https://www.bing.com/search?q=">必应</option>
+      <option value="https://www.google.com/search?q=">谷歌</option>
+    </select>
+    <input id="q" placeholder="搜索一下…">
+    <button type="submit">🔍</button>
+  </form>
+</header>
+
+<main><div id="grid"></div></main>
+
+<div class="fab">
+  <button id="f-edit" title="编辑模式：点图标编辑 / 点×删除">✏️</button>
+  <button id="f-mgr" title="管理链接">⚙️</button>
+</div>
+
+<div class="modal-mask" id="mask">
+  <div class="modal" id="modal">
+    <div class="modal-head"><h3>管理链接</h3><button class="x" id="m-close">×</button></div>
+    <div class="mgr-tools">
+      <button class="btn primary" id="m-add">＋ 新增</button>
+      <button class="btn" id="m-import">⬆ 导入</button>
+      <button class="btn" id="m-export">⬇ 导出</button>
+      <button class="btn" id="m-copy">⎘ 复制</button>
+      <button class="btn" id="m-reload">⟳ 重载JSON</button>
+      <button class="btn danger" id="m-reset">↺ 恢复默认</button>
+      <input type="file" id="m-file" accept=".json,application/json" hidden>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="modal-foot"><button class="btn primary" id="m-done">完成</button></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ============ 配置与默认数据 ============ */
+// 外部 JSON 文件路径：改成 http/https 绝对地址也可，例如 'https://cdn.xxx.com/links.json'
+const JSON_URL = './links.json';
+const KEY = 'nav_links_v1';
+const DEFAULT_LINKS = [
+  { name: '百度',     url: 'https://www.baidu.com',     iconType: 'image', icon: 'https://www.google.com/s2/favicons?sz=128&domain=baidu.com', color: '' },
+  { name: '必应',     url: 'https://www.bing.com',      iconType: 'image', icon: 'https://www.google.com/s2/favicons?sz=128&domain=bing.com',  color: '' },
+  { name: 'GitHub',   url: 'https://github.com',        iconType: 'text',  icon: '🐙', color: '#24292e' },
+  { name: 'Bilibili', url: 'https://www.bilibili.com',  iconType: 'text',  icon: '📺', color: '#fb7299' },
+  { name: '知乎',     url: 'https://www.zhihu.com',     iconType: 'auto',  icon: '',   color: '' },
+  { name: '微博',     url: 'https://weibo.com',         iconType: 'auto',  icon: '',   color: '#e6162d' },
+  { name: 'Notion',   url: 'https://www.notion.so',     iconType: 'text',  icon: '📝', color: '#111111' },
+  { name: '翻译',     url: 'https://translate.google.com', iconType: 'text', icon: '🌐', color: '' }
+];
+
+/* ============ 工具函数 ============ */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const firstChar = s => { s = (s || '').trim(); return s ? [...s][0] : '+'; };
+const ph = t => t === 'auto' ? '留空＝用名称首字' : t === 'image' ? '图片URL（或点🌐）' : '文字 / Emoji';
+
+function hslToHex(h, s, l) {
+  s /= 100; l /= 100;
+  const k = n => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = n => { const c = l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+    return Math.round(255 * c).toString(16).padStart(2, '0'); };
+  return `#${f(0)}${f(8)}${f(4)}`;
+}
+function hashColor(s) { let h = 0; s = s || '?'; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return hslToHex(h % 360, 55, 50); }
+function getHostname(u) { try { let x = (u || '').trim(); if (!/^https?:\/\//i.test(x)) x = 'https://' + x; return new URL(x).hostname; } catch (e) { return ''; } }
+function openUrl(u) { u = (u || '').trim(); if (!u) return; if (!/^[a-z]+:\/\//i.test(u)) u = 'https://' + u; window.open(u, '_blank', 'noopener'); }
+
+let toastTimer;
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 1600); }
+
+/* ============ 数据读写 ============ */
+function normalize(l) {
+  return {
+    id: l.id || uid(),
+    name: l.name || '',
+    url: l.url || '',
+    iconType: ['auto', 'text', 'image'].includes(l.iconType) ? l.iconType : 'auto',
+    icon: l.icon || '',
+    color: l.color || ''
+  };
+}
+function load() {
+  try { const r = localStorage.getItem(KEY); if (r) { const a = JSON.parse(r); if (Array.isArray(a)) return a.map(normalize); } } catch (e) {}
+  return DEFAULT_LINKS.map(normalize);
+}
+const save = () => localStorage.setItem(KEY, JSON.stringify(links));
+const byId = id => links.find(l => l.id === id);
+
+/* 从外部 JSON 文件读取链接；返回数组或 null（失败时） */
+async function fetchFromJSON(url) {
+  try {
+    const res = await fetch(url, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!Array.isArray(data)) throw new Error('JSON 根必须是数组');
+    return data;
+  } catch (e) {
+    console.warn('加载外部 JSON 失败 [' + url + ']：', e);
+    return null;
+  }
+}
+
+/* 用外部 JSON 覆盖当前 links；会同步到 localStorage */
+async function reloadFromJSON() {
+  const data = await fetchFromJSON(JSON_URL);
+  if (!data) { toast('加载 JSON 失败，已用本地数据'); return false; }
+  links = data.map(normalize);
+  save(); renderGrid();
+  if ($('mask').classList.contains('open')) renderList();
+  toast('已从 JSON 载入，共 ' + links.length + ' 条');
+  return true;
+}
+
+/* ============ 渲染主页网格 ============ */
+function renderTile(l) {
+  const name = l.name || '', type = l.iconType, icon = l.icon || '';
+  const isImg = type === 'image' && icon;
+  const bg = isImg ? (l.color || '#e6e9ef') : (l.color || hashColor(name || '?'));
+  const text = type === 'text' ? (icon || firstChar(name)) : firstChar(name);
+  const pts = [...text].length;
+  const fs = pts <= 1 ? 30 : pts <= 2 ? 26 : pts <= 3 ? 20 : pts <= 4 ? 16 : 13;
+  const inner = isImg
+    ? `<img src="${esc(icon)}" alt="" onerror="imgFail(this)">`
+    : `<span class="txt" style="font-size:${fs}px">${esc(text)}</span>`;
+  return `<div class="tile" data-id="${l.id}" data-url="${esc(l.url)}">
+      <div class="icon${isImg ? ' img' : ''}" style="background:${bg}" data-name="${esc(name)}">${inner}</div>
+      <div class="label">${esc(name || '未命名')}</div>
+      <div class="del-badge" title="删除">×</div>
+    </div>`;
+}
+function renderGrid() {
+  $('grid').innerHTML = links.length
+    ? links.map(renderTile).join('')
+    : '<div class="empty">还没有链接，点右下角 ⚙️ 添加</div>';
+}
+// 图片加载失败时，自动降级成“首字+配色”图标（不改你的数据）
+function imgFail(img) {
+  const ic = img.parentElement, name = ic.dataset.name || '?';
+  ic.classList.remove('img');
+  ic.style.background = hashColor(name);
+  ic.innerHTML = `<span class="txt" style="font-size:28px">${esc(firstChar(name))}</span>`;
+}
+window.imgFail = imgFail;
+
+/* ============ 管理弹窗：列表编辑 ============ */
+function rowHtml(l) {
+  const t = l.iconType;
+  return `<div class="row${l.color ? '' : ' auto-color'}" data-id="${l.id}">
+    <div class="row-main">
+      <input class="f-name" placeholder="名称" value="${esc(l.name)}">
+      <input class="f-url" placeholder="网址，如 https://example.com" value="${esc(l.url)}">
+    </div>
+    <div class="row-sub">
+      <select class="f-type">
+        <option value="auto"${t === 'auto' ? ' selected' : ''}>自动</option>
+        <option value="text"${t === 'text' ? ' selected' : ''}>文字/Emoji</option>
+        <option value="image"${t === 'image' ? ' selected' : ''}>图片</option>
+      </select>
+      <input class="f-icon" placeholder="${ph(t)}" value="${esc(l.icon)}" ${t === 'auto' ? 'disabled' : ''}>
+      <button class="f-auto-icon" title="自动获取网站图标">🌐</button>
+      <input type="color" class="f-color" value="${esc(l.color || hashColor(l.name || '?'))}">
+      <button class="f-color-auto" title="使用自动配色">🎲</button>
+      <span class="grow"></span>
+      <button class="f-up" title="上移">↑</button>
+      <button class="f-down" title="下移">↓</button>
+      <button class="f-del" title="删除">🗑️</button>
+    </div>
+  </div>`;
+}
+function renderList() { $('list').innerHTML = links.map(rowHtml).join(''); }
+function openManager() { renderList(); $('mask').classList.add('open'); }
+function closeManager() { $('mask').classList.remove('open'); }
+function highlight(id) {
+  const el = $('list').querySelector(`.row[data-id="${id}"]`);
+  if (el) { el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    el.classList.remove('hl'); void el.offsetWidth; el.classList.add('hl'); }
+}
+
+/* 列表内输入：实时更新数据+主页预览（不重建列表，保证输入流畅） */
+$('list').addEventListener('input', e => {
+  const row = e.target.closest('.row'); if (!row) return;
+  const l = byId(row.dataset.id); if (!l) return;
+  const t = e.target, cls = t.classList;
+  if (cls.contains('f-name')) l.name = t.value;
+  else if (cls.contains('f-url')) l.url = t.value;
+  else if (cls.contains('f-icon')) l.icon = t.value;
+  else if (cls.contains('f-type')) {
+    l.iconType = t.value;
+    const fi = row.querySelector('.f-icon');
+    fi.disabled = l.iconType === 'auto'; fi.placeholder = ph(l.iconType);
+  }
+  else if (cls.contains('f-color')) { l.color = t.value; row.classList.toggle('auto-color', !l.color); }
+  else return;
+  save(); renderGrid();
+});
+
+/* 列表内按钮 */
+$('list').addEventListener('click', e => {
+  const btn = e.target.closest('button'); if (!btn) return;
+  const row = btn.closest('.row'); const l = byId(row.dataset.id); if (!l) return;
+  const cls = btn.classList;
+  if (cls.contains('f-up')) move(l.id, -1);
+  else if (cls.contains('f-down')) move(l.id, 1);
+  else if (cls.contains('f-del')) removeLink(l.id);
+  else if (cls.contains('f-color-auto')) {
+    l.color = ''; row.classList.add('auto-color');
+    row.querySelector('.f-color').value = hashColor(l.name || '?'); save(); renderGrid();
+  }
+  else if (cls.contains('f-auto-icon')) {
+    const h = getHostname(l.url);
+    if (!h) { toast('请先填写网址'); return; }
+    l.iconType = 'image'; l.icon = 'https://www.google.com/s2/favicons?sz=128&domain=' + h;
+    row.querySelector('.f-type').value = 'image';
+    const fi = row.querySelector('.f-icon'); fi.disabled = false; fi.value = l.icon; fi.placeholder = ph('image');
+    save(); renderGrid(); toast('已设置网站图标');
+  }
+});
+
+function move(id, dir) {
+  const i = links.findIndex(l => l.id === id), j = i + dir;
+  if (i < 0 || j < 0 || j >= links.length) return;
+  [links[i], links[j]] = [links[j], links[i]];
+  save(); renderGrid(); renderList();
+}
+function removeLink(id) {
+  if (!confirm('确定删除这个链接？')) return;
+  links = links.filter(l => l.id !== id);
+  save(); renderGrid();
+  if ($('mask').classList.contains('open')) renderList();
+}
+function addLink() {
+  const l = normalize({ name: '新网站', url: 'https://', iconType: 'auto', icon: '', color: '' });
+  links.push(l); save(); renderGrid(); renderList();
+  const list = $('list'); list.scrollTop = list.scrollHeight;
+  const inp = list.querySelector(`.row[data-id="${l.id}"] .f-name`);
+  if (inp) { inp.focus(); inp.select(); }
+}
+
+/* 顶部工具条 */
+$('m-add').onclick = addLink;
+$('m-export').onclick = () => {
+  const blob = new Blob([JSON.stringify(links, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'nav-links.json'; a.click(); URL.revokeObjectURL(a.href); toast('已导出');
+};
+$('m-import').onclick = () => $('m-file').click();
+$('m-file').addEventListener('change', () => {
+  const f = $('m-file').files[0]; if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try {
+      const a = JSON.parse(rd.result); if (!Array.isArray(a)) throw 0;
+      links = a.map(normalize); save(); renderGrid(); renderList();
+      toast('导入成功，共 ' + links.length + ' 条');
+    } catch (e) { toast('导入失败：JSON 格式错误'); }
+    $('m-file').value = '';
+  };
+  rd.readAsText(f);
+});
+$('m-copy').onclick = () => {
+  const txt = JSON.stringify(links, null, 2);
+  if (navigator.clipboard) navigator.clipboard.writeText(txt).then(() => toast('已复制到剪贴板')).catch(() => toast('复制失败'));
+  else { const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta);
+    ta.select(); try { document.execCommand('copy'); toast('已复制'); } catch (e) { toast('复制失败'); } ta.remove(); }
+};
+$('m-reset').onclick = () => {
+  if (confirm('恢复为默认链接？当前配置将丢失。')) {
+    links = DEFAULT_LINKS.map(normalize); save(); renderGrid(); renderList(); toast('已恢复默认');
+  }
+};
+$('m-reload').onclick = () => reloadFromJSON();
+$('m-close').onclick = closeManager;
+$('m-done').onclick = closeManager;
+$('mask').addEventListener('click', e => { if (e.target === $('mask')) closeManager(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('mask').classList.contains('open')) closeManager(); });
+
+/* ============ 主页交互 ============ */
+let editMode = false;
+$('f-edit').onclick = () => {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  $('f-edit').classList.toggle('on', editMode);
+  toast(editMode ? '编辑模式：点图标编辑，点 × 删除' : '已退出编辑模式');
+};
+$('f-mgr').onclick = openManager;
+
+$('grid').addEventListener('click', e => {
+  const tile = e.target.closest('.tile'); if (!tile) return;
+  if (editMode) {
+    if (e.target.closest('.del-badge')) removeLink(tile.dataset.id);
+    else { openManager(); highlight(tile.dataset.id); }
+    return;
+  }
+  openUrl(tile.dataset.url);
+});
+
+/* ============ 搜索 ============ */
+$('search').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = $('q').value.trim();
+  if (v) openUrl($('engine').value + encodeURIComponent(v));
+});
+
+/* ============ 时钟 ============ */
+function tick() {
+  const d = new Date(), p = n => String(n).padStart(2, '0');
+  $('clock').textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+  const w = ['日', '一', '二', '三', '四', '五', '六'][d.getDay()];
+  $('date').textContent = `${d.getMonth() + 1}月${d.getDate()}日 星期${w}`;
+}
+tick(); setInterval(tick, 1000);
+
+/* ============ 启动 ============ */
+let links = load();
+renderGrid();
+/* 异步：尝试用外部 JSON 覆盖默认 / localStorage 数据 */
+reloadFromJSON();
+</script>
+</body>
+</html>
