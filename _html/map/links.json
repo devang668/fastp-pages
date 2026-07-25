@@ -1,128 +1,18 @@
 [
-  {
-    "name": "听力练习",
-    "url": "https://www.youzack.com/ListeningExercise/CategoryIndex/?id=1",
-    "iconType": "text",
-    "icon": "🐙",
-    "color": "#24292e"
-  },
-    {
-    "name": "模拟考试",
-    "url": "https://top.zhan.com/ielts/simulate/jianqiao-mokao4.html",
-    "iconType": "text",
-    "icon": "👍",
-    "color": "#24292e"
-  },
-      {
-    "name": "参考答案和解析",
-    "url": "https://top.zhan.com/ielts/read/jianqiao-jian9.html",
-    "iconType": "text",
-    "icon": "👍",
-    "color": "#24292e"
-  },
-    {
-    "name": "雅思笔记",
-    "url": "https://my.feishu.cn/wiki/WEQcw76voiNHIWkOeIQcsz2tntb",
-    "iconType": "text",
-    "icon": "👍",
-    "color": "#24292e"
-  },
-     {
-    "name": "记忆单词",
-    "url": "https://shimo.im/docs/RKAWMNGbG1c11Jq8",
-    "iconType": "text",
-    "icon": "👍",
-    "color": "#24292e"
-  },
-   {
-    "name": "查单词",
-    "url": "https://dict.eudic.net/dicts/en/darling?recordid=NTc0NTY=",
-    "iconType": "text",
-    "icon": "👍",
-    "color": "#24292e"
-  },
-  
-   {
-    "name": "GitHub",
-    "url": "https://github.com",
-    "iconType": "text",
-    "icon": "🐙",
-    "color": "#24292e"
-  },
-  
-  {
-    "name": "百度",
-    "url": "https://www.baidu.com",
-    "iconType": "image",
-    "icon": "https://www.google.com/s2/favicons?sz=128&domain=baidu.com",
-    "color": ""
-  },
-  {
-    "name": "必应",
-    "url": "https://www.bing.com",
-    "iconType": "image",
-    "icon": "https://www.google.com/s2/favicons?sz=128&domain=bing.com",
-    "color": ""
-  },
-  {
-    "name": "GitHub",
-    "url": "https://github.com",
-    "iconType": "text",
-    "icon": "🐙",
-    "color": "#24292e"
-  },
-  
-  
-  
-  
-  {
-    "name": "Bilibili",
-    "url": "https://www.bilibili.com",
-    "iconType": "text",
-    "icon": "📺",
-    "color": "#fb7299"
-  },
-  {
-    "name": "知乎",
-    "url": "https://www.zhihu.com",
-    "iconType": "auto",
-    "icon": "",
-    "color": ""
-  },
-  {
-    "name": "便宜GPT",
-    "url": "https://appark.ai/cn/cheapest-price/chatgpt",
-    "iconType": "auto",
-    "icon": "",
-    "color": "#e6162d"
-  },
-  {
-    "name": "Notion",
-    "url": "https://www.notion.so",
-    "iconType": "text",
-    "icon": "📝",
-    "color": "#111111"
-  },
-    {
-    "name": "鱼皮ai新闻",
-    "url": "https://ai.codefather.cn/news",
-    "iconType": "text",
-    "icon": "📝",
-    "color": "#111111"
-  },
-      {
-    "name": "卡兹克ai新闻",
-    "url": "https://aihot.virxact.com/all",
-    "iconType": "text",
-    "icon": "📝",
-    "color": "#111111"
-  },
-  
-  {
-    "name": "翻译",
-    "url": "https://translate.google.com",
-    "iconType": "text",
-    "icon": "🌐",
-    "color": ""
-  }
-]https://xq.wtf/
+  {"name": "听力练习", "url": "https://www.youzack.com/ListeningExercise/CategoryIndex/?id=1", "iconType": "text", "color": "#24292e"},
+  {"name": "模拟考试", "url": "https://top.zhan.com/ielts/simulate/jianqiao-mokao4.html", "iconType": "text", "color": "#24292e"},
+  {"name": "参考答案和解析", "url": "https://top.zhan.com/ielts/read/jianqiao-jian9.html", "iconType": "text", "color": "#24292e"},
+  {"name": "雅思笔记", "url": "https://my.feishu.cn/wiki/WEQcw76voiNHIWkOeIQcsz2tntb", "iconType": "text", "color": "#24292e"},
+  {"name": "记忆单词", "url": "https://shimo.im/docs/RKAWMNGbG1c11Jq8", "iconType": "text", "color": "#24292e"},
+  {"name": "查单词", "url": "https://dict.eudic.net/dicts/en/darling?recordid=NTc0NTY=", "iconType": "text", "color": "#24292e"},
+  {"name": "GitHub", "url": "https://github.com", "iconType": "text", "color": "#24292e"},
+  {"name": "百度", "url": "https://www.baidu.com", "iconType": "image", "color": ""},
+  {"name": "必应", "url": "https://www.bing.com", "iconType": "image", "color": ""},
+  {"name": "Bilibili", "url": "https://www.bilibili.com", "iconType": "text", "color": "#fb7299"},
+  {"name": "知乎", "url": "https://www.zhihu.com", "iconType": "auto", "color": ""},
+  {"name": "便宜GPT", "url": "https://appark.ai/cn/cheapest-price/chatgpt", "iconType": "auto", "color": "#e6162d"},
+  {"name": "Notion", "url": "https://www.notion.so", "iconType": "text", "color": "#111111"},
+  {"name": "鱼皮ai新闻", "url": "https://ai.codefather.cn/news", "iconType": "text", "color": "#111111"},
+  {"name": "卡兹克ai新闻", "url": "https://aihot.virxact.com/all", "iconType": "text", "color": "#111111"},
+  {"name": "翻译", "url": "https://translate.google.com", "iconType": "text", "color": ""}
+]

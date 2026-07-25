@@ -238,12 +238,26 @@ function load() {
 const save = () => localStorage.setItem(KEY, JSON.stringify(links));
 const byId = id => links.find(l => l.id === id);
 
+/* 容错 JSON 解析：标准解析失败时，自动截到最后一个 ] 或 } 之后丢弃杂质再试一次（防止手滑在 JSON 末尾追加垃圾） */
+async function safeParseJSON(res) {
+  const text = await res.text();
+  try { return JSON.parse(text); }
+  catch (e) { /* fall through to lenient mode */ }
+  // 容错 1：数组根
+  const i = text.lastIndexOf(']');
+  if (i > 0) { try { return JSON.parse(text.slice(0, i + 1)); } catch (e) { /* fall through */ } }
+  // 容错 2：对象根
+  const j = text.lastIndexOf('}');
+  if (j > 0) { try { return JSON.parse(text.slice(0, j + 1)); } catch (e) { /* fall through */ } }
+  throw new Error('JSON 解析失败：' + (text.length > 80 ? text.slice(0, 80) + '...' : text));
+}
+
 /* 从外部 JSON 文件读取链接；返回数组或 null（失败时） */
 async function fetchFromJSON(url) {
   try {
     const res = await fetch(url, { cache: 'no-cache' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
+    const data = await safeParseJSON(res);
     if (!Array.isArray(data)) throw new Error('JSON 根必须是数组');
     return data;
   } catch (e) {
