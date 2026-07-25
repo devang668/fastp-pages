@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记卡片</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                @apply bg-white rounded-lg p-4 shadow-md transition-all duration-200 hover:shadow-lg;
+            }
+            .note {
+                @apply text-gray-600 text-sm mt-2 overflow-hidden max-h-0 opacity-0 transition-all duration-200;
+            }
+            .title {
+                @apply text-blue-600 font-medium cursor-pointer hover:text-blue-800;
+            }
+            .offline {
+                @apply fixed top-3 right-3 bg-red-500 text-white px-2 py-1 text-xs rounded-full opacity-0 transition-opacity duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4 md:p-6">
+    <!-- 离线状态指示器 -->
+    <div id="offline" class="offline">offline</div>
+
+    <!-- 卡片容器 -->
+    <div id="cards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
+        <!-- 卡片将动态生成 -->
+    </div>
+
+    <script>
+        // 数据 - 在此添加或修改条目
+        const items = [
+            {
+                title: "Shimo_today",url: "https://shimo.im/docs/Ee32mXw4Nncx50A2", note: "功能类优先的CSS框架"  
+            },	
+		   { title: "日语-每次编辑需output",url: "https://editor.csdn.net/md/?articleId=150945126&spm=1011.2415.3001.9698", note: "konichiwa"  },
+		   { title: "日语初级视频课",url: "https://www.bilibili.com/video/BV1DBe8zBEqD/", note: "konichiwa"  },		
+		   { title: "日语-百度课程",url: "https://pan.baidu.com/disk/main#/index?category=all&path=%2Fing%2FanNingJap", note: "konichiwa"  },			   
+		   
+            { title: "英语口语",url: "https://www.youtube.com/@BigShotEnglish-8845", note: "spoken-english"  },	
+            
+            {
+                title: "3Munites-spoken",url: "https://www.youtube.com/watch?v=5yjf1RvhflI&list=PL41R2vH_CL41NhefmUPZqjwtV9LFrz4SR", note: "3分钟"  
+            },	
+           { title: "短片",url: "https://www.youtube.com/@dlczxxs/videos", note: "konichiwa"  },					
+            {
+                title: "Tailwind CSS",url: "https://tailwindcss.com", note: "功能类优先的CSS框架"  
+            },
+            {
+                title: "Japanese_10_ms",url: "https://www.youtube.com/watch?v=fdiWhw_ErZ8&list=PLzvvBBq1AJaFR13DEbJpjnmMgybkmLMcH", note: "功能类优先的CSS框架"  
+            },				
+            {
+                title: "pte笔记更新-位于知乎",url: "https://zhuanlan.zhihu.com/p/1941951638580491213/edit", note: "功能类优先的CSS框架"  
+            },
+            {
+                title: "Write_zhihu",url: "https://zhuanlan.zhihu.com/write", note: "写作"  
+            },			
+            {
+                title: "IPwhoer_Time",url: "https://whoer.com/zh/", note: "功能类优先的CSS框架"  
+            },	
+            {
+                title: "China_news",url: "https://www.youtube.com/@MingjingNewsChannel/videos", note: "truth of China_news"  
+            },				
+//========
+            {
+                title: "MDN 文档",
+                url: "https://developer.mozilla.org",
+                note: "Web开发权威指南"
+            },
+            {
+                title: "GitHub",
+                url: "https://github.com",
+                note: "代码托管平台"
+            },
+            // 添加更多条目...
+		    {
+                title: "LingDou",url: "https://www.youtube.com/@lingdujieshuo", note: "Austrilia"  
+            },	
+		    {
+                title: "caoCaoTalk",url: "https://www.youtube.com/@libertas1984", note: "History"  
+            },	
+		    {
+                title: "ErDaYe",url: "https://www.youtube.com/@Tankman2020/videos", note: "CCP"  
+            },	
+		    {
+                title: "QuarkTalk",url: "https://www.youtube.com/@%E5%A4%B8%E5%85%8B%E8%AF%B4", note: "CCP"  
+            },	
+		    {
+                title: "DuolunDuoFang",url: "https://www.youtube.com/@Torontobigface", note: "CCP"  
+            },	
+		    {
+                title: "ChaiJi",url: "https://www.youtube.com/@chaijing2023", note: "CCP"  
+            },
+		    {
+                title: "BianJI-Videos",url: "https://www.youtube.com/@bianjijilupian", note: "CCP"  
+            },	
+		    {
+                title: "gongzishen",url: "https://www.youtube.com/@gongzishen", note: "CCP"  
+            },	
+		    {
+                title: "vwxill",url: "https://www.youtube.com/@vexilla01", note: "CCP"  
+            },	
+		    {
+                title: "henren778",url: "https://www.youtube.com/@henren778", note: "CCP"  
+            },				
+		    {
+                title: "7778",url: "https://www.youtube.com/@7788talk/videos", note: "CCP"  
+            },
+		    {
+                title: "翟山鹰",url: "https://www.youtube.com/@%E7%BF%9F%E5%B1%B1%E9%B9%B0%E6%8F%AD%E7%A7%98%E9%A2%91%E9%81%93/videos", note: "CCP"  
+            },			
+		    {
+                title: "Tailwind CSS",url: "https://tailwindcss.com", note: "功能类优先的CSS框架"  
+            }
+			//%%%%%%%%%%%%%%%%%%%%%% end line   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        ];
+
+        // DOM引用
+        const cardsContainer = document.getElementById('cards');
+        const offlineIndicator = document.getElementById('offline');
+
+        // 生成卡片 (优化内存占用)
+        function buildCards() {
+            let html = '';
+            items.forEach((item, i) => {
+                html += `
+                <div class="card">
+                    <div class="title" data-url="${item.url}">${item.title}</div>
+                    <div class="note">${item.note}</div>
+                </div>`;
+            });
+            cardsContainer.innerHTML = html;
+            
+            // 绑定事件 (使用事件委托减少事件监听器数量)
+            cardsContainer.addEventListener('mouseenter', (e) => {
+                const title = e.target.closest('.title');
+                if (title) {
+                    title.nextElementSibling.style.maxHeight = '100px';
+                    title.nextElementSibling.style.opacity = '1';
+                }
+            });
+            
+            cardsContainer.addEventListener('mouseleave', (e) => {
+                const title = e.target.closest('.title');
+                if (title) {
+                    title.nextElementSibling.style.maxHeight = '0';
+                    title.nextElementSibling.style.opacity = '0';
+                }
+            });
+            
+            cardsContainer.addEventListener('dblclick', (e) => {
+                const title = e.target.closest('.title');
+                if (title) {
+                    window.open(title.dataset.url, '_blank');
+                }
+            });
+        }
+
+        // 检查网络状态
+        function checkNetwork() {
+            offlineIndicator.style.opacity = navigator.onLine ? '0' : '1';
+        }
+
+        // 初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            buildCards();
+            checkNetwork();
+            window.addEventListener('online', checkNetwork);
+            window.addEventListener('offline', checkNetwork);
+        });
+    </script>
+</body>
+</html>
