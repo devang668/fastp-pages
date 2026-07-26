@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸智慧地图 - 文章展示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .article-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 16px;
+        }
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+        .copy-btn:hover {
+            background: #5a67d8;
+        }
+        .quote {
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+            margin: 20px 0;
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <h1>｜ 当我们在沉默中焦虑时，就是生命在向我们发问</h1>
+        
+        <div id="content">
+            <div class="paragraph">嗯，我们聊聊武侠世界里那些微小的细节，这些细节其实藏着更大的秘密。当包不同说“我爱我女儿”这句话时，你能感受到什么是面对死亡时的真正爱吗？</div>
+            
+            <div class="paragraph">你想问我们为什么会在某些时候感到焦虑？是因为我们在面对人生的选择时，内心深处其实在回应着生命的提问。以《天龙八部》里那段关于死亡与爱的故事为例，阿德勒的人格心理学告诉我们：人的行为永远是为了追求某种目标，这种目标就是所谓的“生活风格”。当一个人能够接受自己的不完美，并为之负责时，他就能获得真正的自由。</div>
+        </div>
+        
+        <button class="copy-btn" onclick="copyContent()">📋 一键复制全文</button>
+    </div>
+
+    <script>
+        function copyContent() {
+            const content = document.getElementById('content');
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = content.innerText;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+            
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = '✅ 已复制';
+            btn.style.background = '#48bb78';
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = '';
+            }, 2000);
+        }
+        
+        // 动态加载JSON文件的功能演示
+        function loadJsonData() {
+            const jsonPath = 'links.json';
+            const reader = new XMLHttpRequest();
+            reader.open('GET', jsonPath, true);
+            reader.setRequestHeader('Content-Type', 'application/json');
+            
+            reader.onload = function() {
+                if (reader.status === 200) {
+                    try {
+                        const data = JSON.parse(reader.responseText);
+                        displayJsonData(data);
+                    } catch(e) {
+                        console.error('JSON解析错误:', e);
+                        const content = document.getElementById('content');
+                        content.innerHTML += '<div class="paragraph">错误：无法解析JSON文件，请检查格式</div>';
+                    }
+                } else {
+                    console.error('加载JSON文件失败:', reader.status);
+                }
+            };
+            
+            reader.onerror = function() {
+                console.error('网络请求失败');
+            };
+            
+            reader.send();
+        }
+        
+        function displayJsonData(data) {
+            if (!Array.isArray(data)) {
+                console.error('JSON数据不是数组格式');
+                return;
+            }
+            
+            const container = document.getElementById('content');
+            
+            // 清除现有内容
+            container.innerHTML = '';
+            
+            // 为每个JSON条目创建显示区域
+            data.forEach((item, index) => {
+                const paragraph = document.createElement('div');
+                paragraph.className = 'paragraph quote';
+                paragraph.innerHTML = `
+                    <strong>段落${index + 1}：</strong>
+                    <strong style="color: #667eea;">${item.topic || item.title || item.name || '无标题'}</strong>
+                    <div style="margin-top: 8px;">${item.content || item.text || JSON.stringify(item, null, 2)}</div>
+                    <div style="margin-top: 8px; color: #666; font-size: 14px;">
+                        <strong>作者：</strong>${item.author || '匿名'}<br>
+                        <strong>时间：</strong>${item.date || new Date().toLocaleDateString()}<br>
+                        <strong>标签：</strong><span style="color: #667eea;">${item.tag || item.category || '未分类'}</span>
+                    </div>
+                `;
+                container.appendChild(paragraph);
+            });
+        }
+        
+        // 初始化时加载JSON数据（可选，可以选择注释掉此函数来使用默认内容）
+        window.onload = function() {
+            const hasExternalJson = confirm('是否要加载JSON文件中的内容？点击确认将加载links.json中的数据，取消将使用默认示例内容。');
+            if (hasExternalJson) {
+                loadJsonData();
+            }
+        };
+    </script>
+</body>
+</html>

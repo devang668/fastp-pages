@@ -1,0 +1,3 @@
+Starting Python HTTP server on port 8081...
+D:\a.create\_MY_GIT_lib\fastp-pages\_html\map\python_server.bat
+exit

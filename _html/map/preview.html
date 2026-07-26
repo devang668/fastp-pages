@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>金庸智慧地图</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; }
+        .quote { border-left: 5px solid #f0c040; margin: 20px 0; padding-left: 15px; }
+        .copy-btn { margin-top: 15px; font-size: 16px; cursor: pointer; }
+        .questions { margin-top: 25px; }
+    </style>
+</head>
+<body>
+    <h1>金庸智慧地图导览</h1>
+
+    <!-- 数据加载区 -->
+    <div id="content"></div>
+
+    <!-- 一键复制按钮 -->
+    <button class="copy-btn" id="copyBtn">一键复制全文</button>
+
+    <script>
+        // 点击事件处理
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            navigator.clipboard.writeText(document.body.innerText)
+                .then(() => alert('文本已复制到剪切板！'))
+                .catch(err => console.error('复制失败:', err));
+        });
+
+        // 加载并解析JSON数据
+        fetch('links.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('content');
+
+                // 处理JSON中的段落
+                data.forEach(item => {
+                    if (item.url) {  // 忽略非有效项
+                        const quote = document.createElement('div');
+                        quote.className = 'quote';
+                        quote.innerHTML = `<p>"<i>${item.name}"</i>说：${item.url}</p>
+                            <p>《${item.method}">${item.content}</p>
+                            <p>对应现实场景：${item.scenario}</p>
+                            <p>启示：${item.lesson}</p>
+                        `;
+                        container.appendChild(quote);
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
