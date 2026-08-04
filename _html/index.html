@@ -242,11 +242,27 @@ function removeHistory(term){ write(LS_HISTORY, getHistory().filter(x => x !== t
 function clearHistory(){ write(LS_HISTORY, []); renderSuggest(); }
 
 /* ---------------- 行为：本站 / 搜索 ---------------- */
+let jumpLocked = false;   // 跳转锁：防止手机端重复触发导致路径叠加(/xl/xl)
+function siteRoot(){
+  // 导航页所在目录，如 / 或 /sub/ —— 始终基于当前位置推导，杜绝相对路径叠加
+  const idx = location.pathname.lastIndexOf('/');
+  return location.pathname.slice(0, idx + 1);
+}
 function goLocal(value){
+  if (jumpLocked) return;
   value = (value||'').trim(); if(!value) { qInput.focus(); return; }
+  // 规整输入：去首尾斜杠、折叠重复斜杠、只取第一段目录名（防 /xl/xl 这类死路径）
+  value = value.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+  if (value.includes('/')) value = value.split('/')[0];
+  if(!value) return;
   pushHistory(value);
-  const suffix = (value.endsWith('/') || value.includes('.')) ? '' : '/';
-  location.assign(encodeURI(value) + suffix);   // 相对当前目录 → goal/ 等
+  jumpLocked = true;
+  qInput.disabled = true;
+  if (value.includes('.')) {
+    location.assign(siteRoot() + encodeURI(value));   // 域名/文件：原样跳转
+  } else {
+    location.replace(siteRoot() + encodeURI(value) + '/'); // 目录：绝对路径，replace 不留历史防回退叠加
+  }
 }
 function searchWith(urlTpl, value){
   value = (value||'').trim(); if(!value) { qInput.focus(); return; }
