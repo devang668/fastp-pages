@@ -34,6 +34,20 @@ body>*{position:relative;z-index:1}
 h1{margin:10px 0 4px;font-size:1.6rem;font-weight:900;text-shadow:0 2px 12px rgba(0,0,0,.6);text-align:center}
 .subtitle{font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:16px;text-align:center;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 
+/* ===== 板块导航 ===== */
+.section-nav{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;width:90%;max-width:520px}
+.nav-card{
+  flex:1;min-width:150px;display:flex;flex-direction:column;gap:4px;align-items:center;
+  padding:14px 16px;border-radius:14px;text-decoration:none;color:#fff;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.18);box-shadow:0 8px 32px rgba(0,0,0,.25);
+  transition:all .2s;
+}
+.nav-card:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+.nav-icon{font-size:1.6rem}
+.nav-title{font-weight:700;font-size:.95rem;color:#ffd200}
+.nav-desc{font-size:.72rem;color:rgba(255,255,255,.65)}
+
 /* ===== 奖励动画 ===== */
 .reward-popup{
   position:fixed;top:40%;left:50%;transform:translate(-50%,-50%) scale(0);
@@ -126,6 +140,19 @@ textarea:focus{outline:none;border-color:#ffd200}
 <h1>🎡 雅思口语闯关转盘</h1>
 <p class="subtitle">转一下，录制两分钟，赚取积分，兑换壁纸！</p>
 
+<div class="section-nav">
+  <a class="nav-card" href="tl-index.html">
+    <span class="nav-icon">📖</span>
+    <span class="nav-title">听力做题方法</span>
+    <span class="nav-desc">8 讲全解 · 三栏速览</span>
+  </a>
+  <a class="nav-card" href="qa-tl-index.html">
+    <span class="nav-icon">💡</span>
+    <span class="nav-title">听力问答精要</span>
+    <span class="nav-desc">8 讲问答 · 一句话总结</span>
+  </a>
+</div>
+
 <div class="wheel-wrap">
   <div class="pointer"></div>
   <canvas id="wheel" width="340" height="340"></canvas>
@@ -138,7 +165,7 @@ textarea:focus{outline:none;border-color:#ffd200}
 
 <div class="controls">
   <button class="btn btn-speak" onclick="speakQuestion()">🔊 朗读问题</button>
-  <button class="btn btn-record" id="recordBtn" onclick="toggleRecord()" disabled>🎬 录制视频并答题</button>
+  <button class="btn btn-record" id="recordBtn" onclick="toggleRecord()" disabled>🎙️ 录制音频并答题</button>
 </div>
 
 <div class="timer-display" id="timerDisplay"></div>
@@ -282,12 +309,12 @@ function speakQuestion(){ if(currentQuestion) speakText(currentQuestion); }
 async function toggleRecord(){
   if(!isRecording){
     try{
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorder = new MediaRecorder(stream);
       recordedChunks = [];
       mediaRecorder.ondataavailable = (e) => { if(e.data.size > 0) recordedChunks.push(e.data); };
       mediaRecorder.onstop = () => {
-        const blob = new Blob(recordedChunks, { type: 'video/webm' });
+        const blob = new Blob(recordedChunks, { type: 'audio/webm' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -304,7 +331,7 @@ async function toggleRecord(){
       document.getElementById('spinBtn').disabled = true;
       startTimer();
     } catch(err){
-      alert("⚠️ 无法访问摄像头/麦克风。\n\n原因：浏览器出于安全考虑，可能限制了本地文件(file://)访问媒体设备。\n\n✅ 解决方法：\n1. 在当前文件夹打开命令行，运行: python -m http.server 8080\n2. 然后在浏览器访问: http://localhost:8080/口语转盘.html");
+      alert("⚠️ 无法访问麦克风。\n\n原因：浏览器出于安全考虑，可能限制了本地文件(file://)访问媒体设备。\n\n✅ 解决方法：\n1. 在当前文件夹打开命令行，运行: python -m http.server 8080\n2. 然后在浏览器访问: http://localhost:8080/口语转盘.html");
     }
   } else {
     mediaRecorder.stop();
@@ -313,7 +340,7 @@ async function toggleRecord(){
 
 function finishRecording(){
   isRecording = false;
-  document.getElementById('recordBtn').textContent = "🎬 录制视频并答题";
+  document.getElementById('recordBtn').textContent = "🎙️ 录制音频并答题";
   document.getElementById('recordBtn').classList.remove('recording');
   document.getElementById('spinBtn').disabled = false;
   stopTimer();
