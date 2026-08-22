@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="only light" />
+  <meta name="generator" content="bento-slides" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='6' fill='%2316273E'/%3E%3Crect x='6' y='6' width='6' height='20' rx='2' fill='%235E7699'/%3E%3Crect x='14' y='6' width='12' height='9' rx='2' fill='%23FF9E8A'/%3E%3Crect x='14' y='17' width='12' height='9' rx='2' fill='%23F0EBE0'/%3E%3C/svg%3E" />
+  <title>bento/slides</title>
+  <style>
+    #bento-splash{position:fixed;inset:0;z-index:9999;display:grid;place-content:center;justify-items:center;gap:26px;background:radial-gradient(130% 90% at 50% 38%,#ffffff 0%,#f0f8ff 58%,#f8fff0 100%);pointer-events:none;transition:opacity .5s ease;animation:bsAuto .6s ease 9s both}
+    #bento-splash.done{opacity:0}
+    .bs-mark{position:relative;width:104px;height:104px;border-radius:24px;background:#ffffff;box-shadow:0 0 56px rgba(255,255,255,.26),0 10px 34px rgba(0,0,0,.55);overflow:hidden;animation:bsIn .7s cubic-bezier(.22,1.4,.36,1) both,bsFloat 3.4s ease-in-out .9s infinite}
+    .bs-mark i{position:absolute;border-radius:9px;opacity:0;animation:bsTile .55s cubic-bezier(.25,1.5,.45,1) both}
+    .bs-b{left:12px;top:12px;width:24px;height:80px;background:#7fdbff;animation-delay:.18s}
+    .bs-a{right:12px;top:12px;width:50px;height:37px;background:#ffebcd;animation-delay:.3s}
+    .bs-c{right:12px;bottom:12px;width:50px;height:37px;background:#fff8f0;animation-delay:.42s}
+    .bs-mark:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.35) 50%,transparent 62%);transform:translateX(-130%);animation:bsSheen 1s ease 1.05s both}
+    .bs-word{font:600 15px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2c3e50;letter-spacing:.42em;text-transform:uppercase;text-indent:.42em;animation:bsUp .6s ease .55s both}
+    .bs-word b{color:#ffebcd;font-weight:800}
+    .bs-bar{width:124px;height:2px;border-radius:1px;background:rgba(255,255,255,.13);overflow:hidden;animation:bsUp .5s ease .85s both}
+    .bs-bar i{display:block;width:44%;height:100%;border-radius:1px;background:linear-gradient(90deg,#ffebcd,#ffd5c7);animation:bsScan 1.1s cubic-bezier(.45,0,.55,1) 1s infinite alternate}
+    @keyframes bsIn{from{transform:scale(.55) rotate(-8deg);opacity:0}}
+    @keyframes bsTile{from{transform:translateY(28px) scale(.6);opacity:0}to{transform:none;opacity:1}}
+    @keyframes bsSheen{to{transform:translateX(130%)}}
+    @keyframes bsFloat{50%{transform:translateY(-5px)}}
+    @keyframes bsUp{from{opacity:0;transform:translateY(10px)}}
+    @keyframes bsScan{from{transform:translateX(-30%)}to{transform:translateX(210%)}}
+    @keyframes bsAuto{to{opacity:0;visibility:hidden}}
+    @media (prefers-reduced-motion:reduce){#bento-splash,#bento-splash *,.bs-mark:after{animation-duration:.01ms;animation-delay:0ms;animation-iteration-count:1}}
+  </style>
+</head>
+<body>
+  <div id="bento-splash" aria-hidden="true">
+    <div class="bs-mark"><i class="bs-a"></i><i class="bs-b"></i><i class="bs-c"></i></div>
+    <div class="bs-word"><b>克服拖延</b></div>
+    <div class="bs-bar"><i></i></div>
+  </div>
+  <div id="app"></div>
+  <script type="application/bento+json" id="bento-doc">{
+  "doc": {
+    "slides": [
+      {
+        "id": "title",
+        "title": "克服拖延\n从心理学到实践",
+        "subtitle": "Understanding & Overcoming Procrastination\nA Practical Guide",
+        "background": {"type":"color","color":"#ffffff"},
+        "textColor": {"color":"#1a237e"},
+        "accentColor": {"color":"#7fdbff"},
+        "elements": [
+          {
+            "id": "hero-title",
+            "type": "text",
+            "content": "克服拖延",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":96,"fontWeight":800,"letterSpacing":"-0.02em"},
+            "x": 0.08,
+            "y": 0.32,
+            "width": 0.84,
+            "height": 0.1,
+            "color":{"color":"#1a237e"}
+          },
+          {
+            "id": "hero-sub",
+            "type": "text",
+            "content": "从心理学到实践",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":36,"fontWeight":400,"letterSpacing":"0.02em"},
+            "x": 0.08,
+            "y": 0.44,
+            "width": 0.56,
+            "height": 0.06,
+            "color":{"color":"#333"}
+          }
+        ],
+        "notes": "Welcome. Today we'll explore why we procrastinate and how to overcome it using psychological insights and practical techniques.",
+        "transition": {"type":"instant"}
+      },
+      {
+        "id": "what-is-procrastination",
+        "title": "什么是拖延？",
+        "background": {"type":"color","color":"#f8f9ff"},
+        "textColor": {"color":"#1a237e"},
+        "elements": [
+          {
+            "id": "def-text",
+            "type": "text",
+            "content": "拖延不是懒惰\n它是暂时的行为失控\n—— 我们选择即时 gratification\nover long-term goals",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":48,"fontWeight":600,"lineHeight":1.4},
+            "x": 0.08,
+            "y": 0.28,
+            "width": 0.84,
+            "height": 0.32,
+            "color":{"color":"#1a237e"}
+          }
+        ],
+        "notes": "Procrastination isn't laziness—it's a temporary loss of self-regulation. We choose immediate gratification over long-term goals.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "reasons",
+        "title": "为什么我们拖延？",
+        "background": {"type":"color","color":"#ffffff"},
+        "textColor": {"color":"#1a237e"},
+        "elements": [
+          {
+            "id": "reason-chart",
+            "type": "chart",
+            "chartType": "bar",
+            "data": {"labels":["恐惧失败","完美主义","缺乏方向","无能感","注意力分散"],"values":[32,25,18,15,10]},
+            "options": {"colors":["#7fdbff","#4fc3f7","#29b6f6","#03a9f4","#0288d1"]},
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":28,"fontWeight":600},
+            "x": 0.08,
+            "y": 0.2,
+            "width": 0.84,
+            "height": 0.56,
+            "color":{"color":"#1a237e"}
+          }
+        ],
+        "notes": "Top reasons for procrastination include fear of failure, perfectionism, lack of direction, feeling overwhelmed, and distractions.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "consequences",
+        "title": "拖延的代价",
+        "background": {"type":"color","color":"#fff3f0"},
+        "textColor": {"color":"#b71c1c"},
+        "elements": [
+          {
+            "id": "cost-text",
+            "type": "text",
+            "content": "拖延会带来：\n• 压力和焦虑↑\n• 品质下降\n• 信誉受损\n• 机会丧失\n• 健康影响",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":36,"lineHeight":1.6},
+            "x": 0.08,
+            "y": 0.24,
+            "width": 0.84,
+            "height": 0.48,
+            "color":{"color":"#b71c1c"}
+          }
+        ],
+        "notes": "Chronic procrastination leads to increased stress, decreased quality of work, damaged reputation, missed opportunities, and health problems.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "technique-1",
+        "title": "方法一：分解任务 (Break It Down)",
+        "subtitle": "The Zeigarnik Effect",
+        "background": {"type":"color","color":"#e8f5f0"},
+        "textColor": {"color":"#1b5e20"},
+        "elements": [
+          {
+            "id": "tip1-text",
+            "type": "text",
+            "content": "把大任务拆分为\n不到15分钟的子任务",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":44,"fontWeight":600,"lineHeight":1.4},
+            "x": 0.08,
+            "y": 0.26,
+            "width": 0.84,
+            "height": 0.36,
+            "color":{"color":"#1b5e20"}
+          }
+        ],
+        "notes": "The Zeigarnik Effect shows that our minds are better at remembering interrupted tasks. Break large projects into small tasks that take 5-15 minutes to complete.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "technique-2",
+        "title": "方法二：番茄时间 (Pomodoro Technique)",
+        "subtitle": "Work in focused bursts",
+        "background": {"type":"color","color":"#fff8e1"},
+        "textColor": {"color":"#e65100"},
+        "elements": [
+          {
+            "id": "pomodoro-visual",
+            "type": "text",
+            "content": "25 min\n⏤⏤⏤⏤⏤\n5 min\n",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":52,"fontWeight":700,"lineHeight":1.2},
+            "x": 0.08,
+            "y": 0.22,
+            "width": 0.84,
+            "height": 0.52,
+            "color":{"color":"#e65100"}
+          }
+        ],
+        "notes": "Work for 25 minutes, then take a 5-minute break. After four cycles, take a longer break. This creates urgency and prevents mental fatigue.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "technique-3",
+        "title": "方法三：移除障碍 (Remove Obstacles)",
+        "subtitle": "Environment design",
+        "background": {"type":"color","color":"#fce4ec"},
+        "textColor": {"color":"#880e4c"},
+        "elements": [
+          {
+            "id": "obstacles-text",
+            "type": "text",
+            "content": "• Turn off notifications\n• Phone in another room\n• Use website blockers\n• Prepare your workspace\n• Set clear boundaries",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":36,"lineHeight":1.5},
+            "x": 0.08,
+            "y": 0.2,
+            "width": 0.84,
+            "height": 0.52,
+            "color":{"color":"#880e4c"}
+          }
+        ],
+        "notes": "Your environment shapes your behavior. Remove distractions, turn off notifications, and create a dedicated workspace for focused work.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "technique-4",
+        "title": "方法四：自我宽恕 (Self-Compassion)",
+        "subtitle": "Be kind to yourself",
+        "background": {"type":"color","color":"#f3e5f5"},
+        "textColor": {"color":"#4a148c"},
+        "elements": [
+          {
+            "id": "compassion-text",
+            "type": "text",
+            "content": "拖延后不要\n责怪自己\n\n承认错误\n从中学习\n然后继续",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":42,"lineHeight":1.5},
+            "x": 0.08,
+            "y": 0.22,
+            "width": 0.84,
+            "height": 0.48,
+            "color":{"color":"#4a148c"}
+          }
+        ],
+        "notes": "Research shows that self-compassion reduces procrastination. Instead of self-criticism, acknowledge mistakes, learn from them, and move forward with kindness.",
+        "transition": {"type":"morph"}
+      },
+      {
+        "id": "action-plan",
+        "title": "你的行动计划",
+        "subtitle": "Next Steps",
+        "background": {"type":"color","color":"#e3f2fd"},
+        "textColor": {"color":"#0d47a1"},
+        "elements": [
+          {
+            "id": "plan-steps",
+            "type": "text",
+            "content": "1. 识别拖延触发点\n2. 选择一种方法尝试\n3. 设定2周的实验期\n4. 每天反思和调整",
+            "style": {"fontFamily":"Instrument Sans, sans-serif","fontSize":34,"lineHeight":1.8},
+            "x": 0.08,
+            "y": 0.22,
+            "width": 0.84,
+            "height": 0.52,
+            "color":{"color":"#0d47a1"}
+          }
+        ],
+        "notes": "Start by identifying your triggers, pick one technique to try, set a 2-week experiment period, and reflect daily on what works.",
+        "transition": {"type":"morph"}
+      }
+    ],
+    "theme": {
+      "fontFamily": "Instrument Sans, sans-serif",
+      "fontSize": 32,
+      "fontWeight": 600,
+      "lineHeight": 1.6
+    },
+    "transition": {"type":"morph","duration":600},
+    "autoplay": false,
+    "autoplayInterval": 5000,
+    "autoplayLoop": true,
+    "autoplayTransition": {"type":"slideLeft"}
+  }
+}
