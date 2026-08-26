@@ -8,7 +8,7 @@
 <title>写作 VIP 精讲</title>
 <style>
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
   a { color: #2c5cdc; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
@@ -35,30 +35,43 @@
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
   .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
-  .col-main h1 { font-size: 32px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.3; }
-  .col-main p { line-height: 1.75; color: #374151; }
-  .cta { margin-top: 24px; padding: 18px 20px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; }
-  .cta strong { color: #1d4ed8; font-size: 15px; }
-  .cta p { color: #374151; margin: 8px 0 12px; font-size: 14px; }
-  .cta a { display: inline-block; background: #1d4ed8; color: #fff; padding: 9px 18px; border-radius: 8px; font-weight: 600; text-decoration: none; }
-  .cta a.ghost { margin-left: 10px; border: 1px solid #1d4ed8; color: #1d4ed8; background: #fff; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
   .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
-  .col-right .empty { color: #9ca3af; font-size: 12px; }
   @media (max-width: 1100px) { .col-right { display: none; } }
   @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+
+
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0 8px; }
+  .grid2 .card { display: block; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; color: #1f2328; text-decoration: none; line-height: 1.5; }
+  .grid2 .card:hover { border-color: #bfdbfe; background: #eff6ff; text-decoration: none; }
+  .grid2 .card b { color: #1d4ed8; font-size: 13px; }
+  .grid2 .card span { color: #6b7280; font-size: 12.5px; }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="logo">写作 VIP<span> · 付费精修</span></div>
+  <div class="logo">写作 VIP<span>  · 17讲</span></div>
   <div class="topbar-right">
-    <a href="../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
@@ -67,38 +80,120 @@
   <aside class="col-left">
     <h3>写作课程</h3>
     <ul>
-      <li><a href="../index.html">第01讲 · 待更新（文稿到位后生成）</a></li>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
     </ul>
     <h3>返回</h3>
     <ul>
       <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
   <main class="col-main">
     <h1>雅思写作 VIP 精讲</h1>
-    <p>付费写作课程逐字稿。左侧目录随每一讲文稿的生成自动更新。</p>
+    <p>付费写作课程逐字稿，共 17 讲：前 8 讲覆盖小作文（动态图、静态图、双图、流程图与地图题），第 9 讲起进入大作文（先导、正确审美、论述题型、同意与否、双边论述、辩论、报告类与混合类题型）。每讲配套「问答精要」页，把整讲考点压缩成速查问答。</p>
     <div class="cta">
-      <strong>写作板块待更新</strong>
-      <p>把这一讲的文稿发给我（直接粘贴文字或丢 .md 文件），即可生成精讲页与问答精要页并加入左侧目录。</p>
-      <a href="../index.html">返回 VIP 总目录</a>
+      <strong>写作课程 17 讲已就绪</strong>
+      <p>第 1-8 讲：小作文图表题（动态/静态/双图/流程/地图）；第 9 讲起：大作文各题型与评分标准。</p>
+      <a href="lesson-01.html">从第 1 讲开始</a>
+      <a class="ghost" href="qa-01.html">先看问答精要</a>
+    </div>
+    <h2>课程目录</h2>
+    <div class="grid2">
+      <a class="card" href="lesson-01.html"><b>第01讲</b> 第01讲 · 动态图表（小作文）总览<br><span>动态图表考察形式、写作结构、步骤及技巧；含两幅以上动态图的处理</span></a>
+      <a class="card" href="lesson-02.html"><b>第02讲</b> 第02讲 · 动态图主体段构建与趋势词汇<br><span>识别与描述数据趋势，上升/下降/波动等丰富词汇在小作文主体段的运用</span></a>
+      <a class="card" href="lesson-03.html"><b>第03讲</b> 第03讲 · 静态图表<br><span>静态图表的写作方法与数据描述技巧</span></a>
+      <a class="card" href="lesson-04.html"><b>第04讲</b> 第04讲 · 复杂静态图表：澳大利亚男女运动参与率<br><span>开头段改写、分段组织与静态图数据呈现</span></a>
+      <a class="card" href="lesson-05.html"><b>第05讲</b> 第05讲 · 双动态图题目<br><span>标题分析、两图比较与文章组织</span></a>
+      <a class="card" href="lesson-06.html"><b>第06讲</b> 第06讲 · 双镜图（双图）题目<br><span>双图题复杂度剖析与两幅图的分析写作方法</span></a>
+      <a class="card" href="lesson-07.html"><b>第07讲</b> 第07讲 · 流程图与地图<br><span>数据类图表中的流程图与地图处理方法（低频但资源少）</span></a>
+      <a class="card" href="lesson-08.html"><b>第08讲</b> 第08讲 · 地图题：选址比较与历史变迁<br><span>地图题两类题型与固定结构讲解</span></a>
+      <a class="card" href="lesson-09.html"><b>第09讲</b> 第09讲 · 大作文先导：考试概述与评分标准<br><span>Task One/Task Two 结构、评分标准解读与常见错误分析</span></a>
+      <a class="card" href="lesson-10.html"><b>第10讲</b> 第10讲 · 大作文的"正确审美"与常见错误<br><span>准确回应题目、内容完整性、逻辑连贯与"正确审美"</span></a>
+      <a class="card" href="lesson-11.html"><b>第11讲</b> 第11讲 · 论述题型（优缺点/利弊讨论）<br><span>评估特定行动利弊，两正一反或两反一正的写作结构</span></a>
+      <a class="card" href="lesson-12.html"><b>第12讲</b> 第12讲 · 同意与否题型<br><span>明确个人观点与立场确立，避免常见审题误区</span></a>
+      <a class="card" href="lesson-13.html"><b>第13讲</b> 第13讲 · 双边论述题型<br><span>讨论至少两个对立观点并明确个人立场</span></a>
+      <a class="card" href="lesson-14.html"><b>第14讲</b> 第14讲 · 双边论述进阶（对立观点深入）<br><span>双边论述的深入：对立观点拆解与个人立场结合</span></a>
+      <a class="card" href="lesson-15.html"><b>第15讲</b> 第15讲 · 辩论：广泛科目 vs 有限科目<br><span>多学科学习 vs 有限科目的双边辩论写作</span></a>
+      <a class="card" href="lesson-16.html"><b>第16讲</b> 第16讲 · 报告类题型（原因-解决方案）<br><span>社会现象原因分析与解决方案写作</span></a>
+      <a class="card" href="lesson-17.html"><b>第17讲</b> 第17讲 · 混合类题型<br><span>报告+观点混合题：现象原因与个人观点结合</span></a>
+    </div>
+    <h2>问答精要</h2>
+    <div class="grid2">
+      <a class="card" href="qa-01.html"><b>第01讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-02.html"><b>第02讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-03.html"><b>第03讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-04.html"><b>第04讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-05.html"><b>第05讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-06.html"><b>第06讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-07.html"><b>第07讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-08.html"><b>第08讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-09.html"><b>第09讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-10.html"><b>第10讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-11.html"><b>第11讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-12.html"><b>第12讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-13.html"><b>第13讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-14.html"><b>第14讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-15.html"><b>第15讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-16.html"><b>第16讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
+      <a class="card" href="qa-17.html"><b>第17讲</b> 问答精要<br><span>速查本讲考点问答</span></a>
     </div>
   </main>
   <aside class="col-right">
     <h4>本页内容</h4>
     <ul>
+      <li><a href="lesson-01.html">第 01 讲</a></li>
+      <li><a href="lesson-09.html">第 09 讲：大作文先导</a></li>
+      <li><a href="lesson-17.html">第 17 讲</a></li>
+      <li><a href="qa-01.html">问答精要</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
+  if (!input) return;
   var panel = document.getElementById('search-panel');
-  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
   function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
   function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
   function highlightInMain(kw){
     if (!main) return; clearHighlights(); if (!kw) return;
