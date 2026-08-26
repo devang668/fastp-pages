@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第19讲 · 研究项目对话精听 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 19 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a class="active" href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第19讲 · 研究项目对话精听</h1>
+    <div class="abstract"><b>本讲概要：</b>在这段讨论中，强调了在研究项目中，研究人员花费大量时间（约70-80%）于数据的分析、整理和转录，而非直接数据收集，他们通过分析笔记识别模式以获得洞察，这些洞察被反馈到设计过程。讨论还触及到听力测试中，正确解答题目不在于理解全文，而是识别文章中的语言技巧如替换、并列结构，特别在商业场景中，要求考生理解反常识内容，注意词汇的不同表达方式，从而提高预测难度。老师三建议考生在练习时注重总结和复盘，以及理解商业场景特点和反常识问题，通过具体例子解释商业理念的重要性，并提供策略以确保考试中的分数稳定性。此外，提醒考生尽管商业场景出现频率不高，但需通过特定题目练习准备。整体上，这段对话聚焦于提升听力技能，理解商业场景特点，以及策略应用，以帮助考生取得优异成绩。</div>
+    <div class="tip">本讲含 36 组问答精要，可到<a href="qa-19.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这段讨论中，强调了在研究项目中，研究人员花费大量时间（约70-80%）于数据的分析、整理和转录，而非直接数据收集，他们通过分析笔记识别模式以获得洞察，这些洞察被反馈到设计过程。讨论还触及到听力测试中，正确解答题目不在于理解全文，而是识别文章中的语言技巧如替换、并列结构，特别在商业场景中，要求考生理解反常识内容，注意词汇的不同表达方式，从而提高预测难度。老师三建议考生在练习时注重总结和复盘，以及理解商业场景特点和反常识问题，通过具体例子解释商业理念的重要性，并提供策略以确保考试中的分数稳定性。此外，提醒考生尽管商业场景出现频率不高，但需通过特定题目练习准备。整体上，这段对话聚焦于提升听力技能，理解商业场景特点，以及策略应用，以帮助考生取得优异成绩。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们今天一起来练一下商业场景当中prefer的题目。这个商业场景其实它有一些自己的特点，那我们在做题的时候，可能还是要关注商业场景它自己的特点，这样才能保证一个比较高的正确率。</p>
+    <p>它的特点就是首先它是需要理解的。别觉得我们生活在这个世界里，好像每个人对商业都很懂，事实上并不是如此的。就有的时候可能商业场景的一些题目有点反常识哈那你认为它可能是这样的，但事实上它是一个不一样那个样子，所以总的来说，你不能根据常识来做题。这就是我为什么一再强调我说自然科学类场景反而比商业场景和人文社科类场景要简单。因为自然场景它肯定是说就是常识相关的对吧？但是人文类的，还有商业类的，还有心理学类的，它可能就会涉及到反常识的问题。</p>
+    <p>再一个就是单词的问题，你比如说举个简单例子，像商业场景当中表示顾客这个单词，它就有很多说法。比如说consumer这是顾客，lent这也是表示顾客，这是个复数了，我们写单数形式就可以了。Customer这也是表示顾客。那类似于像这一个单词，它有很多个不同的表达方式，你在预测的时候是不是就增加了这个预测的难度，对吧？换句话说，就比如说自然类场景，关于这个动物的生殖率、繁殖率，我们就是reproduction这个单词。但是如果是商业场景当中涉及到这个空上填到客户这个词，那可能它是这三个里边不知道哪个你具体听的时候还是要辨别一下。Production来给大家把这个单词写出来。Product OK就是这个单词，这个叫做繁殖的意思OK。</p>
+    <p>所以我们的商业场景其实并不简单，希望大家通过这两个小练习能够触类旁通，对这个场景有所了解。但是好消息是什么呢？好消息是最近这个商业场景的体验少，商业场景的少出现频率并不高。所以我找了两个题目，也是一个来自于剑十二，一个来自于剑十一，相对来说也是比较老的。</p>
+    <p>好，我们先来做剑十二的这个题，for business value。什么叫business value？就是商业价值。所以本篇文章其实就是在给我们讲四种商业价值。第一种商业价值叫做collaboration，这个叫做合作。然后接着这个industrial这个单词大家是认不认识？</p>
+    <p>表示的是勤劳和勤奋的意思。Creativity这个叫做创造力以及最后excEllence卓越。所以本篇文章给我们介绍的四种商业价值商业理念就是这四个了OK好，话不多说，今天做题直接让大家先来尝试。然后就是我们跟上这个听力的节奏，先来做题，然后再来复盘好吧？那我们就直接走起section。You will hear part of a lecture for business students about business values. First, you have some time to look at questions thirty one to forty.</p>
+    <p>Now listen carefully and answer questions thirty one to forty. 好在真正做题之前，我先来提醒大家一下，这一次在做题，有的时候我会跟大家一起做。所以你可以看一下我是怎么做题的，就在做题的过程当中都画下来了什么词，什么时候去敲的这个答案。如果说你也想先来做一做的话，那这个视频大家可以先用这个视频先来做题，然后再倒回来再看一遍我是怎么做题的。这样我希望大家有更多的收获。好，那我们直接。</p>
+    <p>In public discussion of business, we take certain values for granted. Today i'm going to talk about four of them, collaboration, hard work, creativity and excEllence. At most people would say they are all good things.</p>
+    <p>I'm going to suggest that an over simple view, the trouble with these values is that their theoretical concepts removed from the reality of day to day business, pursue values by all means, but be prepared for what may happen as a result, they can actually cause damage, which is not at all the intention. Business leaders generally try to do the right thing, but all too often the right thing backfires. If those leaders adopt values without understanding and managing the side effects that arise, the values can easily get in the way of what's actually intended.</p>
+    <p>okay. So the first value i'm going to discuss is collaboration. Let me give you an example on a management training calls I once attended.</p>
+    <p>We were put into groups and had to construct a bridge across a stream using building blocks that we were given. The rule was that everyone in the team had to move at least one building block during the construction. This was intended to encourage teamwork, but IT was really a job best done by one person.</p>
+    <p>The other teams tried to elaborate on building the structure and descended into confusion with everyone getting in each other other's way. Our team leader solve the chAllenge brilliantly. SHE simply asked everyone in the team to move a peace a few centimeters to comply with the rule, and then let the person in the team with an aptitude for puzzles like this build IT alone.</p>
+    <p>We finished before any other team. My point is that the task wasn't really suited to team working, so why make IT one? Teamwork can also lead to inconsistency, a common cause of poor sales.</p>
+    <p>In the case of a smart phone that a certain company launched, one director wanted to target the business market and another demanded IT was added consumers. The company wanted both directors to be involved, so gave the product a consumer friendly name, but marketed IT to companies. The result was that IT met the needs of nissa group.</p>
+    <p>IT would have been Better to let one director or the other have his way, but not both. 长暂停。Now，industrious or hard work, it's easy to mock people who say they work hard.</p>
+    <p>After all, a hamster running around in a wheel is working hard and getting nowhere. Of course, hard work is valuable, but only when properly targeted. Otherwise, IT wastes the resources that companies value most time and energy, and that's bad for the organization.</p>
+    <p>There is a management model that groups people according to four criteria, clever, hard working, stupid and lazy. Here, lazy means having a rational determination not to Carry out unnecessary tasks. IT doesn't mean trying to avoid work altogether.</p>
+    <p>Most people display two of these characteristics, and the most valuable people are those who are both clever and lazy. They possess intellectual clarity and they don't rush into making decisions. They come up with solutions to save the time and energy spent by the stupid and hard working group.</p>
+    <p>Instead of throwing more, more hours at a problem, the clever and lazy group looks for a more effective solution. Next we come to creativity. This often works well.</p>
+    <p>Creating an attention grabbing T, V. Commercial, for example, might lead to increase sales. But IT isn't always a good thing.</p>
+    <p>Some advertising campaigns are remembered for their creativity without having any effect on sales. This happened a few years ago with the launch of a chocolate bar. Subsequent research showed that plenty of consumers remembred the efforts but had no idea what was being advertised.</p>
+    <p>The trouble is that the creator derives pleasure from coming up with the idea and wrongly assumes the audience for the campaign will share that feeling. A company that brings out thousands of new products may seem more creative than a company that only has a few, but IT may be too creative and make smaller profits. Creativity needs to be targeted to solve a problem that the company has identified.</p>
+    <p>Just coming up with more and more novel products isn't necessarily a good thing. And finally, excEllence. We all know companies that claim they strive for excEllence, but IT takes a long time to achieve excEllence in business.</p>
+    <p>Being first with a product is more profitable than having the best product. A major study of company performance compared pioneers, that is, companies bringing out the first version of a particular product with followers, the companies that copied and improved on that product. The study found that the pioneers commanded an average market share of twenty nine percent, while the followers achieved less than half that, only thirteen percent, even though their product might have been Better.</p>
+    <p>Insisting on excEllence in everything we do is time consuming, waste energy and leads to losing out on opportunities. Sometimes the second rates work is more worthwhile d than excEllence. Make sure it's excEllent.</p>
+    <p>Sounds like a good approach to business, but they just get started. Approach is likely to be more successful. That is the end of section for OK.</p>
+    <p>听力结束了，其实经历早就结束了，就是我们这40个空已经早就填完了。他为了本着尊重听力的这个原则，我们还是给他听完了。那么事实上这些个空，我估计有些同学可能跟上了，但是有一些空可能大家没有跟上来。我在大家做题的时候，在我们笔记上写上这样一句话，就是你会发现商业场景是不是有非常多的例子。本篇文章至少给我们提到了四个例子。这四个例子分别是，一开始他说到他们团队有一个任务，就是一个培训的课程。这个团队的任务是要造一个桥，所以这个空里面我们填了bridge。</p>
+    <p>第二个例子就是不好的销售额。因为我们的目标市场选择的不一样，然后有一些领导就想选择consumer就是消费者市场，有一些就要选择这个to b市场，所以他说到一个手机的例子，然后接下来还说到一个巧克力的例子，就是这个广告弄得不好。最后还说到一个什么major study。最后的最后就是我们的研究表明，就是做了很多研究发现就市场先驱，就是刚进入到这个市场的这个number one，它可能market share是非常大。然后随着它的follower，可能虽然产品可能是要好的一些，但是它的market share反而不高。OK.</p>
+    <p>所以本篇文章非常多的例子，例子的具体部分，你会发现这些例子的具体部分其实不用听懂。我估计这篇文章好多同学听完之后会一头雾水，他讲什么呢？这地方怎么好复杂？大家一定记得，我一直以来在讲part 4的时候，我都给大家强调了一件事情，就是结构远大于内容。其实我们所有的空，就是这个文章里面所有的空，没有任何一个空是需要你对于这个例子本身的细节去进行一个understand的。基本上就是大面上理解了OK这个替换抓住了这道题就做成功了。所以事实上他并没有非常深刻的考察大家对这个听力文本的一个理解。</p>
+    <p>因此就算这十个空里边有一些生僻的单词，比如说像market share这个小词，可能有同学就不知道是什么意思，这个叫做市场份额。再比如说前面有一个side effects，这个叫做副作用。你比如说你吃了什么药，然后这个药会有一些副作用。OK, 这个叫sciences。即使它会有一些这样的词，我们可能不是特别熟悉，但也不妨碍这一篇听力我们至少能对七个题或者八个题之类的那其实我也不是一直在给大家强调，我说必须要每一个部分都得全对我说一二。两个部分相对来说简单，我们要保证高正确率，基本上在这20道题当中可能错一两个就可以了。</p>
+    <p>这是section one和section two，但section 3和section four它就是比较难。这两个部分一共也是20个题，我就要求大家，比如说你错个六七个是不是就可以对吧？那这样总分弄下来是不是还是有七分或者7点5分，就是听力单科的部分。所以我们在考试的时候一定要制定好这样的策略，才能够保证我们的分数稳定。</p>
+    <p>为啥听力大家经常就是比如说平时练习的时候都是七分，或者有时候甚至还八分。考试的时候考试六分甚至5分的也是你。这是为什么？就平时的练习你的紧张感，包括很多同学可能是一个section一个section去做，但考试的时候是四个section一起，你的节奏，你的紧张感是不是都在平时练习的时候，没有达到考试那个要求，才使得听力非常容易划分，OK好，对，这篇题目我们一块儿来讲解一下。那么每一道题我都带大家再重听一遍。因为刚才其实基于大家做题了，那这一次就再来一遍。然后每一道题我是如何锁定的答案，怎么抓取出来的，我都给大家进行复盘和讲解。</p>
+    <p>Section for in public discussion of business we take for granted。这里有一个词组，take something for granted。这个take something for granted表示的是考虑某事儿理所当然。来我把它写一下，something for granted这个就是觉得什么东西非常的理所当然，理所当然的认为写一下。好，这个没有什么体验，我们就继续。Today i'm going to talk about four of them, collaboration, hard work, creativity and excEllence. 结构，at most people would say they are all good things.</p>
+    <p>I'm going to suggest that an over simple view本文的一个基调已经定出来了，对吧？因为他说大多数的人都觉得这个东西非常有价值，但是我认为这是一个over simple view，这是什么意思？叫做过于简单了对吧？所以本文作者一定是在说商业价值有的时候也会给我们带来一些问题，基调已经定下来了，接着我们继续走起，一定记得咱们这个题前面这个单词空前单词是一个reserve in这第31题。所以31题其实它是一个因果考点，result in这个叫做导致我们在听力当中也许会听到lead to，甚至因果连接词也可以，因果连接词。</p>
+    <p>好，那么咱们接着继续往后听。Most people would say there good things. I'm going to suggest that an over simple view, the trouble with these values is that their theoretical concepts, removed from the reality of day to day business, pursue values by all means, but be prepared for what may happen as a result. They can actually cause damage.</p>
+    <p>They can actually cause这个cause是不是就等同于我们那个result in，对吧？Cause什么？因此damage这个叫做破坏，这就是答案。所以它的意思就是前边那些东西都不重要，重要的是你能够给我抓住这个result in对应的替换。当然他所探讨这个范围肯定是一个value，就起头这么个范围。所以第一个空我认为它是一个简单空，而且是一个送分空。</p>
+    <p>好，带着这个送分空，接着我们来听32题。32题读题的时候，你就首先关注范围定位词是senior manager就是高级管理者。然后他们必须要去理解以及去处理一些potential什么东西that a may result。这里后面这个that may result就是可能被导致的一些什么潜在的什么东西。空前有形容词，这个形容词potential这个叫做潜在的那有可能是不是考一个形容词替换。当然这个题我觉得有可能是会错的，如果你没做对，我非常理解。好，我们先做一做。Which is not, business leaders generally try to do the right thing, but all too often the right thing backfires.</p>
+    <p>If those leaders adopt values without understanding and managing, the side effects without understanding and managing, 你can understand and deal。这是不是就相当于出现了替换，对吧？Understand本身应该是个原词重。然后听力文章里边说的是understand and，这个应该我忘了，sorry, 就是听力当中应该说的是什么？Understand and managing.</p>
+    <p>对，understand and managing. 好，咱把这个写上，一会儿我再给大家放一遍OK。But all too often, the right thing backfires if those leaders adopt values without understanding and managing the side effects, without understanding and managing the side effect.</p>
+    <p>所以此时此刻这个side defied已经跟着这个动词出来了。所以你大概率要把这个scientific写上，但是我相信有同学肯定会纠结，就是前面这个形容词这个potential这个小形容词在哪里？所以好多人是不敢写，导致这个空错了。</p>
+    <p>来继续往后that is that arise。所以这个地方satisfied边是不是也用了一个定语从句，that rise，这个就叫做产生的。所以它是不是对应出来了我们题干当中的这个may result，这个地方其实有一个非常完整的一个结构对应，所以你就不用去纠结这个potential了。</p>
+    <p>Potential这个题，这个单词为什么没有出现？因为这个形容词是一个非常虚的概念潜在的那它其实替换在了这个语言含义里。对它确实在这里没有直接的替换词，不过前面的动词都是有替换。当然这道题我认为它是一道可做题，相对来说比较难，单词本身也难，然后考点也难，所以如果错了的话我一点也不纠结。但是下一道题我认为就是必须要对的。范围定位也有，这core training都出来了，其实就是空前的一个动词替换，就是build的这个单词，它的替换词紧随其后就出答案。The values can easily get in the way of what's actually intended.</p>
+    <p>okay. So the first value i'm going to discuss is collaboration来了。Let me give you an example.</p>
+    <p>On a management training calls I once attended, we were put into groups and had to construct a bridge, have to construct construct. 啥意思？建造对吧？后边加的这个单词是不是就是bridge？而且人家这地方还有一个词不变，这个确实是没有变。所以这个空我说他是送分题一点也不过分对吧？好，接下来继续下一个空，下一个空，我觉得可能会有同学丢空。</p>
+    <p>为什么会有同学丢空呢？这个空的一个核心或者一个主要的问题就在于它这地方解释的非常多。就是他们这个小组其实经历了比较好的一个局面，然后别的小组经历了怎么样的一个局面？所以其实你看这题问的是other team experience什么？Trying to collaborate.</p>
+    <p>然后咱们这个小组其实由于我们避免了collaboration，所以其实的这个结果还是挺好的。但这道题确实会丢空，我们具体听ross m using building blocks that we given the rule was that everyone in the team had to move at least one building block during the construction。This was intended to encourage teamwork.</p>
+    <p>它这个地方说到了一个rule，至于这个rule，其实它不太重要，你没有听懂，根本不用去纠结，你就继续往后听就可以了。But IT was really a your best done by one person. The other teams tried to elaborate on building the structure and descended into confusion.</p>
+    <p>他说other team这是一个范围定位，对吧？他们想要去合作，然后去一块儿完成这个项目。然后接着他们descended into confusion，that这个小词放在这儿，它肯定表示的是陷入混乱，就陷入的意思。所以你会发现这个descended是不是和experienced同一替换了。因此这个答案就是confusion这个单词，它表示的是混乱。所以当其他小组想要去试图合作的时候，他们陷入了混乱。</p>
+    <p>这个地方的一个底层逻辑是什么呢？首先作者说到了造桥的这个工作，由于他什么每个人要拿出来一块儿还是什么的，所以他就不太适合去团队合作，比较适合一个人来完成。别的小组，他们为了能够团队合作，所以最后都陷入到混乱。但他们小组就没有，他们小组的leader非常的聪明，就让一个人来主要负责了这个事儿，最后就happy ending。所以他这地方啰里吧嗦说了挺多，但真正和做题相关的就是这一个动词替换。不过我相信这个词可能多少是有同学会漏空的。好，接着又是一个例子了，这个例子我觉得比较好听出来，因为毕竟这个答案是大家每天都用的一个东西，smart phone就智能手机，对吧？我们这道题其实两个替换，一个空闲的sell，一个空pro就是它整体的销售业绩比较差，然后就是到底是什么例子，所以这就是一个类似于例子题，我说这题也是送分题，就比较简单好走起。</p>
+    <p>With everyone getting in each others the chAllenge, SHE simply asked everyone in the team to move a peace, a few center meters to comply with the rule, and then let the person in the team with an aptitude for puzzles like this build IT alone. We finished before any other team. My point is that the task wasn't really suited to team working.</p>
+    <p>这地方我啰里吧嗦的其实就说了我们小组是怎么做的对吧？就他们小组怎么做的一点也不重要，跟我们这题都没有什么关系。你就重点关注下一个例子，重点关注单词的名词就可以了。So why make IT one？Teamwork can also lead to inconsistency, a common cause of poor sales in the case of a smart phone, 例子是不是出现了，而且出现的非常的明显。他说in the case of smart phone，这个叫做A一个智能手机的例子，这个poor已经是sales人前面都已经说了，所以这个空我觉得送分题没有啥可错的。</p>
+    <p>好，接着我们就进入到36题的定位区间，36题已经换区间了，从刚才collaboration已经到了industrialist industrial，其实就是hard work，可能本身就替换了。他说有的时候勤奋可能也是一个不好的点，他可能会用了很多公司的啥东西，答案是resources，而且必须得是一个填负数的。至于这个答案如何出现的呢？继续跟我。Company unch ed directer wants to target the business, and another demanded IT was consumers. The company wanted both directors to be involved, so gave the product a consumer friendly name, but marketed IT to companies. The result was that IT met the needs of ny za group.</p>
+    <p>就这个例子，具体的部分你看具体的解释不用听了，你的任务是不是就是等下一个部分，所以此时此刻你要干的事情是守株待兔。如同学这个题就是在第一遍读题的时候你没有读完，那这个时间是不是就可以去把题再好好巩固一下，再读一读。所以这个时间不要浪费了，要么守株待兔给我等着，要么你就给我读一读题OK好，接着我们继续听关于例子的部分不重要。</p>
+    <p>IT would have been Better to let one director or the other have his way，but not both. Now, industrious, all hard work. It's easy to mock people who say they work hard.</p>
+    <p>A, after all, a hamster running around in a wheel is working hard and getting no work. Of course, hard work is valuable, but only when properly targeted. Otherwise, IT waits the resources, the company. 这句话多是一个逻辑句，首先他说了hard work is valuable，but only when probably targeted. 听一听，of course hard work is valuable，but only when properly targeted.</p>
+    <p>所以这个就叫做寓意先扬。他首先先说了这个工作确实是有用，但是这个条件是什么？就是你有完整的目标，明确的目标，对吧？他起头用了一个逻辑连接词叫做otherwise。否则的话它会怎么样？答案是不是就得紧随其后就出现。Otherwise, IT wastes the resources that companies value most.</p>
+    <p>不然的话他就可能会浪费公司的增资源。然后这个资源还是公司觉得非常有必要的，非常重要的一个资源。所以otherwise这仿佛是一个信号一样的存在，所以hard work may had a bad，bad use of various companies.</p>
+    <p>Resources, 所以这个with the resources后面其实它接了一个句子，这后面这个从句其实就带出来了这个company的这个概念，就是公司比较关注的。好，这句话我们完整的听。Otherwise IT wait the resources the companies value most.</p>
+    <p>就是它可能会浪费一些资源，这个资源是公司来说非常重要的，所以这道题答案必须要填resources。非常明确的听到它复述了，没有任何疑义对吧？那是一个复数词汇。</p>
+    <p>好，接下来下一道题，下一道题这个37题在读题的时候，你就会发现它题干当中有一个lazy，所以我们要等它作为范围定位。他提到一些人，这些人他avoid doing task r就是什么样的task。所以是修饰这空格里边这个单词是修饰task的。也就是说这空格里边这个单词应该是个task在一块出现的对吧？好走起。And that's bad for the organization.</p>
+    <p>There's a management model that groups people according to four criteria, clever, hardworking, stupid and lazy. Here, lazy means having a rational determination not to Carry out unnecessary tasks. IT doesn't mean to avoid work.</p>
+    <p>所以和那个tasks连在一块的是什么？Unnecessary tasks, 对吧？这个题我们非常经典的一种替换方式，task that are unnecessary.</p>
+    <p>这说的是一个定语从句，然后人家就把这个形容词放到了前面，放到了前面，然后task就出来了。所以其实空上所填的就是这个形容词就可以了。这个我觉得它不应该算什么难考点，应该就算一个正常题。毕竟它其实就是和这个被修饰的名词紧密相连的形容词，就是我们这个定语从句里边那个核心部分。这个我相信大家应该遇到很多回了。</p>
+    <p>好，接下来继续下一个部分。Together, most people display two of these characteristics and the most valuable people are those who are both clever and lazy. They possess intellectual clarity, and they don't rush into making decisions.</p>
+    <p>They come up with solutions to save the time and energy spent by the stupid and hard working group. Instead of thring more more hours at a problem, the clever and lazy group looks for a more effective solution. Next we come to creativity.</p>
+    <p>刚才那一大坨内容其实你用重点听吗？结构大于内容。朋友们就刚才那一大坨内容里面不可能用题，我们的题就肯定发生在creativity后。所以他这此时此刻说到了creativity，我才把听力暂停了。我说前面东西不重要，好，继续听。This often works well.</p>
+    <p>Creating an attention grabbing T, V commercial, for example, might lead to increase sales. But IT isn't always a good thing. 来了，some advertising campaigns are remembered for their creativity without having any effect on sales. This happened a few years ago with the launch of a chocolate bar. Subsequent research showed that plenty of consumers may OK.</p>
+    <p>整个这个句子里边，他是要让我们填空上的，这个例子就是广告并没有促进销量的对吧？然后它这后边有个否定词how to boost sale。然后我们听力当中听到了说多年前有一个叫巧克力的广告，然后他并没有去促进销量。来再听一下这句话。This happened a few years ago with the launch of a chocolate bar.</p>
+    <p>Subsequent research showed that plenty of consumers remember the effort chocolate bar. 前面其实他说到了就是这个广告没有促进销量。它其实对应的这个语言就是without having any effect sells。所以它对应failed to boost the cells。就是题干当中这个后边的内容就并没有促进销量。然后他在后面直接说到了多年前的一个launched chocolate bar。</p>
+    <p>如果这道题你只写了chocolate，对不起，不能算对。因为chocolate bar它其实就类似于像什么德芙巧克力那一条条，或者像那个士力架那一条，它不是巧克力，它这个东西它必须得完整的，所以不能缺一不可。还有同学就在中间加了一个横线，这都不对。你随便加横线其实就会改变这个词的词性。对，不能随便加这个横线。</p>
+    <p>注意题目要求是no more than two words，所以这个chocolate b是完全可以的。好，接着我们39题，39题这个地方它说的是creativity should be used，什么时候有用呢？就是当我们去解决一个particular什么东西，好，继续听。But had no idea what was being advertised。The trouble is that the creator derives pleasure from coming up with the idea and wrongly assumes the audience for the campaign will share that feeling.</p>
+    <p>A company that brings out thousands of new products may seem more creative than a company that only has a few, but IT may be too creative and make smaller profits. Creativity needs to be targeted to solve a problem that the company has identified, to solve a problem that company have identified. 好，这句话我完整的再给大家放一遍。Creativity needs to be targeted to solve a problem that the company has identified. 这句话完整的给大家放一遍的主要原因是来我们和这个题干里边咱去对标一下，你去看一看它这个替换是一个什么类型的替换。</p>
+    <p>Creativity should be targeted as a response to particular什么东西，这个地方这是题对吧？然后我们在这里边找，我们去solve这个response和solve统一替换结够完全对应的上。然后接着它这个particular变成了什么？变成了定语从句对吧？在文章里面它是一个定语从句，这个particular叫特定的那公司识别出来的是不是就是特定的？所以所缺少的这个答案是不是就是这个problem。</p>
+    <p>所以你会发现这是一个形容词词和定语从句的替换，就是题干当中的particular这一个小词儿在文章里边被具体化成了一个定语从句。这个替换虽然它的这个难度是大的，但是我认为他的这个常还是挺常见的。所以希望大家能够对这种替换敏感而空前的形容词。</p>
+    <p>这个形容词的替换，最简单的就是词替换，稍微难一点的就是抽象到具体的这个替换，再稍微难一点的就变成定语从句了。所以这个题就是变成了定语从句。还有什么呢？也有可能形容词会变成一个后置定语。不知道大家还记不记得我们之前做过的那个分数，那个题空前有一个correct什么，然后它这个变成了diameter，diameter of twenty five centimeter, 这个25厘米就是correct的这个说法。所以形容词的替换，大家看啊，它无非就是这么几种。其实你题做多了之后，自己自然就会有感觉，这就是为什么我要带着大家去复盘的一个原因。做多了，复盘多了，其实你就是有感觉了。</p>
+    <p>好，接着我们继续看啊，又是according one study，又是一个例子题。那例子题咱来看一看吧。Pioneer这个叫做先区域，或者叫做先入就先先先入为主。Young park叫少先队员，这pieter就是先驱，先驱有一个market share higher，这个higher这个小词在文章里边它绝对会被具体化的。他会用具体的具体化，他会用具体的这个数字到底是有多少，来告诉你他到底higher了多少。</p>
+    <p>OK听完just coming up with more and more novel products isn't necessarily a good thing。And finally, excEllence. But we all know companies that claim they strive for excEllence, but IT takes a long time to achieve excEllence in business.</p>
+    <p>Being first with a product is more profitable than having the best product. A major study of company performance compared pioneers, that is, companies bringing out the first version of a particular product with followers, the companies that copied and improved on that product. The study found that the pioneers commanded an average market share of twenty nine percent, while the followers achieved less than half that, only thirteen percent, even though their product might have been Better to.</p>
+    <p>OK好了，这个题到这儿已经完事儿了。其实刚才答案已经出来了，但是我为了让大家听到这种数据关系，所以我又多放了一会儿。他说就是这个premier，然后他解释了一大堆，说的这个follower，就他俩在市场份额这个市场份额这个单词就是答案，就market share。Market share这个小词可能大家有人不知道，也就是说签约他可能拥有市场份额大概2% 29。这个是根据一些过往的研究，然后它的follower大概拥有的市场份额是10%。</p>
+    <p>所以你从这个数据上来看，是不是这个pioneer叫higher and follower，对吧？那关于什么呢？关于market share。所以这道题如果你没做错，没做对的话，我觉得是OK的。因为毕竟这个单词本身可能不是特别熟悉，来咱复盘总结结一下。就是32题我觉得错OK，40题我觉得错OK，这两道题肯定相对来说错误率会非常高了。</p>
+    <p>其他的这个题目有稍微难一点的，比如说空闲形容词变成定语从句这种的，它可能是难了一些，但你错了我也能理解。但是这个就是也有简单题。那简单题比如说你这几个例子题，我觉得都是简单题，你像造桥，对吧？包括这个damage，还有这个smart phone，简单题，resources这本身也不难，chocolate bar这些本身都不难。所以我希望大家在part 4做题的时候，你要去稳定住自己能拿到的分数，然后逐渐去突破一些你现在拿不到，但是以后能拿到的分数。比如说空前形容词的变化，我相信通过这个题大家应该就有所感觉了。对吧OK好，那么这个题我们就告一段落了。</p>
+    <p>咱们再来一个商业场景题。商业场景题不是比较少，所以第二个这个题就是一个来自于剑桥十一的一个题目了，就是相对来说是老了点儿，但是它确实也是一个非常重要的商业场所，以咱们一块儿来做做这个题，那这个题我们就交给大家来处理，大家来读题做题。我干的事情就是直接把复盘写在笔记上了，好吗？OK那我们就follow听力的节奏，大家准备。当然你也可以用自己的网页去打开一下这个题，然后随着我的这个课程的大家就一块听一听，做一做好吗？O section for you will hear part of a lecture to business students about the use of one particular type of research known er's ethnography. First, you have some time to look at questions thirty one to forty.</p>
+    <p>Now listen carefully and answer questions. Thirty one to forty OK走起啊。So what i'm going to talk about to you today is something called snog phy.</p>
+    <p>This is a type of research aimed expLoring the way human cultures work. IT was first developed for use in anthropology, and it's also been used in sociology and communication studies. So what's IT got to do with business, you may ask.</p>
+    <p>Well, business is, are finding that ethnography can offer them deeper insight into the possible needs of customers, either present or future, as well as providing valuable information about their attitudes towards existing products. And ethnology phy can also help companies to design new products or services that customers really want. Let's look at some examples of how ethnographic research works in business.</p>
+    <p>One team of researchers did a project for a company manufacturing kitchen equipment. They watched how cooks use measuring cups to measure out things like sugar and flower. They saw that the cooks had to check and recheck the contents because although the measuring cups had numbers inside them, the cooks couldn't see these easily.</p>
+    <p>So a new design of cup was developed to overcome this problem, and IT was a top seller. Another team of ethnographic researchers looked how cell phones were used in uganda. In africa, they found that people who didn't have their own phones could pay to use the phones of local.</p>
+    <p>Because these customers paid in advance for their calls, they were eager to know how much time theyd spent on the call. So the phone company designed phones for use globally with this added feature. Ethnographic research has also been Carried out in computer companies.</p>
+    <p>In one company, I, T. Systems administrators were observed for several weeks. IT was found that a large amount of their work involved communicating with colleagues in order to solve problems, but that they didn't have a standard way of exchanging information from spread sheet and so on.</p>
+    <p>So the team came up with an idea for software that would help them to do this. In another piece of research, a team observed and talk to nurses working in hospitals. This LED to the recognition that the nurses needed to access the computer records of their patients no matter where they were.</p>
+    <p>This LED to the development of a portable computer tablet that allowed the nurses to check records in locations throughout the hospital. Occasionally, research can be done even in environments where the researchers can't be present. For example, in one project done for an airline, respondents use their smart phones to record information during airline trips in a study aiming at tracking the emotions of passengers during a flight.</p>
+    <p>So what makes studies like these different from ordinary research? Let's look at some of the general principles behind ethnographic research in business. First of all, the researcher has to be completely open minded.</p>
+    <p>He or SHE hasn't sought up a hypothesis to be tested, as is the case in other types of research. Instead, they wait for the participants in the research to inform them. As far as choosing the participants themselves is concerned, that's not really all that different from all research.</p>
+    <p>The criteria according to which the participants are chosen maybe something as simple as the age bracket they fall into. All the researchers may select them according to their income, or they might try to find a set of people who all use a particular product, for example. But it's absolutely crucial to recruit the right people as participants as well as the criteria I ve mentioned.</p>
+    <p>They have to be comfortable talking about themselves and being watched as they go about their activities. Actually, most researchers say that people open up pretty easily, maybe because they are often in their own home or workplace. So what makes this type of research special is that it's not just a matter of sending a question air the participant instead, the research is usually based on first hand observation of what they are doing at the time, but that doesn't mean that the research never talks to the participants.</p>
+    <p>However, unlike in traditional research, in this case is the participant, rather than the researchers, who decides what direction the interview will follow. This means that there's less likelihood of the researcher imposing his or her own ideas on the participant. But after they've said goodbye to their participants and got back to their office, the researchers work isn't finished.</p>
+    <p>Most researchers estimate that seventy to eighty percent of their time is spent not on the collecting of data, but on its analysis, looking at photos, listening to recordings and transcribing them, and so on. The researchers may end up with hundreds of pages of notes and to determine what significant, they don't focus on the sensational things or the unusual things. Instead, they try to identify a pattern of some salt in all this data and descend the behind IT. This can result in some compelling insights that can, in turn, feedback to the whole design process.</p>
+    <p>OK好了，整个听力结束了。我如果能跟大家互动的话，其实我非常想问大家一个问题，就你有没有听到非常多的例子，其实整篇文章都是去推进的对吧？从一开始他说到了什么厨房用品公司，然后一个电话公司，然后电脑公司，这些全都是以例子推进的。</p>
+    <p>OK, 我们来说一下答案。首先第一个空非常简单，它是一个并列结构。然后我听到了as well as，所以后边跟了一个名词就是attitudes，但是必须要写复数，因为前面复述后边复述很正常了。然后接着第32题，这个题其实是一个否定替换的，couldn't对吧？Couldn't see, 然后文章里说的就是couldn't see，所以空格里边应该填的是numbers，它这个地方说的是什么呢？就是厨房用品公司发现一些容器，比如调料容器上面那个刻度人们就看不到。OK这本身就是否定替换，然后空前动词这都是原词重现，我觉得这个空里没有什么可错的。</p>
+    <p>好，接着第33题，33题这个check这是空前动词，所以这题是个动词替换。而这个check对应的替换词就是说这些人在用电话的时候，他们need to know the time，所以就是想要知道自己用多长时间呗，所以空格里边应该填的是time，也挺简单的。34题。他首先说到的就是这个电脑公司遇到的一个问题，说员工之间的沟通是有问题的那为了去解决这个问题，他come to the idea of software。那come to the idea是不是等同于空闲的develop这个小词就是它开发出来了一个software软件去解决这个问题。所以这个题其实多少比之前的题要稍微难一点。因为它是问题后置，就是把后边的东西先说了，然后为了解决这个，然后他就开发了一个软件。</p>
+    <p>好，接着来到hospital。Hospital就是这个nurse，这个就是护士，他们需要get access to information about这个叫做去知道。我记得文章里边可能说的是need to know their patients，就是需要知道他不同地方的这些病人的一些情况。OK. 好，接下来，所以这个hospital这题我觉得也不难，本身就是一个动词替换，access information对应的是no。</p>
+    <p>好，接着36题，36题说到这个航空公司，航空公司说需要知道这个while，while travelling其实对应的是during flight这个说法。航空公司需要知道他们的这些人的feeling，或者他是emotion这个单词也行。我觉得这两个词其实都是原词，我们写emotion，emotion可能更好一点。OK然后这个单词也是一个复数，因为空闲毕竟是一个there，接着37题很简单，一个并列结构。这个并列结构后面说的是our income并列连词，然后38题说patient，participant few few，其实它对应的B说你这个调查必须要让人家觉得be comfortable，所以答案是comfortable。然后接着39题，他说they usually direct direct这个小词儿对应的是first hand，所以答案就是observation。我们的数据都是一手的观察数据，接下来他说人们花了百分之七八十的时间，是不是对应a lot of time干什么了呢？干analysis了OK。</p>
+    <p>所以你会发现，如果你能总结出来，例如我屏幕上所给大家提示的这个样子的话，证明这个题你可以get到正确答案，但不见得你听懂了。刚才我其实就丝毫没有给大家讲这篇文章讲了什么，然后怎么回事，这个逻辑，no我压根也没有提。因为这个不重要，重要的就是你是不是能够get到我屏幕上的这些东西，并且把答案做出来，这个才是比较重要的。所以注意，这个商业场景当中，它会有非常多的例子，例子本身的解释不重要，重要的可能就是你抓住相应的替换，空前空后的替换。</p>
+    <p>我们会发现还是非常多的形容词替换，非常多的动词替换。以及我们的之前说过的技巧，并列结构考点，对吧？还有什么空闲冠字不变，这都是可以用的一些个小技巧。OK好，希望大家在平时练习的过程当中，也注意复盘和总结，这样的话才能有一个比较好的提升。OK明天就是我们的最后一节听力课程了，我们进入到最后一个场景，就关于一些心理学的场景。OK简单三拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-19.html">精讲逐字稿</a></li>
+      <li><a href="qa-19.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-18.html">上一讲 18</a></li>
+      <li><a href="lesson-20.html">下一讲 20</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第17讲 · 科学场景：植物学与动物学 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 17 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a class="active" href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第17讲 · 科学场景：植物学与动物学</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次英语听力训练课程中，主讲人通过分析植物学和动物学场景的听力材料，深入讲解了多项选择题和填空题的解题策略。强调了听力理解的重要性，建议学生注重细节，预测词性，并有效应对替换类考点。主讲人指出，不需过分担忧生词，关键在于理解做题步骤和练习。通过具体实例，教授如何预判答案、处理并列结构和替换考点，以及根据上下文选择。此外，提醒学生在听力训练中注意时间管理、预测能力和深入理解题目。整体目的在于提升学生在自然科学领域的英语听力理解能力，通过实例和技巧指导，帮助学生有效备考。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在练习part four时，应该如何分配时间和进行读题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在练习part four时，由于官方建议每道题目的阅读时间大约为6秒钟，而这个时间对于大多数同学来说可能不够用。因此，建议将section one和section two的时间挪一部分给section 3和section four以平衡时间。读题过程中，首先要进行内容和磁性的预测，预测空格中单词的词性，并识别文章中的考点，如结构类考点和替换类考点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>做题步骤中，如何有效进行听题并锁定答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>听题时，首要原则是紧跟节奏，确保不丢失信息。同时，在听题过程中需锁定可能的替换答案，并准确拼写，因为拼写错误会导致失分。整体解题流程包括读题、预测以及听题三个部分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第一篇文章中，如何处理maple syrup这个单词以及其所在位置的题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在第一篇文章中，遇到maple syrup这个单词时，可以通过上下文猜测其含义（枫糖浆）。对于该文章整体结构分析，第一段介绍maple syrup，第二段介绍maple tree，第三段讲述早期生产，第四段讲述现代生产。根据题目要求，针对空格所在位置的题目，需要预判出所需单词类型（如形容词、名词等），并关注并列结构、被动语态等语法结构特点，以及利用复数提示词、形容词与副词替换规律等语言现象来锁定答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在做题时，有哪些解题小技巧？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>做题时的一些小技巧包括识别替换词、注意否定词not和介词等不变的部分，以及冠词也可能存在不变的情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>今天的题目是关于什么的？maple syrup的主要特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>今天的题目是关于maple syrup，一种由枫树树液制成的天然食品。maple syrup是一种厚稠的、金色的甜液，它不是由蜜蜂制造，而是从枫树中提取出来的。</p></div>
+    </details>
+    <details class="qa">
+      <summary>maple syrup与refined sugar相比提供了什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>maple syrup提供了与refined sugar相比的一个健康替代选择，它不包含任何保存剂或额外成分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>33题的难点在哪里？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>33题的难点在于其并列结构和条件句的复杂性，尤其是“this”代词指代的具体含义以及连读现象，导致许多同学将气候条件填写为复数形式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>maple syrup的生产历史是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在欧洲人定居前，当地的土著社区就已经开始生产枫糖浆。他们通过在枫树上钻孔收集树液，并使用树皮容器储存，然后通过加热岩石使其变热来烹饪液态枫糖浆。</p></div>
+    </details>
+    <details class="qa">
+      <summary>全球主要的枫糖浆生产地区有哪些？关于气候对枫树生长的影响，原文是怎么描述的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>全球主要的枫糖浆生产地区是加拿大和北美东北部的一些区域，这些地方的气候非常适合枫树生长。原文提到只有在满足特定条件，如充足的水分、阳光照射以及凉爽的夜晚时，枫树才能在不使用肥料的情况下健康生长。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在原文中，他们是如何使用石头加热糖浆的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>他们通过将石头加热至炽热，然后用这些石头去加热粘稠的糖浆，使其保持液体形态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于这道题，大部分同学是否能正确回答？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>大部分同学应该知道答案，因为关键信息“forty years”在课堂上提到过，但部分同学可能没有听到或记住了这个细节。</p></div>
+    </details>
+    <details class="qa">
+      <summary>同学们在解题时主要缺失了哪两个关键点？在制作枫糖的过程中，何时可以开始从树中提取糖分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>同学们缺失的第一个关键点是题干中的否定结构“not until”，实际表示的是“直到...才”，即树需要在何时才能被用于制作糖浆。第二个缺失的关键点是对“correct”这个词的理解，它在文章中具体化为“25厘米”，即树干必须达到25厘米直径才能用于生产糖浆。当树干直径达到大约25厘米时，树就可以被用于制作糖浆了。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这道题目的难度为何被称为难上加难？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这道题目难在两个方面：一是涉及一个不常见的形容词“correct”并以具体化形式出现，需要识别其具体含义；二是需要理解树干直径达到25厘米这一条件，且题目中使用了直径（diameter）这一概念，对于部分学生来说较难理解和拼写。</p></div>
+    </details>
+    <details class="qa">
+      <summary>提取糖浆的具体步骤是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先，需要在树上钻一个小孔，并插入一个管子，管子另一端连接到一个桶中。然后，通过加热将树干中的水分蒸发掉，剩余的就是糖浆。</p></div>
+    </details>
+    <details class="qa">
+      <summary>糖浆提取后如何进一步加工？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>提取出的糖浆含有大量水分，需要立即通过蒸发器加热去除大部分水分，这个过程通常在大型蒸发锅中进行，使用火源加热直至糖浆沸腾并开始形成枫糖。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于40题，其难度如何？能否简单解释一下？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第40题其实不难，主要是关于对单位“litter”的理解。题目中提到需要40领导的树液才能生产出一领导的枫糖浆，这里的“litter”实际上指的是公升（liter），是一个常见的测量单位。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这组题目整体难度如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>整体而言，这几道题目的难度并不高，尤其是如果做好预判，基本能取得较好的成绩。尽管37题看似复杂，但实际只有三道难题，其余均为简单题或送分题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在制作枫糖浆的过程中，糖沙是如何产生的，它对枫糖浆有何影响？在讲解听力理解部分时，您的教学方法和策略是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>糖沙是在枫糖浆制作过程中由于糖分浓度变化而析出的固体颗粒，它会使得原本清澈的枫糖浆变得浑浊，并且带来一种略带苦味的口感。为了得到清澈且品质良好的枫糖浆，必须通过过滤工序去除糖沙。在讲解听力理解时，我主要引导学生预测并关注替换词，而非纠结于具体过程和变化细节。目的是让学生学会在听题时快速定位关键信息和替换词，从而准确理解题目并找到答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>大象数量过多带来的问题以及解决措施是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>过多的大象导致食物竞争激烈，部分大象出现饥饿现象，并破坏了公园内的生态环境。为了解决这个问题，实施了一个名为“translocation process”的转移过程，即将大象从过度拥挤的公园转移到新的保护区，以减少捕猎和保护大象的同时，也刺激了当地经济，成为GDP的主要贡献来源。</p></div>
+    </details>
+    <details class="qa">
+      <summary>转场过程中是如何操作并确保大象安全的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在转场过程中，选择了同一个家族群的大象一起迁移，使用直升机进行精确瞄准和麻醉，确保每头大象安全着陆并避免伤害。测量了大象的重要指标（如任务/獠牙尺寸），并安装跟踪器以便监控它们在新环境中的活动。整个操作由兽医团队和公园护林员密切合作完成，以确保大象舒适适应新环境。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在33题中，原文与题目之间有哪些替换关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>33题中，原文提到“White and a Parkers p飞越公园并用直升机指导大象迁徙”，其中“target one group”对应题目中的“help guide”，即用直升机来引导和帮助大象按照家庭单元迁徙。</p></div>
+    </details>
+    <details class="qa">
+      <summary>35题的空格处应填入什么词，以及其对应的意思是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>35题的空格处应填入&quot;size&quot;，它在原文中对应&quot;避免大象用胸部躺下，而应使用侧面躺&quot;的概念，确保大象不会因肺部被挤压而窒息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>37题中需要测量大象的什么部分，并给出答案？38题中的&quot;enormous&quot;表示什么意思，并确定空格处的正确答案是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>37题中，需要测量大象的“feet”，也就是脚丫子的尺寸，因为除了大獠牙外，还需要关注大象脚部的测量。&quot;enormous&quot;在38题中表示“巨大的”，因此正确答案是&quot;就业前景(employment prospect)&quot;，即就业机会显著增加。</p></div>
+    </details>
+    <details class="qa">
+      <summary>39题中空格处应填入什么词，以描述偷猎者数量下降以及志愿放弃武器的现象？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>39题中，空格处应填入&quot;reduction&quot;，表示偷猎者数量下降，并且许多人志愿放弃武器，导致武器数量减少。</p></div>
+    </details>
+    <details class="qa">
+      <summary>40题的正确答案是什么，如何理解&quot;big draw for tourism&quot;这一表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>40题的正确答案是&quot;tourism&quot;，&quot;big draw for tourism&quot;意为旅游业是一个巨大的吸引力来源，对整体经济有显著贡献，特别是提到了GDP增长和非法野生动物贸易减少带来的正面影响。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-17.html">精讲逐字稿</a></li>
+      <li><a href="qa-17.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-16.html">上一讲 16</a></li>
+      <li><a href="lesson-18.html">下一讲 18</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

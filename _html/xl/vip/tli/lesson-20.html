@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第20讲 · 时间管理与选题策略 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 20 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a class="active" href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第20讲 · 时间管理与选题策略</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学对话中，老师着重强调了在雅思考试中有效管理时间和题目策略的重要性，特别是在单选题部分，提醒学生避免因过度纠结而错失更多可能答对的题目。</div>
+    <div class="tip">本讲含 41 组问答精要，可到<a href="qa-20.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次教学对话中，老师着重强调了在雅思考试中有效管理时间和题目策略的重要性，特别是在单选题部分，提醒学生避免因过度纠结而错失更多可能答对的题目。</p>
+    <p>老师指出，在机考中，内容的准确性比格式更重要，因此学生不应因格式细节而分心。</p>
+    <p>此外，老师提供了关于如何通过理解题干、识别并利用听力中的词汇替换来提高Part Four（心理学场景）得分的策略，并强调了复习和考试日准备的实用技巧，如早做模拟题、保持冷静以及考后忘记前科，为下一场考试做心理调整。</p>
+    <p>整体上，老师旨在通过讲解听力理解技巧、复盘方法以及考试日的实用建议，帮助学生有效提升雅思听力部分的成绩。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回到我的课堂。时光好快，我们今天是正课阶段的最后一节课，咱们今天来练习一下part four的最后一个场景，就是有关心理学的场景。这个场景其实实话说就没有什么特别之处，不会像我们上一节课学习的这个商业场景有非常多的例子。</p>
+    <p>心理学场景为什么要单拿出来单说呢？就是这个场景词你很有可能不认识，比如说我们今天遇到的第一个题目，大家来看一下这个场景词，这个场景词叫做liberals，就这个单词别说大家了，就是在正式做这个题之前，我也不认识这个单词。那么场景词如果不认识的话，会不会影响我们的做题和发挥呢？其实是会的，但是它的影响也不会那么大。</p>
+    <p>在随着这个lecture讲解的过程当中，也许这个老师他就会clarify这个场景词它是什么意思。你比如说这个听力，在开头的时候他就说了这个the baLance它是什么东西呢？有点像妹子，有的同学说老师我也不认识妹子。妹子这个表示的是迷宫的意思，其实应该认识这个单词，当然就算这个单词你还是不认识，他甚至在后面给你解释了一下，这个妹子是个什么东西。所以我说场景词如果不认识对于我们有影响，但影响不会特别的巨大。</p>
+    <p>好了，我就话不多说，咱们一块儿来做这个题目了。好，首先看题目要求，one word only一个单词，然后接下来场景词不认识，那看一看它的definition。这里因为你不认识这个场景词，所以它definition最好看一下，avoiding spare path，所以这肯定是一个修饰对吧？Winding表示的是崎岖的，就是一个崎岖螺旋的这样一个路，然后leading to the central area。所以能想象吗？脑海当中有没有一个螺旋的路，然后通往一个中心的区域，大概这样箱子OK。然后他说这个东西和maze去进行一个对比，mazare type of.</p>
+    <p>他说这个迷宫是一种什么东西，然后什么is needed to navigate through，就是一个东西。空格里面肯定是个名词了，它是被需要的，我们才能在maze里边去进行导航这个单词。Navigate这是个动词叫做导航。那么它的名词navigate，这是名词叫做导航。这个就是导航的机器了，导航仪就是GPS那个东西。Navigation这也是它的名词，表示的是航海OK。好，接着我们继续看啊，他说the main the word maze is dry from a word，meaning a feeling of.</p>
+    <p>所以这填一种人类情感。其实我之前给大家总结过，大致在雅思听力当中经常出现的人类情感，比如说我们之前遇到过的depression，还记得吧？这个叫做抑郁。然后isolation这个叫做孤独，proportion这个叫做沮丧。有同学说老师你怎么全整一些不好的anxiety。Anxiety这个叫做焦虑。你想如果是好的人类情感，他可能就在听力当中，他不会把这个当成一个问题去阐述，这种不好的就这些东西都可能会导致我们不高兴，会导致我们沮丧、抑郁、孤独，这种可能才会在听力当中去阐述。好，所以这是几种常见的人类情感。</p>
+    <p>好，接下来咱们就来看。The baLance represent a journey to life。然后they have frequently been used in什么and prayer。这个prayer叫做冥想者，所以也就是这个34题1个并列结构老生常谈了。就是每一次当我带大家看题的时候，我遇到这种常规考点是不是都感觉是非常的熟悉，就像回家了一样。</p>
+    <p>好，接着early example of这个东西，他说asian carving on carvin这个单词叫做洞穴里面的雕刻。所以他说这个雕刻，你想这个雕刻能叼在哪里呢？一个地点状语。这个asian carbon on什么have been found across many cultures，这个就很多文化里面都有。</p>
+    <p>好，这个就可以不看了。在古希腊use a symm on，所以我们要听希辣，那用一个symbol，这个象征在什么上，然后walking the baLance，可以走的。然后他largest survival example，这里边给我们提到一个example，然后他说had a big什么玩意儿，一个大的什么东西。然后后边说的是at its center，也就是说在中间有一个大什么东西，对吧？好，接着nowaday the baLance nowadays，然后believe to have beneficial impact on这个东西。Working amaze can reduce a persons, 可以减少一个人的什么，好，接下来39 40这两个题，patient who can't walk can use finger levs。Made from这个小词，其实它和那个made of其实都是有点像后边应该加一种原材料对吧？所以你想什么东西可以当材料的这种单词，你比如说marble这单词，大理石不见得这空上要填marvel，只不过就是marvel这个单词之前我记得哪一篇来着，就可就给大家造成了一定的障碍，好多人不认识这个单词，导致这个空没有写对。</p>
+    <p>Marvel大理石还有常见的材料有什么？Plastic，这都是咱们雅思听力当中经常出现的叫塑料。还有比如说这个steel，这个叫做钢材，还有那个iron铁，对吧？好不不穷举了，大家知道就好了。然后接着第40题，他researcher发现阿尔兹海默的suffers，这个就是病人呗，他experience less更少的什么东西OK。好了，整个题目我们读完了。</p>
+    <p>读完之后，接下来咱们就来听一听这个题目。我就不给大家再读题了，咱们就直接开始听了好吗？因为毕竟刚才其实已经我带大家看过了这个题了。好，那咱们就直接开始听了，稍等一下，我倒腾一下听力。</p>
+    <p>You will hear an anthropology student giving A. Part part four, you will hear an anthropology student giving a presentation on spiral path designs known as library. First, you have some time to look at questions thirty one to forty.</p>
+    <p>直接开始喽。Labor's have existed for well over four thousand years. Lab, rance and labor. Anti symbols have been found in regions as diverses, modern day, turkey island, greece and india.</p>
+    <p>There are various designs of laboring, but what they all have in common is a winding spiral path, which leads to a central area. There is one starting point of the entrance, and the goal is to reach the central area. Finding your way through elaborate involves many twists and turns, but it's not possible to get lost as there is only one single path.</p>
+    <p>In modern times, the word laboureth has taken on a different meaning that is often used as a synonym for amaze. ame. Amaze is quite different as IT is a kind of puzzle with an intricate network of parts.</p>
+    <p>Mazes became fashionable in the fifteen hundred and sixteen th centuries in europe and can still be found in the gardens of great houses and palaces. The paths are usually surrounded by thick high edges, so that it's not possible to see over them entering. Amaze usually involves getting lost a few times before using logic to work out the pattern and find your way to the center.</p>
+    <p>And then out again. There are lots of dead ends and parts which lead you back to where you started. The word maze is believed to come from a scandinavian word for a state of confusion.</p>
+    <p>This is where the word amazing comes from. labour. Rs, on the other hand, have a very different function. Although people now often refer to things they find complicated as libraries, this is not how they were seen in the past, the winding spiral of the laboring has been used for centuries as a metaphor for life's journey.</p>
+    <p>IT served the spiritual reminder that there is purpose and meaning to our lives and helped to give people a sense of direction. Labor's are thought to encourage a feeling of calm and have been used as a meditation and prayer tool in many cultures over many centuries. The earliest examples of the laboring spiral pattern have been found carved into stone from sada to scandinavia, from arizona to india to africa in europe.</p>
+    <p>These spiral carvings date from the late bronze age. The native american pema tribe wave baskets with a circular laboring design. The depicted their own Cosmology in ancient greece, the laboring spiral was used on coins around four thousand years ago.</p>
+    <p>Laban's made of mosaic were commonly found in both houses, villas and tomes throughout the roman empire. In northern europe, there were actual physical labor rs, designed for walking on. These were cut into the turf for grass, usually in a circular pattern.</p>
+    <p>The origin of these walking labrang remains unclear, but they were probably used for fertility rights, which may date back thousands of years. Eleven examples of turf labor's survive today, including the largest one at suffering world in england. We used to have a large tree in the middle of IT长暂停。More recently，laboring have experiences something of a revival.</p>
+    <p>Some believe that working a laboring promotes healing and mindfulness. And there are those who believe in its emotional and physical benefits, which includes slower breathing and restored sense of baLance and perspective. This idea has become so popular that labor's have been laid into the floors of spars wellness centres and even prisons in recent years.</p>
+    <p>A conflated colorado children's hospital informs patients that walking elaborate can often calm people in the midst of a crisis. And apparently it's not only patients who benefit. Many visitors find working elaborate less stressful than sitting in a corridor or waiting room. Some doctors even walk the laboring th during their breaks. In some hospitals, patients who can't walk can have a paper finger laboring brought to their bed.</p>
+    <p>The science behind the theory is a little sketchy, but there are dozens of small scale studies which support claims about the benefits of, for example, one study found that walking a labor's provided short term coming relaxation and relief from anxiety for alzheimer patients. So what is IT about labour's that makes their appeal so universal? well. OK好，这个题就结束了。</p>
+    <p>然后我们一起来复盘一下这几个题目。首先这个题目应该不太会，随着做题的过程大家会发现其实我在读题的时候，读题我们要highlight一些关键词。在做题的时候就是在听题的时候，其实我也highlight了一些东西。这个是我highlight了一些什么东西，就是我在听的那个当下我能够去get到的一些个原词。所以我把这个原词给highest出来，这个就告诉我自己，这个节奏就跟着走，这个节奏非常的重要。</p>
+    <p>OK好，我们来复盘一下这几个题。首先第一个题非常的简单，a type of等于a kind of，所以空上答案是这个puzzle。来这个题我再给大家听一下，大家感受一下。一定记得当空前有这种什么a kind of，你就听他的替换词，非常容易找到答案。</p>
+    <p>There is one starting point at the entrance, and the goal is to reach the central area. Finding your way through elaborate involves many twists and turns, but it's not possible to get lost as there is only one single path. In modern times, the world labor rth has taken on a different meaning and is often used as a cynon ym for a maze.</p>
+    <p>在这儿妹子出现，他说他经常use新the name of maze。新the name这个单词，它表示的是同义词。就是经常我们比如说perforce的时候来进行同义转换的时候，我们说这俩单词是新的name，就是它们是同义词。好，所以is出来，那就意味着我们进入到这个题的定位区间了。</p>
+    <p>接着咱们继续往后听，CBA不。不是这个，是这个。In modern times, the word labor rth has taken on a different meaning and is often used as a sydney. For a man, amazing is quite different, as IT is a kind of puzzle with an international network of parts. OK好，它这地方出现了我刚才想给大家说到的a type of等于a kind of。他说may is quite different，就是这个迷宫还是有点不同的，is a kind of puzzle. 所以你看我们题干当中有一个同义替换词叫a type，那答案是不是就应该是一个puzzle，对吧？所以这道题我认为它是一道送分题，就是送分非常简单，那就是想让你去做对的。</p>
+    <p>接着32题，什么东西需要去never get through the maze？然后这个navigate，它这里边又说到的是work out，他说we have to use logic to work out in the maze，所以这个答案其实就是logic这个单词意思叫逻辑。它本身如果你题目做多了，你会发现它本身长得就很像part for空上单词。但是我们不能根据这个去做题，我们还是要去听一听那句话对应出来的内容。</p>
+    <p>好，接着。Mazes became fashionable in the fifteen hundred and sixteen centuries in europe, and can still be found in the gardens of great houses and palaces. 这个不重要。The paths are usually surrounded by thick, high hedges, so that it's not possible to see over them entering. Amaze usually involves getting lost a few times before using logic to work out the pattern and find your way to the center.</p>
+    <p>他说在妹子里边走路，你可能经常会怎么样呢？会get lost。Get lost就是走丢的意思，所以你需要干什么呢？In logic using logic，这个就是叫用逻辑，用逻辑把它去解题出来，to find out your way，所以它其实navigate这个单词体现在了含义上。因此我说这种替换，它其实是一个抽象到具体的替换。文章里的题目当中虽然就给了我们一个navigate这个单词，但是在文章里面食堂解释了一下，就是说如果你用一些逻辑的话，可能就不会丢了。然后就可以working out the maze，就可以把它算出来弄出来的这个意思。</p>
+    <p>好，接着第33题，33题，它这地方非常简单，词和词的替换，a few of它替换成了a state of，所以答案是confusion。Confusion叫做迷惑或者疑惑。我们已经不止一次去填这个词作为空上答案了，所以我认为这个是一个比较简单的替换。当然我们也可以再听一下。There are lots of dead ends and path which lead you back to where you started.</p>
+    <p>The word maze is believed to come from a scandinavian word. For a state of confusion来了for a state of state of confusion，所以a feeling of对应state of唯一的障碍就是confusion。这个单词你要正确的拼写，因为这个单词已经多次出现在空上，给大家提个醒。</p>
+    <p>好，接下来并列结构的题。并列结构虽然简单，但是架不住这个空上的单词本身多多少少是有点拼写难度的。他这说的这个and本身这个词也没有变，就并列连词都没有变。然后前面说的是meditation，meditation这个单词的意思其实叫做冥想冥想。我不知道大家还记不记得，咱们在讲这个power方法论的那一节课的时候，用到了一个stm那个题。</p>
+    <p>然后那个题当中meditation其实就出来了，但它并不是空上答案。他是在说就是我们的一个国家领袖温家宝，然后他在这个旅途当中经常喜欢看一本书叫做meditation。然后他说这本书已经看了很多次了，当时就出来这个单词了。不过可能很多同学要注意，因为毕那个部分毕竟是当时我说的一个看不见的冰山卷上，根本就没有体现出来。但是可见part ford的这个答案词，它其实经常会重复出现。所以大家只要能够去把这个part four，你多做一些个精听，多把答案继续书写，那基本上这个词就是能够覆盖到你空上单词的OK prayer，这个叫做祈祷这个祈祷比如说你像一些宗教文化，有每天早上起来要祈祷一下。这个prayer to他说这个东西是一些冥想和祈祷的工具，这句话可以再给大家稍微听一听。</p>
+    <p>Although people now often referred to things they find complicated as labor rs，this is not how they were seen in the past. The winding spiral of the labyrinth been used for centuries as a metaphor for life's journey. IT served as a spiritual reminder that there is purpose and meaning to our lives and helped to give people a sense of direction. Labor's are thought to encourage a feeling of calm and have been used as a meditation and prayer tool in many cultures over many centuries.</p>
+    <p>它前面有几个单词进行了重读，什么come stay come就是保持冷静什么的。但是那块就没有答案。我们这道题最核心的就是它是一个并列结构的。当你如果没有听到prayer，就是祈祷这个单词的时候，你就千万不要作答啊不要因为前面有几个重读单词，然后你就开始写答案了，那你就错过它了好吗？</p>
+    <p>好，接下来下一个asian carbon。这个因为换部分了，毕竟它涉及到这个early examples，讲到了一些例子关于这个东西，那我们就继续往后听。这道题其实答案我应该答案我还没有给大家写。这个应该是stone，就是这个石头本身。这个题我觉得不难，因为非常简单。前面这个carbon几乎是一个原子统签好走起。The earliest examples of the laboring spiral pattern have been found.</p>
+    <p>Carved into stone. 听到了吗？Carved into stone. 这个地方它说到这个carved into stone，其实就是对应的这个carbon，对吧？它等同于carbon，这基本上就是一个单词的词汇，carving on on什么东西，on stone呗，所以stone就是我们对应的单词。</p>
+    <p>为什么这个空它本身不难，但是错误率挺高呢？就是在于meditation这个词儿。Meditation好多人不认识，所以他不会写。然后他就在那个时候就使劲拼，就是使劲往死拼这个meditation拼来拼去。</p>
+    <p>这个简单题错过了，所以在这里我要总结一句话给大家。如果不会拼写，那你就看你能不能根据他的发音去写出来。如果写不出来的话，立即放弃。</p>
+    <p>到下一道题，因为这个单词如果它并不是在你脑海当中，没有形成在你的词库里，你去给他拼写成功的正确率的这个概率是非常低的。你还不如把这个时间去用在，比如说来做一个新的题目。因为这个题就非常简单，小学生应该都会送这个单词，只要你抓住，我觉得应该是可以写对的。好，接着我们就听这个greek，这个就很简单了。答案应该是我看看这个36题，36题答案就是coins。这个我觉得唯一的难点就是在于单复数。来再听一下。The earliest examples of the laboring spiral pattern have been found carved into stone from sardinia to scandinavia，from arizona to india to africa in europe.</p>
+    <p>These spirea carvings date from the late bronze age. The native american pema tribe move baskets with a circular labouring design. The depicted their own Cosmology. 希腊in ancient greece，the labor spiral was used on coins around four thousand ago.</p>
+    <p>他说在希腊，他说use some coins。所以这个题的介词不变，这个on就是我提前给大家写出来了，这是介词不变，介词不变就正常听这个介词就好了。On coins, 至于这个symbol，人就省略这个单词了，毕竟它其实就是一个象征。我们用在这个硬币上，其实就是一个象征，一个符号，对吧？</p>
+    <p>好，三十七题巨简单，空起来这个B变成了一个large，所以答案就是除以2。有一棵大树在中间，然后在中间这个文章里面用的是at its center，题目当中用的是in the middle of eight。所以我说这个题它巨简单无比，就是送分题送给你的好听。</p>
+    <p>Livery made of were commonly found in bathhouses villas and tones throughout the roman empire in northern europe. There were actual physical leverance designed for walking on. These were cut into the turf grass, usually in a circular pattern.</p>
+    <p>The origin of these walking labs remains unclear, but they were probably used to a fertility rights, which may date back thousands of years. 这都不重要。Eleven examples of turf laborin survive today, including the largest one at saffron world in england, which used to have a large tree in the midst of IT.</p>
+    <p>Large tree in the middle of IT常暂停。More recently, laboring have experienced something of a revival. Some believe that walking a laboratory promotes healing and mindfulness, and there are those who believe in its emotional and physical benefits, which includes slower breathing and restored sense of baLance and perspective.</p>
+    <p>因为上面这道题太简单了，所以我就没有给大家再暂停再去复盘了。它其实就涉及到了一个形容词，替换big tree等于large tree OK。下面这道题替换reduce什么东西，然后它reduce什么东西，它对应了一个slower，reduce叫做减缓，所以slower也减缓，然后答案就是这个breathing，就是减缓析，这个就没什么难度。</p>
+    <p>接着39题其实本身没啥难度，但是经常会有人错过你看这是不是一个a of b就made of和made from都一个意思吗？然后a of b说这个东西它是由什么制成的一种材料，然后文章里边直接说的是一个什么paper finger learn，这是文章说的原词。Paper finger the baLance，所以made from paper喽，就是用纸做成的。但是这个题确实有人错过，就是没有get到来，我们再把这个稍微听一听。In some hospitals, patients can't work, can have a paper finger labarri, paper finger libraries, 对吧？所以finger library是一个整体。那它是什么材料制成的？是由paper来支撑的。</p>
+    <p>至于最后一个阿尔兹海默的病人可以更少的什么呢？这个我们提。For example, one study found walking a provided short term calming, relaxation and relief from anxiety for alzheimer patients.</p>
+    <p>So what is IT about? Lib OK听到了relief from anxieties for our，所以这个relief from这个叫做缓解，对吧？所以这个是缓解啥了？缓解了一下anxiety，这焦虑OK，所以整个听力我们就过了一遍。</p>
+    <p>虽然不认识什么叫做the bearance，甚至我们做完题之后其实还不太知道什么叫learn。大概是对这个东西有了一个形象化的概念，可是具体它到底是什么意思好像还是不知道。那没关系，不妨碍我们这个题已经做完了，而且我们做的还是挺不错的对吧？所以希望大家在做题的时候，你要动脑筋去想的是什么呢？想的是考点的问题。我们part four已经做了这么多题，大家有没有发现其实考点就非常的单一。我再给大家总结一下这个考点，我希望这个时候大家可能会获得更好的体会。</p>
+    <p>有一大类考点是替换考点，发生在空前和空后，这种替换有动词替换，有形容词替换。形容词替换可能有比如词替换，然后有比如抽象到具体替换有词和定语从句替换，有磁和后置定语的替换。动词替换有词词替换，抽象到具体替换，被动语态的替换等等，所以这个是替换类的。当然替换类的还有否定替换，还有一些复数名词提示词的替换。比如说a kind of types of，还有many a lot of a large amt of great deal of，这种浓香它其实都是复数名词之间的替换。当然你还可以用点技巧，比如说冠词不变，比如说介词不变，帮我们去锁定答案。</p>
+    <p>这一大类的替换类考点，还有一大类的考点，这个考点其实就不再是什么替换上的了，它其实是逻辑上的。比如说有因果考点，because如果换成so的话，这个句子结构是不是颠倒过来了？所以这个考点我们也经常会遇到的对吧？OK.</p>
+    <p>然后我们在抛four，还会有个别的题目，它是一些结构类考点。结构类考点。比如说并列结构遇到800回了，还有那种a of b的结构，something made of something就是什么由什么制成，对吧？然后这个a of b就是等于B的A所以这个考点也是偶尔会出现的。虽然它已经不是这个powers的一个主流考点了，但是也会出现还有一些节奏类的考点。</p>
+    <p>什么叫节奏类考点？看不见的冰山经常出现，就给你整的这个结构挺混乱的，然后可能会让你跟丢，还有中间可能会出现一个长暂停，一突然他又一说话，然后吓得一机灵，然后错过一个空，甚至有一些比如说难拼写的单词。这些比较难拼写的单词它为什么出现在那个位置？就是想让你错过下一个空，最难拼写的单词。拼不上怎么弄？赶紧不要再拼了，你赶紧给我做下一个题，防止那种错简单题对不对？</p>
+    <p>OK好，所以整个听力就是在part four的地方，本质上来说它并不难。但为什么有同学做不好？那做不好一来你单词拼写有问题，第二你替换识别不出来，替换基本上是我们整个雅思听力考试的一个主流。你从part one一直到part four，我一直在讲的都是信号词替换，信号词替换读题预测识别考点。听的时候听到定位词，注意信号词，找到替换词写出来了，就这么简单，对吧？</p>
+    <p>好，我们整个系列课程课上的最后一个例题呈现给大家。这个题我就尽量让大家独立去操作了。歼16 test to section four的题目，这个题目讲的是跳舞，对我们的人想他也多少有点偏心理学，我们就直接听题了，做题了，开始看题。大家可以打开我中间就不暂停了，咱们就直接follow自己的节奏。Have some time to look at questions thirty one forty.</p>
+    <p>37题你看到没？又是人类情感，但前面是一个least feeling of。zomba.</p>
+    <p>OK题目看完，如果你没像我看的这么快的话，那no answer one。Dancing is something that humans do when they want to have a good time. It's a universal response to music found in all cultures.</p>
+    <p>But what's only been discovered recently is that dancing not only makes us feel good, it's also extremely good for our health. Dancing, like other forms of exercise, releases hormones such as dopamine, which make us feel relaxed and happy, and IT also reduces feelings of stress or aniele. Dancing is also a social activity, which is another reason IT makes us feel good.</p>
+    <p>One study compared people's enjoyment of dancing at home in front of a video with dancing in a group in a studio. The people dancing in a group reported feeling happier, whereas those dancing alone did not. In another experiment, university researchers at york and sheffield took a group of students and sent each of them into a lab where music was played for five minutes.</p>
+    <p>Each had to choose from three options, to sit and listen quietly to the music, to cycle on an exercise bike while they listened, or to get up and dance. All were given cognitive tasks to perform before and after. The result showed that those who chose to dance showed much more creativity when doing problem solving tasks. Doctor love IT at the university of heartful d share believes dance could be a very useful way to help people suffering from mental health problems. He thinks dance should be prescribed as therapy to help people overcome issues such as depression.</p>
+    <p>It's well established that dance is a good way of encouraging adolescent girls to take exercise. But what about older people? Studies have shown that there are enormous benefits for people in their sixties and beyond.</p>
+    <p>One of the great things about dance is that there are no barriers to participation. Anyone can have a go, even those whose standard of fitness is quite low. Dance can be especially beneficial for older adults who can't run or do more intense workouts, or for those who don't want to.</p>
+    <p>One, two thousand and fifteen study found that even a gentle dance workout helps to promote a healthy heart, and there's plenty of evidence which suggests that dancing lowers the risk of falls, which could result in a broken hip. For example, by helping people to improve their baLance, there are some less obvious benefits of dance for older people, too. One thing I hadn't realized before researching this topic was that dance isn't just a physical chAllenge.</p>
+    <p>IT also requires a lot of concentration because you need to remember different steps and routines. For older people, this kind of activity is especially important because IT forces their brain to process things more quickly and to retain more information. Current research also shows that dance promotes a general sense of well being in older participants, which can last up to a week after a class participants report feeling less tired and having greater motivation to be more active and do daily activities such as gardening or walking to the shops, or a park bowl room or country.</p>
+    <p>Dancing, both popular with older people, have to be done in groups. They require collaboration and often involve touching a dance partner, all of which encourages interaction on the dance floor. This helps to develop new relationships and can reduce older people's sense of isolation, which is a huge problem in many countries.</p>
+    <p>I also looked at the benefits of simple. Fifteen million people in one hundred eighty countries now regularly take a zable class, an erotic c workout based on latin american dance moves. John poor Carry, a professor of exercise and sport science at the university of wisconsin, in analyzed a group of women who was the MBA gully and found that the class, lasting forty minutes, burns about three hundred and seventy calories.</p>
+    <p>This is similar to moderately intense exercises like step erotics or kick boxing. A study in the american journal of health behaviour showed that when women with obesity did zh three times a week for sixteen weeks, they lost in average of one point two key los and lowered their percentage of body fat by one percent. More importantly, the women enjoyed the class so much that they made IT a habit and continued to attend classes at least once a week.</p>
+    <p>Very unusual for an erotic c exercise program. Dance is never going to compete with high intensity workouts when IT comes to physical fitness gains, but its popularity is likely to keep on rising because it's such a fun way to keep fit. OK结束。</p>
+    <p>好，我们一块来复盘一下这几个题做的过程当中，其实我也顺着跟大家一起在笔记上去记录了一些东西。有一些题目我觉得就比较简单了。看第一题，第一题我们空闲有一个dance increase，然后听力当中说到了学校里边做了一个实验。然后这个实验其实它扩展了一大堆，就讲了好多好多东西。他真正这个题目进入到第一题的区间其实挺晚的，大概能够说了一分多钟。然后进到第一题区间了，我们实验是怎么做的无关紧要，你重点要听他的结论的部分，对吧？然后他那结论说了，这个dancing可以使得人们much more creativity，这个叫做有创造力OK。</p>
+    <p>然后接着32题，还记得我们刚才做的那个题吧？我再给他拉上去，刚才我们做的哪个题，有一个a kind of那个小题，比如这里吧？31题，a type of等于a kind of，又是一个类似于像这样的替换。空前有一个a form of，这叫一种形式，它替换成了一个a way of，唯一的问题就是这个单词答案，单词写法，therapy这个叫做智治疗手段或者叫治疗方案。接着这个33题low level of文章里边对应的是standard of什么东西is low，所以stand off什么东西，business就是健康水平相对比较low的。然后接着34、35以及36空前都是有这种的improve以及提升，以及Better以及more这种。</p>
+    <p>好，我们来看三十4题。他说Better什么reduce the risk of accident，他首先说lower the risk of fall，那lower the risk of all是不是就后半截，所以他说improve是不是等于Better baLance？所以整个这个说话的逻辑就是后边先说了，然后说到这带来的一个好处就是使得人们能够保持平衡，减少了跌倒的风险。那事实上就是一些小事故的风险了。好，接着35题improve对应的是force。Force这里表示的是强迫的意思，就是提升什么的工作，让他干的快一点。然后就是他强迫脑子要转的快，work quickly是不是对应后边这个work faster，对吧？所以答案就是bring。</p>
+    <p>好，接着36题，说这个more空前有个more，然后文章里面对应一个greater，所以答案就是motivation。好，接着38题这个lesson the feeling of其实对应出来了the sense of就是一种什么什么感觉，lesson the feeling就是reduce the feeling，reduce the sense of isolation。人类情感之一，孤独感，他说跳舞，你要就和舞伴接触，你要约人家，所以就是使得人们的孤独感可能有所降低。</p>
+    <p>39题一些，38题还没说，38题说这个眺踪，40分钟。它等同于用了as many什么as other intense form of exercise。这地方它其实用了数字在跟我们说话，他说你跳蹲，40分钟就相当于燃烧了370卡路里。就像其他的一些非常激烈的运动，类似于像什么kickabout thing，就是跆拳道、拳击什么的一样多。对这个as many as它对应一个具体的数字。那as many as这个中间应该填的是calories，就是燃烧的卡路里，就是燃烧卡路里和一些激烈的运动，其实非常的就接近了。</p>
+    <p>好，接着39题，他说的women with suffered from其实对应的是with这个小词，with obesity, 老生常谈的一个单词。这个单词经常就会出现在我们听力和阅读当中，希望大家能掌握。表示的是肥胖，这些肥胖的女性尤其可能会为此而获益。然后zoom a become a什么for the participant，participant叫做参与者，所以become变成了made IT a habit。所以参与者把它变成了一个习惯，就是变成了一个习惯OK。所以我们空上的这个答案，这几个答案其实你看有单复数问题的，我觉得单复数问题比较突出的就是这个卡洛瑞斯。这个可能有同学没有加S其他的也没有什么单复数问题，都是常规的一些个名词，单数就可以了。</p>
+    <p>OK整个这篇题目。复盘的时候大家要做到这个程度，你自己再把这个题听一遍，然后看一看你能不能get到至少是这样的一些个替换。如果你还想再进一步的话，继续努力的方向是什么呢？书写答案句子，你把这个答案句给写一下。</p>
+    <p>好，因为今天是我们的最后一节听力的课程，所以接下来我要讲讲一些比较重要的一些事情，重要的事情。首先我们前面这些课程在听力的部分都是给大家按照题型去推进的，按照部分按照题型去推进对吧？但是很重要的一点就是一次考试它是四个part连在一块儿，你要一次把四个part都给他做了，那么这个时间的分配和整体的这个节奏应该怎么安排呢？四个part的节奏。好，这个是我要说的第一件非常重要的事情。如果刚才做题大家没有好好听，在这儿是一定要好好听的那要去记录一些笔记。首先考试的时候，他一上来会给你一些个信息验证，这个时候老师会过来帮你输入准考证号，什么乱七八糟这些信息。</p>
+    <p>好，进入到听力的界面，开始说一些废话，废话的时间就可以开始看题。我比较大比较建议大家直接拉到part three开始看题。因为part three读题的压力是最大的，它是一些单选题，可能还有多选题，所以他那选项比较多且比较长。所以我建议大家把这个废话的时间用在part去读题。</p>
+    <p>读到什么时候呢？读到你听到这句话，now turn to part one, 现在开始part one了，这个时候你就赶紧把题目翻到part one。Part one不是也会给你读题的时间，这个读题的时间你就正常读part one。比如说第一自然读1到5，当然不一定是1到5，有可能是1到4有可能是1到6。好，你就读题，读题完了之后，做题中间再给你读题的时间，让你读6到10，然后你还是读题，然后做题最后会给你30秒钟的时间，让你去check your answers。这个其实我觉得就没有什么可check的，为啥？因为你这个答案做上就是做上，没做上其实你也强求不了。所以我建议这个check answer的这个时间，你就要给它拿出来，把这个时间用在part two或者part three的读题。</p>
+    <p>我觉得part two其实读题压力并不是十分大，虽然它也都是客观题，但正常来说应该是可以读完的。所以你看你自己，是把这个时间用到part，还是用到part two？我个人比较建议用到part three OK。好，读题读到现在，他又说到一句话，now part two接着他，part two还会给你单独的时间读题。这个读题加做题就是按照这个节奏来了。最后还是会有30秒钟的时间让你check your answers，还是让你去检查一下你的答案，这个过程我觉得其实还是没有什么可检查的。你就把这个时间给我画到part three上面就好了，或者画到part four也行。</p>
+    <p>我建议就画part three，因为part three毕竟读题压力非常大。所以你就把这个时间给我往part three上一花，然后这样part题是不是就确保肯定是能读完的？因为其实读不完题的最大的问题就是来自于part。如果他对你能读完题，我觉得正常大家都是还是可以保证有一些正确率的。好，然后part也是说到了那就做题，读题，然后做题，接着还是让你去查答案的时间没有啥可check的，你给我弄到part four上去读题。</p>
+    <p>所以我们来盘一下时间线，你的part one整体是有多长时间去读题呢？一道题大概是6秒钟，所以十道题大概是60秒钟。这60秒钟我说你就正常肯定是能读完的。Part two正常来说你可以继承part three，sorry，part two可以继承part one，剩下来这30秒钟的时间，当然它本身还是有60秒钟时间对吧？所以是90秒钟。</p>
+    <p>然后你的part three大概有多长时间呢？一开始废话的30秒钟，part two继承过来的30秒钟，然后part three自己本身有一个60秒钟，所以120秒钟的时间读题我觉得可以了。然后你的part four大概是多长时间读题呢？他作业结束之后你有30秒钟，然后再加上它本身是有60秒钟的，所以一共是有90秒钟的时间去读题。我觉得这个part for毕竟没有题的地方，你可以略读或者不读，那理论上这个时间应该也是够用的。所以这是一个时间分配的问题，这是我要讲的第一个非常重要的点。</p>
+    <p>第二个我要讲的非常重要的一个点就在于复盘。复盘对于这个part one和part two，我先说part one。对于part one其实大家在练的过程当中，你会发现自己本身就是能听懂的了。你说老师我part one还听不懂，那怎么办？朗读课文，你把它就当成一个可以朗读的文本，你就朗读课文，然后part one就正常，你都是能听懂的。好，那你要复盘的时候，就相当于是把这个题干当中题干里面的替换题干替换或者干扰信息，你都把它整理出来。OK这块one，然后part two这个复盘和part one就有点不一样。你会发现part two它重要的点是在于题目出现之后，就是题干定位成功了，然后你再去干活就行。</p>
+    <p>对标选项，这个A选项哪里错哪里对，为什么选还是为什么不选？写明白。B选项，C选项同样道理，这个在我们之前的课程当中，其实也都给大家讲过如何复盘。如果大家比如说这个部分有遗忘，可以翻回去稍微看一看。</p>
+    <p>配对题复盘的方式非常的简单，直接写出替换即可。Part three和这个part four part two基本上一致，同上。那么part four就是书写答案句，书写写答案句，或者你先做我这样的一个复盘，就先把替换整出来，然后再书写答案句就可以了，所以这个是复盘。</p>
+    <p>好，接着我再说一件非常重要的事情，模考的节奏，你应该在什么时候去模考？如果各位同学现在还有比如说一个月的时间考试，那你可以比如说一周不是七天吗？你一周整完一本书就行，你一周比如说你现在整件十七好，你一周把建设期做题加复盘。如果你今天做题就明天复盘，就是两天弄一套题就可以。因为复盘其实挺耽误时间的，你做题可能只花30分钟就可以了，但是复盘这件事情估计得花俩小时，所以你可以今天做题，明天复盘。然后这样的话就相当于一个月你是不是可以弄完四本书，对吧？一个月就是四本书。因为毕竟一周一本书，一个月4周就是四本书。</p>
+    <p>如果你只有两周的时间要考试了，那你就一天一套题。这样的话是不是也是四本书那一天一套题，这个是不是就会意味着你的复盘时间是有限的那优先复盘什么呢？记着，优先复盘part three和part four，因为part one和part two相对简单。如果你想上分，如果你想拿分的话，优先复盘part 3和part four就可以。</p>
+    <p>这对于基础相对好一点同学，如果你只剩一周就要考试了，那当然还是一天一套题。有同学说老师我一天两套题是不是也能撵上这个进度？没那个必要，你一天两套题根本没有时间去复盘，你就一天一套题，那你其实就是两本书给我吃透，两本书就可以搞，基本上能把这两本书给它整完已经算不错了。</p>
+    <p>考试当天早上起来，如果你是上午考试，那你一早上起来你就做一套题，可以做一套做过的。为什么要做这么一套题呢？其实主要就是听力，它是一个感觉。听力其实它是所有科目里边第一个考的，而且它非常吃状态。你说今天这状态好，我这耳朵里边就英文就感觉自己就浮现出来意思了。但是如果你状态不好，可能听听听听不懂，听听听不懂。所以考试的当天我建议大家尽量早点起来，你先做一套听力题，找找这个感觉，感觉有了你再上考场就更加有信心。</p>
+    <p>为什么要做一套你已经做过的题目呢？就是你不要去做你没做过题目，给他给自己增加心理负担。你做过的题是不是多少有点印象，就感觉啥都听懂了，考试的时候你就沿用这个状态就好了。所以你上午的时候做一套题，如果下午考试，那中午的时候做一套题好吧？</p>
+    <p>好，考场上的叮嘱，这是我今天要讲的最后一件事情。考场上的叮嘱，听力是第一个科目，然后这个科目又有点痴状态，所以希望不要影响你的心情。考过了就忘了就好了。</p>
+    <p>进入到下一个科目的考试，你别听听力做完了之后还跟他想，妈听力刚才有五科没写上，救命。你越想越后面越考不好，所以调整好自己的心态，考过就忘掉，适当放弃。因为有一些空就是挺难的。比如说这个空上要填一个单词，叫做thomebody温度计，那单词你就是不会写，那怎么办？放弃，因为毕竟我们是有40个空，你就放弃一个空错了一个空都对了39个，你还能得满分。所以就是适当的去进行放弃，千万不要去在一个题目那恋战，尤其是单选题。单选题经常大家就纠结，这个好像也对，那个也对，纠结半天这题不但没对，后边题还错过了。所以适当放弃是我们考场上非常重要的一个叮嘱。</p>
+    <p>好，机考的同学对于所有机考的同学一定要记得，你的格式不重要。之前经常有同学问我说，老师我想写2月10号，我这中间要不要空一个格？我这样写他能不能给我分？你这样写给分，中间你没空格，给分拣写了给分。你说你没有简写，你这样写了写写写全了的给分，你这个十后边加了一个TH也给分。那所有的这个格式问题都不扣分，但是什么扣分呢？比如说这十后边你写了一个ST扣分，这是你写错了。那十它明明就是这个ten后边加一个TH就可以了，所以写错是扣分的，但格式问题不扣分OK所以一定要注意，格式不重要，你就不要纠结了。</p>
+    <p>还有同学问我说，老师15点50，那我到底是应该写一个冒号，还是写15 15.5呢？随便怎么写都行，这格式不扣分，只有你写错了才扣分，好吧？所以希望大家都能够成功上岸，希望整个系列的课程对大家有帮助，也希望大家能够在这个课程当中有所收获，成功上岸。OK, 我是蔡老师，欢迎大家持续关注我的其他课程，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-20.html">精讲逐字稿</a></li>
+      <li><a href="qa-20.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-19.html">上一讲 19</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第08讲 · 单选与多选解题策略 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 08 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a class="active" href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第08讲 · 单选与多选解题策略</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学中，老师详细讲解了雅思听力考试中多选题和单选题的解题策略，着重强调了筛选和排除错误选项的重要性。老师通过具体实例，教授学生如何识别转折、否定、强调等特殊句型，以及如何应对抽象到具体、词义替换等不同类型的题目。特别指出，在做题时要保持节奏，一旦确定答案就要迅速转向下一题，以确保高效完成所有题目。此外，老师总结了听力部分的通用技巧，鼓励学生从现在开始关注这些特殊句型，为即将到来的雅思考试做准备。通过本次讲解，学生可以提升听力理解能力和筛选排除技巧，以更好地应对雅思听力考试的挑战。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>问：雅思听力中的单选题和国内听力单选题有何本质区别？多选题的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在雅思听力中，单选题的选项通常为ABC三个选项，而大部分同学即使听到了所有选项内容也无法确定正确答案，需要通过理解和筛选排除来找到正确选项。在做题时，不能仅凭听到某个单词就选择该选项，而是要理解题目要求并找到符合题目条件的选项。雅思听力多选题是5选2形式，即从ABCDE五个选项中选择正确答案，选对一个给一分，选对两个给两分。这种题型更注重答题的合理性，只要能选对一个选项就能得分，不像高考等考试中错一个就不给分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何有效地解答单选题和多选题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：解答单选题时，重点在于提升理解能力，通过筛选和排除找到正确答案；多选题则需要读懂题目的同时，关注定位词，当听到题目中的定位词时，应迅速判断各个选项是否入选或排除。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：雅思听力单选题的正确率情况如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：雅思听力单选题虽然有三个选项，但由于几乎所有的选项都会出现，所以蒙对的概率高达33%，但大家的实际答题正确率反而不如蒙题的正确率。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在备考阶段应如何提升听力和阅读能力？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：备考阶段应双管齐下，同时提升听力能力和阅读能力，因为这两者在解答听力题时都很关键。此外，做题时要读懂题目的核心内容和考点词，并在听题过程中运用时间类考点等策略进行筛选排除。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：时间类考点在单选题中的应用是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：时间类考点是单选题中的重要一类，例如题目会给出明显的过去、现在或将来的时间状语，要求考生根据题目询问的时间点来选择或排除选项。如题干中提到&quot;used to be&quot;表示过去，&quot;at present&quot;表示现在，&quot;future&quot;表示将来，考生需根据这些时间线索判断颜色变化的正确选项。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在题干中，有哪些词可以起到限定作用，帮助我们判断正确答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在题干中，除了形容词限定外，副词如“originally”（最初）也可以起到限定作用。例如，在谈论Stevenson公司时，原句提到其最初打算生产automotives industry，但由于五年延迟，这一选项不符合题干要求。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：针对雅思听力单选题，应该如何有效答题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在做雅思听力单选题时，不仅需要听到正确选项，还要能够排除掉错误选项。通过理解题目设定的判断条件（如本例中的“不吃鱼不吃肉的人”），结合题干中的各种限定条件（形容词、副词、短语等）来逐步缩小范围，最终锁定正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：短语限定在雅思听力中的应用是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：短语限定是指在提问中出现一些条件性短语，选择答案时必须满足这些条件。例如，如果题目询问某项措施将为长远带来什么好处，那么只有符合长远规划条件的选项才能被选为正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：列举题在雅思听力中的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：列举题要求听者从选项中找出完整包含在题干描述中的内容。例如，在关于工作体验项目的问题中，选项会包括不同的活动内容，需要逐一听取并确认哪个选项完全符合题干所列举的工作体验项目。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：动词考点在雅思听力中的表现形式是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：动词考点通常涉及题干中关于时间点的动词，需要根据选项对应到题干中发生的事件。例如，在Stevenson公司成立年份的问题中，选项需与1923年发生的“离开学校并进入钢铁行业”的事件相匹配。同时，也提到了动词替换的情况，即通过听懂动词替换关系直接得出正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：因果题目的识别特征是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：因果题目通常会带有明显的因果连接词，如because或why。在不完全题干中，因果关系可能出现在“because”附近，而在完全题干中，可能是“why does the writer...”的形式。因果位置较为具体，往往与目的状语、动词不定式（to do something）以及表示目标、意图或打算的词汇附近有关。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于给出的实例题，为什么选项C（资金不足）被否决了？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：虽然选项C提到的是资金问题，但原文中提到的是项目暂停是因为地点存在一个转角对行人安全构成威胁（unsafe），而非资金短缺，所以选项C也被否决。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何通过排除法解决单选题和多选题中的因果关系题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：做这类题目时，最重要的是排除两个选项，剩下的一个选项必然是正确的。当能够成功排除两个选项后，不需要再考虑其他选项，因为剩下的那个选项就是正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在听力理解中如何高效定位关键信息并进行快速作答？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在听力理解过程中，首先需要快速识别并忽略无关信息，如开场白、冗余信息等。对于日期、转折、否定句等关键信息要敏感，它们往往蕴含着重要的答题线索。一旦确定正确答案，应立即向下一道题目过渡，以节省听力时间。同时，关注动词考点，比如各个时间点发生的事件，以及通过排除法锁定答案选项。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在四道单选题中，题型搭配有哪些组合形式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：题型搭配主要包括地图题与单选题、地图题与多选题的组合，以及没有地图题时的单选或单选加多选组合。此外，还有单选题与配对题的搭配形式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于这道题目，学生们可能会感到困惑的原因是什么？第十二题中，关于自行车道的改善措施是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这道题目包含较多信息且题干较长，但其实并不难。主要让学生通过分析题干信息，结合听力内容，找出正确答案。自行车道的改善措施是拓宽部分区域，使其更安全，以解决超车问题，并且这一计划将在短期内实施。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：关于交通问题，大家主要关注的是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：大家主要关注的是交通拥堵问题，具体表现为人们对坑洼（pot holes）的投诉以及重型车辆增多导致的交通状况变差。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在听到&quot;There were one or two complaints about pot holes, which will be addressed...&quot;时，应该如何理解这句话？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这句话表明虽然有少数人投诉关于坑洼的问题，但这些问题将会被解决，并未成为主要关注点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：主要的担心和投诉内容是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：主要的担心和投诉内容是关于交通类型的改变，尤其是重型车辆增加对当地道路造成的影响。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：针对第十一题，如何确定选项C是正确答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：通过分析题干限定词&quot;main concern&quot;，排除了其他选项后，发现C选项描述的“重型车辆增多导致交通拥堵”正是主要问题所在。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于“the potato”这个题目，为何要暂停执行某项计划？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：暂停执行建设人行横道的计划是因为存在安全隐患，即原计划地点存在弯道，可能会导致驾驶员视线盲区和安全隐患。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：这个notice主要是什么给谁看的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这个notice主要是给driver看的，目的是告诉他们在station road near the station and level crossing，如果level crossings关闭，机动车驾驶员可能会面临长时间等待。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：标志牌的目的是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：标志牌的目的是request机动车驾驶员不要在相应时间让发动机处于运行状态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：刚才讨论的内容涉及哪些考点？动词考点方面，题目是关于什么的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：讨论的内容涉及因果考点、目的状语考点、列举题考点、动词替换考点以及时间考点这五大类考点。动词考点题目是关于要求乘客不要向海里扔垃圾，而是将垃圾收集起来。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：接下来要做什么？接下来的多选题目是关于什么内容的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：接下来将讲解一个包含多选题目的例子，指导大家如何通过读题、定位和识别选项来进行筛选和排除，最终确定正确答案。多选题目是关于游船之旅沿途会看到哪些景点，包括古灯塔、海鸥、海豹和可能接近的鲸鱼等海洋生物，以及游览洞穴的机会。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：正确选项的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：正确选项通常包含替换词，沉浸在特定句型中，并符合题目中的限定要求。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：错误选项一般有什么特征？午餐盒有哪些内容及要求是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：错误选项往往不符合题目要求，如提供旧活动信息、存在转折或否定情况，以及不符合时间要求。午餐盒有三种类型，分别包含三明治、奶酪卷和以沙拉为主的食品，并配有薯片和巧克力棒。乘客需提前选择并告知工作人员。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：关于人数和颜色的部分，题目是怎么说的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：船只最多可容纳15人，但每边不超过9人；船只颜色由原来的黑色升级为舒适的暗红色座椅和绿色音响设备，以区别于其他船只并帮助推广公司。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：那么第十七题是什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：第十七题是关于列举题型的讨论，并以penguin和c eagle为例进行了解释。题目中提到这些生物与boat的关系以及它们在特定环境中的特性，如penguin的害羞行为和c eagle不靠近boat的情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：这道题目的主要考点是什么？接下来讨论的是第15题和第16题，它们有何特点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这道题目的主要考点是通过排除法来确定正确答案，通过分析各个选项与题目描述的吻合程度，最终选择出符合要求的creature（生物）。第15题和第16题都是列举题，但相比第十七题，这两道题的内容更丰富，整体难度稍高。其中第15题涉及修建灯塔的目的和背景，而第16题则讲述了某个地点的工作情况及与世隔绝的状态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在解题过程中如何处理抽象到具体的替换？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在解答第15题和第16题时，关键在于理解选项中由抽象概念到具体实例的替换关系。例如，对于修建灯塔的目的，选项需要具体化为保护船员免受沉船事故造成的生命损失；而对于工作地点，选项则需明确指出是监狱罪犯在此工作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：最后讨论的题目为何更难，它的替换类型是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：最后讨论的题目难度较大是因为它进行了意思上的替换，而非简单的词与词或抽象到具体的替换。题目描述了一个只能通过海路到达的地方，并通过独木舟作为通行工具，以此来暗示该地的安全程度和可达性，从而引出正确的答案——解释和告知外来者此地的情况（C选项）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在听力理解中，特殊句型的重要性体现在哪些方面？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：特殊句型在听力理解中十分重要，因为许多答案都隐藏在包含转折、否定、强调等句型的句子中。比如，含有转折词&quot;but&quot;的句子可能提供干扰信息，而&quot;essential&quot;、&quot;necessary&quot;等表达重要性的词汇也可能成为答案所在。此外，虚拟语气、条件句以及含有极限词的句型也可能包含关键线索。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-08.html">精讲逐字稿</a></li>
+      <li><a href="qa-08.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-07.html">上一讲 07</a></li>
+      <li><a href="lesson-09.html">下一讲 09</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

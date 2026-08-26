@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第08讲 · 单选与多选解题策略 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 08 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a class="active" href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第08讲 · 单选与多选解题策略</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学中，老师详细讲解了雅思听力考试中多选题和单选题的解题策略，着重强调了筛选和排除错误选项的重要性。老师通过具体实例，教授学生如何识别转折、否定、强调等特殊句型，以及如何应对抽象到具体、词义替换等不同类型的题目。特别指出，在做题时要保持节奏，一旦确定答案就要迅速转向下一题，以确保高效完成所有题目。此外，老师总结了听力部分的通用技巧，鼓励学生从现在开始关注这些特殊句型，为即将到来的雅思考试做准备。通过本次讲解，学生可以提升听力理解能力和筛选排除技巧，以更好地应对雅思听力考试的挑战。</div>
+    <div class="tip">本讲含 33 组问答精要，可到<a href="qa-08.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次教学中，老师详细讲解了雅思听力考试中多选题和单选题的解题策略，着重强调了筛选和排除错误选项的重要性。老师通过具体实例，教授学生如何识别转折、否定、强调等特殊句型，以及如何应对抽象到具体、词义替换等不同类型的题目。特别指出，在做题时要保持节奏，一旦确定答案就要迅速转向下一题，以确保高效完成所有题目。此外，老师总结了听力部分的通用技巧，鼓励学生从现在开始关注这些特殊句型，为即将到来的雅思考试做准备。通过本次讲解，学生可以提升听力理解能力和筛选排除技巧，以更好地应对雅思听力考试的挑战。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们今天开始进入到part two的单选题多选题的学习。单选题、多选题可以说是让大家闻风丧胆的一种题目。好多同学说这个题正确率可是太低了。但事实上这种题型反而是大家最熟悉的题型。因为无论我们是四六级还是高考考考研没有听力。我们其实大多数的国内体系的英语考试，听力的部分还真的是在以单选题这样呈现出来的。那么雅思当中这个听力的单选题和我们国内的听力单选题有什么最本质的区别呢？我一定要在上这节课之前，先给大家把这个事情说明白。</p>
+    <p>正常来说就是我们国内的各种各样的体系的考试，这个单选题，当然他可能没有多选题，主要就是听到了就比如说我听到了A选项当中出现了某一个词儿，然后这个词儿听力当中原文是有一个原词的，于是你就把这个选项选了出来，大概率这个选项是对的对吧？但是在雅思当中不是是这样的，你会发现A选项你也听得到，B选项你也听得到，C选项你也听得到。大多数的同学是这样一种概念。如果说你现在听力还是属于这个ABC选项出来了你都不知道的情况。那我觉得你可能得平时多做负责倾听，然后提升自己对听力敏感程度。因为绝大多数同学其实知道A选项也出来了，B选项也出来了，C选项也出来了。</p>
+    <p>于是他满脑袋刮画满了问号，他说到底应该选哪个选项？是这样的一种状态。所以其实雅思的单选题考察的大家是理解能力，你得能往懂了听。因为正确答案他必须得符合题目要求，就是符合题目当中的某一个要求。所以这个题目的要求到底都有什么呢？这就是我们今天学习的一个重点了。</p>
+    <p>好，我们先说一说单选题和多选题的一个一般三长相。雅思听力单选题只有三个选项，分别是ABC你想看到D都看不着，所以其实蒙对的概率非常高，33%的正确率。但是反而大家做题的正确率还不如蒙的正确率。</p>
+    <p>好，多选题是5选2，所以你能看到的是ABCDE5个选项。然后这五个选项里边，比如说如果你选对了一个，有同学就问我，老师我选对一个给不给算分儿？那就算一个的分数，算一个分数。如果你能选对了两个，那你这题就算两个的分数，就算选对了两个的分数。所以我觉得雅思其实它是一个非常讲道理的考试。它不会说像高考什么物理多选题，你错一个就都不给你分了，那就是感觉好生气对不对？只要你能选对一个好人，就给你一个分儿。你要选对2个OK，人家给你两个分，所以我觉得他非常的讲道理。</p>
+    <p>它的一个特点，其实我刚才也说到了，这个特点非常的明显，就几乎所有的选项都出现。所以你不能通过我听到的这一个选项当中的某一个单词就把它选出来，不能通过这样的方法去做题。那你要通过什么样的方法呢？要通过筛选和排除来找到正确的选项。那么如何筛选，如何排除？这就是我们今天要学习的一个重点了，也是我要给大家讲的一个重点了。</p>
+    <p>OK，我们来看一下这个题目的做题步骤。首先先读题，所有的听力题肯定都是先读题，人家给你时间去读题。当然了这个时间可能很紧张，就是有同学说老师时间不够，本来这个题我就听不懂，然后我是题又没读完，你说我这不就是完蛋吗？确实时间非常紧张，但是真实考试的时候，反而你不太需要去担心这个事情。原因在于真实考试的时候，你是可以继承一些拍完的时间的。因为part one最后会给你留存一个30秒钟，让去check一下答案的时间。这30秒钟实话说没有什么可check的，你能做对就做对，做不对就拉倒了。所以这30秒钟用来去读part two的题目，同时part two本身一道题答大概6秒钟的时间给到你，所以我觉得这个时间还算充裕，但你说我真的就是读不完。</p>
+    <p>那么你要提升的并不是听力能力了，你现在要去提升的其实应该是阅读的能力了。这两个能力其实不分上下，双管齐下，一起去努力。毕竟我们现在这个备考阶段，大家还是可以有大把的时间去提升自己的能力的。</p>
+    <p>OK读题的时候你要读些什么呢？这个也很重要，读题的时候你要知道这个题问的是什么。有同学说老师你不在说废话吗？我能不知道这个题问的是什么？你别说还真有同学就读完题之后，他不理解这个题在问什么，那肯定是不行的对吧？所以你要理解题目问什么，同时你要找到考点词儿。啥是考点词儿？这就是我一会儿讲解的一个重点了。</p>
+    <p>OK这就是读题的时候你要干的事情。接着就听题，听他巴拉巴拉一顿说的时候，其实有些地方可能是开篇他会进行一个介绍。这个介绍没太大所谓，没听懂无所谓。但是当出现题目中的定位词的时候，当出现题目中定位词了，这个时候你耳朵就要竖起来，因为这个就叫做定位成功。当定位成功之后，就开始理解，你理解的目的是干什么？理解的目的是排除。</p>
+    <p>好了，他说到了A选项，选项不一定按顺序说，所以我先说吧B他说的先说到了B选项，你就要开始判断B这个选项入选还是排除？他马上又说到了A选项入选还是排除呢？又说到了C选项入选还是排除呢？所以每提到一个选项，你都要非常清晰的知道这个选项到底是入选进来了还是排除了？这个就是整体做题的这样的一个步骤。OK。那么我们接下来就这一点去给大家进行一个展开。</p>
+    <p>单选题的考点都有什么？首先第一大类考点，这个部分值得大家好好去理解一下。第一大类考点叫做时间类考点。比如说题干当中明显就给你表达出来的一个时间状语，类似于像这道题。</p>
+    <p>大家可以看一下我下面这道例题，这个题干问的是what color are the tour boat？也就这个船它现在到底是一个什么颜色？我怎么知道它现在是一个什么颜色？这题干里面其实时态给了你非常好的提示，对吧？所以这地方是有一个时态的那我们显然要选的是这个船现在的现在的颜色。那如果这个船过去的颜色你能选吗？肯定不能选，这个东西就叫做干扰信息了，对不对？</p>
+    <p>OK所以在时间这上面做文章。那么大家是不是必须得理解这几个时间的表达，以及他们之间的一个替换呢？那表达过去的时间上来直接一个过去的时间状语，比如说ten years ago或者decade ago对吧？或者used to be used to be，这个叫做过去。常常如果说人家问你这个船过去是什么颜色，然后你突然听到IT used to be jet black，那它过去是黑色的对吧？所以这其实就相当于在替换过去这样的一个时间点，好already或者一般，或者这个现在完成时以及一般过去时，还有previously这个小词也都算。所以这一系列的时间状语如果出现，那可能它就是在替换一个过去的时间。</p>
+    <p>那现在两个词组，一个词组at present表示的是现在currently这表示的是目前的nowadays todas或者用的是现在进行时或一般现在时，一般现在时其实他都表达的是现在。那就像刚才这道题问的，我怎么知道他问的是这个船现在是什么颜色呢？因为我看出来了，它是一个一般现在时的表达，所以一定在问的是现在这个船它是一个什么颜色？OK好，那么将来future或者two thousand years later，这是表示一个将来的时间的这样一个状语，或者be going to will do plan to do something，这都是表示将来。</p>
+    <p>好，我们再回过头来看这道题，这道题他问的是这个船现在什么颜色？一共给了我们三个颜色，ABC, 这三个颜色，这三个颜色实话说并不是很重要，重要的是什么？关键哪个颜色才符合这个时间的要求。这个听力当中他说到了他说we used to be jet black，那这个选项显然是被排除了，对吧？因为它是一个过去的，我要的是什么？我要的是现在的。</p>
+    <p>好，接下来他又说到了一个，他说现在这个船它的座椅seat是dark red的，也就是说它座椅是深红色的。他说我们有这个light Green exterior外部所以这是不是适当还考了一下名词，所以有的时候词汇也挺重要的。你要是不认识这个x tera，这个表示的是外部，你是不是也不知道这个船它到底是什么颜色的？所以以上ABC3个选项，正确选项是这个C因为它是有一个light Green exterior，后边他解释了一下，他说in order to help us stand out from our competitors，就是能够让我们从众多的竞争对手这里脱颖而出。OK所以这就是它为什么是一个light Green这样的一个颜色，就比较显眼。OK这第一大考点，就关于时间这类的考点。</p>
+    <p>好，接着我们来看第二大类考点，这是一个非常大的大考点，为什么这么说？好多题目其实都是在这个点上去做文章。你比如说形容词限定我们要选择一个活动，这个活动是一个新活动，或者我们要选择一个不同的方法，这是一个不同的。那我们来看一下这个题叫做which length large box is suitable for someone who doesn't eat me or fish？所以这里这是一个什么东西？这是不是一个定语从句，对不对？那么定语从句它的一个功能是不是等同于一个形容词的功能它是用来修饰和限定这个someone的，所以我们要选择的这个someone它不吃鱼和不吃肉，对吧？</p>
+    <p>好了，以下是三个午餐盒，哪一个午餐盒适合不吃鱼不吃肉的？于是人就开始说A了，他说A选项里边有have ham这个单词，表示活腿的意思。火腿是什么？就是肉了，对吧？所以这肯定不能选了。接着他又说到了lunch box，two large box to. 他别的没说，就说这里边有一个cheese road这个单词，它读的英文是肉的这个读音，但它不是肉，它不是中文的那个肉，它是就是芝士卷儿，就类似于像什么肯德基的老北京鸡肉卷，就那东西一个大卷，所以这个东西一个cheese肉，它肯定不是鱼，不是肉，所以这个大概率应该选了。但是有的同学在这里反应慢了，如果你反应慢了的话，你没看出来这个选项是正确的。</p>
+    <p>你还可以通过排除C选项来判断这个选项是正确的。C说这里边有什么？他说这里边是一个沙拉，确实是一个salad。然后在这里边有egg and tuna，tuna这个东西是什么？是金枪鱼，所以它是鱼，等同于这里有fish。所以显然就不对。因此我们正确答案肯定是2B这个选项，这就是你的选项都出现了。</p>
+    <p>那不可能说来box one不出现或者lunch box 2不出现，说只给你只出现一个正确答案，怎么可能呢？这就不是雅思的套路，雅思套路就都出现。你就来判断，你的判断条件是什么？你的判断条件就是那些不吃鱼不吃肉的人，对不对？这就是你的判断条件。</p>
+    <p>OK好，接着我们来看，除了题干当中形容词可以起到一些限定的作用，题干里面还有什么词可以起到限定作用？副词可以起到限定的作用。你比如说像这个题，大家来看一眼，它说originally Stevenson manufactured goods for什么东西？所以这个问的是originally这个单词是什么意思？叫做原始地，或者叫做最初的对吧？最初的也就是说可能这个公司现在已经发展壮大了。但是它最开始它的意图是在生产什么方面的一些材料？OK一共三个选项，the healthcare industry, automotive industry以及machine tools industry。</p>
+    <p>然后你就听原文这么说的，首先提到了A选项，它是shortly before company went into production，这个还不是最初第一个提到的选项，它第一个提到的是后边这个，他说我们一开始想生产automotives industry，however, there was a delay for five years. 那一个however一出来，完了这选项基本就不对了，对吧？所以2B选项由于我虽然一开始我是想生产这个automotive industry，但是没成功，五年推迟了五年，所以2B选项大A不能选好，接着他说C选项它是一个our long term plan。什么叫long term plan？就是一个长远的规划。既然是一个长远的规划，显然单位不能选，对吧？OK他提到了慢悠悠的提到了A选项。他说在我们公司最初打算去生产的时候，我们就开始生产这个health care industry，所以A选项正确。</p>
+    <p>我给大家举这几个题的例子，大家有没有发现，正如我开篇所提到的那样，就是我们在雅思的听力，尤其是单选题这里，你不要说只能听到正确选项，你会听到所有的选项。你的能力是需要帮我能够排除掉错误的选项，进而留下正确的选项，这样的话才能做对题目。如果你只是我就想听正确选项，其他的我都不听。那对不起了，你这题肯定会稀里哗啦，错的非常多。</p>
+    <p>OK好，刚才我们在说的这个限定考点，除了形容词限定，除了副词限定，还有什么呢？短语限定。这我就没有给大家找例题，但是我大概给你说个意思，是什么意思呢？就比如说这个提问，我们公司举有一些这样的措施，那这个措施可能从long term benefit就长远的给我们带来什么样的好处？</p>
+    <p>实话实说这个短语无非就是给我们提了个条件，对吧？所以你要选择这个答案，必须要符合这个条件的。OK这是第三个限定，就限定类的考点。其实它这里边包括形容词限定、副词限定以及短语限定三种限定的方式。OK接着下一个考点叫做动词考点。那动词考点什么意思？就这个题干它大概率是一半。</p>
+    <p>你比如说像这个Stevenson was founded in in哪一年，你会看到底下都是数字192319241926。那肯定1923年发生了一个事儿，1924年也发生了一个事儿，1926年也发生了一个事儿。你关键看它发生的事儿，哪一个事儿能和fund accompany去对应上。</p>
+    <p>1923年他发生的事情是什么呢？叫做went into still industry when he left the school。所以这一年发生两件事儿，第一件事儿他离开学校了，毕业了没。第二件事儿就是进入到钢铁行业。那他建立工公司了吗？I don't know, 所以AW不能选。</p>
+    <p>好，2B选项这一年发生的事情叫做start making a plan，就是我开始做个计划，开始做计划那是found the company吗？大卫不能选对吧？所以听到这儿只能选26年了，26年的干什么了？Set up his company when finish his apprenticeship。A print ship的单词就表示实习或者学徒的意思。所以这个set up和这个是不是同义词，由于这个set up和find的同义词，所以C选项才是正确的这就是个动词考点OK。</p>
+    <p>我们再来看一个题，这个题可能在题干上你看不出来它是动词考点，但事实上你一看选项就知道它是动词考点了。比如这个题。What are speaker say about companies，premises，这个company premises表示就是那个公司的厂址，就这个说话的人对公司这个厂址是怎么说的？你会发现A说的是是现在recently moved，就是现在已经搬了。2B选项说的是no plant move，就没有计划搬家。</p>
+    <p>C选项说的是什么？Going to move shortly, 就是马上打算搬家。所以其实这道题它的一个真正的考点就是到底搬不搬家的问题，就是move to other place or no，就是到底搬还是不搬呢？于是乎你在听力当中你听不到别的干扰信息。就是这个题我说它有意思的点是在于不就是AABC3个选项，三个选项它因为非常的排它它出现了A就不会出现B所以只出现正确答案，因此你就好好听就能出答案。这个题就相当于那是简单题，于是他文章里面说这么一句话，so moving to other place have never been necessary.</p>
+    <p>那就搬到其他地方，一点用没有就不打算搬了，对不对？所以这个选项它替换的是哪个？不打算搬了，那么对应的是不是就是2B选项，no plan to move。所以像这种题就是属于我们听力当中最简单的题目，当然不是听力当中，是听力单选题里边最简单题目。它只出现正确答案，你就直接把正确答案啪一对应，这个答案这个题不就做对了吗？</p>
+    <p>所以当然这里我提出来一个概念叫信号词的概念。这稍后我说什么叫做信号词，以及我们在听力的时候能听到什么信号词。这里你就记得答案是从一个so这出来的。我给大家在这个屏幕上举的这些例题，一会儿我们都会听到，一会儿我们逐一每一个都会听到，然后大家再跟我一块confirm一下这个题目。</p>
+    <p>OK好，然后还有这个动词考点里边还有一种问法，what should people do with their litter? 所以你看他问的是什么？问的是do对不对？那你就听动词呗，人们到底是把垃圾带回家，还是交上去，还是放到垃圾桶里？于是他听力当中说了，我们没有垃圾桶，没有垃圾桶是不是C直接排了，对不对？他说的是our stop will collect IT from you。那对于你来说是交垃圾，那对于我们来说是收垃圾，这不一回事吗？所以这个叫做一个动词的替换，动词替换直接正确答案就出来了，这都是在说动词考点，动词考点这里给大家举了三个例子。</p>
+    <p>第一个例子就是题干动词有替换的，你要去排除，然后看哪个替换能替换出来。第二个就是选项很排他的，那这种选项你就直接能听出来正确答案。当然它的选项和题干，就是选项和原文还是会有替换的那第三个动词就是人，题干里问的是do，那你就找动词和我的这个听力当中能够匹配到一块儿的这个动词OK。</p>
+    <p>好，第四个考点叫做列举题。这种列举题说实话没什么，这有技巧，但是这种列举题就是没什么捷径，你就得挨个选项给我听，所有选项它都会出现。你看他是说的是the program for the work experience include什么东西，就是整个这个项目它都包含点啥。然后A选项让你做research，b选项看老师，C选项和我们的员工沟通。那每一个选项一定都会提到，你要听哪一个选项是具体包含在里边的。这里它其实就把多个考点combine了。</p>
+    <p>啥意思？就结合了起来。比如说你看像这个B选项错误的原因是什么？Meeting with a teacher，他说过去in the past OK我们是有这个安排，但是现在没有了，所以它是由于时间，所以这时间不符合OK现在不OK的。</p>
+    <p>然后A选项直接驴唇不对马嘴，动词根本就对应不上。所以这个两个选项排除掉，那你会发现它是多个考点结合。你说它是什么？具体哪一个考点不是动词考点，还是时间考点？B选项就是时间考点，但A选项就是动词考点，所以它是多个考点。肯by到一块儿，这种题就叫做列举题，我们这项目都包含什么活动，或者我们这个活动都包含什么地点呢？这都叫做列举题。</p>
+    <p>OK好，接着因果题，这个因果题其实比较好识别，因为它这里边会带有非常明显的because或者why。如果是这个题目是一半的，这个叫做不完全题干。不完全题干你会发现它这个题干里面带有一个because这个单词如果是完全的题干，就是why does the writer ba这种的那可能就是在问因果，因果的位置其实比较具体。它一般来说要么就是在因果连接词的附近，就它本身这个地方就是because I want to go for seminar，because i'd like to talk with our teachers.</p>
+    <p>这肯定就是接的原因，对不对？除了这个because之外，其实还有soul这种，其实它附近也是，有可能会有原因的，因为它的原因在前，结果在后，对吧？嗯，所以这种因果连接词的附近，好目的状语表原因对吧？目的状语in order to do something，这种to do something其实主要原因的we invest a large amount of money in order to expand our company，而我们投资了很多钱想要去扩大我们企业经营的规模，所以这个to do表示的是一个目的。好，还有一些特殊的词汇附近，比如说我们的目标，我们想我们的意图，我们的打算这种的OK，这个其实都表示的是原因。</p>
+    <p>好，那我们来看一个题干。比如这个题干plan for pedestrian crossing have been become这个poston表示的就是on hold，就是暂停了。为什么？就是我们想要在这儿弄一个人行横道，这个事情暂停了，为啥？于是你就听，也是一个一个去排除的。</p>
+    <p>他说到了，他说这个东西可能会搬家吗？原文是咋说的呢？有谣言说这个地方要搬家，但是后来confirm了stay where they are，所以这个选项相不相应是不被否定了，对吧？这个选项就叫做被被否了，否定了，不能选了。</p>
+    <p>好，接着他说到了C选项，他说是钱不够吗？这个方定就表示是资金，就是钱不够吗？是资金的问题吗？Actually他说我们有这个bug，bug是不是表示预算呢？所以这是不是也被否了？那正确答案是不是就是2B选项？所以说到这儿你有没有发现单选题和多选题它其实是一类题。</p>
+    <p>这种题目在做的时候，最重要的一个技巧叫做排除两个选项后，另外一个肯定对。如果你能成功的排除两个选项，那么另外一个选项它肯定对，它没有任何可商量的余地，对不对？所以我们其实要干的事情就是排除，只要大家能排除两个，你们就成功了。</p>
+    <p>好，它这个2B选项它是怎么说的呢？他说，我们之所以暂停了这个项目，就是因为这个地方可能它有一个转角。然后这个转角就对于pedestrian，就是这个人行人来说，其实非常的unsafe。那你会发现他说的是danger，所以你会发现他这个unsafe和这个danger在这里边，人家俩构成了统一替换，所以咔就选出来了，对吧？</p>
+    <p>OK刚才我带大家听就看的这些题，我们现在都来听一听。咱们先来听第一个，这个是歼16 test one section two的这个题。这个题因为其实我们上一节课讲地图的时候，我已经用到了它后边这个地图的部分，这个大家应该熟悉的，所以我们就把前面这个部分咱也给用一用。这些题其实我刚才都说了，我都给大家剧透过了。所以你听的时候就是跟我confirm一下这个答案的过程，不用纠结下这个听力，各位同学们。</p>
+    <p>I'm welcome to Stevens. 好，准备走起了。听力会给我们看题的时间，一会儿听力录音开始放，然后我们就正式。进入。</p>
+    <p>Good morning, everyone. I'm welcome to Stevensons, one of the country's major manufacturer of metal goods. Thank you for choosing us for your two weeks of work experience. My name is Julia Simons, and since the beginning of this year, i've been the managing director.</p>
+    <p>Stephen since quieted up, 刚才那一大坨话，大家感受到一个就中间一个小小的暂停了，没感受到了对吧？就是刚才这一大坨话其实是引入开篇引入，你就说我没听懂什么，这是这什么鬼，你不用管。虽然this year他经常会连读发生一个连读，然后他连读了之后这是这种感觉，但其实不重要，因为它和我们做题一点关系都没有。那好，接着我们就开始正儿八经的开始做题了。刚才我看看这个听力大概能有几秒钟的时间，少说得有15秒的时间吧，跟题一点关系没有。</p>
+    <p>好，马上就要接题了。Company like me, the founder Ronald Stevens, and went into the steel industry when he left school. That was in nineteen twenty three. He set up this company when he finished his apprentice in nineteen twenty six, although he actually started making plans two years earlier in nineteen twenty four.</p>
+    <p>动词考点每一个时间点分别发生不同的事情，对吧？我为什么边听边标量，大家应该能感受到。首先说的是1923年这一年发生的事情是left went into the steel industry，进入到这个行业了，离开学校了对吧？然后接下来他说了说这个公司真正开始放的就是这个建立，就是大家set up the company in nineteen twenty six，也就1926年，然后这个1924年它是making plan。所以答案是不是C选项found和set up company统一替换这道题我们刚才说的副词考点，生产这些货是为了什么行业，还是一个个he was a very Stevenson's long term plan was to manufactured components for the machine tools industry，although in fact, that never came about, and for the automotive industry, that is, cars and lorries.</p>
+    <p>However, there was a delay of five years before that happened. 好，直接上来，BC先暴露出来，BC双双排除，为啥呢？一个是long term plan，一个是five years delay。我们这题要选的是一个originally，所以A选项肯定如果是我这样非常经验老道的考研，那此时此刻你知道我应该干什么吗？</p>
+    <p>我应该开始看第13题了，就是我因为A肯定对，因为我排除了B和C，非常明确的排除，那就是A肯定对我根本就不用confirm这个答案，但如果有同学说我必须得confirm一下。好，你来听。但是我在这说的非常明白，大家如果你觉得我这个说的有用，请在笔记上记一下。当正确答案已经能够决定了，你就赶紧往下看下一道题，因为听力的时间非常的紧张。好，记上当正确答案通过排除已经能够确定，那赶紧你就赶紧往下选，选上选上，然后看后面的题目。</p>
+    <p>因为这个时间紧张，OK好，但是我们今天讲题，所以我给大家讲because shortly before the company went in to production，Stephenson was given the opportunity to make goods for hospital. Les and all the players in the health care industry give the opportunity to to produce对不对？就是我们A选项确实出来了，这个剧情还挺难的结构还挺复杂。但事实上我做题就这东西压根儿就没有出现在我视角里，我就知道A肯定对。</p>
+    <p>好，接着往后看，关于这个公司厂址搬不搬动词考点的问题，选项排他指出正确答案，所以这题得快做。So that's what we did for the first five years. Over the years, we've expanded the premises considerably. We were lucky that the sight is big enough.</p>
+    <p>So moving to a new location has never been necessary, 所以选了对吧？So moving to other place have never been necessary。所以2B选项肯定就是成功入选，这个2B就是正确了的对吧？这里它有一个句型就是so so加结果。所以这个重点句型一会儿我会给大家总结的。所以现在你就先记着，这种so的表示一种结果，那表示结果可能就比较重要了。好，接着我们继续往后最后一道单选题喽。However, the layout is far from my deal for modern machinery and production methods, so we intend to Carry out major refurbishment of this site over the next five years.</p>
+    <p>咦他这地方在说什么？因为有同学说我也听到so了。他说他这个就是far from ideal，他其实这个场子工厂还不是特别的理想。所以我们要在将来的五年之后去做一个reformation ment。这个refurbishment叫做翻新，有的时候它其实等同于decoration这个单词，那就是装修，他俩有的时候确实统一替换，所以这确实也跟这道题可能没什么太大关系。OK那我们接着继续往后听。</p>
+    <p>I'd Better give you some idea of what you will be doing during your two weeks with us. So you know what to expect. Most mornings, you'll have a presentation from one of the managers to learn about their department starting this morning.</p>
+    <p>这个动词是什么？它这个动词说每天早上你都可以去learn，就是叫做listen to the presentation，presentation as。这个叫做汇报对吧？你可以learn他们的department，这个department表示的是部门的意思。部门，今天早上刚好是研发部，研发部还没说with research and development。所以其实A选项你发没发现，它在这里确实就是一个驴唇不对马嘴。并不是让你去花时间去做研发，而是干什么。你今天早上听一下研发部的汇报，OK没不能选了，接着往后继续听。</p>
+    <p>Angle, spend some time in age department observing what's going on and talking to people. C选项，talking to people, talk about by staff. 是不是同一替换people staff统一替换了。所以此时我已经confirm了这个答案。如果是我做题他看了，但是有同学说老师2B，我还得听，你再听一下也行。As long as you don't stop them from doing their work altogether. In the past, a teacher from your school has come in at the end of each week to find out how the group were getting on, but your school isn't title to arrange that this year.</p>
+    <p>他说in the past我们是有这一项的，然后他说了一个非常重要的剧情，but your school isn't听懂没有这个叫什么否定，然后转折，转折和否定这个其实就跟刚才so这个句型是一样的。But和isn't这种带转折的加否定的这种句子里边肯定是有一些重要的东西。所谓重要的东西要么就是答案词，要么就是干扰信息。那这里显然就是一个干扰信息，也就是说2B选项之前是OK，但是现在不OK没有了。</p>
+    <p>好，这就是四个小题给大家练练手的，感受了一下。那接着我们还是再回到这个之前的题目，我再给大家找几个小题儿。我们上节课做的那个地图不是还有一个，对吧？然后我把那个地图的那个题也给大家拿出来，然后咱们一块儿也来练一下。应该是这个题，他前也搭配的是这个单选题party。</p>
+    <p>我说一下题型的一个搭配问题，题型搭配在这个part two当中，要么是地图，因为我们刚学过地图，所以我就说地图，要么就地图和选的一个搭配，要么就是地图和多选的一个搭配。因为地图题本身其实它就是配对题，对吧？然后当然也可能没有地图题，如果没有地图题，就是单选或单选加多选，其实也是一个这种搭配，或者就是单选或者多选，加上配对。就正规的配对题，常规的配对题基本上就是这样的一个组合。那老师还有没有其他组合？嘿嘿也有单选加配对，所以这是一个三种题型的一个篇章。</p>
+    <p>好，我们来看一下这个题。这个题显然它并不是什么三种题型的偏差，这就是正常的。我们就是相当于地图题加单选题，这种也是四道单选题。但是有同学一看这十四题觉得妈脑子晕。</p>
+    <p>这题目看起来这题干好长，但事实上它并不是特别难。一会儿咱们做的时候你就会发现好吗？好，这个题我也给大家一点时间，你们先来看一看题干，然后接下来我把这个听力给大家找一下，咱们就直接放一放。当然我还是会跟大家一块儿来听的，大家也不用紧张。好，首先说人们的主要的一个担心，关于traffic的是什么？这里题干里面是不是给我们限定了一个这对吧？好，接着我们就听right next on the agenda。We have traffic and highways councillor tonton.</p>
+    <p>Thank you. Well, we now have the results of the survey Carried out last month about traffic and road transport in the town. People were generally satisfied with the state of the roads. There were one or two complaints about pot holes with, they were one or two complain about pot holes.</p>
+    <p>这个pot holes大家可能不知道是什么，我把这句话给摘下来，这有一两个抱怨关于泡泡这个叫做坑洼，所以你说它对比对应的应该是哪个选项？就是这个maintenance对吧？Maintenance这个单词，我这真的是已经讲过好几回了，维护保养的意思，维护保养所以那就相当于2B选项在这个地方打没，不能选了。好，接着我们继续往后听。There were one or two complaints about pot holes, which will be addressed, but a significant number of people complained about the increasing number of heavy vehicles using our local roads to avoid traffic elsewhere.</p>
+    <p>就是这一句话里边大家听没听出来信号词。当你听到这个significant number of people complain的时候，你有没有觉得这就是一个main concern。有同学说我是觉得了，但是后边这一坨我没听出来是啥。好，我们先说，如果这一坨你没有听出来是啥，你怎么办？那这个选项你在这儿你肯定告诉自己，这就是答案。我没听出来。</p>
+    <p>接着我就要看啊，到底是A还是C呢？因为2B肯定是可以排除了，所以到底是A还是C呢？A说的是削减了公共交通，C说的是改变了交通类型。好，那我再往后听一听，如果后面有一些其他的线索，那也许我这个也能做出来来听。</p>
+    <p>We'd expected more complaints by commuters about the reduction in the train service, but IT doesn't seem to have affected people too much. OK这一句话我相信大部分同学应该，如果你好好听，应该是能够听懂的。他说we expect就是我们曾经以为，你看这地方曾经以为有非常多人可能尤其是一些computer，computer表示的是通勤者，尤其是通勤者可能会抱怨火车服务的降低。</p>
+    <p>那请问什么叫做火车服务？这个火车服务是不是就是我们提选项当中这个public transport，对吧？所以这个我们很轻松就能对标出来，应该是对应的A这个选项。所以我们以为有很多人抱怨这个，但是doesn't seem to affect people，没有相当于这个选项它怎么了？A选项被否定了对吧？A是一个被否定的选项，A被否定了，然后2B选项被否定了。那么答案是不是就应该是C选项？</p>
+    <p>那我们来理解，为什么说上面的这个内容其实就是C选项所阐述的呢？来跟我一块儿来理解一下这个C选项它这里说到的是change in the type of traffic，对吧？我们来看这句话，还有很多人抱怨了。Increasing number of heavy vehicle，这个叫重型卡车，用了我们当地的路去避免了什么？交通拥堵，对吧？所以你看本来我们当地的路可能是给一些小型车辆的，你就自己揣测一下，理解一下。本来我们当地这个路可能是给一些小型车辆的，但是谁想谁谁成想它吸引过来了很多heavy vehicle，对吧？</p>
+    <p>所以其实这道第十一题它非常的经典，这个十一题非常的经典。它其实就相当于是我们一再所强调的三个选项都出现你要根据题干的限定词，这个限定词其实就是这个main concern这个小词儿去进行排除。排除了之后发现确实C选项正确。OK这题虽然很经典，但它确实不好做，因为每一个选项确实都出现了，而且替换的尺度相当大。</p>
+    <p>好，接着我们来看12题说，which change will shortly be made to psychopath next to river. 这个题干是不是要求shortly be made，就是哪一项改善？关于自行车的这个部分，他可能马上即将要做了。The synoptic the应该定位成功，因为他说到了psychopath runs alongside the river is very well used by both cyclists and pedestrians since the surface was improved last year，the surface being improved last year.</p>
+    <p>所以这里的C选项是不是到这儿，我们直接就可以不选它了，因为它对应的时间是一个last year。但是我们这个题让咱干的是什么？他说要这个shortages ly be made，所以我们要将来时，你要的东西是一个将来时态的，而且就是马上要做的一件事儿。但是这里头去年已经做过了的，显然就不能选了。好，排除一个选项继续，我们再往后听。But overtaking can be a problem.</p>
+    <p>Overtaking是什么意思？他这里说到了一个overtaking can be a problem，所以这个问题肯定是要被解决呗，也就是拥挤，这个问题要问。So we going to add a bit on the side to make IT wider.</p>
+    <p>他说，so we are going to这个我给大家弄回来，so we are going to we我为什么在这个地方这么强调？So因为so这不是我们的信号词吗？刚才讲过了，so we're going add a bit on the side to make IT wider。Make IT wider.</p>
+    <p>这个A它指代的是什么？就是这个自行车道，就是这个cycle park。所以我们要让它变得wider是什么意思？是不是对应的A选项，就是要给它拓宽一下，拓宽所以对应A正确OK。</p>
+    <p>好，那么接下来其实如果是我考试我就不听了，什么延长不延长？2B选项还没出，2B是没出，但是我正确答案都出来了，你说我还听他干嘛？但是讲题，所以我还是带着大家听完好吗？At some stage, we'd like to extend the path so that IT goes all the way through the town, but that won't be happening in the immediate future. 时间不符合了，这句话说的是，but that won't be happen in the immediately future.</p>
+    <p>但是这个题说的是什么will short made，所以不符合这个时间限定，不符合时间要求。OK我们来复盘一下这个选项，你说这个2B选项它不符合时间要求，C选项他说这是last year我们做过的一个事情，那也就是说去年做过的将来打算的只有这个符合时间要求。且符合题目当中所给出来的这些限定，所以A正确。</p>
+    <p>好，接下来the potato这个题其实刚才我讲过了，对吧？是因果考点。为什么我们要去暂停去弄这个东西呢？这个对应的原文好像不太简单，听一听。We are the plans to have a pedestrian and crossing。</p>
+    <p>Next题，干定位成功pedestrian crossing。还有同学不认识什么叫pedestrian crossing吗？这东西表示的是人行道，pedestrian crossing，人行道OK。</p>
+    <p>好，接着我们继续听。To the post office have unfortunately had to be put on hold for the time being. We'd budgeted for this to be done this financial year.</p>
+    <p>C选项是不是不对，他说这个钱没有钱，胡说八道。他说的是we budget，我们有这个钱，所以C排除，不能选好，接着往后继续听下一个，听他说啥。But then there were rumors that the post office was going to move, which would have meant there wasn't really a need for a crossing.</p>
+    <p>Now they've confirmed that they are staying where they are, confirms stay where they are. 所以搬家吗？胡扯，不搬家，那答案自然选2BAC都不排除了，你肯定选2B我们听怎么替换的。But the highways department have told us that would be dangerous to have a pedestrian and crossing where we originally planned，as this a bend in the rosa.</p>
+    <p>2B选项你发现没？它这个句型又挺复杂的，他到底是为什么danger？听到了吗？Unsafe这个小词肯定在这是有一个同义词的。但为什么单指不知道大家有没有听到他说因为这个地方有个band one道，这是我们上节课讲地图题的时候一个非常重要的单词，对吧？但是因为这个地方有弯道，所以如果在这儿搞人行横道的话，那汽车拐弯的时候是看不到有行人的，所以可能就会出现一些危险喽。</p>
+    <p>2B选项正确做到这儿，其实我们做了几个题，大家有没有一种非常深刻的感受，就是这个单选题确实每个选项都出现好14题。这个题乍一看有同学可能觉得妈太难了，这个题这太长了。但事实上这种题我跟大家说是简单题，为什么呢？因为题选项这么长，它就不会每个选项都出现。它不会每个选项都出现的，他可能只说正确选项，所以你只要能够揪出正确选项的相应替换就OK了。</p>
+    <p>他说这个东西被建立了，为什么建立？告诉这些行人不要把他们的车放在这个外面。所以这个是给这个行骑自行车的人看的，告诉这个机动车这个人去把这发动机给关死，然后还是去警告行人的。所以你会发现以下句子里边的主语是不是都不一样。所以你就去体会一下，就这个notice到底是给谁看的，到底符合哪个主语，就找那个主语就行了，别的你真的不用想，就想那个主语就on station road near the station and level crossing drivers can face quite long weights if the level crossings closed。And we've now got signs up requesting them not to leave their engines running at that time.</p>
+    <p>This means pedestrians waiting. 所以你听到了什么？刚才这句话我不知道大家有没有听清。他说我们这是给谁看呢？给driver看的对吧？他说on station and这个什么level crossing driver can face quite long weight，这个叫做开车的人。我再给大家放一遍，这句话你重点给我听是给谁看？On station road near the station and level crossing drivers can face quite long weights if the level crossings closed. And we've now got signs up requesting them not to leave their engines running at that time. OK finish.</p>
+    <p>所以这个肯定是给driver看的，对应题干当中，不是题干选项当中，它这个driver的替换词不就是个机动车，对吧？然后他说这些人他可能在外面要等很长时间，所以就是我们弄了一个science，这个science在题目当中是什么呢？就是这个noticed。所以我们弄了一个标志牌，这个标志牌的一个整体目的就是告诉大家request them，request是要求，那是不是对应的就是这个ask，你看这替换都能对应上，ask them not to leave their engine running，是不是switch of their engines都对应上了。OK, 那这个选项肯定都对。所以我为什么说这种选项越长的题目其实越简单越简单，原因就是在这儿，因为它选项太长了，所以也就意味着比如说你主要听到一下主语OK这个就对了。或者你主要去听一下一些替换词，那这个题也就对了。</p>
+    <p>OK好，刚才给大家做的这几个题，其实就是验证一下我们刚才所说的这些考点，希望大家对这个考点要有所熟悉。一共五大类考点，因果考点，这个答案在挺固定的一些地方，什么因果连接词、so beans之类的，还有目的状语，还有一些特殊词汇，in order to do something, aim to do something之类的，然后还有列举题，没办法一个一个排除。当然了我们还有非常重要的动词替换，动词考点。这个动词你就听出来它替换词，那符合那个的就是正确选项以及题干限定、形容词限定、副词限定、短语限定以及时间考点，这是五大考点，在我们那单选和多选当中都是有呈现的。</p>
+    <p>刚才其实就是我带着大家一块儿听题，接下来我想让大家来听一个题目了。当然你们在听的这个题目当中是会出现多选题的，前面几道是单选，后面几道是多选。就是这个题目咱们再把多选的稍微讲一讲，好吧？别忘了做题步骤。读题的时候你看题干看懂，然后把考点给我揪出来。然后听题的时候定位成功了OK，然后你就开始识别每个选项，开始进行排除或者进行筛选。</p>
+    <p>那么一般正确的选项它的一个样子是什么样的呢？咱们稍微总结，有替换对吧？或者它沉浸在一些个句型里，这些句型都有什么句型？我一会儿再总结。</p>
+    <p>好，另外它符合题目当中那个限定的要求，那错误选项通常长什么样？错误选项要么就不符合那个要求，人让你选新活动，结果他咔给你来个旧活动，那肯定不对。或者他是有否定有转折的这也不能对，不符合时间要求的这估计也都不对了，所以正确选项错选。你看脑子里边回忆他的一个一般长相。</p>
+    <p>接下来我们就来拿一个题目，然后这个题目看题时间、做题时间我都给大家。当然这里边有几道是我之前用过的例题。好，那咱们就直接开始喽。IDE lu Miller speaking to a group of people about a boat trip they are going to take around the australian island of tasmania. First, you have some time to look at questions.</p>
+    <p>Eleven to fourteen, 11到14最多，然后each side底下都是数字不看了，颜色底下都是是颜色不看了。然后这个限定是这个定语从句OK底下不看了。然后这是个动词考点，他们把垃圾怎么办这四道题就是刚才说过，所以大家就顺着做一下，很简单。</p>
+    <p>下边就没看完题，同学再看。下边这其实多选题，一会儿这多选题我们先重点，大家先做，然后我再翻回来。Now listen carefully and answer is eleven to fourteen.</p>
+    <p>So hello everyone, my name is lu Miller, and i'm going to be your tour guide today as we take this fantastic boat trip around the tasmanian coast. Before we set off, I just want to tell you a few things about our journey. Our boats aren't huge.</p>
+    <p>As you can see, we already have three staff members on board. And on top of that, we can transport a further fifteen people that you around the coast line. But please note, if there are more than nine people on either side of the boat will move some of you over.</p>
+    <p>Otherwise all late ten of us will end up in the sea. We've recently upgraded all our boats. They used to be jet black, but our new ones now have these comfortable dark red seats and the light Green ic stereo in order to stand out from others and help promote our company, this gives our boats rather unique appearance.</p>
+    <p>Don't you think? We offer you a free lunch box during the trip, and we have three types lunch box one contains haman tomato sandwich, es lunchbox. Two contains a chat cheese roll.</p>
+    <p>And lunch box three is salad based and also contains eggs and tuna. All three lunch boxes also have a peak of crisis and chocolate bar inside. Please let staff know which lunch box you prefer. I'm sure I don't have to ask you not throw anything into the sea. We don't have any beans to put lesher, but guess myself or ray, other guide we'll collected from you after lunch and put IT all in a large plastic sack OK.</p>
+    <p>这四道题结束，我们先复盘一下，刚才我在这里大概给大家记了一个笔记。首先关于人数的部分，他说我们有三个员工，然后15个乘客。如果哪超过九个人，我们就来窜一窜，否则这个船就翻了。所以这道题选的是A他说的是maximum，但是each side of每一边最多九个人。然后颜色的问题，过去我们是black这个颜色，他说we used to be对吧？然后他说我们这个座位座椅是dark ride的那light Green x tera。这题因为已经给大家讲过了，所以我就不再赘述了，不听了。</p>
+    <p>然后十三题它每一个lunch box都说了，第一个lunch box里面有一个him，然后第二个有cheese road，第三个有tuna，所以显然符合的只有第2个2B选项。然后最后一道题动词考点，他说我们要求大家不能随便扔垃圾，然后我们也确实没有垃圾桶。We don't have been, 所以C选项排除了，他说but but we will collect the for you。我们要从你那收垃圾，交垃一回事儿。而且它这里边还有一个带but的句子，OK前四道题告一段落，接下来我们是多选题，我先不讲，然后大家直接上手先做题好吗？OK走起。Before you hear the rest of the talk, you have some time to look at questions fifteen to twenty.</p>
+    <p>Now listen and answer questions fifteen to twenty. The engine on the boat makes quite a lot of noise. So before we head off, let me tell you a few things about what you're going to see.</p>
+    <p>This area is famous for its ancient light house, which you'll see from the boat as we turn past the first little island. IT was built in eighteen thirty eight to protect sailors, as a number of ship wicks had LED to significant loss of life. The construction itself was complicated.</p>
+    <p>As some of the original drawings kept by the local council show, IT sits right on top of the clifts in a very isolated spot in the nineteen century, there were many jobs there, such as polishing the brass lamps, chopping firewood and cleaning windows that keeps lighthouse kepis busy. These workers were mainly prison convicts until the middle of that century, when ordinary families willing to live in such circumstances talk over. Some of you have asked me what creatures we can expect to see.</p>
+    <p>I know everyone loves the penguins, but they're very shy and unfortunately tend to hide from passing boats. But you might see birds in the distance, such as see eagles flying around the Cliff, is where they, I nest. When we get to the rocky area inhabited by first seals will stop and watch them swimming around the coast, their inquisitive creatures.</p>
+    <p>So don't be surprised if one pops up right in front of you. Their predators, oka wales, hunt along the coast line, too, but spotting one of these is rare. Dolphins, on the other hand, can sometimes approach on their own or in groups as they ride the waves beside us.</p>
+    <p>Lastly, I want to mention the caves. Tasmania is famous for its caves, and the ones will pass by are so amazing. People are lost for words when they see them. They can only be approached by sea. But if you feel that you want to see more than we are able to show you, then you can take a ky, ac into the area on another day, and one of our staff will give you more information on that. What will do is to go through a narrow channel, pass some incredible ble rock formations, and from there we'll be able to see the openings to the caves, and at that point will talk to you about what lies beyond OK finish.</p>
+    <p>好，这个多选题大家在做的时候有没有发现，我为什么让大家先做一下？为什么我不先讲呢？因为其实我想说的是选题和单选题就是一模一样。多选题是五个里边选两个正确答案，单选题是三个里边选一个正确答案。其实理论上你干的事情都是一样的，都是在排除，都是在筛选。</p>
+    <p>好，那么我先来说一说这里边第十七题。因为它最好说上来五个东西是不是都说五个东西都说到了，然后他们都是creature。Creature这个单词本身表示的就是生物的意思，雅思听里边还有类似于wild life，这都常说的词要学会它们都是animal。OK好，然后他先说的是这个penguin，然后他说了一个什么？But they are very shy, unfortunately.</p>
+    <p>所以他排除了有转折有转折。好，接着他又说了c eagle，他说这个玩意儿你可以看到，you may say the c eagle还是什么什么bird，然后in the distance题目当中说的是什么close to the boat，所以这个是不是不符合close to the boat，是不是又排除了？好，又排出一个A接着他说了，我们如果看到海报就停下来，我们看一看它。I don't be surprised if someone pop up in front of you, 这玩意儿都能pop up in front of you。所以是不是等同于刚才说的那个close to，对吧？什么叫pop up in front of you，就是蹦出来在你面前。好，所以显然这里这个sel选一个。</p>
+    <p>接着他就说了他们的这个捕猎者就是well这个well经常是hunt along the coast，就在海岸线上它就打猎。但是sporting them are quite rare。Rare这个单词它是个否定词。我记得我讲第一节课的时候就给大家讲了，否定词要敏感，所以这个well咖又不全，那剩的dolphin肯定选了dolphin。他说了approach on their own or in group，所以这个approach在这里表示的是动动词接近的意思。OK所以dolphin成功入选BC正确。</p>
+    <p>这道题相对来说简单，它是一道什么题？列举题，其实就是我们单选题当中的列举题，挨个筛选就完事儿了。好，然后15 16是什么题？也是列举题，15 16这题也是列举，但是它这个内容其实比刚才这个题显得没那么丰富，所以你会整体觉得15 16有点快。</p>
+    <p>15 16上来先说了什么？他说我们为什么要修建灯塔呢？一个墓地状语当中，墓地状语我们修建灯塔的目的是为了to protect sailor。因为这个地方有非常多的ship rock叫做沉船事故，导致了significantly loss of life，就是生命的大大损失。所以为了保护这些个水手，因此其实他说的就是why IT was built。这个替换其实是一个抽象替换，就相当于题目是一个非常抽象的文章，里面具体化了，它具体把这个故事给你讲了出来，这个选项不太好选。</p>
+    <p>然后接下来他说我们的原始画稿被一个谁来掌握，就是cap by local council，好像是，所以它不是谁修的，也不是花多长时间，就说的是这个画稿被谁保留了。然后接着说地点，说这个地点与世隔绝。Isolated s这个isolated的这个小词是个形容词，表示的是荒凉的与世隔绝的。听力当中还要考一个单词叫做isolation。这个当名词讲它表示的是孤独症，尤其是考一些心理学的那个小篇章的时候，经常会用到它，所以这都跟这个题选项不相关。</p>
+    <p>接着他说到这里边工作，我相信在这儿大家一定是听到了，因为你听到了非常多并列的工作，什么擦玻璃、砍柴、shopping firewood，chop chopping，然后firewood就劈柴，砍柴就这些活儿你肯定是听到了。但是这个4D选项是什么意思？就是到底是谁在这儿工作？那人家也说了，他说mainly prison convict，prison convict这个就叫做监狱的罪犯，所以是监狱的罪犯在这工作AD正确，这个题是不是就比刚才这个略难一些？</p>
+    <p>为什么略难一些？原因在于它的这个列举，它的替换就是由抽象到具体的替换了。刚才这些考词和词的替换。但是这里考的就是抽象vers具体这样的一种替换。说到这个修建的原因，那文章里就展开它到底是什么原因。说到谁在这儿工作，文章里就展开到底是谁在这儿工作，这就是抽象到具体替换的题。</p>
+    <p>最后一道题更难一点，原因在于它根本就不是什么词和词或者抽象的具体的这种替换了。它是一个什么样的替换类型，它就是意思上的替换。我们来看，首先他上来说了，说这个东西only be approached by c这玩意只能通过海路到达，什么意思？你能走路到达吗？第一选项是不是入选了？你不能走路到达，这两个大家能不能对应上能对应上，你这就叫逻辑了，就是语言含义。它其实跟逻辑还没什么关系，就是语言含义就是意思，对吧？所以要求你这块能听懂，they can only be approached by sea, 就只能通过海路到达，言外之意你走走路是到不了的。</p>
+    <p>然后接下来说你可以划一个cake，这个cake叫独木舟。然后这个独木舟你可以go through the narrow channel，所以这个根本入口就没有被堵死，你可以看到opening，然后他是说只有大型的旅游船只可以到，胡说八道独木舟都能到。所以开这个小词希望大家能学会。好，所以AB已经排除掉了。接着他说了我们的这个员工will talk to you what is like beyond，我会给你讲一讲外面里边都是什么样的。所以这是啥？这是不是explain一下子。至于这个C选项没出现，如果这个地方too dangers for individual to go near，那它就不会说到你还可以划独木舟了。</p>
+    <p>所以他没有说到那么的dangers，包括dangerous这个单词本身也并没有替换，对吧？所以我们这道题正确答案就是C选项explain和talk to you这个小词儿的替换，这个词就是语言含义的替换。所以通过这个题我们会发现替换在听力当中三个层次词词替换。刚才那中间那个题就是词替换的对吧？好，然后抽象到具体的替换。第二个层级具体化展开，然后第三个层级语言含义的替换，刚好在这个题里边都体现出来了，所以这是我拿这个题到例题的一个原因。</p>
+    <p>好，本节课最后的最后我要给大家总结一下特殊句型。其实我现在总结我感觉多少有点早，因为大家其实还并没有做很多很多题目，所以你可能没有那直观的感受说，这些个剧情确实非常有用。但是我也希望大家从现在开始就关注这件事情，因为很多答案其实都是在特定句型里的，比如说有转折的句子，那这里边你说是不是可能会有干扰信息，对吧？就是那个错误选项有否定的句子，是不是这里边也有可能会有干扰信息，对吧？有强调的句子。We do rely on parental help.</p>
+    <p>你就说这个父母的帮助，他会不会是一个答案，对吧？所以这里边弄不好，得有答案，然后表达这个东西很重要。妈呀这都重要了，你说这里边是不是也得有答案呢？所以这个类似于表达重要的，比如important significant，我们刚才其实做题都有遇到过。比如说什么什么很多人significant number of people concern about something，那就mainly concern对吧？所以这些essential，necessary, crucial, vital, 这都是表达重要，这里边可能有答案。</p>
+    <p>Should do something表示本应该这样做，那你看它后边接不接。But所以这里边要么是有答案，要么是有干扰，所以你看它后面到底是否接。But如果接，but我们本应该，但是我并没有这样做，所以这可能就是被dramatic c选项。好，还有虚拟语气带if的这种if条件句或者would could的这种都是然后有极限词的。</p>
+    <p>刚才这个题是不是有极限词？哪个题来？就是我记得有一个题是有极限词的，应该是就这个题，我可能是没写，反正总而言之有极限词的，就是这个they can not be reach on foot，然后在文章里边only be approach by c所以有极限词的这种可能得有答案，也得稍微注意。然后今昔对比之前怎么样。那之前我们认为we expect就是我们expect可能有人会担心什么什么，但是没有，所以这里边是不是得有干扰信息？</p>
+    <p>8OK好，这些就是我们在做单选题的一些特殊句型。好，我们all in all一下，单选多选在part of放在一块讲了。因为这两种题就是一种题，其实就是你干的事情是一样的，也就听的当下开始进行积极的筛选和排除。我要给大家提醒一点，就是当你能够决定答案是哪个了，你这个题就过掉。然后做下一个题，就开始看下一个题。因为毕竟你的节奏如果卡在了听力之前，就是你带着听力往前走。但如果你刚好相反，你让听力拖着你的脚步往前走，那你整体节奏就乱套。所以我建议大家一定要非常明确的听到某一个选项后，赶紧往下moving forward，一步一步往前看好吗？OK单选和多选我们就讲到这儿，see you next time, 拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-08.html">精讲逐字稿</a></li>
+      <li><a href="qa-08.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-07.html">上一讲 07</a></li>
+      <li><a href="lesson-09.html">下一讲 09</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

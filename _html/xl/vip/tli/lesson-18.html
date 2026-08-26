@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第18讲 · Part Four 场景区分与模拟题 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 18 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a class="active" href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第18讲 · Part Four 场景区分与模拟题</h1>
+    <div class="abstract"><b>本讲概要：</b>在课堂上，老师指导同学们深入练习雅思听力考试的第四部分，特别关注了人文社科场景与科学场景的区别。通过剑桥雅思模拟题，老师详细讲解了读题技巧、定位信息、识别考点、预测答案以及听力技巧，如识别替换和确保拼写正确等。他以冰岛语言及其受数字技术影响的实例，强调了理解数字技术概念和准确把握语言使用者数量的重要性。此外，通过“hand kitting”（手工编织）的听力材料，老师强调了这一传统技艺的全球历史、文化价值及其在现代社会的复兴，突出了其对个人心理健康的益处。最后，老师提醒同学们注意词与词之间的替换关系，强调了准确理解题目和有效利用已学词汇的重要性，并预告了下一次课堂将转向商业场景的学习。</div>
+    <div class="tip">本讲含 19 组问答精要，可到<a href="qa-18.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在课堂上，老师指导同学们深入练习雅思听力考试的第四部分，特别关注了人文社科场景与科学场景的区别。通过剑桥雅思模拟题，老师详细讲解了读题技巧、定位信息、识别考点、预测答案以及听力技巧，如识别替换和确保拼写正确等。他以冰岛语言及其受数字技术影响的实例，强调了理解数字技术概念和准确把握语言使用者数量的重要性。此外，通过“hand kitting”（手工编织）的听力材料，老师强调了这一传统技艺的全球历史、文化价值及其在现代社会的复兴，突出了其对个人心理健康的益处。最后，老师提醒同学们注意词与词之间的替换关系，强调了准确理解题目和有效利用已学词汇的重要性，并预告了下一次课堂将转向商业场景的学习。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回到我的课堂。我们今天继续来练习part 4的听力内容。那咱今天首先来练习一下人文社科类的场景，这个场景其实有别于科学类的场景，科学类的场景是就是是不是就是不是非常的客观。但人文社科类的这种场景，它可能多多少少有一些单词就会out of our imagination，就能超越我们的想象，或者我们可能都想不到竟然会是这样一个单词。</p>
+    <p>那我们今天来练的第一篇的这个题号是剑桥17 test 2的section for它这个标题叫做the impact of digital technology on the atlantic language。这个digital technology大家都知道这是什么吧？叫做电子科技，也就是说电子科技对于冰岛语言的影响，冰岛本身人口可能就比较稀少，这个语言没有想到它还挺复杂的。</p>
+    <p>好，我们首先干的第一件事情就是读题。读题的时候要干什么？要找定位的信息，然后要识别出来考点，对吧？另外还要预测一下这个空上至少你给我猜个磁性。</p>
+    <p>接下来就是听题，听题的过程。首先先定位成功，定位成功之后识别替换。当然这里的替换有的尺度大，它肯定不会像part one一样，都是一些词和词的替换，非常的简单。Part four的题目了，它毕竟可能会有一些尺度比较大的替换。OK然后接下来拼写正确，要确保你的拼写是正确的。其实整体靠谱做题就这么两件事情。OK那么第一件事情我来跟大家一块儿干。</p>
+    <p>首先上来one word and or a number。其实通常来说，这个powerful d的题目要求基本上都是one word就完事儿了。这个题竟然还会让我们写一个number，你觉得很奇怪对吧？因为他的第一道题就是这样说的。他说冰岛这个语言has approximately多少个speaker，所以你会发现第31题我猜想它应该是一个数字。那你就想想，这个语言可能使用者这个数字应该还挺大的，可能会有一些百、千，至少可能还会有一些什么million之类的。OK.</p>
+    <p>好，接着我们来看第2 32题，说has a什么that is still groggily，所以这道题空前有冠词，那冠词后边一定要加的是名词，这个名词它对应的一个要听出来替换的部分就是growing，所以这个是一个动词替换，动词替换考点OK继续来看33题。至于这个没有提的信息，想看就看，不想看拉倒。这个33题说has its own word for computer base concept，such as a web brother er, 这个叫浏览器对吧？And所以33题本质上是一个并列结构，所以你要听到的第一个信息就是web brothers。然后另外and这个词可能会有一些替换词，这叫并列连词的替换OK。然后另外和这个东西好，接着Young speaker，然后34题说的是are big user of digital technologies such as。所以34题这空上肯定也得填一个名词，而且这个东西肯定和digital technology是相关的，因为他就仿佛是在具象化digital technology，对吧？就比如说什么东西类似于电脑、手机、平板之类的。</p>
+    <p>好，35题are becoming什么very quickly。所以35题becoming其实就相当于是BB后面应该加什么？Be后边是不是应该加形容词，就是它变得怎么样的，而且这个过程还very quickly，非常快。当然有没有可能是动词呢？是不是也可以去考虑一下，也许可能会有动词情况。</p>
+    <p>好，36题接着我们来看。他说have a have discussion only english while they are in the什么at a school。所以你会发现at school这里已经是一个地点状语了。所以前面这个in the什么这里肯定是一个地点状语，而且是比school要更小的一个地点状语。School是学校，学校里边可能有的东西呗，对吧？比如说教室或者操场之类的。</p>
+    <p>好，接着37题，37题说的是are Better able to identify the concept of a什么in english than atlantic。好，所以它这个前面有一个identify，这个叫做识别。更容易识别一个什么的概念，用英语而不是用这个，所以空上肯定是要填一个名词OK，因为这前面还有冠词。</p>
+    <p>好，接着下一道题，38题。来我们来看三十8题，离得还挺远的，所以这就意味着中间这一大坨子。不对，这个题在这儿。Sorry，差点给大家错过了。好，这句话还挺长的。他说why are right very little in isolated？Because of smaller speaker and because of how a complicate is什么is？所以说它这个意思就是冰岛的这个语言书写的非常少，ride very little.</p>
+    <p>因为它其实很复杂，对吧？就是它的什么东西很复杂。第38题名词，你想一个语言什么无非就是词汇、语法、结构、表达之类，就这样的说法对吧？</p>
+    <p>好，接着39题，这个题说的是is worried that Young islander have lose their什么icelander？就是年轻的这个islander，就是这个冰岛人，他们已经失去了一个东西。所以空上肯定是名词，必须要听的是lose这个单词的替换词，一个动词替换考点，他已经失去了作为冰岛人的什么OK。</p>
+    <p>好，接着第40个题，这个题他说的是我们又担心了这个结果是children not being什么in either atlantic or english。这个后边是两种语言，他说小孩儿不怎么样，所以这是一个否定替换对吧？空前有一个not，小孩不怎么样，在两种语言都不怎么样，不熟练、不流利、不掌握，类似于像这样的。OK好了，题目我们已经读完了，接下来咱们就一起来听一听这个题喽。</p>
+    <p>Write, everyone. Lets make a start. Over the past few sessions, we've been considering the reasons why some world languages are in decline. And today i'm going to introduce another factor that affects languages and the speakers of those languages, and that's technology, and in particular, digital technology. 进来了。In order to illustrates effect, i'm going to focus on the island dic language, which is spoken by around three hundred and twenty one thousand people, three hundred twenty one, three hundred twenty one thousand.</p>
+    <p>后面三个零直接就OK了。但是有同学非得说，老师我写了321 three hundred twenty one，后边这个三我写了一个这样的词，可不可以？这个是给分的，你看题目要求one word and or a number，对吧？但这个是不是耽误时间，所以我建议大家直接000就完事儿了，321000。还有同学问老师，这个000和这个321中间要不要来个逗号？就好像就是那个数字，就英文数字这个书写的规律。Actually你不用这样的，就是我们格式是都不扣分，只要这个答案是正确的。</p>
+    <p>好，这里我们积累一个统一替换空前的这个approximate，这个单词叫做大约，然后文章说的是about对吧？那刚才文章里面好像说的是，这个语言说的人大概就是around还是about around，对，around再听。In order to illustrate effect, i'm going to focus on the islands language, which is spoken by around three hundred and twenty one thousand people, 确实是around，他说which spoken by around three hundred and one thousand people。所以大概就是这么些人说的好，接着继续听。</p>
+    <p>什么东西这么难？Most of whom live in iceland and island in the north atlantic ocean. The problem for this language is not the number of speakers, even though this number is small, nor is IT about losing words to other languages such as english. In fact, the vocabulary of iceland ic is continually increasing.</p>
+    <p>非常好识别。首先对应的grow这个单词，它说到的increasing。那increasing的是什么？Increasing of vocabulary，vov vocabulary OK这个叫做词汇，它是不像英语这个词汇，它是在逐步减少的。没想到冰岛这个语闫词汇竟然还逐步升增长，就变得更多了。好，那接着继续听吧。Or is IT about losing words to other languages such as english?</p>
+    <p>In fact, the vocabulary of iceland ic is continually increasing, because when speakers need a new word for something, they tend to create one rather than borrowing from another language. All this makes a islanded quite a special language. It's change very little in the past millennium, yet he can handle twenty first century concepts related to the use of computers and digital take.</p>
+    <p>大家知道我为什么把那个south and year给画了一下吗？因为他在听力当中说到了，说这个语言它可以handle一些变化。然后说到了一个时间状语，叫你听一下。All this makes islanded quite a special language. It's change very little in the past millennium.</p>
+    <p>他说IT change very little in the past manannan这个单词，它其实指的意思就是千年。其实在听力里边它不太重要，但是阅读当中还它还是一个挺重要的单词，一个非常重要的时间状语，所以我在这儿画了一下，它对应那个thousand years。好，接着咱们就要等这个并列结构了，是吧？OK咱们等起。Take for example the web browser。This is free in iceland tic, which comes from the verb to wonder.</p>
+    <p>结构带内容。还记不记得我曾经跟大家说过，对于某一些题目结构大于内容。当他已经提到了刚才这个web broker，他其实他说到了挺多东西的。有同学感觉，这怎么仿佛在漫威里边看过的一些个东西。确实因为他是出了一个which，which后边是不是就是一个定语从句，它在进行的一个工作叫做解释说明，那就是在解释说明这个web brothers真正并列的东西在这还并没有出现。你是不是要耐心等待？此时此刻你就仿佛刚跟人家表白完，你是不是要等着人家女生的回应，耐心等待，走起。</p>
+    <p>I can't think of a more appropriate term because that's exactly what you do mentally when you browse the internet. Then there's an isolated word for podcast. Then there is an isolated word for a podcast, 对吧？Then there is an an island tic word called cost.</p>
+    <p>再听一遍。Then there is an islanded word for podcast which is too hard to pronounce。这个女的自己说了一下，oh which is too hard to pronounce.</p>
+    <p>来看一下整个这个句子，这就是另外一个和他并列的，和前面这个web brothers发生了并列的。真正是什么？是这个podcast。有的同学说我的妈呀这单词我都没见过。如果你平时玩苹果的设备比较多，它有一个软件就是这个podcast，这个东西叫做播客。当然如果你说老师我就是不认识这个单词，那这个单词如果你写不出来，我情有可原，我觉得可以接受，毕竟它这个词不是特别常见。哼好，当然你通过他这个发音能不能给他写一写？是不是也行？</p>
+    <p>OK下一个空一icelander。Then is alive and growing. But and it's a big, bad, Young icelandic spend a great deal of time in the digital world, and this world is predominantly english. Think about smart phones. They didn't think about smart phones.</p>
+    <p>Smart phones这是不是特别符合咱们刚才的一个预期？就是我们本身都已经猜出来，这可能是一个科技产品，说的是digital technology。然后它这个smart phones这个单词前面说的是think about是等同于such as对吧？你想一想，然后他这里请注意一下单复数的问题，如果这个smart phone写了单数，那很有可能就是不得分的。</p>
+    <p>OK接着35题什么quickly继续。Even exist until comparatively recently. But today, Young people use them all the time to read books, watch TV or films, play games, listen to music and so on. Obviously, this is a good thing in many respects, because IT promotes their bilingual skills, but the exchange, the influence. 他这个地方对应的一个小替换词，我觉得还是挺需要大家积累的，他这是一个很好的事情。Because IT promote their, but this is a thing respects, because IT promotes their billings ual skills, but the extent of the influence, bilingual kills.</p>
+    <p>这个叫双语技能promote，这个叫促进了，所以这个题干当中的becoming quickly加上quickly是不是就替换了这个promote by single skill。所以他们变得怎么样？变得双语了呗，所以这些小孩儿他们变成双语了。</p>
+    <p>我们在猜的时候其实也猜出来这个空上是一个形容词，双语的这也确实是一个形容词。这个单词一定要记着。那记着，但凡以BI开头的，你比如说bike为什么叫bike？因为它有两个轮子，所以它叫bike。</p>
+    <p>好，那么这个by lingo，那这个in lingo，因为linguistic这个叫语言学家，所以lingo这个单词本身其实就是语言的语言学的。所以bingo就是双语的，这是教大家一个词根词缀。比如说try，try这个就是三个，你像三角形叫做try angular，angular这个就是三角形，那前面这个try，然后就是angular，angular本身就是角度的。对，这个try angular就是三角形。这就是一些常见的词根词缀，大家平时也是多多积累。</p>
+    <p>好，接着36题继续走起。Of english in the virtual world is staggering, and it's all happening really fast for their parents and grandparents, the change is less concerning because they already have their native speaker skills in iceland c but for Young speakers, well, the outcome is a little troubling. For example, teachers have found the playground conversations in islands secondary schools can be conducted entirely in english. 一个被动语态，他说老师发现playground的conversation，尤其是发生在学校的，can be conduct intellect english.</p>
+    <p>所以就是老师发现就学校里边他在操场的这个语言，很有可能都是说英语了。整个这个句子我再给大家听一遍，为什么我们要听第二遍？原因是在于这个题干和这个原文是一个反向对应，一个是被动语态，一个是主动语态。所以它对应的时候这个结构是变化了的。</p>
+    <p>For example，teachers have found the playground conversations in icelandic secondary schools can be conducted entirely in english. OK就是这半截，所以我们这个题目对应的这个地点是在哪？学校的操场上发生的。来咱再来做一做对应。我们把这个地方原文和题目当中它所出现的一个对应关系，咱们就给画圈一圈。</p>
+    <p>OK那老师发现playground conversation in atlantis secondary school，所以这个secondary school是不是等于at a school，对吧？他说be conduct这个叫做这个conduct这个就叫做它等同于do这个小词。所以这个就是having discussion了and telling in english and lying in english doing only english。所以学校里面的哪里发生的对话都是英文的？也就是空上我们应该填的单词就是playground已经写上了，不给大家再写一遍了。</p>
+    <p>好，接着继续往后下一道题。Teachers of much Younger children have reported situations where their classes find IT easier to say what is in a picture using english rather than iceland. Ic有非常明显的信号。这个地方他说学生说了用这个picture描述picture的时候use english rather than第一个，rather than其实告诉我们这个地方肯定得有答案。他说我们整个在描述图片的时候，用英语好像比用这个冰岛的语言要更加的快速以及贴切，所以答案是picture。OK好，接着走起。</p>
+    <p>Really worrying consequence of all this is that the Young generation in island is at risk of losing its mother tongue. Mother time这个叫母语。Of course，this is happening to other european languages too.</p>
+    <p>The world internet companies might be willing to offer, say, french options in their systems. It's much harder for them to justify the expense of doing the same for a language that has a population the size of a french town, such as nes. The other drawback of iceland tic, is the grammar, which is significantly more complex than in most languages.</p>
+    <p>他说另外一个缺点就是关于这个grammar，他说这个grammer怎么了？人家这个听力原文当中先说到的这个grammer非常符合我们预测出来的答案，对吧？如果你在做积极的预测的话，其实你已经猜出来了。然后他这个文章里面说到了grama，然后接着他说到which is significantly。Mr, would you significantly more complex than in most languages? OK, 这句话我给大家整体的粘贴出来。</p>
+    <p>他说另外一个冰岛语言的一个缺点，就是在于它的语法的问题。他这个语法好像比其他的要摸。Thanks, 其实对应的就是我们题干前面那个complicated这个小词，就是对应的这个单词complicate。好，那对应成功了，答案其实就是这个grammar，就是语法非常的复杂，使得这个语言可能学习吸收都偏都比较都偏难一点儿。</p>
+    <p>好在这往后。At the moment, the tech giants are simply not interested in tackling this. So what is the icelandic government doing about this? Well, large sums of money are being allocated to a language technology fund that IT is hoped will lead to the development of iceland, ic sourced apps and other social media and digital systems.</p>
+    <p>But clearly, this is going to be an up hill struggle. On the positive side, they know that iceland and IC. Is still the official language of education and government.</p>
+    <p>IT is survived for well over a thousand years, and the experts predict that its future in this nation state is sound and will continue to be so. However, there's no doubt that is becoming an inevitable second choice in Young people's lives. This raises important questions when you consider how much of the past is tied up in a language. Will Young iceland anders lose essence of their own identity? Another issue.</p>
+    <p>他这地方虽然抛出了一个问题，但是因为这毕竟是一个独角。其实这个问题也就是告诉你答案就是在这儿。他说这个其实也有一些问题题关于冰岛的语言。</p>
+    <p>Will Young icelander lose their失去了他们呢？那lose their sense of own identity。所以这个identity叫做身份的意思。</p>
+    <p>就是年轻的冰岛人，他们会不会被而失去自己的身份呢？啥意思？就正常，你不是这个冰岛人都说冰岛语吗？但是人家这个感觉现在年轻人可能更多的都是选择说英语了。所以其实这个冰岛语言对他们来说就是一个第二选择。那么他大概率可能是要失去自己的身份和象征了。</p>
+    <p>好，接着往后这个结果。Insider, how much of the past is tied up in a language? Will Young cellini's lose their sense of their own identity? Another issue that concerns the government of iceland is this, if children are learning two languages through different routes, neither of which they're fully fluent in, 否定词已经来了，他说，neither of which, neither of which they are fully fluent in.</p>
+    <p>这个句子再听一遍，if children learning languages through different routes，neither of which they are fully fluent in OK, 所以这个空格里面你要填的单词来看我屏幕，你要填的单词是这一个fluent。那我估计可能有同学刚才听到什么fluent ting，其实他是发生了什么，这个地方是不是发生连读。他说这个小孩如果从小学两个语言会不会没有任何语言都非常的流利，就是可能哪个都没学好，大概是这个意思，所以这个neither肯定是替换这个题干上面这个not being这个部分OK，然后fluent in。所以这个fluent in千万不要把它写成fluent听。虽然你可能听到的音儿确实是这么个音儿，但是它其实这地方是一个小连读，OK整个这个题目我带着大家从头到尾过了一遍。这个题你会发现有个什么问题，类似于像podcast的这种题，是不是这这种这种单词作为答案是不是非常让人意想不到。甚至有一些同学可能byington这词也不太会拼。但是其实其他的我觉得都还好，也不算特别难。</p>
+    <p>这篇我们再来一篇，那再来的这一篇就需要大家先来按照这个听力给到的一个节奏，然后去读读题做一做。我就不这样不理他了，大家了好吧，OK我们走起了听力和fashion design course，introducing the subject of hand kitting, which involves making things. 我先停一下，因为这个hand kitting这个小词，我希望大家能会，如果不会的话，可能这题做着也费劲，这个叫做手工编织。OK接着我们就继续放听力，咱们一块儿来，我就读题，然后你跟上我的节奏一块。Things like wooden jumpers and scarves. First, you have some time to look at questions thirty one to forty.</p>
+    <p>OK我看完了，不知道大家有没有看完，大家做题，我记录内容。Now listen carefully and answer questions thirty one to forty. Good morning, everyone.</p>
+    <p>So today we're going to look at an important creative activity, and that hand kitting ancient nited garments have been found in many different countries, showing that kitting is a global activity with a long history. When someone says the word kitting, we might well picture an elderly person, a grandmother, perhaps sitting by the fire, knitting garments for themselves or other members of the family. It's a homely image, but one that may lead due to feel that hitting is an activity of the past.</p>
+    <p>And indeed, during the previous decade, IT was one of the skills that was predicted to vanish from everyday life. For although humans have seen annita their own clothing for a very long time, many of these craft based skills went into decline when industrial machines took over, mainly because there were no longer passed down from one generation to another. However, that's all changing, and interest in kitting classes in many countries is actually rising as more and more people are seeking formal instruction in the skill.</p>
+    <p>With that trend, we're also seeing an increase in the sales figures. Knitting equipment. So why do people want to be taught to knt at a time when a machine can readily do the job for them? The answer is that hitting as a handy craft has numerous benefits for those doing IT.</p>
+    <p>Let's consider what some of these might be. While many people knitted garments in the past because they couldn't afford to buy clothes is still true today that kitting can be helpful if you're experiencing economic hardship. If you have several children who all need warm winter clothes, knitting may save you a lot of money, and the results of kitting your own clothes can be very rewarding, even though the skills you need to get going are really quite basic and the financial outlay is minimal.</p>
+    <p>But the more significant benefits in today's world ought to do with well being in a world where it's estimated that we spend up to nine hours a day online doing something with our hands that is craft based, makes us feel good. IT releases us from the stress of a technology gal, fast pace life. 刚暂停。</p>
+    <p>Now let's look back a bit to early kitting activities. In fact, no one really knows when kitting first began, but archaic logical remains have disclosed plenty of information for us to think about. One of the interesting things about hitting is that the earliest pieces of clothing that have been found suggest that most of the items produced were round rather than flat.</p>
+    <p>Discoveries from the third and fourth centuries in egypt show that things like socks and gloves that were needed to keep hands and feet warm were kitted in one piece using four or five needles. That's very different from most kitting patterns today, which only require to whats more the very first needles people used, where hand carved out of wood and other natural materials like bone, whether today's needles are largely made of steel or plastic, and make that characteristic clicking sound when someone's using them. Ancient people noted using yarns made from lining hemp, cotton and will, and these were often very rough on the skin, the spinning wheel, which allowed people to make final yards and produce much greater quantities of them, LED to the dominance of wool in the kitting industry often favoured for its warmth.</p>
+    <p>Another interesting fact about kitting is that because IT was practiced in so many parts of the world for so many purposes, regional differences in style developed. This visual identity has allowed researchers to match bits of needed clothing that have been unearthed over time to the region from which the where I came, or the job that he or SHE did. As i've mentioned, knitting offered people from poor communities a way of making extra money while doing other tasks. For many centuries, IT seems men, women and children took every opportunity to nit, for example, while watching over sheep walking to market or riding in boats. So let's move on to take.</p>
+    <p>That is the end of part four OK好了，这一篇就大家在听的过程当中，其实我已经给大家这个题干上统一替换都给整理了一下。也不算特别难的一个篇章，而且非常follow对吧？就是题干这些黄色的就是听的过程当中我都已经标注了。</p>
+    <p>好，首先31题他说someone原词重现的，然后他说提到某个人可能会编织，你可能会well picture。什么叫well picture？它对应的这个替换词well picture，它的意思叫想象，就是你脑海当中绘制一下这样的图片，一个什么图片呢？一个grandmother就是一个奶奶在那里编织，这是一个美好的家庭形象。</p>
+    <p>好，接着32题。所以第一个31题没啥可听的，这个大家如果没做上的话，这个题你自己回去复盘。真正复盘的时候，其实你需要写下来的就是这些东西。Someone帮你定位，然后while picture和imagine它对应统一替换，然后对应有冠词的是a grandmother。</p>
+    <p>好，接着你都猜出来这一个时间状语了。所以他说到during the previous decade，这肯定是一个时间。所以这个大概率就应该是答案没什么可商量的对吧？然后接着他说disappear，disappear对应我们听力当中说到了vanish，vanish这个单词意思也是消失的意思，所以它俩都是消失。好，这个就是decade的这个时间状语，真的是无比经常出现在这个雅思的听力的空上。</p>
+    <p>好，接着33题说到这个classes increasing。这个increasing我还给你写了一下，它对应的是rising。其实increasing，growing, rising, 这同一句话太经常出现了。接着空格前不是有一个by more，它对应的是increase in sales figure，这个叫什么增长销售额对吧？销售数据销售销售数据这个对应那个sales figure，它increase了是不是就by more了by more了什么？Equipment，就是设备，就是那个编制的设备。</p>
+    <p>接着下一道题，34题，34题他说这个东西可以给到我起到一些支持，尤其是economic hardship，所以发现了没hardship和difficulty是不是同一替换了，给答案一个，这都没什么可说的。接着35题说到这个东西，有的时候需要的这个技术are really basic。这是一个经典的，不能再经典替换。这是something are，这个相当于something are或者something b然后这个地方加一个形容词，等同于一个形容词放在前面加上这个something就是这么个结构，所以它的这个技术非常的basic。好，就是基础呗。</p>
+    <p>好，接着往后，36题形状一个形状，然后他就说到了关于这个形状，至于中间什么origin first began就是替换，我就不说了。然后他说这个东西它是什么形状？一个非常明显的信号词出现在你面前，rather than他说IT is wrong，rather than flat, 就是它是什么形状？是圆的而不是平面的。所以这两个形状并列一个干扰信息，一个正确答案。那么正确答案就是这个round，干扰信息就是个flat。主要就是给rather than起的作用。</p>
+    <p>好，接下来他说到这个针noddles，这个叫做针，就是织毛衣的那个毛衣针。好，毛衣针。那么现在这个毛衣针是would过去过去这个毛衣针是wood and other like phone。所以他说这个是过去，现在是什么呢？Today他说是still and plastic，这个叫做钢针或者叫做塑料针。OK到这儿为止都没有什么难度，都是非常简单的词儿词替换。</p>
+    <p>好，接着38题说这个东西摸起来feel什么to touch。人说的是very rough on skin。On skin是什么意思？是不是？就是to touch的意思，所以那个形容词是rough。Rough这个单词意思要粗糙的，就摸起来还挺粗糙的。好，接下来他说有regional different，就是有这个区域的不同。然后每个区域它的编制的东西都会有一些当地的style，style这个叫特色，都会有一些当地个人的地域的文化。然后接下来下一个空闲动词，look after替换watching over，所以答案是sheep。就是古代人在放羊的时候，可能会觉得编织一些的东西，比如编织一些什么筐之类的，OK好了，整体其实大家看这个替换还是非常的明显，对吧？</p>
+    <p>所以这里31到40这题号写在这儿，我教给大家的就是复盘的方法。你就应该像下面这种复盘，然后一个一个题把对应的替换都给我整上。然后随着你做题数量越做越多，可能你的表现也会越来越好。但如果你光做题没有过这样的复盘，你什么时候能知道well picture和imagine对应替换呢？你又什么时候能知道vanish和disappear统一替换呢？所以希望大家不但要往前跑，同时要把你学的东西真正的吸收理解到位。OK. 那么今天我们学习的就是人文社科类的场景，明天带大家继续商业场景OK。我们今天的课程就到这儿了，see you next time, 拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-18.html">精讲逐字稿</a></li>
+      <li><a href="qa-18.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-17.html">上一讲 17</a></li>
+      <li><a href="lesson-19.html">下一讲 19</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

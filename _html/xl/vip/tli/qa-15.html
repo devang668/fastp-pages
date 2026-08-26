@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第15讲 · 复盘技巧与重听方法 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 15 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a class="active" href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第15讲 · 复盘技巧与重听方法</h1>
+    <div class="abstract"><b>本讲概要：</b>老师在讨论中首先教授了复盘技巧，指出高水平学生可利用重听和对标选项的方法，而需改进的学生则应通过朗读课文增强理解后，再实施对标策略以锁定答案。强调理解内容优于死记硬背，并推荐听力学习时应侧重于听记词汇而非单纯背诵拼写。此外，老师提醒关注信号词，因其能指引答案或暗示干扰信息。随后，老师通过分析剑桥18听力材料，探讨了职场场景的复杂性，引导学生如何提升应对这类场景的能力，覆盖了工作沟通、职业规划讲座、自动化对就业影响等话题，旨在帮助学生深化对职场文化的理解，并通过练习和学习场景中的替换词汇来提高考试表现。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在本次讲座中，主要关注的是哪个场景？第一道题目描述了什么样的场景？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>本次讲座主要关注的是与就业和工作相关的场景，特别是在剑桥18听力考试中经常出现的工作相关话题。第一道题目描述了两个学生参加了一场职业生涯规划讲座，并针对讲座内容进行了讨论，主题是关于专业未来择业和就业的问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第二十二题的问题是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第二十二题询问的是关于说话人对于工作市场有何感想，特别是对于讲座中提到的工作市场部分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第一个问题“讲座开始时Shantell遇到了什么问题？”的选项有哪些？根据讲座内容，Shantell在讲座开始时具体遇到了什么问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>选项包括：A.视线被阻挡；B.无法找到空椅子；C.旁边的人在讲话。Shantell在讲座开始时遇到的问题是视线被前面一个男性的高个子阻挡，因此选择了A选项。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于惊讶考点的理解以及该题目的选项有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>题目是一个惊讶考点，ABC三个选项都可能正确，但其中有些内容是预料之中的，只有部分选项是真正令人惊讶的。本题中，女生提到对职场竞争激烈和工作种类多样感到惊讶，而男生则表示对讲座中提到的一些未曾考虑过的就业领域感到惊讶。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在第一段对话中，男生对女生的选择持何种态度？女生对于男生提到的2B选项有何反应？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>男生对于女生有很多选择这一点感到惊讶，并且认为这符合2B选项（即男生同意女生的选择）。女生不仅确认了2B选项，还进一步修改了句子内容，表达为“我之前也从未预料到如此多的职业选择机会”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于讲座人的评价，哪个选项最准确地反映了他们的观点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>根据后续对话，讲座人可能过于从学生的视角阐述问题，而实际上学生的想法并非如此，因此“讲座人讲话难以跟上节奏”（2B选项）和“讲座人对行业理解至关重要”（C选项）都不准确。A选项虽然难以理解，但根据对讲座内容深入理解后，它可能最符合题意，即讲座人的某些言论让学生感到不公平。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于学校职业生涯发展办公室提供的职业建议，学生们持何种态度？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>学生们认为学校提供的职业建议不够激励人（not inspiring），并且讨论的次数足够多，但缺乏真正激发他们热情的讨论。因此，学生们对“何时”和“由谁”给出职业建议持有批评态度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>So did today's talk influence your thoughts on what career you'd like to take up in the future?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Well, I promised myself that i'd go through this course and keep an open mind till the end, but I think it's Better to pick an area of the industry now and then aim to get Better and Better at IT.</p></div>
+    </details>
+    <details class="qa">
+      <summary>女生对于未来职业规划的看法是什么？男生对于未来职业规划的观点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>女生表示她会保持对课程内容的开放心态直到课程结束，倾向于先全面了解再做决定。男生认为应该尽早选择行业方向，并为目标而努力提升。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这道题的关键点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这道题的关键在于理解男女双方对于时间规划（when的问题）的不同看法。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于做不给钱的助理工作，男生持何种态度？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>男生表示可以接受这种做法，并认为这是行业内的常态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在27题中，讲座中提到的错误是谁犯的？对于讲座中提到的“他”的第一份工作中的错误，选项中哪个是正确的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>讲座中提到的错误是speaker在第一份工作中犯下的。正确答案是B选项，即“pay too much attention to her appearance”，即过于关注自己的外表打扮。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在第一段中，SHE对她的老板有什么不满？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>SHE本应该隐藏她对老板的负面情绪，但她并没有这么做，这显示了她对老板的openly dislike。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第四题的正确答案及其解析是什么？第六题的正确答案及其解析是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>正确答案是C选项。解析：根据信号词&quot;However&quot;，转折后提到市场存在消费者需求与商家供应之间的缺口，即设计师需要了解消费者想要但找不到的商品类型。正确答案是A和C选项。解析：从信号词&quot;People don't give up searching&quot;和&quot;They also take things back to the store if they aren't right&quot;中可以推断出，退货商品的质量问题以及政府销售商品的退货情况，这是设计师需要了解的信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>根据上下文，为什么说“信号词”在理解对话内容中很重要？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“信号词”在理解对话时非常重要，因为它们揭示了句子之间的比较关系、转折关系以及虚拟条件等逻辑联系，帮助我们准确把握对话中的因果、转折等关键信息，并能从信号句中找到对应答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于接下来要分析的练习，它的题型有何变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>接下来的练习都是配对题，而非选择题，虽然题型变为配对，但场景讨论的是未来工作趋势，可能涉及较多未知领域的内容，需要特别关注信号词以提高答题正确率。</p></div>
+    </details>
+    <details class="qa">
+      <summary>What are the perceived impacts of industrialization and IT on employment and job nature?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Industrialization created more jobs, while IT led to the destruction of jobs, though initially IT might not have seemed positive.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What were the predictions about the future of work and how have they evolved?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The future of work was initially predicted to be optimistic, with fewer boring, repetitive tasks due to robots, but concerns remain about people having more leisure time and the potential for increased unemployment.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How has the demand for accountants changed in the last century?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Despite technological innovations, there are more accountants than ever before, and they have become more efficient and in demand.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How has the job market for hairdressers changed over time?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Hairdressing jobs have seen a massive increase in demand because people's earning power has allowed them to spend more on personal services like hairdressing.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How has technology affected the job roles of administrative staff?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Technology has led to a significant change in administrative staff roles, making their work more interesting and giving them higher status and responsibility.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What were the actual changes in the agricultural workforce over time?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The proportion of the population working on land has decreased significantly since the 19th century, from roughly 25% to less than 4.2%.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How has the care sector's growth been affected by technological advances?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Care worker jobs have seen huge growth due to technological advances and people's increased lifespan, which was not the case in the 19th century.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What has been the trend for bank clerks and how is technology expected to affect their future?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Bank clerks have been in decline since the introduction of ATMs in the 1980s, and technology is likely to make many of their current jobs redundant.</p></div>
+    </details>
+    <details class="qa">
+      <summary>二十年前，秘书的工作内容主要是什么？现在秘书的工作与过去相比有何变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>二十年前，秘书主要负责打字和记录会议的口述内容（即会议纪要）。现在秘书的工作赋予了更多的责任和更高的地位，不再局限于打字和记录会议，变得更加有趣和具有挑战性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>农业工作者的数量有何显著变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>农业工作者的数量大幅度降低，从原本占据较高比例减少到了几乎为零，这个数字的巨大跌幅表明该职业领域的工作机会明显减少。</p></div>
+    </details>
+    <details class="qa">
+      <summary>护理工作在近期内有何发展趋势？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>由于人们的寿命增长，护理行业的规模经历了巨大的增长，但同时也存在一些工作岗位由于技术进步而变得多余，如银行柜员工作，面临着被取消的风险。</p></div>
+    </details>
+    <details class="qa">
+      <summary>工业化对就业市场的影响是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>工业化虽然创造了更多的就业机会，但也摧毁了一些传统行业，例如纺织行业，当时有工人因担心失业而破坏自己的工作工具，但最终这些行动并未改变工业化带来的变革。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于未来工作的两个预测是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>学生们对于未来工作有两个不同的看法：有人认为随着机器人取代人力，人们将有更多闲暇时间；而另一些人则持怀疑态度，认为尽管长远来看工作时间可能会减少，但在可预见的未来，工作时长可能会增加，且失业率的降低并不像预测的那样确定。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-15.html">精讲逐字稿</a></li>
+      <li><a href="qa-15.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-14.html">上一讲 14</a></li>
+      <li><a href="lesson-16.html">下一讲 16</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

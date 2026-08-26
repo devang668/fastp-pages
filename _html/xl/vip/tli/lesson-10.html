@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10讲 · 听力练习：开发项目反馈对话 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 10 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a class="active" href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第10讲 · 听力练习：开发项目反馈对话</h1>
+    <div class="abstract"><b>本讲概要：</b>一段对话讨论了一个开发项目的积极反馈，着重于其对多种住宿类型的包容、合理的价格设置以及与乡村短途可达性的优势。参与者赞赏项目美观且与自然和谐共存的设计，虽然建议增加自行车设施，但总体认为项目有利于不同年龄群体的和谐共居。随后，对话转向详细介绍项目规划，包括道路、住宅、学校、体育中心、医疗设施、社区中心、老年人居所和超市等布局，特别强调了对湖泊、道路和关键设施的说明。此外，还讲解了如何有效解答地图题的技巧。另一部分对话集中于雅思听力考试的策略，包括介绍不同场景的题型、关键词筛选、排除选项的方法，以及地图题的应对策略。老师强调多选题和配对题的解题思路，提示学生注意信号词以快速定位答案，旨在提升学生的听力技能。</div>
+    <div class="tip">本讲含 33 组问答精要，可到<a href="qa-10.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>一段对话讨论了一个开发项目的积极反馈，着重于其对多种住宿类型的包容、合理的价格设置以及与乡村短途可达性的优势。参与者赞赏项目美观且与自然和谐共存的设计，虽然建议增加自行车设施，但总体认为项目有利于不同年龄群体的和谐共居。随后，对话转向详细介绍项目规划，包括道路、住宅、学校、体育中心、医疗设施、社区中心、老年人居所和超市等布局，特别强调了对湖泊、道路和关键设施的说明。此外，还讲解了如何有效解答地图题的技巧。另一部分对话集中于雅思听力考试的策略，包括介绍不同场景的题型、关键词筛选、排除选项的方法，以及地图题的应对策略。老师强调多选题和配对题的解题思路，提示学生注意信号词以快速定位答案，旨在提升学生的听力技能。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们part two题型部分已经讲完。那么接下来我们就带入场景跟大家一起来练习一下。我们还是常规的练习模式，就是第一个题我带着大家一点一点的去做。然后第二个题大家要独立先操作一下。然后第三个题更多的自主诠释给到大家。</p>
+    <p>我们今天先来这个工作和旅游这样的场景，为什么把这两个场景放到一块儿呢？因为这两个场景其实基于介绍，对吧？就比如说我给你介绍一下这个工作，它主要是这个职责，都包括什么。然后再比如说如果你出去旅游的话，那导游是不是要给你介绍，咱们公园里边都有什么样的服务，或者什么样的东西，你可以去体验一下。所以这两个场景其实说实话是非常的类似的。</p>
+    <p>好，我们今天拿到第一个题是剑桥16让test three的section two。如果想要翻开题目跟我们一块儿来做一下题的同学，也是非常的欢迎的OK。好，既然这个题是我带着大家一块儿来做，那我就先带大家一块儿来读读题。先看一下题型，是多选题和配对题这样的一个组合配对题在这个练习模式下，它这个就是需要我们敲字母进去。但是真实考试的场景是直接拖拽式的，就比如说你想选A你咔就把A就拖回来就可以了。</p>
+    <p>好，那我们来看一下第一道题。According to make an, what are two main advantages of working in the agriculture and hot to health culture sector? 这个东西如果有同学不知道是啥意思无所谓，就是这个工作的两大好处。所以第一道题它其实在题干的部分，记个笔记，在题干的部分给我们限定的是main advantage。如果说这个不是一个主要的好处，那我们就不能选。</p>
+    <p>好，那active lifestyle这个选项，我估计可能有些同学在读的时候就是有问题的。什么叫做active lifestyle？这个叫做主动的生活方式。那么什么叫做主动的生活方式呢？不知道大家有没有听过，比如说我们在office里面去工作，在这个办公楼里面去工作，可能会处于一个亚健康的状态，就是很疲劳很terrine对吧？但如果说这个工作经常会涉及到我要在户外，可能会涉及到有一些体力方面的劳动，就是去和坐办公室这种工作相对立的。我认为它就是一个active lifestyle ARM。</p>
+    <p>然后第二个above average salary，这个其实好多公司在招聘简章上都会这么写，就above average salary叫超过平均薪酬，这个salary是薪酬的意思。然后第三个flexible working opportunity，这个flexible体现的是什么呢？Flexible比如说你的工作时间是可以自己选择的，那这个就叫做flexible，这是灵活的这样的一个意思。</p>
+    <p>第四个，the opportunity for oversea travel, 这个oversea travel是什么意思？要做这个到海外去出差，就是国外出差这样的一个行程，对吧？OK第五个说the chance to be in a nature natural environment，就是有机会可以在自然的这样的一个环境下。哼OK好，这道题我们先读完了，咱们就一道一道来，就一道一道做。好，大家跟我一块听一下这个。Hello everyone, my name's Megan Baker, and i'm a recruitment consultant at AV.</p>
+    <p>T. Recruitment specialists now. Our company specializes in positions that involve working in the agriculture and water lure sectors.</p>
+    <p>OK题干定位成功。因为我相信刚才题干当中这个单词就是agriculture and hot culture，这个单词大家不可能听不到对吧？好，所以现在我们听定位成功之后，你要干的事情是什么来着？在做多选题和做单选题的时候是一样的，叫做筛选和排除。所以他有可能就开始出现各种各样的选项了，我们要干的事情就是筛选和排除。OK，let's go.</p>
+    <p>So that's fresh food production, gardens and park maintenance and so on. And these sectors do provide some very special career opportunities. For a start, they often offer opportunities for those who don't want to be stuck with a forty hour week but need to juggle work with other responsibility, ie. S such as childcare. And this is very important for many of our recruits.</p>
+    <p>OK这个地方其实非常明显有一个信号词。这个信号词就是这个人说的for start。来听一下，for start，这个地方他说到了一个for a start。所以这里你内心的一个想法是不是会有一个答案。如果你有这个想法，那恭喜你现在已经进入到做听力的一个标准状态了。如果你没有这个想法的话，那这里要注意，这个地方显然是一个非常重要的信号词。</p>
+    <p>For start. 所以他for start后面说了什么？大家可能就是我絮絮叨叨说了半天，有点忘了，我们再听。For they often offer opportunities for those who don't want to be stuck with a forty hour week but need to juggle work with other responsibility E, S, such as childcare. 好，所以这个地方不知道大家有没有听懂，他说经常会offer opportunities for those who don't want to be stuck with forty hours a week。</p>
+    <p>所以什么单词？什么意思？叫卡住。就是对于那些人他不想卡在每周四10个小时的工作制当中的那些人，后面还解释了一下，尤其是这些人，他们可能会经常这个work这个work是什么意思？就是兼顾，叫work with other responsibility，juggle a with b这个就叫兼顾的意思。所以他意思就是说经常还得兼顾工作和一些other responsibility，包括什么呢？包括child care。</p>
+    <p>有没有发现就是在这个雅思听力当中的这种工作类场景，经常会提提到照顾小孩这件事情。因为国外的人他们就是这样的讲究一个worklife baLance OK。好，所以这个对应的是应该是哪个选项？就是这个工作相对来说是比较工作时间，你可以自己选择。所以这是不是一个flexible对吧？就是刚才我们说到的这个工作时间相对灵活OK所以这个我们就直接选出来了，C选项正确，接下来我们继续往后。</p>
+    <p>This is very important for many of our recruits. Some people like working in a rural setting. Some people like working in a rural setting.</p>
+    <p>这里这个rural setting其实指的就是那种，比如说自然环境啥的。所以如果说你足够敏感，大概可能这时候要对应E这个选项。但是至于E这个选项到底对还，那我们可能进一步还得再去。Some people like working in a rural setting, surrounded by plants and trees instead of buildings, although we can't guarantee that.</p>
+    <p>他最后说了一个什么？是不是说了一个转折连接词？我们之前是不是说过，但凡带有转折的这样的和带有否定的，都不是我们的正确答案，这里它带有了一个所以他的有些人可能会觉得这个工作会包含一些在自然界当中去进行的一个工作。但是我们无法保证，although we can guarantee that guarantee这个单词保证，所以此时此刻E选项是不是就被你删掉了？E这个选项肯定是不对了，排除了。</p>
+    <p>好，接着往后继续。But there are certainly health benefits, especially in jobs where you're not sitting all day looking at a screen, a big plus for many people. 他这地方说说这个工作有一些health benefit，这个叫做身体上面的好处。尤其是适合什么样的人呢？尤其是适合那些人，他们not sitting all day looking at the screen，就是你不是一天坐在那儿就看屏幕的，这个对来说是一个很好的一点对吧？所以这个工作非常友善的一点就是在于他并不是一直坐在那去看屏幕。</p>
+    <p>那么我的问题来了，这对应的应该是那的，其实这就应该对应的是第一个A这个选项。有同学可能内心会比较奇怪，说为什么？这难道就是一个主动的生活方式？我觉得这个active你不是坐在那儿的，你是在动弹的。这是不是就是一个active这个单词本身的一个含义。你想act，这表示表演action，表示动作。Active其实它最本质的一个意思就是动态的对吧？所以这个地方就对应成功了，因此AC这两个选项成功入选。</p>
+    <p>那么说到这儿，如果各位同学是成熟的烤鸭，就如同我一样，此时此刻的你是不是应该开始回顾下一道题了？因为正常你下一道题是不是已经看过一遍了，所以此时我用的这个单词叫做回顾，应该回顾下一道题，然后做好做做下一道题的准备。但是毕竟我们是讲题，所以我一再是想强调给大家讲明白为止，OK继续读。</p>
+    <p>Salaries can sometimes is big too, although there's a lot of variety here. 他说salary有的时候倒是挺好的，although感受到这个although我们有的非常多的这个variety，就是变数非常多OK然后接着继续。And you may have the opportunity in some types of jobs for travel seas, although that obviously depends on the job.</p>
+    <p>关于这个travel oversea的问题，它是不是后边又跟了一个although。所以这道题我们需要小小的总结一下。你会不会发现这道题所有的答案都是卡死在句型里，那这个句型是什么？错误答案这个地方它都跟了一个outdoor，有些人可能认为这样，但是有些人可能认为那样。但是所以BD这三个选项后面都跟了一个outdo，你一定给我记住，跟outdo跟but的选项大概率错误，所以大概率就是不选的选项好吗？</p>
+    <p>好，这道题我们就彻底结束了，因为五个选项都已经出现了，那么接下来就是34了。他说which two of the following are likely to be disadvantaged for people working outdoor？那就是对于在户外工作disadvantage。刚才那个题让我们选的是advantages，现在又让我们选disadvantages，也是两个A选项，increasing risk of accident, 那就是提升了可能会有事故的风险risk of accidents，这个叫做事故风险。</p>
+    <p>好，接着下一个being in a very quiet location。什么叫做quiet location呢？Remote place是不是就是quiet location，就是非常安静的地方，或者isolated place，也是与世隔绝的地方，所以这也是C选项。Difficult weather condition at times就经常可能会遇到一些极端的天气条件，就天气不太好。最后一个sorry，第四个cause of housing就是这个关于花住宿费的问题。</p>
+    <p>最后一个需要physical fitness required。我们在做part one的时候，我是不是就讲过这个词，什么叫做physical finance？叫做身体就得好啊，那身体好。因为这个活儿可能多少有点累，所以是不是需要身体好呢？来，我们继续把它听完。And not everyone is keen to do IT。Of course, working outdoors does have its chAllenges.</p>
+    <p>他说了working outdoors that have chAllenges，这里面这个chAllenges是不是就等同于这个disappoint tages对吧？所以此时此刻题干定位成功了，然后接下来继续竖起耳朵听。Of course working outdoors does have its chAllenges.</p>
+    <p>Is fine in summer, can be extremely unpleasant when it's cold and windy. 他说it's fine in summer，but can be extremely unpleasant when is cold and windy. 所以夏天的时候倒是还好，可能这个冬天确实挺那个的。好，这句话我要给大家完整的写出来，各位同学来感受。</p>
+    <p>就有的时候我说转折连接词在一个句子当中，并不见得它永远是错误答案。比如说像这个，你看这里边是不是有一个but对吧？它is fine summer，但是extremely unpleasant。这个unpleasant是不是对应的就是这个difficult weather？所以他说unpleasant when a cold and windy，所以difficult weather condition是不是对应上了，所以C选项在这儿竟然正确了。所以我说有but和有outdo这样的句子是需要引起你的重视，但不见得它一定都是错误答案，明白吗？这里这个but放在这儿，那这不就是有正确答案吗？</p>
+    <p>前面说的是，夏天还挺好的，但是冬天会刮风，就特别也特别不好。所以这里注意，有转折的句子不代表它都是错误的，可能还是要根据语境去进行进一步的判断和界定才可以。Fine in summer, but can be extremely unpleasant when it's cold and windy. You may need to be pretty fit for some jobs, though with modern technology that's not as important as IT once was.</p>
+    <p>好，这个地方他说到pretty fit，这个pretty fit我相信大家应该还记得对吧？就我们在做part one的时候其实就说过这个pretty fit其实就是刚才题目当中说的physical fitness他俩的意思。但是这个一定是答案吗？因为它后边又跟了一个do人家怎么说呢？人家说你有些工作可能确实是需要就挺挺健康的。但是他说随着现代科技的发展，这个东西好像不是特别重要了。所以这也是一个有转折的地方，但这却是一个错误答案。所以大家能感受到这两个句子之间的一个差别吗？</p>
+    <p>上面这个句子就说的是，之前天气不好的时候还不错，但是天气坏的不行。下面这个就是说有一些工作确实是需要你有身体强壮，但是反正我们现在也有技术了，所以你不用有这个担心。所以这个E选项是不是再次就排除掉了，就不对。好，接着看啊，下一个。And standards of health and safety are much higher now than they used to be.</p>
+    <p>So there are fewer work related accidents. 这地方说的是什么？他说的是fewer work related accident，所以他说的是一原因不详，原因你听不听所谓了，反正就是现在和工作相关的这个事故，肯定是比之前要少了许多。所以A选项是说的，因为A选项它这地方说的是increasing，显然说错了，A也是一个被排除的选项。</p>
+    <p>好，那接着继续往后听。But if you like a lively city environment, surrounded by lots of people, these jobs are probably not for you. They're often in pretty remote areas.</p>
+    <p>说这个工作不适合那些喜欢人来人往的人，就是不大概好像就是不太适合艺人，对吧？因为他经常会在一些remote areas，那remote areas对应的是什么？就是这个吗？Quiet location.</p>
+    <p>所以这个成功对应了2B选项正确。那么到目前为止是不是4D选项其实还并没有提到，至于文章会不会提到？我们来听一听。And some people worry about finding a suitable place to live，but in our experience, this usually turns out.</p>
+    <p>有些人可能会担心就有没有合适的地方，但是在我们看来这个好像是OK没问题的对吧？所以这个选项就是关于cost of housing这个部分，那肯定就是不选的那这两道多选题，实话实说，这两道多选题共同的一个特征就是共同的特征就是五个选项都出现都出现，然后具体哪个选哪个不选，一定要听，然后去进行排除，边排除外边做。如果你能顺利的排除三个选项，能剩的两个也肯定对。那如果你能顺利的选出来两个选项，岂不是更好的一件事情吗？对吧？</p>
+    <p>好，所以多选题告一段落，接下来我们就来看配对题，配对题整体做题的流程是怎么回事来着？底下这些东西用看吗？不用看。有些同学说这单词我认识，我看一看有没有必要花这个时间干这个事儿。你要干的事情就是给我认真的看选项，思考替换。Not a permanent job什么意思？不是永久的，就是temporary job。A temporary temporary job就是暂时的临时工，大概这么个意思。</p>
+    <p>2B选项我们来看看her involved leading a team，率领一个团队，所以你大概是一个leader。C选项说这个experience not essential，就是经验好像并不是特别的重要，not essential，这个单词是可以替换的，比如说not necessary或者not so important是不是都行。4D选项intensive work but also fun。这个intensive这个单词注意它表示的是强度大的，强度大的。你比如说像篮球这个运动特别的激烈，对吗？那这个篮球这个运动其实就叫做intensive sport OK，所以说这个强度很大，但是挺有意思的。</p>
+    <p>好，然后E选项chance to earn more through over time，这个叫做加班，所以可以获得额外的钱，通过加班也就给你加班费呗，就是pay you when you work overtime OK。然后接着往后说这个chance for rapid promotion，这个F选项rapid promotion啥意思？叫做快速的升职加薪。这个promotion这个单词放在这就是升职的意思。那么快速的升值，这个可能会怎么说？比如说他可能会get promote或者get promotion也可以，或者讲讲career的事儿，职业生涯的问题对吧？</p>
+    <p>好，G选项accommodation available，住宿给你那比如说rent a house，给你租个小房子之类的那H选项local travel involved。刚才说在出国这个出差我们叫做oversea对吧？Travel oversea它是说的是local，就本地的那本地的是什么意思？就比如说我可能不是坐在办公室里一直坐在那儿，而是我需要去visit different place。如果我们有卖场的话，可能要去visit different place places OK好了，这些选项我基本看完了，接下来我们就一个一个来跟上我的节奏走。</p>
+    <p>Now let me tell you about some of the exciting jobs that we have on our books right now. One is for a fresh food commercial manager. Our client tear is a very large fresh food producer supplying a range of top supermarkets. They Operate in a very fast paste environment with low profit margins, the stuff that work hard, but they play hard as well. 说这个员工在这儿work hard work hard，然后play hard。那你看看选项当中哪个说的是work hard，是不是说的D选项那个intensive work but also fun OK，所以4D选项成功入选OK。</p>
+    <p>刚才他这个语言点，就是他说到了什么呢？他说他们的工作节奏fast pace environment with low profit margin。他意思就是节奏非常快，而且是那种薄利多销这样的一种工作氛围。好，这个给大家写一下，能记就记一记。这个基本上就是在写写作当中，我觉得可能是会用到的，口语也可能会用。Fast pace environment with low profit margin，profit margin这个叫做利润边界，所以它这个意思就是薄利多销的意思。Fast pace experiment叫做节奏快快节奏。</p>
+    <p>OK接着往后，我们下一道题喽。So if you a sociable personality, this may be for you sociable personality. 还是上一道题的，就没到下一道题，sociable. perceptive.</p>
+    <p>这个叫做社交人格哈那社交属性的人，社交人。所以社交人就是extra t就是这种外向的。如果你是一种外向的那种性格的，还是挺适合你的。好，接着下一道题。We have an exciting post as an onst advising farmers on issues such as crop nutrition, protection against pests and the latest legislation on farming and agricultural practices.</p>
+    <p>妈呀听到这一块有同学可能会头疼，感觉三个字儿没听懂。那没听懂重要吗？其实不重要，对吧？因为这个题它根本不考，这个工作是做的，而考的是什么？而考的是这个工作它具体的一个评价。所以没听懂这个工作做什么，这个不重要。那你要重要的是听懂这个工作的evaluation，就是一个评价的部分，换句话说就是形容词的部分。There are good opportunities for the right person to quickly make their way the career ladder, but a deep knowledge of the agricultural sector is expected of applicants.</p>
+    <p>这句话可谓是一箭双雕。前面说了一个什么东西不重要，然后后边又说了前面说了有什么好处，后边又说了我们对你的一个期。整个这一句话的结构，我希望大家能够掌握下来，就是听力当中经常就是这种说话结构。</p>
+    <p>They are good opportunity for the right person to quickly make their way up the career letter这career letter是什么意思？叫做职业阶梯。这个职业阶梯是不是就等同于get promotion吧？OK但是我们是需要你必须要有一个非常深入的知识水平的applicant。这个小慈表示的是申请者，我们对一个申请者期待，就是希望你有非常深入的知识水平。所以我们来看这说的是什么呢？就是你倒是可以升职很快的，但是你也得有这个能力，所以F选项是不是成功入选了？好，接下来继续下一个。There are good，a leading supermarket is looking for a fresh produce prayer. He was available for a twelve month maternity of a contract.</p>
+    <p>有没有听到这是一个12个月？他说这是一个12个月的maternity cover contract。什么叫maternity cover contract？这就是一个产假。这个不得不说国外的一个工作，我觉得还是非常人性化的。你比如说我们在国内可能上班，比如说如果我休产假了，那可能就是别的同事去来cover一下我的职责。但是在国外，就是我这个人休产假了，可能公司会再招一个人，是专门来cover我这个人的工作的那这个被招的人，他所签署的就是一个maternity cover contract，就是这样的一个合同。</p>
+    <p>所以这个合同一般来说它的持续时间都是比较短暂的，大概是12个月。所以这个工作它是not a permanent，它并不是一个永恒的工作，对吧？它是一个临时工，所以A选项正确。</p>
+    <p>Permanent PERMANENTOK注意刚才我写的那个单词，就是temporary，它俩一块记，这个permanent表示的是永久的，然后刚才我说的这个temporary这个是暂时的OK。好，接着继续往后下一个。We have also received a request for a sales manager for a chain of garden centres you will be visiting.</p>
+    <p>是不是被我倒腾到后面去了？来继续问这下这儿。You need to have experience in administration, planning and buying in the fresh produce industry, and in return will receive a very competitive salary.</p>
+    <p>这就是刚才所说的这个就是关于fresh food，fresh produced fire这个部分，一个短期的合同，就是给的这个工资还是挺不错的。We have also received a request for a sales manager for a chain of garden. You will be visiting centres in the region to ensure their high levels of customer service are maintain.</p>
+    <p>他说你的最主要的一个职责就是visit center in the region。In the region就是在我们这个区就有各种各样的，所以是什么travel，对吧？OK所以这个选项选的是local travel involved，h选项正确。</p>
+    <p>好，接着下一个。This post is only suitable for someone who is prepared to live in the region. There is also a vacancy for a tree technician to Carry out tree cutting. For a story and conservation work, candidates must have a clean driving license and have training in safety procedures, a use experience.</p>
+    <p>刚才说到的一个条件说你必须得有driving lessons。但这个东西好像在选项里面并没有体现出来，那就不管了。Driving license表示的是驾照，得有驾照。</p>
+    <p>好继续。Would be preferred, but a year's experience would be preferred a year. 刚才这地方说的是什么？他说的是a year experience would be prefer，然后接着听，a year's experience would be preferred，but the company might be prepared to consider someone who has just completed an appropriate training course.</p>
+    <p>所以这个句子就是我之前说的那种信号句。这个信号句我为什么在前面给大家放了好几遍？A years experience would be present, 就这地方would be如果你有经验当然是更好的。如果你没有经验的话，是否能接受？是不是也可以接受对吧？所以他这地方说的是一年的经验很好，但如果你没有经验也是OK的。那么我们来看选哪个，是不是experience not essential，这里这个not essential，它其实替换的就是意思上的替换，意思上的替换我们还是要能够听出来的。哼所以这个对应的是C选项正确写进来。</p>
+    <p>好，接下来farm worker。Finally, we have a position for a farm worker. This will involve a wide range of farm duties, including crop sowing and harvesting, machine maintenance and animal care. Perks of the job include the possibility of renting a small cottage on the estate and the chance.</p>
+    <p>他说你的perk perks of job这个地方，也就是工作当中可能会有一些额外的津贴，这个额外的津贴，额外的津贴就是给你租一个小木屋。Parks of job include the possibility of renting a small cottage, 这个small cottage这个就叫一个小房子，所以给你租个小房子是什么？包住宿呗，对吧？住宿这里面对应的就是accommodation这个单词。OK好，所以这个G选项正确。</p>
+    <p>听力其实到这儿已经没有内容了，但是我们听完。Perks of the job include the possibility of renting a small cottage on the estate and the chance to earn a competitive salary。工资不错。Driving license and track to driving experience are essential.</p>
+    <p>需要你有驾照。好了，那我们这个题就相当于全部做完了，带着大家一块儿复盘了一下。我们的多选题其实也是单选题了，就是单选和多选是一样的。这个选择题和配对题整体的一个做题思路。千万不要忘记了，其实我们的选择题在干的事情就是筛选和排除。你的配对题在干什么？找替换词，只要那个替换词你提前已经想到了，预判出来了，那听的那个当下其实就相当于是啊bingo就是这种感觉，对不对？</p>
+    <p>好，接下来我们再拿一个题目，刚才这个题其实就相当于是我手牵着手带着大家去做的。那么接下来的这个题目就需要给大家完整的做题感受了，就是需要大家从头看题、听题、做题。然后一会儿我们一块儿再来复盘一下好吗？这个题其实就讲的是招聘志愿者becoming volunteer for ACE，所以采的那个场景就是多多少少类似都是工作场景，这个讲的就是招募志愿者的这个事儿。好，那么接下来就是给大家时间看题做题好吗？我们就整体follow这个听力的节奏了。Two，you will hear a woman speaking to a group of people who are interested in becoming volunteers for an organisation called ACE. First, you have some time to look at questions eleven to fifteen.</p>
+    <p>第一次让你看1到10、15。</p>
+    <p>Now listen carefully and answer questions in eleven to fifteen. Good evening, everyone. Let me start by welcoming you all to this talk and thanking you for taking the time to consider joining AC voluntary organization.</p>
+    <p>ACE offers support to people and services in the local area, and we're now looking for more volunteers to help us do this. By the way, I hope you're all comfortable. We have brought in extra seats so that no one has to stand.</p>
+    <p>But IT does mean that the people at the back of the room may be a IT squashed. We longer be here for about half an hour, so hopefully that's okay. One of the first questions were often asked is how old you need to be to volunteer.</p>
+    <p>Well, you can be as Young as sixteen, or you can be six or over IT. All depends on what type of voluntary work you want to do. Other considerations, such as reliability, are crucial in voluntary work, and age isn't related to these in our experience.</p>
+    <p>Another question we get asked relates to training. Well, there's plenty of that and it's all face to face. What's more, training doesn't end when you start working for us.</p>
+    <p>IT takes place before, during and after periods of work. Often it's run by other experienced volunteers, as managers tend to prefer to get on with other things. Now I would ask you to consider a couple of important issues before you decide to apply for voluntary work.</p>
+    <p>We don't worry about why you want to be a volunteer. People have many different reasons that range from getting work experience to just doing something they've always wanted to do. But IT is critical that you have enough hours in the day for whatever role we agree is suitable for you.</p>
+    <p>If being a volunteer becomes stressful, then it's best not to do IT at all. You may think that your income is important, but we don't ask about that. It's up to you to decide if you can work without turning money.</p>
+    <p>What we value is dedication. Some of our most loyal volunteers and very little themselves, but still give their full energy to the work they do with us. Before you hear the rest of the talk, you have some time to look at questions. Sixteen to twenty 6到20配对题。</p>
+    <p>Now listen and answer questions sixteen to twenty. okay. So let's take a look at some of the work areas that we need volunteers for and the sort of things that would help you in those you may wish, simply to help us raise money if you have the creativity to come up with the imagination nol way of fund raising, we'd be delighted as standing in the local streets or shops with a collection box can be rather boring.</p>
+    <p>One outdoor activity that we need volunteers for is little collection. And for this is useful if you can walk for long periods, but sometimes up hill. Some of our regular collectors are quite elderly, but very active and keen to protect the environment.</p>
+    <p>If you enjoy working with children, we have three vacancies for what called playmates. These volunteers help children learn about staying healthy through a range of out of school activities. You don't need to have children yourself, but it's good if you know something about nutrition and can give clear instructions.</p>
+    <p>If that doesn't appeal to you, maybe would be interested in helping out at our story club for disabled children, specially if you have done some acting. We put on three performances a year based on books they have read, and we're always looking for support with the theatrical side of this. The last area i'll mention today is first stayed.</p>
+    <p>Volunteers who join this group can end up teaching others in vulnerable groups who may be at risk of injury. Initially, though, your priority will be to taking a lot of information and not forget any important steps or details, right? So does anyone have any questions for me about OK?</p>
+    <p>好了，听力结束，大家可以稍微整理一下自己的答案。然后接下来咱们一块儿来复盘一下这个题目。首先前两个是多选题，这两个多sorry。首先前面是单选题，这个单选题。首先第十一题其实它是一个场外题。</p>
+    <p>那在这个11题进入之前，看我这里写着写了一个，说他介绍了一下ACE这个组织。虽然介绍的时间没有多长，但这个地方可以听不懂，听不懂无所谓。当然你听懂了，我我我也感到很欣慰，听不懂无所谓的，不重要。然后他突然出来一个by the way这个小词儿，就是by the way we brought extra seat，我们弄过来了一堆椅子，然后这就使得后边的这些人可能就会squashed square的。这个表示的是压榨的意思。啥叫压榨？大概的意思就是大家可能挤在一起了，对吧？所以就是my close together。</p>
+    <p>所以这个地方我再给大家稍微听一下，前面介绍都不重要，我们从by the week看，by the way, I hope you're all comfortable. We have brought in extra seats so that no one has to stand. But IT does mean that the people at the back of the room may be a bit squashed OK.</p>
+    <p>整个这一句话如果是你们自己复盘，我建议这句话可能就是要写出来的。他说我希望大家都能在后边都挺舒服的。但是我们brought extra seat，所以椅子空。由于我们带来了额外多的椅子，所以它肯定是够了的。有了，但是你看这个but后面是不是跟答案了。所以我今天一再跟大家强调，我说这个but后面它不一定都是错误答案。他说那个but就引起你的重视了，但是意味着人们站在后边的话可能会squash的那如果之前你不认识square的这个单词，现在是必须要认识的，所以这道题正确答案C选项。</p>
+    <p>好，接下来他说关于这个年龄，他说how old的时候，其实这个题干就定位成功了。你可以16岁以下，也可以60岁以上，这个都无所谓，就看你是干什么工作的。但是我们非常重要的就是靠不靠谱非常重要。他应该说的是reliability，就是靠不靠谱这个意思。他说但是这个东西和年龄无关，年龄看来就是不是那么重要的呗，所以就是A选项正确。我们来听一下这个部分。Other considerations，such as reliability, are crucial, involuntary work and age isn't related to these in our experience.</p>
+    <p>OK这个题实话实说，我觉得他可能多多少少你得把这个地方人家讲的这个意思给理解清楚。文章对应的这一句话，他说就是我反正这个年龄，如果就是这个年龄这个东西，如果你的年龄刚好符合我们的这个期待，那就是16岁到60岁这个区间就可以来。但是这件事情并不是那么的重要，它没有那么的重要。所以这里就对应的是我们的A选项less important。我屏幕上给大家展示的这个单词reliability，这就是大家必会的单词。Reliability这个小词儿，我们必须要会一下。</p>
+    <p>好，然后接下来第十三题他说关于training。他说了所有的这个training都是face to face，就是面对面的，它肯定不是online了，对不对？但是我们这个东西不会结束，在你开始工作之前之后之中都有。所以它对应的是不是就是continuous。这个continuous这个小词就是持续不断的这样的一个意思。然后经理他就干别的，所以我们是一些其他的经验丰富的人给你去提供培训，所以对应A选项。</p>
+    <p>好，我们稍微听一下。What's more, training doesn't end when you start working for us. IT takes place before, during and after periods of work OK. 所以持续不断的。</p>
+    <p>好，接着就涉及到这道多选题的位置了。多选题他说大家怀着不同的原因来参加我们的志愿者服务。但是非常critical，这个单词表示的是至关重要的，所以这个就是一个信号词，这个信号词出来这个地方肯定得有答案。他说就是你必须得有enough our，你要保证这件事情，这是什么？就是availability这个单词的意思叫做空闲，你有足够的空，就是你有空对吧？所以E选项正确。</p>
+    <p>然后有些人可能会担心income的问题，但我们一点儿都不关注income，也就A选项被排除了，对不对？他说what we value这个地方，他说what we value is dedication。这个dedication这个单词在这里它所表达的意思就是奉献的意思，就是我们这个地方比较重要的，就是需要有奉献精神。那么这个dedication所对应的就是这个commitment这个小词儿OK所以2B选项正确，committment这里也表示的是奉献，这个意思。所以他俩同义词如果不会的同学是不是得做个积累了？OK好了，这就是单选题和多选题的部分，这两个部分对大家的一个要求就是排除加筛选，同时你还得有一个能力读题快点儿，不要墨迹。</p>
+    <p>好，接下来涉及到这个配对。配对大家看我在看的时候，为了给大家呈现出来我的一个思考的样子，我特地写了一下。但事实上我真正看题的时候，我会给它写出来吗？肯定不会，就过一下脑子就完事儿了呗。A选项这里说experience on stage，这叫做有舞台经验。所以我在想的时候就想，那可能表演过，或者比如说有有一些这个performance，那是不是特别对应对吧？</p>
+    <p>B选项他说这个东西，那original new idea，我一下就想到了innovation，原文里面确实说的creativity。然后C选项parenting skill，我想父母有什么技能？父母的技能无非就是照顾小孩，对吧？所以我写了个take care。然后D选项说的是理解食物和一些diet，所以我就写了一个nutrition营养，理解食物和打野，就是饮食均衡，这个baLance之类的，所以我写了个nutrition。然后接着E选项说这个retail experience，我写了一个cell sell something。F选项说good memory，那我写don't forget，但我没有写那个don't，我就来不及了，所以我写了个forget。</p>
+    <p>然后G选项他说good level fitness，fitness这个单词真的是我们已经遇到100回了，是不是？所以就是你有好的身体啥意思？就可能这个活儿挺累的呗，对不对？好，确实。首先他上来先定位了fun raising，他说我们特别希望你有那个creativity，所以我在这儿记了一下文章，其实正经说的是creativity这个小词，来我们听一下。You have the creativity to come up with an imagination or novel way of fund raising，we'd be delight.</p>
+    <p>是不是一个if条件句当中出现的答案？我把这句话粘回来，大家感受一下。If you have creativity, 如果你有相应的创，可以去想象一些有想象力的一些新的方法，去筹钱方的reading，那我们就会非常delighted。Delighted这个单词表示是开心的，它等同于happy，如果你能这样，那我就很happy了。第二个关于收垃圾这件事情，他说的是啊这个活儿需要walk long，所以啥意思？你得有好身体，所以选了G这个选项对吧？这个就叫做good level of fitness。</p>
+    <p>每次做配对题做完你自己都这样复盘一下，长此以往可能就会积累比较多的替换。如果一直不积累的话，那相当于这个配对题一直一直都是在门外，就没有办法能够做到你自己是能够去想到这个相应的替换方式的。OK好，那还是听一下。One outdoor activity that we need volunteers for is little collection。And for this is useful if you can walk for long periods, walk for long periods, 对吧？好了，接着plate。然后这个部分他说了，我看一下，这记得什么？很好。如果你know about nutrition，所以nutrition显然就对应出来了，是我们的这个food and diet，对吧？OK所以这个food and diet这表示的是饮食，就是食品饮食大概是这个意思。</p>
+    <p>好，我们再听一下。These volunteers help children learn about staying healthy through a range of out of school activities. You don't need to have children yourself, but it's good if you know something about nutrition and can give clear instructions. don't.</p>
+    <p>好，这个句子我也要给大家粘回来，为什么？刚才你看我都说了if这是一个信号句，对吧？刚才这个句子你有没有听到信号？如果。信号证明你现在开始敏感了。他说but IT is good，if you know some nutrition, 所以这个nutrition就对应的food and diet。</p>
+    <p>好，接下来story就是到了下一个题了。这个部分他说了，如果你曾经表演过，我记得他可能就说的是act。If that does not appeal to you, maybe you would be interested in helping out at our story club for disabled children, especially if you have done some acting, especially if you have done some acting.</p>
+    <p>那就别说这个if是是是信号了，其实这前面这个especially尤其特别这其实也是信号，所以这都是信号句。好了，那acting肯定对应的就是舞台经验experience on stage。好，最后一个就是关于这个好的记忆力，来看看它是怎么呈现。Last area tion today is first volunteers who join this group can end up teaching others in vulnerable groups who may be at risk of injury.</p>
+    <p>Initially, though, your priority will be to taking a lot of information and not forget any important steps or details. 有没有听到initially这个initially though initially还有这个priority这单词这不都是信号词。他说有你需要注意的是你的第一优先级，就是把这些纷繁复杂信息都记住，而且不要去忘记这个流程，也不要忘记这个步骤。好，所以在这里对于配对题，这是一个细节配对，细节配对注意的是替换。</p>
+    <p>有没有发现好多句子其实都是在信号句里。比如说带if的句子，带would的句子，带could句子，这个叫虚拟，比如说带转折的句子。But还有奥豆，还有豆本身也是。好，还有在一些表达重要的这些单词，像especially或者像我们说到这个initially或者priority这些单词，还有first of all就我们今天也是遇到过的对吧？所以这些其实都是我们说过的这个信号句。当然了在讲选择题的那个章节，我其实给大家总结了更多的信号句，对吧？但那个时候你们可能没有感觉，越学越有感觉，越学越有感觉，这现在才是part two。等到part part 2 part你就会发现，妈呀这个答案怎么都在一些信号距离，这就是我在给大家强调的这个点，尤其对于一些信号句特别重要的单词，一定要敏感。</p>
+    <p>好吧？来，咱们再来做一个题，刚才这个题就是大家做我来讲，那么下面这个题独立操作了。好，我们先把这个题给打开。准备part two走起，这个题多选。然后底下是个什么？这个题就是地图题了让大家来回忆地图题。毕竟这个part two所涉及到题型，我们都得雨露均沾的说一对不对？好走起。You will hear a talk to members of the public about plans for a new housing development near a town called non ston。First, you have some time to look at questions eleven to fourteen.</p>
+    <p>Now listen carefully and answer questions eleven to fourteen. Hello, everyone. It's good to see that so many members of the public have shown up for our presentation on the new housing development plan on the outskirts of non ston.</p>
+    <p>I'm mark rentals, and i'm communications manager at the development. I'll start by giving you a brief overview of our plans for the development. So one thing i'm sure you'll want to know is why we've selected this particular site for a housing development.</p>
+    <p>A it's being used for farming like much of the land around nonstandard. But because of the new industrial centre in non ston, there's a lot of demand for housing for employees in the region as many employees are having to commute long distances at present. Of course, there's also the fact that we have an international airport just twenty minutes drive away.</p>
+    <p>But although that's certainly convenient, IT wasn't one of our major criteria for choosing the site. We were more interested in the fact that there's an excEllent hospital just fifteen kilometers away and a large secondary school even closer than that. One drawback to the site is that it's on quite a steep slope, but we've taken account of that in our planning.</p>
+    <p>So IT shouldn't be a major problem. We've had a lot of positive feedback about the plans, people like the wide variety of accommodation types and Prices and the fact that it's only a short drive to get out into the countryside from the development. We were particularly pleased that so many people like the designs for the layout of the development, with the majority of people saying IT generally made a good impression and blended in well with the the natural features of the landscape, with provision made for protecting trees and wildlife on the site.</p>
+    <p>Some people have mentioned that the'd like to see more facilities for cyclists and will look at that, but the overall feedback has been that the design and facilities of the development make IT seem a place where people of all ages can live together happily. Before you hear the rest of the talk, you have some time to look at questions fifteen to twenty. 这有个大图，就重点这个时间都用来看图。</p>
+    <p>Now listen and answer questions fifteen to twenty. Part OK. So i'll put a map of the proposed development up on the screen.</p>
+    <p>You'll see its bounded on the south side by the main road, which then goes on to another boundary, is formed by london road on the western side of the development. Inside the development, they'll be about four hundred houses and three apartment blocks. They'll also be a school for children to eleven years old.</p>
+    <p>If you look at the south entrance at the bottom of the map, there's a road from there that goes right up through the development the school will be on that road at the corner of the second. Turning to the left, a large sports center is planned with facilities for indoor and outdoor activities. This will be on the western side of the development, just below the road that branches off from london road.</p>
+    <p>They'll be a clinic where residents can go if they have any health problems. Can you see the lake towards the top of the map? The clinic will be just below this to the right of the street of houses.</p>
+    <p>They're also be a community center for people of all ages. On the northeast side of the development, they'll be a row of specially designed houses specifically for residents over sixty five. And the community center will be adjoining this.</p>
+    <p>We haven't forgotten about shopping. They'll be a supermarket between the two entrances to the development, we're planning to leave the three large trees near london road, and it'll be just to the south of these. It's planned to have a playground for Younger children. If you look at the road that goes up from the south entrance, you'll see curbs round to the left at the top, and the playground will be in that curve with nice views of the lake. okay.</p>
+    <p>So now does anyone have any, OK来吧，大家可以看一下屏幕后对一下答案。首先前两道题选的是B和E这两个选项，然后接下来两道题B和C这两个选。接下来从第15题开始，15题选G然后16题选C然后17题选4D然后18题选2B19题A20题a OK。然后我们一块儿来复盘一下这个题目哈那由于这个题就是给大家独立操作的一个题目了，我就不一一给大家讲了。但是我还是要把我想强调的一些东西给大家强调清楚，因为这样的话我们这个题做了才不白做好吗？那么首先这个题的一个题目类型还是对应的多选题，再加上地图题这样的一种组合。其实地图题就是配对题。</p>
+    <p>那么对于第十一、十二题几乎所有的选项都出现了。前面有一段介绍无所谓，这段介绍实话说挺长时间无所谓。然后当出现了一个Y，这就是答案的信号。然后他说了这个地方原来是farming，但是随着新的工业园区的出现，来了一些我们在这修建主要就是convenient for the workers。对他们来说commute这个表示是通勤，所以对他们来说通勤是一个非常好的OK e选项成功入选。</p>
+    <p>然后接下来他又说到了一些无关紧要的一些的特点，比如说离机场非常近，他说这个是优点，但并不是一个主要优点。然后我们会发现这里有更多的人是喜欢这里有学校，然后还有hospital所以这对应的就是2B选项这个local facility对吧？他说其中有一个缺点，这个缺点就是当地的一个地形问题。他说这是一个drawback，就有一个陡坡，但我们都能处理，没关系的。所以A选项这个是一个缺点，肯定是不选的所以正确就是B和E这两个选项。然后接下来是34。</p>
+    <p>说哪些地方受到了一些positive feed back呢？首先这个题挺难的，这个题我为什么说它挺难？是需要多多少少有一些理解的，尤其是他第一个选出来的这个选项，他说了这个地方尤其好的是什么呢？就是他们大家说这个设计的很好，就和environment就融合的特别好。就是我们的这个环境，什么wildlife也好，wildlife表示的是野生动物wild life，对野生动物也好，方方面面你会就感受到它是对环境有一些好的，那我们来听2。因为这个题我觉得相对来说是有点难的，感受一下。We were particularly please, that so many people like the designs for the layout of the development, with the majority of people saying IT generally made a good impression and blended in well with the natural features of the landscape, with provision made for protecting trees and wildlife on the site.</p>
+    <p>OK这句话很长，我把它粘到笔记当中，这个正常大家如果自己复盘的话，是应该自己听写出来的。我们尤其的开心，很多喜欢这个设计，然后有多数的人都说了有一个很好的印象，为什么呢？因为我们blend in well，这是一个固定搭配，表示的是融合。我们什么融合的好？就是人与自然然融合的好啊，就是这个地貌。然后还有我们保护树，保护野生动物，所以这一切的一切是不是都是environment这个点。</p>
+    <p>因此首先选出来的是2B这个选项。然后接下来他又啰里吧嗦说了一些其他的东西，什么价格什么的，这个都不重要。然后他又说到了一点，他说就是这个社区设计的让我们所有的人，无论他什么年龄都可以幸福的生活在一块儿。嘿嘿所以就是people all ages can live together。那对应的就是C选项对吧？</p>
+    <p>好，接着到了这个地图，这个地图可能是我屏幕显示的一个问题，就是给大家遮挡的一个选项。但其实那个选项好像也并没有那么的重要。好啊，我给大家遮挡住的这个选项我看一下，可能是E这个选项，它是在那个B选项的右边大概这里。但是E选项确实也没有用到，所以我认为这不算一个什么太大的问题还遮挡那个选项，是I那个选项，就在这个A选项也没有用到，所以无所谓了。OK好，那么我们来看一下这几个题。</p>
+    <p>首先上来他又一顿介绍，就介绍这个图大概是个什么样的，无关紧要不重要。然后接下来他说了，对于学校，你知道学校在哪吗？他在南门那个地方有一条路，然后在第二个转弯处，南门这个地方有一条路，第二个转弯处那肯定就是G了，对吧？好sport，senta定位成功。他说这个是西边在一条从伦敦路分叉下来的路的下边。那在西边伦敦路分叉下来的下边，C选项非常明确。</p>
+    <p>然后接着clinic，人家是怎么说的？他说这个东西below the lake，那below the lake就一个4D选项，最简单。然后接着说community center咋说的？他说在有一片房子是专门给老年人设计的，就是老年人。他当时说的是什么什么65岁以下以上的人设计的就是那个湖，就上面那个湖的位置对吧？然后他说了这个地方。A drawing with that, 那就是跟它连在一块儿，那肯定就是2B这个选项了对吧？</p>
+    <p>然后接下来下一个说的是supermarket，它是在两个入口中间在一排数的这个self，所以H选项正确。最后playground他说在这个curve，curve这个表示的是曲线的意思，其实就还是在河湖湖，在壶上面的这个壶的这个位置，显然A选项正确。OK, 所以这个题我不觉得它难哈那我就不给大家重听了。好，我们稍微总结一下。我们今天一共练到的题目还是挺多的。单选题练过了，多选题练过了，配对题练过了，对吧？</p>
+    <p>在它的场景当中中，我们非常重要的，大家一定要有所感受的，就是关于场景当中一些非常重要的信号句。这些信号句可能就是在告诉我们答案，就是在这儿，所以各位一定要竖起耳朵来听。好了，我们下一节课再来进行一些实际的操练，这节课我们就练到这儿了。三拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-10.html">精讲逐字稿</a></li>
+      <li><a href="qa-10.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-09.html">上一讲 09</a></li>
+      <li><a href="lesson-11.html">下一讲 11</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

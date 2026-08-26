@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第09讲 · 配对题：细节配对与分类配对 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 09 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a class="active" href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第09讲 · 配对题：细节配对与分类配对</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学中，老师首先介绍了配对题的两种主要类型：细节配对和分类配对。细节配对要求考生从选项中找到与题目对应的细节，而分类配对则侧重于考察考生对文章内容的深入理解及替换能力。老师特别强调了解题步骤，建议考生在阅读题目时应关注选项而非题干，因为题干往往只是原词的重现。通过多个实例，老师展示了如何有效地在配对题中进行替换，并通过复盘练习来加深理解，以提高解题技巧。最后，老师强调了积累替换词汇的重要性，并鼓励学生通过实际做题和复盘来提升在分类配对题方面的解题能力。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>什么是细节配对和分类配对？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>细节配对是指题目中选项的数量多于题目数量，例如一道题有六道题，但选项从A到H多达多个，这种题目考察的是词与词之间的替换关系。而分类配对则是指选项数量较少，比如只有ABC三个选项，对应六道题目，这种题目可能会让人觉得简单，但实际上它要求在更深层次上进行意思替换，因为多个题目可能共享同一个选项，需要从不同角度进行替换。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对分类配对题，应该如何进行替换思考？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于分类配对题，尽管选项较少，但可能需要从多个角度进行替换，这就要求考生能够把握住词词替换、抽象到具体的替换以及意思上的替换等多个层次。在解题时，要细致分析选项与题目之间的潜在联系，尤其关注选项可能在不同情境下的具体化表现。</p></div>
+    </details>
+    <details class="qa">
+      <summary>做配对题时应如何高效读题并确定解题思路？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先，读题阶段应重点关注选项而非题干，因为题干信息往往是原词重现，对于听力理解帮助不大。其次，要思考选项可能的替换类型，通过积累和经验，尝试预测选项可能对应的文章中的具体词汇或概念，比如将抽象词汇替换成具体词汇，或者将意思层面的表达对应起来。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何理解和应用“开天眼”般思考选项替换的方法？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“开天眼”是指通过长期做题和整理经验，培养快速联想和理解词汇之间替换关系的能力。例如，当看到选项中的shopping时，能立刻联想到buying something；同时理解saying可能实际指的是exhibition、display或collection等含义更具体或情境不同的词汇。这种能力来自于对大量题目分析后的日积月累。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在做配对题时，是否需要背诵统一替换？如何快速识别和处理题目的替换关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>不建议背诵统一替换，因为同一个单词在不同场景下可能有不同的替换，而我更强调日积月累地积累具体替换。在实际做题时，应迅速定位题干并从脑海中搜索相关替换。如果对替换足够敏感，时间会非常充足。听题过程中，需完成从题干到选项内预测替换的过程。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于题目中的“dairy”一词，其替换是什么意思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“dairy”原词重现为“milk from the cows was turned into cheese”，现在这个地方提供午餐、下午茶和自制蛋糕等服务，所以替换为“eating and drinking OK”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>G选项中的“helping to look after animals”如何理解并找其具体化替换？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“helping to look after animals”可以理解为“照顾动物”，具体化替换如“hand feed animal”（用手喂动物）或“groom”（梳洗，当动词讲时也有给动物洗澡的意思），以及“dog walking”（遛狗）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>听题时应如何操作以提高效率？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>听题时首先要成功定位题干词汇，然后根据预测的替换迅速对碰选项。例如，听到“diary”这个单词时，应立即联想到“shopping”的替换“buying something”，并将两者相匹配。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于“large barn”的内容，如何听题并找到正确选项？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在听到“large barn”后，要关注其中提到的“collection of agricultural tools”，即农业工具收藏品。这对应于H选项中的描述，表明这是一个只能观赏而不能使用的收藏品区域。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在过去的使用中，农业工具被用来做什么？现在对于这些农业工具，人们能够做什么呢？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这些农业用具在过去被用来犁地，比如使用梨（luculce）来cloud earth（翻地）。现在人们只能将它们作为收藏品观赏，不能实际使用它们进行农业生产活动。</p></div>
+    </details>
+    <details class="qa">
+      <summary>shed现在有什么用途？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>shed现在是一个提供马拉马车服务的地方，可以乘坐马车进行公园和农场的观光之旅。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于第二道题提到的small barn，它的新用途是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>small barn现在是一个可以梳洗马匹和驴子的地方，用于动物的照料和清洁。</p></div>
+    </details>
+    <details class="qa">
+      <summary>groom这个单词是什么意思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>groom这个单词在这里表示“梳洗”或“照顾”，与选项中的take care of和look after意思相近。</p></div>
+    </details>
+    <details class="qa">
+      <summary>马现在已经不住在stable中了，那么stable现在用来做什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>stable现在是一个可以购买礼物、书籍、果酱、布匹和羊毛毯子的地方，是一个购物场所。</p></div>
+    </details>
+    <details class="qa">
+      <summary>公园里可以看到哪些特殊的动物？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>公园里可以看到一些珍稀品种的牛和羊，这些动物在现代农场中已经较为罕见。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这篇文章主要探讨了什么问题？第一种解决方式是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这篇文章主要探讨了酒店行业中员工离职率（staff turnover）较高这一问题，并提出了三种解决方式。第一种解决方式是通过改善团队关系和提升团队氛围来降低员工离职率，例如定期组织团建活动，加强员工间的相互支持与合作，营造家庭般的公司文化。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第三种解决方式具体指什么？针对第一个例子中提到的问题，酒店采取了什么措施？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第三种解决方式是提供职业生涯机会，即通过培训和晋升机制鼓励员工成长，如提供晋升机会、培训课程，以及让员工承担更多责任或尝试不同角色。在第一个例子中，酒店为改善基层员工与管理层的关系，开始邀请所有层级的员工参加会议，欢迎他们表达意见，以此提升团队氛围和尊重员工。</p></div>
+    </details>
+    <details class="qa">
+      <summary>波特兰酒店如何减少员工离职率？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>波特兰酒店通过引入一个识别员工才能的方案，并为具有管理潜力的员工提供培训，以此鼓励他们长期留在公司，这属于提供职业生涯机会。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第二种解决方式包含哪些内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第二种解决方式是提供经济激励，如提高工资、给予福利、发放奖金（bonus）以及提供带薪假期（paid holiday），以此吸引和留住员工。</p></div>
+    </details>
+    <details class="qa">
+      <summary>为什么需要提前思考这些替换内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>提前思考这些替换内容有助于读者更好地理解文章，快速定位到关键词和核心信息，并能准确对应题目，提高答题速度和准确性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>接下来的任务是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>接下来的任务有两个，一是定位成功，即识别出文本中出现的专有名词；二是听出替换，即理解文本中意思层面的替换关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>蓝水酒店是如何激励其员工的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>蓝水酒店选出优秀员工，每年资助他们去国外旅行，这是一种经济奖励的方式，即offering incentives and financial benefits，属于B选项的体现。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在题目的中间部分，它具体讲了些什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>题目中间部分主要讲述了旅行中学到的经验和意义，以及如何通过旅行学习来吸引和保留员工，特别是提到了plow hotel如何通过一系列措施改善员工离职率的问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>plow hotel是如何解决员工离职率问题的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>plow hotel引入了一项管理培训计划，通过赋予员工额外的责任并提供在酒店不同角色工作的机会，以鼓励他们看到在酒店工作的价值、意义和良好前景，从而降低离职率。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Green planet酒店为了解决员工的后顾之忧采取了什么措施？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Green planet酒店为了支持有 childcare 责任的员工，开始发放优惠券帮助他们覆盖子女的 childcare 成本，以此来减轻员工的生活负担。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Louis March at the aim's在提高员工留存率方面做了什么努力？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Louis March通过创建一个合作且支持的工作环境，使员工感到自己是公司大家庭的一部分并被高度重视，从而实现了极高的员工留存率。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于分类题，解题的关键点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于分类题，解题的关键在于理解题目中提到的重要短语和单词，而不是简单地寻找替换关系。同时，做题步骤中应将关注点放在选项上而非题干，因为题干往往是原词重现且顺序排列。</p></div>
+    </details>
+    <details class="qa">
+      <summary>做配对题时是否需要参考题目下方的引导语？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>虽然对于有经验的考生来说，可以根据题号下的提示直接判断题目内容，但初次接触或困惑的同学可以参考这些引导语来理解题目要求，确定匹配选项。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何有效地复盘part two的配对题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在复盘时，要深入比较选项与题干内容，确保它们在意思上等同，必要时将文章中的完整句子与选项对照写出，以达到深度理解和熟练掌握的目的。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-09.html">精讲逐字稿</a></li>
+      <li><a href="qa-09.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-08.html">上一讲 08</a></li>
+      <li><a href="lesson-10.html">下一讲 10</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10讲 · 听力练习：开发项目反馈对话 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 10 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a class="active" href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第10讲 · 听力练习：开发项目反馈对话</h1>
+    <div class="abstract"><b>本讲概要：</b>一段对话讨论了一个开发项目的积极反馈，着重于其对多种住宿类型的包容、合理的价格设置以及与乡村短途可达性的优势。参与者赞赏项目美观且与自然和谐共存的设计，虽然建议增加自行车设施，但总体认为项目有利于不同年龄群体的和谐共居。随后，对话转向详细介绍项目规划，包括道路、住宅、学校、体育中心、医疗设施、社区中心、老年人居所和超市等布局，特别强调了对湖泊、道路和关键设施的说明。此外，还讲解了如何有效解答地图题的技巧。另一部分对话集中于雅思听力考试的策略，包括介绍不同场景的题型、关键词筛选、排除选项的方法，以及地图题的应对策略。老师强调多选题和配对题的解题思路，提示学生注意信号词以快速定位答案，旨在提升学生的听力技能。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>问：我们今天要讨论的工作和旅游场景，它们之间有什么相似之处？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这两个场景都基于介绍性质，无论是工作职责的介绍还是旅游中导游对景点和服务的讲解，本质上都是信息传递的过程。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：今天的练习题目是来自剑桥16让test three的section two，题型是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这道题是多选题和配对题的组合，但在练习模式下需要输入字母作答，而在真实考试中是拖拽式的操作方式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：第一道题目询问农业与健康文化领域工作的两大主要优点是什么？对于“active lifestyle”这个选项，怎么理解？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：第一大优点是active lifestyle，即拥有一个动态的生活方式，比如户外工作相较于办公室工作能避免亚健康状态；第二大优点是above average salary，即提供超过平均薪酬的待遇。active lifestyle指的是在工作中经常涉及到体力劳动和户外活动，与长时间坐办公室、久坐屏幕的办公环境相对立，保持较为活跃的生活状态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：第二道题目中提到的“flexible working opportunity”是指什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：灵活的工作机会（flexible working opportunity）体现在工作时间可以根据个人需求选择，而非固定的上下班时间。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：“the opportunity for oversea travel”这个选项代表什么含义？“the chance to be in a natural environment”是指什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这个选项指的是员工有机会进行海外出差或旅行，即到国外进行工作或体验不同的环境。这个选项表示工作地点有机会位于自然环境中，比如在公园或农村工作，而不是在城市高楼之中。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在听力理解过程中，如何筛选和排除正确答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在处理多选题时，我们需要通过筛选和排除的方法来找出正确答案，特别是当遇到转折词、否定词时，这些往往可以帮助我们排除错误选项，聚焦到正确答案上。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：身体状况对于从事某些工作的重要性如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：虽然随着现代科技的发展，身体健康的重要性不像以前那么关键，但对于某些工作来说，拥有一个强壮的身体依然很重要。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：现在的健康和安全标准与过去相比有何变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：现在的健康和安全标准比过去要高，因此工作相关的事故比以前少了很多。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：这些工作地点的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这些工作地点通常位于偏远地区，而非繁华的城市环境，因此不太适合喜欢热闹城市生活的人。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：关于住房问题，招聘方有什么态度？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：招聘方认为找到合适的住房不是问题，所以关于住房成本这个选项会被排除在外。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：接下来讨论的配对题中，哪些选项是关于工作性质和特点的描述？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在配对题中，描述工作性质和特点的选项包括领导团队、工作强度大但有趣、有机会加班赚取额外收入、可能有快速晋升的机会以及需要具备一定的农业知识等。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：新鲜食品商业经理这一职位的工作环境和氛围如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这个职位所在的公司工作节奏快，利润空间低，要求员工既努力工作也享受团队生活。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：社交型人格在职场中适合哪些工作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：具有社交型人格的人可能更适合从事需要与人打交道的工作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在户外工作时，天气条件对工作有何影响？营养顾问的主要职责是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在户外工作时，夏天一般还好，但冬天可能会遇到非常恶劣的天气，如冷风等，这给工作带来了挑战。营养顾问主要负责为农民提供关于作物营养、防虫害以及农业法规的咨询，虽然具体工作内容可能较专业，但在听力理解中，重点在于工作的评价和特点描述。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What is a maternity cover contract and how is it different from a permanent contract?What is the expected duration of a maternity cover contract?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：A maternity cover contract is a temporary work contract where a new employee is hired to cover the duties of an employee who is on maternity leave. It is different from a permanent contract as it is not an eternal position and the employee involved is considered a temporary worker.The expected duration of a maternity cover contract is typically 12 months.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What are the requirements for the sales manager position in the garden centers?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：The requirements for the sales manager position in the garden centers include experience in administration, planning, and buying in the fresh produce industry, as well as local travel to various garden centers to ensure high levels of customer service.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：Is it necessary for the sales manager to have a driving license?What additional responsibilities does the tree technician have to fulfill?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Yes, it is necessary for the sales manager to have a driving license to carry out the job responsibilities.The tree technician is required to have training in safety procedures and a clean driving license, as well as experience relevant to tree cutting and conservation work.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What is preferred for the farm worker position and what are the possible perks?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：A year's experience is preferred for the farm worker position, but not essential if the candidate has completed an appropriate training course. The possible perks for the job include the opportunity to rent a small cottage on the estate and the chance to earn a competitive salary.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What is the ACE organization and what type of volunteers do they seek?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：The ACE organization offers support to people and services in the local area and seeks volunteers of various ages and with different experience levels for various tasks, including fundraising, outdoor activities, helping with children's activities, and first aid training.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What considerations are important before deciding to volunteer with ACE?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Before deciding to volunteer with ACE, one should consider having enough time in the day for the role, the importance of dedication over income, and that volunteering should not cause stress. The motivation for volunteering can vary from gaining work experience to personal fulfillment.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What roles do volunteers have in the ACE organization?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Volunteers in the ACE organization can help in various roles, such as fundraising, outdoor activities like litter collection, working with children and running a story club for disabled children, and first aid training.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在第一段话中，为什么额外带来的椅子是重要的信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：由于他们带来了额外多的椅子，这表明椅子数量足够，是一个关键点。虽然表面上看是句点，但but后面的内容实际上提供了答案，即尽管椅子空着，但它说明了设施的容纳能力是充足的。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：关于招聘年龄要求，选项A是如何表述正确的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：选项A指出年龄并不是关键因素，重要的是应聘者的可靠性(reliability)。文中提到“Other considerations, such as reliability, are crucial and age isn't related to these in our experience”，意即年龄不是决定性条件，可靠性才是关键。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：培训方面，文本中提到了哪些关键词？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：文本中提到所有培训都是面对面进行的，并且是连续不断的，即在开始工作前后以及期间都有培训。这对应于选项A中的“continuous”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于参加志愿者服务的不同原因，哪个选项是至关重要的？在多选题中，什么因素对于参加志愿者服务至关重要？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：选项E是正确的，因为它表示“availability”，即有足够的空闲时间参与志愿者服务。这是对志愿者能否满足组织需求的直接考察。根据文本内容，对于参加志愿者服务至关重要的因素是奉献精神（dedication），而非收入（A选项被排除）。文本中说，“what we value is dedication”，即我们看重的是对服务的奉献。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：配对题中，哪些个人技能或经验与特定工作职责相匹配？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：配对题涉及到多种技能和经验要求，例如舞台经验（A选项）、创新思维（B选项）、育儿技能（C选项）、理解食物与饮食平衡的知识（D选项）、零售经验（E选项）、良好的记忆力（F选项）以及良好的身体素质（G选项）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在提到new idea时，应该联想到哪个关键词？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：当看到new idea时，应该联想到innovation（创新），因为文本中提到了creativity（创意），而创新是其同义词。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：志愿者如何帮助儿童保持健康？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：志愿者通过策划一系列校外活动来教导孩子们保持健康，不需要亲自有孩子，但需要具备一定的营养知识并能清晰地指导孩子们。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：关于健康水平（fitness），配对题中是如何应用这一概念的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：配对题中提到良好的健康水平（good level of fitness）对应于需要长时间步行的工作，如收集垃圾，暗示这份工作可能较为劳累。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：为什么选择该地点建设住房发展项目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：我们选择这个地点是因为它位于非斯坦德的新工业中心附近，对员工住房有强烈需求。此外，该地距离国际机场仅二十分钟车程，虽不是主要考量因素，但交通便利。更重要的是，这里有优质的医院和大型中学，且地形虽有陡坡，但在规划中已考虑到这一问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：社区设计如何体现与自然环境的融合以及对野生动物的保护？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：社区设计得到了广泛好评，因为它与自然环境和谐融合，规划时充分考虑了保护树木和野生动物。尽管有陡坡存在，但已采取措施进行有效管理，确保整体布局美观且实用，让不同年龄段的人都能在一个幸福、舒适的环境中共同生活。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：该住房发展项目有哪些主要特点和规划？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：项目计划建设约400套房屋和3栋公寓楼，包含一所面向11岁儿童的学校。主要道路南侧为住宅区，西部由伦敦路形成边界。内部规划有大型体育中心、诊所、社区中心以及专为老年人设计的住宅区。此外，还设有超市、篮球场，并保留了三棵大型树木。社区中心旁边设有适合所有年龄段的居民使用的设施，确保不同年龄段的人都能幸福生活在一起。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：社区内有哪些重要设施及其具体位置？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：学校位于南门入口处的道路与第二条路的交界处；大型体育中心设在从伦敦路分叉出来的小路的西部下方；诊所紧邻湖泊，位于一条直线上；社区中心则与专门为65岁以上老年人设计的住宅区相邻；超市位于两个入口中间的位置；而儿童游乐场设在南门入口处道路的曲线处，拥有美丽的湖景。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-10.html">精讲逐字稿</a></li>
+      <li><a href="qa-10.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-09.html">上一讲 09</a></li>
+      <li><a href="lesson-11.html">下一讲 11</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

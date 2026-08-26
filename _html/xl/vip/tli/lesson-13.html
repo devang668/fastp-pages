@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第13讲 · Part Three 配对题与流程图题 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 13 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a class="active" href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第13讲 · Part Three 配对题与流程图题</h1>
+    <div class="abstract"><b>本讲概要：</b>老师在课堂上欢迎同学们回归，并详细介绍了即将面临的两种题型：配对题和流程图题。配对题在Part 3中包含事实配对与态度配对，着重于考察学生的替换能力和态度理解。此外，老师指出单选题难度的增加，将其比喻为“双层蛋糕”。对于流程图题，老师强调了其设计目的是测试学生对讨论内容的理解，教导学生掌握确认和替换的技巧。通过实例和具体操作，老师展示了如何通过精听和精读来复盘错误，以提升听力水平。最后，老师重申了理解题型和细节的重要性，并预告下节课将进行实际操练，鼓励同学们积极准备。</div>
+    <div class="tip">本讲含 26 组问答精要，可到<a href="qa-13.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>老师在课堂上欢迎同学们回归，并详细介绍了即将面临的两种题型：配对题和流程图题。配对题在Part 3中包含事实配对与态度配对，着重于考察学生的替换能力和态度理解。此外，老师指出单选题难度的增加，将其比喻为“双层蛋糕”。对于流程图题，老师强调了其设计目的是测试学生对讨论内容的理解，教导学生掌握确认和替换的技巧。通过实例和具体操作，老师展示了如何通过精听和精读来复盘错误，以提升听力水平。最后，老师重申了理解题型和细节的重要性，并预告下节课将进行实际操练，鼓励同学们积极准备。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回到我的课堂。今天我们一起来推进派对的另外两种题型，分别是配对题和流程图题。配对题其实在part three当中也是分成两种类别的，因为我们在part two其实花了挺多时间去把这个配对题讲明白。我们在part three就在part two的基础上去做一个延伸和拓展。在讲这个单选题的这个部分，大家可能也都感受到了，其实咱们part对的这个题目就是就part two的题目去增加了一层难度。如果说一个考点它是一层蛋糕的话，那么就相当于我们的part的题目它是一个双层蛋糕。几乎所有的题目都是一个double考点这样的一个状态，就包括单选题，包括多选题，基本上都是事实，然后加态度，那么推广到这个配对题这个领域其实也是一样的。</p>
+    <p>就是在咱们之前在part two讲过的这个配对题。我们来回忆一下，它分成两种类别，包括事实配对和分类配对。事实配对是选项会比较多一点，分类配对可能选项数量会比较少一点。这样子其实它本质上在考什么？考大家誓词词替换，其实考的就是替换，以及尺度相对来说比较大的替换。你比如说分类，分类这种题目，其实它的那个替换尺度就还是挺大的对吧？那么在part three的这个配对题考什么呢？它也考事实配对，但是它没有分类了，它是态度配对。</p>
+    <p>因为毕竟这个part way的题，它其实就相当于是一个two way discussion，两个人在进行双向讨论和对话，所以这个过程当中可能就会有人同意或者不同意对方的观点，那它所本质考察的东西就是替换和态度。好，我们话不多说，直接进入到我们今天的第一个例题。这个例题我相信可能记忆力比较好的同学应该还记得，我们上节课在讲单选题的时候，用了它前半部分作为例题。然后接下来我们就用它后半部分，也就是这个配对题的这个部分，一共只有四道题。</p>
+    <p>咱们来观察一下这个选项，所以我们观察选项的一个特征，这个选项首先都是人名开头的对吧？Team found, team thought Diana怎么样，they both, team怎么样？They both.</p>
+    <p>所以就相当于这个选项是可以分成三个类别的这三个类别分别是男孩的叫team，女孩的叫戴安娜，以及他俩都的both的。所以我认为其实这个选项如果按这个维度来分，就是谁在说话的这个维度来分，那可能就是分成这三个维度。但是还有没有其他的这个维度呢？我们可以把它分成好的坏的对吧？为什么我要把选择项进行拆分，举个例子，比如说我现在在这个题定位成功之后，我只听到了team在说话。那你是不是其实就相当于这个听力自然而然的帮你排除了非team的选项，对吧？你看如果这个题定位成功了，只有team一个人说话，是不是答案娜的肯定不选，they both肯定不选，they boast肯定不选，也就是在ABE这里边去选。</p>
+    <p>ABE你在筛选的时候，你会发现有一些选项它是好的。比如说team觉得这个更简单，这是好的。2B说team觉得这个不organized的，这个E说team觉得很震惊。所以当如果这个听力你听到他只有team一个人的内容，并且team觉得这个东西是一个好的，就这个语气语调都是上扬的，就是能量满满的，开心的、快乐的。其实我没太听懂具体讲什么，但是是不是也不妨碍你把A选项选出来，因为其他两个跟team有关的选项都是负面的。所以这就是我为什么要跟大家说，我们要在看选项的时候，如果你发现这是一个态度配对题，那么要把选项进行分类。因为主要是我们可以通过是谁说话来锁定这个题可能会选谁，以及我们可以通过它语调上扬或者下降来选出来对应的这个选项。</p>
+    <p>好，这里我给大家几个要点，就是内容不重要，那重要的是什么呢？重要的是语调上扬、下降，以及到底是谁在说话。也就是说说话的主角说话的主体，说话的主角。OK.</p>
+    <p>对于配对题，我们整体做题的步骤和part two是一样的。首先上来题干不用看啊，直接看选项。好，我们来看一下选项，选项A觉得很简team觉得很简单，easier than expected, 就比预想的会觉得简单。好，这是一个对比关系的选项对吧？但凡出现对比关系，他可能会说我之前觉得怎么样，现在觉得简单了对吧？大概会用这样的句型去给我们替换2B选项又是team的，他觉得not clear。</p>
+    <p>Organized这个小词的意思叫做非常的，怎么说呢？就是工整的，能够非常easy to follow的。如果我说这个东西非常organize，那它基本上等同于easy to follow。如果我说他不organize，那就是hard to follow呗，大概是这个意思。好，接着C选项。Diana may do further study on this.</p>
+    <p>这个further study在这儿它肯定是一个抽象的表达。啥叫further study？比如说对于学生来说，我想在这个上面做一些research，发表一些paper，可以，或者我想在这个上面写dissertation，这个单词是必须要会的，就毕业论文的意思OK接着D选项they both found the reading required for this was difficult。所以重点就在这个difficult，对吧？他们都觉得这个包含的这个reading，啥叫reading？就是老师可能布置的一些个提前课前需要读的东西，非常的难，非常的difficult，那就是hard呗，或者i can't understand类似于这样的understand OK好E选项。</p>
+    <p>Tim was shocked as something he learnt on this module. 这个shocked的是什么意思？就是表示震惊，是吧？那什么意思？表示震惊，就比如说我这个课学完了之后，给我留下了非常深刻的印象，让我觉得非常的surprised或者amazing。是不是都可以和shot统一替换，或者我觉得这个课过于好或者过于坏，是不是都行。好F选项。They were both surprised.</p>
+    <p>How little is knowing that about这个选项？我就想问问大家，是一个好的选项还是一个不好的选项？显然它是一个不好的选项，因为它这个后边说的是什么，little is known。Little is known的意思叫做知道的太少了，知道的少，就是他们都很震惊说怎么这个部分我们知道的这么少。OK所以刚才我带着大家干的事情叫做读选项。</p>
+    <p>读完选项之后，对于题干其实你看不看无所谓的。因为题干本身就是原词重现，所以即使不看也无所谓。这些单词肯定是原词重现。那么听题的时候干两件事情，第一件事情定位成功，定位成功之后听它对应的替换加态度，其实我们就是听谁在说话，以及他到底对于这个东西是一个什么样的态度。</p>
+    <p>好话不多说，我们直接进入到这个题，咱们就开始搞一下。Now we've got to give a bit of feedback about last time mode，just show comments, apparently. Shall we do that now OK. So medical terminology OK定位成功。我不相信有同学听不到这个medical terminology，就这个小词它真的是一个原词重现。</p>
+    <p>然后接下来team在这儿定位成我们要去听这个两人的态度，我分别写一个男写一个女放在这里。一会儿听完了之后，我们来看一看这两个人到底是个什么态。Well, my hard, I saw that especially right at the beginning of the course, and I did struggle with IT.</p>
+    <p>女生表达完了，女生说她的心都沉了，她的心沉默了。为什么沉默了？因为她非常的struggle，这个struggle是什么意思？挣扎，所以女生看来态度不太好。</p>
+    <p>对于这个课男生i thought IT would be hard，but but I found IT all quite straight, ward. 这肯定得是答案的剧情，它是一个转折句。他说i thought我之前觉得这个东西挺hard的，but actually两个转折连一块了。IT was straight forward, 那就是什么简单的，所以这等同于easy。就相对来说，team觉得一开始他以为挺难，后来觉得挺简单。</p>
+    <p>就这俩人这态度，咱们就来对应选项，首先打压的只有一个选项，这一个选项还是一个偏向于好的。但是戴安娜这显然是一个不好的事情，那肯定不能选戴安娜，肯定也不能选得both，因为他俩的态度是不一致的对吧？所以我们只能从team这几个选项里面去选一选那A选项team found this is easier than expected。所以这里既有替换也符合到底是谁说的话，肯定正确了对吧？</p>
+    <p>OK那么接下来我们继续听第二个题，首先我们要干的事情还是题干定位，就记着永远先题干定位成功，然后我们再去听具体的内容。What did you think about diet and nutrition? OK, nice diet, nutrition.</p>
+    <p>这个team问他的，你觉得这个东西怎么样？好，我们带着期待去听一听他后面会说什么？Pose，do you remember what they told us about pet food and the fact that there's such limited checking into whether or not its contaminated? I mean, in comparison with the checks on food for humans, I thought that was terrible.</p>
+    <p>好，到这儿男生疯狂的输出了一大堆，然后这个男生输出的这些其实有具体在课上学的内容，这个部分其实都不用听。关键这个team thought这个小词thought是什么？其实就think对不对？他thought I was terrible，觉得不好。然后我们听一听女生有没有什么态度在这儿，听女生态度。I think the module that really impressed me was。The animal disease one, 他怎么说到下一个这个题干了，animal disease女生对于下一个这个题干已经说出来了。他说这个东西是really me OK。好，也就是说上一道题我们只能从team一个人的观点里面去选，不可能是they both，不可能是大家的，因为都没有大家那说的话，对吧？</p>
+    <p>所以team的内容就剩一个2B选项和一个E选项。2B选项说这个东西就是结构不清不楚的，然后E选项说它非常震惊。你看这个到底应该是对应震惊的还是对应结构。我刚才通过这个team所说的话里边，我根本就没有听出来说，他认为这个文章写的混乱。没有吧？我没有听出来什么hard to follow这种表达的意思。写老师这儿我没有听到，但我听到的是他觉得这个课实在是太糟糕了。那其实就相当于他对这个内容的坏而感到了shocked，对吧？</p>
+    <p>OK shocked就觉得震惊，所以这道题我选了E这个选项。这道题就是完全通过技巧就能实现的，因为我们天然排除了很多选项。女的说女就是跟戴安娜相关的选项不能选，they both相关的选项也不能选。那team的选项里边二选一，我相信大部分同学都是可以做对的。</p>
+    <p>好，接下来关于animal disease，女生其实已经表过态了，女生的态度就是really impressed me，让我觉得印象很深刻。接下来继续听。When we looked at domesticated animals in different parts of the world，like camels and water buffo and alka, the economies of so many countries depend on these, but scientists don't know much about the diseases that affect them.</p>
+    <p>听到了，but后边说的是什么？为什么这个课让他印象深刻？But scientists don't know much about a about them. 就是中间的一个大堆，你看我其实中间这个省略了无数个字儿，这中间这一大堆听不懂无所谓，因为我们要的终究就是一个态度，就这个女生对于这个课的态度。</p>
+    <p>好，接下来我们听男生有没有态度也。I thought they would know a lot about ways of controlling and eradicating those diseases, but that's not the case at all. I loved the wildlife medication unit.</p>
+    <p>已经到下一道题定位区间了，对吧？下一道题是wild the live medication。然后刚才这个男生在对于上一个课的表达这里，其实就相当于是完全同意女生的说法，对女生的观点她噎了一下耶完了之后进行了深化和解读，就进行了deepen。肯定就是同意女生说的这个impressed me。那impressed的这个小词，以及它俩共同的态度，是不是从they both里边去选，they both一个是D一个是FD选项说的是真的觉得这个reading太难了，哪有任何难的表达。没有吧？Impressed这个小词经典替换词是什么？Surprised OK, 所以F选项直接整进去。</p>
+    <p>最后一个wildlife medication，刚才这个男孩已经关于what of medication已经说了，他说他love this unit，所以男生在这儿说到了love，他很喜欢这部分的课，继续往后听。Things like helping birds that have been caught in oil spills. That's something I hadn't do about before.</p>
+    <p>男生还有一个态度，就是haven't thought IT before，曾经根本就没有想过好听一听女生是怎么说的。I thought I might write my dissertation on something connected with that。So tim女生说她想去在这个方面上去写一下dissertation，对吧？OK好，根据他俩的态度我们去选一下剩下的选项。</p>
+    <p>A这我说他不好，那他都love怎么可能是不好？所以根据这个情感色彩2B选项肯定是不对的。然后C选项说戴安娜想做study哟，这对应上了C对，那D为什么不对？</p>
+    <p>他们都觉得难。你一根据情感色彩一分析，所以这里边只有那么一个选项是情感色彩偏好的，其他选项的情感色彩都不行，对吧？所以这就是为什么我说态度配对其实相对来说简单，因为它的技巧性非常的强。我们根据谁说话了，就能够去筛选出来一批选项。然后再根据他的好坏情感，就这个情感色彩到底是好的还是不好的，又能去筛选一批选项。所以我说这种题的技巧性是非常强的那整体做题节奏很重要，一道题一道题你啪啪啪跟上人家节奏。</p>
+    <p>因为课上我在这就是带着大家展示例题的时候，大家可能会觉得比较好follow。原因在于每一个题目它出来之后，我都会暂停一下，大家反映一下，我重复一下，把对应的内容写上去。其实对大家来说，这就是一个减慢听力速度的这样一个过程。所以大家可能会觉得挺好听的。但等自己做题的时候，有没有觉得其实到了part题目非常的快，整个过程节奏非常快。因此大家在做题的时候一定要把握好节奏感，千万不要丢题，这是很重要的一件事情。</p>
+    <p>好，当然了part three不光只有态度配对题，还有另外一种配对题。来看这儿，25到30，你看A到H是不是就跟我们那个part two的配对题长得也很像，就没什么太大的差别，对不对？所以这种题目我们也叫做它适时配对。</p>
+    <p>事实类的配对题本质上考什么呢？本质上它确实考替换，所以你在读选项的时候还是要去思考，读选项的时候思考替换的方式，这个是很对的一件事情。同时你还要干的一件事情是什么？在听的时候你要去听他们俩之间的confirm。其实我上一节课在讲单选题的时候，我就跟大家说，我说毕竟他这也是一个两人的一个two way discussion，就是两人之间的一个讨论。所以他就confirm这个答案是非常重要的那包括这个题其实也是一样，来看一下这个题他让我们干什么呢？</p>
+    <p>首先这是一堆event manager management skill，其实就是一些个技巧技能，然后对应这个important那些。然后我们来看一下这句话，就有同学可能觉得这题让我们干什么选什么，来看一下这句话，其实你就懂了。What do hold in her tutor agree.</p>
+    <p>他俩都得同意的。Is an important speak of each of following event managment skill. 所以这是一个整体，就是关于事件管理的这些个能力，他和他老师觉得以下哪些重要？就大家都觉得这个部分哪里比较重要。</p>
+    <p>好，那我们按照流程来先看选项对吧？首先第一个选项A选项，他说这个东西需要必应flexible。这个flexible这个小词我们已经不止一次遇到了，就表示的是灵活。那它基本上等于什么change time，这时间总变来变去的，可能就是灵活呗。</p>
+    <p>2B选项focusing on details，details叫细节，对吧？那什么叫做细节？比如说你要事无巨细的去管理好这些人，管理好这个时间，去管理好这个场地，去管理好所有的一切everything，那这个就叫detail。</p>
+    <p>好C选项having a smart appearance，appearance这个单词叫做外表，所以这叫什么意思？就是你要看起来好？Good looking是不是可以？或者让你看起来非常的professional，这个叫做专业的，看起来很专业可以。</p>
+    <p>4D选项hide your emotion，那就是隐藏你的情绪，是不是看起来你要平静，非常的come，就calm down冷静。因为正常你就如果是管理别人的话，或者比如说你去做一些这个服务，那你你无论是你焦虑还是怎么样，你都能够隐藏的好，都看起来非常的平静冷静才比较好啊。好，接下来E选项。这个rely on expert，expert这个叫专家。We rely on an expert就是依靠专家。还记得我们之前学过的一个单词叫做special specialist，对吧？专业人士。</p>
+    <p>好，接着F选项，trust your own view, 所以你就相信自己。什么叫相信自己？Confidence in yourself，你就对自己非常有自信是不行。好，所以be confident也可以。好，接着G选项for doing one thing at time，这叫focus，就让你去有有聚焦，就一次只做一件事情就是要聚焦。然后接着H选项thinking of the future，计划一下未来。这是一个找工作的场景，你计划一下未来，什么意思？就比如说以后正儿八经的步入职场，类似于像start career之类的表达，我觉得都可以。</p>
+    <p>好，接着我要提醒大家一点非常重要的，我们在做part two的这个题的时候，是不是听到了直接选就对，就听到了这个替换，听到替换直接选基本上就差不多。当然有的时候可能会有一些干扰信息，这干扰信息出现在一些否定或者转折里边。但是我们在做power three的时候，就算他没有那个干扰，就是没有什么否定转折，你也得给我听到这个答案的confirm就是另一个人他得说话，他得说yes，OK或者i agree或者you are right daily有这样的confirm才可以。没有confirm这个答案就不能那么贸然的去选OK好，我们话不多说，直接进入到这个题。我给大家放一下听力，那么大家follow我的节奏，咱们一块儿把这个题来听一下，做一下。I wouldn't rely on that.</p>
+    <p>They'll be more interesting. I'll need to make sure they okay, yeah, oh, what if a much and in a draw OK. 好，从这开始，从这我们就进入到了这个配对题的区间。前边是这些单选题的位置，单选题我们上一节课内容，所以今天就先不赘述这些单选题，我们就直接从开始了。</p>
+    <p>The aim of your workplace's is to give you the opportunity to develop the skills that an events manager needs. So let's talk about those a bit. Well, I think my communication skills are pretty good.</p>
+    <p>I can talk on the phone to people and book venues and that kind of thing. good. I just remember, IT isn't only about what you say if you meet someone face to face and want to persuade them to be response, for example, up OK.</p>
+    <p>当这道题定位成功之后，女的首先自夸了一下，觉得自己在这个方面还是挺不错的对吧？所以女生自夸这个部分我就不写了，因为它没有答。然后接着老师说到了一个非常重要的一个点，老师说的这个点我不知道大家有没有重点听出来，他just remember这是一个学生去跟老师讨教一些经验，对吧？所以老师去嘱咐他说just remember这个后头是不是就得跟答案，有没有一种答案呼之感觉，如果有这个感觉就对了，如果没有还得练。</p>
+    <p>然后接着老师用到的一个句型，这是一个if的句子。然后他说了什么呢？来看这儿，他说if you meet someone face to face and want to persuade m to be sponsor for。这个时候女生打断了老师的说话，打断老师说话OK女生把老师话打断了，然后接了个话。那你说女生接的这个话，这是不是就应该是答案对吧？所以其实信号人家给没给到给到了这个信号，一个是just remember，一个是if OK。注意几个单词，persuade这个单词表示的是说服sponsor表示的是资助人说服，然后这个叫资助人OK。</p>
+    <p>好，然后女生的这句话，我们把这两块连起来再听一下，感受它这个信号。I just remember, IT isn't only about what you say. If you meet someone face to face and want to persuade them to be a sponsor, for example. Oh, i'll dress up for that. 女生说了结合good，女生说了，i will dress up for that.</p>
+    <p>然后老师confirm了没有？Confirm了说了good对吧？所以其实这就应该是答案，对应的应该是哪个选项？是不是这个appearance对应的就是这个外貌，所以我们正确答案C选项OK。</p>
+    <p>好，接下来我们继续往后听，下一个题先定位，然后听内容，然后confirm。Let's go to think about your organisational skills. You're working in a very people based industry, and that means things won't always go to plan. I guess it's being prepared to make changes that matters. That's right. 老师又confirm了，首先题干定位了之后，就是它出现了这个organization这个单词之后，然后老师去嘱托了一下，他说就是一个什么以人为本的这样行业，说things won't go，things won't always go.</p>
+    <p>这个是什么意思？就是我们一般来说事情不能总如计划去发展。然后女生接了句话，他说get prepare for engine，我们要做好准备，可能万事都会发生变化。这是啥意思？这是不是就是flex xix，对吧？灵活的老师是不是confirm了good，还是不错的，所以26题正确答案就是A选项。这地方我们再来听一遍好吗？good.</p>
+    <p>Let's go to think about your organisation skills. You're working in a very people based industry, and that means things won't always go to plan. I guess it's being prepared to make changes that matters.</p>
+    <p>That's right 1OK所以that's right了，这个答案就被confirm了。好，接下来我们继续下一个。Time you may have to make an on the spot change to a time because of a problem anticipated. Just do IT.</p>
+    <p>How's your time management these days? Time management这个题干是不是定位成功了？老师说的话你觉得你的time management现在怎么样？咱们听一听。</p>
+    <p>I'm working on IT. I'm certainly Better when I have a deadline, which is why this work suits me. Yes, but it's how you respond.</p>
+    <p>Does that deadline approaches? I know i've got to look calm, even if i'm in a panic. Just think to yourself, no one must know i'm under pressure. Yeah, even.</p>
+    <p>最后终于页了，其实他前面一来二回的已经可以去选择答案了。老师先问你这个time management时间管理能力怎么样了？然后这个学生说我还是working on IT就还行。然后如果有deadline approach的话，那我可能会这个叫做deadline逼近OK那我可能还会好一点。然后老师接着说，但是你要注意的是，你要看起来非常的冷静，even if I panic, 就是这句话，你要看起来非常的come，even if i'm in panic.</p>
+    <p>Panic这个单词的意思叫做惊慌，或者叫做惊恐。就是非常惊恐的时候，你也要表现的很冷静。老师嘱咐他一句说你必须要no one must know i'm under pressure，没有人知道老师这样说的，no one must know i'm under pressure，没有人知道我是在压力之下的。所以这说来说去就是让你看是不是让你害的emotion。那emotion在这儿对应的什么惊恐、压力，这是不是都能对应的上。所以这道题我觉得它是一道相对简单题，因为它反反复复出现了好几次confirm答案的地方。OK好，接下来下面一道。</p>
+    <p>creativity. Think to yourself, no one must know i'm under pressure. Yeah, even though I multi asking like crazy. Another skills that events managers need is creativity.</p>
+    <p>I often your client has what we call the big picture idea, but it's something to the events manager to think of all the fine points that go to making at work, right? So I need to listen carefully to that idea and then fill in all the gaps. That's right.</p>
+    <p>And就这个地方它肯定是答案，为什么？因为女生在定位成功之后，老师刚才说了一大坨那个内容其实不太重要，重要的就是这个女生她这一句话我觉得挺重要的。他说。So I need to listen so that a idea to the, to that idea and feeling all the gaps.</p>
+    <p>所以女生自己总结出来了这个，然后老师说到了一个什么呢？That's right. 所以老师去confirm了一下，这肯定是正确答案对吧？Confirm了，那什么叫做listen carefully and footling all the gaps，这个叫填空吧？就是填上所有的空空，那填上做的空是什么意思？填上所有的空是不是就是关注细节？</p>
+    <p>有同学说玛雅老师我不理解，那你就记住，focus detail那空不就是details，对不对？所以focus detail就和这个filling all the gap它俩统一替换。这道题我觉得它的替换难度可能是多少有点大的。如果没对的话，如果你当时犹豫不决，那这道题就先空着，先不管。好，接着我们继续下一个。</p>
+    <p>leadership. Do you will have a team working under you? So another key skill is leadership.</p>
+    <p>Your team may have lots of ideas too, that's right. And you'll have a team working on the so another key skill is leadership. Your team may have lots of ideas too, but you've gotta make the ultimate choice.</p>
+    <p>Do we have refreshments inside or out, for example? Isn't IT Better to be democratic? It's a nice idea, but you have the ultimate responsibility OK.</p>
+    <p>这个地方老师首先提出来了一个观点，老师这个观点就是因为你就是你要有去做选择的这个权利，ultimate叫最终的。然后学生其实问了一个问题，学生问的说isn't IT Better to be that isn't这个democratic这个单词的意思叫做民主的。学生说难道不是民主一点会稍微好一些吗？老师怎么说？这个单词民主，老师的意思是其实你最终负责，所以you你最终负责，所以you have the ultimate responsibility。所以他说so believe in what you think best，你要确信一下你认为最好的。这个前前后后其实挺多信号词了，包括这个so所以so其实就是相当于一个最终的这。In what you think best be prepared to say, yes, that's a good idea.</p>
+    <p>But, 就是你要去做好准备，去跟人家拒绝人家的观点，拒绝人家的。所以在这儿其实它的一个结构，咱们稍微总结一下，结构老师上来就说你要最终为你的决定负责，对吧？最终负责。然后学生反问了一下，这个反问就是难道不应该民主吗？老师再次confirm了一下，还是要听自己的，还是要你最终负责的对吧？哎所以这个对应的是什么？Trust your own view，相信自己trust your own views OK就是相信你自己最终的决定和判断。</p>
+    <p>好，最后一个题networking听一下。I see what you mean. What about the networking side of things? Like I know it's an area that a lot of students worry about because we don't have much experience to offer others, but even without this, you can still be an interesting person with useful ideas, and the more people who impress, the Better. I guess that will help me when I apply for a real job.</p>
+    <p>Exactly, 老师也同意了。Exactly这个networking，它这个单词本意是什么呢？其实它本意就指的是那种类似于在职场工作的那种人关系。这个学生来说，我们可能也没有什么人脉，然后老师说其实你本身做一个有趣的人，其实本身也挺好的。然后这个女生说i guess II guess是不是一个虚拟语气，对不对？她说i guess that will help me when I apply for real job。这可能会帮助我，当我申请到一个真正工作的时候，然后老师同意了。exactly.</p>
+    <p>所以这什么意思？其实当你真正开始职业生涯，这不就是future嘛，对吧？OK所以H选项正确。</p>
+    <p>好，总结一下，就对于这种事实配对，我们其实就是比part two多干了一件事情。Be part two多干的这件事情是我们要去confirm这个答案对吧？当听到了这个替换，我们不足以判定这个是不是正确的。所以我们必须要等待着听力去给我们confirm这个答案。就是他确信了，就是这个了OK那我们就把它选出来，那就肯定是了。如果说这个答案没有在文章里面得到一个confirm，就说exactly或者yes或者怎么样，那我们就暂时还是要先等一等的。OK好，这就是配对题的部分。</p>
+    <p>当然了对，除了配对题还有另外一种小小题型，这种小小题型叫做流程图。这题配对题其实咱没完，下节课我还得带着大家再稍微练一练。比如说咱们把所有的题型在part three当中出现的融会贯通一下，然后我们找几个题目来练一练。后面还有两节练习的课，但是我们现在先讲题型，先把这个题型都给都给他讲了。</p>
+    <p>OK流程图的一个一般长相来看，我屏幕左边，屏幕左边这是一个作业流程，就是写一个作业。然后这个流程图是一个填空型的流程图，所以流程图也两种，要么就是直接让你填空，要么就是它可能会有一些这个选项，然后让我们去选词填空。选词填空反正就是这么两种类别。OK但不管哪种类别，其实它都是一样的，它它这个题的底层逻辑，其实它就是个填空题。如果part three出现填空题，其实我们顺带可以说一说，如果part three出现填空题的话，我们要如何操作，以及这个填空题它真正的考点及要点在哪里，他对的这个填空题，其实本质上它就在考你什么呢？</p>
+    <p>干扰。因为一个人比如说A给了个观点，那B这个人有可能同意，有可能不同意，对吧？如果B不同意的话，是不是这里就出现了一个干扰项，就是你这个空就不能写的对吧？其实本质上它就是在考干扰，所以每个空基本上都是处在干扰的这个点上。</p>
+    <p>那么流程图它可能会多了一点什么呢？它会多了一点顺序连接词，顺序连接词包括什么first或者and then之类的。所以我觉得这种题它可能是更好去follow这个节奏的，你就不太容易去跑偏，或者说不太容易走丢。人家一个一个的就不断的往后步，不断往后推进，这不就就就相当于来到了下一个题的定位区间，对吧？</p>
+    <p>OK好，那咱们走一遍，这个题跟我一块儿去把这个题目咱们过一下。其实理论上这个也是为我们part four去答这个填空题做一定的铺垫。因为part four毕竟它都是这的填空题。好，我先倒腾一下这个听力，大家可以先看看题。</p>
+    <p>I was OK with the planning, but I got mark down for the and so OK. 好了，听力我准备好了。那么接下来咱们一块来看一下题。首先他说到什么design research question，这个部分没有题，那你再听一遍，他们不会说。Should we plan what we have to do for this assignment? OK, first, we have to decide on our research question, a原词。So how about is there a relationship between hours of sleep and number of dreams? 原词，所以第一个方格是不是都原词重现了当你知道第一个方格原词重现，那么接下来你就等待第二个方格里边他再说sample，sample这个单词本身样本的意思就是这个研究样本。</p>
+    <p>然后他说到了一共有12个学生，然后这12个学生from什么department？这空格里边得填个什么词性，肯定得填名词。有同学说我想填个形容词也行，我觉得不对，为啥？因为他的意思就是说这十二个学生是来自于什么学院的。这个department这个单词，它表示是在这就是学院或者说专业，他不可能说来自于一个什么样的学院，那肯定不对，对不对？所以我们现在就听这12个学生到底来自于什么专业。</p>
+    <p>OK，then we need to think about who will do this study on about svelte people, right? And shall we use other psychology students? 这里边其实女生提出来了一个建议，这个建议就是shall we use other psychology student？那你听男的咋说的呢？Let's use people from a different department.</p>
+    <p>男的是不是拒绝了？他说让我们用一些different department的。所以这个different放在这儿，其实是在否定psychology。Gy student就没你女生的这个proposal，就不同意，但是有同学反而还把这个different给我写到这个空里了。这就是我为什么会告诉大家，我说你在预测的时候一定要预测准，这空格里面必须得填名词，形容词不行，你比如说填一个difference放在这儿，那后边这个department要不要加复数？那没加复数这怎么解释呢？是不是解释不通，对不对？好，所以目前为止还没有听到正确答案。</p>
+    <p>那么接下来听听男生有没有什么建建设性的建议。What about history？Yes, they男生提到了一个history，然后这个女生就yes了一下。你说这一个yes是不是就告诉我们这道题答案就是这个history，对吧？所以25题的答案is tree，用历史学院的学生。但是女生其实还不死心，女生又说了interesting dreams，literate students.</p>
+    <p>女生是不是又提到了一个or little touch student，你要听这个男的的建议，i don't男生非常淡定的说了一个i don't even know any，所以是不是又相当于否定了，还是不同意literature student。所以在这里边一共三个专业，一个是psychology，一个是history，然后最后一个是literature。这个叫文学圈的学生最终成功入选的就是个history。</p>
+    <p>你说这个题是不是就是考的干扰信息，对吧？其实就是干扰信息这个点。干扰信息是来自于哪呢？来自于讨论，就是一个人提出来的一个建议，另一个人不同意。那这不就是一个讨论的过程，不见得这个人提出来的所有另一个人就得全盘就接下来未必，那肯定是可以不同意的。好，接下来我们就得听到methodology以及self reporting，这个东西就叫我们的定位的信息。Okay，forget that idea, then we have to think about our methodology so we could use observation, but that doesn't seem appropriate.</p>
+    <p>No, IT needs to be self reporting, I think OK. 好了，这个信息过掉了，接下来我们是不是就得26题关注一下。Decide on procure, procure叫做流程，answer on，所以大概就是在什么东西上answer on一个具体的东西。比如说answer on paper或者answer on什么电脑上之类的。OK我们来听。And we could ask them to answer questions online.</p>
+    <p>男生提出来了一个观点，说on why，来听听你的愿不愿意接受，in this case paper might be Better，女生是不是不同意？因为她说的是，but in this case paper might be Better OK. 所以女生提出来另外直接就不同意，然后提出来另外的一个观点，他说在这样的一个情况下，只可能会是一个比较好的选。他后面还解释了一下原因。But in this case，paper might be Better, as they'll be doing IT straight after they wake up.</p>
+    <p>In fact, while they are still half a sleep, right男生是不是也同意了？好，所以paper男生说right，所以我们的26题答案就是你看又是考在什么点上，该干扰信息上，干扰信息是怎么产生的？讨论就一个同意一个不同意的问题。</p>
+    <p>好，接着我们来看27题，27题要check ethical guideline for working with什么东西。这个ethical guideline其实基本上原词重现，所以不用去纠结。他表示的就是那种学校里边有一些管理制度，就是你在做研究的时候，你要去检查一下这个东西。当这个working with谁和什么人一块儿的时候，我们是要做这个检查的那我们就听一听呗。right? And we'll have to check the ethical guidelines for this sort of research.</p>
+    <p>为了because our experiment involves human，女生说到了一个观点，他说our experiment involves humans，对吧？这是女生说的。是不是由于这个研究里边包含的是involve，是不是等同于那个with，或者你可以说等workers。好，所以女生说是不是由于人包含在我们的这个研究里，就得需要做这个事情呢？那你看男生是什么态度？我们继续听。Because our experiment involves humans，so there are special regulations.</p>
+    <p>Yes, 男生说了一个yes，他这次真同意的很爽快。所以咱们这道题答案是不是就应该是humans OK好，接着28题。其实如果你仔细观察，你会发现它是一个并列结构考点。他干的事情就是说ensure that risk is access and什么东西keep to a minimum，就是我们要确保这个风险被评估，那这个risk access的这个叫做风险被评估。然后同时还得包括另一个东西，说这个东西要minimum，那我们就要听具体什么会被keep minimum。I to look for another assignment, I did.</p>
+    <p>There's a whole section on risk assessment, and risk assessment来了。And another section on making sure they are not put under any unnecessary stress. 所以整个这一句话，我认为这个题就非常的简单，它就是一个非常平铺直叙的并列结构的句子。</p>
+    <p>首先这个男生开篇儿就说了，我们有一个部分叫做risk assessment。然后人家有没有并列词的并列连词and夸出现了。另外还有一个部分要make sure they aren't put any unnecessary stress。所以什么东西被keep minimum，就这个stress，那也就是说they aren't put any，they aren't put这个部分an unnecessary，它其实等同于keep minimum，keep to a minimum.</p>
+    <p>MOK好，所以其实这个题就是个替换，而且是个并列结构考点替换。最后的最后三还没有，还有29题，别着急，29题它是analysis the result，就是分析了一下结果，calculate the correlation, and又是一个并列结构的题。BA这俩题好像都考的是并列结构，但是这个并列结构比刚才那个稍微难一点，我们先听前一半好吗？</p>
+    <p>There's a whole section risk assessment and another section on making sure they aren't put under any unnecessary stress. Let's hope they don't have any bad dreams. yeah. Then when we've collected all our data, we have to analyze, IT and calculate the correlation between our two variables. That's time sleeping and number of dreams.</p>
+    <p>到这儿其实他在说的是前半部分，就是计算变量之间的相关性。然后刚才我估计大家可能都听到了一个单词variables这个variables这个单词表示的是变量。然后他还告诉你了这两个变量分别是什么。一个是time sleeping of dreams，就是这两个变量之间的关系就是你睡觉的时长以及你做梦的这个数量，这就是这两个变量之间的关系。然后calculate cal，计算一下它们之间的相关性，然后我们等待它的并列成分。</p>
+    <p>When we've collected all our data, we have to analyze IT and calculate the correlation between our two variables. That's time sleeping and number of dreams, and then present our results visually in a graph. 他这后边事实上又说到一个并列结构，对吧？所以他说到那个就是。And then put our result visually in the graph OK.</p>
+    <p>好，这个我给大家放过来，就是把我们的这个结果以视觉化的呈方式呈现出来，放到一个graph里边。这个graph的图表我们来看一下，这个题它说make a什么，是不是让你去make a graph？但是这一句话我再让大家听一遍，我之前反反复复跟大家强调的结构大于内容。我希望就从这句话里边我们能够感受得到，这句话再听一遍，一会儿我给它全部写出来。Then when we've collected all our data, we have to analyze IT and calculate the correlation between our two variables, that's time, sleeping and number of dreams, and then present our results visually in a graph, right OK.</p>
+    <p>这句话我已经全部放到了这个屏幕上，大家可以来看一下，其实这句话里边有两个，and关键就是我们得知道这2个ID分别连接的是什么。这里这个其实在跟我们说的是两个变量，一个变量是睡觉的时长，一个变量是你做梦的这个数量，number of dreams。所以这个其实是在解释说明，变量之间的关系，就这个部分，所以他俩这个就是目前屏幕上画线的，这个是在解释说明这个带颜色的那真正和带颜色并列的东西是什么？是这个and后面带的i present our result visually in the graph，所以真正和带颜色并列的部分是我目前屏幕上画颜色的这个部分。所以这道题我们的答案写在graph这个点上，而不要给我写这里的明不明白？所以这个叫结构大于内容。你可以分不清它这都是什么，但是你要知道你的答案在哪儿，你的答案一定不在这里，而在下边的这一块，明白吧？</p>
+    <p>好，最后一个叫什么的research，肯定填个动词，是不是？走啊走起。And the final thing is to think about our听到了final thing了吗？这个final像不像一个信号词放在这儿？The final thing再来听一遍，right? And the same thing is to think about our search, devalue. The final thing is think about our research.</p>
+    <p>And这地方是有一个连读的，好多同学听到这个连读就很懵逼，就觉得他在说什么东西。但是我估计大家可能都能知道是这个单词，但是有人会写成这个evaluated，其实不是，它只不过就是在这个地方它连读了一下，就是这个and和这个E连在一块了，这个E和这个I又连在一块了。所以我们再听一下他这个right。And the final thing is that right? And the final thing is to think about our research and evaluated and evaluated and evaluated.</p>
+    <p>这个空上真的写啥的都有啊，有些evaluated的也有写成这个D然后就把这个D连起来value就是还有写成这样单词，这是自己造词，所以大家听的时候一定要注意，听力里面确实是有一些小小的连读的问题。这个连读的问题希望不要给大家造成太多答题的困扰，好吗？所以我为什么要让大家去倾听？这精听的目的其实就是在这儿。</p>
+    <p>好，我们总结一下，今天我们学习的题型还是稍微有点杂的。一个是匹配题，当然匹配题分成两种，事实配对和我们的这个态度配对。然后还有一种题目就是流程图，但是毕竟他们是一个part 3的题目，本质上考察的其实就是彼此之间讨论，你是否理解了我在说的这个话的具体内容。所以其实他考察各位的理解能力，那么需要大家如何做复盘呢？就是在你做完题目之后，然后你发现有些错题不要拘泥于错题这里。你要把它每一道题，最好做每个题的复盘，每个题目原文对应的内容，你要给它write down一下，写下来，然后去对标到选项上，对标选项OK去干这个事情。如果这个事情你做到位了，我相信听力很快就能够有一个质的飞跃和提升。</p>
+    <p>OK我们part three的方法论的部分到这儿就告一段落了。我们后两节课带着大家一块儿去把part three的题目来进行一个实际操练。OK好了，下节课再见，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-13.html">精讲逐字稿</a></li>
+      <li><a href="qa-13.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-12.html">上一讲 12</a></li>
+      <li><a href="lesson-14.html">下一讲 14</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

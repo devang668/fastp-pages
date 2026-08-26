@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第15讲 · 复盘技巧与重听方法 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 15 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a class="active" href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第15讲 · 复盘技巧与重听方法</h1>
+    <div class="abstract"><b>本讲概要：</b>老师在讨论中首先教授了复盘技巧，指出高水平学生可利用重听和对标选项的方法，而需改进的学生则应通过朗读课文增强理解后，再实施对标策略以锁定答案。强调理解内容优于死记硬背，并推荐听力学习时应侧重于听记词汇而非单纯背诵拼写。此外，老师提醒关注信号词，因其能指引答案或暗示干扰信息。随后，老师通过分析剑桥18听力材料，探讨了职场场景的复杂性，引导学生如何提升应对这类场景的能力，覆盖了工作沟通、职业规划讲座、自动化对就业影响等话题，旨在帮助学生深化对职场文化的理解，并通过练习和学习场景中的替换词汇来提高考试表现。</div>
+    <div class="tip">本讲含 29 组问答精要，可到<a href="qa-15.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>老师在讨论中首先教授了复盘技巧，指出高水平学生可利用重听和对标选项的方法，而需改进的学生则应通过朗读课文增强理解后，再实施对标策略以锁定答案。强调理解内容优于死记硬背，并推荐听力学习时应侧重于听记词汇而非单纯背诵拼写。此外，老师提醒关注信号词，因其能指引答案或暗示干扰信息。随后，老师通过分析剑桥18听力材料，探讨了职场场景的复杂性，引导学生如何提升应对这类场景的能力，覆盖了工作沟通、职业规划讲座、自动化对就业影响等话题，旨在帮助学生深化对职场文化的理解，并通过练习和学习场景中的替换词汇来提高考试表现。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们今天再来练一下psy当中经常出现的一个场景。而且这个场景在剑桥18当中出现的尤为多，也就是和就业就是和工作相关的一些个场景哈那大部分同学其实在考试的时候是没有过工作经历的。所以对于工作场合当中会发生的事情，包括这个讨论，就显得非常的陌生，错误率就会非常高。这就是为什么我们这节课要去练两篇文章，专门是和工作场景相关的那我相信可能大家在大多数在学校里面参与到的一些讨论，包括学生和学生之间的，学生和老师之间的，可能都是和学习相关，以学习为主。但是工作场景大家可能相对来说是比较陌生的。但是剑十八一共有四个听力的section，这里面就有两个是跟工作相关的。</p>
+    <p>OK我们就先来看第一个，这第一个这个题目，其实它多少有一点特殊，是两个学生他参加了一个学校组织的那种职业生涯规划的讲座。然后他俩针对这个讲座的人所说到的一些话，进行了一番讨论，所以是这样的一个场景。你听到的是两个人，其实他还是两个学生，并不是说一个职场人士，然后再加上一个学生去参加这个讨论。不是的，现在还是两个学生，他们在讨论的主题是和自己的这个专业未来择业、就业比较相关的。</p>
+    <p>OK我们先来看一下这个题目。首先第一个题目，它说的是what problem did shantell have at the start of the talk？这个商品现在我们不知道他是男生还是女生，对吧？好，我们来看下一道题，下一道题里面说到了hugo，and should tell. 所以如果你小时候爱读书的话，应该看过维克多雨果先生的书，对吧？那么那个Victor hugo他肯定是个男的那也就是说这个商场这个人应该是个女的，也就是这道题考察的就是我们这个女的。</p>
+    <p>在讲座一开始遇到了什么问题？这道题偏简单，因为它是一道场外题，就像玩狼人杀的时候，你根据别人那个袖子唰啦唰啦那个声音就判断他是不是狼，这种话有点像它是一道场外题，就是这个听力真正进入主题之前，然后这个女他俩在寒暄的过程当中所说的话。但这个题目它的一个特点就是进入的特别快，就刷了一下它就进来了，所以进入的特别快，我们一定要快速的去反应。</p>
+    <p>那他在讲座开始的时候遇到了什么问题呢？三个选项，A说的是他的视线被阻挡了，B说的是他不能够找到一个空的椅子，C说的是他旁边的人在讲话，OK那我们就来感受一下他到底遇到了什么样的问题呢？Hi, jone.</p>
+    <p>What did you think of the talk? And hi, you guys. I thought IT was good. One side moved seats. Oh, with the people besides you chatting or something.</p>
+    <p>这个男生说到了一个词，这个词大家一定要熟悉。他说是不是你旁边的人chatting or something？这个是不是其实就等于talking这个单词对吧？好，我们听IT wasn't that。所以这个不是，既然不是的话，我们的这个C选项是不是就被光荣排除了？好，既然不是C继续往后听。I went early so that i'd get a seat and not have to stand.</p>
+    <p>这个女生又说到了一个带so的句子，她说因为我去的挺早的，so I get a seat. 我倒是能做到做的，所以我们这个2b unable to find an MTC是不是又光荣排除了？2B选项又不对，那基于这种情况，C不对B不对，那显然应该选A。A说的是他的视线被阻挡，到目前为止其实还并没有说到。那什么时候说呢？继续往后听。Front of me and he was so all it's to see.</p>
+    <p>这个女生说了什么？她说她前面坐了一个人，然后这个人是一个男的，这是说的是guy，GUY不是GAY。好，他是这个男的，part of me这个right我在讲地图题的时候其实讲过，他表示的是就在并不是说他右边那个男的，就是就在他前面有个男的，他so tall的意思是太高了。那显然你自己理解一下，这是不是就相当于你前面做了个大高个，就是你的视线被阻挡了呗，就对应A选项正确。这道题是非常简单的一道送分题，必须要拿到手里。如果这道题拿不到手里的话，那后边那个错老多了。</p>
+    <p>好，接着我们来看第22题，22题他说是what were you going to show？How surprised to hear about the job market? 所以这道题是一个什么考点，惊讶考点对吧？那也就是说ABC3个选项大概率都提，但是有的是出现，但他并不惊讶的好。A选项说的是more competitive，就是职场好像比我们想的要竞争更激烈。然后2B说there is more variety，就是有更多选择我们我们才意识到原来比我们想象的有更多的选择。C说的是有一些非常的有有就是非常的有趣儿，但是有一些可能就不呗，所以some area more exciting than others。有一些很有趣儿，但有一些估计挺boring的OK好了，这三个选项我们都读懂了，接下来继续听下一首。</p>
+    <p>Anyway, to want to your question, I thought IT was really interesting, especially what the speaker said about the job market. OK定位成功，因为我们的题干里面毕竟还有这个job market，所以此时此刻女生就相当于抛砖引玉了，她把这个job market说出来了。我觉得这个讲座整体有意思的，尤其是说到这个drop market的时候。好，那具体哪里呢？继续往后。Me too.</p>
+    <p>I mean, we know we're going into a really competitive field, so it's obvious that we may struggle to get work. 这个男生说我们知道we know，那我们知道自己要去到一个非常competitive，所以A选项是不是去掉了，因为这个是出现，但并不这是我们知道的事情，继续。That's right. And we know we can't all have that dream job.</p>
+    <p>Yeah, but IT looks like there's a whole range of areas of work that we hadn't even thought of, like, 什么东西we haven't even thought of。这句话给大家粘了回来，这是男生说的一句话。他说there's whole range of areas of work we have order就是有一系列的工作是可以选择的，这个是我们曾经并没有想到过的。所以这个点是不是就是惊讶的替换词，对吧？</p>
+    <p>I haven't even solo惊讶替换词我们再梳理一下惊讶替换词都有哪些比如说surprise，这个本身肯定表示的是惊讶。再比如说我们遇到过的amazing，好惊讶，或者shocked me，让我觉得非常的震惊，或者i never，我从来都没有怎么样想过这个事情，对吧？I never think of that，就是从来都没有想到过再来beyond my imagination，这个叫超越我的期待，超越我的想象。</p>
+    <p>这一系列出现它其实都是静压替换词，所以这里是男生给的。男生说竟然有这么多选择，我之前可从来没有想过。所以这对应的是不是就是2B选项，也就是此时此刻2B选项正确的，可以去选出来了OK。那至于女生到底同意还是不同意呢？在这儿虽然男生讲到了这个2B选项，但女生并没有confirm。如果你是一个比较谨慎的人，你还要等待这个女生的confirm。Fashion journ for yeah，I wasn't expecting so many career options.</p>
+    <p>女生不但confirm了，甚至把这个句子又改写了一遍，对吧？因为他说yeah I wasn't expecting so many career option。我从来没有期待过如此多的选择，所以它就相当于男生这句话又给perfect了一下，就大概总结又大概改写了一下，它对应的替换肯定就是我们的2B选项，就这几个选择根本之前都没有从从来都没有想过。</p>
+    <p>好，接着我们来看23题。Hagan chantel agreed as speaker message was这个题它肯定是一个态度题。因为它题干当中有一个agree，所以它是一个态度题。但是他这个态度问在什么点上呢？说他俩同意。关于speaker，speaker是谁啊？Speaker就是那个讲座的人，对吧？</p>
+    <p>OK讲座的人怎么样呢？A说的是unfair to them，就是对他们来说不公平。2B说的是hard for them to follow。什么叫hard to follow？就跟不上。就比如说这人说话太快了就跟不上节奏，那可能是hard to follow。</p>
+    <p>C选项说的是critical of the industry ict，critical这个单词，它在这儿其实表示的是至关重要的，就是很重要的这样的一个意思。对于这个行业来说非常重要。OK我们来听一听他俩到底是怎么评价这个讲座的人。I wasn't expecting so many career options overall.</p>
+    <p>He had quite a strong message, didn't SHE SHE did. 他说他有quite a strong message，这个strong message在这儿反正看不出来是什么意思，但是我们继续往后听解释。SHE kept saying things like, I know you will think this, but and then he tells how IT really is. Perhaps he thinks students are a bit narrow minded about the industry. He did OK.</p>
+    <p>这个女生说到这样一句话，她说其实这地方是一个引用，就是他说到那个讲座的人，她总是用这样的一种说话方式。No，you think this, but and then he gave us the, uh what what is real like? 所以就是，我知道你们是这样想的，但事实上是。他大概什么意思？就是这个讲座的人，他总是好像站在学生的视角上去阐述这个事情。但学生其实好像并本质上并不是这么想的，所以就是过分揣测学生的意图了，对不对？</p>
+    <p>所以这对应的应该选项是哪个？这个hard to follow说他讲话非常让人难以跟上快，你理解不了不是吧？所以2B肯定不对，C肯定也不对，那也就是A选项A选项确实这个题是一个难题，然后它的难点在哪呢？它的难点是在于你要深刻的理解，就是你就这么想，就一个讲座的人他登在台上，然后他在跟学生讲座，然后讲话的过程当中，他就涉及到这样的句子。他说我知道你们是这样想，但事实上并不是这样的，我们这个行业是怎么样的，所以你会不会觉得这个讲座人他凭什么这么讲呢？是不是有点unfair？所以其实这个选项你必须得要深刻的理解他们说话的一个意图，这个题是必须得有一个deeply understanding，否则根本做不对的一道题目。</p>
+    <p>当然如果你排除B和C，我觉得还是OK的，就反向做题可能正确率更高一点。因为毕竟没有说到这人说话快跟不上，也没有说到这个人对这个行业来说的发展至关重要，就是都没有题。所以A选项好像有带这么点意思，那我们就把A选了。就这样的一种做题方式，反而会使得这道题做对。有的时候难题我们可以通过另一种方式去给它解决掉，化解掉这个难题。</p>
+    <p>好，接下来24题我们来看，说what do you go and sometimes criticize about their school career advice。所以他俩就是批评了刚才这道题是一个agree的题。那这是不是也是一道态度题，批评了学校的这个职业生涯发展办公室怎么的了，就是给的这个when they received advice，就是什么时间的问题，那how much advice the given，就他们给的这个建议的量的问题，以及到底是谁在给建议的问题。所以一个是时间，一个是量，一个是人的问题。那到底是哪个问题呢？来，我们带着这个问题继续往后听。But he thinks students are a bit narrow minded about the industry.</p>
+    <p>刚才那道题他还是有一个总结的男生说的。男生说可能他都觉得学生非常的narrow minded，就是思维狭窄，目光短浅的意思。Narrow minded, 目光短浅，然后思维狭窄，这个大家可以用一用，在口语当中表达出来，我觉得还是挺地道的。IT was a bit harsh, though we know is a tough industry.</p>
+    <p>Yeah, i'm only first years. After all, we've got a lot to learn. Do you think our secondary school education should have been more career focused? Well, we had numerous talks on careers.</p>
+    <p>We男生说we have numerous talk on korea。我们有特别多的关于职业生涯的这样的talk，所以其实它并不是一个量的问题，对吧？那也就是2B选项此时此刻被排除掉了，跟量没有什么关系，所以这个男的要抱怨。We had numerous talks on careers which was good, but none of them were very inspiring. They could have ask more people like today's aker to talk to us.</p>
+    <p>所以这个男生的意思就是说我们的量倒是足够的。但是他们的这个讲话好像并没有非常的inspiring，这个叫做发人申请的，激发别人的。所以应该怎么做呢？Could have done something, 就是你本可以这样做，ask more people like today's speaker，所以是人的问题，这是一个who的问题，好像这个男生不满的就是让谁来讲座的问题。那你听听女的是不是这么同意的呢？啊，agree, 所以女生也认为是人的问题。Who gave advice？所以这道题还算比较简单，上来帮你排除了一个错误选项，就是关于这个讲座的量其实是OK的挺多的，只不过就是请的人不对呗，使得我们听完之后没有觉得非常的备受鼓舞，not inspiring OK好，接着我们继续往后说。</p>
+    <p>When discussing the future, you can somehow disagree on. 他们对于什么事情是不同意的，又是一道态度题，不同意什么呢？来我们来看A说的是which is best care in the fashion，就是关于最好的一个职业生涯大概是什么样的。2B说when to choose a career in fashion，是什么时候去选择，然后why they could they would like a creating fashion。所以其实你有没发现这个选项它都非常的同质化。不同点其实就是which when，why对吧？就到底是什么，还是什么时间，还是什么原因，OK来，咱们继续听往后。</p>
+    <p>So did today's talk influence your thoughts on what career you'd like to take up in the future? Well, I promised myself that i'd go through this course and keeping open mind till the end, but I think it's Better to pick an area of the industry now and then aim to get Better and Better at IT. Well, I think we'll just have to differ on you.</p>
+    <p>女生总结了一下，女生说可能在这件事情上我们就是不同的。来我们来看一下女生她整体的一个观点是什么呢？女生整体的观点就是说i will go to this course and keep an open mind to the end。就是我大概要上这个课，一直保持一个开放的心态。然后男生怎么说的，男生上来就给他转折了，男生说了一个but，来再听。But I think it's Better to pick an area of the industry now and then aim to get Better and Better at IT.</p>
+    <p>But所以这个男生说，but I think is Better to pick an area of the industry now and then aim to get Better and Better at IT. 就是我觉得我们现在就应该去选行业，选择一个我们要做的事情，然后一步一步去努力，然后一步一步就变得更好。所以你会发现女生是期待到最后，男生就是说我们现在就得去弄。所以显然他们俩对于时间的问题，一个when的问题是不同意的对吧？</p>
+    <p>OK所以这道题我们选择这个when to choose这个题，我认为也并不是特别难。但是你是不是还得去理解这个两个男女，至少这两句话是要理解的，你不然你就不知道他俩在什么地方是不同意的。因为女生的总结只说到了，对于这个issue咱俩是不一样的。那到底是什么issue？其实就是一个when的问题。好，接着我们继续。</p>
+    <p>26、how does you go feel about being unpaid assistant? 所以男生这个题问的是男生的单向态度。Bill肯定还是一个态度问题对吧？也就是说男生对于这种不给钱的助手类的工作，他是怎么看的呢？A he is realistic about the practice, 他觉得这个东西挺正常，挺现实的，可以的。2b he fill the practice this onst，觉得这个不好see，he think I don't want to change the practice.</p>
+    <p>他觉得别人想去改变这样的一种行为。好，这个practice是指的是什么呢？其实指的是一个m pata system。就这个操作就这个男的对于这个操作到底是怎么个态度，就是觉得OK能接受还是no不能接受，还是想去改变。</p>
+    <p>好，我们来具体听一听这个男生对于此事的一个i think one thing for certain though，from what he said, will be unpaid assistance in the industry for quite a long time. 题干定位成功了。I'm prepared for you actually。I'm not going to accept that view.</p>
+    <p>他俩在这件事情上态度又不一样了，男的说的是i'm going to accept that，所以此时此刻男生说的是a accept能够接受。女生说女生就是死活不接受的对吧？女生说i'm not going to accept that view，我好像不能够接受的。所以显然男生认为这个事情可以的，A选项对吧？只不过就是一个统一替换而已。这个题它本质上问的就是男生的态度，你也不用去考虑女生对这个事儿到底是怎么看，考虑男生即可好吧。</p>
+    <p>前六道题这个单选，我觉得其中有一道题就是关于23题。这个题就是关于这个讲座的人他提供的这个信息怎么样的。这个题我觉得不好做，其他题我觉得都还OK。但是后边这个多选题实话说挺难。</p>
+    <p>来我们来看2728这两道题。首先2728问的是一个mistake，就是肯定是犯了个错误的。好，那这个错误是谁犯的呢？是speaker犯的对吧？他的第一份工作当中他犯了什么错误？</p>
+    <p>好，A选项叫做being dishonest to her employer，就是对老板不诚实。2B就是pay too much attention to SHE looked就是太关注他自己的一个looked这个to to就是太怎么样，以至于不能，这就是太关注自己的一个穿衣打扮的问题。C就是accepting to become well known，他希望自己能够变得出名，变得有名。然后4d try to earn a lot of money，就是想要赚更多钱。然后E就是公开的不喜欢他的客户。</p>
+    <p>好，我们来看一看这个人到底是怎么想的。Really, but he knows it's the case and everyone else is the same. That doesn't mean IT has to be true for me.</p>
+    <p>Okay, well, I hope you right. I thought the speakers account of her first job was fascinating. SHE admitted he was lucky to get work being a personal addresser for a musician he didn't even apply for the job, and there he was getting paid to choose all his clothes. IT must have felt amazing, though, he said all SHE was looking for back then was experiences, not financial reward.</p>
+    <p>OK这个地方其实有一个错误选项可以排除的，就是他说到了非常重要的一个转折连接词。他说though he said all SHE was looking for back when a then was experience。所以他所用的这个东西是什么？是experience而不是什么，而不是financial reward。所以他看重的是经验，看重经验不是钱。那既然不是钱的话，我们有一个选项是不是已经可以排除掉了，4D选项排除掉。他并没有想要赚更多的钱。OK好，接着往后我们继续下一。</p>
+    <p>Amazing, though, he said all SHE was looking for back then was experiences, not financial reward. And then he was so mean telling her he was more interested in her own appearance than his. 这个地方得有个答案。来，我们再听一下这句话。And then he was so mean telling her he was more interested in her own appearance than his。这个地方感觉好奇怪，他到底在说什么呢？来我们要先分清楚一下子这个说话的一个主体and then he was so mean，就是他这个非常的mean命这个单词在这儿表示热播的意思，就是它太刻薄了，什么事情刻薄？</p>
+    <p>Telling her SHE was more interested in her own experience than is。这个he指的是什么？这个he指的就是他服务的对象，那个musician，那个音乐家，对吧？所以这个musician也很mean，然后告诉他了，告诉他什么，这个SHE was more interest in her own a appearance。</p>
+    <p>Appearance这个单词的意思表示的是外表的意思。这个表示外表，也就是这个女的她太关注自己的外表了，那是啥意思？是不是对应的2B这个选项？但是这个选项好多同学是选不出来的，选不出来主要原因就是不太有这个场景感，缺语境。就是他到底他负责这个活到底是干嘛呢？怎么还关注自己的形象，这个形象那个形象。好多同学他可能会考虑这些点，但事实上你在做这个题的时候，快速反应的过程，不要去考虑这么细的点，你要做的事情就是快速筛选答案好吗？好，所以就是他太关注自己的外表，appearance表示是外表，那对应的就是这个looked对吧？</p>
+    <p>Too much attention, 就是more interested in her own appearance OK。所以此时此刻2B选项成功找到了对应，所以我们2B选项就正确了。然后接下来咱继续往后听，看他后边又说了什么？And then he was so mean，telling her he was more interested in her own appearance than his.</p>
+    <p>But SHE did realize he was right about that, which really made me think i'm always considering my own clothes. But now I can see you should be focusing on your client. SHE obviously regretted losing the job well. As he said, he should have hidden her negative feelings about him, but he didn't. 这个地方又出来了一个答案，然后这个女生说的就仿佛如同她所说的那样，well，exercise SHE should have hidden her native feeling about him, but he didn't.</p>
+    <p>那就应该这个地方是不是信号，should do something是不是一个信号词OK。所以你会发现这地方两个答案也都是在信号里边。第一个信号来自于比较关系，对吧？有这more的这种。第二个信号来自于should do something，表示本应该做某事，但是事情没有做。所以大家在说这句话什么意思？就是我本应该去隐藏一些负面的情绪，关于这他这个老板的，但是他并没有，这个女的并没有，这个女的就是那个speaker，所以是什么对应的，是不是他比较后悔这件事情，这也算他的一个mistake，他强烈的表达出了对自己老板的不满。</p>
+    <p>Openly dislike her client, 所以E选项正确，这道题正确答案是B和E这道题是一道错误率很高的题。这个错误率高主要的一个原因就是大家其实一来没有get到这个语境，就关于这个人他所承担的工作，其实可能大部分的人就不理解，所以导致就是没有共鸣感，听不懂。然后第二个主要的原因其实就是没有抓住替换。如果刚才我说第一件事情你也是这样的，但是你却把答案做对了。我认为主要的原因是在于找到了相应的替换词。找到了替换词对应这个答案选出来也是一个很正常的过程，对吧？况且我们的答案其实也出现在信号句当中。</p>
+    <p>好，最后一个题，最后一个题其实并不难，就这四个多选题。因为它虽然是两个题干，但其实是四道题。这四个多选题前两个是比较难的，后两个相对来说简单，就是这题又是一个态度题，这俩人都同意。</p>
+    <p>什么东西什么东西非常的useful。好，我们来看A选项，他说是reason people return fashion item。就是人们退货的一些原因，就时尚单品退货的原因。第二个就是人们花多长时间去购物衣服。第三个说的是人们fashion design，people want but can find人们想要但并不能并找不到的东西。然后D选项the best time of year of fashion buying就是最好的时机。</p>
+    <p>然后E选项the most popular fashion s size，就是关于这个尺寸的一个问题，最流行的尺寸。IT was really brave the way he picked herself up and took that job in retail. Fancy working in a shop after that? Yeah, well, SHE recommended.</p>
+    <p>We all do IT. At some point, I guess as a designer, you'd get to find out some useful information like how big or small the average shopper is. I think that's an issue for manufacturers, not designers.</p>
+    <p>这个地方不管他那个size，他说的是什么，反正这不是我们的活，是manufactured的活，对吧？这个manufactured这个叫生产厂商，所以对应的是生产者的活儿，并不是这个designer的活生生OK生产者。接着往后issue for manufacturer，not designers. However, IT would be useful to know if there's a gap in the market, you know, an item that no one's I think that's an issue for manufacturers or designers. However, IT would be useful to know if there's a gap in the market, you know, an item that no one's stocking but that consumers are looking for.</p>
+    <p>好，就是这个地方，刚才因为我又想把它粘出来，所以我又重新按了一下。这个句子可太明显不过了，我说这题简单，它就得简单。However你说它是不是信号词，对吧？他说有一件事情可能很重要，就是你要去看一下这个市场上有一些空缺空白。什么叫空白呢？你知道吧？就是那种人们想要的但并找不到的东西。</p>
+    <p>OK所以这对应出来的选项是哪个？就是fashion design people want but can find，所以C选项正确对吧？就这句话又是来自于一个信号当中，这个信号是转折，however对应的，而且其实这后边其实有虚拟，but consumer looking for，就这样OK would be useful。就这地方是不是一个虚拟，又有虚拟又有转折，肯定得有答案。</p>
+    <p>好，接着没完，继续往后。People don't give up searching. They also take things back to the store if they aren't write. Imagine you worked in an expensive shop and you found out the governments sold there were being returned because they fell upon in the wash. Yeah, that would be good to know that kind of thing.</p>
+    <p>他是举了一个具体的例子，就是有一些东西可能会退货，这些东西挺贵，但可能会退货。然后这个退货的东西，它说的是government。Government这个单词它表示的意这是衣服。所以作为设计师如果有一些衣服退货了，那我们必须要知道这个原因。OK好，所以这道题正确答案就是A和C这两个选项。</p>
+    <p>我们来分析一下这个题目，这个题目其实十道题，就整个这个section它的十道题都是客观题，都是单选题sorry，都是选择题。然后前面的这六道是单选，后面的四道是多选，都是不太好拿分的题目。对于单选题和多选题，我一再给大家强调的是你甭管它是什么场景，你也甭管它到底在讲什么内容，但最最重要的一件事情就是很多答案或者说干扰信息的地方都有信号词，所以一定要对信号词非常的敏感。这样的话我们可能才能有更多做的正确率。OK好了，那我们就进入到下一套的一个练习，就马不停蹄紧就直接来下一套。下一套这个练习跟这一套我们就要有区分。刚才其实就算是我带着大家手把手的去做这个题目，那么接下来就是我需要让大家先来读题做题，然后我来给大家去进行复盘。</p>
+    <p>OK我们来看一下这个题目，从这个题型上来看和刚才有区别。因为刚才这六道题都是单选，这底下这六道题可都是配对儿。所以难度上来说，这个应该比刚才那个要简单一些。但场景上来看，未必。因为这讲的是未来工作的一个趋势，所以大家都没工作过，更何况工作的趋势可能更不了解了，对不对？好，来我们来一块儿来听题做题，咱们就严格按照这个听力给的时间来，好吧，就是该看题的时间我都给大家OK好走。Three, you will hear two business students discussing automation and the future of work. First, you have some time to look at questions twenty one to twenty four.</p>
+    <p>Now listen carefully and answer questions twenty one to twenty four. That seminar yesterday on automation in the future of work was really good, was not looking at the first industrial revolution in britain in one thousand th century. And seeing how people reacted to massive change was a real opener.</p>
+    <p>IT was interesting to hear how people felt about automation then and what chAllenges they faced. I didn't know that first started with workers in the text style industry, with those protesting workers called the luddites destroying their kitting machines because they were so worried about losing their jobs. yes.</p>
+    <p>And ultimately, they didn't achieve anything in anyway. Industrializing created more jobs and IT destroyed. Yes, that's true.</p>
+    <p>But IT probably didn't seem a positive thing at the time. I can see why the luddites felso threatened. I know, i'm sure I would have felt the same.</p>
+    <p>The discussion about the future of work was really optimistic for a change. I like the idea that work won't involved doing boring, repetitive task as robots will do that. Normally, you only hear negative stuff about the future.</p>
+    <p>Bit too optimistic, you think. For example, I can't see how people are about to have more leisure time when all the evidence shows people are spending longer than ever at work. No, that's true.</p>
+    <p>And what about lower unemployment? And not so sure about that, perhaps in the long term, but not in the foreseeable future. And I expect most people will be expected to work until their much older is everyone's living much longer. That's already happening. Before you hear the rest of the discussion, you have some time to look at questions twenty five to thirty.</p>
+    <p>Now listen and answer questions twenty five to thirty. I enjoyed all that stuff on how technology has change some jobs and how they're likely to change in the near future. Yeah, incredible.</p>
+    <p>Like accountants, you might think all the technological innovations would have put them out of a job, but in fact, there are more of them than ever. They still really in demand and become far more efficient, right? That was amazing.</p>
+    <p>Twenty times more accountants in this country compared to the nineteen century. I know i'd never have thought the demand for hair dressing would have gone up so much in the last hundred years. One hair dresser for every two hundred and eighty seven people now, compared to one for over fifteen hundred.</p>
+    <p>Yeah, because people's earning power has gone up so they can afford to spend more on personal services like that. But technology hasn't changed the actual job that much. No, they got hair driers.</p>
+    <p>Ea, but it's one job where you don't depend on the computer. The kind of work the administrative staff do has changed enormously, thanks to technology. Even twenty years ago, there were secretary doing dictation in typing.</p>
+    <p>Yes, really boring compared to these days when they're given much more responsibility and higher status. A lot of graduates going for this kind of work. Now i'd expect there to be a much bigger change in the number of agricultural workers in the nineteen century.</p>
+    <p>But the eighteen seventy one census showed that roughly twenty five percent of the population worked on the land. Yeah, i'd have assumed that would be more than fifty percent. Now it's less than four point two percent.</p>
+    <p>What about care workers? They barely existed in the nineteen century as people's lifespan was so much shorter. But now, of course, this sector will see huge growth yeah and it's hard enough to meet current demand.</p>
+    <p>The future looks quite bleak for bank Clarks. They've been in decline since AT ms. Were introduced in the eighties, and technology will certainly make most of the jobs they do now redundant.</p>
+    <p>I think I agree, although the situation may change, it's very hard to predict what will happen. That is the end of part three. You now have thirty seconds to check your answers to part three OK.</p>
+    <p>好，这个部分结束啦。然后咱们先来check一下答案好吧。首先前面两道多选题，这两道多选题第一道题选A和E这两个选项，第二道题选B和D这两个选项。然后接下来是配对题，accountant这个选的是G这个选项。好，接下来26题选的是E这个选项，然后27题选的是2B2B这个选项，然后28题选的是C然后29题选的是F30题选的是A就这种配对题大家如果越做越简单，我觉得是一个比较正确的状态。但如果你觉得妈呀怎么越做越难？这题如果是越做越难，那肯定就是效果肯定不是特别好。</p>
+    <p>配对题相对来说比较简单一点，所以咱们先来把这个配对题复盘一下。首先说到a content，然后你看我在后边记了什么。More than ever, 以及它far more efficient。就是这个工作越很多，而且它的这个生产力，它的效率也会变得更高。这里显然对应的就是G选项。这两者都提升了，工作变多了，而且效率也高起来了，那就both employment productivity have risen，productivity这个叫做生产力OK。</p>
+    <p>好，所以这个显然毋庸置疑，就是质疑选项原文对应的那一句话，我给大家找到，咱们再稍微听一下。这样的话我们去confirm一下这个答案好吗？来咱们听一听。No，i'd never have thought the这个是yeah incredible。Like accountants, you might think all the technological innovations would have put them out of a job, but in fact, there are more of them than ever.</p>
+    <p>They're still really in demand and to become far more efficient, right? That was amaze. Yes, OK.</p>
+    <p>刚才这句话，我给大家完整的粘贴出来，咱们来感受一下他这个说话的结构。他说你可能会以为you might你可能以为这个科技使得这个工作已经put them out of a job，就使得他们没有活干了。但是in fact事实上是怎么回事呢？比过去要更多，然后really in demand，以及farmer efficient，是不是就跟我刚才跟大家说的一模一样，所以肯定是质疑这个选项是正确的。</p>
+    <p>然后接着hair dresser他说了什么呢？他说我从来都没有想过这个活竟然比以前多了。之前是一个理发师，对应287个客户，现在是一个理发师对应fifteen hundred还是fifteen thousand，反正就是更多的人了。所以也就是说随着科技却没有使得这个活儿变少，而使得这个活儿变多了，对不对？</p>
+    <p>所以这个主要的原因是来自于什么呢？来自于人们的earning power increase，就是人们赚钱能力上升了，所以愿意花钱倒伤自己，愿意花钱使得自己变得更好看。所以对应的E选项higher disposable income这里this possible对应的是可分配的income对应的是收入。对应可分配的收入，使得这个工作的量就迅速上升起来。来，我们再听一听。No，i'd never have thought the demand for hair dressing would have gone up so much in the last hundred years.</p>
+    <p>One hair dresser for every two hundred and eighty seven people now, compared to one for over fifteen hundred yeah because people's earning power has gone up so they can afford to spend more on personal services like that. But technology hasn't changed the actual job that much. No, they're got hair driers eea, but is one of way you don't depend on the computer. OK好了，所以这肯定是E选项对吧？</p>
+    <p>好，接着下面就是行政专员这个职位。行政专员这个职位他说有非常大的改变，活非常的boring，就很无聊。但是现在让这些专员去承担了更多responsibility，我是简写的单词是responsibility。好，所以也就对应的2B选项呗，就是他们的活已经变得更加有意思了，而且地位也变得更高了。对应的这一句话我还是让kind of work the administrate stuff do is change，thanks to technology.</p>
+    <p>Even twenty years ago, there were secretary doing dictation and typing. Yes, really boring compared to these days when they're given much more responsibility and higher status. A lot of graduate就是刚才这句话，那之前他们干的那个活都是dictation，就是会议的时候做这个会议纪要。但是现在他们这个活儿好像已经变得更加有意思了一些。他现在这个活给了更多的responsibility and status。Status这个表示的是地位的意思，就是责任加地位，反正就是更高了一些了呗，OK.</p>
+    <p>所以他们的这个活变得更有意思了。与这个boring相对应，就是站在一个对立面的这个角度。上好，接着农业工作者这个数量，你看我记下来的这个数字，你有一种什么感觉？数量大大降低对吧？所以这个我都不想让大家重听了。就是你从数字关系上一看，只要这个数字你稍微敏感一点，大概定到二之前的百分之好几十，现在就0%点几。所以显然这个数字是大大降低的那也就是C选项正确。</p>
+    <p>然后接着care work，也就是这个2 29题。然后他说由于人们的这个lifespan，我们把这句话可以对应再听一下，反正这个工作也是huge growth，它的替换的点就是在于这个huge growth。但前面的这个铺垫的部分我们可以再稍微听一听。IT barely existed in the one thousand nine century，as people's lifespan was so much shorter.</p>
+    <p>But now, of course, this sector will see huge growth. 听到。But now this sector will see huge growth.</p>
+    <p>这个部分现在就大大涨幅，所以对应的就是这个涨幅很大。Really demand最后一个banker k就非常有意思了。其实很多同学这个选项如果没有选出来，主要原因就是选项没看懂。选项并不是说这个A选项并不是说这个工作有危险，他的意思就是这个工作岌岌可危，就是岌岌可危，就是可能就马上就没了。他对应这个就叫银行柜员，他说银行柜员这个工作他现在确实非常的redundant redant的。</p>
+    <p>这个小慈表示的是多余，i agree, 听到了吧？这个活儿就多余了。那多余是不是就是按这个活儿马上就要有取消的风险了？Are likely to be at risk，at risk就是马上就要没了。</p>
+    <p>好，所以这个配对题我认为它非常的简单，它基本上都是在一些词替换上，本身上并不难。然后前面的这两道多选题，其实理论上也不算太难的题目。但是我估计大家做的不好不好的原因就是什么叫拉大爷，拉大爷是什么鬼？所以可能就是想要听懂，但有的时候可能并不具备这个能力导致的错误。真正拉带定位成功，这个拉带其实就是一个类似于像上个世纪的那种工会组织，反正就是他们抵抗工业化，然后最后反正也没成功，反正就大概通过这样一个事情给我们类比到现在，就是AI对于一个工作的影响，大概这个部分。</p>
+    <p>好，这块儿咱们可以再稍微听一下，再看。Yes, I was interesting to hear how people felt about automation then and what chAllenges they faced. I didn't know that first started with workers in the text style industry.</p>
+    <p>这里说到了一个行业，textile industry. 这个textile industry表示的是纺织行业，纺织行业OK好。Yes, IT was interesting to hear how people felt about automation then and what chAllenges they faced. I didn't know that first started with workers in the text style industry, with those protesting workers called the luddites destroying their netting machines because they were so worried about losing their jobs.</p>
+    <p>他们干了一个非常愚蠢的活儿，就是destroyed the netting machine。Netting machine就是他们纺织的那些工具，就比如说什么那个纺车之类，meeting这个曾经在par four还是一个par four上的重点单词，就是纺织的那个工具他们给破坏掉了。但最后yes，and ultimately they didn't achieve anything.</p>
+    <p>But ultimately这个ultimately表示的是最终最后最后其实他们并没有实现任何事情，啥也没整成，那啥也没整成是不是对应的这个？Their action was in effective。就毫不奏效，没有任何的效果，所以A课就已经正确了。</p>
+    <p>好，接着咱们继续往后听。Yes，and ultimately, they didn't achieve anything in anyway. Industrializing created more jobs and IT destroyed. That's true.</p>
+    <p>这个地方他还说了，其实工业化它伴随着更多的工作来了，而并不是去破坏了这些个工作，对吧？任何改变其实就有一些人会觉得，改变好痛，但有些人可能要变化，我们就能收获更多。But IT probably didn't seem a positive thing at the time。I can see why the loud, it's felt so threatened. I know, 这里男生说了一句话，他说i can see White light，I felt so threatened.</p>
+    <p>这threatened的单词表示威胁的，所以他这个can see是啊这个can see就是理解的意思，就是understand的意思。所以他的意思就是他能理解为什么这些人会觉得自己受到了威胁，那也就是E选项成功入选了，其实也都是在点替换上，但关键就是这个拉的I大家仿佛在听一个暗号一样，买什么叫阿拉，然后就听来听去这个答案就容易错过。好，到这儿两个选项其实已经选出来了。然后至于其他的这个选项，也就重在参与了，本质上也并没有怎么太出现。</p>
+    <p>好，那关于这个23和24就是two predictions about future work are student delt ful about？这里是doubtful这个单词放在这儿。不知道大家有没有看出来，这其实就相当于是一个disco这个小词儿，就不同意。虽然学生不同意什么呢？OK, 那我们继续走起，听一听。I like the idea that work won't involved doing boring, repetitive tasks, as robots will do that.</p>
+    <p>Normally you only hear negative stuff about the future. Bit too optimistic, don't you think? For example. I can't see how people are about to have more leisure time when all the evidence shows people are spending longer than ever at work.</p>
+    <p>男生这地方是不是有一个不统一的点？女生说机器取代了人工作，可能人就可以休息了。但男的说你是不是太optimistic？这什么叫做optimistic？就是太恶法。你难道没有发现吗？人们时常人们的工作时长其实是比之前要更加长了。</p>
+    <p>其实我简记的这一点就是答案的位置，这个optimistic这个叫做乐关的关了。因大家都没有发现人们花的这个later的时间其实是更少了。Longer at work就是花了这个工作的时长是更多了，所以这个对应的就是working hour will be shorter。</p>
+    <p>这1点2人是不同意的，女的觉得应该少了，但是男的觉得不对，男的没有认为少男的说你太乐观，我不同意这一点，可能人们花了更长的时间在工作这个点OK好，所以这一点他们是dealt的怀疑的不同意的OK好，接着我们来听一下一个no，that's true. And what about lower unemployment? Lower employment就失业率的take sure about that。Perhaps in the long term, but not in the foreseeable future. Perhaps in the long term, but not in the first able future.</p>
+    <p>所以就是关于这个失业率，他说长远来看可能会降低失业率，但是并不是可以预见的未来。在可以预见的未来，这个失业率可能有所影响。所以他们怀疑的点，这个失业率下降肯定也不太对吧。所以也就是说这道题其实它是自带一个否定的，就是个that for这个单词放在让你选他俩不统一，就他俩不认为怎么样的。那显然就B和D这两个选项。</p>
+    <p>其实这个题多多发生的都是点替换。为什么？先给大家讲的这个配对，因为配对相对简单更好理解。上面其实也是点替换，但是错误率我估计肯定是比配对题要高一些了。</p>
+    <p>好，所以今天是我们psy的最后一节课，我们psy从讲方法到现在我们也做了一些练习。我希望大家在课后做什么事情呢？首先在课后你要针对part three，肯定是要做题对吧？做完题目要复盘，复盘怎么复盘呢？我建议水平高的同学，就是水平高大概你的错误数量在3到4个以那这样的同学你的复盘方式就是重听，然后对标选项，然后找到替换。其实就像我课上讲题的这样方式就差不多，然后就这样去复盘。但是如果说你的错误量在3到4个以上，就是你错了五六个、七八个甚至全错。</p>
+    <p>这样的同学你先干什么呢？读课文，你把这个课文给打开，就把它那个原文给打开，你朗读一遍。朗读完了之后，接下来你干的事情就是在做这个事情，就是对标选项寻找替换锁定答案这样子。因为对于错的多的同学，可能文章所讲的内容可能你并没有非常的理解。所以我们先要让自己有一些理解在，然后你再去做这个事情，可能效率会更高。同时大家也要去积累词汇。在我们课上讲课的时候，你看有一些我认为大家可能不熟悉的单词，我都会揪出来给大家去分析，然后去讲一讲他的意思之类的。</p>
+    <p>你在课后也要做这个事情，因为听力的词汇必须要靠听去积累，而不能靠你去背这个单词拼写去积累，那是毫无意义的，明白吧？所以必须要听的过程当中去积累。你要记住这个单词它在一个文段当中它的一个发音，它是怎么读的。这个非常的重要，有助于大家听能力的一个提升。所以我建议大家在课后一定要扎扎实实的去做任务。但最后的最后，我非常重要的提醒大家一定要注意信号词。因为信号词要么就是答案，要么就是干扰信息，这个地方很重要。</p>
+    <p>OK好了，以上就是我们part three的整体部分，希望对大家有帮助。从下一节课开始，我们就要进入到part four的学习了。See you next time, 拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-15.html">精讲逐字稿</a></li>
+      <li><a href="qa-15.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-14.html">上一讲 14</a></li>
+      <li><a href="lesson-16.html">下一讲 16</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

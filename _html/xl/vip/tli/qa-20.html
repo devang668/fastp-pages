@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第20讲 · 时间管理与选题策略 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 20 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a class="active" href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第20讲 · 时间管理与选题策略</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学对话中，老师着重强调了在雅思考试中有效管理时间和题目策略的重要性，特别是在单选题部分，提醒学生避免因过度纠结而错失更多可能答对的题目。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在本次课程中，我们主要在讨论哪个场景的题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我们今天主要在练习part four中的心理学场景题目。</p></div>
+    </details>
+    <details class="qa">
+      <summary>为什么心理学场景会被单独拿出来讨论？对于不熟悉的场景词，如“liberals”，它对做题有何影响？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>因为心理学场景中的场景词可能不常见，如果学生不认识这些词汇，可能会影响他们理解和答题，尽管影响不会特别巨大。虽然不认识“liberals”这个单词，但随着老师的讲解，他可能会澄清这个词的意思，并通过例子说明即使不认识也能通过上下文理解其含义。</p></div>
+    </details>
+    <details class="qa">
+      <summary>接下来我们要解答的题目是什么要求？现在开始听题之前，老师对整个题目有何总结提示？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>题目要求填写一个单词，并且给出场景词liberals的定义：避免走重复路径的螺旋形路线，通向中心区域。老师简要回顾了螺旋路径设计的历史、常见地区以及其与amaze之间的区别，并提醒学生注意区分两者的不同含义。</p></div>
+    </details>
+    <details class="qa">
+      <summary>螺旋路径设计（liberals）与人类情感有何联系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>虽然题目中并未直接提及，但老师总结了雅思听力中经常出现的人类情感词汇，如depression（抑郁）、isolation（孤独）、proportion（沮丧）和anxiety（焦虑），并指出不好的情绪可能更有可能出现在听力材料中。</p></div>
+    </details>
+    <details class="qa">
+      <summary>baLance在语境中代表什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>baLance在这里代表一种螺旋路径设计，常与冥想或祈祷相关联。</p></div>
+    </details>
+    <details class="qa">
+      <summary>早期的baLance雕刻发现情况如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>baLance的雕刻设计在许多不同文化中都有发现。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第40题关于阿尔兹海默病患者的内容是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>研究发现，阿尔兹海默病患者在使用某种设备后，表现出较少的某种症状。</p></div>
+    </details>
+    <details class="qa">
+      <summary>What is the spiritual significance of labyrinths according to the speech?In which cultures and places have the earliest examples of the laboring spiral pattern been found?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The labyrinths serve a spiritual reminder of purpose and meaning in life, and they have been used as meditation and prayer tools in many cultures for centuries.The earliest examples of the laboring spiral pattern have been found carved into stone in various locations such as Sada, Scandinavia, Arizona, India, and Africa, as well as in Europe.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What is the traditional use of physical labyrinths in northern Europe?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>In northern Europe, physical labyrinths were designed for walking on and were typically cut into the grass in a circular pattern. They may have been used for fertility rites dating back thousands of years.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What benefits are attributed to walking in labyrinths?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Walking in labyrinths is believed to promote healing, mindfulness, and has physical and emotional benefits such as slower breathing and a restored sense of balance and perspective. These have led to labyrinths being incorporated into wellness centers and prisons.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What evidence supports the benefits of walking labyrinths?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>There are dozens of small-scale studies supporting claims about the benefits of walking labyrinths, such as providing short-term calm and relief from anxiety for Alzheimer's patients.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What is the traditional use of mazes, and how is the word 'labyrinth' sometimes used in modern times?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The traditional use of mazes is to serve as a puzzle with an intricate network of paths, and in modern times, the term 'labyrinth' is often used as a synonym for a maze.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How are mazes navigated, and what do they symbolize in the context of the speech?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Mazes are navigated using logic to work out the pattern and find the way to the center, symbolizing the process of solving a puzzle and overcoming confusion.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What is the origin of the word 'maze'?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The word 'maze' is believed to come from a Scandinavian word and is sometimes used to describe a state of confusion.</p></div>
+    </details>
+    <details class="qa">
+      <summary>在温家宝总理的阅读书籍中，出现了哪个单词？&quot;labyrinth&quot;在古代是如何被看待的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>温家宝总理在旅途中经常看的一本书中出现的单词是&quot;meditation&quot;，即祈祷或冥想的意思。在古代，&quot;labyrinth&quot;并非被当作劳动的象征，而是被用作生活旅程的隐喻，并被视为一种精神提醒，表明生活中有目的和意义，帮助人们找到方向。它被认为能鼓励平静感，并在许多文化和世纪中被用作冥想和祈祷的工具。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在古罗马帝国中，labyrinth（迷宫）一词代表了什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在古罗马帝国中，labyrinth通常出现在浴室、别墅和墓碑等地方，指的是用草皮制成的一种图案，设计成圆形或其他复杂的形状，可能用于祭祀活动，其起源尚未明确，但可能与祈求生育权有关。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于早期发现的带状螺旋图案，它们被发现刻在哪里？在解答关于laboring spiral pattern的问题时，关键词是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>最早的带状螺旋图案是在石头上被发现的，具体地点从撒丁岛到斯堪的纳维亚，从亚利桑那州到印度再到非洲，在欧洲也有发现。解答这个问题的关键在于理解laboring spiral pattern，它指的是带状螺旋图案，并且在古希腊被用于硬币上雕刻。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于提到的“lab”或“laboratory”，它的实际含义是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“lab”或“laboratory”实际上指的是一个用草皮制成的图案区域，常设计为圆形或其他形状，出现在古罗马帝国的浴室、别墅等地，有时还包括物理结构的杠杆装置，用于行走其上。近年来，这类图案有复兴的趋势，被认为有助于促进健康和意识状态的提升。</p></div>
+    </details>
+    <details class="qa">
+      <summary>走迷宫对阿尔茨海默病患者有何积极影响？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>研究发现，走迷宫可以为阿尔茨海默病患者带来短期的平静、放松和减轻焦虑的效果。</p></div>
+    </details>
+    <details class="qa">
+      <summary>What are the different types of replacement考点 mentioned in the speech?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The types of replacement考点 include: word for word replacement, abstract to concrete replacement, adjective replacement, negation, and various forms of noun replacement such as a kind of, types of, many, a lot of, a large amount of, great deal of. There are also structural replacements like a of b structures and different forms of parallel structures.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What is the second major category of考点, apart from the replacement类考点?What are some examples of structure类考点?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The second major category of考点 is logical relationships between statements, such as因果关系考点, where connecting words like 'because' and 'so' indicate a change in sentence structure and meaning.Examples of structure类考点 include the use of parallel structures, such as 'a of b' structures, and recognizing when these structures are used to convey meaning, like 'something made of something'.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What are the 'invisible冰山'考点, and what effect do they have on students?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The 'invisible ice山'考点 are designed to disrupt students' focus, with complex structures and unexpected interruptions that can cause them to miss answers or entire questions, often due to the inclusion of difficult-to-spell words.</p></div>
+    </details>
+    <details class="qa">
+      <summary>Why might students struggle with part four of the听力 exam?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Students might struggle with part four of the听力 exam because they have issues with vocabulary spelling and identifying replacements, which are central to the exam's design.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How is dancing beneficial to human health and psychology according to the speech?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Dancing is beneficial to human health and psychology as it releases hormones like dopamine, which make us feel relaxed and happy, and reduces feelings of stress or anxiety. It is also a social activity that contributes to happiness. Research has shown that dancing can improve creativity, and it is suggested that dance could be a useful form of therapy for those suffering from mental health issues such as depression. Additionally, dancing is a good way to encourage exercise in adolescents and can be especially beneficial for older adults, improving their balance, reducing the risk of falls, and promoting a general sense of well-being.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What findings were reported in the study comparing individual and group dancing?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>The study comparing individual and group dancing found that people dancing in a group reported feeling happier than those dancing alone.</p></div>
+    </details>
+    <details class="qa">
+      <summary>How does dancing potentially benefit older individuals?What are the physical and social benefits of dancing for older people?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Dancing can help older individuals by promoting a healthy heart, reducing the risk of falls, and improving balance. It is also cognitively stimulating, as it requires remembering different steps and routines, which can help maintain brain function and reduce the risk of isolation. Older people who dance often report feeling less tired and more motivated to be active, which can lead to participating in other physical activities.The physical benefits of dancing for older people include promoting a healthy heart and reducing the risk of falls and broken hips. Socially, dancing can help develop new relationships, reduce older people's sense of isolation, and encourage interaction and collaboration with dance partners.</p></div>
+    </details>
+    <details class="qa">
+      <summary>What did Professor John Porcario discover about the Zumba class and its effects on women's health?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Professor John Porcario found that women who attended a Zumba class, which is based on Latin American dance moves, for 40 minutes burned approximately 370 calories. The study showed that these classes were comparable to moderately intense exercises like step aerobics or kick boxing. After 16 weeks, women who took Zumba three times a week lost an average of 1.2 inches in waist size and lowered their body fat percentage by one percent. The women enjoyed the class so much that they continued attending classes at least once a week, establishing a habit.</p></div>
+    </details>
+    <details class="qa">
+      <summary>第一题讨论了关于舞蹈的哪个实验结论？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第一题涉及的实验结论是，舞蹈能够显著提高人们的创造力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在31题中，“a form of”和“a way of”之间进行了什么样的替换？33题中“low level of”对应的是什么表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“a form of”替换成了“a way of”，并且在该题目中，重点是理解这种替换关系以及答案&quot;therapy&quot;（治疗手段或方案）的含义。“low level of”对应的是&quot;standard of&quot;，表达的是健康水平较低的状态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>34题中的“improve”如何理解其逻辑含义？36题中空格处应填入哪个单词以保持逻辑连贯性？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“improve”在此处表示提升、改进的意思，例如，通过跳舞可以改善平衡能力，从而降低跌倒的风险。36题中空格处应填入&quot;motivation&quot;，以保持&quot;more... than...&quot;的逻辑关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>35题中的“force”一词代表的具体含义是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“force”在此处表示强迫、强制的意思，即通过提升工作速度来迫使大脑快速运转。</p></div>
+    </details>
+    <details class="qa">
+      <summary>38题中的“lesson the feeling of”对应的是什么情感体验？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“lesson the feeling of”对应的是reduce the sense of isolation，即减轻孤独感。</p></div>
+    </details>
+    <details class="qa">
+      <summary>39题中提到的40分钟跳舞与哪种运动形式的热量消耗相当？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>40分钟的跳舞热量消耗与进行其他激烈运动（如跆拳道、拳击等）相当，大约燃烧370卡路里。</p></div>
+    </details>
+    <details class="qa">
+      <summary>39题中&quot;women with suffered from&quot;描述的是哪类人群？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>&quot;women with suffered from&quot;描述的是患有肥胖症的女性，这类人群可能从跳舞中特别受益。</p></div>
+    </details>
+    <details class="qa">
+      <summary>舞蹈与高强度锻炼在健身效果上的比较如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>舞蹈可能无法与高强度锻炼在物理健身方面取得的成果相提并论，但在保持健康和提升创造力方面，由于其趣味性，其受欢迎程度可能会持续增长。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于part four的读题时间，有何建议？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>part four在完成作业后有30秒钟，加上原有的60秒钟，总共90秒钟用于读题。由于这部分可能没有题干，可以略读或不读，理论上这个时间应该足够使用。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在备考过程中，如何合理分配时间来确保在part three上能够完成阅读题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>建议将更多时间分配给part three，因为它读题压力较大。如果按照每道题约6秒钟来计算，十道题目的时间约为60秒钟，这是正常情况下可以保证读完的。此外，可以利用part one或part two剩余的时间来进一步读题，例如part three自身拥有60秒钟读题时间，总共有120秒钟。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于复盘阶段，对于part one和part two有何不同的复盘策略？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于part one，即使学生感觉听不懂，可通过朗读课文的方式进行练习，并在复盘时整理出题干中的替换题干和干扰信息。而对于part two，复盘的关键在于题目出现后成功定位题干，然后对标选项分析对错原因，如A选项哪里错、哪里对等，并详细书写答案句，这一复盘方法同样适用于part three。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何安排模考节奏以有效利用时间？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>如果备考时间充足（如一个月），可按照每周一本书的速度，每天做题并第二天进行复盘，这样一个月可以完成四本书。若时间紧张（两周内），则一天一套题，并优先复盘part three和part four部分，因为这两部分较难且对拿分至关重要。</p></div>
+    </details>
+    <details class="qa">
+      <summary>考试当天如何调整状态并应对听力部分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>考试当天上午，建议早点起来做一套已做过的听力题以找找感觉，确保考试时处于良好状态。下午考试的同学则可在中午做一套题。同时强调，在考场心态调整的重要性，考过的内容要及时忘记，不要纠结难题，适当放弃不会影响最终成绩。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于机考同学，格式问题需要注意什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>机考同学要注意格式不重要，例如日期书写、标点符号的使用等，只要没有写错单词，格式问题不会扣分。但提醒大家务必注意避免写错单词，因为写错会被扣分。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-20.html">精讲逐字稿</a></li>
+      <li><a href="qa-20.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-19.html">上一讲 19</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

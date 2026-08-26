@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第12讲 · 理解题目与核心信息 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 12 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a class="active" href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第12讲 · 理解题目与核心信息</h1>
+    <div class="abstract"><b>本讲概要：</b>在这段讨论中，强调了理解题目和正确解读信息对于解答语言考试综合题的重要性。指出，面对难题应专注于核心信息，避免过度花费时间影响整体表现。特别地，态度类问题可能对解答产生决定性影响，需正确理解说话者立场。建议学生通过课后练习和精听提高理解能力。对话进一步详细讲解了雅思听力考试Part Three部分，指出该部分包含多种题型，如单选、多选、配对及填空题，并强调双向对话的理解，特别是涉及学术讨论的情景。老师分享了解题技巧，包括通过语调和情感色彩判断态度，处理故事性题目等，并通过具体题目实例演示了这些技巧的运用。旨在为考生提供全面分析和策略指导，以更好地准备Part Three的考试。</div>
+    <div class="tip">本讲含 31 组问答精要，可到<a href="qa-12.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这段讨论中，强调了理解题目和正确解读信息对于解答语言考试综合题的重要性。指出，面对难题应专注于核心信息，避免过度花费时间影响整体表现。特别地，态度类问题可能对解答产生决定性影响，需正确理解说话者立场。建议学生通过课后练习和精听提高理解能力。对话进一步详细讲解了雅思听力考试Part Three部分，指出该部分包含多种题型，如单选、多选、配对及填空题，并强调双向对话的理解，特别是涉及学术讨论的情景。老师分享了解题技巧，包括通过语调和情感色彩判断态度，处理故事性题目等，并通过具体题目实例演示了这些技巧的运用。旨在为考生提供全面分析和策略指导，以更好地准备Part Three的考试。</p>
+    <p>Hello, 各位同学大家好，我是三老师。我们在学习完了这个part two之后，咱们是必须要进入到part three了。Part three其实说实话，就是我觉得它是雅思听力当中四个部分里面最难以理解的部分。但是这个部分其实又考察大家对于听力篇章的一个理解程度，所以其实这个部分是不太好得分的。</p>
+    <p>那么从题型上来看，它也是考察大家理解类的题目。比如说各种各样的客观题，类似于像单选、多选、配对。之前其实还出现一种题目叫流程图。流程图这个题目其实好久没有出现了，它也不是什么重点题型，所以我在这个课上就给大家稍微提一提，咱们就过了。但是他说实话之前也出现过填空题，甚至我还有同学考完就我的学生他考完试之后告诉我说，他的帕特遇到的十道题全部都是填空。我说那你是不是part four遇到都是单选？他说对，老师你怎么知道？</p>
+    <p>因为正常来说就是雅思听力它考试的一个题型占比，就是主观题也就是填空题哈那大概是20个。然后这个客观题也就是各类的什么单选、多选，还有什么配对之类的20个。所以它大概是一个一比一的比例，就是一半一半。你不会出现太多的主观题，不会出现太多的客观题，它会有一个baLance，就大概是这样的一个平衡。</p>
+    <p>然后这个部分刚才我说了，主要考察的是各位同学对于一个篇章的理解。这个篇章它是一个校园场景，这个校园场景肯定不是说非常简单的那种校园场景。大概可能比如说讨论一下作业，或者讨论一下选课，就是基于有一定的学术内容的这样的一个讨论。所以你有可能会听到一些学术类的这些比较难以get到的一些词儿。</p>
+    <p>当然它其实本质上还是两个同学的一个two way discussion，就是双向讨论。所以这个形式是一个对话。然后这个对话有可能你是遇到两个人之间对话，也有可能是遇到三个人之间对话。有可能同学说老师两个人我好理解，一个男孩一个女孩儿。那么三人是什么情况呢？三个人就是一个老师，然后加一个学生A加一个学生B这个老师的一个职责主要就是推动对话进程的。就比如说老师上完了课问问学生们的反馈，你觉得我这个课上的怎么样？A同学你说一说，B同学你来说一说，所以大概是这样的一种感觉。</p>
+    <p>OK好，那么我们今天就先就这个part当中经常出现的单选和多选题，咱们来讨论。当然这也是一个比较重要的题型，很有可能你遇到的十个题都是单选和多选，就是前面四道是多选，后面六道是单选。当然反过来也有可能。</p>
+    <p>好，我们先回忆一下在part two咱们学过的这个单选和多选部分的方法论。其实我当时最为强调的一件事情两件事情。我记得我当时最强调两件事儿。第一件事情就是你在读题的时候，你要知道考点，这个就仿佛是你站在上帝视角去做题。如果你不知道考点，是不是在处理听力这个文段的时候，你要干很多事儿。这个事儿包括你要去听懂，你要去反映，你要去对标选项。如果你知道考点了，是不是你就在这个点上去听懂，去对标选项就可以了。所以事实上如果你提前知道考点，你可以减少自己至少50%的工作量。</p>
+    <p>好，那么之前我们学过的考点都有哪些呢？其实并没有很多，一共就五大类考点。首先题干里面可能会有时间，这个时间有可能是一个时间状语出现，当然也有可能它是一个比如说时态这个方面去出现的。那有可能是现在，有可能是过去，有可能是将来。那我们要选择这个东西，它必须要符合这个时间要求，不符合时间要求的东西咱们不能选。好，这是第一个考点。</p>
+    <p>第二个考点是一个比较大类的考点，它叫做限定类考点。其实所谓的限定就是题干当中给我们提了一个要求，比如这个要求是我们得选一个新活动，我们要用一个不同的独特的或者重要的，或者在大家这个主要的担忧，这类就是形容词考点。除了形容词之外，还有副词考点。这个其实就是在题目当中去提了一个要求而已。那么除了形容词和副词之外，还有短语限定。因为有的时候它这个要求它是以短语的形式去展示的。比如说in the long run或者in the short term，这表示的是从长远来看和从短期来看，其实它也是题目当中的一个要求，对吧？</p>
+    <p>第二大类考点，第三大类考点叫因果考点，非常好识别。题干当中只要问why或者带有这个be cause的那我们其实都是因果考点，那动词考点。比如说这个选项它非常的排他，这个A选项一个动词，B选项一个动词，C选项一个动词。或者题干当中还记得我们做的那个题，说这个company founded in哪一年。那这个题其实就是考founded这个单词，它是统一替换词的对吧？所以听统一替换词。</p>
+    <p>好，最后一个考点就列举类考点，列举类考点无捷径，你就要去去进行一个判断，没有什么特别简单的便捷的方式。因为毕竟他可能三个选项都提到，那你要判断A是不是，B是不是，C是不是？这是我们在part two当中讲过的考点内容。我为什么在这里要给大家复习一下？因为part three是在part 2的基础上变难了。你要这么想，part two是一个一个人的说话，对吧？就是一个人在进行单向输出，但part three是一个双向讨论，所以也就意味着它这个考点也变double了。</p>
+    <p>那么它对的这题它主要两大考点，就是它是双考点题目，并不是单一考点的双考点。这个双考点就是以上的这些事实类的考点，就是以上这五个人都有。再加一个态度考点，其实这个态度考点它是具有一票否决的。比如说他说这个新活动选出来了也说了这个东西是一个latest addition，然后我们有一个piano，然后结果那个同学说no，I don't agree, 我不同意那一个不同意夸piano是不是就不能选了，对不对？所以就part的这个单选题，它都是双考点题目。</p>
+    <p>这个态度是有一票否决的。所以我们就得对agreed和disagree的表达要非常的明确。当你想要去赞同别人的观点的时候，有同学说老师我就直接说i agree with you，可以，但是这个多少有点太直接了，是不是？你是不是有可能会用一些比较隐晦的方式或者比较委婉的方式去表达你对别人的赞许。</p>
+    <p>比如说你直接肯定是可以的，然后除了直接的肯定，你给对方的这个说法举了一个例子，我去就相当于提供了一个论据，对吧？如果是写作，就相当于这个东西是一个论据。你给对方的观点提了一个论据的意思是什么？是不是就相当于是你同意了对方的观点，进而去把他的观点进行了延伸，对吧？所以这也其实表达的是一种肯定。</p>
+    <p>好，那么如果你表达不同意，直接否定当然是可以的。不过同学与同学之间说话反正没有这么的直接，多多少少可能大家都彼此委婉一些，所以你就直接说i don't agree with you，好像显得有点太粗鲁了。我们一般可能会怎么说呢？你说的有道理，但是但是是什么这个代式是不是就是转折了？所以带转折的兴许就是不太同意这个人的观点。OK除此之外还有什么呢？就是那种犹豫。如果你犹豫，比如说你咱今晚上去吃火锅，什么意思？</p>
+    <p>就是不太同意，但是你又好像不太好说正在组织自己的语言怎么措辞，一下子拒绝人家是不是？所以其实就是但凡犹豫的这个就是speak with hesitation，那可能他都表示的是有点不太同意好了。除了这个语言的信号点之外，在语调上有没有什么信号点？比如说我特别同意你那是不是oh yes，那这个基本上就是一个上扬的语调。那如果我不同意actually I那是下降的语调对吧？</p>
+    <p>我为什么再跟大家说语调的问题？因为它的内容非常的快，它的语速快，所以很有可能听不懂。但是在你听不懂的情况下，我也希望你能够get到这个人他说话的一个情感色彩。那通过什么去get到他说话的情感色彩来？就是通过他说话的这个语调，我们就能够进行一个判断，所以这也算一个小小的技巧。</p>
+    <p>OK好，我们接下来讲讲干货的部分。Part three的这个单选题，我给它一共分为三个大的类别。这三个大的类别其实难度各自都是有差异的那比较这个简单的题就是事实题，事实题其实它就考在事实信息上，当然他会加一个考点，就这个人他同意还是不同意，对吧？所以这种题比较简单，它的难度就是对标part two的选项看起来就是会比较短的那这种题我们是要拿分的。</p>
+    <p>好，第二种题目叫故事性题。这个故事性题它会给你讲一个完整的逻辑链条，然后这种题相对来说比较难，而且错误率会比较高。我建议如果你没有跟上这个故事链条的话，那我们就放弃，不要耽误后续做题节奏。一定记得在听力的部分我。</p>
+    <p>反复跟大家强调节奏非常重要。如果你因为一道题而错失了后边好多好多道题，那就是你的损失了。但是如果你节奏把握的好，比如这道题虽然我没有做对，我没有听到，但是下一道题我做对了，下一道题我又做对，再下来我就又做对了。那么那道题没有做对题，你猜一猜答案是不是还有一定的几率能猜对，对吧？所以一定注意，节就是这个节奏是非常重要的这是第二类题目叫故事性题，他给你讲一个完整的逻辑链条，一会儿具体我们再拿题目去举例好吗？咱们先把这个干货的部分讲完。</p>
+    <p>第三类题目就是态度类题。态度类题你会在那个题干当中明显的会发现它会有那个态度词。比如说jack agree with什么东西，或者bob agree with什么东西，或者在both agree with什么东西。这种题目最终它是要有confirm的，一定要去听它最终那个答案的confirm。如果没有confirm的，我们就不能选好吗？</p>
+    <p>好，那做题的步骤这个其实和我们的这个part two单选题做题一样的，就是这么个步骤，没有什么难的。首先你要读题，读题的时候注意，这个部分读题时间可是真的非常的紧张了。因为实话实说，不但大家会觉得这个部分读题时间紧张，连我我我自认为我的阅读能力是非常强的，就连我在读这种题目的时候，我都会觉得这个时间是非常紧凑的。所以我们必须要争取一切可以利用的时间，比如说p two最后结束的时间，它会让你去有一个30秒钟的check time，就是让你去check一下这个答案没啥可check的。赶紧给我读path的题目。</p>
+    <p>好，那读题的时候题干是不是要理解清楚？然后你是不是要在题干当中去找到考点？这个考点是来自于题干的，不是来自于别的地方。题干当中去找到考点，在选项选项你要去找这些选项之间的一个区别，那这才是有有别于比如说A选项有别于B选项的点，才是我们真正能够去选它或者不选它的一个主要原因。</p>
+    <p>好听题的时候，题干定位成功。接下来的这个内容你看我就没有再写文字了。为什么？接下来可能是3到5句话你都得往懂了听你说。老师我听不懂，听不懂是你可以通过一些技巧去做题，但是不靠谱。我希望大家都能听懂，至少我们在训练的时候，你要往这个方向上去使劲，而不是说我一直就是听不懂听不懂，听不懂就完事儿了。OK好，永远记住我这句话，听力考试结构大于内容。即使有的时候你真的没有听懂，但是你可以通过一些技巧去做题。</p>
+    <p>好，那么接下来我们就拿几个例题来感受感受。首先我们先拿见识7 test one section three的这几个题再来感受一下。首先前六道题这个都是单选题，阅读量是不是挺大的？好，我们把第一道题先给它请出来。第一道题上来他说的是what problem did both？这地方是不是有一个both Diana team have when arranging work experience，所以给我们来了一个定位的部分，这个后边就是定位，当讨论到他们是如何安排自己的工作的时候，那这道题就相当于定位成功了。</p>
+    <p>然后你要的是他俩都有的问题，对不对？如果一个人有的你能选吗？肯定不能选对吧？我们要的是他俩都有的问题，所以这个题其实是一个态度题。因为这里还有一个both agree，所以我们在做题的时候both agree这一点是必须要在意的。</p>
+    <p>好选项我们来看看都需要看到什么程度。A选项叫做making initial contact with suitable farm，这个initial contact叫最初联系，所以就是最初联系农场时候有问题。2B组织交通，就是交通呗transport有问题。所以你有没有发现其实我在画的是什么核心，就是因为他问的是有什么问题，所以我画下来这个词多数都是那个问题的那个点，所以可能是那个名词对吧？好，C选项final placement for vie length of time，所以这个是时间的一个问题，好像就是足够长的时间的那个没有。</p>
+    <p>OK拿到这个题之后，咱们一块儿来听一听文章对应是怎么说的。我给大家两个任务，首先第一个任务我们会成功，好吧？然后第二个任务我们再去筛选答案，走起。So tim, we have to do a short summary of our work experience on a farm, right? My father was great, but arranging the work experience was hard.</p>
+    <p>好题干定位成功。Arranging work experience，然后他在这个题干当中说到的也是hard，这个单词都是很困难。所以现在刚说的话帮我们定位成功了。定位成功之后，接下来我们就要去筛选选项了，一句话的给我捋一下。One problem was I was smiles away and I don't drive.</p>
+    <p>这个男生说到的第一个problem，他说one problem is IT was miles away and I don't drive。所以他说的这是一个transport的问题。对，如果是part two题目到这儿，你是不是就可以选了？这多像信号词，但是这parity possible必须要有那个confirm，所以在这儿我们是不能选的，继续往后听。And also, I really wanted a placement for a month, but I could only get one for two weeks.</p>
+    <p>一个并列句，他说还有一个问题是什么呢？就是我想弄一个月的这个合同，但是好像最后只能给他一个two weeks的合同，所以问题times的问题。也就是说其实男生在这里边提到了B提到了C这两个选项。完了这个地方肯定没有答案了，因为你总不能选两个正确答案，这是单选题，所以你要听女生讲的什么？I was lucky the farmer let me stay on the farm，so I didn't have to travel.</p>
+    <p>女生不需要travel，I didn't have to travel。所以女生是不是相当于否了这个B选项，它没有这个问题。这题问的是两者都，所以2B率先排除，他肯定和正确选项没关，因为女生没有这个问题。</p>
+    <p>好，接着说。女生又说到了一个问题，她说finding the right sort of farm to apply to wasn't easy。所以这什么意思？找到合适农场去申请好像挺困难的那是不是就是这个A选项，这个suitable farm是不是出来了？所以这个地方对标的是A女生说到A这个有问题，那么男生怎么说？No, they don't seem to have websites, do they? I found mine through a friend of my mother's, but IT wasn't easy OK.</p>
+    <p>男生上来虽然说了一个no，但是这个no到底是什么意思？我把整个这个句子完整的给大家放到笔记当中。这是男生对于女生说完了上面那个问题之后，他所回复的一句话。我们看这句话当中，咱捡一捡东西，说no，they don't seem to have website, do they? 就不他们好像没有互联网，我找到这个农场是通过我妈妈的朋友，但是确实不简单。</p>
+    <p>所以你有没有发现一个问题，当女生提到了一个问题，男生要表达肯定，就男生其实他是说确实申请这个农场确实是有问题，所以这个否定词在这里表达肯定的意思。为什么会这样？因为它前面是一个否定，这个女生说，这个wasn't easy，你看这个否定词，所以其实男生这个no就是同意他上面那个否定词，他说因为这些农场都没有这个互联网，然后那我找到这个农场也不太容易，这个是男生说的。所以此时此刻A选项是不是就成功入选了？确确实实这俩人真的是有这方面的问题，就找合适的农场去申请，确实是有问题。</p>
+    <p>好，通过这道题，我们稍微总结一下，你会发现这是一个态度题。刚才我们大概听了几句话，少说有三四句话吧，我觉得至少有四五句。因为男生先说了BC两个选项，然后女生其中对于B选项直接的否定，C选项没有提。女生讲了A男生同意了A最后a confirm作为我们的答案。这个过程是不是就比那个part two的题目做起来要费劲的多了？因为part two根本没有后续的那个过程，part two就到这儿就完事儿了那种。One problem is夸，你把那个听出来，同义替换一找出来就OK了，但是他对就不行。好，所以刚才我们感受了一个态度题，接下来我们再来感受下一个题。</p>
+    <p>下一个题这个题干来咱看看，它首先是team的对吧？它跟戴安娜好像没什么关系。所以当你读到这样的题干你内心要有一些期待，期待team的说法。因为它是team的事儿，所以你就不要去想着别的，那我们就期待一下team的说法。</p>
+    <p>Team was pleased, 这个pleased这个单词表示的是开心的意思，它能够帮助什么？所以这个题是不是也是双考点？首先是team发生的事儿，其次team觉得开心帮助什么东西？A说的是他帮助了这个断腿的羊，B说的是他帮助这个羊生孩子费劲，这大概的意思叫难产难产。C说的是这个羊它吃东西费劲，所以他到底帮助的这个羊它怎么了？</p>
+    <p>好，我们继续往后听，走起。No, my farm was mostly livestock, especially sheep. I really enjoyed helping out with them.</p>
+    <p>有没有感觉到他说到了这个shape？然后这个team他其实说到了一个小词叫做enjoy，I really enjoy helping them, 我非常开心帮。那到底帮助什么了呢？答案有没有一种呼之欲出的感觉？如果你觉得这个答案呼之欲出，感觉就对了。</p>
+    <p>听i was up most of one night helping a sheep deliver alarm。所以他那天晚上到底帮助了什么？他说他helping a sheep deliver，and这个helping a ship deliver a lamb，这什么意思？啥叫deliver？人家说配送帮助羊配送一个小羊羔，那这个就是生孩子的问题。所以其实2B选项这个a difficult giving birth，这是不是就相当于统一替换产生了。所以此时此刻2B选项就已经可以选了，它肯定是个正确选项。但是其他选项我们也听一听，说不定会出现。</p>
+    <p>And he told me what to do. IT wasn't a straightforward birth, but I managed, 他说IT wasn't story forward。再次阐述了一下，这个确实是个难产。But I manage，就是我成功了，manage to do something.</p>
+    <p>这个小词组我之前不止一遍了，所以不再赘述了哈。OK继续往后。IT was a great feeling to see the lambs stagger to its feet, feeding almost.</p>
+    <p>这最后这一句话在说些什么呢？感觉一堆声音。来我把这句话给大家放到笔记当中再感受一下。他说IT was griffin ling to see the lab struggle to its feet and start almost straight away。所以他非常开心看到两件事儿，这地方是一个并列结构，这两件事儿分别是一个是stagger to its feet，你就猜想一下什么叫stagger to his feet，就小羊站起来了呗，对不对？所以小羊站起来了，他这个非常好。</p>
+    <p>然后再接着他非常开心的看到小羊去开始吃饭了。这两件事情他虽然开心，但这个人并没有提供帮助，真正提供了帮助的就是这羊生孩子费劲的时候，他去提供了一些帮助，使得羊能够顺利产子。对吧？OK好，所以整个这道题其实它也是一道态度题，但是它是单向态度，就是我们只需要听的是听tim这个人的态度，那女生这个人女生在说话的时候，她的说话内容是干嘛？推动对话进程，就是让这个对话的进程moving forward，就是推动进去。</p>
+    <p>好，接下来我们来看下一道题，下一道题就开始说戴安娜的事儿了，戴安娜say the sheep on her farm，所以这道题其实就是一道事实题。事实题没有态度，没有说戴安娜非常开心或者戴安娜不开心，就没有那个形容词，也没有agree那个动词，没有。所以戴安娜怎么了呢？戴安娜说她农场上的羊有different variety，就是不同的物种。然后2B选项就是mainly rare for the meat，就是为了养这些羊，其实是为了吃他们的肉。C选项说这个羊这个羊毛还是挺不错的，Better Better quality物，就是羊毛非常的不错。</p>
+    <p>好，我们继续听一听戴安娜农场上的羊怎么样了呢？Then another time, allama d broken its leg, and they got the vetting to set IT. And, 其实这个地方还是上一道题定位区间，就这个断腿的他们got wet to set。那wet是什么？Wet就是那个show，所以这个男的本身就没有帮所以A选项怎么着也是应该排除的。为什么？刚才其实我get到了正确答案，就带着大家往后看了。我希望各位同学在做题，就是考试的时候也是要这样的，你不要去纠结于没有出现的选项，它可能文中出，可能文中不出不重要，重要的是我们要把这个听力的节奏把握好，往前看，不断的moving forward，这样的话我们的节奏感才对。</p>
+    <p>好，来关注戴安娜农场。He told me through what he was doing that was really useful. Yes, my farm had cheap to the farm was in a valley, and they had a lowland breed called, although the farmers said they had had other breeds in the past. They have other breed in the past.</p>
+    <p>来，我为什么把这个other breath放到这儿？是因为他们过去养很多，现在是不是只有这一种了？所以想上来就直接排掉，不选。被confirm的选项是什么？是这个meet。达安娜是不是承认了？他说mostly yes。所以这个选项成功入选呗，他肯定对。其实在这儿你就不要再去往后听什么C选项了，你正常就应该看下一道题。</p>
+    <p>好，我们毕竟讲题，那我就带大家听一下c that quite big and solid。My firm was up in the hills, and they had a different breed of sheep. They were chavez. Oh, I had that walls really sort after.</p>
+    <p>男生的这个农场上这个羊毛好像是挺好的，对不对？然后因为男生自告奋勇说，我这个农场其实也有羊，这个羊毛非常的抢手。所以男生农场的跟我们女生这个题一点关系都没有，那它的主体都不对了。</p>
+    <p>好，这道题就是个事实题，事实题是不是相对来说比态度题能稍微强简单一点？就这个题型事实题如果它是考事实，相对来说简单，态度题其次，态度题其次，那最难的还是故事题。一会儿我们就会遇到故事题，来我们听下一道题，下一道题它题干虽然看着挺长，但事实上它是一道试试题。</p>
+    <p>What is student learn about adding supplement to chicken feed？就这个东西可不可以帮你定位，有的人说不认识这单词，什么叫adding supplement？你不用认识这种单词，就这么长的单词，他在文章里边大概率得是个原词重现的，就在那个鸡饲料里边加了一些这个东西好A选项。This should only be given, if especially need, 尤其需要的时候给一给worth paying extra，值得去花更多的钱。对那些有效果的这个量，它需要被limited，就是需要被限制一下。</p>
+    <p>是啊好，那我们接下来来我们就还是听一下这个听力对于这道事实题文章怎么说的呢？事实题整体做的这个感觉就是找替换对吧？包括刚才这道题，其实我们就是在找替换听confirm，找替换听confirm，这就是就听确认，这就是我们整体做题的这种感觉。</p>
+    <p>来，我们继续往后。Very hard wearing, and they use IT for carpet, right? I was interested in the amount of supplements. They读得好，使劲supplement，就是这种感觉好听。Two animals feed nowadays, like even the chick's got extra vitamins and electrolier ts in their food. I found that too, and they're not cheap, but my farmer said, some are overPriced for what they are. My pharmacy y some are over Price.</p>
+    <p>就有点价格可是有点太高了，所以值得吗？女生是不是直接否了这一项就不值得，因为他说了有点超过了这个价值。And he didn't give them as a matter tine，just at times when the chick's seem to particularly require them.</p>
+    <p>这一句话当中女生又讲到了什么呢？你看女生又讲到了说he didn't give the math matter of routine，这个matter of routine这个叫做常规操作，它并不是操作给的当什么时候这个鸡particularly require them。这个我要标红，为什么？你看和这个specially need是不是就同一替换词？好，放在这儿，这是一个女生的说法，那男生呢？男生同意吗？我们现在要等他这个答案的confirm。Yes，I found that too, and they're not cheap, but my farmer said summer overPriced for what they are.</p>
+    <p>And he didn't give them as a matter of routine, just at times when the chick's seem to particularly require them. 所以这个sam 1出现，那么A选项肯定正确。正确的原因就是女生提的，男生confirm的这就是一个正确标准样子。至于C选项，没题，那你赶紧往后看题就是我们的节奏，一定要去赶在听力之前，你不要去被听力拖着节奏走，我们要在听力之前去等着他的出现。好，那我们继续往后看下一道题了。</p>
+    <p>下一道题我先给大家剧透一下。这道题它就是一道故事性的题，故事题。他说what happened？这不就是讲故事吗？What happened when dinner was working with directly? 这directly这个叫做奶牛，就是他跟奶牛这咋的了，怎么的了？这个故事我我我不想提前剧透，我还是想让大家先听听完了我再给大家重复一遍好吗？So, did your farm have any other livestocks? Diana, yes, the cows.</p>
+    <p>I made a really embarrassing mistake when I was working in the milk shed. Some cows had been treated with antibiotics, so their milk wasn't suitable for human consumption. And IT had to be put in a separate container.</p>
+    <p>But I got mixed up up, and I poured some milk from the wrong cow in with the milk for humans. So the whole lot had to be thrown away. The farmer wasn't too happy with me. I asked my farmer how much OK.</p>
+    <p>因为这道题就是只是戴安娜一个人发生的事，所以这个team的说法其实一点都不重要了。但是关键就是到底发生了什么事，到底这个故事说的刚才其实我估计达安娜说那一串话当中，大家可能有很多单词是不会的。但是我把这几个核心单词给揪了出来，咱们把这个再听一遍，一会儿我再放一遍达安娜讲的故事。首先达安娜说有一些奶牛，他吃了一些anti biotics，这个东西叫做抗生素。然后这个就使得这个奶牛的牛奶cannot be consumption，cannot not suitable for human consumption.</p>
+    <p>这个人就喝不了了。所以就得把他这个牛奶放到一个separate container，是一个分开的容器当中。但是打压不小心把这个牛奶混合到了一起，mix up together, 然后就把那东西混在一块儿了。所以这就使得我们产生了一个不好的结果，就是这个牛奶都得被倒掉，throw away OK.</p>
+    <p>所以在听懂了这个故事链条，我们再去评判这些选项，他是认错奶牛了吗？不是的，他知道哪些奶牛是吃药了的，对不对？所以他是不小心把牛奶倒掉了吗？不是，倒牛奶只不过是一个结果而已。真正的错误原因是由于他在储存牛奶的时候，把牛奶混合到了一起，对吧？所以是这个问题，我为什么说故事题难？因为你有没有发现这三个选项其实跟我们刚才所听到的逻辑链条都相关。但是具体的错误发生在哪里，你要把整个链条全都听懂才可以。</p>
+    <p>好，这个链条我再给大家放一遍，感受how？Yes, diary cows. Um I made a really embarrassing mistake when I was working in the milk shed.</p>
+    <p>Some cows had been treated with antibiotics so their milk wasn't suitable for human consumption and IT had to be put in a separate container. But I got mixed up, and I poured some milk from the wrong cow in with the milk for humans. So the whole lot had to be throwing away. The farmer wasn't too happy with me. OK finish. 整个这个链条我讲了一遍，相信大家能够get到了，所以这个就是必须要理解。如果你说老师我考试的时候就是没跟上就写好吧，那就放弃，不要耽误你做下一道题，来下一道题看一看。</p>
+    <p>啊哟这题。What did both farmer mention about wet and farming? 所以这道题好像也是一道态度题，就是关于这个外来的farming两个农场的farmer，这两个农场的farmer是谁做代表？其实就是这个team和大家做代表。对，所以就是这个农场的farmer他们是怎么说的？关于这个wet and farmer来继续跟我一块听选项还没看啊，看一下选项。</p>
+    <p>A说的是that are failed to cope with some back of animal help。就是好像这些兽医不能去解决，fail to就是不能好，they need to be fundamental change, 需要一些基本的改变。Some drop could be done by farmer rather than by wet.</p>
+    <p>就是有些活其实那个farmer自己就能干了，而不需要White去干。好听一听my farmer how much he depended on the vet to deal with health problems。I'd read reports that the livestocks health is being affected as farmers are under pressure to increase production. Well, he didn't agree with that, but he said that actually some of the stuff the vets do, like minor Operations, he'd be quite capable of doing himself.</p>
+    <p>这个地方男生说到了一个观点，他说but he said that就是他说到我为什么从but这个地方开始给大家粘过来？因为这个but这不是信号词吗？对不对？他说了啥？就是这个男生农场的主人，他说事实上有一些这个bite度的，但是比如说像这个minor Operation，其实他可以自己做minor Operation，这个叫做小手术。He be quite capable of doing himself。所以啥意思？农夫自己能做，不需要White来做，就是不需要兽医来做。</p>
+    <p>这是不是就相当于C选项的一个统一转述，对吧？女生同没同意？因为这道题毕竟是一个both题，就是它是一个态度题，女生同意了吗？</p>
+    <p>我们继续往后听how much？Yeah, my farm said the same thing. 所以这道题是不是就可以选择C选项作为正确答案了？OK因为女的也确实有这个问题。</p>
+    <p>稍事总结一下，因为这六道题其实理论上来说只有一道故事题，多个态度题，几道配对，几道事实题。但整体做下来其实还是事实题相对来说简单。事实题我们重点是听替换对吧？态度题我们重点是听什么？重点是听confirm答案，就是确认答案。故事题我们要去理解逻辑链条，能够把这个故事给听明白，顺下来OK。</p>
+    <p>好，那么接下来我们再拿一个题，再拿一个题，这个题其实就是属于我觉得剑桥题里边可能算故事题偏多的一个题目，就是这个G16 test three section three。这个题目来看前四道多选题，后六道都是单选题，所以读题的压力巨大无比。确实可能有些同学反馈出来的一个结果，就是在真正看题的时候，其实这个题他是看不完的。而且这个题故事题有很多，听的时候又很闹心，所以总的来说这它偏难。因此咱们的课程就给大家处理一下。首先我们来看二十一、22，这次我就不往笔记里边粘了，咱们就正常把这个题当成一个例题去做了，好吗。</p>
+    <p>Which two point does adam make about his a experiment on artificial witness？所以你会发现是谁？亚当他男的女的？应该是男的。因为下面这个人叫rosie，可能是那个女的。所以男的做的实验有哪两点？这个two point不一定是好是坏，就是两点只要符合就可以。所以这是一个列举题，列举题再加上事实对吧？就是列举类的事实题，就像我们那个part two多选题，ABCD那些选项给你列在那，你要去判断哪个对哪个不对。好A选项。</p>
+    <p>The result he had predicted, 结果它是预测出来的。这个实验非常简单就建立了需要非常多的样本来sample这个单词叫做样本的意思。如果我们实验的对象是人，那你这个样本有可能是individed。Individuals这个单词有就当名词讲，其实表示个人，就是人OK。那如果比如说我们还可以说这个东西是subject，当然也是可以可数的，这都是样本。好，然后至于这个large sample，这个叫大样本44D选项the subject也是这个样本呗，人an aware就是不知道他们喝的是什么。E选项说这个test repeat several times，就是重复了好多遍。</p>
+    <p>好，所以这是一道事实题。只要进到这个定位区间，你那个耳朵就得竖起来，一句话都得听。OK OK rose，shall we try to get some ideas together for our presentation? I can talk about the experiment I did提前定位成功。To see if people can tell a difference between real sugar and not title ix sweetness, where you gave people drinks with eyes, the sugar or artificial sweet nes, and they had to say which they thought I was.</p>
+    <p>女生这一句话是在干什么呢？其实女生这一句话就是帮男生去clarify一下，他这个实验到底是怎么做的对吧？你是不是弄了一些什么，然后就让区分一下，到底喝的是甜味剂，还是真正的糖。OK推动对话进程了，男生也表示肯定了。那么接下来真正进入到定位区间，那他整体这个实验在操作的时候，怎么回事呢？IT took me to decide, actually organize IT took me ages.</p>
+    <p>什么叫做took me ages？就是花了很长时间。所以你说这个事儿它非常的simple吗？简单直接我就弄出来了，肯定不是。所以2B选项直接排除对吧？因为2B选项说这个好简单，不简单，他说。Took me ages, especially how I could make sure that people didn't know which drink I was giving them.</p>
+    <p>这句话有一个信号词，不知道大家有没有运用到。来这句话我先给它粘回来，然后大家看一看你们觉得信号词是啥？我们在讲part two的时候就讲过这个信号词。Especially how make sure that people didn't know which drink I was giving to them.</p>
+    <p>就是人们得不知道我给他们喝的是个啥，所以这其实对应的选项就应该是4D这个选项。那4D选项当中的subject对应的是people and wear对应didn't know，然后后边都能对应的上。所以此时直接4D选项正确，这是一个来自于信号句，它是一个信号句，信号句当中的答案。那我再给大家放一遍看那个句子，这个句子其实一石二鸟，一句话里边一个错误答案，一个正确答案，再来一遍。Yeah，he took me ages to decide exactly how i'd organized IT, especially how I could make sure that people didn't know which drink was giving them IT was OK好了，下一句，how to keep tracking at all, especially as I had so many people doing IT.</p>
+    <p>又来了一个especially，就刚才如果你对especially都不敏感，我都能理解。但是又来了一个especially，如果你还告诉我你不敏感，那我就真正不能理解了这个地方especially它后边说了什么i have so many people doing IT。就是会有太多人去做这件事情了，是不是一个大样本儿，对不对？好，所以这个C选项成功入选。</p>
+    <p>有同学说老师妈呀这题也太简单了，上来直接啪啪两个正确答案，而且都还在信号句里边。你知道这个题是有多么容易错过吗？这个题好多同学夸夸的，就至少错过一个选项，它太快了，以至于非常容易错过。那其他的选项会不会出现呢？会的。但是如果你是高手，记住我这句话，如果你是高手，此时赶紧给我看下一道题。但如果你认为自己能力平平，那我们还是要去验证一下其他选项到底有没有出现。</p>
+    <p>CD已经选出来了，然后B选项排除了A和E到底选了没有？这就出来了没有？继续往后听。So could most people tell the difference? Yes, I haven't thought that they would be able to, but most people could.</p>
+    <p>这个男生说了什么？I haven't thought大家能够区分，听到了吧？就是他其实这地方是有一个否定的。他说i haven't thought，我从来没有想过大多数的人是可以进行这方面的区分的。所以这个地方和他的预期相符吗？和他的预期可是不符就是这地方反过来了，我从来没有想过这地方说的是我预测过，所以这个选项就相当于被否定了A不对，然后现在还没有出现的选项就是E选项，但是E选项大概率它就不一定出现了，E不一定出现，为什么呢？</p>
+    <p>我们来看下一道题说rosy的关于测量坚果当中的脂肪含量的这个实验。但凡如果进到第二道题了，我们上一道题你管你听不听到，你都赶紧给我错过去，就直接往后听。Then is that experiment I did. 这个女的说话了，女的说i did experiment。所以是不是进到下一道题定位区间了，所以D选E选项确实没有出现。</p>
+    <p>好，我们下一道题，rose它这个实验怎么回事？A说的是他用错坚果了，B说的是他用错化学试剂了让我们选的是problem对吧？刚才这个男生的实验说的是两点，女生的这个实验说的是问题。好，C选项SHE didn't Green的这个单词，不知道大家会不会它当动词叫做研磨。那它的过去式和过去分词分别是ground ground rain，the ground OK, 所以他说他没有研磨充分这个坚果。然后4D说的information，在这个包装袋上的这个information不对，然后一选项里边这里有个waiting scale，这个waiting scale表示的是称，就是我们称体重或者称植物的那种称就叫做waiting scale。他说这个waiting scale就是不太合适OK。</p>
+    <p>好，接着我们听这个女生说到自己的实验，measuring the fat content of notes to see if the nutritional information given on the packet was accurate。The one way you ground up the nuts and mixed them with a chemical to absorb the fat. Yes, 男生说话的目的和刚才女生说话的目的完全一样，就是推动这个对话进程。</p>
+    <p>好，那女生说的是什么呢？My results wear a IT problematic. 我的这个result可能有点问题。The that content for that type of not seemed much lower than I had on the package。所以它整个的这个问题就是这个值比那个package上面的可能是要低一些的。那么问题到底出在了哪里呢？But I reckon the package information was right.</p>
+    <p>这个地方他说，but I reckon that I reckon the package information was right就是这句话，这句话是不是帮你直接排除了一个选项？他说我承认reckon这个单词它表示的是承认的意思。我承认这个袋上的信息是准确的，所以他说这个包装袋上这个信息不准确，这个incorrect说的是不是不对。所以我看是哪个选项，4D选项直接排掉，不能选好，接着继续往后听。</p>
+    <p>I think I should probably have ground up the notes more than I did. I should, I should. 的这个句子我是不是之前也有讲过？在讲这个重点句型的时候，我是不是也讲过，我本应该，而且这个probably是不是还是一个虚拟呢？对吧？我本。At ground up and not more than I did.</p>
+    <p>所以这个ground是不是就是刚才我说那个Green那个单词那过去式，所以过去式出现了。既然这样的话，那我们来对标一下选项，我本应该更加充分的研磨，是不是就是它没有。不充分的研磨，我本应该这样做，就是反言之我没有这样做OK所以C选项成功入选，它的一大问题就是在于它没有充分研磨。</p>
+    <p>这个坚果OK选出来一个了，那我们接着继续往后。I think I should probably have ground up the, not more than I did. It's possible that the scales for weighing the fat weren't accurate enough, too.</p>
+    <p>听到possible，你的耳朵有没有竖起来？这个possible一出现什么意思？就是也有这样的一种可能性，这是不是个虚拟，对不对？他说的waiting scale就是这个称，然后won't accurate enough to，就是也不太准。好了，所以是不是选了也就是应该是E选项。这个E选项说到它这个秤，秤可能有点不太合适，不合适不准意思，差不多OK直接E选项成功入选。</p>
+    <p>那这个题有同学可能说这个对应还是挺直接的，都在信号距离里边。你现在觉得简单是因为我一点一点放给你听的。等我们到练习课的时候，大家去真正你就直接自己听，你会发现超容易错过，就这种多选题巨容易错过。但事实上你说它非常难吗？理论上我觉得还好，只要你对这个信号句非常的敏感，我们刚才已经出现几个信号句了，这种带especially的对不对？这个表达强调它很重要。</p>
+    <p>然后还有什么就是类似于带这种转折的句子对吧？以及i should，以及虚拟语气，这种句子你一定要去认真听。如果别的句子你都听不懂，但这种句子你能听懂，我相信这个答案你也能get到的。</p>
+    <p>OK好，接下来这六道题全都是故事题，好像也不是全都，可能前四道都是故事题。来我们来走一遍。好，25题。他说他建议这个餐馆应该去减少肥胖。如果他们的菜单做出来一些什么改变，那就是提供更少的选择，然后这个叫做提供低卡食物或者重新组织一下来我们继续听。</p>
+    <p>Do i'd really like to try the experiment against on time？So what can we say about helping people to lose weight? There's a lot we could say about what restaurants could do to reduce ability. I read that the items at the start of a menu and the items at the end of a menu are much more likely to be chosen than the items in the middle.</p>
+    <p>这地方男生说了一个理论，没听懂无所谓。下面一句话开头一个单词是，so必须要给我听懂，必须听懂。So if you put the low calorie items at the beginning and end of the menu，people will probably go for the food with fewer calories without even realizing what they're doing. I think food.</p>
+    <p>男生这句话刚才有没有听懂？如果没有听懂，其实这句子应该是大家听写出来的。但是我们上课我就方便给大家展示，对带so带if的。所以他在说什么？如果你把低卡的食物放在开头，那么人们可能就会选择那些低卡的食物而没有注意到。所以他的意思是什么？是不是我意思就是重新排列一下那个菜单，对吧？</p>
+    <p>好，既然这样的话，是不是对应的答案就应该是C选项？这个C选项你说它的替换是哪个词儿和哪个词儿的替换吗？我不这么认为，我认为它是一个语言含义上的替换语言含义上的替换，而且是多多少少有那种抽象到具体的选项，就是说重新排列。但是文章告诉了你具体如何排列，怎么去给他整一整。</p>
+    <p>OK好，有同学可能会说，那这题没有both agree。你看本身它就是单项题，就是这个Adams这个人，亚当男的。好，来接着往后下一道题，学生们同意。Food manufacturing他们故意怎么的了？A说的是让这个东西难以理解，这个叫做卡路里含量。2B选项就是没有提供准确的卡路里含量。C选项就是用了不不这个叫做不好的方法，就是没有效的一些方法去减少卡路里OK。来我们就这道题可不是单项题了，双向题。I think food manufacturers s could do more to encourage healthy eating.</p>
+    <p>Well, when manufacturers put calorie counts of a food on the label, that sometimes really confusing, and I suspect they do IT on purpose, 女生在这儿提到了一个东西，她说她觉得这些人可能是doing IT on purpose。当你get到这个on purpose的时候，其实它就是在替换题干当中的一个单词。这个题干里边这个单词是deliberately，这表示的是故意的，所以这个女生的意思就是她觉得食品生产厂商就故意去使得这个东西干什么。前面说的是confusing，有同学说老师我没理解，没get到，那行，我再让你听一遍，来走起，再听一遍。</p>
+    <p>Well, when manufacturers put calorie counts of a food on the label, that sometimes really confusing, and I suspect they do IT on purpose. 其实在这儿，答案非常明确的是指向了这个hard to understand。因为confusing这个单词本身它就是难以理解。但是男生没有肯，男生还没说，所以你这个答案此时我觉得不能选，我们继续往后听。</p>
+    <p>Because food that's high in calories taste Better and so they'll sell more. yeah. So if you look at the amount of calories in a pizza, they'll give you the calories per quarter pizza. And you think, oh, that's not too bad.</p>
+    <p>Who's going to eat to call the pizza? 男生在干什么？男生同不同意女生的这个观点？肯定同意，为啥？</p>
+    <p>因为他举例子了，他举了一个pizza的例子。你看那个p za在标注卡里含量的时候，它标注的是a corner，就是4分之1。谁吃披萨的时候才吃4分之1，我们都吃一个。然后女生说exactly，所以这种表达同意的方式就是举例子。我去confirm了一下对方的观点，就是对方说了一个这个理论，我confirm了。那对方的理论是什么？就是食品生产厂商在生产食物的时候故意为之，把这个标注整的就挺混乱的，就看不懂。所以对应的选项就应该是A喽OK。</p>
+    <p>好，接着27题，说这个人就是这个女的说关于英国人的运动怎么回事儿。A说的是就是他建议的这个量太低了，B说的是人们高估了自己的水平。Over estimate这个单词的意思叫做高估。选项里边如果有单词不认识，大家一定要去处理词汇，这些词汇就是你必须要认识的。如果不认识就意味着这个题做起来就做不对。</p>
+    <p>好，C选项女的她比过去要多了。好，我们具体去听这个题女生主要说话，我们主要听女生的说法。I suppose another approach to this problem is to get people to exercise more right. In england, the current guidelines offer at least thirteen minutes of brisk walking, five days a week.</p>
+    <p>好，女生先说了一下英国的这个get line。Get line就是方针指导方针，就是要求每天要做什么运动之类的。好，接下来马上这个女生的一个大段的文字，这里边也会有一些数字的关系，那我们尽量去听懂这个数字关。Now, when you ask them, about forty percent of men and thirty percent of women say they do this. But when you objectively measure the amount of working they do with motion centers, you find that only six percent of men and four percent of women do the recommended the amount of exercise, so can see OK.</p>
+    <p>女生这个数字关系，如果你没有get到的话，这个题是做不对的。但是如果你但凡get到了这个题就非常容易做对。他说英国那个量，然后就去问男的和女的，然后有40%男的和30%女的都说自己做了，就做到这个规定的量了。但是如果你真的去measure一下的话，measure这个单词的意思表示的是测量。如果我们真实去测量一下，其实只有6%的男的做到了，以及4%的女的做到了。这是啥？这是不是就是高估了，对不对？自己夸大其词，高估了一下自己的运动量，对吧？</p>
+    <p>所以我说这几道题都是故事题。因为这个完整的例二你都得听懂，就是这个例二但凡有地方听不懂，这题做着肯定就很费劲。OK好，接着下一道题，男生了，该男生说话了。关于这个车站里头的这个台阶儿，他是怎么说的？A说的是一些现实的改变可能会影响人们的行为。B说的是一些方法可以帮助一些残障人士。The problem这个小词其实就等同于disabled people，就是那些有有残障的人士。C选项说的是with preventing accident，减少事故，然后减少人流量。</p>
+    <p>来我们听一听男生的说法。City is growing。So how can people be encouraged to take more exercise? For example, think of the location of stairs in a train station.</p>
+    <p>If people reach the stairs before they reach the escalator or when they are leaving the station, they're more likely to take the stairs. And if you increase the width of the stairs, you'll get more people using them. At the same time, it's an unconscious process and influenced by minor modifications, tions in their environment. 这个男生说了超级长的一段，然后这里边有超级短。If and might, 来我们把这个句子听一下，你再听一遍，就这个if c atr when they are leaving the station，they're more likely to take the stairs.</p>
+    <p>这个if在说的是什么？他说的是如果人们到达stairs，这个叫做楼梯，然后比这个escalate escalator这个叫做扶梯。如果人们到达楼梯比到达扶梯要前，之前就是你遇到扶梯之前你遇到楼梯了，你大概率就是会乘楼梯，就走楼梯。我就是这样的人，因为我很着急，我就急性子。如果比如我下地铁，然后那楼梯就在很近的地方，电梯还要排队，还要等还要再走两步，那我可能就真的是走楼梯了。好，所以他的意思就是说如果人们是这样的情况，那他们可能大部分都会走楼梯。</p>
+    <p>然后接着下一句。And if you increase the width of these days, you get more people using them at the same time. 又说了一个条件，这个条件就是if you increase the with of the stay，如果把楼梯的宽度给它整宽一点，那你就可以一次容纳more people，就一次容纳更多的人。所以这就会带来一个什么样的结果呢？It's an unconscious process and influenced by minor modifications in their environment.</p>
+    <p>所以他总结了一下，他的总结就是it's unconscious，这是一个无意识的过程，it's an unconscious process and influence by more minor modification。就是一些小小的改变就可能影响人们的行为了。所以综上所述，这个句子加这个句子加这个句子等于我们题选项里边哪个句子，一些现实的改变影响人们的行为。</p>
+    <p>A选项。所以你说这个题难不难？确实挺难的。如果你真的没有get到的话，其实这三句话都得听懂，你才能总结出来这个答案。不然的话好像就做不出来。但是我要提醒大家是什么？如果这道题你做不出来，你要有什么精神来着？放弃精神是不是？因为我们的29和30基本等于送分题，但是好些人根本拿不住这个题。</p>
+    <p>拿不住的主要原因是什么呢？就是节奏乱了，就是卡在28这道题你就琢磨呀琢磨琢磨，你琢磨来琢磨去，其实都没对，那你还不如把这个时间花到29和32 9。说的是人们同意什么呢？就是关于他的，就这俩人他同意在他们的presentation里边要增加哪个部分。你看这个题就是一句话出答案，就是个事实题。他们是个态度题，sorry，就是他们想要在他们的presentation里面增加点什么。</p>
+    <p>yes. But actually i'm not sure if we should be talking about exercise in our presentation. Well, we don't quite a bit of reading about IT. I know, but it's going to mean we have a very wide focus. And our tutor did say that we need to focus on causes and solutions in terms of nutrition supp.</p>
+    <p>女的也同意，所以男生刚才所说的那句话就肯定是答案句。这句话里面其实有一个强调句型，这个强调句型是什么？Our tutor d强调动词了。我们的老师说了就这这就说这个，所以这就是答案，这是老师说的啥？</p>
+    <p>我们应该关注的是causes and solution，应该把一些不相关的都给它排除掉。所以对应的选项是这个，should leave IT out就删掉不要了。因为只有把它删掉才意味着我们是有一个focus的。因为这个男生刚才说了，如果我们包含这个部分，就显得好像我们的关注点过于宽泛了。老师说了我们就是得卖focus，所以就把它删掉不要了。</p>
+    <p>这题是不是简单？你说这题就是一句话出答案，然后女的就是yes，I suppose so, 就直接同意了，所以这肯定就是了。最后一个更简单，说他们俩的接下来要准备干点啥，你听，选项我都不带你看了时间。And we've got plenty of information about that. Okay, well, that will be similar.</p>
+    <p>So what should we do now? We've still got half an hour before our next lecture. Let's think about what we going to include and what will go where.</p>
+    <p>Then we can decide what slides we need. OK fine OK fine. 所以女生说的这句话就是答案。</p>
+    <p>女生我说什么？他说let's think about what we're going to include and what will go with。就是我们要包含什么，包含到什么程度。所以这是啥？决定一下内容呗，以及决定一下组织这个what to include，这个是不是就对应的应该是这个content，就是内容。然后这个what will go where是不是就对应的是这个organization，都对应上了，所以C选项正确结束。好，我们再总结一下，这个题做完了，但是我们必须要总结，不然做一个题咱们不是白做吗？</p>
+    <p>总结一下，我们今天给大家讲的是单选和多选，这种题目是在part two的考点的基础上OK在part two的考点的基础上加了一层态度考点，而且态度考点具有一票否决的这个权利OK。然后题型上来说，有细节类单选题，那这个就简单这拿分，你这后两道都是细节题，这后两道是态度题。Sorry, 有态度类的，态度的也不算太难。你就多听一个那个人的confirm，就是对于这个答案的确认就可以了。OK最难的是故事题，故事题这个链条必须都得get到，如果有哪里没有get到可能都是问题。</p>
+    <p>所以我们接下来努力的方向是什么？努力的方向就是我为什么在课上要把原文这些句子给大家粘出来。其实你们自己在做复盘的时候，就是在做完题目了，然后我要对题目进行精听了。精听啥？不是每一句话都听的，重点听题目定位成功之后，那对应题选项的那几句，就是对应选项的几句话，然后你尽量能够书写出来，对于水平好的同学直接给他write t down。如果水平一般同学，至少你要看原文，然后能够知道意思。如果这里边有一些生词，那要整理生词OK。</p>
+    <p>好了，那么交给大家了复盘的方式，希望大家课后能多做练习，我们能够早日攻破part three的这个单选题和多选题。OK。下一节课给大家讲讲配对题。See you next time, 拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-12.html">精讲逐字稿</a></li>
+      <li><a href="qa-12.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-11.html">上一讲 11</a></li>
+      <li><a href="lesson-13.html">下一讲 13</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

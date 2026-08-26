@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第06讲 · Part One 问询类与推荐类场景 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 06 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a class="active" href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第06讲 · Part One 问询类与推荐类场景</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次讨论中，求职者明确表达了对在大型企业工作的兴趣，特别关注于公司提供的员工餐饮折扣和加班打车费用等福利。他们还强调了自己在适应特定工作环境、团队合作以及在高标准服务和细节关注方面的工作经验。对话中提及了两个具体职位：早餐监督员和初级厨师，并详细讨论了工作条件，如起始时间、薪酬、休息日等。此外，求职者提到了可能的薪酬和工作时间安排，包括年薪和休息日的细节，显示了他们对职位要求和公司福利的关心。老师则通过实例讲解了推荐类对话中消费者如何拒绝推销的方式，并分析了听力材料中的题目，强调了识别关键词、理解对话结构和上下文的重要性，最后对听力练习进行了总结，强调了学习听力技巧和积累词汇的重要性。</div>
+    <div class="tip">本讲含 34 组问答精要，可到<a href="qa-06.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次讨论中，求职者明确表达了对在大型企业工作的兴趣，特别关注于公司提供的员工餐饮折扣和加班打车费用等福利。他们还强调了自己在适应特定工作环境、团队合作以及在高标准服务和细节关注方面的工作经验。对话中提及了两个具体职位：早餐监督员和初级厨师，并详细讨论了工作条件，如起始时间、薪酬、休息日等。此外，求职者提到了可能的薪酬和工作时间安排，包括年薪和休息日的细节，显示了他们对职位要求和公司福利的关心。老师则通过实例讲解了推荐类对话中消费者如何拒绝推销的方式，并分析了听力材料中的题目，强调了识别关键词、理解对话结构和上下文的重要性，最后对听力练习进行了总结，强调了学习听力技巧和积累词汇的重要性。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们之前要对part one的题型和方法已经讲解清楚了。而且上一节课我们在针对这个问询类的场景进行了进一步的讲解。今天我们就针对推荐类的场景再给大家来讲解一下。</p>
+    <p>问询类和推荐类它的一个区别就在于推动对话进程到底是由问题来产生的，还是由一步一步的关键词来产生的。我们上一节课，这个问询类的场景，基本上比如说一个交通方面的调查，那肯定是一问一答这个形式，对吧？我问一下what's your name？What the date of your birth? 那么一个问题的答案进而就产生了，应该不会涉及到。比如说我问了你what's your name，然后你跟我说my name is sun，oh no, my name is won. 应该不会有这样神奇的人。</p>
+    <p>但是我们今天所讲到这个推荐类的场景可就与之相反了。比如说我是一个售货人员，然后现在我要给大家推销我的手机，然后这个时候我就会问大家，我说这是这款手机很好啊，你需不需要这个手机呢？然后可能我的客户去跟我讲说他并不需要。所以也就是在这一问一答的过程当中，可能会出现一些否定，这个是非常重要的。因为不是所有被推荐的东西都一定会成为消费者买单的东西，对不对？所以今天我们遇到第一个例题，这个就是一个男生他是一个需要家政服务的人，然后这个女生他就是一个推销人员。你会听到女生不断的在给男生推荐东西，但是这个男生是一个非常理性的消费者，没有什么东西都买，就没有这个女生推荐一个他就买了，没有的那他会在这里面会有一些个拒绝，所以我们一定要理解，如果你想拒绝别人都有什么样的表达。</p>
+    <p>当然直接的否定是可以的，比如说no I don't need IT，我并不需要对吧？那当然除了直接的否定，在我们的对话当中还有一种情况就是你说这个东西也许我需要，但是现在不行，对吧？所以这也是一种非常间接的否定方式，那好像给人留了面子，但其实也是在拒绝别人了。OK.</p>
+    <p>那还有什么样的方式其实也是在拒绝，说我已经有了，对吧？I already I already done that，我都已经干完了，所以你给我推荐的这些服务，可能我并不需要OK好了。所以大概我讲到三种拒绝的方式，直接的否定以及有转折的这种拒绝。就是也许我需要，但是现在好像并不需要，这就是叫做有转折的这样的一种否定。以及他说我已经做过这个事情了，言外之意就是我现在并不需要这个事情了，对吧？</p>
+    <p>OK按照我们之前的做题步骤，我们的做题步骤首先是从读题开始的那今天我也是选取了三个例题给大家，按照我以往的讲课逻辑，显然第一个例题就是我跟大家一块来操作。第二个例题大家投入的时间和精力要更多了。第三个例题，主要是各位同学来进行操作了。OK好了，拿到这个题目之后，先看题目要求，题干上只允许我们写一个单词，也就意味着这篇文章可能很少会有一些基本信息考点，对吧？所以当你看到这个题目要求是one word的时候，其实你内心要告诉自己这篇文章几乎没有基本信息考点，什么数字、时间、人名、地名这种东西。</p>
+    <p>好，接着我们来看一下标题，这个标题叫做life，a easy life cleaning service. 这是一个家政服务。Cleaning service就是比如说给你打扫一下你的家，家政服务OK好，我们先来看第一个，这个题目叫basic cleaning package，所以这是一个主打一个基础任务包。</p>
+    <p>基础任务包首先清理所有的表面，那么我问大家一下，家里边的surface可能都包括什么？比如说地板，地板怎么说，那叫做floor对吧？那表面还比如说什么窗户应该也算表面。类似于像window或者有一些同学他家里没有地板，人家是铺了地毯。那个地毯叫做什么东西？叫做carpet。</p>
+    <p>还有什么表面呢？比如说table，你的桌子的表面是不是也是表面，对吧？还有类似于像厨房的灶台，这些都叫做OK，所以这个叫做cleaning surface。</p>
+    <p>第二个我们有空了cleaning的什么throughout department。这个throughout department其实它等于吧？就是全部的意思。那我这个apartment里面你要把这个东西全都清理一下，那你就想象一下，其实居家环境里边并没有特别多的东西，所以其实那个词汇是非常有限的。这个场景就是居家的环境，你就放眼望去，看看你家里边都有什么东西。</p>
+    <p>OK好，接下来the cleaning shower这个叫做喷头skin sorry。Sink这个叫做手盆洗手盆，toilet这个叫厕所OK。接着additional service，这个就是额外的一些服务。每周进行清洁到every week，cleaning的什么东西，又是清洁啥东西？接着ironing clothes，这个iron clothes我估计可能会有同学不知道这个词，这叫熨烫衣服的意思。熨烫衣服ironing cloth这个ironing iron这个单词表示帖吧，对吧？然后那个电烙铁是不是就iron cloth，你想想什么样的衣服需要被熨烫，你看像我穿的这种运动服，可能好像不太需要被熨烫，对吧？那你就自己想象，我就不能提醒大家了。</p>
+    <p>好，接着every month就是每个月的cleaning all the什么from inside从里边去清理的。你想象一下。另外wash down的什么东西，这个wash down这个小词组给大家积累一下，叫做冲刷或者叫做冲洗。你比如说wash down toilet，就是我刷一下马桶，那这个是可以的。再比如说wash down the wash down the garage，这garage叫做那个车库，也是可以的。我冲刷一下这个车库，洗一下车库OK可以没问题。那一般其他的东西，比如说你洗个衣服，应该不用wash down the clothes now，所以这个词组的意思表示的是冲刷和冲洗。</p>
+    <p>好，正常。我们第一次听力给我们开题的时间就是1到5就完事儿了。但是我一会儿想一气呵成带大家去做这个题，所以我们就把这个6到10节都一块看完好吧？</p>
+    <p>好，other possibility还有一些什么其他职责呢？They can organize, organize这个单词要组织。OK这个单词我稍微扩展一下，稍微讲一下。Organize当动词讲叫做组织。名词大家一定都认识，叫做organization。这个organization两种拼写，英式美式。英式拼写是ZATIN，如果是美式拼写的就是SATIN，这两种方式都可以，就是有一些单词，当它有英美两种拼写的时候，在我们雅思听力里面都是可以接受的。</p>
+    <p>OK好，还有它的形容词，我觉得大家可能不是特别熟悉，叫做organize的organized的。比如说我自认为我自己是一个organized person，就是我非常的有计划，然后我非常的有规矩，我的东西一般都不太会乱放的，我每天的daily routine也都是非常的organize的。对我几点起床，几点睡觉这种的，我可能都非常的规律的，所以这个organized是一个非常好的来形容这个人，他可能非常有规矩、有规律、有计划这样的人。</p>
+    <p>我们之前在雅思阅读当中有一篇文章说的是企业是否要接受organized的，还是企业要接受disorder。Disorder叫做混乱。所以这个organized和disorder它俩是同一替换词，就一个是有计划的，一个表示的是混乱的。OK至于那篇文章讲的是什么？我们今天不做拓展，我们今天还是要focus在听力上面。OK.</p>
+    <p>所以他说如果你需要的话，可以给你提供一个former家里边经常需要的人，叫做水管工，帮你通一通下水道之类的那除了水管工，家里其实还需要什么？比如说电工之类的那这些词汇是不是都在你脑子里面有储备呢？OK好，接下来我们继续来看，special cleaning service is available，something is available, 这个be available。这个表示的意思叫做什么什么什么这个什么东西可获得它等同于你you can get access to something OK。好，就是你可以获得什么东西。</p>
+    <p>好了，好，接着我们继续。他说有一个特殊的服务可能会获得对于一些顾客，什么样的顾客呢？定语从句，这个定语从句是不是修饰这些顾客呢？这些顾客be allergic to这个小词组也必须要会。Be algic to表示的是过敏。对什么过敏？你想这是个家政服务，然后对于一些客户来说，他们对什么东西过敏，你就自己想，家里边能有什么让你过敏的呢？我不能再提醒了，我感觉再提醒的话，这个答案就是呼之欲出。</p>
+    <p>好，接着我们来往后看啊，说information on the cleaner，cleaner肯定就是那个家政人员，清洁人员。他说being before being hired higher的这个单词，它其实两个意思，一个意思表示的是这个招聘，还有一个意思表示的是租用哈那这个招聘其实也是指的那种短期招聘。好在被雇佣之前这些人他们需要有一个背景检查。这个背景检查Carry out by谁？这是什么意思？就是被谁来做的背景检查，那肯定是一个组织或者一个机构，或者一个人，对吧？OK reference are required.</p>
+    <p>这个reference在这儿表示的是推荐信，它等同于recommend letter，或者我们可以叫做recommendation letton。有过申请经历同学肯定都知道，这个东西叫做推荐信。好，接着往后我们继续看。All cleaner are given一个被动语态被给予一个什么玩意儿for two weeks，就是这个东西还持续两周，你就想然后接着customer send，那顾客这主语变成顾客了，顾客要交一个什么东西。每一次家政服务结束之后，OK最后我们就可以不用看了。</p>
+    <p>好，整个这十道题我都带着大家读题。完了读题的时候记得我干了什么事情吗？读题的时候我先带大家读懂题目，然后我们猜测了一下，我们highlight了一下什么？我们highlight了一下定位词对吧？OK好了，接下来我们就开始听这段听力。大家可以跟上我的节奏，一块儿做这个题。当然你也可以看着我去做这个题，因为你看着我做题也是一种学习的过程，学习一个高手是如何做题的也是不错的。OK, 我们开始喽。</p>
+    <p>Hello, easy life cleaning services, just speaking, oh, hello, i'm looking for a cleaning service for my apartment. Do you do domestic cleaning? sure.</p>
+    <p>Well, is just a one bedroom flat. You have a basic cleaning package. Yes, for a one bedroom flat, we are probably looking at about two hours for a clean.</p>
+    <p>So we do a thora clean of all surfaces in each room and polish them. We're necessary. Does your apartment have carpets? No, I don't have any.</p>
+    <p>But the floor would need cleaning. Of course, we do that in every room. And we do a throw clean of the kitchen and bathroom OK.</p>
+    <p>Then we have some additional services, which you can request if you want. So for example, we can clean your oven for you every week. Actually, I hardly ever use that.</p>
+    <p>But can you do the fridge? sure. Would you like that done every week? Yes, definitely.</p>
+    <p>And would iron in clothes be an additional service you can do? Yes, of course, I wouldn't be much just my shirts for work that week. That's fine.</p>
+    <p>And we could also clean your microwave if you want. No, I wipe that out pretty regularly. So there's no need for that.</p>
+    <p>We also offer additional services that you might want a bit less often, say, every month. So for example, if the inside of your windows need cleaning, we could do that. Yes, that would be good.</p>
+    <p>I'm on the fifth floor. So the outside gets done regularly by specialists, but the inside does get a bit, rabbi, and we could arrange for your curtains to get cleaned. necessary? No, they're okay.</p>
+    <p>But would you be able to do something about? The balcony is quite small, and I don't use IT much, but I could do with a wash every month. So yes, we can get the pressure washer onto that.</p>
+    <p>Now if you're interested, we do offer some other possibilities to do with general maintenance. For example, if you have a problem with water and you need a planet in a hurry, we can put you in touch with a reliable one who can come out straight away. And the same thing, if you need an electric, right? That's good to know.</p>
+    <p>I've only just moved here, so I don't have any of those sorts of contacts, and I don't know if this is of interest to you, but we also offer a special vacuum cleaning system, which can improve the indoor air quality of your home by capturing up to ninety nine percent of all the dust in the air. So if you're trouble by allergies, this can make a big difference, right? In first, I have that sort of problem, but i'll buy IT in mind. now.</p>
+    <p>Can you tell me a bit about your cleaning stuff? Of course. So all our cleaners are very carefully selected.</p>
+    <p>When they apply to us, they have to undergo a security check with the police to make sure they don't have any sort of criminal background. And of course, they have to provide references as well. Then if we think they might be suitable for the job, we give them training for IT.</p>
+    <p>That lasts for two weeks. So it's very thora. And at the end of IT, they have a test if they pass that we take them on, but we monitor them very carefully.</p>
+    <p>We ask all our clients to complete to review their performance after every visit and to a little to us so we can pick up any problems, stride away and deal with them. okay. Well, that all sounds good.</p>
+    <p>And will I always have the same cleaner? Yes, we do our best to organized IT that way and we usually manage IT good. That's fine, right? So i'd like to go ahead and.</p>
+    <p>OK好，那这个听力我们就告一段落了。然后接下来我们就每一个题目来进行一个小，首先这里面涉及到的一些词汇，为了提高我们学习的效率，就是刚才大家在听的过程当中，我已经把对应的这些词汇给大家写到了这个旁边。希望大家在边学习的过程当中也稍微积累一下词汇。</p>
+    <p>OK第一个在讲这个课之前，我先说一个问题，就是单复数问题。总有同学说这个老师这个听力当中power one到底它有没有大多数问题呢？我之前说过大小写，这个大小写就大写字母、小写字母、大小写这件事情在听力当中出现，它是不扣分的，就是不扣分。就比如说正常你应该写china，但是你不小心写成了china，那也是可以的哈那比如说这个地方它是一个west room，那你不小心它写成了west room，小写了也是OK的。所以大小写在听里面是不扣分，但是单复数它一定是扣分项。</p>
+    <p>如果你能忠于原文，那最好就是我们单复数。它是忠于原文的，就是原文咋说你就咋写。如果你能听出来肯定是很好的。忠于原文的前提就是你能听出来，靠什么听出来呢？</p>
+    <p>正常的单词如果加了S它尾音是对吧？有一些单词加了S的话，它尾音是比如说以T结尾的students这种的insects，就是昆虫们那个单词insects，所以C结尾的也是，还有以这个sis结尾的，比如说以这个ES结尾的这种单词，那他可能都是读sis或sis fishes这种的。类似于像这样的。好，那是中英原文。但是有些同学说老师我听不出来，那我们可以通过一些技巧去识别。比如说前后搭配的问题，人家明显前面有个A那你是是不是要加单数？人家明显前面有一个many，那你这是不是要加负数，或者人这地方有一个，那是不是考虑负数的可能性更大？不一定完全是负数，但是有可能大概率是负数，所以这里涉及到第一个空。</p>
+    <p>那这里throughout apartment在文章里边，它其实替换出来的是一个all the apartment。我这里给大家记了一下，他刚才说我们从头说到这个surface，他说到了这个throughout department，我看文章里面当时说的是啥来着，我记在哪儿了，应该是在这儿。从这里开始是从文章出现的词汇，上来他说一下。我们提供了一些domestic cleaning the estim这个家这个单词的意思叫做本国的，或者叫做家庭的，所以domestic cleaning的意思就是家政服务。你这flat，然后他说这个flat是一个two bedroom flat，那就是一个两个房间的这样一个flat。然后他说我们做一个thora cleaning，thora cleaning就是仔仔细细的cleaning，那这个throw这个单词，一个形容词，表示的是仔细的OK。然后接着他说你们家我们可以去清理一下你全屋的carpet，然后这个男的拒绝了。</p>
+    <p>在这里有一个否定，不知道大家刚才有没有听到，这个地方是一个很重要的一个答案句，前面其实就是铺垫，但是这地方是一个答案句。他说你们家是不是有car pet？Car pet这个东西叫做地毯，老外的家庭里面特别多地毯。然后这个男的否定了，他说没有，我们家是Flora，所以他他期待这个地方能给他清理。</p>
+    <p>这个throughout the partner就是every room这个地方我们把这个句子再稍微听一下，然后让大家感受一下。它可能会出现一个干扰信息。所谓的这个干扰信息就是我们copy那个单词OK，然后我们走起。Yes, for a one bedroom flat, we are probably looking at about two hours for a clean.</p>
+    <p>So we do a thora clean of all surfaces in each room and polish them. We're necessary. Does your apartment have carpets? 这个女生在最后问的这个问题就非常重要，它就是属于推动这个对话进程的女生问了这样一个问题，does your apartment have car pet? 这个男生怎么答的呢？No, I don't have any, but the floor would need cleaning OK. 然后这个男生他答他说i know我们这个房子里边可能没有carpet，就相当于这里的这个疑似单词carpet被他这一个no就给到了，对吧？</p>
+    <p>好，那你接着就要认真听这个男生说了什么。他说but这个but是不是一个我之前几节课给大家讲的一个信号词，but the floor这个单词就是答案了，would need cleaning, 这地方多么像信号句，所以还记得我之前说过的这个信号句吗？就信号句带有否定的句子，或者带有转折的句子，转折或者带有虚拟的句子，你看这个句子是不是全中。No, I don't have any, but the floor would need a cleaning.</p>
+    <p>所以这个floor就一定是答案。好，第一个空我们就过掉了。接着我们继续往后捋一下这个文章，然后接下来这个女生又开始进行推销了，说我们还有一些额外的服务。然后我们这个额外的服务首先包括第一个又来了一个干扰信息，他说你的这个often是不是需要一些清理？男生又拒绝了，在这里同样的一个出牌套路，如果说出牌有多种套路的话，那这两个题我认为他是用的是完完全全一样的套路。</p>
+    <p>那我们再听听。Then we have some additional services, which you can request if you want. So for example, we can claim your oven for you everywhere.</p>
+    <p>这个女生是不是直接提出来了一个需求？女生直接说的是we can clean your own for you every week，我们可以清理一下你的oven，oven这个东西叫包，你看这男的需要吗？Actually hardly ever use that. But can you do the fridge? 这句话就是非常重要了，actually这一个小词，来我们把它写在这旁边，actually这个小词其实是不是就等同于but的存在，等同于in fact的存在。</p>
+    <p>就市场上转折连接词，i hardly ever use这个单词是什么意思？否定词，我几乎从来都不用这个东西。这个that指代的是什么？指代的是上文当中所说这个oven对吧？But信号词来了，can you do the fridge? 你是否可以帮我清理一下我的冰箱？对，这个句子一看就是一个信号句，就是属于我们在听力当中容易出现答案的信号句，有转折有否定对吧？OK.</p>
+    <p>然后这个女生只要一confirm，就是在这个fridge 1 confirm，那我们就写答案。修他是confirm了，他说的这个confirm的是sure，非常明确对吧？Sure就是确实可以，没问题。好，所以我们第二个空填的就是这个fridge，接着这个ironing clothes这个点了，我觉得只要你能够正确发音ironing这个单词，这个空应该是不会不太会错过的。但就是那个单词你的单复数有没有写对？来。Yes, definitely. And would I in clothes be an additional service you can do? Of course, IT wouldn't be much just my shirts for work that week, just my shirts shirts.</p>
+    <p>所以这是一个必须写复数的。I just my shoes for we for work that week，就是我那周换的衣裳就可以了，你帮我熨一下。OK前三个空我觉得难度不大，因为它的出题套路还是一致的。那么接下来我们就来看后面下一个空了，关于每一个月他可以干的事情，每个月干的事情他就过渡了一下。他说我们还有一些活儿，然后这些活儿可以每个月干一次OK。然后比如说这个人提出来一个什么区we also offer additional services that you might want a bit less so every month。So for example, if the inside of your windows need cleaning, we could do that.</p>
+    <p>Yes, that be good. 好在这接二连三的对话里边，是不是window这个小子被你抓出来？那这个女生刚才她说话又是一个什么句型？他说for example举个例子来看，if the inside of your window看到条件句，你的耳朵有没有怀孕呢？耳朵有没有敏感？这耳朵一定要敏感起来。如果你的窗户是需要被清理的，i could do that.</p>
+    <p>我们是可以做这个的。然后这个男的说了什么，他说了一个yes，这个yes是不是对于这个句子的一个confirm？所以这是不是又来自于一个信号句？这个信号句是一个if就是带虚拟的。你看从之前我给大家讲课的时候，我说了带否定、带转折、带虚拟的都是非常重要的东西。那么到这儿是不是体现出来了，对吧？好，所以到这儿我们这个答案就是windows前面有一个，所以猜也得给我猜复数。家里面所有的窗户都可以被清理一下子。</p>
+    <p>好，接下来他们那个对话继续往后推进。Yes，that would be good. I'm on the fifteen th floor, so the outside gets done regularly by specialists.</p>
+    <p>好，这里说了，他解释了一下为什么他需要被清理这个窗户。他说因为我住在15楼，然后我的这个外边经常被一些specialist清理，这是专业人士。那它的原型是一个special单词，然后在后面加了一下人的后缀，就是这个ISTOK，就变成了一个人了，专业人士。然后他接着说，but insight gabbi这个单词是一个非常好的口语的词汇，它其实等同于unclean，又没有unclean那么的感觉书面化。Rabbi表示的是脏乱差，就是这个外边还确实里边确实还挺脏的。OK.</p>
+    <p>And we could arrange for your current to get cleaned necessary. 女生又提出来一个possibility，他说我们可以去清理一下你的curtains，curtains这个叫做窗帘，然后你看看这个男他是怎么说的，他对于这个窗帘有没有需求。No, there are no, they're OK.</p>
+    <p>所以这个地方反正也没有别的东西了，我们就直接把这个window给填上就行了。所以我认为这三道题它的出题方式基本上都是一样。就在那个附近可能会出现信息，然后你要把干扰信息成功排除掉。</p>
+    <p>好，接着他还需要被清理啥呢？继续往后退无t he be able to do something about the balcony？This but你看又是这样的一句话，他说，but would you be able to do something about balcony? 这句话为什么刚才我读的这么慢来，我给它粘上去，大家感受一下。But这是不是信号词？然后would you是不是信号词，对不对？所以这是不是又是一个信号，那这个信号句又出现了，这里边他说的请求是什么？就是让他去清理一下balcony。</p>
+    <p>所以此时此刻bali直接先给我写进去，写完了之后，然后我们再去confirm听这个女的是否同。But would you be able to do something about the balcony is quite small, and I don't use IT much, but I could do with a wash months. So yes, we can get the pressure washer onto that OK选上了。Now, if you're interested, we do offer some other possibilities to do with general maintenance.</p>
+    <p>For example, if you have a problem with water and and a plant in a hurry, plumber来了，if you need plana in a hurry. 这是题干上有的东西，所以我不写，我还我还是要听他这题考了一个并列结构，并列结构就是如果你需要，他会给你安排。那么如果你需要另一个，另一个是什么呢？呼之欲出，走起。We can put you in touch with a reliable one who can come out straight away.</p>
+    <p>And the same thing if you need an electric, and the same thing if you need elections, 对吧？所以他说同样的道理and something if如果you need elections，所以electron这个单词就是这个单词表示的是电工的意思，那同样的事情会发生，如果你需要一个电工，好，此时此刻我们要听男生的确认。Right，that's good to know.</p>
+    <p>Right, that's good to know. 所以这个是不是confirm了？因此我是不是又可以说答案在一个信号句当中，这个信号句是什么？叫做if条件状语从句对吧？好，所以刚才这一句话我们稍微来捋一捋，这个女生她说到了挺多，但是我们还有一些其他职责可以帮助你。</p>
+    <p>General maintenance叫做任务，这两个单词其实我们上一节课是遇到了maintenance这个单词，它表示的是维护保养的意思。好，他说了，如果你需要这个水管工费，我们可以给你安排人。如果你需要靠谱的电工OK，我们也可以给你安排人。好，所以这个空填上去了。</p>
+    <p>这个空的最大问题其实就是好多同学这个单词并不是很熟悉，然后导致写错了。然后有些同学写了一个什么electricity之类的。好，那接着我们继续往后看，继续往后看。</p>
+    <p>下一道题是一道比较难的题目，我先把一个难字写在这儿，因为我认为这道题就是你需要理解了，在part one当中需要理解的题目并不多，但是这一道题确实属于一个需要理解的题目，我们争取把下面这个句子完整的听出来。If you interested, we do offer some other right? That's good to know.</p>
+    <p>I've only just moved here, so I don't have any of those sorts of contacts and I don't know if this is of interest to you. But we also offer a special vacuum cleaning system, which can improve the indoor air quality of your home by capturing up to ninety nine percent of all the dust in the air. So if you're trouble by allergies, this can make a big difference, right? OK.</p>
+    <p>好，这一句话就是女生说的这一句话，我们全部给它出现在屏幕上，大家跟我一块分析一下。这道题其实问我们的是对什么东西敏？过敏的话会非常这个服务就很好。来咱看这儿，他说我不确定你是否感兴趣，but这个信号词来了。But we also offer special vacuum cleaning system, 这个vacuum这个叫真空的清洁系统，反正就是吸尘器，大概这意思。然后可以提升这个indoor air quality，可以提升这个室内的空气质量。然后他通过什么样的方式呢？这里有一个by通过一个可以抓住capture，这个单词表示的是捕获或者说抓住的意思可以通过抓住99%的空气当中的dust去实现，然后马上就出信号词了。</p>
+    <p>So if you trouble by allergies，这个elegies指代的是啥？是不是就指代这个test？也就是说如果你对灰尘过敏的话，那这个就make big difference，就是会让这个与之前特别不一样了OK所以这个allergy就是这个dust，那么这个dust是不是就应该是答案？所以这道题我说它难，是因为它是一道需要理解的题目。但如果你靠技巧去做的话，能不能做出来呢？我觉得也是OK的，因为这地方他又说了。So if you trouble by gies so if you you are trouble by elegies, 这个allergies显然就是指代前面那个dust。但这个空是一个可错空，就没对的话我也能理解，我也能接受。</p>
+    <p>OK好，接着就是一个check的问题了，结构词我就不给大家具体听了。然后它这个check，就是这个background check变成了一个security check。然后他说谁来做的这个security check呢？就是我们那个police，就是police就是警察局警察。然后做的这个中间几个单词说一下，staff这个单词表示全体员工，所以它替换这个cleaner，就是在这儿。好的，然后接着security check安全检查，然后monitor就是监督检查，就是我们会管理我们的员工，monitor他们OK。然后接着又说关于这个培训的问题，培训这里是一个被动语态，然后他说我们就会给我们的员工一个培训。</p>
+    <p>We given the training for IT，然后that last four two week，这个地方我就不给大家听了，我但是我给大家写一下，他说we given them training for IT，就是我们给这个them指代的是那个cleaner，对吧？这里是cleaner，我们给training，然后that last那肯定是指这个training last for two week。所以第二空这地方是training，这没有啥难度，所以我就不说了。最后一个空这个答案是啥呢？就是在最后的时候，他说we ask all our，我也给大家把这个句子完全粘出来，这里we ask all our client，client就表示的是客户的意思，我们让所有的这个户to complete a review，这里这个review就是答案。</p>
+    <p>为什么我空在这儿没写？因为这个review好多同学不知道它还有这样的一个含义。有的同学说老师这单词不是一个动词吗？是这个单词还有一个名词的属性，表示的是回顾。就是呢我们会让这个员工，让这个客户去在员工完成工作之后，去给我们写一个反馈。所以就是大概一个评价这个东西，for their performance，performance表示的是表现。</p>
+    <p>After every visit and to email to us，就是给我们做一个邮件的回复OK。所以这是后面的这几道题目，这个题就是我我带大家手把手进行操作的。那么下一个题目就是大家要来操作一下喽。</p>
+    <p>好，我们先来翻开题目。这16 has two section one的这个题，和刚才的题就是如出一辙的。我为什么说它是如出一辙呢？原因就在于这个题它其实也是一种女生，现在是一个女生了，她需要一些服务，什么样的服务？就是他那个家里照片需要处理一下子，于是他就去进行，就跟这个男生去询问了一下，然后这个男的显然是工作人员，然后这个工作人员在解答问题的同时解答问题的同时是不是会给他额外推荐。所以这里是不是就会有一些干扰信息？就像刚才我们做的那个题，在解答问题的同时它会有一些额外的推荐，所以就会出现一些干扰信息。</p>
+    <p>OK好了，我们这几个题目我就按照听力给的时间来放一下。大家就根据听力给的这个节奏去来做这个题目好吗？好，准备好啊，大家可以先来读读题了。</p>
+    <p>First, you have some time to look at questions one to three.</p>
+    <p>题目要求肯定是有基本信息考点的，这里还有一个钱数注意这个钱数是有要求的。Now listen carefully and answer questions one to three. 1到3正好看看。</p>
+    <p>Hello, picture rap, can I help you? Oh, hi, I saw your reversions ment about copying pictures to disk, and i'd like a bit more information about what you do. sure.</p>
+    <p>What would you like to know? Well, i've got a box full of old family photos that's been up in the attic for years. Some of them must be fifty or sixty years old.</p>
+    <p>And i'd like to get them converted to digital format. sure. We can do that for you. right? And what about size? The photos are all sorts of size.</p>
+    <p>Are there any restrictions? Will the maximum size a photo we can do with our Normal services, thirty thirty meters, and each picture must be at least four centimeters. That's the minimum we can cope with.</p>
+    <p>That should be fine. And some of them are in a frame IT. Should I take them out before I send them? Yes, please.</p>
+    <p>We can copy them otherwise. And also the photos must all be separate. They mustn't be stuck into an album. Okay, that's not a problem.</p>
+    <p>So can you give me an idea of how much this will cost? I've got about three hundred and sixty photos. I think we charge a hundred and ninety five pounds for three hundred to four hundred photos for the basic service. okay.</p>
+    <p>And does that include the disk? Yes, one disk, but you can get extra ones for five pounds each. That's good.</p>
+    <p>So do I need to pay when I send you the photos? No, we won't need anything until we've actually got the pictures. Then i'll let you know how much IT is.</p>
+    <p>And once we've received the payments, will send the parson off tea bright. Before you hear the rest of the conversation, you have some time to look at questions for to ten. Four to ten, 所以这个主题量挺大的。</p>
+    <p>Now listen and answer questions for to ten. Is there anything else you'd like to ask about our services? Yes, i've roughly sorted out the photos into groups according to what they're about.</p>
+    <p>So can you keep them in those groups when you copy them? sure. We'll save each group in a different folder on the desk, and if you like, you can suggest a name for each folder.</p>
+    <p>Sorry, I could have one called grandparents, for instance. exactly. And do you do anything besides scan the photos? Like can you make any improvements?</p>
+    <p>Yes, in the standard service, each photo is checked and we can sometimes touch up the color a bit or improve the contrast that can make a big difference. okay? In some of the photos are actually quite for a gile.</p>
+    <p>They won't get damaged in the process. Will they know if any look particularly fragile, we'd do them by hand. We do realize how precious these old photos can be, sure.</p>
+    <p>And another thing is, we can make changes to a photo if you want. So if you want to remove an object from a photo, or maybe all to the background, we can do that. really.</p>
+    <p>I might be interested in that. I'll have a look through the photos and see, oh, and talking of fixing photos, i've got a few that aren't properly in focus. Can you do anything to make that Better? No, i'm afraid that's one thing we can do.</p>
+    <p>Okay, any other information I can give you? Oh, how long will take? We aim to get the copy in done in ten days.</p>
+    <p>Fine, right? Well, i'll get the photos packed up in a box and post them off to you, right? If you've got a strong cardboard box, that's best we've found.</p>
+    <p>The plastic ones sometimes break in the post. Okay, right? Thanks for your help. Bye OK.</p>
+    <p>好了，这一篇听力结束了，就不知道大家听的怎么样。好，我们来看一下这个屏幕上这几个答案。我屏幕上所显示的这几个答案就是正确的。第一个frame这边相框，然后接下来大家可以自己check一下，这个我稍微说就是第四题，这个grandparents这是这个相册的一个名字，对吧？他说你可以把它放到一个文件夹里，然后这个folder这个单词表示文件夹，然后这个文件夹可以叫grandparents。这里我把这个grandparent这个G大写了，但是如果你没有大写的话，其实也无所谓。好，然后接下来这些答案没有OK。好了，每一道题目咱们再稍微说一说，因为这毕竟是得领着大家做的第二个题，第二个题就是你们做，我来说第三个题就是你想要完全大家操作了。</p>
+    <p>好，首先我要讲一个单词，这个单词大家刚才听的时候一定都是听到了。上来寒暄了一下，然后女生说i saw your advertisement，这个advertisement ment他在读的时候这个音稍微有点奇怪，我们再听一听。Oh, hi, I saw your advertisement about copying advertise advertisement.</p>
+    <p>对吧？所以这个单词其实它就是advertisement，这两种读音其实都是对的。美式读音advertisement，那么英式读音advertisement vertige ment，所以这个读音一定要注意，它其实就是一个单词。之前其实这个advertisement这个单词有被写过在空上，然后读音也是有点奇怪，然后好多同学都没有写出来的。</p>
+    <p>OK女生上来就问了一下我想了解一下基本的信息，这基本的服务。OK然后接下来这个部分其实没有什么，他说他家里有一个盒子，然后里边有相片，然后放了五六十年了，希望能给他变成一个digital format。这个digital format叫做电子版，其实就是把一些老照片变成一些电子版，然后它convert to digital format电子版本OK。然后接下来这个男的说可以，说了一下尺寸的问题，然后这个女生问了有没有什么其他的限制。The photos are all sorts.</p>
+    <p>Is, are there any restrictions? Are there any restrictions? 这个restrictions这个单词其实在这里就表示的是限制，有没有什么一些限制？这个词我估计可能有同学不会，所以我写一下，它是个名词。对，则是restrict OK，这就是个动词了。</p>
+    <p>好，然后这个男生就说了最大最小什么的，然后这里边有maximum and minimum，maximum表示最大缩写是MAX，然后minium表示最小，那缩写就是MINI。这个大家应该都会。好，这个就过了。因为这个部分其实也没有提，然后接着我们就继续往后。</p>
+    <p>And some of them are in a frame IT。Should I take them out before I send them? Yes, please.</p>
+    <p>这个女生她自问自答，也不算自问自答，就问了一个问题，这个女生问的这个问题是some of them are in the frame，就有同学可能对frame这个单词不是特别的敏感，OK来看some of them are in a frame，frame这个单词表示相框。Should I take them before I, 就是我应该把他们take out吗？就我们应不应该把他们给拿出来呢？在我要想要去发送这些照片之前，OK, 你听这个男生说了什么？Yes，please, we can copy them otherwise. And also, the photos must all be separate. They mustn't be stuck into an album and OK.</p>
+    <p>其实这是一个并列结构考点，对吧？那相框这个相册，这个相片不但不能在frame里边，然后这个男生还说了一个also小词另外一个东西，他说这些相册相片必须得是be separate，就是分开的。然后他们must then be stuck into an album。Album这个单词表示的是影集，所以显然not不能在frame当中and什么album，所以这是一个并列结构。这个并列结构挺就是在对话间给出的并列结构，对话间给的并列结构OK，但是有没有并列连词also其实也是有的，正常应该也能够识别出来的。</p>
+    <p>好，然后接下来就涉及到钱数的问题。这个钱数其实没有什么好说的，他就说了一个区间，我给大家记了一下，然后他说这个300到400张，那我们的charge这个charge这个小词已经用过好多次了，对吧？咱总共课上也没有做几篇题，其实都已经应该算第二次遇到了。他说300到400张收费都是195。如果你想多要一个那个disc的话，dic应该叫做光盘。如果你想多要一个光盘，应该可以交五磅的钱就可以了。</p>
+    <p>OK下一道题，这个第三题是一道难题。第三题它难在哪儿呢？第三题难在了又是一个需要理解的题目，它的流程这里其实说到的是工作流程，对吧？Before the company order is send, 什么is required。所以也就是说我们发送包裹之前，我先要让你做什么事情。</p>
+    <p>这个题多多少少我觉得稍微有点难。女生其实问了，就是说我是现在就需要付款吗？男生说不不不，我们先干活。所以他说no，我们不需要你付钱，我们事实上要先copy the picture接下来。Then we will let you know how much IT is.</p>
+    <p>And once we've received the payments, we'll send the person of tea OK. 好了，听到这一句话了，这个男生说了他们的工作流程，那就是我们首先你要我们就先干活，先copy。Then接下来你我们要知道，我们要让你知道这个花费是多少钱。</p>
+    <p>然后接着我们要receive the payment，这个先然后send parts off to you home？所以先交钱后发货。所以这里那这这这在完成订单之前你要先干嘛？先付款，那个名词应该是什么？就是这个payment？所以这是一个需要理解，在你听过程当中就需要去脑子里边同步去翻译，然后同步去理解的这样的一道题目。OK，所以这就是payment。</p>
+    <p>然后接下来没有什么难度，就说我的这个相片可以放到一个文件夹里，这个folder这个单词表示的是文件夹。然后这个文件夹我是不是还可以给它命名？比如说我可以命名成grandparents OK，那这个一点这一点表达的是什么呢？这个一点这一点以后还能遇到？等同于for example，就是举个例子来看OK然后接下来说什么东西可以提升，这个又是一个并列结构考点，他说照片的颜色以及它的对比度是可以提yes，in the standard service, each photo is checked, and we can sometimes touch up the color a bit or improve the contrast.</p>
+    <p>这个地方还是非常直接的，他直接就说到了这两点并列。我们可以touch up the color a little bit，就是我们可以把这个颜色往上调一调，prove the contrast, 这个叫颜色和对比度的问题。然后接下来他说到这个照片有的很，所以说可能五六十年了。然后这个男的说没关系，肯定坏不了，然后我们基本上都是用手来去复制的。We do them by hand OK。</p>
+    <p>这个女生就担心这个照片damage的问题，fragile这个叫做脆弱，然后damage这个叫破坏损坏。这个题不难，所以不说了。OK接下来下边就是special service，就是一些其他的可能你要附加的这个服务了。然后男生给他推荐了一个，就比如说你要去消掉这个图片里的一些东西，或者change这个小词换成了altum alter the background，那你也可以去操作，但是要额外付钱喽。然后女生又问了一个，说我有一些照片，就是那个焦点没有对焦，in focus not in focus就没有对焦可以做吗？男生否定了他，这是不可以做的OK然后接下来最后这两个，我觉得这个ten days挺简单的，没什么太大问题，就是大概几天之内能完工。他说we copy them in ten days，十天，we aim to get the copying them in ten days。然后接下来说他要用个小盒子把照片寄出去，然后这个男生就嘱咐了他一下，来听一下。</p>
+    <p>Right, if you've got a strong cardboard box that's best we've found, the plastic ones sometimes break in the post. 男生是怎么说的？男生说的是如果你有一个坚硬的纸盒子，那是非常好的。因为我们发现有的时候这个塑料盒可能会碎掉，所以这就。Not plastic, 这一箭双雕。说了纸盒好的，但是not the plastic one。因为这里面其实并没有任何一个词去替换这个否定词，只不过他说了这个纸盒不好的原因是因为容易坏OK。好，那这一篇题目我们就告一段落了。</p>
+    <p>最后一篇题就要大家独立操作，独立尝试了。来吧，我们打开键18的题目，这是一个健十八的题目，还是一个新题呢？健18 test two section one这个题，我就直接放听力了，然后大家就follow这个听力的节奏，去把这个题目给完成。中间我们就听力给咱多长时间，一咱们就看啊好走起。Giving information to a man about work in a chain of restaurants. First, you have some time to look at questions one to five.</p>
+    <p>Now listen carefully and answer questions one to five. So I understand your interested in restaurant work. Yes, i've got a bit of experience and I can provide references.</p>
+    <p>That's good. I can check all that later. Now my those restaurants have some vacancies at the moment.</p>
+    <p>There are really good company to work for lots of benefits. Oh, right. Yes, they've got a very good reputation for looking after staff.</p>
+    <p>For example, all employees get training, even temporary staff. Oh, really, that's quite unusual, isn't here. And do stuff gets free uniforms too. You just need to wear a White t shirt and black trousers, says here. So I guess not.</p>
+    <p>But another benefit of working for a big company like this is that you can get a discount, but any of their restaurants, even at weekends, no, but be working then anyway. Oh, yes, I suppose so. And most of their restaurants are in the city center.</p>
+    <p>They so easy to get to by boss. Yes, that's right. But if you have to do a late shift and finish work after midnight, the company will pay for you to get a taxi home.</p>
+    <p>I probably won't need one. I think i'd use my bike OK. Now they do have some quite specific requirements for the kind of person they're looking for.</p>
+    <p>Mellows is a Young dynamic company, and they're really keen on creating a strong team. It's really important that you can fit in and get on well with everyone. I ve got no problem with that.</p>
+    <p>IT sounds good. Actually, the last place I worked for was quite demanding too. We had to make sure we gave a really high level of service that's good to hear because that will be equally important at my los.</p>
+    <p>I know they want people who have an eye for detail. That's fine. I'm very used to working in that kind of environments.</p>
+    <p>perfect. So the only other thing that required is good communication skills. So you need to have certificate in english. Before you hear the rest of the conversation, you have some time to look at questions six to ten. 这是横着的，所以我们这样往横着看。</p>
+    <p>两个钱数并列结构。okay. Now listen and answer questions six to ten.</p>
+    <p>Okay, let's have a look at the current job vacancies at my los. The first one is in wiving home street, sorry, where we have WIVENHOE. It's quite central just off cork street. Oh, right, they're looking for a breakfast supervisor that would be okay.</p>
+    <p>So you're probably familiar with the kind of responsibility IS involved, obviously checking that all the portions are correct sector and then things like checking all the procedures for cleaning the equipment are being followed. okay. And what about the salary?</p>
+    <p>In my last job, I was getting nine pounds fifty per hour. I was hoping to get a bit more than that. Well, to begin with, you'd be getting nine pounds seventy five, but that goes up to eleven pounds twenty five after three months.</p>
+    <p>That's not too bad. And I suppose it's a very early start. That's the only unattractive thing about this job. But then you have the afternoons and evenings free. So the restaurant starts serving breakfast from seven AM.</p>
+    <p>And you'd have to be there at five thirty to set everything up, but you'd be finished at twelve thirty. Well, as you say, there are advantages to that. Now you might also be interested in the job at the city road branch.</p>
+    <p>That's for a junior chef. So again, a position of responsibility. I might prefer that actually, right? Well, obviously, this role would involve supporting the sue chef and other senior staff, and you'd be responsible for making sure this enough stock each week and sorting out all the deliveries.</p>
+    <p>I've never done that before, but I imagine it's fairly straightforward once you get the hang of IT, yes, and you'd be working alongside more experience staff to begin with. So i'm sure IT wouldn't be a problem. The salary is slightly higher.</p>
+    <p>Here is an annual salary of twenty three thousand pounds, right? I know that if they like you, it's likely you'll be promoted quite quickly so that we're thinking about yes, that does sounds interesting. What are the hours like? So I think there's a lot of evening on weekend work, but they're closed on mondays. But you do get one sunday off every four weeks.</p>
+    <p>So would you like me to send off your CV? Okay, finish好，大家如果在机考系统上做的，就直接交卷就可以了，然后就可以看到你自己的正确情况。如果各位不是在机考系统上做的，可以屏幕上那个内容，然后从第一题到第十题，第十题的答案，我们一块来check一下。Check过后，这一篇题目我就不带大家一块具体去分析了。因为我们一块儿已经分析了两个题了，两个这个section one了，大家应该已经理解了，就是这个分析题目是如何操作的对吧？如果忘记go back好吗？那么我说几个比较重要的词汇，然后咱们来积累一下，然后我们今天这个课基本上就到这儿。</p>
+    <p>首先reputation这个表示的是名誉和名声，那么good reputation就是好的名声，好的名誉，good reputation. 接着他又说了，这个公司其实还挺好的，给我们的这个临时工也提供一些training。所以temporary staff这个temporary表示是暂时的，permanent表示的是永恒的OK。</p>
+    <p>然后接下来这个shift，这个小词放在这个场景里面，其实它还挺贴切的。Shift表示的是倒班，当然这个倒班它是一个引申义。正常你看你键盘上是不是也有个shift，它的本意表示的是转换的意思。那你想这个酒店行业的这个转换是不是就是倒班？所以他说了一个late shift，这个叫做的是晚班。如果白班其实叫做day shift，这个不光我们今天这个题遇到了之后，我们再做一个出题的时候也是会遇到的。就是这个倒班的问题，late shift and day shift，或者他可能还会说night shift，这个就叫晚班的意思了OK。</p>
+    <p>然后接着对于这个人的期待就是feeding，这个表示的是就是你要快速的去融入，然后get on well with everyone，就是和每个人都能打成一片，然后demanding这个单词我认为我不是第一次讲了，他其实表示的是有挑战的。其实就是这个活儿有点a little bit tiring，就挺累的。它其实等同于这个单词chAllenging，这个活儿还是挺挑战的。比如说我们之前可能遇到了这个东西physically demanding，就是讲那个stuffing的那个part one说这个suffer是一个physically demanding outdoor activity。这是一个非常需要身体素质这样的一个户外活动，所以demanding这个单词我已经不止一次讲了。好，接着他说我会提供high level service，就是高水平的服务。</p>
+    <p>然后good communication will就好的语言交流的这个好的语言交流的能力，所以需要一个certificate，这个叫做资格证需要一个资格证in english在英语方面。然后关于这个薪酬的问题，一开始是9.75，然后后来随着你不断的积累经验，三个月之后会上调达到11.25。好，然后后来还有一个单词叫delivery，就是他负责的一个方面的工作。Delivery这个是第九题的这个答案，但是我写的是原型，答案是delivery 4，需要变成一个复数，这个表示的是配送，就是他需要去负责配送。好，然后annual salary表示的是年薪，它其实和income意思差不多。</p>
+    <p>然后最后一个，这个day off这个其实文章里面并没有说，但是我需要给大家补充一下，这个叫休息日。比如说for example monday is my day off，就是这个monday is my monday is my day off的意思就是周一是我的休息日OK所以休息日。然后最后这一块，他说这个公司每一个月你可以每一个月every four week，是不是就一个月every four week，你有一个三也是可以休息的，就是有个周天是可以休息的。</p>
+    <p>OK好，至于题目如何复盘，复盘的方式大家应该已经学会了，对吧？所以包括这个题，包括我们课后大家在做其他题目，请务必像我上面带着大家一块儿分析的这个过程一样，你也来进行一个题目的复盘和分析。因为只有这样做，你才可以稳步的去提升。</p>
+    <p>OK after now，part one的内容我们基本上就告一段落了。从最最开始的方法论的引入到分了两个场景，一个是这种问询类的场景，一个是介绍类的场景。那么接下来就要靠大家自由刷题了，在刷题过程一定记着我们整体做题的流程，做题的流程。</p>
+    <p>首先你要先刷题，刷完题目之后，你是不是要对这个题目进行重听？重听要复盘，复盘的时候要干什么呢？如果这个单词这个地方有单词不认识，那就积累单词。如果你发现这个题好难，我听了第二遍还是一头雾水的那要去写出句子，然后去把这个句子写出句子，然后进行和题干的对标，就对标一下题干。然后你这样的话可能会发现，这个题是一个需要理解的语言含义方面题，还是说这里面是有一些什么其他的单词你没有听懂之类的。所以一定要去做这两个步骤。OK好了，我们part one告一段落，下一次我们再见面的时候就引入到part two的内容了。拜拜，谁来3？</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-06.html">精讲逐字稿</a></li>
+      <li><a href="qa-06.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-05.html">上一讲 05</a></li>
+      <li><a href="lesson-07.html">下一讲 07</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

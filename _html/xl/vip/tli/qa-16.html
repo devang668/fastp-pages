@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第16讲 · Part Four 填空题要点 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 16 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a class="active" href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第16讲 · Part Four 填空题要点</h1>
+    <div class="abstract"><b>本讲概要：</b>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们这个听力已经从最开始的part one，我们不断的梦到了今天即将学习到的part 4、part four. 其实这个题型大家已经非常的熟悉了，就是填空题。但是这个部分的填空题又不是特别好拿分为什么不好拿分。它的关键性因素其实在于part four，它的场景还是比较复杂的那它主要会涉及到一些科学类的场景，这些科学类的场景主要模仿的是我们上课这样的一个环境。所以你会听到的那一个在独白的人，他可能会有两种身份。第一种身份他是一个老师，第二种身份他是一个学生。如果他是一个老师的话，他正在给我们讲一个讲座，那这个叫做一个lecture场景，对吧？那如果是一个学生的话，他可能会针对他目前手头进行的一些研究，去跟我们进行一些汇报。这个汇报叫做present。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在雅思听力考试中，part 4的填空题为何不好拿分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>part 4的填空题之所以难，主要是因为其场景较为复杂，多涉及科学类场景，如讲座（lecture）或研究汇报（presentation），这些内容可能与日常生活中接触到的主题不符，导致主题词陌生。尽管如此，填空题仍有解题原则可循。</p></div>
+    </details>
+    <details class="qa">
+      <summary>填空题的基本原则有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>填空题有三大基本原则。首先，所填单词必须是原文中的原词，确保单复数、时态等一致；其次，拼写必须正确，英式和美式拼写均可接受；最后，答案需符合题目规定的字数要求，比如只允许一个单词或特定格式的数字。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如果在填空题中出现拼写错误会怎样？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>如果出现拼写错误，将会导致不得分。即使对单词意思有理解，但拼写不准确依然不能得分。因此，务必注意检查并确保拼写正确。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于part 4失分的主要原因是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>part 4失分的主要原因有两个方面：一是听力理解不足，没有捕捉到前后替换的信息，这需要提升听力能力；二是拼写错误，这部分错误是可以避免的，只要做好单词积累，就能有效规避拼写错误扣分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>做题成功的关键因素是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>成功的关键在于读懂题干，进行预判（内容和词性），并能识别考点。尤其是对于60%以上的细节题，重点在于锁定题干中的替换词并正确拼写答案。同时，了解听力考试中的常见考点，如动词替换等，有助于提高答题成功率。</p></div>
+    </details>
+    <details class="qa">
+      <summary>power for篇章结构是什么样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>power for是一个人的独白，没有互动环节。这个独白中的“我”可能是学生，也可能是老师，如果是老师则为lecture，如果是学生则为presentation。</p></div>
+    </details>
+    <details class="qa">
+      <summary>整体的lecture或presentation如何展开？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>通常会有一个引子部分，介绍主题。接着按照一定的顺序展开内容，例如四个部分：第一部分介绍主题，第二部分讲述方法，第三部分呈现实验结果，第四部分说明实验的应用。引子的长度不一，有的仅10秒，有的长达60秒。</p></div>
+    </details>
+    <details class="qa">
+      <summary>讲解的示例中，黑体字部分代表什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>示例中的黑体字部分对应于四个不同的讲解区域，分别对应于四个部分的内容，确保讲解时能正确划分和锁定题目。</p></div>
+    </details>
+    <details class="qa">
+      <summary>什么是“结构大于内容”？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在听力理解中，“结构大于内容”意味着即使听不懂每个单词或句子的具体含义，也要关注整体的句子结构，因为理解了结构就能推断出大致内容，从而做出正确选择。</p></div>
+    </details>
+    <details class="qa">
+      <summary>做题时应注意哪些易导致节奏混乱的听力问题点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>主要关注“看不见的冰山”现象，即听力中有一段没有明确出现在文字上的信息，可能会造成做题节奏混乱，比如通过听一段关于亚当斯密和斯多葛主义的内容来定位cognitive behavior therapy这个主题，实际等待原词出现的时间可能长达一分钟左右，这期间容易导致考生失去后续题目。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在听力考试中，part four部分的看题时间有何特点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>part four部分在做题时有且仅有一次看题机会，会把31到40题全部看完。其中会有一个长达3到5秒的暂停，这个暂停不是音频卡顿，而是为了提醒考生已经进行到听力的一半，如果前面内容没听懂，应尽快关注后半部分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>听力考试中是否存在两个相邻题目使用相同定位词的情况？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>是的，听力考试中相邻题目可能会使用相同的定位词。例如，一道题提到“control emotion is essential”，而另一道题中的信息是“external events cannot be controlled”，虽然都含有“control”这个词，但实际含义不同，一个是指控制情绪，另一个则是在说无法控制外部事件。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于含有常见词汇如“control”的题目，考生应该如何应对？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>考生在听到频繁出现的“control”单词时，不要急于填写答案，而应保持跟随听力节奏，不要被某个熟词所迷惑，要理解其在不同语境下的具体含义。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于控制情绪的主题，在听力材料中有何具体表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在听力材料中，提到Stoic principles基于人们可以拥有不可动摇的幸福，关键在于美德。并进一步解释，像愤怒和嫉妒这类破坏性情绪，在我们的有意识控制下，不需要被它们控制我们，因为我们可以学会控制它们。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在题干中识别因果类替换关系的重要性是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在题干中识别因果类替换关系很重要，因为这可以帮助考生正确理解题目并找到答案。例如，题目“Stoicism is still relevant today because of its appeal”中，“relevant”表示意义重大，“appeal”在此处意为吸引力，通过识别这种关系，考生能更好地解答问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在该题目中，为什么说&quot;relevant&quot;与&quot;appealing&quot;可以互换使用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在这个场景中，&quot;relevant&quot;和&quot;appealing&quot;在语境中都是形容词，都表示“有吸引力的”。上句提到这个东西意义重大，下句则指出它具有实际意义并且引人注目，因此有吸引力的东西往往意味着它是重要的。所以，这两个词在此处可以等同看待并进行替换。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于这道题，如何通过预判词性来快速找到答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>解决这类题目时，首先要预测词性。本题目的关键在于识别&quot;most&quot;之后的形容词&quot;practical&quot;和&quot;appealing&quot;。由于空格前为&quot;most practical of all philosophers&quot;，且根据逻辑，&quot;appealing&quot;不可能出现在该位置，所以答案只能是&quot;practical&quot;。</p></div>
+    </details>
+    <details class="qa">
+      <summary>听重读音节是否有助于识别答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>是的，通过听重读音节可以辅助识别答案。例如，在&quot;Stoicism, which, in my opinion, is the most practical of all philosophers, and therefore the most appealing.&quot;这句话中，&quot;practical&quot;和&quot;appealing&quot;被重读，这提示考生这两个词可能是正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于被动语态和定语从句的部分，有何考点值得注意？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在处理这部分内容时，虽然有涉及被动语态和定语从句的考点，但由于本题主要聚焦于熟词僻意，故不将其当作重点定语从句题目处理。同时，提到了对于被动语态的一些替换形式，以及在听懂文章大意后，如何关注名词、副词等词性，并积累一些基本的同义替换词汇，如different perspective（不同观点）和holy negative（消极的）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Cognitive behavior therapy主要用来治疗什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Cognitive behavior therapy主要用于治疗depression（抑郁症）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>通过学习控制思想，人们可以用什么来挑战和改变不合理信念？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>人们可以利用logic（逻辑）来挑战和改变不合理信念，从而控制他们的思想、思维症状和行为。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Stoic principles在商业领域中的应用是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Stoic principles可以帮助构建面对挫折所需的韧性和心态，教导人们将障碍转化为机会。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在听力理解中，什么是复数名词提示词的替换？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>复数名词提示词的替换是指在听力中听到的&quot;a lot of&quot;、&quot;许多&quot;等表达大量数量的词汇，在答案中可能被替换为&quot;a number of&quot;、&quot;large amount of&quot;或&quot;considerable numbers of&quot;等形式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于part four的考点，有哪些需要特别注意的点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>part four的考点包括识别难度较高的被动语态、定语从句等替换情况，以及题干中可能出现的替换和复数名词提示词的替换。此外，还强调了做题步骤，如读题预测、听题找替换、书写答案并保证拼写正确，以及做完题目后的复盘过程，即听写答案句并分析题目考点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>是否需要全文精听来完成part four的题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>不建议全文精听part four，因为大部分内容不需要完全理解，重点在于捕捉答案句中的替换信息。如果有额外时间，建议将精力放在提升其他部分的能力上，比如加强对于part three的理解和精听练习。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-16.html">精讲逐字稿</a></li>
+      <li><a href="qa-16.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-15.html">上一讲 15</a></li>
+      <li><a href="lesson-17.html">下一讲 17</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

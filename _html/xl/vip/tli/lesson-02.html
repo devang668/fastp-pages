@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第02讲 · 听力三大核心能力 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 02 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a class="active" href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第02讲 · 听力三大核心能力</h1>
+    <div class="abstract"><b>本讲概要：</b>在这段对话中，老师详细介绍了雅思听力考试中的三大核心技能：听基本信息、识别否定词和理解转折关系，这些技能对整个考试至关重要，贯穿于第一到第四部分。老师强调了听基本信息的重要性，包括正确识别数字和字母组合，并指出在听力过程中忽略干扰信息的技巧。接着，老师讨论了听力中常见的否定词，强调识别这些词对于捕捉正确信息的重要性。最后，提到了听转折的能力，特别是转折词如“but”的使用，说明了它们在帮助找到正确答案中的关键作用。整体上，这段对话旨在为学生提供雅思听力考试的基本策略和方法，强调了基础技能的重要性以及如何有效地进行听力练习。</div>
+    <div class="tip">本讲含 20 组问答精要，可到<a href="qa-02.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这段对话中，老师详细介绍了雅思听力考试中的三大核心技能：听基本信息、识别否定词和理解转折关系，这些技能对整个考试至关重要，贯穿于第一到第四部分。老师强调了听基本信息的重要性，包括正确识别数字和字母组合，并指出在听力过程中忽略干扰信息的技巧。接着，老师讨论了听力中常见的否定词，强调识别这些词对于捕捉正确信息的重要性。最后，提到了听转折的能力，特别是转折词如“but”的使用，说明了它们在帮助找到正确答案中的关键作用。整体上，这段对话旨在为学生提供雅思听力考试的基本策略和方法，强调了基础技能的重要性以及如何有效地进行听力练习。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们今天来说一说听力当中的三大基本能力OK。那就跟我一起边记笔记边开始学习。</p>
+    <p>我们首先说一说能力一，就第一个能力，这个第一个能力其实它是伴随我们雅思听力当中一个part one来出现的。因为part one它经常会出现一些基本信息考点，对吧？所以第一个能力就是听基本信息。</p>
+    <p>那什么叫做基本信息？就比如说数字、人名之类的，这个就叫基本信息。你就这么想，当你出国了之后，比如说你要干的第一件事情是不是要从机场打个车去到学校，对吧？然后你打车的时候，人家问你，你要去哪儿，你是不得给人家报出来一个地址，对吧？然后这个地址当中是不是得含有一些数字？所以也就意味着这种基本信息你不但要能够去听懂，你还要能够去表达出来。好，你干的第二个事情是不是得到银行开个账户，然后你到了银行了，人家问你说，你电话号码是多少，我们登记一下这个个人信息，然后你是不是要能够表达出来，写人家跟你说的，你是不是也能够听懂。这就是为什么雅思在part one的时候会经常考察这样的东西。</p>
+    <p>大家可以看一下我屏幕左边的这个题目，这个题目是一个来自于建18的1个题目，就是蛮新的一个题目。难道新题当中就不考察基本信息吗？实则不然。我们来看看，你看第一道题就是一个postcode，这个东西叫做邮编。那我们再来看下一道题，date of bus journey, 就是你到底是哪天出去旅行的那哪天乘的这个公交车。所以这是不是考察了一个日期，所以我就不给大家罗列了。</p>
+    <p>总的来说就是在part one当中，我们基本上都是会有至少2到3个题目，他是考察这种基本信息的。然后我们是一定要把这个题目拿到手。你说别的题这挺难的，咱们拿不对，我都能理解。但是就这种题咱们必须是要拿到的。所以在这儿我多少展开来讲一讲。</p>
+    <p>这个部分其实在我B站的免费课上，其实讲的是更加详细的。因为我默认大家已经看过那个课了，来我这儿学习的同学应该是想要进阶的。所以在这个部分我就给大家略讲一下，放在我们这导学篇里给大家略略的讲一讲，就OK了好吗？如果你觉得想要再认真的去听一听细化的内容，欢迎你回到B站上面的那个免费视频当中的unione就可以了好吗？OK.</p>
+    <p>我们来说一说能力一当中基本信息。第一大这个部分就是关于听数字。数字在雅思听力当中分成两种形式，一种就是数字串儿，另一种就是数学数字。我们先说一下数字串儿，数字串二它的一个基本概念就是每一位其实都是0到9的数字。有同学说了，老师0到9我还能不会？One two，three four five.</p>
+    <p>那00其实就是有好几种说法的，一种说法它叫做zero，这个是一种说法零对吧？还有一种说法是，所以这两种说法你都得掌握，那说不定人说一个df这竟然是两个零。007这是我儿时的偶像，这个东西叫做double o seven，就叫007。</p>
+    <p>好，数字串一般来说是一个8到12位，甚至有的时候可能会到16位。那个bank card就银行卡，它是一个16位的数字。然后他在说的时候，并不是说夸这12个数字就给你直接说出来了。它会有组别的，大概3到4个数字可能一组，然后给你中间稍微断一段，然后再给你说3到4个，再给你说3到4个，再给你说3到4个这样的。</p>
+    <p>好，如果这个数字是单个的，比如一个一个的那都好说，比如说one eight six，这都好说。但是如果中间有两个数字是一样，它会怎么说呢？它会用double这个小词儿，double表示的是两个，就两个一样的这个数字。还有一个叫做triple，triple你看它俩这个拼写多少有点差别。这个triple它怕爆破音，所以这个变成了八的这个音。然后double这个也是个爆破音，所以这拼写多少有点不同。这个triple表示的是三个，这个是两个和三个。好，接下来我们就来说一个数字串了让大家来感受一下。比如说我们这个数字是one eight six four four，one nine seven two six five.</p>
+    <p>我说的这个节奏基本上就和真实考试的时候差不多。你看他首先先说了一个三个，就是one eight six，然后double four double one nine，about one nine, 就是4，然后1119，119对吧？就两个1，然后seven，two six、five, 所以三个、四个、四个，这基本上就是一个手机号，就是这样去给大家呈现的一个11位的数字。如果是个12位的数字，就是444这样一个格式呗，16位的数字就是4444这样一种格式，所以在数字这个点，大家需要做的事情就是赶紧跟上节奏。有的同学吧好多数字他不太分，比如说就有3六七部分的同学，你比如说三叫three，然后六叫six，然后七叫seven，经常有同学听着听着蹬蹬3，他们都是三不是吧，对不对？所以这个东西就是一个熟练工，没有什么捷径。那么课后我们有一个音频作业，这个音频作业的文件名叫做numbers，大家把这个它是一个大概21分钟左右的听力，然后全都是数字，乱七八糟东西，大家就听一听就好啊，把这个认真听一听，练一练。好，所以这个数字串就过了。</p>
+    <p>接着我们来说一说数学数字，数学数字其实就是带位次的那第一种带位次就是钱数，这个钱数它肯定是数学数字。那么钱数怎么读？这个我先给大家方法论，首先你要读整数位，整数位读了读它的单位，单位读了再读它的小数点后的就是分数哈那比如说我这个键盘可能打不出来英镑，咱就拿个人民币符号代替一下行吗？比如说18.5这个钱，那你读的时候怎么读？有同学就是这么跟我读，说eighteen point five hours。当然英镑的那个符号是胖的，然后复数就是胖子。下级单位单数是penny，然后复数就是把它给变成了pants。</p>
+    <p>刚才这种读法对吗？不对，你就这么想你去超市买了一兜子东西，这个东西花了18.5元。好像除了机器人会这么说话，我们一般都不这么说。你怎么说你说我买了一堆东西花了18.5块都这么说，对吧？所以18.5块是不是先读整数位，再读单位，再读分数位，对不对？</p>
+    <p>那这个应该怎么读？读成eighteen。这个eighteen你先说了？Eighteen pounds，这个五其实它是一个50，所以你要读eighteen pounds fifty。好，我给大家把这个钱数稍微写一下。</p>
+    <p>Eighteen，然后pounds z然后fifteen，然后有同学说老师我fifty fifteen分不清，就50和15分不清的对，这也是数学数字。50和15就是我想讲的下一个要点了，上一个要点就过了。关于钱数怎么读，大家回去自己练。我上面那个numbers，这个听力当中都有啊，大家就回去听写就好了。好，50和15。各位同学把你们的手指头拿出来摸自己的鼻子，我们现在来读一下15 fifteen fifteen。当你感受鼻腔有一股气流穿过的时候，这个感觉就是对了的。好，我们再读52、55 5。</p>
+    <p>你有没有发现在T的时候，其实你的鼻腔里面没有共鸣感，就是没有气流通过。所以这就意味着什么呢？所有的几十那个fifty，你看它这个音，它是一个TY结尾的那TY结尾的这个音，它在发的时候就T就可以了。但是fifteen它这是以TEEN结尾的，以N结尾是不是得发鼻音呢？对吧？所以它这个嗯嗯嗯这种感觉的这样一个音，所以大家能看到thirteen thirteen鼻子有震动，thirteen这个十几，thirty thirty这个鼻子没有震动。</p>
+    <p>所以就是记得鼻子没有震动的就是几十，鼻子有震动的就是十几，这个非常的重要，因为比有些同学本来这个单词都本来这个数字是听懂了的，听对了的，结果一不小心这个就错了。好，所以这是数学数字当中经常出现的这一点。数学数字当然还有一点，就是关于百位数我们是要怎么读的。比如说我们随便写一个150，这个100 500位数，那我们肯定是要读hundred，对吧？这个叫百。那么这个150怎么读one hundred？然后有人说one hundred下面你要读50了，对不对？</p>
+    <p>One hundred fifty, 那中间到底要不要加and这个不加and就可以one hundred fifty。当然你说我加一个and行不行？也可以，但无论你加不加，其实不影响这个数字。你写的时候都写阿拉伯数字，咱又不写英语单词，对不对？就正常写就可以了。</p>
+    <p>好，那么比较特殊的是980这个数字之前我也讲过，为什么？因为八它是IT，你有没有发现它是一个元音字母开头的，它是一个以E开头的原因呢？那这个原因是不是就有可能会发生连读？好，咱把九百八写出来，它叫nine hundred，然后后边是接什么eighty对吧？Nine hundred，然后eighty，这个eighty我们也写出来，你有惊喜的发现这地方是个辅音，对吧？这个D肯定是个辅音，然后这个地方肯定是一个原因，那它俩趴就粘在一块了，所以你会听到一个什么读音呢？Nine hundred eighty, nine hundred eighty, 当然这地方还有个and nine hundred ninety，nine hundred eighty.</p>
+    <p>所以当发这种奇怪的这种连读音的时候，它肯定不是990有同学就偏把这个数字写成990 nine hundred ninety去了，但肯定不是，因为这种奇怪的读音只会发生在发生连读的数字里，没有发生连读数字肯定不会发出来这种奇怪的音。比如说9，这个你必须得字正腔圆II nine这个口语当中有一个评分标准叫principle precision。怎么评判？就主要是元音发的准不准。所以如果这个九你发成nine，那显然这个音就不准了，对吧？但是你必须要发nine nine，所以它不可能N的这个音，它绝对不是9，它就是980发生了一些连读，除了980会连读，还有什么？180当然也会连读，只要带八就连读。</p>
+    <p>One hundred，ha ha，划过去a hundred，two thousand three hundred. 好，那如果说是118，这个咱们就在一块读一下，大家划过去AHA，对吧？AHOK好了，不给大家演示了，大家自行感受一下。所以这个其实就是涉及到这个数字这个点。</p>
+    <p>好，我再给大家补充一点，数字你以为很简单吗？是它不难，但是它现在可能会出现叫做一个干扰信息的问题。啥叫干扰信息？就比如说人家这个题就是画了一个钱数放在这儿，画了一个横线。然后你会发现他在括号里边给你提出了一个要求，就是no campaign campaign叫露营。所以他意思这个要求就是不要露营。那如果是不要露营，所以这个题基本上就会出现干扰信息。</p>
+    <p>听力当中会怎么说呢？他会说需要露营你得花多少钱？比如需要露营你得交5.5块，five pounds fifty if you don't want to keep in the wood.</p>
+    <p>如果你不想在树林里边去露营的话，you only need to pay three pounds fifty, 就是3.5元就可以了。所以这地方肯定会出现一干扰性信息，就定位成功这两个数字你要去进行一个甄别好吧？好，这是关于数字，这一点不说了。</p>
+    <p>接下来就是关于字母组合。字母组合当然这都是在能力一里边的，都是我们的能力一听基本信息这一块的。好，我们接着大家就按部就班的跟我一块儿去记录笔记就好了。</p>
+    <p>字母组合这个点它会出现在什么东西上面呢？你比如说像postcode，那么国外的这个邮编，它跟国内多多少少还有点不一样。国内都是数字，但是国外这个邮编可是数字加字母。你比如说我当时生活的城市DH one four QQ，这就是我家邮编，那类似的就是其实英国的邮编基本上都是这个构造，所以它是字母加数字这样的一种组合。好，再比如说人名，比如说人家这地方说了一个name，让你去填一个名字，到时候给你咔拼写一下这个名字，就是字母啪啪给你报，然后你就咔咔一写，然后这个地名也是一样。因为毕竟地址可能中间也会涉及到有一个那个路的名字，可能也会给你拼一拼，甚至还带个数字的门牌号，对不对？好，所以这个部分其实就会涉及到字母组合的问题。</p>
+    <p>字母其实实话说我没什么可说的，从A到Z我们从小从都这都不是三年级，从三岁估计大家就开始学，对不对？所以这个东西应该是能区分开的。但是几个特殊字母我再次给大家点评一下。</p>
+    <p>首先第一个特殊字母是这个Z这个Z它有两种读音，我小时候学的是that这个读音。但是后来我发现孩子们长大了，开始学美语了，就美式英语了。That是英式英语，美式英语，这个Z读成了Z所以这两种读音都是这个字母，一个是that，一个是z OK。有同学说老师你骗人，怎么可能是这样呢？我可不骗人，咱们来打开有道，你来感受一下。比如说这个字母，这个字母Z你看它是不是2 that一个是that z一个是Z，所以我一点也没有骗人。好，这是一个需要大家特殊记的。</p>
+    <p>再一个就是这个W这个字母，这个字母我每次发音大家都笑话我，我就让这个有道给大家发音来，咱感受一下WWWW，所以你有一种什么感觉？他在发音的时候是不是说成了一个WW然后有同学就和这玩意儿混了，就和这个double u搞混了，那到底是W还是U呢？我觉得大家不需要去搞混，因为在英语单词当中很少会有两个U连一块的。你但凡听到一个jb UU这个音，你就直接给我写一个W就完事儿了。但这个字母读的时候一定要划过来，就千万不要让W。那不是这样的，它是WW这种感觉的对吧？</p>
+    <p>好，还有字母这个A这个A就是因为我们可能平时高中那个英语题全都是ABCD对吧？大家可能对这个A的读音多少有点听一听。AAAA感觉他其实这个A他读的时候就是AA。</p>
+    <p>来我们再来一个字母，比如这个字EE这A和E之间有没有感受到它的区别？一个是A一个是AAE多少有点区分不了，对吧？所以你听的时候也口AB口E别口AB口E就是人家这个听力当时在读字母的时候，不会像我读的这么这么土哈他都会读得非常的洋气，但是一洋气就给大家整蒙圈了。</p>
+    <p>还有一个怎么L它也挺洋气的，大家来听一听，这个L是怎么洋气的。LL我们平时读的不太一样，我们平时读L，当然我读的可能过于土。表演一下，但是总总有同学读的是这个样子，刚才怎么读的？LL对吧？LL所以有没有同学会和这个O搞混？O怎么读？OOLLLO感觉有点混。好，所以我说一千道一万，这些字母其实大家真的不用记他们的发音，你要记什么呢？</p>
+    <p>单词是怎么读的？比如说比如说人说my name is my noja MU，那肯定是M开头，对不对？妈m py a妈NNYYUUUNNUU渣渣肯定是这个枝的这个音渣，OK差不多。英语单词它毕竟就是像汉语拼音一样，你能拼个差不多，你能基本就读的差不多，反之也是一样的。所以我们基本上就是根据这个单词的读音去进行拼写，我觉得这个是比较OK的。但是人家在读的时候，就是把这个字母组合给你拼出来时候，你又不能不听，你再double check一下好吗？毕竟有一些字母可能它多少有点奇怪。这个部分在我们的这个B站上免费课程里讲的非常的详细，非常的清楚。大家如果有问题移步到那个上面去。</p>
+    <p>好，接下来我们就是第三个基本能力了，关于听日期和听时间，你看比如说像这个题，date of bus journey, 这题他肯定会考你干扰信息的，他肯定不会上来平铺直叙，就是告诉你我到底是哪天乘的车。我估计他大概率说的时候就说，我可能是这个一号乘的车，不对，大概是二号。不对，还是一号。所以你看我在干嘛，是不是像个神经病一样，是在修正自己的信息，听力当中背不住就是这样的。我就让大家感受一下，你听一听，虽然其实我们现在还没有到正儿八经去听篇章的这个阶段，但我就让大家感受一下这个1W7Y，这是pose，这个点我们过了。It's actually in hall borne wells isn't far from there though。I really like that area.</p>
+    <p>My grandmother lived there when I was a kid. Yes, IT is nice, right? So now I want to ask you some questions about how you traveled here today.</p>
+    <p>来，你怎么did you use public transport？Yes, I came by bus and that was today is the twenty fourth of April. Isn't IT isn't at the twenty fifths? No, actually you're right.</p>
+    <p>像神经病，就是上来本身这个男的已经说，好像是24号，然后April对吧？你看我写的这个形式，这个不要了。好，我写在笔记上。24，然后April我就这么写的，我没有写24，然后上面再给你搞个TH然后再April，我觉得好麻烦，所以你就正常这么书写就是对的啊不要去有其他啰里8嗦的形式。</p>
+    <p>有同学非得问我说，老师这个单词我给他简写了可以吗？April本身是没有简写的，这个月份尽量就写全了好吗？12个月份我相信大家应该会拼。如果不会拼，移步到我之前的视频里，那上面我都给大家拼了一下子。OK，所以刚才这个听力我们明显感受到像个神经病。</p>
+    <p>先说到24号April，然后接着这个女的说isn't IT，还给你来了一个反疑问句，isn't IT twenty five？然后oh no，还是24号。所以这个时候就有同学如果第一把没有落笔的话，他那个April他已经忘了，然后最后就写了一个24放在这儿。但是24对吗？不对，因为他要问的是一个date，date里边必须得含有月份还有日子。所以如果你只写了一个24，对不起，这道题无情的扣分了。可见就是这个日期、时间这个点上就是干扰信息特别厉害，总是在干给我们整一下这个干扰信息，大家一定要注意这个部分好吗？这样的话就防止基本信息出错。</p>
+    <p>好，我们到这儿稍微总结一下，能力一其实就是听基本信息的能力。这个对标在我们生活当中，就是你也要能够去流利的讲出你的电话号，流利的报出你的名字，流利的报出你的生日。那你在国外交朋友，这不就上来交朋友三件套，对不对？所以这个事情在听力上就是考察你的。但是在听的过程当中，你得注意现在听力难了，比之前难了，难在了哪儿？难在这里边可能会有一些干扰信息上。那先跟你说一个，然后就自己又像神经病一样给否定了，然后再跟你说一个，就这种。</p>
+    <p>好，接着我们来说能力2，能力二这个也挺重要的。这个能力我为什么放在今天这个位置说，而不放在比如说我们讲真正题型，什么怕负二这种的给大家说。因为所有篇章part one到part four听否定能力都是一个非常重要的能力，所以你一定要对一些否定词稍微敏感一下。</p>
+    <p>有同学说老师我就死活听不着，这个not当然因为这个not，它可能在句子当中会变成一个isn't。我就给大家写好一点，你自己记一下。可能会变成一个couldn't，就是它可能会就简写了，可能会变成一个don't，所以它就会变成一个的这个音，然后这个有可能还是弱读，因为毕竟放在尾音，它有可能还是个弱读。但这个东西必须要能听懂，你不是听懂叫听到，如果你听不到的话，这就意味着这句话意思完全差劈了。</p>
+    <p>人家说我不爱吃苹果，你非得给人家弄了个爱吃苹果，那哪行，对不对？所以这个否定词如果是以not的形式去展开的，是必须要给我听到的。当然你说他有没有可能不是以note形式去给你展开，别的词给你展开可以，来给大家补充几个词汇，free of这个表示的是没有，或者叫表示的是不准。你比如说free of smoking，这啥意思？不准抽烟呗，所以不准吸烟。Free of再来一个taking picture，这个叫做不准照片。</p>
+    <p>你别人家上来画一个这个照相机的符号，咖给你打了个叉，然后底下写free of taking picture。同学说我到这免费照相，那怎么可能呢？这不让照相明白吗？所以这是个否定词。好，来rather than这个叫而不是而不是i prefer a rather than b就是我喜欢A超越B那是不是就否定了B肯定了A对吧？所以注意这个用法，prefer a然后rather than b就是我喜欢A超越了B这样的一种存在。</p>
+    <p>好，下一个instead of and instead of这个其实也表示的是而不是的意思，就是它其实本质的意思是个替换。那i use a is that of b就是我用A去替换了一个B，所以这个其实跟rather than这个用法差不多。再来一个failed to do something，这个其实阅读里边也考这个词组，叫做没有成功做某事。它的对立面其实就是这个manage to do something，many to do something的意思叫做设法成功做某事，所以这个managed to do something它其实是成功了的。但是fail to do something就是没有成功。这个词组我给它画个颜色，因为它不属于这一列的，不属于否定词词组。</p>
+    <p>好，我为什么给大家罗列这么多否定词？其实我就一个目的，你在听听力的时候，对于这个否定必须得给我敏感。而且如果不敏感的话，那这地方可能是要错题的了，对吧？好，这个能力一直贯穿到从part one一直到part four都有啊。你会发现MI怎么这么多题的答案，它都来自于一些带否定的句子和带转折的句子，所以能力三现在就拭目以待了，叫做听转折的能力。</p>
+    <p>比如说人家女生你就跟人表白，然后人家说你很好。但是你可别人家一说你很好的时候，你大牙一呲说好了，咱俩交朋友。其实人家是想说后边那个但是的，对不对？所以前边这一句话等于白说，就是没有用。But后边才是重点内容，重点内容你给我重点听。</p>
+    <p>But后边转折连接词除了把它还有什么？While yet还有这个，however, 但实话实说，为什么我我我把它们写在了下一排？因为你说这个写作和阅读当中可能用到底下这个稍微多一点，但是我们听力当中真的就只用but就差不多，真的就只用but，顶多了给你while多来一下，就是可能有一个while对吧？这个while可不一定只引导时间状语从句，有可能表示一种弱转折这样一个态度。所以就对带but的句子，我希望大家要敏感一下。当然了我此时此刻只能告诉大家，我说你得敏感，真正做题的时候，咱们就把这些句子都拿出来拎出来咱看看。</p>
+    <p>好，比如我举个例子，假设我们在做选择题的时候，然后说这个公司是在哪一年成立的，然后人说1999年，2000年还是2001年。然后听力当中怎么说呢？他说我们开始考虑这个想法是在1999年，但是是真正执行落地是在2000年。所以这个就相当于1999年被否定了，2000年被选出来了。这就是一箭双雕型的答案，一个转折给你带了俩选项出来，你要听but后边的有可能是答案，但一定绝对是在but后边，也不一定。咱们等真正做题的时候，把那个题目的文章拿出来，我们去重点分析。但现在我能告诉大家是能力3，就是听转折的能力OK。</p>
+    <p>我们summary一下这个部分，因为这个部分我是想让大家对于整个雅思，我们这个听力有一个基本的认知。所以在这儿我说到了三大基本能力，这个能力非常重要，从part one一直贯穿到pop 4。第一大能力就是你得有能够听得到且听精准这个基本信息的能力。基本信息包括啥我不赘述了，第二个你要能够听到否定，第三个你要能够听到转折。这三个就是构建大家雅思从part one到part four非常重要的三大能力。</p>
+    <p>带着这三大能力，我们下一讲给大家说一说精听的方法。无论你是新烤鸭还是老烤鸭，精听的方法都要学。因为这个精听其实不同水平的同学应该有不同的操作，不能一概而论的那具体我们下节课揭秘，see next time, 拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-02.html">精讲逐字稿</a></li>
+      <li><a href="qa-02.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-01.html">上一讲 01</a></li>
+      <li><a href="lesson-03.html">下一讲 03</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第01讲 · 导学篇：考试形式与评分标准 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 01 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a class="active" href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第01讲 · 导学篇：考试形式与评分标准</h1>
+    <div class="abstract"><b>本讲概要：</b>三老师欢迎同学们开始雅思导学篇的学习，并为不同水平的学员提供了个性化建议。对于已经熟悉雅思题型的“成熟烤鸭”，可以直接跳转至第三节课；而对于“小白”学员，强调了第一节课程中对雅思考试基本信息的介绍尤为重要。课程内容涵盖雅思听力考试四个部分的题型与难度变化，从日常对话到学术讲座，逐步提升。此外，还详细讲解了雅思机考与纸笔考的特点、考试时间安排、如何设定听力目标分数，以及听力考试中常见的语言替换技巧。三老师强调，理解语感对于听力理解至关重要，建议学员关注整体而非过于纠结语法细节。课程还推荐了有效的学习资源和方法，鼓励学员通过实践逐步提高听力能力和应试技巧，以期达到全面的准备策略和学习效果。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>这节课对于已经有一定雅思考试经验的同学是否有必要听？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>如果你们已经是一个成熟的烤鸭，曾经考过试或者对雅思题目比较了解，那么这一节课可以跳过，直接从导学篇第三节课即精英方法部分开始学习。</p></div>
+    </details>
+    <details class="qa">
+      <summary>学习本课程时应该使用什么设备观看视频并做笔记？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>建议大家使用电脑观看视频，屏幕较大；同时可以使用iPad做笔记，如果用纸笔记录也可以。</p></div>
+    </details>
+    <details class="qa">
+      <summary>雅思听力部分共有几部分，它们的难度如何分布？Part one部分的听力内容形式及考察重点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>雅思听力一共分为四个部分：power one、part 2、part 3和part 4。难度从简到难依次为part one、part two、part three到part four。Part one部分主要以日常生活类对话形式呈现，包含填空题，重点考察基本能力如数字、拼写和高中以下词汇的理解，以及对细节错误如单复数、拼写等问题的掌握。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Part two部分的听力内容主题及题型特点是什么？Part four部分的听力内容目的及题型特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Part two部分是一个独白，模拟在国外生活时理解电视节目场景，题目以客观题（单选、多选和配对）为主，要求考生对文本内容有一定的理解能力。Part four部分模拟学术类课堂场景，通过独白测试考生是否能适应国外课堂环境，题型主要为填空题，旨在评估其理解和跟上复杂英语内容的能力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Part three部分的听力内容场景和题型特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Part three部分采用对话方式呈现，讨论校园场景，题目同样以客观题为主，要求考生对对话内容有所理解，否则客观题错误率会很高。</p></div>
+    </details>
+    <details class="qa">
+      <summary>整个雅思听力考试包含多少道题，考试时间大约多久？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>雅思听力考试共有40道题，满分是40分，考试总时长约30分钟。听力是笔试当天的第一个科目，之后依次是阅读和写作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>为什么在本次课程中主要采用机考模式进行教学？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>因为官方已明确表示从2024年开始，大陆地区将逐步减少直至取消纸笔考，转向机考。因此，建议备考雅思的同学提前准备机考，以适应考试形式的变化。机考相比纸笔考有出分速度快、一天内可完成多个科目、题目难度稳定等优点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>机考与纸笔考在答题时间安排上的主要区别是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>机考没有额外的抄写答题纸时间，最后仅有两分钟供考生检查答案。而纸笔考则有十分钟的抄写答题纸环节。此外，机考在part four结束后还有一分钟check答案的时间，总共只有三分钟用于检查答案，非常紧张。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对不擅长机考的学生，是否可以在现场先将答案誊写在纸上再输入电脑？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>不可以这样做，因为即使打字速度很快，但额外的誊写过程会浪费时间，不如直接在电脑屏幕上作答。机考中提供的空格就是用于直接作答的，避免了重复劳动。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在听力科目上，纸笔考和机考哪个更为友好？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于听力科目，纸笔考可能更为友好，因为可以使用笔在卷子上做标记和笔记。但在整体考试体验上，机考可能更具优势，如阅读时左右两边分别看题和文章的便捷性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何设定雅思考试的目标分数，并分配各科目目标分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>制定目标分数时，总分目标与单科目标应区分开来。例如，如果总分目标是6.5，那么听力、阅读单科至少要达到7分，而口语和写作则下浮0.5分，即至少稳定在6.5分。这样制定目标是为了让大家有策略地实现目标分数，避免畏难情绪，相信通过跟随课程节奏学习，口语写作也能得到提高。同时，还提供了听力部分对应总分6.5的目标题目数量参考表，帮助学生了解自己在学习过程中的进步情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如果我想考七分以上，在听力部分是否需要完全听懂所有内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>不是这样的。根据我的教学经验，七分以上的同学在part one和part two是能够跟上听力节奏并理解大部分内容的，即使没有每个字都听懂，也能抓住关键信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在part four部分，是否也需要听懂才能做对题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于七分以上的同学来说，即使part four的内容可能难以完全理解，但通过好的方法和训练，他们能够做对大多数题目，因此并不一定需要完全听懂。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何理解“替换”这一概念在听力中的应用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>替换是指在表达同一含义时使用不同的词语或句子结构。例如，“火车频率不够”可以用&quot;not enough trains in the station&quot; 或 &quot;the frequency of trains is a problem&quot; 来表达，虽然没有同义词，但意思相同。同样，对于“火车晚点”，可以使用&quot;delay&quot;、&quot;late&quot; 或 &quot;I have been waiting for a long time&quot; 来描述，这些都是语言含义的替换和词与词的替换。</p></div>
+    </details>
+    <details class="qa">
+      <summary>语法不好是否会影响雅思听力部分的成绩？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>语法不好可能会影响写作部分的表现，因为句子结构不准确会导致扣分。然而，在听力和阅读部分，以理解为主，不太考察语法成分的区分，所以即使语法不好，只要能听懂和看懂，对这部分的成绩影响相对较小。对于听力而言，重点在于区分词性，以便于进行空前空后的正确预测和猜测。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在句子中，副词和动词之间存在什么样的修饰关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当一个副词（如quickly）出现在动词之前时，它通常修饰这个动词，表示动作的方式、时间等属性。例如，“work quickly”意为“快点干这个活儿”，其中quickly修饰了动词work。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于听力理解来说，语感和语法哪个更重要？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>语感大于语法。即使在不太擅长语法的情况下，通过良好的语感，可以通过说话的情感色彩和上下文推测出词汇含义。因此，在听力理解时，应更注重语感而非过于纠结于语法知识。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何有效利用刷题网站进行雅思听力备考？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>推荐使用新东方雅思刷题网站，该网站提供免费做题服务，但解析等增值服务可能需要付费。同时，市面上其他类似雅思哥、雅思喵等刷题平台也具备做题功能，考生可以根据个人习惯选择适合自己的刷题工具。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于纸笔考生，是否有提供实体书籍进行练习？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>有的，课程资料包中包含了电子版的健雅真题（剑十四至剑十八），考生可以直接下载到iPad等设备上进行无纸化练习。</p></div>
+    </details>
+    <details class="qa">
+      <summary>备考雅思听力时，应该关注哪些材料和题源？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>备考过程中，主要关注剑十四到剑十八这五本书，每本书包含四套真题，共有20套题目的练习。对于基础较好的考生，从剑十四开始训练即可，通过精细化复盘这20套题目，有望达到理想的考试目标分数。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于不同水平的考生，应该如何合理安排备考阶段？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>基础较弱的考生应按部就班地学习，先扎实掌握基础知识，不宜一开始就进行模考训练。而有一定英语基础且想要提升熟练度的考生，则可以从剑十四往后使用真题进行练习。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-01.html">精讲逐字稿</a></li>
+      <li><a href="qa-01.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-02.html">下一讲 02</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

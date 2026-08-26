@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第09讲 · 配对题：细节配对与分类配对 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 09 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a class="active" href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第09讲 · 配对题：细节配对与分类配对</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学中，老师首先介绍了配对题的两种主要类型：细节配对和分类配对。细节配对要求考生从选项中找到与题目对应的细节，而分类配对则侧重于考察考生对文章内容的深入理解及替换能力。老师特别强调了解题步骤，建议考生在阅读题目时应关注选项而非题干，因为题干往往只是原词的重现。通过多个实例，老师展示了如何有效地在配对题中进行替换，并通过复盘练习来加深理解，以提高解题技巧。最后，老师强调了积累替换词汇的重要性，并鼓励学生通过实际做题和复盘来提升在分类配对题方面的解题能力。</div>
+    <div class="tip">本讲含 29 组问答精要，可到<a href="qa-09.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次教学中，老师首先介绍了配对题的两种主要类型：细节配对和分类配对。细节配对要求考生从选项中找到与题目对应的细节，而分类配对则侧重于考察考生对文章内容的深入理解及替换能力。老师特别强调了解题步骤，建议考生在阅读题目时应关注选项而非题干，因为题干往往只是原词的重现。通过多个实例，老师展示了如何有效地在配对题中进行替换，并通过复盘练习来加深理解，以提高解题技巧。最后，老师强调了积累替换词汇的重要性，并鼓励学生通过实际做题和复盘来提升在分类配对题方面的解题能力。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回到我的课堂。我们在学完了part two常出现的地图题、单选题、多选题之后，我们来到了part two的最后一种题型，也就是配对题。配对在part three其实也会出现，但是part two还是比part 2要稍微简单一些的那不过虽然是这样，我们还是有两种类别的这个配对题要学习。一种叫做细节配对，另一种叫做分类配对。</p>
+    <p>那么什么叫做细节配对？什么叫做分类配对呢？跟我们一块儿来看一下，所谓的这个细节配对就是选项的数量，它是多于题目的数量的。来我们来看一下屏幕左边这个题，从15题到20题，这一共是六道题对吧？然后我们来看一下选项，我的妈呀从A选项一直到H选项这么多个选项，所以这种题目其实它就是一个细节配对。</p>
+    <p>那么什么叫做分类配对呢？就是底下这个选项数量特别的少，就少到人觉得怎么只有这么点选项，是不是这个题就特别简单。来，我们一起来看一个。当然今天这两个也都会是我们的例题，所以我是做得到的。比如说像这个题一共从15到26个题，但是我们只有三个选项，只有ABC3个选项。所以这个分类配对可能会让我们产生一些误，就是会觉得它简单，但事实上不是的，这种题反而可能会难一些，为啥呢？因为细节配对其实它考察的要点就是一个词和词的替换。</p>
+    <p>底下这些选项当中和文章里边某一个词的对应。但是我们这个叫分类配对。这个分类配对你看选项数量只有三个，题目有六个，这就意味着是不是有两个题可能都用的是一个选项，对吧？那么他在进行替换的时候，他不可能是两次，他替换的方式是一模一样的那怎么可能呢？所以它可能会有多个角度的替换。这个多个角度的替换对大家语言能力的考察，还是比就是我单纯去替换一个词可能是要更深入的。所以大家记一下，就是对于这种器械配对，它本质上是在考察我们词词替换的。那么对于分类配对，事实上它本质是考察我们更深层次上意思的替换。</p>
+    <p>之前关于替换这点我也说的非常明确，我说比较简单的就是词替换比词替换要稍微难一点的就是抽象到具体的替换。比抽象到具体替换再难一点的就是意思上的替换。所以你会发现我们的这个细节配对考察的就是词词替换简单的，但是我们的分类配对考察的就是意思上面的替换就稍微难一点了。好，但是不管怎么着，这两种配对题其实他们沿用的是同样的一种做题步骤。来咱们一块来看一下这个做题步骤。</p>
+    <p>这个做题步骤首先第一件事情肯定是读题。对于所有的听力题，大家第一件事儿肯定是要读题的。但是在这里我要多说一点，就读题的时候你到底是看什么？有的同学他其实在读题的时候，他就在这个题干上做文章，一个diary，diary是什么意思，diary large band，large band是什么意思small band所以你看这个东西其实没有任何意义，对吧？所以大家看我这句话，你就读选项就好了啊不要把你的有限的时间给我用来去读题干，为什么？因为题干是原词重现的，就像我们在做这个地图题一样。那个地图题让你找的那几个目的地是不是都原词重现？所以不要去花时间去读题干，我们只去看选项就可以了。</p>
+    <p>这个题干其实对于我们的意义，就只要能够它听力放到了，你能对上号就OK了。OK好，另外我们要干的一件事情就是思考选项的替换。在这里我说就是大家仿佛要开天眼一样，啥叫思考选项的替换呢？比如说我们来举个例子，比如说像这几个题目。OK比如说像这个题目，对于这个题目这个A一直到H你就要去思考它的替换类型。你要想一想它有可能会替换成什么词。这个时候你必须要像开天眼一样。所谓的开天眼，它其实就是通过你日积月累去做题，然后去整理出来的。</p>
+    <p>你比如说A选项这个shopping，与我而言，我看到它我就会想到buying something。比如说如果是一个旅游场景，可能会说buying some gifts OK那2B选项what can be milked？这什么意思？叫做看奶牛被挤奶，那奶牛这cow对吧？然后他有可能在文章里面说这个是一个牛奶的生产过程，milk making process之类的那C选项我们继续来看，他说seeing all the forming equipment，这种farming equipment这种小词，它就特别会产生那种具体化。比如说他给你具体说一说这个就什么农业用具，那至少来个tools，对不对？</p>
+    <p>好，来另外很重要的一点，就这个C选项当中是一个saying，什么叫saying？就是看一看那具体能让你用吗？好像就不太能用吧。如果是看的话，它有可能是一个exhibition，一个展览，或者它有可能是一个display，反正就是展示一下子，或者它是一个collection，就是它是一个收藏品，收藏的东西一般来说可能就不太能用，那我们大概就是只能看一看喽，所以它有可能是一个收藏品之类的。这些其实不是说因为我做过这个题目，所以我就反复给大家剧透。不是这样的，其实这些是来自于我做了很多题之后，我自然而然的一种日积月累。</p>
+    <p>好，那么eating and drinking这种在我脑海当中，我觉得可能是比如说吃个午饭，所以我可能会听到lunch，或者我有可能会听到snack。Snack这个单词表示的是零食，或者我会听到一些something drinks，drinks包括一些什么coffee，还有什么T之类的都是可以的。所以这个是不是就是eating and drinking的意思呢，对吧？</p>
+    <p>好，看到E选项叫做storing a trip，什么叫starting on trip？大家想象一下叫做开始旅行。但是你不会觉得很奇怪吗？这篇文章它让我们干的事情就是以下这些地点有什么样的activity。也就是说已经进入到这个农场去旅行了。在农场里旅行又说开始旅行，这是啥意思？大概可能就是那种比如说你去一个地方旅游，然后他可能会乘坐一些景区内的小交通，对吧？所以他说到的这个E选项starting trip，在我看来可能是比如说有一个tour，这个guided tour表示的是有导游的旅行，或者他直接给你说交通工具是不是也行？</p>
+    <p>那一般你像景区里边能有什么？他肯定没有什么火车、飞机之类的。他大概有的不就是一些什么小马车，或者那种游园小火车之类的，就是那种类似于那样的交通工具。所以它也有可能会被具体化替换。</p>
+    <p>好F选项，这个叫做seeing rare breath of animal。这个rare这个单词叫做稀有的对吧？所以他说看一看稀有的动物，那这个稀有的动物是什么意思？就是比如说这个动物已经endangered了，吧？这濒危的或者他说这个动物已经马上要灭绝，on the edge of of extinction.</p>
+    <p>这些词都是不是大家脑海当中词库里面的词。如果这些单词并没有出现在你的词库，那么就证明你的积累还是不够的。为了能够很好的做好配对题，我希望大家能够对于这替换就是日积月累的去积累。这就产生了一个问题，就会有很多同学问我说老师我要不要去背一些统一替换？统一替换这个东西，在我看来其实是背不出来的。因为在这个场景里，他俩这个单词可以统一替换，但换另外一个场景，也许人家就不能统一替换了。所以我不建议大家去背这些统一替换，我建议大家去积累统一替换。这就是为什么我在这儿边带大家看题，我就边说一说。</p>
+    <p>好，G选项叫做helping to look after animal，look after这个小词组，它可以等同于take care of，对吧？那么animal这个小词，它可能在文章具体化。你就想农场里能有什么animal，sheep可以吧？靠可以，horse可以，这个叫马牛羊马。有可能同学还说老师有猪，可以，反正总而言之，look after animal就是take care of一些具体的动物。那你怎么去take care of具体的动物？那有没有可能这个动词的词组也给你产生一些具体化的替换？</p>
+    <p>当然有可能你比如说hand feed animal，这个叫做你用手喂。比如说在公园里面经常就会有那种喂一些小鹿那些小活动是不是也挺好的，对吧？再比如说你给这动物洗洗澡，这个wash，当然洗澡还有另外一种说法，这个叫做groom。Groom这个小词，这个groom这个单词当名词讲叫做伴郎的意思新郎sorry新郎的意思，当当动词讲叫做梳洗。你就想我们新郎结婚那天是不是得好好梳洗打扮一番？对吧？所以groom这个小词它也有这个意思。</p>
+    <p>再比如说那狗，你给它遛狗，这个叫做dog walking，这个表示遛狗的意思。OK. 这个选项其实我已经讲了很多了，很透彻了。接着我们来看H选项，它叫做using farming tools。觉不觉得这个选项和我们刚才读过的某一个选项特别像，是不是很像？</p>
+    <p>这个CC选项叫seeing old for me equipment，它这叫做using farming to。所以我可不可以理解have a try？让你去体验一下，have a try你去试一试？那这个forming to有可能是什么？还是会有一些具体化替换的对吧？所以刚才我在带着大家干的这个过程，其实就是在去看选项思考替换OK。</p>
+    <p>但是有同学会说，老师我真正自己在做题的时候时间不够，那这个怎么办呢？你要这么想，我带着大家去看这个选项，我是要给他讲出来的。所以你脑子肯定转的比我嘴转的快。那你真正如果真的就看一眼脑子过一下，它没有那么慢。当然这还是一个熟练工。如果你就在那想啊想想陷入沉思并且溜号了，那你时间肯定是不够用的。但如果你脑子特别快，shopping buying something, what can be moved OK, 挤奶的过程好，这事实上就会很快了，对吧？所以大家不要抱怨时间不够用，如果你觉得时间不够，其实就是你对它的替换不够敏感。</p>
+    <p>好，刚才我在步骤当中告诉大家，在读题的时候，其实我们只需要去读这个选项，并且思考选项的替换。那么在听题的时候，各位同学你们要干点什么？听题的时候首先你要先题干定位成功，他肯定会先说一下这个题干。题干定位成功之后，就从你刚才脑袋瓜里想到的这些替换你去对对碰。比如说我刚才突然想到了buying something，那它肯定就是shopping的替换词。你夸就把这个shopping直接给我拽回来就完事儿了，对吧？所以其实真题的过程就是完成你内心的预测，验证你内心预测的这样的一个过程。所以我觉得如果你预测到位了，那这种题目就应该是非常简单题OK。</p>
+    <p>那么我们就拿这个题目咱们先来尝试一下，让大家来感受一下我刚才说的，我给大家布置两个任务，第一个任务就是定位，成功就定位。如果你都不成功的话，那肯定这个肯定是有问题的。所以你必须要能够听到题干这个单词要定位成功。定位成功之后，你来给我看替换，来找到替换，我就给大家布置这两个任务好了，我们话不多说，直接开始喽。</p>
+    <p>IT also be going into the farm. That's part of the estate where there's plenty to do. Most of the buildings date from the eighteen th century, so you can really step back into an agricultural past. Until recently, the dairy was where milk from the cows was turned.</p>
+    <p>有没有听到diary？如果刚才你没有听到diary，就是这个diary这个单词，现在是一个原词重现的单词。如果你没有听到，那你这个定位肯定就是有问题。我再给大家放一遍，我们尽量定位成功之后，就要具体去听它替换。Until recently, the dairy was where milk from the cows was turned into cheese. It's now the place to go for lunch or afternoon tea, or just a cup of coffee and a slice of homemade cake.</p>
+    <p>OK这个地方我完整的给大家放了出来，在待着说完之后，他说until recently until recently其实说的是之前，目前为止它都是干什么的？所以其实说的就是之前的事儿，它等同于previous这个小词，所以他之前是什么cheese，然后什么milk之类的。但是因为这是之前，还记得我们在讲单选题的时候说到过一个时间限定吗？就这玩意儿它肯定是不符符合时间限定的，不符合时间要求。我们要的是now，他说now this place is go for lunch，还有什么东西？还有coffee，还有什么呢？听到cake了。所以这一系列这些东西其实你不用都听到，你就听到几个非常关键的就可以了。</p>
+    <p>这显然应该是什么？吃吃喝喝的地方，所以应该是等同于我们选项当中的eating and drinking OK。好，我们直接把这个选项给它弄回来，4D选项A正确，就第一个题对应4D选项。</p>
+    <p>好，接下来我们继续往后。The big stone building that dominates the farm is the large bone, large bn. 在这里大家有没有听到题干定位？如果你听到题干定位了，到这儿开始竖起耳朵听。And here is our collection of agricultural tools。In here is our collection of agriculture tools.</p>
+    <p>所以也就意味着我相信大家一定是能够听到这个agriculture to的。所以其实各位同学你们视角当中的选项不是像H选项。那么这个collection这个小词在这里边是什么意思？它叫做收藏品，所以他意思就是说在这儿是我们的收藏品，一些农业用具的收藏品。如果刚刚大家好好跟我一块儿去预测过这个答案的话，那事实上你就应该知道对于收藏品来说，你是只能看不能用的。但是别着急，其实他后边也是有说到的具体。</p>
+    <p>The big stone building that dominates the farm is the large barn, and in here is our collection of agricultural tools. These were used in the past to pour the earth, so seeds make gates and much more OK. 如果想选用农业用具的同学，你是不是对这句话是要认真听听？他说他们was used in the past。In the past是什么意思？这个表示的是在过去，那在过去它干什么呢？用来cloud earth，这个叫做离地，就是篱笆的那个梨就用来犁地。好，所以显然这个use的这件事情是过去的那我现在肯定是用不了的，它不符合时间要求。那我现在能干的事情就是它既然是一个收藏品，那我就看看就好喽。所以就是seeing old farming equipment，对吧？</p>
+    <p>OK其实这个题它多多少少有点干扰信息的意思，就有点干扰你在两个选项里边让你去纠结，凭啥我们纠结出来的正确答案，凭我们用这个农业用具应该是in d past，不符合时间要求。看到没有？这两道题其实都是在时间这个点上给大家做的文章。</p>
+    <p>第一道题也是一样，之前是做奶酪的地方，但是现在就是吃饭的地方。之前这个东西是可以用的，但是现在我们只是一个collection，一个收藏品一个展示。好，接下来我们期待的就是这个small bn继续往there is a small band定位成功了，有没有听到small版？每一次其实这个定位正常，应该大家自己来听的。但是为了讲这个题目，我就带着大做。</p>
+    <p>Small bang现在已经出现在各位耳朵里了，那我们接下来干什么呢？Also made of stone where you can groom the donkeys and horses to keep their coats clean. They really解释完了，他说这个地方你可以干的事情是where you can groom the donkeys。这个我给它写出来，where you can groom down。</p>
+    <p>这个groom这个单词其实刚才我是剧透了一下的。因为我猜想可能很多同学不太认识这个单词，叫做梳洗。然后donkey and horses这什么是不是对应选项当中的那个animals。所以这个梳洗等于什么呢？等于take care of，对吧？等于look after，所以我们这道题就是look after animals。对应哪个选项？G选项OK。</p>
+    <p>这个题其实没有干扰信息，没有干扰直接报正确答案，报正确答案。但是它的问题在于什么？这个正确答案的替换词有难度的。可能有人就不认识这个groom这个小词OK。通过这儿是不是就积累了，至少grim这个单词是可以替换什么take care of，什么look after之类的。好。Next one, stable. They really seem to enjoy having IT done, and children love groing them.</p>
+    <p>孩子解释上面，the horses no longer live in the stables, they stable出来了对吧？然后他这里其实已经说到了一个东西，他说the horses是什么东西？马，他说点这个小磁敏感波不在的意思，live in就是这个horsey，现在已经不住在这儿了。其实选项当中没有一个和horse相关的，但是这个我们还是听的时候就要认真听一下。我就给大家分析一下，虽然这个地方它并不是什么干不干扰，因为选项里面没有。好，那么现在它是干什么的呢？Which instead is the place to go to buy gifts, books, our own James and pickles and cloth and blankets made of wool from our sheep.</p>
+    <p>他现在是不是说到了我们这个地方，现在是干什么的？大家跟我来看一看这个地方现在的一个功能，他说instead这个小词是不是信号词，我在问题的那一天我是不是给大家讲过了一些信号句，这个instead是不是就相当于它是一个取而代之。我们现在这个地方是by gift book jam，jam这个叫做果酱，这地方可以买果酱，而且还可以买一些blanket，这个叫做毯子，毛毯毯子。然后这些毯子是用什么来制成的呢？是用我们这个羊毛制成的，所以在这儿显然它是一些shopping，对吧？这就是一个具体化替换，文章里面说的蛮具体的，你可以shopping的种类都给你说到了。但是其实题目就是一个单词shopping就可以了，没有什么其他的难度。但是它这个结构是有点想给你干扰，只不过就是horse它也并没有出现在我们的选项里。</p>
+    <p>好，接着往后继续听shed，一个一个听。Outside the shade，which is the only brick, 是不是shed这个小词已经出现了，此处题干定位成功，他说outside shed is什么东西？来咱们继续听一听，盖的怎么了？Building, you can climb into a horse, one carriage for a lovely, relaxing tour of the park and farm. The carriages are well over a hundred years old.</p>
+    <p>OK这个地方介绍完毕，他说在看这个share的这个地方，你可以干的一个事情是you can climb into a horse horse one。这个小慈表示的是马拉的这个单词，我记得在阅读当中其实也出现了。马车肯定是马拉的对吧？马拉的carriage这个小词是必须要会的。这个单词的意思就是马车的意思。那你可以爬上一个马拉的，然后这个马车干什么？</p>
+    <p>For lovely relaxing tour，这个tour这个单词它可经典的不能再经典的替换了。这个tour在这儿等同于trip。所以你可以乘坐一个小马车，交通工具出现了，然后在我们的这个公园里边去溜达。那是不是starting on trip，对吧？所以E选项word trip统一替换非常的具体。</p>
+    <p>好，接下来最后一个park。And finally, the parkland, which was laid out in the eighteen th century with a late and countries that are now well as ablishn, you'll see types of cattle and sheep that are hardly ever found on farms these days. You, 这个地方，他说你可以在这干什么？You can see cattle, and shep hardly found on farm this day.</p>
+    <p>The cattle是什么？就是牛对吧？Sheep是什么？羊？所以这东西是不是animal，然后hardly这个小词是个否定词，它等同于rare。所以整个这句话就是说你可以找到一些牛、羊什么的，在其他农场基本都看不到。所以这什么东西，濒危物种了。As seeing rare breath of animal。所以这里有一个具体化替换OK。</p>
+    <p>好，那么我们稍微总结一下，其实这种题考的就是替换，什么样的替换会比较多呢？有没有词和词的替换？有不少的词和词替换，比如说tour和trip这样的词的替换，那还有什么呢？抽象到具体的替换特别多，对吧？比如说animal，在选项当中你看到的是animals，回文章里面它就变成了具体有什么动物。比如说有cattle，有sheep，然后还有什么cow之类的。</p>
+    <p>抽象到具体的替换非常的多。他有那种非常严重的那种语言含义上的替换吗？其实并没有。</p>
+    <p>还记得我开篇又给大家review了一下替换的3种类型，词词替换、抽象到具体替换以及意思替换。我们这个细节配对其实考的就是前两种替换这个细节配对。细节配对考的就是前两种替换词词替换和抽象到具体替换。但是我们的分类配对故事就不是这样了。</p>
+    <p>来我们一块儿来看一下这个分类配对这篇文章讲的是什么呢？就是以下就是一些酒店，就是具体的一些酒店。这些酒店其实都遇到了一些问题，就是这员工的离职率，staff turn over的这个比例还是比较高的。这个start over表示的是员工离职率，所以酒店就要想一些办法去解决员工离职的一个问题。到底怎么去办呢？他想到了三种方式，分别是我们选项当中的ABC这3种方式。</p>
+    <p>首先A选项我们来看理解一下它什么方式，就叫做improve relationship and teamwork。那什么意思呢？就是提高大家的团队合作？以及包括提升大家的氛围，所以这大概是一个氛围流。</p>
+    <p>那你就得想什么样的事儿是提升氛围呢？比如说经常带着大家去团建team building一下，肯定是提升氛围对吧？除此之外你要多想几种，为什么要多想几种？多想几种的原因是多想几种，这个原因其实就是我们一个题就一个选项，它可能用在多个题目这儿，所以他在替换的时候就可能出现了不止一次的替换。所以你如果只想一种，是不是就人家说完了你就拉倒，那下一次再出来怎么办呢？</p>
+    <p>好，那在想什么东西能是替换氛围的。你比如说员工之间非常的support，或者老板也特别的爱support，或者大家非常CoOperate，这个是不是叫做合作？这个也是就跟氛围相关。好，再比如说我们这个公司，大家相处起来像一个family，像一个bia family老板像妈妈一样也是差不多了。</p>
+    <p>来B选项咱来看看这啥意思，他说offering incentives and financial benefit。所以其实就是和钱相关的那你就想想，公司做什么事，你觉得公司再给你钱，那最最简单的就是给你提升工资对吧？Salary再比如说来一些福利welfare是不是也行，或者年底了给大家发一些bonus，这个bonus叫做奖金，就年终奖什么的，还有公司在给钱。你说比如说有钱有闲，就是现在职场人非常期待两件事儿。那如果公司给我有一点儿paid holiday，这个paid holiday的意思就是带薪年假，也是可以的，也算给钱对吧？</p>
+    <p>好再来再想C选项，C选项这是什么意思？就是provide career opportunity，叫做职业生涯。我给你提供职业生涯什么意思？就是升职加薪呗，比如说get promotion，再比如说想要升职，一般都先给你来个train，这个培训完回来就升职了，这一般什么老国企的作风。还有怎么叫做这个会给你提供职业生涯的通道，比如说让你take more responsibility ES，就是提多负责，在在单位多负责一些部门，或者take different roles，让你去承担不同的角色，不同的职责，是不是也是OK。</p>
+    <p>所以以上这些我带着大家想了挺多，那你为什么要去想？我相信通过刚才我们做题，大家应该能够非常真实的感受到。当你提前去到了它相应的替换之后，人家文章里面说到这个东西，你就不会觉得很惊讶，甚至能够直接去给它对应上。但如果你没有提前想到这些替换，那么可能文章说到了你未必能反应的过来。因为毕竟它这个题节奏还是挺快的，对不对？所以我建议大家一定要去提前想一想。</p>
+    <p>好，那么接下来我们就来听一听这个题和刚才一样，我也给大家布置两个任务。第一个任务就是定位，你得给我定位成功。就这些题干当中专有名词出现了，你得能够知道，出现了这个题，这个就叫题干定位成功。第二就是把替换给我听出来，但是这类替换一定是一个意思层面的替换，它不再是什么词和词替换。但是如果你硬问我说老师有没有词和词替换，我相信它一定有的，只不过这个不是主流，就像我们刚才在做的那个细节配对。那你说有没有意思上替换呢？我觉得可能也是有的，但它并不是主流，对吧？</p>
+    <p>好，我们接下来我们就开始听题喽。Now i'd like to look at some ways you can reduced off turnover in your hotels. And i'll do this by giving some examples of hotels where i've done some training recently. The sun club题干定位成功了，好好听。Steve feed back, which shows that staff, the managers didn't value their opinions.</p>
+    <p>好，就是这个sn club这个地方，它出现了一个问题。这个问题首先我听到了一个problem，这个时候其实要往往懂了听，再来看看他的问题是什么叫做manager didn't value inning。这个肯定是一个基于员工视角，会觉得就是老板他不在意我的想法，所以，they were partners who are contributing to the success of the business as a whole.</p>
+    <p>This situation has changed, 怎么变呢？他说到了一个非常重要的单词叫change，那到底做了什么？我们这个招儿是不是要来了？</p>
+    <p>听。Junior staff at all levels are regularly invited to meetings where their ideas are welcomed。他说到的是这个junior staff。这个叫做基层员工邀请他们来我的meeting。然后idea是非常welcome的，就欢迎你说这是什么？是不是个氛围流？肯定不是说给你职业生涯，也肯定不是给钱，其实充其量他就是个提升氛围，所以其实邀请他们来开会的目的就是感受尊重，我叫尊重员工，这肯定就是一个relationship。</p>
+    <p>OK. 好，接下来听下一个喽。我的任务完成了，所以我就听下一个，下一个就是port land走起。A year ago, the portland recognise the need to invest in staff attention. 定位成功了，他们怎么做的呢？The first step was to introduce a scheme for recognizing talent among their employees.</p>
+    <p>好这个好像就有点像那种天才，就是叫做什么天才秀，他叫做recognized talent among their employee，就识别天才。The first step was to introduce a scheme for recognizing talent among their employees。The hope is that organising training for individuals with management potential will encourage them to stay with the business.</p>
+    <p>所以识别出来这些天才之后，给他们做了一件事情，就是organize training for individual s individual s在这里其实表示的就是个人，这天才不是被识别出来了吗？然后给他提供一些个培训的机会，然后接着这些人可能就会培训他的一些管理潜力之类的。所以这样的一个计划，那这个计划是什么？等同于给你职业生涯就为你的职业生涯负责，所以C选项正确，career opportunity。</p>
+    <p>接着我要听blue water这个hotel了。好，继at blue water，managers decided to recognize fifty higher cheevers from across the company's huge change. 又选了50个人。They sent on on all expenses, pay trip abroad every year.</p>
+    <p>所以选的这50个人不是给确定了，不是像刚才一样去给你培训了，而是什么呢？他说作为一种奖励，所以这是嘉奖优秀员工，对吧？The reward叫作为一种奖励，然后我去给你提供一个all expenses pay的trip，这个叫做所有的花费都包含的旅行。相当于就是一个奖励。那这奖励跟什么有关？是不是和钱有关，所以这个就选了2B选项了，给钱完了对吧？</p>
+    <p>好，接着往后继续。下一个这个中间我要提醒大家一下，在这个题和下一个题中间，它其实会具体展开讲一讲这个旅行都学到了什么，有什么意义，这就不重要了。因为这题我都已经做了，所以我所有的目标就等着这个plow hotel的出现。但是中间这一块儿我就不可能不给大家放，我们再听一下。</p>
+    <p>As a reward, they sent on on all expenses paid trip abroad every year. Fun is an important element in the trips, but there's also the opportunity to learn something useful. This year's trip included a visit to a bruy where staff learned about the new beer that would be served in the hotel.</p>
+    <p>Pen alow hotels identify the retention of终于出现了pano w hotel对吧？在这个panel出现之前，其实他确实这个地方讲了能有好几句话。不用管。当我们真正这个paint local出现了，然后我们再去关注，他又使用了一些什么样的招去保留了员去改善员工离职率的问题？走。</p>
+    <p>Palloo hotels identified the retention of junior reception staff was an issue. In order to encourage them to see that working in a hotel could be worthwhile and rewarding with good prospects, they introduced a management program. 所以他们采取的一个方式是introduce a management program。啥叫management program？这个叫做管培生的计划。我相信大家就但凡我找工作就业的这个经历，可能都知道什么叫管培生，对吧？那他还会具体展开，在这儿如果你对应不上，没关系，你继续往后听吧。</p>
+    <p>In order to encourage ge them to see that working in a hotel could be worthwhile and rewarding with good prospects，they introduced a management program. 具体these staff were given additional responsibility，ie s and the chance to work in various roles in the hotel. 所以他具体展开了一下。至于这个管培生的项目到底是怎么执行的，就是被选上来的这些人。The staff were given additional responsibility.</p>
+    <p>TIES就是给你的职责，接着你可以去承担不同的角色，就是多种多样的角色。OK好，那这是啥？这肯定不是relationship，这也肯定不是钱，这是给你职业生涯的机会。让你去承担不同的角色以后可能就会出现叫升职加薪，登上人生巅峰的可能，这个在我们刚才预测的时候，其实我是带着大家预测到了will take more responsibility ie s这显然就是跟职业生涯相关。所以各位年轻人也奉劝大家在职场当中多干活，可能你就会有登上人生巅峰的可能，千万不要去整顿职场。</p>
+    <p>好，来继续往后，刚才说笑了，继续往后Green planet那就是下一个酒店了，它是如何进行操作的呢？还是等定位等解释。Green planets wanted to be seen as a caring employer to make life easier for staff，many of whom had childcare. Respons bi lit ie. S the hotel began issuing voulons es help cover the cost of child care.</p>
+    <p>这个地方其实他说的稍微有点复杂了。他说他希望自己的员工有一个easy life就生活简单一点。因为很多其实他们有child care responsibility，childcare, 需要去照顾小孩儿。所以这个酒店他干的事情就是issuing venture签发一些watcher，这个叫做优惠券。这个单词可能大家都不认识，那现在就要认识了。</p>
+    <p>然后这个优惠券的一个主要目的是help to cover the cost of child care，所以就是帮助大家养孩子负担一下这个成本。你看cost这个小词都出现在这儿了，所以这是个什么？肯定是和钱相关的，对吧？所以我们选了这个2B选项与钱有关OK。</p>
+    <p>好，接着我们就等下一个，最后一个，Louis march at the aim's。Ray has one of the best staff retention rates in the business since he joined the company. She's made a huge effort to achieve this by creating a CoOperative and supportive environment.</p>
+    <p>他来到这个公司之后，他干什么了？他去创造一些creating CoOperative and supportive environment，这个叫什么？叫做大家合作又支持，这是什么东西，氛围流，所以A选项成功入选对吧？OK这听力其实还没结束，没完事儿，那我们听完好吗？Then he joined the company.</p>
+    <p>She's made a huge effort to achieve this by creating a CoOperative and supportive environment for her. The staff are part of a large family where everyone is valued OK. Now i'd like to move OK. 听力结束了。好，但是其实我是想给大家稍微总结，就是对于类似于像这种分类的这种题目，但其实它就是这个分类题，应该是少于这个细节题的。我们在part two其实大部分都是这个细节题OK。但对于分类的这个题目，其实他重在什么呢？重在理解，重在他说的那几个重要的短语，单词，你是否能深刻的get到人家到底是什么意思。</p>
+    <p>对于细节题重在什么呢？重在替换对吧？所以这是两种题目其实考察的类型，虽然都是配对题，只不过我们的侧重点可能并不太一样。那一个侧重点是就替换，找到单词之间替换OK，那这个题就相当于bingo我们完成行了。另一个题就是你定位成功了之后，你要去深刻的理解人家这个招儿到底是在干什么呢？就是到底是在弄氛围，还是到底是在给你出谋划策，你的职业生涯之类的。所以这两种题目其实考察的侧重点不同，但是做题步骤都是一样的。做题步骤当中最为重要以及最为核心的一件事情就是大家一定要把你的关注放在哪选项上，而不要放在题干上。题干都是原词重现的，这个题干都是原词重现，而且这些题干肯定都是顺序的，所以我们就只关注选项就行了，把你所有的读题时间都放在选项上。</p>
+    <p>然后另外我还要再给大家提个醒，有些同学说老师我乍一看这个题，我不知道他让我们干什么。你看这里其实是有一句话的，每一个配对题在这里其实都是有一句话，就是在这个题号下面都有一句话。其实这一句话我觉得一些老手都不用看你如果是我做题我肯定不看我就知道这边是hotel，这是一些方法减少这个员工离职率。但如果你就真的不知道他让你干什么的话，其实这句话是可以看的。那他说的是which way of reducing step turn over was used in each of the following hotel？就相当于他把这个标题和下面这个题干选项里的标题是不是有机的结合到了一起。你就知道原来这左边就是一些hotel，然后底下这个选项就是一些具体的方式，所以我要把它们去匹配到一块儿。所以这一句话真正做题的时候可看可不看啊，不是那么的重要。</p>
+    <p>好吧？最最重要的就是part two的配对题，大家一定要去积累替换。所以做题是一回事儿，复盘又是一回事儿。你看我们每次在做完题的时候，我为什么要把这些复给你写出来？为什么我在这儿写出来？其实就是在告诉大家，你们自己课后做题的时候要复盘到什么深度，大概复盘的一个深度。复盘的深度就是题干定位成功了，成功之后你要把选项和题，这个文章就是这个选项和文章给它等同起来。就是文章咋说的，选项怎么说的，他俩替换词到底是什么？如果是意思上的替换，可能文章这个你要把完整句子给我写出来OK。</p>
+    <p>好了，我们今天这个方法课的部分在part two就告一段落了。我们后面还有就是分场景去带大家完整的把part 2题目稍微做一做。这样的两节课大家也不要错过OK我们今天就先到这里请来，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-09.html">精讲逐字稿</a></li>
+      <li><a href="qa-09.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-08.html">上一讲 08</a></li>
+      <li><a href="lesson-10.html">下一讲 10</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

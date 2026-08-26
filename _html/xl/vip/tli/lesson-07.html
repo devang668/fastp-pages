@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第07讲 · Part Two 结构与地图题 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 07 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a class="active" href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第07讲 · Part Two 结构与地图题</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次讨论中，老师详细解析了雅思听力考试Part 2的结构、题型和解题策略。该部分主要由客观题组成，包括地图题、单选题、多选题和配对题。特别地，地图题因其路线或位置描述而对学生构成挑战，老师建议先看图、识别重要线索如入口、走廊，朗读题目，并迅速捕捉关键信息。对于单选题、多选题和配对题，强调理解原文和精准捕捉信息是关键，同时可用技巧辅助解题。老师鼓励学生完成题目后进行复盘和深刻思考，以提升解题效率和准确度。整个讨论旨在全面解析Part 2特点，提供具体解题技巧，帮助学生有效准备雅思听力考试。</div>
+    <div class="tip">本讲含 33 组问答精要，可到<a href="qa-07.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次讨论中，老师详细解析了雅思听力考试Part 2的结构、题型和解题策略。该部分主要由客观题组成，包括地图题、单选题、多选题和配对题。特别地，地图题因其路线或位置描述而对学生构成挑战，老师建议先看图、识别重要线索如入口、走廊，朗读题目，并迅速捕捉关键信息。对于单选题、多选题和配对题，强调理解原文和精准捕捉信息是关键，同时可用技巧辅助解题。老师鼓励学生完成题目后进行复盘和深刻思考，以提升解题效率和准确度。整个讨论旨在全面解析Part 2特点，提供具体解题技巧，帮助学生有效准备雅思听力考试。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们今天就开始正式进入听力当中的part 2的学习了，和part one的这个类型题目非常有巨大的区别。这个part two基本上它是一个客观题的部分。所以大家可以看到我在笔记当中特地给大家写到了part two客观题。</p>
+    <p>什么叫做客观题？就是我们在答part one题目的时候，是填空对吧？也要填一个单词进去，那至少是一个单词，当然也有可能是一个数字。但part two我们看到的就是选项。比如说单选题，你要把ABC当中哪一个你觉得正确的给选回来。多选题也是一样，包括配对题也是一样的，甚至part two的一种特色题目地图题也是一样的，要么就是配对，反正总而言之就是让你去选字母的。所以这类题目基本上它都叫做客观题。</p>
+    <p>那客观题和主观题有什么区别呢？这区别其实非常的明显。主观题它基本上是细节类的主观题，他可能多数都是细节类的。但是如果是客观题，可能多多少少考察各位对于文的一个理解，那至少就是定位句那一个理解。理解是什么意思？理解就是你是否真正听懂。所以如果说细节题是非常容易用技巧做对的，什么替换？就讲过那些考点。</p>
+    <p>但是这个客观题就是我们的单选、多选还有配对。它其实技巧只是一个辅助能力，才是最重要的一件事情。这就是我为什么会建议大家每次在做完题目之后去进行复盘和深刻的思考。</p>
+    <p>好，我们今天话不多说，我先说一下part two的一个整体结构。我们先来讲地图题，这种地图题就是part two当中一个特色题型了，也就只有这个part two当中会出现地图题，其他的部分都不会出现的这是我们part two的第一节课。然后接下来我们就讲单选和多选，然后接下来就是配对，然后接下来我们就分场景来进行一个练习。所以整个part 2的内容丰富度还是非常丰富的，希望大家能够跟上节奏。</p>
+    <p>OK我们先来说我们今天的一个主角，也就是地图题。地图题其实在雅思听力当中一共分成两类。第一类叫做一个layout，它是一个平面结构。五你想象一下什么时候你会看到过平面结构图，比如说你买房子的时候，有这几个屋，这个客厅、这个卫生间都在哪儿。所以那种图其实它就叫做一个平面结构图。但是咱们这毕竟雅思听力，它不会说是让你去买房子。</p>
+    <p>一般来说什么参观博物馆参观博物馆或者艺术画廊，我们一般它会有一有一种什么样的感觉？我在看地图，有个导游在给我介绍这个地图的这里是什么，那里是什么，那里是什么，就这种感觉的。好，另外一种这个类型的就是一个area，它就仿佛是一个比如说park一个公园，反正是一个开放的地方。这个开放的地方也是感觉导游在给你进行介绍，让你要follow整个导游在介绍的过程当中的这种路线，所以这是两种类型的地图。</p>
+    <p>来我们先看一下这个图长的样子的一个区别。现在映入大家屏幕的这个就是一个区，这个叫做平面结构图，这个平面结构图你看这里面有这么多的房间，然后我们的入口这些房间的一个位置结构什么的。区域性地图就是这样的那我就想问问大家，你觉得这两种图它有什么样的区别呢？这两种图你看就乍一看你有没有发现上面的这个图好像更加的规矩，对吧？这里边有走廊有门，然后有各种各样的房间，房间都是画的框框，然后这框框里边是有ABCD这些字母的。但下边这个东西有这么规矩吗？这ABCD这些字母有的是在一些open area，就是一些空旷的地方。有的可能是在框框里也没有一个特殊的路线，就是你要怎么去走走廊或者是路之类都没有。</p>
+    <p>所以其实这两种地图最大的一个区别就在于，它到底是在给你说路线，还是在给你说位置呢？这个怎么理解？比如说我想从A点到B点，那这一般是什么呢？就是这个平面结构图给你说的，我一般都是从前台到某一个房间，它中间可能会走出一条路线，那走出路线就是你先直走再转弯，再怎么样的。但是如果是一个区域型地图，没有路线可走，他会怎么说呢？他会给你介绍位置关系，其实就是A和B的位置关系。比如说这俩东西在对面或者在旁边，或者怎么样的OK，所以这是这两种图最大的一个区别。</p>
+    <p>好，但这两种图都沿用着一样的做题步骤。我们先来看一下这个做题步骤，这个做题步骤非常的重要。万事我觉得这个流程是很重要的。你如果按部就班的一点点做，那可能大差不差都能做这几个题。但如果你就像个无头苍蝇一样，一会儿看这，一会儿看那，肯定就不行了。</p>
+    <p>好，我们先来看第一件事情，你拿到地图题一定要先看图。那你说老师我要不要先看一下题，题有什么好看的？比如说我给大家展示一下这个，你看底下这些题，它基本上都是一些专有名词，或者说就是一些名词。这有什么好看的？不用看你就直接上来就看图就好了。</p>
+    <p>看图的时候你要看什么东西呢？这些东西也非常重要，你要看一些有名字的地方，你像这个路的名字，main road access road这东西就是你要看的。再比如说你要看一下入口，那么我就问问大家，你觉得这个图这个人的入口应该是在哪里？入口的位置，那入口肯定是这个reception这里，对不对？因为这毕竟这地方有个小开口，而且你就想象一下，如果你是去参观一个公司的话，那是不是首先你要来到这个公司的前台？那reception其实就是个前台的意思喽。</p>
+    <p>好，再要看什么呢？方向坐标这个图没有方向坐标。在没有方向坐标的时候，他在介绍方向一定会使用到左右。那么反言之，如果有方向坐标，如果有方向坐标，那么在介绍的时候一定会使用到的就是东西南北OK。</p>
+    <p>好，那么接下来还要看啥？就是一些图当中关键的东西，一些参照物有字儿的地方有什么特殊，你给我看什么？好，拿这个图为例，拿到时候我们要先看啥？先看一下这些road，再看一下，factory中间有个open court yard，左边有一排数，好，ABCD这些字母关系都在这儿。OK好了，这个图就相当于看完了，然后接下来你要去读题。读题的时候我说read allowed是什么意思？就是这些个题干应该大声朗读出来，换句话说，人家只要一提到这个题干能对上号说，他现在在讲coffee room就可以了，不用有其他过多的操作。好，所以read in log，因为这些东西基本上都是原词重现，所以这个呃就我让大家读一下这个的意思就是就当题干当中提到了他，就听力里面提到了他，你能进行定位成功。</p>
+    <p>好，接着就是听题，听题题干定位成功就是这些词出来了，然后你就听3到4个信息点，其中不是所有的都是关键信息，大概1到2个key information。这key information意思就是关键信息，1到2个你听出来基本上这个题就能做对了。好，那我们地图题其实一个考察的核心就是用一些方向词或者方位词去给你介绍这个地方它到底在哪。就是用一些direction words去给你介绍他的location，所以我们就应该对一些direction words要非常敏感才可以。</p>
+    <p>刚才我说了对于一个layout，也就是平面结构图，它非常重要的就是走成一个路线，对吧？你比如说屏幕左边，大家可以看一下，如果我想从reception去到C房间，我可以怎么去？好几种去法，从reception这个地方先go out of the reception and turn left into the corridor。有同学说老师你刚才说了个什么词？Corria这个单词一个非常重要单词。Corrigan表示的是走廊的意思，它的读音和corner这个单词可能会有一些混淆，corner表示的是角落，所以刚才其实我在说什么呢？Go out of the reception and to left into the corridor, 就是大家要走到这个走廊上了，go along the corridor and turn right in the first door，就是我我说你在这个第一扇门的时候，你就往右转，然后cross the open code yard and then go out and then go into the door that the Lucy right？好，所以刚才你会发现，我再给你讲一个回路，就再讲一个通路，从reception这地方出来，进到这里穿过去，然后到达C房间OK。</p>
+    <p>所以对于一些非常重要的表达方式，我们是必须要掌握的那刚才我其实就说到了一个直走，直走在我们的雅思听力，或者说在口语当中有如下几种说法，这个大家一定要多学会。首先go straight on，这肯定是表示是直走，对吧？那除了这个之外，go ahead，continue ahead, followed the road, 这个follow the road，你关键看这条路它是不是一个直路。如果这条路是一条直着的道的话，那是不是follow the road表示的是也是直走的意思，对吧？或者along the road。或者go down或者go up the road。</p>
+    <p>那为什么会出现go down或者go up the road呢？你要这么想，就是在真实的这个场景里面，你要往上走。比如说你往上走，那是不是go up the road？那如果往下走，那是不是就go down the road，对吧？所以这个其实都表示的是你沿着路直走的意思。好，那你不能永远直走，你肯定遇到这个什么弯，你得拐一拐。</p>
+    <p>因为毕竟可能我们是要走一个完整的这样一个路线的，所以当转弯怎么说呢？最简单的就是turn left，或者我们说take the first turning on your left，或者take the first time on right。为什么我不说right？这个right一会儿我说它自有妙用，所以我们这个转弯咱们都先往左边转好不好？Take the left或者take the first turning on your left，或者reading to the left，或者leading to the left，或者head to the left。后边这三种，其实它都表示的是一种什么呢？就是通往左边这样的一个概念。但是其实也是左转的意思了。</p>
+    <p>为什么我刚才说right这个小词它是另有妙用呢？因为我说一句话，比如说we are here right next to the reception。We are here right next to the reception这里这个right其实我读的挺使劲的，但真正在读的时候它是一个弱化单词。We here right to the reception，这什么意思？就是我们就在reception这个地方，我们就在reception的旁边，我不表示在reception的右边，我表示是就在reception这个地方。比如说它这个right这个小词组什么就在现在，对吧？所以这个right其实它有一种at the moment这种感觉，就是在目前在现在这样的一种感觉。</p>
+    <p>好，刚才走廊这单词已经给大家讲过了，不说了。接着我们继续往后看啊。就比如说在一个图上我想要表示穿过一个地方，穿过一个地方我可以说的是cross，对吧？所以我如果说要穿过这个open court yard，我可以说cross the open court yard可以，或者go through the open code也是可以的。当然如果它是一个房间，肯定是可以go through的那我要给大家提个醒，就是在地图当中，左右它是一个绝对概念，但是远近它是一个相对概念。</p>
+    <p>比如说我先说一个说法。Or this room is far from the reception or this room is far from the reception，什么意思？说这个房间离reception有点远，可能我说的就是H这个房间。有同学说这个H离reception还远，那不A离得最远，一定记得远近是一个相对概念。你相对于G和J来说的话，那这是不是这个H这个地方就挺远的对吧？但是你相对这个A和B，可能H这地方也挺近的。所以reception这个地方它是far from，那我们大概就只要离得它不近就不近，不是在旁边的，我们都可以说是far from。</p>
+    <p>这是一个远近是一个相对的概念，但左右绝对是绝对的。如果我现在说IT is on the left hand side of the reception，那我说的就是这个房间没有任何疑问。有人life hand side，那有没有可能是G呢？Impossible, 这只能说成它是一个right hand side，对吧？所以左右是一个绝对概念，远近是一个相对概念。</p>
+    <p>这个图其实大家可能感受还没有那么的深刻。我给大家看一个剑十一里边的一个图。虽然这个题倒是有点老了，但是我相信就这个道理，大家还是要懂。我看看是哪个，应该是这个题，大家看一眼。比如说这个题，你看它这个basement of the museum就是这个博物馆地下室，对吧？然后他从每次都是从downstairs这个地方开始，就是从下楼梯这个地方开。于是他说了这样一句话，go go far side of the sitting area and turn right into the corsa. 刚才我说的这个信息，go downtown and cross the sitting area，go far side of the sitting area.</p>
+    <p>所以我说go far side of the sitting area and turn right into the corridor，turn right into the corridor。所以刚才我说的这一句话里，有没有同学直接给我走到了C和D这个角落里边。他说老师那go first side of the city area，我得夸一下，我就给你干到尽头。你至于吧？人家说的far side of sitting area，其实就是挺远的，这个地方就已经是了。然后他说turn right in into the corridor，那turn right它是一个就不可以有任何？可能性turn right就是往右转，如果你往这个角落里边给我转进去了，这不是turn left了，对不对？所以左右是一个绝对概念，但是左右是一个绝对概念，但是远近是一个相对概念。</p>
+    <p>OK好，接着我们继续回来继续学一些表达方式，在对面这种表达方式叫做base you face you。比如说我们还是看这个图，我现在说一个说法，我是go out of the reception and turn right and turn left into the corridor。Ago, along the corridor, this there is door facing you at the end of IT.</p>
+    <p>所以我刚才说的是什么房间？H这个房间，我说从reception这个地方出来，turn left into the code, 然后接着有一个房间面朝你。所以这个face它表示的是面朝，它其实等同于opposite to b opposite to就表示的是在对面这样的一个概念了。</p>
+    <p>OK好，还有一些介，这其实大家平时生活当中我觉得用的都挺多的，所以我就不想赘述了。就比如说a is between b and c，那就是A介于B和C的中间对吧？还有next to表示是在旁边，然后左右这都说了，还有beside这也表示的是在旁边的意思。Besides还有nearby这表示是在附近，对吧？Far from这些小词组，我相信大家应该都会，所以我就不赘述了。好，接着我们说穿过across或者go through，这都可以的。比如说我想表示穿过一扇门，那肯定叫做go through the door，就是穿过这扇门。</p>
+    <p>然后接下来再看，就是有一个特殊的一点，它就确实有点小特殊，这样的一个小小的用法，我也希望大家能够尽量去掌握一下。比如说我现在说到in the front of the building，大家看我们屏幕左边这个图，你说in the front of the building，这大概是个什么意思？其实它表达意思就是在整个这个楼的前半部分，有同学就有有有疑问了，说老师什么叫做在前半部分呢？你就这么想，一般来说一个建筑物它的前半部分会是什么？是不是就是它的reception？你想咱们想去到人家公司，是不是你夸一下，就先去到人家就是个前台接待的这个地方，对不对？所以reception其实就是这个楼的前半部分，所以我说in the front of the building的意思就是离前台不远的地方。</p>
+    <p>那如果我说far from the building，或者at the back of the building，或者我说far from the far from the reception，一个意思对吧？那at the back of the building就指的是这个factory这个地方。OK好，然后until the end表示是尽头，这个表达这不知道大家会不会，所以我就大概说一下。Go through the last store before you come to the and比如说在这个地方，你现在AB中间人说go through the last door before you come to the end。那你穿过最后一扇门，在你到达尽头之前，就是到达尽头之前穿过最后一扇门，所以这个也注意一下这样的表达方式。</p>
+    <p>好，那么我现在再给大家clarify一下，就是做地图题我为什么对表达方式这么的重点去强调？因为你会发现题干定位是一件简单的事情，关键就是定位成功之后要跟上。人家可能会收到3到4个信息，这么多信息你要follow，你要跟上。那你要去能够处理这1到2个最为关键的key information，然后你的答案是不是就出来了。</p>
+    <p>好，那么接下来我们就拿这个题来感受一下。有同学说从来到目前为止，还没有怎么正经练过听力的地图题。那我们就来拿这个题目，咱们一起来感受感受，看看大家做题的时候，你自己要关注的点都是什么。OK我来拨一下听力，然后大家来做一下我感受。当然因为这是我们第一次做地图题，所以我会跟大家一块儿来做。那我们来找一找做地图题的感觉好吗？Part part two, you will hear the managing director of a company called Stevensons welcoming and not one of the managers they are looking. OK, now i'll briefly help you to oriented yourselves around the site.</p>
+    <p>刚才其实中间它会有一度看题的时间，这个看题的时间我就给大家倒腾过去了，然后咱们接下来就开始看题，大家看我屏幕左边，就一定要左边这个题目的位置，笔记的这个位置，我会时不时打一些关键词，但是题一是在屏幕左边的这里，好吗？那让我们找的第一个地方是这个coffee room。我提示大家一下，这个第一道题，也就是第十五题，甚至还有一点难。因为它是后置定位，正常来说如果定位成功，然后接着人给了我1到4个信息息，我就直接处理信息就可以了。但是人家这个就是几个信息先出现了，可能是两三个，两三个信息先出现了，然后再告诉你定位，这是不是就跟我们正常的思维惯性就拧着来了。所以多多少少这个题我觉得还稍微有点难的然后走as you can see，we're in the reception area.</p>
+    <p>这句话非常的重要。他说。As you can see, we are in the reception area, 就是说我们现在正在reset这个地方，which we try to make attractive and welcoming to visitors.</p>
+    <p>这都不重要。There's a corridor running left from here. And if you go along that, the door facing you at the end is the entrance to the coffee room, 这个地方就开始入重要了。上来起头先用了一个there be句型，there is a corridor running left in, left from here.</p>
+    <p>这个here是哪儿？这个here肯定指的是reception，对吧？然后接着他说if you go along，that这个along的意思表示的是沿着对吧？如果你沿着它走的话，the door，the door facing you at the and is the coffee room.</p>
+    <p>所以大家能理解我说这道题稍微难一点的原因了。就是他先把这个怎么去已经告诉你了，然后再后置了这个定位的词。所以这样的题其实就是偏难一点的题目。正常来说是反过来的，就是先给定位再给信息，那这个题相对来说是比较难的一道题。但是如果你对一些方向词的表达是比较敏感的，我觉得这个题应该也不太会做的，对不对？</p>
+    <p>反正就总而言之，人家确实给我们说了一个回路，从这个reception这个地方出来，接着我们就沿着这个correo，然后run left from here这里。这个running left是不是刚才我刚教给大家？其实它表示的就是通往左边这样的一层概念。好，接着我们要等的东西叫做warehouse，我们一块儿来去等待着它这个重要信息的出。This looks out onto the main road on one side and some trees on the other. And that will be.</p>
+    <p>有同学说老师我好像如果刚才信息没有听到，我在这里好像也可以。他说一边可以看到main road，另一边是可以看到锤子。是的，但这个信息叫什么呢？补充信息我通常来说就觉得如果大家能把这个主要的信息给我听懂听出来，补充信息其实都不用关注。因为补充信息它会吃掉你下一道题做题的时间。你本来这个时间你是不是可以去等待着warehouse了，但是此时此刻你可能还这什么这在哪儿，你还得处理这些信息。所以我说尽量还是在第一个给出关键信息的时候你就做。</p>
+    <p>Where you meet each morning, the factory is the very big room on the far side of the site. 他为什么要突然冷丁给我介绍一下factory所以你就要知道，他说这far这个far side，然后at the back，现在我们的目光聚集在factory这个地方，我们要找的是warehouse这个地儿。OK那咱们就继续走起。</p>
+    <p>Next to IT is the warehouse，which can be accessed by lorries going up the road to the turning area. 这句话好复杂，不知道大家有没有get到。他说next to eight is our warehouse，那你看这个next to factory的这个IT肯定指的是factory，对吧？这个毫无疑问，next to factory的东西一共有几个？ABC3个字母对吧？</p>
+    <p>然后接下来他还说到了一个IT can be access by Lorry，这个Lorry这个东西大家认不认识？叫做卡车。那什么叫做can be access by？就是卡车是能够到达的，卡车是能够到达的。你看ABC这三个房间里边有哪个房间是能够通车的，是不是只有C这个房间，所以其实此时此刻你已经有点怀疑C是答案了。OK, 那我们就再进一步再听一听，确认一下我们的答案了。At the end, you can get to the warehouse by crossing to the far side of the courtyard, and then the door is on your right.</p>
+    <p>后面他又补充了一下，他说你怎么到？你首先要cross中间那个地方，对吧？接着他说你要cross the far的，要走到他那个远端的地方，然后接着有一个门你就可以进去了。那这显然一看，还得穿过来，能进来的也只有C房间了。A和B房间好像和这个东西都不接着OK，那显然C正确。这里就相当于有多个信息，你是不是整理出来最前面的一组这个题是可以做。你说前面一组我没跟上，我后一组信息我跟上了那也行，反正总而言之，两组信息你不能啥都跟不上，那这个题肯定是做不对的，对不对？</p>
+    <p>好，接着往后，我们继续往后听。Somewhere you'll be keen to find is the staff canteen. This is right next to reception.</p>
+    <p>首先第一个信息来了，他说this is right next to the reception。这里是不是就涉及到我刚才说的这个right表示就在的意思，他说这个东西this is right next to the reception，所以就在reception的旁边，此时此刻范围缩小，要么是勾，要么是G，就这两个字母，那么到底应该是哪个呢？继续听。I can confidently say that the foods very good, but the view isn't the windows. On one side, look onto a corridor and court yard, which aren't very attractive at all.</p>
+    <p>And on the other onto the access road OK他在介绍这个窗户，所以他说了一边是可以看到corridor到这儿我没有暂停，因为你会发现这个J和这个J事实上它是两边，就是他两个房间就某一边都是Carrier，都是这个走廊，所以你确定不了。但是他说另一边是什么呢？是access road，这是不是就是一个非常重要的信息了？我在这画个信号，原因在于只有G房间它这个旁边才是一个access road。所以此时此刻G房间选出来，接着继续meeting room which isn't much Better。You'll be using the meeting room White often, and you'll find IT by walking along the corridor to the left of the court yard.</p>
+    <p>第一个信息出来了，它叫做walk along corridor to the left of，所以就是说在靠右左边这个你要沿着它上面走，好，走啊走。And continue along IT to the end到达镜头。因为他说到了一个非常重要的小词to the end，然后再接下来the meeting room is the last one on the right，and他说the meeting room is the last one on the right。就是在右手边的最后一个，那你说是什么？右手边就肯定是A喽。OK好，那接着把这听完，你看他还说了点什么，还是挺期待的。This no natural diet light in the room。</p>
+    <p>Sorry，刚才我是不是左右不分了？有没有同学跟我一样，刚才左右不分。因为其实实话说，在生活当中我也是一个左右不分的人，所以我经常脑子里面想的结果我就写成了A他说on the right，你看我都写在这儿了，他说on the right，所以这是B。我为什么反应过来来了？因为他又说到了，他说there is no natural daylight，没有自然光。我一看这个A这不在旁边吗？这有窗户，它怎么可能没有自然光？所以我就反应过来了，这地图题如果你不认真的话，什么稍一就有可能会做错这种题目，尤其是对一些比如说方向感不好的同学或者左右不分的同学，for example may就是这样的。</p>
+    <p>好，那接着human resources我们继续往后听了。Then you'll need to know where some of the offices are. The human resources department is at the front of this building. So you hate to the left alonger.</p>
+    <p>我写一下，他说这个东西，他说这个at the front of the building，所以这是不是第一个信息在前半部分，也就是说他的意思就是和这个reception离得可能挺近的。接着我们来听他说，if you had to the left, 啥叫had to the left？就是你脑袋瓜子朝向左边，那这是什么意思？就是你从reception这地方出来往左转了。好，下一个听清晰corridor from reception and is the second room。说到叙述词了，他说的是第几个房间？Second room you come to, 那就是I这个房间喽。</p>
+    <p>好，把I这个房间写进去，最后一个broom，来我们继续把这个题听完。IT looks out onto the main road, and finally the board room where you'll be meeting. Sometimes that has quite a pleasant view as he looks out onto the trees. Go along the corridor, pass the court yard right to the end. The bull droom is on the left next OK. 把这个信息一气呵成，先能看到树，又走到走廊的尽头，然后接着他说到了这个是left，那显然A对吧？因为已经到最后一个题了，所以我这就没有把所有的信息都给大家写一下。</p>
+    <p>好，总结一下，快快总结一下。就是我们在做这种题目的时候，当你发现它是一个layout。一个平面结构图，你就期待路线可能每一个路线都至少有2到4个信息，走到哪儿向哪拐，然后面向哪儿，哪里是尽头。然后在这里边大概会有那么1到2个key information，一定把这个key information给我抓住。因为如果key information抓住的话，就相当于我们特别容易比如说这个题就做对了。好，总的来说这个路线型地图就是在用我刚才给大家讲的这些方向词去给你描述成为一条通路。那么你就跟上这条通路，进而把答案做对就可以了。</p>
+    <p>我又说了，我说区域性地图题多多少少有点不一样，它不一样在哪儿呢？其实它就不一样在这种做题的感觉上。如果说刚刚做题是我们在听路线，一个完完整整的路线，那么接下来做题，其实你就是在听访问，就可能一个题就一个信息，然后这一个信息就已经阐明了这个东西在哪儿。</p>
+    <p>好，先学一些固定的表达。关于路的表达我都不想说了，这个大家肯定会什么road，当然这个徒弟当然有一个footpath，这个full pop其实是这个虚线的地方。所以通过这个小信息我也必须要告诉大家，我说必须要看图上的图例。这个图例一般来说他都会来用一个key，然后画个小方块，你必须要看好。</p>
+    <p>接下来我们再来看，整个这个图，它其实形成了一个天然的boundary，这个boundary叫边界。那么河其实就是一个boundary，如果有河的话就有河岸，如果有河岸的话，我们就可以沿着河岸走。那么沿着河岸走就是walk along the river bank，这个river bank肯定不是河的银行。No，它表示就是河岸的一个意思。OK.</p>
+    <p>有的时候在这个河上它可能还会出现。瞧，如果出现桥的话，注意这个表达方式，穿过桥cross the bridge或者叫，cross the bridge, 或者叫over the bridge，这三种方式都可以表示的是穿过桥。我给大家讲一讲我生活上面的故事，就是我们这生活的城市有一个跨海大桥，然后我每天早上上班的时候，我不会走在跨海大桥上，我在跨海大桥旁边的一条路上经过，我会远远的看到这个跨海大桥，我的这工作室就是在跨海大桥的另一边，所以我要路过这个跨海大桥。如果我想单纯的表达我路过了，但是我并没有走在这座桥上，那我们可以说past the bridge，当然除了bridge你还可以说pass the police office。经过了一个警察局或者经过了KFC都是可以的哈那为什么在这个点上我尤其要说到的是桥呢？为什么我不说经过KFC？我说经过桥是因为经常会有同学把经过桥和过桥搞混。</p>
+    <p>到底过没过桥，关键看它这个动词用的是什么。Over你都过去了，对不对？Cross你都穿过了，go across那表示穿过的意思。但如果我只是单单纯纯经历了pass，或者pass by on那或者go past，这都表示的是经过，但是就没有过桥。</p>
+    <p>好，corner刚才这单词说过了，beyond的这个小词在这个图里挺重要，所以我单独说一下。比如说这个图上它有这样一个一排数，对吗？如果我现在想表达这个在树的外侧，其实我就要说beyond the line fee。有同学说了什么叫做外侧？你看大部分的设施，大部分的facility是不是都是在这个树的左半部分，对吧？所以于这张图而言，那树的外侧是不是就是右半部分空白的地方。因为它确实也没有什么设施，所以一个里一个外，好再来brach op这表示的是分叉路。在这个图当中我们今天是用不到的，但是以后的地图题当中，我相信大家做题肯定会遇得到。</p>
+    <p>Branch of，比如说我们来看这样一句话，IT is just below the road, which branches off from the main road. 那你就想这个东西它在从主路分叉路的下边，可能从主路分岔路下来，它就直接能拿到这个东西了。所以这个branch of注意它，branch这个小词有名词的意思，有动词的意思。当名词讲表示的是分支机构。你比如说像银行，它就会非常多的那种分行之类的那就叫做branches。当然它也有动词，动词就是分叉。但是这个单词还有树枝的意思，你想树枝都分支机构，对吧？好，那接着ban的这个小词，它表示的是弯道，当然curve表示曲线，这俩有的时候可能会混用。OK，这是关于一些语言点。</p>
+    <p>下面就像刚才我在讲这个平面地图的时候，我收到一个难点就在于我先给信息，然后再给定位。那么对于这种题，区域性地图它的一个难点是在于什么呢？新老交替什么意思？就是比如说这个地方原来它在哪儿？就是先给你描述了一下他原来所在的一个位置，接着他说我们这地方搬家了，因为某些原因，我们搬家了，现在在哪里？所以你会发现出现一些新老交替题的题目的时候，可能这种题会比较难。原因在于它的信息就会多那么一点点，所以信息有点多，那确实可能就稍难一些些。</p>
+    <p>好，接下来我们就来看一看这个图。这个图其实就是一个区域型地图题和刚才平面地图有非常大的差别。这个最大的差别就是在于它是否会走出来一个回路，到底是路线，还是到底是就是我只是介绍了一下这个地方在哪，显然这个题就是介绍一下这个地方在哪就完事儿了，对不对？好，那我们接下来就拿听力来听一听，做一做这个题目。当然因为这也是我们第一次做这种题目，所以我还是会带着大家一块儿，咱们和刚才一样，就是听这个题目的同时，然后我们去把它对应的这个就是把它对应的这个答案标注在旁边写出来好吗？OK打开一下听力，大家做好准备可以先看看图。好准备。</p>
+    <p>So next now listen and answer questions fifteen to twenty. So next on the agenda is proposals for improvements to the recreation ground councillor form. Again, well, since we manage to extend the recreation ground, we've spent some time talking to local people about how IT could be made a more attractive and useful space. If you have a look at the map up on the screen, you can see the river up in the north and the community hall near the entrance from the road OK.</p>
+    <p>我们先来问大家第一个问题，我为什么停在这儿呢？就是虽然还没有到第十五题的定位区间，但是我想问大家入口在哪？屏幕左边的图就行。</p>
+    <p>这个笔记上图看不看无所谓，这个稍微小一点，就是这个入口到底在哪儿？他说在road的附近，所以也就是在road的这个开口的地方看到了这个中间有一个开口的地方了，对不对？所以这个road的这个地方有个开口，所以这就是入口，就是入口其实在我们听力当中，也是有两种形式。要么就是直接给出，你像刚才这reception肯定是个入口，或者人家直接说这地方是个entrance，或者说这地方是gate，这些东西都叫做直接入口。那么还有一些间接入口，这个间接入口，比如说给你画框放在这儿，或者这个地方比如说给你标个小星星，标个星号放在这儿，都是可能的，就我没有胡说，都是可能的。所以这直接入口和间接入口的区别，显然这道题这个入口我们现在已经进来了。</p>
+    <p>然后接下来at present，cars can park between the community hall and that line of trees to the east. 这个句子他首先说到了一个非常重要的时间状语。At present.</p>
+    <p>这个叫做目前，然后他说到的这个主语是car，car可以park在哪儿呢？用到了一个介词between and那between什么呢？这个between一般中间是一个a and b这个A是什么呀呀他说community后，所以这个A就是community后。那B另一个东西，它说a line between the line of trees，然后后面说了一个to the east of the park。后边这个to the east of the park其实是在干什么呢？他在修饰前面的这个吹意，对不对？所以他在说这个东西目前可以停车，停在哪儿呢？</p>
+    <p>Community hall和这个树的中间。我觉得这个地方大概率反正就是G这个地方。这个是现在，但是我们这个题让选的是什么？看上面这句话，他说让选的是有一些change，对不对？就change了之后，在这儿，就change了之后可能可以安排在哪里，那我再听听。But this is quite dangerous for the destrier.</p>
+    <p>开始有转折了。我之前其实在讲power one的时候，就说但凡有转折肯定有1蛾子。But这个东西非常的dangerous，就是非常的危险。那是对于一些pedestal，就是对于这个行人来说，所以他做了什么改善？So we're suggesting a new car park on the opposite side of the community hall，right next to IT. 这个地方他说了，so我们要弄一个new car park，opposite to the to the community hall，就是在这个community hall的另一边，然后right next to eight，这里又说到了一个这个right，这个right已经不是第一次遇到了，所以它的意思就是说我们之前车是可以停在G这个地方的，那么现在我们把它弄到了。</p>
+    <p>对面对面在哪？有同学就这个情况，他给我选了4D这个选项，我说G和4D它是在对面吗？显然不是，那表示在对面，只有这个C选项应该是表示在对面。就仿佛你这么想象，这个楼它是有一个前院，有一个后院。之前我们可以把车停在前院，现在前院不行了，我要把车停在后院。所以这个car park就应该选择C这个选项。这道题确确实实它是一道难题，它的难点在于就是刚才我给大家说的新老交替，可能会出现一些新老交替OK。</p>
+    <p>那么接下来咱们来看第十六题，第16题new cricket pitch OK走起。We also have a new location for the cricket pitch as we've now purchased additional space to the east of the recreation ground beyond the trees we plan to, 首先他说到了一个事实，这个事实就是我们purchase additional这个additional这个单词表示是额外的意思，beyond the line fee be beyond the line of trees。所以我们就在这个树的外侧，beyond这个小词此处考到了对吧？我们在树的外侧买了一个额外的地方，所以a move IT away from its current location，which is rather near the road.</p>
+    <p>他说我们要move从他现在这个location，current location，which is rather the road。所以其实我虽然不知道是现在这个地方到底具体在哪儿，但是我猜想它这个地方可能离路挺近的，我们现在把它搬到了哪里？Into this new area beyond the line of trees，into this new area, new area beyond the line of trees.</p>
+    <p>所以我们就把它搬到柱的外侧，也就是F这个地方。这道题其实和刚才这道题的出题思路大概一样，都是一个新老交替。但与刚才这道题的一个区别是什么呢？刚才非常明确的告诉了我们这个东西原来到底停车停在哪儿。但是现在模糊化原始位置，然后强化的是现在的位置OK。所以我说这两种其实多多少少还是有一点点小小的差别的，好吗？</p>
+    <p>好，接着继续往后下一个。Children played ground. This means this less danger of stray balls hit in cause of pedestrians. We've got plans for a children's playground, which will be accessible by a footpath from the community hall.</p>
+    <p>Accessible, 就是在foot part这accessible就是focus above。AACCESSABLE accessible to the uh footpath, 这个foot path这个东西大家看在哪儿？就是这个图上这个虚线对吧？OK好，所以他说这个东西可以通过这个Y虚线到达。</p>
+    <p>那我就得问问大家了，这个虚线都能到哪儿？我非常想问大家，虚线能到E这个地方吗？不能。因为还记不记得我讲过的一个原则，图上远近是相对的，图上远近是相对的那你就这个意义和这个东西，你看图好像离得挺近的，但是事实上地图它毕竟是存在比例尺的，也许他俩其实之间离老远了，你这这对吧？所以咱这个E肯定是到不了，就类似这样，我就给大家提个醒，你要猜你也得给我猜ABD之类的。</p>
+    <p>D我觉得都够点呛，大概就是AB了。Be outside river，那么来了一个非常重要的信息，叫做along side river，alongside river就是在河的旁边。所以选项是不是就是A选项？还记得我刚才说了吗？沿着河along the river，所以alongside the river非常明确。好，接着。Stable rain.</p>
+    <p>We originally thought of having IT close to the road, but we think this will be a more attractive location. The skate board ramp is very popular with both Younger and older children. We had considered moving this up towards the river, but in the end we, 之前说了一大坨子，这说了什么不重要了，因为他最后说了一个，but然后in the end那答案是不是呼之欲出了？You decided to have IT in the south court near the road.</p>
+    <p>又一个方向词出来了，他说我们叫做south east corner near the road。看图southeast corner这个地方我给大家一个技巧，就是你千万不要反应中文。你说老师south南边，east东边，所以东南在哪？上北下南左西右东，你这经过这个思考过程就有点慢了。Sales east直接看字母对吧？你直接看坐标上的字母，然后这样的话你是不是就直接能对应出来这个东南角跨A选项是不是就直接落入你的口袋了，对吧？所以A选项直接整进来。好，接着。</p>
+    <p>Pavilion, the pavilion is very well used at present by both football players and cricketers. IT will stay where IT is now to the left of the line of trees and near to the river, to the left to the left on to the to the left uh of the line of trees and near the river OK。也就是说在这排树的左边，而且还和离河很近，远近是一个相对概念，这个E它离合反正也不远，OK而且在这个树的左边还离合很近，为很近的唯一的一个E选项，最后一个notice board，handy for both the football and cricket pitches.</p>
+    <p>And finally, we will be getting a new notice board for local information, and that will be directly on people's right as they go from the road into the recreation ground. 这地方他说的是directly to people's right when they put into the recreation ground from the road，也就是说从主路进来，直接就在人的右手边。那所以是不是H选项，直接H正确。</p>
+    <p>好，我们再把这个笔记拿出来，咱们再来翻一翻。你看这几道题我基本上也是在给大家去把这个所有的信息都给大家陈列了一下。然后咱们再翻一翻上边的那几道题，大家还记不记得上边就是刚才这几个题我也是给大家写了写这个信息。你有没有发现这信息最本质的一个区别就是上面这种路线型的题信息多，然后区域型的题信息少，对不对？这底下其实我写的相对较全，所以我们再总结一下路线，就是这个layout这种它叫做平面，它在说路线，然后它的信息多，但是优点在于跟不上也行，因为它可能有好几个路线，但是，如果是一个area这种的，它其实是一个区域，然后他不说路线，直接说位置，所以信息少。然后这里如果比如说跟不上，可能就要错过答案。</p>
+    <p>那如果是一个layout，它的难点在于什么呢？定位后置，就是我先把信息给你，然后再定位成功，这个就叫做定位后置。如果是一个area，它的一个难点是什么？叫做今昔对比对吧？就是过去在什么地方然后一个转折加现在在什么地方OK。所以总的来说这两种题都是有各自的难点的，自己都是有自己的难点的。</p>
+    <p>我们整体做题的步骤，我再给大家remind a little bit。首先是要看图，不要看题，因为题目都是原词重现，没有什么可看的。看图的时候看一些重要的线索，我就不具体说是什么了，什么这个入口、路线、方位、有字儿的东西、一些特殊参考物等等。看图注意这些线索，同时应该注意字母的位置，你得心中有数一下子。接着朗读题目，只要能够声音对上号就行。那刚才我们做题你们也感受到了，这就是一个原词重现的一个过程。</p>
+    <p>好，最后就是听题了。听题的时候然后定位成功了，然后接下来干什么？把那3到4个信息你都给我听懂，当然你抓住核心也行，核心信息抓住，反正这个题不管你白猫黑猫，抓住耗子就是好猫。</p>
+    <p>其实理论上来讲，地图题在我们的雅思听力当中是一个容易得分的题目。但是总有一些同学在地图题这跟不上节奏。如果跟不上节奏，你请做完地图题之后，必须要复盘。复盘怎么复盘？就是你先做题，你甭管你错了哪个题，但凡这个题定位成功了，就这个题你别说，老师这个题我对了，我不复盘了。不不不，你对的题也要复盘。</p>
+    <p>好，就是定位成功之后，接下来你就开始书写信息。就像我刚才跟大家在课上进进行的这个是一样的。你就把这噼里啪啦一顿写写出来。当你能够写的都跟上的话，你肯定能反应过来，就直接就你就提升了自己的反应的能力了。所以我建议大家在课后要进行这样的巩固和练习。</p>
+    <p>地图题的表达非常的有限，所以你根本都不需要紧张。因为这种题目就是非常好拿分的，那么就预祝大家在这种题目这旗开得胜。因为part two是大家得分的一个关键，因为故事到了part 2可能就会比较难了，所以part two一定是各位同学得分的关键。在part two我们要树立一个正确的价值观，就是一定要对至少八个题以上好吗？OK那么今天就先给大家讲一下地图题，我们下一节课给大家讲一下单选和多选。See next time拜拜，课后记得练习。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-07.html">精讲逐字稿</a></li>
+      <li><a href="qa-07.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-06.html">上一讲 06</a></li>
+      <li><a href="lesson-08.html">下一讲 08</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

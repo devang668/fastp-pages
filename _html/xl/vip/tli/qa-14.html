@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第14讲 · 对话精听：学生表现与行为分析 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 14 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a class="active" href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第14讲 · 对话精听：学生表现与行为分析</h1>
+    <div class="abstract"><b>本讲概要：</b>在这段讨论中，老师分析了学生在不同活动中的表现和行为，强调了冷静下来、独立性、竞争态度以及任务难度对学习的重要性。此外，还提到了教师技能对学生产生的影响，并讨论了如何在数学教学中应用这些发现。对话中还涉及了备考策略，包括快速切换题型、提高练习量以及适应考试趋势。针对听力考试，三老师分享了识别因果关系、态度和事实考点，以及通过关键词定位答案的方法，同时强调了对信号句的敏感性和处理转折词、生词的重要性。最后，通过具体题目示例，指导学生如何高效理解题意和找答案，展现了如何将理解策略应用于实际做题中。整个讨论旨在提供实用的技巧和策略，帮助学生提高学习效果和考试成绩。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>问：在本次讲座中，三老师将要讲解哪个部分的习题？为什么part three部分在听力考试中较难拿分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：三老师将要讲解part three部分的习题。因为part three部分主要是客观类题目，不仅需要理解整体出题逻辑，还要精准把握考点问题，且大部分题目涉及双考点（事实考点和态度考点），同时由于听力信息转瞬即逝，没有足够时间反应，所以这部分容易失分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：针对part three的题目，三老师会如何处理？第二道题目主要关注什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：三老师会按照惯例，首先讲解三个题目，先和大家一起做一道题，让学生感受题型，再详细讲解。第二道题目主要关注人们当时的观察及其中的惊讶之处，特别是在天气变化方面的观察。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如果在10个题目中错3个左右，整体分数会怎样？错误率超过50%会有怎样的影响？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：如果在10个题目中错3个左右，整体分数还是相对可控的，因为part one和part two相对好拿分，经过训练后part four也能拿到分数。如果错误量保持在3个以内，估计整体听力分数会不错。错误率超过50%可能导致无法取得理想的分数，整体听力分数受限，可能上不了七分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：为什么强调七分的重要性？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：七分是一个重要的节点，如果总分6.5，听力和阅读通常都需要达到七分，因此通常以七分为基准来讨论和要求学生的分数。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：第一道题目问的是什么内容？如何定位题目所需原因信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：第一道题目询问的是因果关系，即为什么学生认为1931738年的lucky eruption如此重要。原因信息可能出现在因果连接词附近（如because、so）、目的状语中（如in order to do something）、特殊词汇附近（如my aim、intention）等位置。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：女生对于lucky eruption的看法是什么？男生对于lucky eruption有何看法？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：女生表示自己之前并不了解lucky eruption，但通过研究发现它具有灾难性后果，并且有大量的原始资料可供参考。男生认为lucky eruption带来了大量一手资料，让人深刻认识到火山爆发的灾难性，并且间接影响了政治走向、社会发展的经济进程。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：本题答案为何选C选项？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：女生提到lucky eruption对society有深远影响，这与C选项“IT has profound effects on society”相吻合，且男生也确认了这一答案，因此C选项正确。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在第一段中，男生为什么对某个现象感到惊讶？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：男生对于当时大量建设气象站的情况感到惊讶，因为这在语境中是一个显著的信号。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：什么是单项题目，并且如何确定其答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：单项题目是指题目中包含提问者自己的名字或相关信息，使得他能够独立确定答案。在这个例子中，男生看到题干中的“surprise”一词，意识到这是一个信号句，其中“surprise”是惊讶的同义替换词。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何理解气象站数量这个选项（A选项）？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：A选项&quot;the number of places producing them&quot;直接对应于文中的气象站数量，即A选项正确表达了题目所需的信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：关于lucky hayes（可能是笔误，应为lucky haze）的相关讨论，哪些选项是正确的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：A选项表示人们普遍认为lucky haze类似于普通的雾；B选项指出lucky haze与一些健康问题有关联；C选项则表示lucky haze完全遮挡了阳光，造成持续数周的黑暗环境，但该选项误用或夸大了“完全阻挡”的含义。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于气象站的描述，B和C选项分别是什么？为什么B选项是正确的，而C选项是错误的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：B选项提到的是“contradict in in them”，暗示没有具体的冲突内容；C选项提到的是“like what scientific data to support them”，意味着关于气象站的一些科学数据被提及，但并未直接给出具体信息。B选项通过抽象到具体的替换方式成为正确答案，因为它将原文中的“health issue”具体化为头疼和其他呼吸系统疾病如哮喘等。而C选项错误在于其描述的“completely block out the sun”与原文中的表述不符，没有准确传达lucky haze的影响程度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：针对第二段中的态度题，男生和女生的分歧点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：女生认为Benjamin Franklin是最早识别出lucky haze成因的人，而男生则不同意这一观点，他认为其他科学家也独立发现了相同的原因，因此，男生选择了一个表达“富兰克林并不是第一个发现”的选项。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在接下来的配对题中，学生们需要关注哪些点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：学生们需要识别出哪些因素让火山灰的广泛影响和长期效应令人惊讶，并排除那些显然不是惊讶点的选项，如死亡数量（C选项）和火山灰喷发的速度（D选项）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于火山灰影响范围之广和持续时间之长这一现象，学生们应该注意什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：学生应关注火山灰飘散迅速且影响范围远达北美和北非等地的现象，这体现了火山灰效应的非预期性和广泛性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在题目中，男生对于火山爆发后的情况感到惊讶的原因是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：男生对于火山爆发后的惊讶主要体现在两个方面，一是持续时间之长，二是影响范围之广。他提到火山灰迅速飘散，但人们没想到其效果会持续如此之久，并且在两年后，奇怪的天气事件从北美一直报道到北非。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：配对题中，关于火山喷发对哪个国家造成了最大影响？美国是否也受到了火山喷发的影响？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：根据听力内容，这个国家是冰岛，即冰岛的农业受到了严重影响，尤其是畜牧业。冰岛上的家畜在田野上放牧时被含有火山灰的植被毒害，导致大量死亡。是的，美国也受到了火山喷发的影响，具体表现为出现了罕见的严冬现象，例如乔治·华盛顿在其日记中记录的直到三月仍被大雪覆盖的弗吉尼亚州，这种情况在当时是前所未有的。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：配对题中，“The impact on agriculture was predictable”这个选项意味着什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这个选项表达的意思是农业受到影响是可预见的，暗示了火山喷发后对农业造成的预期后果。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：配对题中，“The country saw the highest rising food price in the world”代表什么意思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这个选项表示该国经历了全球最高的食品价格上涨，意味着由于火山喷发引发的问题导致了国内严重的通货膨胀。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在冰岛之后，讨论了哪个国家受到火山喷发的影响？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：接着讨论的是英国，尽管远离火山喷发地点，但其死亡率上升，尤其是25岁以下的年轻人比例显著增加，暗示了火山喷发间接导致了该国的公共卫生危机。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What is the main focus of the article mentioned in the speech?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：The main focus of the article is on the use of origami (折纸) as an educational tool in teaching children.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What educational benefits does origami provide according to the discussion in the class?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Origami provides educational benefits such as improving listening skills, ensuring students follow instructions in the correct order, developing fine motor skills, building teamwork, and allowing students to have fun while learning.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：Which children in the class showed notable engagement or challenges with origami, and what were those?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Sid, who was usually disruptive, benefited from the focus required by origami and became more settled. Jack preferred to work independently, trying out different solutions instead of asking for help. Naomi initially lost interest but then was motivated by a desire to be the best, and although unsure at first, she completed her origami bird. Anna was praised for listening carefully and producing a perfect origami bird. The teacher noted that Zoe seemed confused and unsure of what to do.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：What reasons do teachers give for not using origami more widely in education?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Teachers believe origami is not widely used because it may not appeal to children who are used to working on computers, particularly boys. Additionally, some teachers are not confident with their own hand skills and might require a high level of dexterity that not all teachers possess.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：How could origami be beneficial in teaching fractions and geometry?</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Origami can be beneficial in teaching fractions and geometry as it is suggested that it can help reinforce children's knowledge of geometric shapes and could also be a good method for introducing the concept of fractions.</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在视频中，学生们在做origami时，需要遵循什么样的原则？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：学生们在做origami时，需要仔细聆听并确保按照正确的顺序完成所有步骤。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：学生们在学习折纸的过程中，表现出了怎样的情绪变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：学生们在学习折纸的过程中，有的从开始时的注意力分散变得能够冷静下来专注，例如Sid；有的选择自己动手解决问题，表现出较强的独立性，如Jack；有的在遇到困难后又重新振作起来，具有竞争意识，如SHE；还有的虽然一开始显得有些困惑，但最终还是理解并完成了任务，如Anna。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在本次课程中，孩子们是否有机会独立完成任务以培养他们的团队合作能力？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在这次课程中，孩子们是独立完成任务的。虽然老师提到会有趣看他们是否能不依赖任何指导自己完成简单任务，从而培养团队合作能力，但实际情况并未在描述中体现出来。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：教师是否可以通过展示实物模型来帮助学生更好地理解折纸的过程和目标？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：是的，教师通过展示实物模型，让学生们看到他们努力的目标是什么，并且能够亲手触摸和操作，而非仅仅观看图片，这样更有利于学生理解和掌握折纸技巧。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：为什么在日常教学中，老师们可能不愿意使用折纸这种传统工艺活动？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：老师们可能不愿意使用折纸，是因为许多老师不擅长手工操作，而且许多孩子已经习惯于在电脑上进行各种活动，对于传统手工活动的兴趣不高。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：折纸活动在数学教学中有哪些潜在的应用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：折纸活动可以用来强化学生对图形知识的理解，比如可以通过折纸来介绍和解释小数点的概念，使抽象的数学概念变得更加直观和生动。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-14.html">精讲逐字稿</a></li>
+      <li><a href="qa-14.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-13.html">上一讲 13</a></li>
+      <li><a href="lesson-15.html">下一讲 15</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

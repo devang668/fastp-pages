@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第06讲 · Part One 问询类与推荐类场景 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 06 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a class="active" href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第06讲 · Part One 问询类与推荐类场景</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次讨论中，求职者明确表达了对在大型企业工作的兴趣，特别关注于公司提供的员工餐饮折扣和加班打车费用等福利。他们还强调了自己在适应特定工作环境、团队合作以及在高标准服务和细节关注方面的工作经验。对话中提及了两个具体职位：早餐监督员和初级厨师，并详细讨论了工作条件，如起始时间、薪酬、休息日等。此外，求职者提到了可能的薪酬和工作时间安排，包括年薪和休息日的细节，显示了他们对职位要求和公司福利的关心。老师则通过实例讲解了推荐类对话中消费者如何拒绝推销的方式，并分析了听力材料中的题目，强调了识别关键词、理解对话结构和上下文的重要性，最后对听力练习进行了总结，强调了学习听力技巧和积累词汇的重要性。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在本次讲解中，我们主要关注哪类场景？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>今天我们主要针对推荐类的场景进行讲解。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问询类和推荐类场景在对话进程推动上有什么不同？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>问询类场景通常是一问一答的形式，一个问题产生一个答案；而推荐类场景中，推荐人员会不断提出问题并得到被推荐者的回答，过程中可能涉及肯定或否定的反馈。</p></div>
+    </details>
+    <details class="qa">
+      <summary>推荐类场景中，被推荐者如何表达拒绝？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>被推荐者可以通过直接否定（如说“不需要”），间接否定（如表达需要但目前不需要），或者通过表明已经拥有类似服务来拒绝。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于做题步骤，您是如何安排的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先从读题开始，然后分析题目要求，本次选取了三个例题，按照以往讲课逻辑，第一个例题会详细讲解，第二个例题投入更多时间和精力，第三个例题由同学们操作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第一个例题中的家政服务包括哪些内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>基础清洁服务包括清理所有表面，如地板、窗户、桌子、厨房灶台等，并且还有全面清洁、单独清洁卫生间、熨烫衣物、每月深度清洁以及冲刷车库等附加服务。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于&quot;organized&quot;这个词的含义是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>&quot;Organized&quot;形容一个人很有计划、有规矩、生活规律，而它的名词形式是&quot;organization&quot;，指组织或机构。</p></div>
+    </details>
+    <details class="qa">
+      <summary>特殊清洁服务主要针对哪类顾客群体？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>特殊清洁服务可能主要针对对某些物质过敏的顾客群体。</p></div>
+    </details>
+    <details class="qa">
+      <summary>家政人员在被雇佣前需要进行什么操作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>家政人员在被雇佣前需要进行背景检查，由一个组织或机构来完成这一过程。</p></div>
+    </details>
+    <details class="qa">
+      <summary>你们提供家政服务吗？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>是的，我们提供国内家政服务。</p></div>
+    </details>
+    <details class="qa">
+      <summary>清洁服务包括哪些具体内容呢？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>基础清洁套餐包括对每个房间的全面清洁和抛光。我们不清洁地毯，但会清洁所有房间的地板，并且会进行厨房和卫生间的彻底清洁。</p></div>
+    </details>
+    <details class="qa">
+      <summary>除了基础清洁外，还有哪些额外服务可以选择？你们如何保证清洁人员的质量？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>额外服务包括每周清理烤箱、冰箱，熨烫衣物等。如果需要更频繁的清洁，例如窗户内部或微波炉的清洁，我们也可以提供。此外，我们还提供定期清洗阳台、以及紧急联系专业人员修理水、电问题的服务。所有申请成为我们清洁人员的人都要通过警方背景检查，并提供参考证明。经过两周培训和测试后，表现合格的员工才会被正式录用，并且我们会持续监测他们的工作表现，客户在每次访问后都会对清洁人员的服务进行评价。</p></div>
+    </details>
+    <details class="qa">
+      <summary>是否可以指定固定的清洁人员来服务？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我们尽力确保每次服务都是由相同的清洁人员执行，通常情况下能够实现。</p></div>
+    </details>
+    <details class="qa">
+      <summary>你有一室公寓，清洁服务大概需要多久时间？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于一室公寓，我们通常需要大约两小时来完成一个基础清洁套餐。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在第一个空格中，女生是否确认了fridge，并且她的回答是什么意思？第二个空格应该填写什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>女生在fridge后面确认（confirm），表示她的同意，她的回答是sure，意思是“确实可以，没问题”。第二个空格应填入&quot;fridge&quot;，因为根据对话内容，这是唯一需要填写的单词。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在第三个空格中，女生提出的服务是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>女生提出的服务是ironing clothes（熨烫衣物），并明确表示这项服务不是经常性的，只是针对工作日的衬衫。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第四个空格涉及的服务对象是什么？第五个空格部分涉及到的疑问是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第四个空格提到的服务对象是窗户清洁，女生提出如果窗户需要清理，她们可以提供这项服务。第五个空格部分询问是否可以每个月做某件事情，具体内容未在题目中明确给出，需要进一步确认。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第六个空格需要填写什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第六个空格需要填写&quot;windows&quot;，因为之前提到的是清理窗户（clean the windows）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第七个空格涉及的对话内容是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第七个空格涉及了关于窗帘（curtains）是否需要清洗的对话，男生表示目前不需要清洗。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第八个空格部分提到了什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第八个空格部分提到了关于阳台（balcony）的清洁问题，女生询问是否有能力清理阳台，男生确认可以进行清洗。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第九个空格需要填写什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第九个空格应填写&quot;general maintenance&quot;，因为讨论了除了窗户和窗帘外，还有其他一般维护任务。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第十个空格对应的问题是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第十个空格对应的问题是关于特殊真空清洁系统能否改善室内空气质量，以帮助对灰尘过敏的人群。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第十一个空格需要填写什么内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第十一个空格需要填写&quot;security check&quot;，因为提到的是由警方执行的安全检查。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在与工作人员的对话中，女生需要了解的服务是什么？工作人员提供了哪些关于照片处理服务的信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>女生需要了解的是将家中存放的旧照片处理成电子版，包括尺寸要求、是否可以有额外的服务如颜色调整或对比度增强，以及照片的安全处理方式，比如对脆弱照片的手工处理。工作人员解答了照片必须是独立的，不能放在相册里，且所有照片必须分开提交；服务包括基本的复制服务，并且根据数量不同，费用为195英镑到500英镑之间；另外，可以提供额外的光盘，每个光盘收费5英镑；对于一些特别珍贵或脆弱的照片，会采取手工处理的方式以确保安全。</p></div>
+    </details>
+    <details class="qa">
+      <summary>女生是否需要在发送照片前将它们从相框中取出？关于照片数量和费用的详细情况是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>是的，工作人员建议女生在发送照片前，需要将照片从相框中取出，并确保它们是独立的，而不是放在相册里。对于大约360张照片，基础服务费用是195英镑，如果需要更多光盘，每个光盘可以以5英镑的价格购买。并且强调在收到照片后再支付费用，公司会先进行处理并在确认费用后通知客户。</p></div>
+    </details>
+    <details class="qa">
+      <summary>公司在处理照片时是否可以做些额外的改进工作？整个服务流程是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在标准服务中，公司会对照片进行基本的检查和优化，如调整颜色和对比度。对于一些破损或模糊的照片，如果它们特别珍贵，公司会考虑手工修复，但对于无法修复的严重破损照片（如焦点不全），则无法进行处理。服务流程首先涉及公司将照片复制到电子版，并根据客户需求进行额外的优化处理。完成后，公司将通知客户费用，客户确认后才正式支付。整个服务流程预计在10天内完成，客户需使用坚固的纸质盒子邮寄照片给公司。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于照片的尺寸有何具体要求？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>照片的最大尺寸限制是30厘米，最小尺寸要求是4厘米，这是该服务可以处理的范围。</p></div>
+    </details>
+    <details class="qa">
+      <summary>公司对于照片的分类有何特别的服务承诺？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>公司可以按照客户提供的分类标准，将照片分组存放在不同的文件夹中，并允许客户为每个文件夹命名，以便于组织和查找。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在他们的工作流程中，客户需要先做什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>客户需要先付款，也就是完成支付（payment）之后，工作人员才会开始处理订单并发送商品。</p></div>
+    </details>
+    <details class="qa">
+      <summary>文件夹的命名权如何？在标准服务中，照片可以做哪些处理？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>文件夹是可以被命名的，例如可以命名为&quot;grandparents OK&quot;。在标准服务中，照片可以检查并调整颜色、提升对比度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于非常脆弱的照片，他们是如何处理的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>他们主要采用手工复制的方式处理这些脆弱的照片。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于特殊服务，有哪些可以提供给客户的选择？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>特殊服务包括可以消除图片中的某些内容或更换背景，但这些服务需要额外付费。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如果客户使用塑料盒子寄送照片，会有什么问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>男生指出塑料盒子在邮寄过程中可能会破损，建议使用坚硬的纸盒子替代。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在考虑职位申请时，对候选人的期待是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>公司期待候选人具备良好的团队协作能力、沟通技巧，并能适应一定的倒班工作安排。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于餐厅的工作，有哪些职位空缺？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>餐厅有早餐监督员和初级厨师等职位空缺，其中早餐监督员负责确保食品分量准确及清洁设备等事宜，而初级厨师则需支持主厨和其他高级员工，负责库存管理及物资配送等工作。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-06.html">精讲逐字稿</a></li>
+      <li><a href="qa-06.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-05.html">上一讲 05</a></li>
+      <li><a href="lesson-07.html">下一讲 07</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

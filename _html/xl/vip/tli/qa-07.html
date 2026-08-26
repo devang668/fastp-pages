@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第07讲 · Part Two 结构与地图题 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 07 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a class="active" href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第07讲 · Part Two 结构与地图题</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次讨论中，老师详细解析了雅思听力考试Part 2的结构、题型和解题策略。该部分主要由客观题组成，包括地图题、单选题、多选题和配对题。特别地，地图题因其路线或位置描述而对学生构成挑战，老师建议先看图、识别重要线索如入口、走廊，朗读题目，并迅速捕捉关键信息。对于单选题、多选题和配对题，强调理解原文和精准捕捉信息是关键，同时可用技巧辅助解题。老师鼓励学生完成题目后进行复盘和深刻思考，以提升解题效率和准确度。整个讨论旨在全面解析Part 2特点，提供具体解题技巧，帮助学生有效准备雅思听力考试。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>今天我们开始学习听力部分的什么内容呢？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我们今天开始正式进入听力中的part 2的学习。</p></div>
+    </details>
+    <details class="qa">
+      <summary>什么是客观题？它与主观题有什么区别？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>客观题是指在答题时从提供的选项中选择正确答案，如单选题、多选题或配对题等。而主观题通常是需要填写单词或短语的题目。主要区别在于，客观题考察的是对整个句子或内容的理解和定位，而主观题更侧重于细节类问题的解答，并且客观题往往可以通过一些技巧来辅助作答。</p></div>
+    </details>
+    <details class="qa">
+      <summary>part two的内容结构是怎样的？地图题分为哪两类？它们有何特点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>part two的内容丰富，包括地图题、单选题、多选题、配对题等多种题型，并将按照地图题、单选和多选、配对题以及场景练习的方式进行讲解。地图题分为平面结构图和平面区域图两类。平面结构图类似房屋布局平面图，展示各个房间的位置结构；平面区域图则类似公园等开放场所布局，侧重介绍位置关系而非具体路线。</p></div>
+    </details>
+    <details class="qa">
+      <summary>地图题的解题步骤是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>解题步骤非常重要，首先要看图，识别图中的关键信息如路名、入口位置等，同时注意没有方向坐标的情况下会依赖左右方位指示方向。接下来是读题，将题干大声朗读出来以便于定位，题干中提到的元素在听力中一旦听到就能进行有效定位。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在雅思听力中，如何通过关键信息识别地图题的考点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在地图题中，关键信息是那些用来指示位置方向的词汇，大约1到2个关键信息点就能帮助你解答题目。地图题的核心在于用方向词或方位词来描述一个地方的具体位置，因此对这类词汇要特别敏感。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何在平面结构图中确定路线方向并举例说明？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于平面结构图，掌握走完整路线的关键在于识别方向词和遵循逻辑顺序。例如，从reception去到C房间有多种路径，一种方法是从reception出去后向左转进入走廊（corridor），然后在第一扇门处右转，穿过开放庭院后继续前行至C房间。这里强调了几个重要的表达方式，如go out of the reception、turn left、go along the corridor等。</p></div>
+    </details>
+    <details class="qa">
+      <summary>直走的多种说法有哪些？转弯时应如何表达方向？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在雅思听力中，直走的表达方式包括go straight on，go ahead，continue ahead，follow the road以及go down或go up the road。当需要转弯时，最简单的表达方式是turn left或take the first turning on your left，强调向左转；right通常用于表示“就在目前的位置”，即在某个地方的右边。此外，讲解了right作为弱化单词的不同用法。</p></div>
+    </details>
+    <details class="qa">
+      <summary>“穿越”动作在地图题中的表达方式有哪些？远近和左右的概念如何理解？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在地图题中，穿过某个区域可以用cross或go through来表达。值得注意的是，左右的概念是绝对的，例如说IT is on the left hand side of the reception意味着这个房间在接待处的左侧；而远近则是相对概念，例如一个房间离接待处远近的程度会因参照物不同而变化。例如，从reception出发，如果要去一个相对远的地方，可以描述为“go far side of the sitting area”，而“turn right into the corridor”则是明确指示向右转进入走廊。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何用英语表达“穿过”的动作，例如穿过一扇门？根据录音，去咖啡室的路线是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以使用&quot;go through&quot;这个词组来表示穿过某个物体，例如“go through the door”表示穿过这扇门。从接待区出发，沿着走廊左行，穿过对面的门就是咖啡室。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述房间位置时，&quot;in the front of the building&quot;是什么意思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>&quot;in the front of the building&quot;指的是建筑物的前半部分，通常可以理解为靠近前台或入口处的位置。</p></div>
+    </details>
+    <details class="qa">
+      <summary>“直到尽头”在英文中如何准确表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“直到尽头”在英文中可以通过&quot;go through the last door before you come to the end&quot;这样的方式来表达，在到达某个地点之前穿过最后一扇门。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于地图题，为什么表达方式如此重要？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在解答地图题时，表达方式至关重要，因为即使定位成功找到关键信息，也需要正确理解和跟进这些信息才能得出正确的答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>当听到“as you can see, we're in the reception area”这句话时，意味着什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这句话表示当前的位置是在接待区，尝试使来访者感到受欢迎和舒适。</p></div>
+    </details>
+    <details class="qa">
+      <summary>录音中提到的关于咖啡室和仓库的重要信息是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>重要信息包括咖啡室位于接待区后方，可通过走廊到达；而仓库在厂区的远端，面对主路和树木，是整个区域的重要组成部分。对于解答题目来说，关键是要按照指示顺序找到仓库。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在题目中，“next to factory”的IT是否指factory？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>是的，next to factory的IT肯定指的是factory。</p></div>
+    </details>
+    <details class="qa">
+      <summary>通过卡车可以到达的仓库是哪个？人力资源部门的位置描述是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>根据前面的信息，能够通车到达的仓库是C房间。人力资源部门位于建筑前方，从接待处左转第二个房间是I房间。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何到达仓库？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>要通过cross中间区域并走到远端，然后门就在右边，即C房间。</p></div>
+    </details>
+    <details class="qa">
+      <summary>员工餐厅位于何处？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>员工餐厅紧邻接待处，并且是在其旁边。</p></div>
+    </details>
+    <details class="qa">
+      <summary>会议室的位置以及通往会议室的路径是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>会议室在靠右走廊的左手边，需要沿走廊走到尽头，最后一个房间就是会议室A。</p></div>
+    </details>
+    <details class="qa">
+      <summary>IT部门所在楼层及出口方向是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>IT部门位于某层，面向主要道路，穿过走廊至尽头的左侧，即A房间。</p></div>
+    </details>
+    <details class="qa">
+      <summary>做平面结构图题目时应注意哪些要点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>做这类题目时，需关注每个路线至少2到4个信息，如走到哪儿、向哪拐、面向哪、哪里是尽头等，并抓住关键信息点，因为它们往往能帮助快速解答题目。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在地图中，“river bank”具体是什么意思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“river bank”在地图中表示的是河岸，并不是指河的银行，它指的是沿着河岸的道路或路线。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何用英语表达“穿过桥”的意思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“穿过桥”的表达方式有三种：cross the bridge、over the bridge或者通过使用&quot;past the bridge&quot;来表示路过但没有走桥上。</p></div>
+    </details>
+    <details class="qa">
+      <summary>“beyond”这个词在地图描述中如何应用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>&quot;beyond&quot;表示的是在某个设施或地标以外的位置，例如图中提到的&quot;beyond the line fee&quot;指的是树的外侧，即右半部分空白区域。</p></div>
+    </details>
+    <details class="qa">
+      <summary>“branch”在不同语境下的含义是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>&quot;branch&quot;既可以指名词，代表分支机构如银行分行；也可以作为动词表示分叉；同时它还有树枝的意思。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于区域型地图题，其难点是什么？目前车辆可以在哪里停放，以及变化后可能的停车地点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>区域型地图题的一个主要难点在于新老交替信息，即题目会描述一个地方原来的地理位置以及后来的变动情况，导致信息量增多，使得题目稍难解答。目前，车辆可以在community hall和东侧树线之间停放。但题目询问的是未来可能的变化，具体变化内容未在给出信息中明确说明。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在听力题目中，如何确定入口的位置？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>根据听力内容，入口位于road附近的一个开口处。直接入口通常会明确指出入口名称或标志，如entrance或gate，而间接入口可能会用图形表示或用星号等标识。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在power one的讨论中，关于停车场位置的改变，新停车场是在哪里建议建设的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>新停车场建议建在community hall的对面，紧邻IT部门。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第16题中，新购买的土地用于什么目的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>新购买的土地用于建设新的板球场，位置在现有娱乐区的东侧，超出树木范围。</p></div>
+    </details>
+    <details class="qa">
+      <summary>儿童游乐场的位置选择和到达方式是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>儿童游乐场计划建在社区厅附近，并可通过一条步道到达，这条步道是从社区厅出发，沿着Y虚线路径到达。</p></div>
+    </details>
+    <details class="qa">
+      <summary>篮球场最终选择的建设地点是哪里？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>篮球场被决定建在沿着河岸（beside river）的东南角，靠近道路，以提高其吸引力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>看图时有哪些重要的线索需要注意？在解答地图题时，整体步骤是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>看图时需关注入口、路线、方位、有字标识物、特殊参考物等重要线索，同时要记住字母位置以便定位。整体步骤包括：首先看图不看题，寻找重要线索；接着朗读题目并声音对应；然后定位成功后听题并理解核心信息；最后书写信息以提升反应能力，并强调复盘的重要性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于地图题，为什么说它在雅思听力中容易得分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>因为地图题的表达有限且题目通常基于原词重现，只要能正确理解题目和图中的信息，就能较容易得分。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-07.html">精讲逐字稿</a></li>
+      <li><a href="qa-07.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-06.html">上一讲 06</a></li>
+      <li><a href="lesson-08.html">下一讲 08</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

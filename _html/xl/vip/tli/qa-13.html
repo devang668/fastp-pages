@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第13讲 · Part Three 配对题与流程图题 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 13 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a class="active" href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第13讲 · Part Three 配对题与流程图题</h1>
+    <div class="abstract"><b>本讲概要：</b>老师在课堂上欢迎同学们回归，并详细介绍了即将面临的两种题型：配对题和流程图题。配对题在Part 3中包含事实配对与态度配对，着重于考察学生的替换能力和态度理解。此外，老师指出单选题难度的增加，将其比喻为“双层蛋糕”。对于流程图题，老师强调了其设计目的是测试学生对讨论内容的理解，教导学生掌握确认和替换的技巧。通过实例和具体操作，老师展示了如何通过精听和精读来复盘错误，以提升听力水平。最后，老师重申了理解题型和细节的重要性，并预告下节课将进行实际操练，鼓励同学们积极准备。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>问：在Part Three中，配对题的两种类型是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在Part Three中，配对题分为两种类型，一种是事实配对，另一种是态度配对。事实配对选项较多，侧重于词汇替换和较大的替换尺度；而态度配对则基于两个人物之间的双向讨论中的同意或不同意观点，考察替换和态度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在给出的配对题例子中，各个选项分别代表什么含义？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：各个选项分别代表了不同的评价观点，例如A选项表示team认为事情比预期简单；B选项表示team觉得事情不organized；C选项表示Diana可能进行进一步研究；D选项表示他们俩都发现阅读材料difficult；E选项表达Tim被某个模块内容震惊；F选项表示他们俩都对某个发现感到surprised，即知道得太少。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在解答态度配对题时，应该如何观察和处理选项？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：解答态度配对题时，首先要观察选项并将其按照说话者维度进行分类，如本例中分为team（团队）、Diana（戴安娜）以及both（两人）。然后，根据听力内容中语气语调的上扬或下降来锁定可能的选项，因为正面积极的态度通常会伴随上扬的语调，而负面情绪则可能是下降的语调。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于配对题，整体解题步骤是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：对于配对题，整体解题步骤与Part Two相似，首先不看题干，直接看选项进行筛选。通过分析对比关系、确定主体（谁在说话）以及判断语调上扬或下降，来推测可能的正确选项。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在第一段语音内容中，男生和女生对IT课程的态度是什么？根据男生和女生的观点，如何选择合适的答案选项来描述他们的态度？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：男生一开始认为IT课程会很难，但后来发现其实很容易， straightforward且简单。女生则表示她在课程中遇到了很大的挣扎（struggle），感觉心态沉落，暗示她的态度并不好。由于团队（team）的观点与女生一致，认为课程比预期的要简单，因此应选择表示“比预期更容易”的选项A。而对于第二个问题关于饮食和营养的观点，男生表达了对宠物食品及其中有限的安全检查的不满，而女生对此部分内容印象深刻，故选E选项表示“对某个内容感到震惊”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在分析animal disease模块时，男生和女生的态度是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：女生对于animal disease这个模块感到印象深刻，用&quot;really impressed me&quot;表达了积极的态度。男生则提到&quot;I thought they would know a lot about ways of controlling and eradicating those diseases, but that's not the case at all&quot;，表示原本以为科学家会对家畜疾病有更多的了解，但实际上并非如此，这体现了他对这一部分内容的失望，但同时也提到了喜欢野生动物医药单元，并考虑撰写与此相关的论文，这显示了他的个人兴趣和深入研究的意向。根据这些态度，可以筛选出正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于快速听力理解和做题策略，有什么建议？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在处理快速听力理解和做题时，重要的是把握整体做题节奏，不要求太快以至于会丢题。在课上展示例题时，讲师会暂停并重复讲解，以帮助学生适应并理解题目。学生在独立做题时，也要注意听题与答题之间的节奏感，确保跟上听力速度，避免遗漏题目。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在做part three的配对题时，我们应该关注什么？事实类配对题主要在测试哪些方面的能力？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在做part three的配对题时，要关注替换方式以及听取选项间的confirm信息。同时要注意，这类题目本质上考察的是替换，阅读选项时需思考如何替换，并且在听的过程中确认答案的合理性。事实类配对题主要测试替换能力和对选项之间关系的理解，同时强调听的时候要去确认（confirm）选项间的联系，因为这是两人之间讨论的关键。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于part three的配对题，如何确定正确答案？在part three的配对题中，如何处理没有否定或转折信息的情况？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：确定正确答案时，需要根据题干要求，例如本题是关于event manager management skill（事件管理技巧）的重要性的判断。在听的过程中，要注意到两个人（学生和老师）对于每个选项所表达的共识，即必须得到另一个人的确认（如“yes”、“OK”或“agree”等）才能选定答案。即使在没有明确否定或转折信息的情况下，也要确保听到答案的confirm。在做题时，听到替换信息并直接选择即可，但需谨慎，以免被干扰信息误导。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：C选项所描述的“having a smart appearance”对应的是什么场景？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：C选项所描述的“having a smart appearance”对应的是保持专业形象，让自己看起来职业化和整洁，即外表要好且展现出专业性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：根据对话内容，哪个选项与老师的建议一致，成为正确的答案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在对话中，当老师提到如果面对面与人交流并希望说服对方成为赞助商时，女生提到会打扮自己以吸引赞助。老师对此表示肯定，认为这是正确的做法，因此正确答案是C选项&quot;having a smart appearance&quot;。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在计划之外，如何应对可能出现的问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：做好准备，灵活应对，因为事物往往不能完全按照计划发展。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：你认为自己的时间管理能力如何？特别是在有截止日期时的表现。面对压力和惊恐时，应该如何表现？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：我工作在以时间为导向的行业，当有明确的截止日期时，我的表现会更好。即使面临压力，我也要学会保持冷静，不让他人察觉到我的压力。即使内心感到惊恐和压力，外部表现也要做到冷静，确保没有人能察觉到你在承受压力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：活动策划者需要具备哪些关键技能？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：活动策划者需要具备创造力，能够听懂客户的整体构想，并填补细节上的空白，将大图构想转化为实际执行方案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：领导力在活动策划中起到什么作用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在活动策划中，领导力至关重要。虽然团队成员可能有许多想法，但作为负责人，你需要做出最终决策，即使这可能涉及到对不同意见的拒绝。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何看待团队决策与个人最终负责的关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：尽管团队合作重要，但作为领导者，你必须信任自己的判断，并为决策承担责任，即使这意味着要拒绝他人的观点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于Networking（人脉建设）的看法是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：Networking对于职场生涯至关重要，即使目前人脉有限，只要你能成为一个有趣且有实用想法的人，就能在求职和未来的职业生涯中受益。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于事实配对题，我们在part two之后额外需要做什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：对于事实配对题，我们除了比part two多判断一项内容，即要确认答案的正确性。当听到了可能的替换信息时，我们不足以断定它是否正确，必须等待听力部分来确认。如果答案在文章中得到明确的确认（如exactly或yes等），我们才能确定并选择该答案；如果没有得到确认，则需暂时等待。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：流程图题型的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：流程图题型是一种小题型，通常表现为填空型流程图，有直接填空和选词填空两种形式。不论哪种形式，其底层逻辑都是填空题。该题型重点考察的是干扰信息的理解和排除能力，因为每个空格都可能涉及干扰项，即不同人物对于同一问题的不同观点或意见。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在解答流程图题时，有何需要注意的点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：解答流程图题时，需要注意顺序连接词（如first、then等），这有助于follow题目的逻辑节奏，不容易跑偏或错过关键信息。此外，每个空格都可能包含干扰信息，需要仔细分辨并根据上下文选择正确答案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在例子中，关于研究对象（research question）和样本的选择，讨论过程中的干扰信息有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在讨论过程中，干扰信息体现在不同人的建议和意见上，例如关于研究对象是否应该来自心理学学生、其他部门的学生或是历史系的学生，以及在制定研究方法时对于观察法和自报法的不同看法等。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在26题中，关于干扰信息的产生，男生和女生的观点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在26题中，男生同意了某个观点，而女生提到由于实验涉及到人类参与者，因此需要关注干扰信息的产生。男生也表示，由于实验涉及人类，所以存在特殊情况，需要遵循相关法规和管理制度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于27题提到的与研究相关的伦理准则检查，其关键点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：27题要求检查在进行研究时是否符合伦理准则，特别是在与特定对象合作时必须遵循这些准则。由于实验涉及到人类，所以必须检查并遵守相关的伦理规定。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在28题中，确保风险被评估和最小化的内容具体是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在28题中，确保风险被评估涉及确保实验中的风险得到充分评估，并且将不必要的压力保持在最低水平。实验设计中包括了对风险评估的专门部分，以及确保实验参与者不会承受任何不必要的压力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在29题中，分析结果和计算相关性的部分有何具体内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：29题中提到在收集完所有数据后，需要分析数据并计算两个变量（时间睡眠和做梦数量）之间的相关性。此外，还需要以视觉化的方式呈现结果，例如通过制作图表来展示两者之间的关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在听力理解过程中，如何处理连读现象以避免答题困扰？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在听力理解时，要注意连读现象可能导致的语义混淆。例如，在听到&quot;the final thing is to think about our research and evaluated&quot;时，要能够分辨出&quot;and evaluated&quot;实际上是连读，而不是拼写错误。建议在精听训练中关注此类细节，以提高答题准确性。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-13.html">精讲逐字稿</a></li>
+      <li><a href="qa-13.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-12.html">上一讲 12</a></li>
+      <li><a href="lesson-14.html">下一讲 14</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

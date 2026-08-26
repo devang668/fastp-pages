@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第04讲 · Part One 场景与方法论 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 04 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a class="active" href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第04讲 · Part One 场景与方法论</h1>
+    <div class="abstract"><b>本讲概要：</b>讨论了探索一个虽小但生态多样的小岛，强调它是观察海豹的理想地点。随后，转向推荐一个适合初学者的一日木工工作坊，强调有专家指导和人数控制确保每位参与者都能得到足够帮助。提到了携带野餐的建议以及木工工作坊的安排、费用和内容。最后，对话转向了听力学习方法，强调复盘听力材料时要关注生词、结构和替换，并分享了高效学习听力的时间分配建议。特别指出，雅思听力课程第一课分为三小节，首先复习方法和技巧，并通过具体例题讲解，强调Part One以日常生活场景为主，分为问询类和介绍类两大类别。方法技巧上，赛老师特别强调做题节奏的重要性，建议根据定位词和结构确定答案，识别并关注考点，通过复盘题目加深理解和记忆，提高听力理解能力和答题准确率。</div>
+    <div class="tip">本讲含 30 组问答精要，可到<a href="qa-04.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>讨论了探索一个虽小但生态多样的小岛，强调它是观察海豹的理想地点。随后，转向推荐一个适合初学者的一日木工工作坊，强调有专家指导和人数控制确保每位参与者都能得到足够帮助。提到了携带野餐的建议以及木工工作坊的安排、费用和内容。最后，对话转向了听力学习方法，强调复盘听力材料时要关注生词、结构和替换，并分享了高效学习听力的时间分配建议。特别指出，雅思听力课程第一课分为三小节，首先复习方法和技巧，并通过具体例题讲解，强调Part One以日常生活场景为主，分为问询类和介绍类两大类别。方法技巧上，赛老师特别强调做题节奏的重要性，建议根据定位词和结构确定答案，识别并关注考点，通过复盘题目加深理解和记忆，提高听力理解能力和答题准确率。</p>
+    <p>Hello, 各位同学大家好，我是赛老师。今天我们就开始听力part one的一个正式的学习了。在part one的这个篇章，我们一共分为三节小课。第一节课我把方法和技巧的部分再给大家整体梳理一遍。虽然B站上面的免费视频当中也有介绍这个方法和技巧，但是那个部分讲解的也不是那么的透彻和深入。那我们今天重点拿一些例题过来补充进来，然后再把这个考点和做题的方法重点再梳理一下。</p>
+    <p>然后第二节课是开始分场景了，就是这个听力，其实它场景非常的重要，尤其是在part one。虽然part one大部分场景都是日常生活化的对吧？但是它也分成两种大的类别，一种类别就是问询类的。比如说你去问点东西，你出去旅游，去问问人家这个旅游的专列，然后什么时候开，多少钱？我什么时候能上车，一个房间有多少人之类的，类似于这样的问询。所以这问询就会产生一问一答，所以就带问号的句子特别多。</p>
+    <p>但另一种类别就是介绍这个介绍类的它其实没有什么带问号的句子，对吧？就比如说我是一个导游，我带着各位去参加一个参观一个博物馆。然后这个博物馆，我就告诉你这博物馆里都有什么没有任何的问题，几乎也没有什么太多的需要去答的这样的一个场景。但这里面就会涉及到可能会有一些转折和否定，会出现在这样的篇章当中。</p>
+    <p>所以我们在二三两节课当中会给大家分场景，再来介绍一下part one OK。我们今天先来梳理一下整体part one的做题方法。OK part one多维填空题，这个大家已经都是知道的事实，对吧？而且这填空题是十道题，而且我还说了这十道题是大家得分的一个重点。我们的一个目标就是这十个题争取能正确九个题到10个题。有同学说老师你这要求可能有点高，并不是这样的，要求一点也不高，就是part one基本上是不错题的好吗？</p>
+    <p>好，然后这个填空题基本上它是两种类别，这两种类别分为表格填空和笔记填空。那么我给大家展开一个题目，咱们来感受一下。比如说我碰到例题是见识七当中的这个test one section one这个题目。我们可以看到像类似于这样的一个展示方式，第一题第二题这样的，然后它前面是一个小点点，然后这会有多很多多余的信息。这十道题都给大家大概浏览了一遍，对吧？这个就叫做笔记填空题。</p>
+    <p>我为什么先拿一笔记填空给大家展示一下呢？主要的原因就是从现在考试的情况来看，基本上抛丸都是笔记填空，一个大表格很少，表格填空题多少有点老。你做老题可能会发现有，但是新题从建十四往后，基本上part one都是以笔记填空为主。那这种题目有没有什么特点？就是除了这个题干本身，你看第一题的题干这么长，第二题题干这么长。</p>
+    <p>但第一题第二题完事儿了之后，这中间有三行没有题，所以它会除了题目本身有一些多余的信息。然后就有人问我说这多余的信息有没有用？你说有没有用呢？这就像我们去玩那个密室逃脱一样，你的任务虽然放在那儿，但是过程当中会给你很多线索，对吧？所以这个多余的信息就是所谓的线索，它可以帮助我们去进行范围定位这件事情。</p>
+    <p>那么什么叫做范围定位呢？就比如说我什么时候做第三题，有同学说老师你第一题第二题做完了就可以做第三题了。其实不是这样的，你第一题第二题做完了，你的眼睛和耳朵是要看这个nature reserve，他出现了再给我往后看这个pass，它出现了再给我往后看这个boxes，或者或者这个birds，他们出现了，你再给我听第三题，这样才是一个比较好的节奏。如果说你做完第一题，做完第二题，你就在第三题这里守株待兔。其实往往这样同学是不会得高分的，他经常会丢题的。所以听力其实节奏非常的重要。</p>
+    <p>我一直在跟大家强调，我说听力节奏感，这个节奏感并不是指音乐上面的节奏感，就是指你听力在做题的时候的这个节奏感。这个节奏感甚至比你的语言能力还要重要，千万不要丢。因为如果说你听不到这个空，就比如说能力不行，这个空听着单词不会写，那这你充其量就是错了一道题而已，对吧？但如果你整体结都垮了，就是第一题第二题做完了，第三题始终进不去，然后边啪啪啪啪全乱套，那你使个空说不定都丢了，至少丢了八个对吧？所以节奏感是要大于语言能力的。</p>
+    <p>好，整体做题步骤这个之前我都讲过，所以我就不赘述了，大概给大家再捋一捋。这个做题步骤大概就是分为四个步骤。第一个步骤读题，而且这个读题是一个关键步骤，看我在前面写的什么关键步骤，对吧？为什么？因为如果题目读不懂，你根本都不知道你的目标是什么。我们在做一件事情是不是得先了解自己的目标。就是大家想考雅思，我先定个目标，我得考6点5分，听力我想考个七分儿，对不对？如果你都不知道你的目标努力的方向在哪里？所以读题其实就是把题目看懂，知道你应该填个什么东西放在这个空上才使得语言含义完整。</p>
+    <p>然后我再去听题。所以听题的时候，其实就是已经在验证你内心猜想的这样的一个过程了。那在这个读题和听题中间，其实还有一个步骤，就是预判一下答案，然后最后才是一个写题。所以大概是分为以下四个步骤，从读题预判答案，听题写题。好读题我刚才说的是关键步骤，我说一说这个步骤当中大家需要干什么事情，这两件事情就是各位必须要去干的。</p>
+    <p>找到定位词和考点词。那么啥叫定位词？顾名思义，定位词就是帮你定出来这个位置，知道这个听力已经进行到这儿了，我现在要开始作答了。相当于是进到这个题的这个环节，这个就叫做定位词。那么什么样的词它可以称之为定位词呢？如果说这个词变化多端，它在听力当中都不知道这变成什么样了，那这种词肯定不适用于做这个定位词，对吧？一般来说就是那种不太容易被替换掉的单词，它就是定位词非常好的一个选择。</p>
+    <p>那什么样的单词不容易被替换掉呢？专有名词肯定不太容易被替换。比如说中国、法国、美国，那就类似于像这样的国家名字是怎么怎么替换呢？不太容易替换对吧？比如说北京2008年奥北京2008年奥运会，这个奥运会only pay games这东西也不太容易被替换，所以专有名词肯定不容易被替换，这个肯定是一个不争的事实。但是不是所有题目都出现专有名词，你看咱这题这上下一打量，也没有一个题有专有名词，所以专有名词出现的特别少。</p>
+    <p>那你可以用名词定位，名词也是一样的。比如说我早上吃了个苹果，苹果这个单词你还能给我替换一下子。有的人说蛇果，你这是不是两种水果？好，那替换的方式是不是也相对来说比较少，对吧？OK好，那同学说了，老师这个名词不是你之前的课上都说过，我们空上空上就是我们填空80%都是名词，那么也许我这句话里边根本连个名词都没有，确实是这样，那怎么办？</p>
+    <p>那你只能用动词和形容词来定位，但是如果你用动词和形容词来定位，就一定要告诉自己这个替换是要能够识别到的。你比如说beautiful、pretty他俩都是表示好看，对吧？Fast、quickly这个都表示的是快，所以这个你要能够识别出来。如果你识别不出来的话，那就相当于人质答案你就要错过了。所以如果用动词和形容词做定位词的话，一定要知道它的替换词，听的时候能够立即识别出来。好，这个定位词其实它就相当于是大家的一个目标。</p>
+    <p>你在听的过程当中就听定位词，定位词出现耳朵竖起来开始往含义就是语言含义上面去走，然后识别替换等等。那接着我这一点我也想说一说，就关于什么结构定位和题目定位是什么意思？所谓的结构定位，咱刚才不是说这个题目上会有一些多余的信息，对吧？就是这个题它本身你看一二完事了之后出现这东西，那这些东西我一直说它是线索，它就是你的结构定位词。所谓结构定位词就是在我题目还没有出现，我先得知道一下nature reserve已经过去了，pass已经过去了，boxes已经过去了，OK进到这个题目当中，所以这个就叫做结构定位。</p>
+    <p>那题目定位本身，你进到这个题里边的这题是不是还得做？你也不可能说这题我就直接答案就出来了，不可能。那怎么做？你要去找到你这道题内部的一个定位词，这个就叫做题目定位。所以结构定位、提供定位缺一不可。只有你的定位都找到，而且你的定位都是非常好的能够识别出来，那你这题做的才轻松。不然的话越做越觉得这个听力好慌乱、好紧张，我是不是就要错过答案了等等。</p>
+    <p>好，我们现在定位这件事情已经解决了，那么接下来就说一说考点的问题了。啥叫考点词？这个考点词有的同学可能不太在意考点，就会觉得说，反正我都听懂了，这题不就做出来了吗？是这样的，但是如果你提前知道考点，是不是就仿佛你站在了上帝视角去解决这个问题，那是不是你做对的可能性就更大了，给自己的压力也就更小了。所以我非常的建议大家要去知道这些考点。所谓的考点就是不太容易被替换，sorry，所谓的考点就是容易被替换，定位词是不容易被替换的，考点就是容易被替换的词。这样的话我识别出来它替换，我是不是就锁定答案了。</p>
+    <p>OK一会儿我会具体展开考点都是什么，这也是我们今天一个上课的重点。好，这是我们的第一个步骤。换句话说，第一个步骤我就是要边读题，然后边找到定位词，边识别考点。好，接下来我就拿这个例题给大家演示一下，就见识7 test one section one的这个题目给大家来进行一个实操。因为如果我不操作，大家总会觉得这个事儿老师你讲是你讲，我做是我做就不一样。</p>
+    <p>好，接下来我们来看一下这个题。拿到题目第一件事情看题目要求。这里我就顺带着说一说题目要求的问题。这个题的题目要求是一加1，也就是one word and or a number空上只能填一个单词和或一个数字。这种题目要求我们填三种答案形式，单词一个可以，数字一个可以，单词加数字一个各一个都可以。OK所以这个题目要求大概是这样的。</p>
+    <p>关于这个a number，有同学就问我说，老师你说这个课一单让我填一个数字串，比如说一个电话号码，那电话号码是不是好几位？11位的对吧？那常数字算一个数字，就是一个电话号码它算一个数字，你不要说这个数字它是11个数字，不是这样的。OK好，这个是题目要求，我大概知道了，标上。</p>
+    <p>然后接下来我就要开始读题了，先读一下标题，这个标题叫做bug。Worse conservation group, 不太认识没关系，regular activity一些活动，在沙滩上发生的活动，make sure the beach doesn't have什么东西on IT，所以空上空上应该是个名词，它这是没有什么东西在上面对吧？No什么东西，又是一个没有OK。接下来这都the nature reserve path，这得出现boxes，得出现下一个任务，要去吸引a try艾克特什么东西to place。所以空上好像又是一个名词identify types of，这个identify叫识别types of，然后一个东西。所以控制上又是一名词，build a new, 建造一个新的。空上又是一个名词，这还有一个冠词，前面是一个动词OK。</p>
+    <p>好，我这题目就读完了。所以我在读题的时候大家帮我总结一下我都干了一些什么事情。读题的时候第一件事情，我是不是highlight了一下这个题目要求，对吧？这个事情必须要重视，因为如果你的答案写的不符合题目要求，你比如说人质题目要求是一加1，你写出来两个单词儿作为正确的，作为这道题答案。虽然你这两单词里边有正确的部分，但是也错了，因为它不符合题目要求。OK好，所以这一定要注意。</p>
+    <p>就是我第一件事情highlight了一下题目要求，第二件事情空前单词基本上都被我highlight出来了，为什么？因为这个就叫做考点词，我一会儿给大家整理都有什么考点。现在你先记住我刚才那个操作，然后接下来第三件事情我还干什么了？有没有发现我画了一些跟考点没关系的单词，这个叫做我的定位词。我也画了一下，然后我理解了这个题目的这个句子本身。</p>
+    <p>好，关于highlight这件事情我给大家再多说两句。总有同学说老师听力特别的机考听力特别不友好，因为不能拿那个铅笔去标注，但是你可以highlight，你这黄色标注出来是不是也挺清晰的，而且现在机考系统也升级了，你除了可以标注黄色，你还可以标注粉色，就是可以标两个颜色了。我觉得还是挺人性化的，也在往更好的方向上去发展，更加人性化了对吧？User friendly OK好，所以刚才前五道题我大概读题的时候干了这么几个事情。</p>
+    <p>那么接下来我就要给大家总结考点这个东西了。到底啥东西是考点呢？刚才被老师吹的神乎其神的，还上帝视角。来咱们一块儿来看一看，在抛光当中经常会出现的，一共有五大类考点。但这五大类考点我今天这节课只给大家讲四类考点，为什么呢？因为第一类考点在我们的导学篇我已经给大家讲过了，就是基本信息考点，出现一些什么数字、人名、拼写这种东西。这个基本信息考点我就不再赘述了。我今天要讲的是其余的四个和能力有关的考点。</p>
+    <p>好，第一大类考点叫做替换类考点。何为替换呢？就是空前空后的单词，它有可能会发生一些替换。所谓的这个替换可能是词替换，就比如说hi beautiful和这个prety的替换，fast和quickly替换也有可能是一个意思上面替换，这个我在导学篇也给大家讲过了。</p>
+    <p>好，那么替换又分为四种不同的替换，第一种替换叫做否定替换。比如说我们刚才看到的第一道题，这个我已经给粘到笔记当中了。它是make sure the beach doesn't have什么东西on IT OK。那这里的doesn't have，这里就是一个否定替换。那你就想，我们导学篇里边我也讲过，否定是一个非常重要的考点。你要能够熟悉各种各样否定词之间的替换，什么词能和not做替换呢？</p>
+    <p>比如我们之前学过的rather than instead of吧？这都是词组，也表示就没有不准对吧？还有little few就是a little表示有一点点，那few就是little就是没有。A few就是有一点点，那few就是没有，所以这都表示的是没有。还有比如说hardly这个单词就几乎不，这其实也表示一些否定的意思，对吧？还有failed to do something，这是不是也表示否定？所以其实类似于表示否定词有挺多的，这里我就不给大家扩展了。你通过做题不断的给我积累起来，这件事情是通过日积月累对长久的去积累起来的。</p>
+    <p>好，那么这道题咱们就来感受一下原文它到底是怎么说的那它到底这里算不算一个否定替换呢？来大家跟我一起来听一道这道题。好，我就从头开始放了。</p>
+    <p>Hello, oh hello, am my named john. Are you the right person to talk to about the backwards conservation group? Yes, i'm Peter and the secretary.</p>
+    <p>good. I've just moved to this area and i'm interested in getting involved. I was in a similar group where I used to live.</p>
+    <p>Could you tell me something about your activities, please? 范围定位词出来了，你标注的activities是不是在这里出现了？所以他前面所说的一些都跟你没有什么关系，就跟他做题没什么关系。让他俩一顿寒暄。这男的说你有什么问题？女的说我刚搬来这个地方，所以我特别想get involved，就想参与到其中，所以这些地方跟大家都没有什么关系，我们就继续往后听了，重点你要听一听这个沙滩上没有什么东西。</p>
+    <p>Of course，well, we have a mixture of regular activities and special events. One of the regular ones is trying to keep the beach free of litter. 他说one of the regular one，我把这一句话写下来，他说one of the regular one is a try to keep the beach free of little OK。好，这句话我们再来感受一下再来。But of course, well, we have a mixture of regular activities and special events.</p>
+    <p>One of the regular ones is trying to keep the beach free of litter. One of the regular one is trying on trying to keep the beat free of litter. 所以这里这个dozen have，你有没有发现它就替换出了我刚才给讲过的一个否定词free of。那你的答案词是什么？是不是就是litter这个单词，对吧？</p>
+    <p>好，这道题我们来复盘一下咱们是怎么做出来的。首先读题的时候，其实题目的做对离不开各位同学你们要在做这道题目之前的一个努力。读题的时候我们先有定位，那我的定位是什么？其实就是这个否定对吧？当然我还有范围定位，我都没说什么activities。刚才我给大家标亮了好，这个读题的时候我找到了这个定位。另外在读题的时候，我也预测出了它的词性，它的词性应该是一个名词，所以我在听的时候可能重点会关注这个名词。</p>
+    <p>好听题的时候我首先听到了activities。这个activities出现了之后，我又听说听到了一个beach，然后接着我又听到了一个free of，我一看哟我这不是等同于note吗？所以后面我就要它的名词，所以因为我内心已经预判出来空格里边是名词，我听到的名词我肯定要了。然后我就把这个litter我就给它拼写正确。这个单词本身并不是特别难，但是确实有同学不会。如果你不会的话，你就只能根据它的发音规律去进行拼写，那就有点悬了，对不对？所以注意这个litter表示是垃圾的意思，这个litter是垃圾。</p>
+    <p>然后litter这个单词它是一个单位，它是什么单位呢？一个容量单位，它是升就是这个公升的。意思所以这俩单词就差一个字母，但是意思完全不一样，很有可能就给我写错了，对不对？所以这道题我们做对，是干了这么多事情才使得这道题做对了。</p>
+    <p>这是一道否定替换的题目，否定替换。好，那除了否定替换之外，我们还有什么样的替换呢？继续跟我来看，除了否定替换之外，还有动词替换空前。当出现动词的时候，它可能就会发生替换。</p>
+    <p>比如说我们再来看一下这个第三题，我给大家粘过来作为这个小例题。他说我们有另外一个任务，next task is a taking action to attract什么图place。所以我们的任务action，吸引什么东西，到这里来OK。这道题我也给大家倒一下这个听力的位置，然后我们听一听这个题目，good。And we have a program of creating new habitats there.</p>
+    <p>We've just finished making and installing nesting boxes for birds to use. 听到的这个nesting boxes for birth。所以也就意味着我们第三题的定位区间是不是产生了耳朵竖起来听下一个任务，next we're going to work on encouraging insects，他说，and next, 这里我给大家打出来，他说，and next we are going to, in courage.</p>
+    <p>Encourage insects。OK记不住了，我们再听一遍，good. And we have a program of creating new habitat there. We've just finished making and installing nesting boxes for birds to use.</p>
+    <p>And next we're going to work on encouraging insects, encouraging insects, 对，那就是没了OK。好，所以attract这个单词是不是替换成了这个encouraging？文章里面是一个。好，所以他俩同一替换，那这个题我们做出来再复盘一下咱们是怎么做出来的。读题的时候识别出了考点是一个动词替换，然后我就关注空前这个attract。听题的时候我就听他说到了next的定位区间产生，当然它还有范围定位我就不提了，我们说这道题本身，接着当我听到in的时候，我觉得这个engage叫鼓励，那attract叫做吸引。你说鼓励什么东西过来安居乐业和吸引什么东西过来安居乐业是不是一个意思？所以这个本质就是一个词词替换而已，搞的就是一个动词替换词词替换OK。</p>
+    <p>好，那么接下来我再给大家一个题目，比如说这个题，这应该是第五题了，咱们给放到形容词替换这儿。毕竟它空闲是一个形容词new这个单词。但是这个题目我们来感受一下，和上面这个动词替换这个题它有什么不同。这道题让我们building a new要建造一个什么新的什么东西，对不对？所以我也做了预测了，空上应该填一个单数可数名词。因为这有一个A，你别忘了这地方有一个A所以空上必须得给我填一个单数可数名词。</p>
+    <p>好，那我们接下来咱们就来听一听这个题目。Another job by doing IT reserve is replacing the wall on the southern side between the parking area and our woodshed. IT was badly damaged in a storm last month.</p>
+    <p>其实这一句话就是定位句，但是我估计大家可能没反应过来，因为这个没有啥定位信息。那其实这道题的定位就应该用上一道题的位置，然后我们再加下一道题的位置，那咱就把两道题这个地方大概都一块听一下。Oh，and will also running a project to identify the different I identify的单词出来了。</p>
+    <p>然后接着这第四题，答案是不是又出来了？Species of butterflies to visit the reserve. You might be interested in taking part in that.</p>
+    <p>sure. I was involved in something similar where I used to live counting all the species of months. I enjoy that. I know OK. 这也就意味着这个第四题的位置完全过了，男的说了一句，女的补了一句。</p>
+    <p>那么接着我们就来第五题的位置了，要建一个新的什么东西呢？一定要注意听，非常容易错过。Another job we're doing IT, another job we are going to do, another job we doing IT reserve is replacing the wall on the southern side.</p>
+    <p>另外一个工作是干什么？有没有同学听出来了？首先他说another job，然后他说replace我就不写他的这词性词性了，我就直接把这个干捞干的写。Replace the wall on the south n side.</p>
+    <p>好，这个就是他说的我们另一项工作。好，接下来我们继续听一听为什么这个墙要被between the parking area and our wood shed，IT was badly damaged in a storm last month. IT was badly damaged in the storm last month.</p>
+    <p>OK好，其实这一句话当中你听出来这些核心内容，这句话的语言意思你就完全能够听懂。另一个活儿，我们要替换一下，那个墙在南边，因为他下暴风雨给我们墙整坏了呗，对不对？所以你看一看他要建一个新的什么，是不是要建一个新的wall。所以这个wall这个单词是不是就应该是我们的单词。那么空前的这个replace是不是就相当于替换成了这个building a new？</p>
+    <p>然后有同学就不理解了，说老师凭什么凭什么一个replace这个单词能和building a new他俩同一替换？这个我就告诉大家是意思上的替换，就语言意思上的替换就不是那种磁替换了。就是在这个场景里边你建一个新的，难道不就是去替换一下，对不对？你把这个东西，比如说我现在要用一个新的水杯，那是不就是我要替换一个水杯，对吧？所以这意思就是差不多，你细品是不是一样的？但是其实本质上，这确实是一个语言意思上面的替换。</p>
+    <p>好，所以大家能够感受到这替换它其实也是不同的类别。有的就比较简单，就是个茨词替换而已。但是有的可能相对来说就难一点，需要你能够去理解它的语言含义，这样才能更好的把这个题目做出来。</p>
+    <p>好，刚才我们在讲的这个替换类的考点，已经说了三种了。否定替换、动词替换、空前有动词的肯定要有替换，空前有形容词的肯定要有替换，对不对？好，那我们再来说几个，比如说空前有一些什么介词冠词的这个东西它不变。这就是刚才为什么我把这个挑了出来。挑出来就大家注意单数可数名词往里填，对不对？好，所以这个也算一个送给大家的小技巧。词冠词但不能说绝对不变，但基本上大概率反正是不怎么太变的。</p>
+    <p>好，那这前五个题我们先一气呵成的听一听，刚才就是究一些考点给大家听，现在我们一气呵成的听一听，其中还有一个考点是我想讲的，先给大家卖个关子。但是在这儿我要从头再放一遍，大家跟我一块儿把这个题目就再捋一遍。Hello, hello, ami named john.</p>
+    <p>Are you the right person to talk to about the bucky's conservation group? Yes, i'm Peter and the secretary. good. I've just moved to this area and i'm interested in getting involved. I was in a similar group where I used to live.</p>
+    <p>Could you tell me something about your activities, please? Of course, well, we have a mixture of regular activities and special events. One of the regular ones is trying to keep the beach free of litter.</p>
+    <p>A few ever spent a couple of hours a month on IT, and it's awful how much there is to clear. I wish people would be more responsible and take IT home with them. I totally agree.</p>
+    <p>ID be happy to help with that. Is that okay to take dogs? I'm afraid not. As they banned from the beach itself, you can take them along the clifts though, and children are welcome.</p>
+    <p>We also manage nature reserve, and there's a lot to do there all year around, for example, because it's a popular place to visit, we spend a lot of time looking after the path and making sure they're in good condition for working. I could certainly help with that good. And we have a program of creating new habitats there.</p>
+    <p>We've just finished making and installing nesting boxes for birds to use. And next we're going to work on encouraging insects. They're important for the biodiversity of the reserve.</p>
+    <p>They certainly are. Oh, and we're also running a project to identify the different species of butterflies. Visit the reserve.</p>
+    <p>You might be interested in taking part in that. sure. I was involved in something similar, where I used to live counting all the species of moths.</p>
+    <p>ID enjoy that. Another job with doing at the reserve is replacing the wall on the southern side between the parking area and our wood. Ched IT was badly damaged in a storm last month.</p>
+    <p>Okay OK前五道题我们就告一段落了。为什么刚才我让大家又做了一遍这五道题，就是我想展示一下做题的节奏。大家有没有看到，虽然这个题已经读完了也有了一些标记，但是我在听的时候我还是会画一下。在我听到的一些信息出现之后，我都会在这个题目当中画一下，帮助自己集中注意力。毕竟听力的时间很容易走神的。有同学一走神儿，结果两句话错过去了，答案就错过去了。所以一定要帮助自己去集中注意力。你画一下这是不是就能稍微好一点，对不对？</p>
+    <p>好，刚才我说我要卖个关子的一个考点是第二题。第二题你在读题的时候是不是以为它是一个否定替换考点，但实则不是。它是一个什么考点呢？我们要讲的下一个考点叫做对话间给出答案。</p>
+    <p>那什么意思呢？比如说我们的问题是啊我接着要说一段话了，那我们的问题是今天晚上吃什么？我说今天晚上吃火锅好吗？你说好，那请问今天晚上吃什么？是不是今天晚上吃火锅对不对？所以就是在对话的过程当中，你的正确答案得到了一个confirm，这个就叫做对话间给答案。</p>
+    <p>好，如果我这道题变成这样，我说今天晚上不吃什么，你还听我的对话。我一个人说，我说今天晚上吃火锅好吗？那个人说火锅是一个不错的选择，但是我更想吃点别的。那你说这个no什么是不是no hot pot对吧？No火锅，所以总的来说就是这个对话的过程当中，通过逻辑给我们呈现出来了这个答案。</p>
+    <p>这个时候你要尤其注意，因为什么？这个no什么就是这个男生在回答这个问题的时候，是不是说到的这个no，说到i am afraid not，女生刚才说到的是can I take dog？Can I take dogs? 然后这个男生说了，i am afraid you can't。</p>
+    <p>Because我简写了，there is been ban这个单词叫做禁令的意思，就是有禁令不让带OK。所以你会发现当你真正听到这个否定的时候，是这个男生在说话。那这个男生这句话里边有这个单词吗？有这个狗吗？没有了，为什么没有了？因为女生已经在问的时候把这个狗给问掉了。所以你的脑子是不是要记住这两句话，就相当于人家一问一答，你是不是要知道在问什么答什么，不然的话你就肯定想不出来。</p>
+    <p>那女的刚才说不能带什么来着？这种题就非常容易错过，所以这题是一个容易错过的题目。为什么我要在part one这个部分再给大家分场景讲一讲？因为在问询类的场景，就问询类别的这种场景里边，他其实更经常会出现这种对话。</p>
+    <p>今天给答案的题目就是一个人想问了一个问题，抛出来了，这里边带了一个词儿，就是我们答案词。他出这个词的时候，其实你并没有意识到它的答案。但是等出现那个否定词了，你才发现这是答案。但是你在想前面那个词已经想不起来了。</p>
+    <p>所以我要求大家什么呢？我要求怎么解决这个问题，就是定位范围产生。你甭管这个是不是答案，只要符合磁性要求，你就先记录下来，你就先把它填到这个屏幕上。填完之后你发现不对，不是这个答案，没关系，你再改。这个都好说，对吧？</p>
+    <p>但是如果你错过了，那你就要跟他永远的错过了，这个题就只能错了。好，所以这个是对话今天给答案的题目。每次考试出现的不多，但是肯定会给大家造成一定的干扰的OK。</p>
+    <p>好，接下来我再说一说这个转折类的考点。其实转折类的考点大家看我给大家这么多的结构是为什么呢？其实你看对于第一个结构，就前面我说了一句话，然后中间but了一下。所以前面说的这句话基本上等同于没有用废话一样，对吧？我的答案可能是在后边这句话，比如说中间某一个单词这里。所以一定要去听。</p>
+    <p>如果是一个转折句就仿佛你很好，但咱俩不合适，这就是不是一个option了。我虽然很想吃肯德基，但是最近我在控制，所以我要吃点沙拉。你看到没？所以这种句子非常经常出现在我们的听力当中，还有什么样的句型呢？他说i thought IT is什么东西，but怎么样。我原本以为这个东西是这样的，但是他他没有像我以为的一样。再比如说originally最初我认为是什么什么样的，但是它其实也并不是这个样子的。At first我以为它什么样，但也不是这样的。</p>
+    <p>好，还有actually in fact这开头的这后边可能都是直接跟正确答案的。好，那就有一个问题了，也是大家经常会问我的一个问题，说一定是转折之后跟正确答案吗？实话实说不一定，这个要看具体的语境。然后我们以后做题的时候，我也会给大家积累具体的语境，好吧？</p>
+    <p>好，我们再说一说这个干扰信息这个考点。虽然它是我们今天的最后一个考点，但是我们今天这个课还并没有完事儿。因为我一会儿还要告诉大家一个非常重要的事情，就是如何复盘题目，干扰信息考点。就是定位成功之后，有两个以上的疑似答案是你要去识别。那么正确答案有以下几个特点，第一符合题目的要求，第二没有否定，第三没有转折。</p>
+    <p>比如说我们来看一下第十题，这是不是就是一个简简单单就让你填个钱数？The cost of session no campaign。对，这个no campaign就是你的条件，我不要在这里边露营，我要花多少钱？我把这道题给大家感受，再来放一放，你来看一看这个钱到底是多少钱。他那地方叽里呱啦的说了好多个钱数，但只有一个才是正确答案。OK我们来听一听。</p>
+    <p>This like fun。When is IT? It's on the seventeen from ten AM until three. There's a charge of thirty five pants, including lunch or forty pounds if you want to camp in the word.</p>
+    <p>两个钱分别是什么钱？多少钱呢？刚才大家有没有听到两个钱，他说一个钱收钱这个单词charge就是收钱。他说其中一个钱是三十五，一个钱是四十，你猜空格里边应该填哪个钱？我再给大家听一遍，刚才好多同学可能在听的时候并不是特别的仔细，然后一下子错过了，咱们再来听一遍。It's on the seventeen from ten AM until three.</p>
+    <p>There's a charge of thirty five pants, including lunch or forty pounds. If you want to camp in the wood is on the好，所以这把应该是OK了。原句给大家粘过来，大家来感受一下。他说is on，这个时间点不说了，他说叉是这个是35块钱，然后如果是40块钱的话，你就要camp in the wood。但是我们这题提出一个什么条件，它的条件是no campaign，所以no campaign你要填的钱是不是就是35块钱？</p>
+    <p>这个就是一个非常经典的基本信息出现干扰好的一个情况。所以一定要去注意题目当中可能会有带括号的这样的要求，或者没有这直接的带括号的要求，可能也会在别的地方出现一些些具体的要求。你所填的这个正确答案，一定要是符合题目要求的。不能说我看到人家这地方有一个要求，然后我也不管，我就直接就想当然的去做答案，那肯定是不行的。好吧？</p>
+    <p>好，那接下来我们再来看一看这个题目当中剩余的几道题。剩余的这几道题其实都挺有意思的，也都符合我们的考点OK。比如说我给大家放一放这个八和九这两道题，这两道题咱们一块儿放好吗？</p>
+    <p>好，然后大家来先来看看这个题干，看题干第八题suitable for谁to participate in这个participate in这个小词组，它是一个固定搭配，表示的是参加参与。Participate in这里它表示的是参加参与，他经常替换什么了，take part in吧？或者drain也可以。Suitable这个单词叫做合适的适合。然后空格里边我觉得是一个人一个人。</p>
+    <p>好，接下来第九题，他说making什么东西out of wood，这道题怎么理解？就制作一个什么东西从木头里边，所以它的意思就是以木头为原材料制作一个什么东西。这两道题我给大家一块儿放出来好吗？I must buy a new pair.</p>
+    <p>There's a hole in one of my current ones. Well, i'd definitely like to come on the walk. great. Then later this month, we're having a one day woodwork session in hopton wood. I've never tried that before.</p>
+    <p>Is IT all key for beginner to take part? Definitely, they'll be a couple of experts leading the session, and we keep the number of participants down, so you'll get as much help as you need. excEllent.</p>
+    <p>I'd love to be able to make chairs. That's probably too ambitious. For one day, you'll be starting with wooden spoons, and of course, learning how to use the tools. And anything you make is yours to take home with you. This sounds like fun.</p>
+    <p>When is OK好了，整个听力这两个答案都已经出来了，所以刚才我为什么让大家听一下？因为这两个题其实也是有考点的。第一道题应该是一个先给他对话，先给答案对吧？是这个女生先问了一下，女生问is IT OK for beginners to take part？然后这个男生回答了一个非常肯定的词叫做definitely。所以这个beginners就相当于是第八题答案了。</p>
+    <p>好，这个地方我们再来。I've never tried that before, as it'll keep for beginners to take partly OK. 男生是不是非常confirm说了一个definitely，definitely这个单词是这个单词，注意一下。好，接下来他就开始讨论到做什么东西了。</p>
+    <p>这个女生上来又挺有意思的，他说我想做一个chairs，然后这个chairs得到了男生的confirm吗？这个男生说your too ambitious，这个啥意思？就是太有野心了。这个单词在这里肯定是一种否定的对吧？就是否定了他想做chair的这个想法。然后这个男生提出来了一个option，他说你一天能做完一把wooden spoons就挺不错的。所以你不要想那些的，你不要想要自行车。</p>
+    <p>好，来。excEllent. ID love to be able to make chairs. That's probably too ambitious for one day. 从这个哼你能不能感受到他这个语气就是在嘲笑，嘲讽就是不能做不能做。You'll be starting with wooden spoons，and of course learning how to wooden spoons.</p>
+    <p>所以我们这道题正确答案就是spoons。然后上一道题是beginner，然后这道题答案是30对吧？好，那中间这两道题我们是不是也要尝试一下呢？</p>
+    <p>是的，中间这两道题。第一道题咱们来看一下，它肯定是一个动词题。因为它说work，这个叫走路walk，cross the sand and reach the什么，所以你穿过沙滩到达哪里。然后第七题是让你穿一个合适的什么东西。这俩题第一个题我认为是动词替换，第二个题我认为是空前这个形容词替换，来咱们感受感受好吧。</p>
+    <p>The island, yes, we do. The next work is to rustin island. A week on saturday will be meeting in the car park at dunes, more beached, low tide. That's when the sands are dry enough for us to walk to the island without getting wet.</p>
+    <p>这个地方它已经有替换rich这个小词的动词了，不知道大家有没有感受到，我们再听一遍。Yes，we do. The next work is to a rustin island.</p>
+    <p>A week on saturday will be meeting in the car park at dons more beach at low tide. That's when the sons are dry enough for us to walk to the island without getting wet. Yes, we OK.</p>
+    <p>我们来看一下这句话，他怎么说呢？他说that's when the sands are joined up for us to walk to the island without getting wet。所以他说这个是这个沙滩还是非常的干爽的。我们可以walk to这个rich这个小词，这个rich这个小词是不是等同于walk to了，对吧？所以答案词就是这个island OK。</p>
+    <p>然后接下来问穿什么？咱们继续往后听。Do the next work is to rustin island。</p>
+    <p>A week on saturday, we'll be meeting in the car park at dunes, more beach at low tide. That's when the sands are dry enough for us to walk to the island without getting wet. Sounds good.</p>
+    <p>The island's a great place to explore. It's quite small and it's got a range of habitat ATS. It's also an ideal location for seeing seals just off the coast or even on the beach.</p>
+    <p>And is there anything we should bring like a picnic, for instance? Yes, do bring one as it's a full day walk. And of course, they'll be wet walking across and back, so make sure your boot so waterproof.</p>
+    <p>I there's a的这个地方是答案，大家感受到了吗？对吧？他说一天都走路非常的劳累，所以你要去做一件事情是什么呢？来，我把这个放在这儿，他说让你make sure your boots are waterproof。</p>
+    <p>这个waterproof这肯定是一个形容词，它表示的是防水的。还记得我们空前是什么单词吗？Appropriate这个单词是什么意思？它叫做合适的，合适的在这个场景里边穿一个防水的靴子是不是就是合适的靴子，对不对？所以他说了so make sure your are waterproof。</p>
+    <p>这里这个so其实是一个很关键的句型。一般来说带so的句型可能都和答案有点关系。他让你确认你的靴子是一个防水的OK，所以它是合适的。那么这个答案就是一个boost。注意这个boost这个答案在拼写的时候是不可以少S的。因为它和shoes是一样的，就是自带复数的单词。你总不能穿一只，对不对？所以必须要加上一个S这样才可以。</p>
+    <p>OK我们稍稍总结一下咱们今天做的这个题目和我们刚才所讲过的考点。对于考点这件事情，我非常认真的在意它。因为当我在读题的时候，能够识别出来它是什么考点，是不是我听的时候就能够给自己省点劲儿，这就是我为什么去给大家讲到这个考点。当然有同学会说老师对话间给答案或者干扰信息，我怎么能识别出来呢？你比如说像这个钱数，你一眼就应该告诉自己这东西肯定有干扰信息。他给的条件就是no campaign，以他一定要说一说camping花多少钱，不camping花多少钱，对不对？所以这也是和做题经验会非常的相关。</p>
+    <p>好，做完题目之后，我们还要干一个事情叫做复盘。今天我要告诉大家做完题之后你要如何复盘，以及复盘到什么深度，这个也很重要。好，这题这不整个咱已经做完了吗？那么接下来之前我讲过精听，就是我讲过如何操作精听。今天我就带着大家咱们一块儿去试图复盘这个题目。那咱做完这个题目了，现在我就试图把这个题目去进行一个复盘。打开听力当中的这个原文，也就是练习。然后这个精听练习，你就可以看到文本内容了。</p>
+    <p>然后这个时候你把这个题目可以对照着去看啊，就对照着看题，然后对照着去看这个听力的文本内容。这样的话我就把这个部分截个图给大家放到笔记里，这样是不是对我们来说就比较好操作一点？好，这是我们做过的题目，现在大家可以在笔记当中去看到。</p>
+    <p>然后接下来我们就一句一句去听了。这一句句听到什么程度呢？一句一句听，听到的程度就是你脑子里反映一下，你理解了，而且这句话当中的生词你摘录了摘录了出来。这个你可以摘录到这个本子上，也可以比如说你给摘录到你的文档里面都可以。</p>
+    <p>好，接下来我们对照咱们做的这个题目来听。Hello, oh hello, am my named john. Are you the right person to talk to about the bucket wth conservation group? Yes, i'm Peter and the secretary.</p>
+    <p>Conservation这个单词整理一下，conservation OK保护，它对应的动词是conserve，OK保护的动词。然后他刚才说了i am Peter and secret tree这个过程如果说你能读一下也可以。如果你不读的话，那至少你听完脑子里边知道是在说什么，就OK这个叫做秘书长。</p>
+    <p>好，接着往后。good. I've just moved to this area, and i'm interested in getting involved. I was in a similar group where I used to live.</p>
+    <p>Could you tell me something about your activities, please? Of course题还没进去，但是get involved的这个小词组，我们可以给它积累上叫做参与，其实它等同于engage的。就是表示参加参与的意思。OK接着。Well, we have a mixture of regular activities and special events. One of the regular ones is trying to keep the beach free of litter. A few of us spend couple of hours a month on IT.</p>
+    <p>他说有一个regular one，他说try to keep the beach free of。我为什么把这个句子写这么多？因为它和题目是统一替换，对吧？题目这个doesn't have然后litter和try to keep the beach free of litter这个地方，这个东西就叫做统一替换，否定的统一替换OK好，整理出来，接着往后。And it's awful how much there is to clear. I wish people would be more responsible and take IT home with them is awful, awful.</p>
+    <p>这个单词虽然认识，但不太常见，我就给他弄上，就是很糟糕的。然后他希望人们be sponsible responsible OK负责，希望人们能够更负责任的。它对应的这个负责的，然后它对应的名词是s responsibility ES，这是单数，是Y结尾的responsibility service是名词责任的意思。这个就是大家在复盘的时候，你应该自己去操作的事情。把你该会你会的，你脑子里边积累的和这个文章告诉你的，咱们都给它整出来，整成一个这样的文档。</p>
+    <p>I total agree，i'd be happy to help with that. Is that okay to take dogs? I'm afraid not, as they banned from the beach itself, 这个地方他说的是一个对话间了，对话间给答案is IT OK to take dogs，不能带狗。然后这个男的说i'm afraid not，这是非常明显的标志词。另外他说了一个ban，ban是个名词，表示禁令禁止的意思。好，这个题对话先给答案过了。You can take them along the clifts though.</p>
+    <p>And什么叫Cliff？这个Cliff这个单词如果你不会的话，你可以看一看原文，along the Cliff，好，把它摘抄上。Cliff这个叫做悬牙，你可以带他们去悬崖走一走。他用的一个介词是along the clip，就带着去悬崖走一走。好children，welcome, right? We also manage nature, serve nature reserve.</p>
+    <p>这个虽然是题干单词，但是也值得一整理，它叫做自然保护区。OK好，接着走起。There's a lot to do. They are all year around, for example, because it's a popular place to visit, we spend a lot of time looking after the path of maintaining path.</p>
+    <p>人家说的是什么maintain，这个叫做维护，然后pass，他说的是look after写原型就行了，look up，是不是积累了个动词替换？在这儿对吧？好，接着往上继续听。And making sure they are in good condition for working。说这个东西我还要make sure它是good condition for working。这个walking肯定是走路的意思，就是它可以很好的去配合徒步、走路。I could certainly help with that good。And we have a program of creating new habitats there, creating new habitat，所以可create habitat，这就是一个搭配，叫做创造家园。</p>
+    <p>好，接着继续。Just finished making and installing nesting boxes for birds to use. And next we're going to work on encouraging insects, encourage insects。OK好，attract这题干词等于in garage，然后inside此次注意，它是个复数的。Very important for the biodiversity of the reserve, 说这个东西important for biodiversity，biodiversity这个单词认识吗？生物多样性OK写上去，接着往oh，and we're also running a project to identify the different species of butterflies that visit the reserve.</p>
+    <p>他说还有一个running a project，a这个run a project这个run这个小词等于Operate，这个叫做运营运营一个什么什么项目。Identify different species of butters butterflies, 所以应该他是说的是什么types of等于types of等于different species off。所以又积累了一个同一替换。You might be interested in taking part that you might be interested to take part in that take party in that.</p>
+    <p>这个take part I take part in。刚才我怎么记得咱后边有一个party pay in I同一替换机的H，R, I was involved in something similar, where I used to live, counting all the species of mouths, counting all the species of the mouth. 这地方counting是什么意思？叫做数一数，计算一下count数数的意思。那个那个spaces of mouth，这个mouth大家认识吗？这个单词叫做蛾子的意思。蛾子那蝴蝶就比它好看一些，嘿嘿，好，继续。I enjoy that.</p>
+    <p>Another job with doing at the reserve is replacing the wall on the southern side between the parking area, and a watched IT was badly damaged in a storm last month. 另一个build a new等于replace，如果replace这个小词你已经都会了，就简写。还是由于storm，这个storm就是暴风雨。好，storm这个单词也可以积累一下。STORM，刚才是不是拼反了？暴风雨这个badly damage，这个damage叫破坏，OK好，接着OK。</p>
+    <p>Then as I said, we have a program of events as well, both at the weekend and during the week. great. I presume you have guide IT works, I presume这个单词是一个结构词，以后也会遇到，所以这次整理一下，我猜想就是我大概i think它其实就是等同think的意思。我认为我认为你们可能会有一些guide IT work，就是大概有导游给你去指导一下的那样的。</p>
+    <p>I'd like to get to know the local countryside as to the, yes, we do. The next work is to rustin island. A week on saturday will be meeting in the car park. Done more beached. Low tide这个low tide它叫做潮，比较低的时候tide这个单词是个名词，叫做潮汐，刚才如果有地方没有听懂，这个地方也给它整出来了。That's when the sons are dry enough for us to walk to the island without getting wet.</p>
+    <p>这个地方它有一个连读，你发现了没有？这个连读它是for us这句话给大家整体看一下，他说that is when the sanda join a for to work。Yes, we do.</p>
+    <p>The next work is to rustin island. A week on saturday will be meeting in the car park, guns, more beach at low tide. That's when the sand are dry enough for us to walk to the island without getting wet.</p>
+    <p>所以这个for us它是不是读成for us对吧？所以这地方可能是一个连读，那如果对连读不敏感的同学，这里可以稍一个积累，就大概把这句话或者你自己写出来也行，或者你粘贴出来也行。然后这个地方是一个连读，for us它不是一个词，是个小连读。</p>
+    <p>好，接着画。Sounds good. The island's a great place to explore. It's quite small and it's got a range of habitats, is also an ideal location for seeing seals just off the coast or even on the beach. OK.</p>
+    <p>他说这个地方是一个很好的地方去explore，这个叫探索或者探险。它虽然很小，但这个地方我们可以看一些，不是这个叫海报，可以看到这个海报。Off the coast这个小表达大概就是离海边很近的地方OK那接着OK。And is there anything we should bring like a picnic, for instance? Yes, do bring one as it's a full day work.</p>
+    <p>Full day work就整天都走，and of course they'll be wet walking across the back, so make sure your boots so waterproof. Waterproof这个单词，waterproof这个单词其实有名词。如果当名词讲，它其实就是冲锋衣的意思。然后如果当形容词就是防水OK。</p>
+    <p>There's a whole in one of my current ones. Well, i'd definitely late to come on the work. great. Then later this month, we're having a one day woodwork session in hopton wood. I've never tried that before as I will keep for beginners to take part. 这个词组刚才已经积累过了，就是take part in等于participate in。对，刚刚才这个应该在在这儿已经给大家积累过了，所以咱就不再写了。</p>
+    <p>Definitely be a couple of experts leading the session。他说有couple of experts leading the session力的这个叫做带领的意思。当这个词当动词讲就带领，如果当名词讲，就叫做狗绳，狗绳就牵狗的绳子。如果是领导，他这个leader这个是领导，他说有expert，这个叫专家，有专家lead这个就是leading the session，就是组织这个课。</p>
+    <p>We keep the number of participants down，so you'll get as much help as you need. excEllent. I'd love to be able to make chairs. That's probably too ambitious. For one day, you will be starting with wooden spoons.</p>
+    <p>对话间给了个女生想要做chairs，被无情的嘲笑了。然后他说你能做个勺就不错了。Ambitious这个单词among它是个形容词，野心的，它的名词是ambition，这个单词是名词野心OK他这个词有时候褒义有时候贬义。And of course，learning how to use the tools and anything you make is yours to take home with you.</p>
+    <p>That sounds like fun. When is IT? It's on the seventeen. From ten AM until three, there's a charge of thirty five pants, including lunch or forty pounds if you want to camp in the wood.</p>
+    <p>关于收钱，他说的是charge，这个charge它有名词的意思，也有动词的意思，都可以。关于钱，还有几个钱，也说一说方言这个单词，名词有罚款的意思。他可不光表示i'm fine，thank you and you a表示罚款，然后income这个单词这个是收入，而且有的时候指那种年收入，就是指的是这一总年度的收入。所以他有可能前面加一个annual，annual income就是年度总收入。Wow, I certainly like to join the group. OK finish.</p>
+    <p>好，所以刚才我们在干的这件事情就是复盘。这个复盘因为我默认大家做完题之后，可能对于错题都已经理清楚了，我们都知道为什么了。那复盘的时候复盘几个事儿，一复盘生词这个单词我认识但我不熟。你比如说像conservation secretary这个单词就是我认识但我不熟。因为听力单词和阅读词汇它本质上有非常大的差别。就这单词，比如说secretary，secretary这单词我放在阅读里边各位肯定都认识。但是听力当中你可能就不熟，但凡对音不熟的单词你都给它记上来。因为你是听他讲的时候，你觉得自己不熟OK，那肯定要记得。</p>
+    <p>好，第二个就是替换，因为毕竟题干和原文是会有非常多的替换的，类似于像这样东西你都给我记一记，所以积累生词积累替换。另外再就是记结构，什么叫结构？这个单其实part one记结构这个事情我们干的并不多哈那比如说这个句子它有这种并列句或者有转折句。那刚才在结构上我告诉大家带so的句子有可能是答案句，对吧？这个其实就是到这就叫做忌结构。所以其实我们在复盘的时候就记这三个东西就可以了。</p>
+    <p>一篇文章从我们做题到我们去查错题，到这个复盘，一篇part one的文章值得你分配多少时间呢？正常做题十分钟，然后你去看一眼错题十分钟复盘我估计是20分钟到30分钟。因为大家跟我一块复盘可能比较快，我就带你听一遍，我就咔咔咔都整理出来了。你自己是不是可能还会来回在那个点上去拉扯，所以可能自己复盘稍慢一点。也就是说一篇听力大概弄40分钟，这个是一个比较优秀的时间分配，就既没有太快也没有太慢。</p>
+    <p>OK好，那我们总结一下今天这节课给大家讲的一个整体内容。今天我们把part one方法论的部分又带着大家重点梳理了一遍。同时我们拿着这些方法去拿了一篇题目来进行了验证，发现题目确实非常多的考点信息，对吧？就考点内容非常的match。我又教给了大家题目做完应该如何去复盘，复盘到什么深度。希望这个对大家后期的刷题都是有帮助的。我们下两节课会分场景给大家继续讨论power win的题目。OK, see you next time, 拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-04.html">精讲逐字稿</a></li>
+      <li><a href="qa-04.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-03.html">上一讲 03</a></li>
+      <li><a href="lesson-05.html">下一讲 05</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

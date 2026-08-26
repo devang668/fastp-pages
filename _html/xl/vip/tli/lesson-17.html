@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第17讲 · 科学场景：植物学与动物学 · 听力VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 第 17 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="tli-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">听力目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a class="active" href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第17讲 · 科学场景：植物学与动物学</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次英语听力训练课程中，主讲人通过分析植物学和动物学场景的听力材料，深入讲解了多项选择题和填空题的解题策略。强调了听力理解的重要性，建议学生注重细节，预测词性，并有效应对替换类考点。主讲人指出，不需过分担忧生词，关键在于理解做题步骤和练习。通过具体实例，教授如何预判答案、处理并列结构和替换考点，以及根据上下文选择。此外，提醒学生在听力训练中注意时间管理、预测能力和深入理解题目。整体目的在于提升学生在自然科学领域的英语听力理解能力，通过实例和技巧指导，帮助学生有效备考。</div>
+    <div class="tip">本讲含 25 组问答精要，可到<a href="qa-17.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次英语听力训练课程中，主讲人通过分析植物学和动物学场景的听力材料，深入讲解了多项选择题和填空题的解题策略。强调了听力理解的重要性，建议学生注重细节，预测词性，并有效应对替换类考点。主讲人指出，不需过分担忧生词，关键在于理解做题步骤和练习。通过具体实例，教授如何预判答案、处理并列结构和替换考点，以及根据上下文选择。此外，提醒学生在听力训练中注意时间管理、预测能力和深入理解题目。整体目的在于提升学生在自然科学领域的英语听力理解能力，通过实例和技巧指导，帮助学生有效备考。</p>
+    <p>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们今天要开始来练习一下part four的整个篇章。上一节课我们讲了part four的一些个考点，事实上part ford都是填空题，所以希望各位同学在练习的时候也要注意你对细节的把控，以及对于空前空后单词替换的一个整理。</p>
+    <p>OK我们今天的两篇文章，第一篇文章是一个植物学相关场景，第二篇文章是一个动物学相关场景。刚好它们都是自然科学类的那所有的自然科学类的文章，其实它都是有一个非常共性的特点。这些东西它其实都是事实，对吧？因为自然科学它就像百科全书一样，所以它都是事实。所以基本上都是老师在给你介绍这样的一个过程，这个介绍的过程当中可能会有一些生词。因为自然界有这么多东西，动物有这么多，植物有这么多，不见得每一种我们都认识，且也不见得每一种我们都知道他的英语是怎么说的对吧？所以遇到不认识的生词其实也无所谓。至于那些科普的过程不重要，重要的就是我们题的过程，做题的步骤再给大家复习一下。</p>
+    <p>第一个步骤肯定是要先读题的。读题官方给出来的时间分配大概是一道题6秒钟左右的时间，这个时间对于绝大多数同学来说都是不太够用的。所以时间不够用怎么办？抢其他部分的时间，就是你section one和section two这时间都富富有余，所以把这两个部分的时间挪出来，来给section 3和section four，那这样的话你的时间是不是就平衡了，对吧？</p>
+    <p>好，所以读题的时候一定要注意预测。这个预测包括两方面，一个是内容，一个是磁性。就是你最次也得给我预测一下这个空上所填单词应该是一个什么词性，总不能连雌性都猜不出来。那你听的时候你的目的是什么呢？对不对？</p>
+    <p>所以这个读题的过程，当然你还要干一件事情叫做识别考点。啥叫考点来着？这是上节课我们重点讲的东西，对吧？比如说有一些结构类考点，替换类考点，这个都是我们上节课所讲的内容如果有忘记的话要go back，就是要到上节课内容再去查看一下。</p>
+    <p>好，接下来第二件事情就是听题。听题的时候不丢是大前提。你说你做趴或者做着做着夸丢了，不知道他讲哪了，你这题就白做了。所以不丢是大前提。在跟上节奏的同时，你要找到替换的锁定答案，然后要正确拼写，如果拼写有不正确的，那这个分也就没了，所以拼写必须要保证。好，这个就是整体爬坡的一个做题流程。</p>
+    <p>接下来我们就拿第一篇文章咱们一块儿来练一下。更何况上节课在讲考点的时候，其实对于常规的考点我没有并没有给大家非常深入的去讲解，也没有拿例题就给大家巩固一下。今天第一篇题目就相当于我们是对于常规考点的一个巩固了。</p>
+    <p>好，拿到题目一看，空上单词one word only。接着我们一看maple syrup，有同学可能不太认识syrup这个单词，serve这个单词的意思叫做糖浆这个单词。实话实说，我也是出了国之后才认识的，因为当时就是咳嗽，然后就到那个药店里面去买药。然后那个药店里边的工作人员就给我推荐，说让我喝点。Siri我说啥叫CP？然后来发现其实就是止咳糖浆了。OK所以这是糖浆。</p>
+    <p>Maple这个东西叫做枫树，所以这个maple syrup它叫做枫糖浆。大家应该都吃过枫糖浆，就是那个华夫饼上就像蜂蜜一样黏黏的那个糖。其实我一直以为这是一个就类似于像奶油一样是一个制成品，但后来才发现，原来是一个天然的食材。</p>
+    <p>好，我们来看这个空空所在的这个位置。首先它分了如下几个部分。第一个部分给我们介绍了一下什么叫做maple serve。然后接着第二个部分给我们介绍了一下maple tree，也就是这个枫树。第三个部分说一下这个早期的生产，然后最后一个部分说一下现在的一个生产。所以整个是一个四个部分。按照这个黑体字儿，其实文章整体的这个大框是给了对吧？</p>
+    <p>好，接下来我们来看一下对应题目，没有题的部分。在大家第一次读题的过程当中，没有题的部分其实就略看有题的句子详看啊。他说这个color describe as，所以31题我在进行预判的时候，我就知道这里边要填一种颜色。你说他是个吃的，这个吃的总不会是赤橙黄绿青蓝紫什么的颜色。那大概你就想想，如果你认识map那玩意儿能是个什么颜色，就是那种黄色的或者金色的这类颜色。</p>
+    <p>所以第一个空我觉得就是送你的，然后第二个说什么very怎么样，compared to the refine sugar, sugar这个大家都认识叫做糖，就和糖相比它very very good，very怎么样。所以空格里边因为是不是应该给我们填一个形容词，对吧？所以只要你能够在读32题的时候，预测出来这是一个形容词就是可以的。所以我现在在笔记上给大家呈现的这个过程就是预判的一个过程。</p>
+    <p>好，接下来我们来看这个分数，这些前三行没有啥东西，没有题，它有东西但没有题，没有题略看甚至不看好吗？接着我们说这是一个并列结构的题，前面说的是best growing condition，也就是生长条件比较好呗。还有什么东西什么然后in canada and north america。所以对于加拿大和北美盛产枫树这件事情，它符合了两个条件。第一个条件就是生长自然条件比较好，就是good condition比较好。第二个就是什么比较好。所以在第33题读题的时候，我能预测出来空上应该是一个名词。且这道题它是一个并列结构，它是和这个conditions这个单词构成的一个小并列。</p>
+    <p>好，接着我们来看34题，34题之前又出现了什么1964，这时间点这都不重要，重要的往后继续看啊，已经要跨部分了。说到早期的生产了，这个34题说is hot，什么东西to hit the sap，所以这道题其实空上肯定是一个名词，空前有个hot，形容词必有替换。然后空后有一个heat，这是个动词，动词也必有替换。因此这道题的考点就是形容词动词替换的考点。OK这是我在读题的时候进行预判，我预判出来的这个内容用热的什么玩意儿去加热这个赛。至于sap是啥意思，大多数同学可能都不认识了。那不认识没关系，你就记住这个读音就可以了，好吧。</p>
+    <p>然后接着today's may conserve，然后说这个树它这个树干这个trunk叫树干。树干may not have the correct什么东西until they grow for forty years。所以空前有一个形容词，那空上肯定得是一个名词。这个correct这个单词它毕竟是一个形容词，它必须得有替换，也就是说这个树干需要找到一个正确的什么。这个过程可能需要40年之久。正确的粗细，正确的大小尺寸，反正之类的这样的单词好，接着这没有题不看了，这OK继续一个tape，tape这个叫水龙头drilled into这个叫插进去，这钻钻进去，钻到这个树干上，然后一个什么玩意儿Carry the step into the bucket。所以这里是一个并列结构，但它并列的是两个动作。</p>
+    <p>那么三十六题，它所并列的是两个动作，一个动作就是把这个水龙头转到树干上，以及一个啥空前可是有冠词，所以这空后肯定得加一个名词。一个这个东西它所起到的一个功能就是Carry the step into the bucket，所以它是有动作的，包括这个Carry有可能是有替换的OK。好，接着我们来看37题，37题他们都是large pen，这个叫大锅。然后他一口大锅装着这个sap然后叫做evaporator。Evaporator这个单词它叫做蒸发器皿。它其实从eva ate这个单词来的，这个动词叫做蒸发OK所以就是一口大锅，它被叫做一个蒸发的器皿，它被加热。</p>
+    <p>这题是一个被动语态，by means of a什么，所以这道题它应该是一道难题。这个在我读题的时候就看出来了，因为它是一个被动语态。被动语态如果换成主动语态的话，可能会涉及到语序的变化。因为被动语态的一般结构是something be down by somebody，主动语态somebody do something，对这个句子的结构可能是会发生变化的。我已经预判出来这道题是一道难题了，如果我没有get到答案，那我就快速放弃它。OK, 这道题就是它被一个什么东西进行加热。那能产生加热形成热源的无非就是那么几个东西呗，什么木炭、木材什么类似于像fiel，那个叫什么东西燃料之类的对吧？所以这类东西才能起到一些加热的作用。</p>
+    <p>OK好，接着38题空前有一个啥玩意儿？A lot of，那这道题其实大概率就是听这个a lot of的替换词复数，这个叫做复数提示词的替换。那a lot of可能会替换成什么？比如说什么march，或者什么a large amount of什么类似之类的，我就不给大家具具体说了，这个后边估计得加一个名词，如果是可数的话，它得是个复数。这都是我在读题的时候预判出来的东西，你预判出来了吗？如果你预判的跟我一样，那就意味着你有得高分的潜质。如果你没有想到我想的这些内容，那证明你还有提升的空间。</p>
+    <p>好，39题sugar sand is removed。对，就这东西被弄出来了。因为什么呢？它这个它指的就是这个sugar send使得这个syrup看起来怎么样，看起来好，看起来不好，以及影响它的什么呢？后边这单词影响它的口感，所以它被弄出来是因为两个原因，一个是影响它看起来怎么样了。我认为空上得是一个形容词，或者有可能你说填副词？我觉得不太像，它大概率应该得是一个看起来怎么样的对吧？以及影响口感OK然后这题还是一个并列。</p>
+    <p>好，接着四十题，这个说的是huge quantity of service need to make a什么of my preserve，一大堆的sap被需要去生产一个什么东西OK，这个其实就相当于make这个小词很重要了。以及这个beauty quantive，这个你是不是得听清？OK了。</p>
+    <p>好，那别忘了我们在做题的时候，其实也有一些技巧。除了我们听到替换词之外，比如说像否定词not比如说像介词这东西都可能不变。像冠词是不是也有可能不变？这就是我们做题的一些小技巧了。</p>
+    <p>好，拿到这个题，接下来我们要干的就是做题一，那咱们就一起来喽。Hello everyone, today we're going to look at another natural food product, and that's maple syrup. What is this exactly? Well, maple syrup looks rather like clear honey, but it's not made by bees. It's produced from the plant fluid or sap inside the maple tree, and that makes maple syrup a very natural product. Maple syrup is a thick, golden, sweet tasting liquid OK.</p>
+    <p>前面的那一些介绍，就是什么它是一个天然食材什么的无所谓了。但是我听到了一个单词golden golden，这是和我预测的颜色一致，对吧？我本来一想这个玩意儿就应该是黄的、金色的OK。所以他当时的原句是怎么说的，他说这个maple tree它是一个什么fake thick，这个叫做厚的浓稠的。然后说它是一个厚的浓稠的，然后golden liquid对吧？好，所以这里这个答案肯定是golden这个单词送你的一道题，送的题是必须要拿到手里的。接着往后看，它非常的怎么样一个预判的形容词。Waffles and ice cream or used in the backing of cakes and payment.</p>
+    <p>Ries IT contains no preserve tips or added ingredients, and IT provides a healthy alternative to refine sugar. Refine sugar来了，然后前面说了什么？前面这句话他说的是IT provide a healthy alteration to refined sugar OK。好，这半句话我给大家写下来，完整的写下来了。</p>
+    <p>我们来分析一下答案应该是什么。虽然我的预判是一个形容词，这不就在这儿吗？已经出来了。但是有同学就给我写了个alternative，他说这玩意儿是个形容词哈哈。Alternative这个单词确实是有形容词的属性，它叫做可选择的。但是在这里边它是个名词，叫做代替品。</p>
+    <p>那这句话是啥意思？说这个枫糖浆提供了一个和refine sugar相比一个比较健康的选择，对吧？就是一个比较健康的代替品。那空格里边的形容词应该是healthy，注意这个单词，我教了这么多年书，好多同学还是分不清health和healthy。Health是名词，表示的是健康，然后healthy这个表示形容词表示的是健康的OK好，所以空格里边肯定是healthy。</p>
+    <p>前两个空都是送分空，只要你去认真的听了，并且就是你读题的时候读懂了，而且你要认真的听了，我觉得这个题就应该是拿出来的题，就没有什么可商量的。好，接着我们就继续往后，在33题出来之前，你跟我一起来完成一些任务，咱们把这个题干上，当时没有怎么看的东西，我们在听的时候，如果出来了这个单词，我遇到原词了，听到原词了，咱把它给标注一下，好不好？这是咱们一起的任务。</p>
+    <p>Let's just talk a bit about the maple tree itself, which is where maple syrup comes from. So there are many species of maple tree, and they'll grow without fertilizer in areas where there's plenty of moisture in the soil. However, they'll only do this if another important criterion is fulfilled, which is that they must have full or partial sun exposure during the day and very cool nights and out OK.</p>
+    <p>这个地方是不是都已经把这些信息都听到了？刚才随着我在屏幕上标颜色的时候，各位同学你们是溜号了，还是跟着我一块在听。其实文章里面所说的内容，你真的听懂了吗？Are you understand? Actually not就没有非常的fully understand。但这几个词儿你能不能get到，就比如说人家在说这个species的时候，是不是听到了。</p>
+    <p>然后再说到这里边还有非常多的什么without fatalities，er fertilizer without, 还有什么in the soil也有。然后他说你必须要满足一些条件，什么sun exposure，就有sun还得有cool night。所以这些信息标黄的信息就是刚才听力当中原词重现的东西。</p>
+    <p>那接下来你是不是要做题了？看一下我们的预判，33题并列结构和condition相并列的另外一个单词。这道题实话说不是特别好做，认真听。Lot more about that in a minute.</p>
+    <p>There are only certain part of the world that provide all these conditions is canada. And by that, I mean all parts of canada. And the other is the north eastern states of north america. In these areas, the climate suits the trees perfectly. In他说in these areas，the client is the tree perfectly.</p>
+    <p>我为什么说这道题是一道可错题？那相比较难一比较难的原因是因为他所说话的结构。他说在全世界并不是所有的地方都满足这些个条件，满足这些条件地方只有两个，一个是加拿大，于是他对加拿大进行了一番展开讲讲，讲讲了半天，然后他说另一个就是美国，然后又展开讲讲。然后接着他用了一个代词，这个代词就是this。他说in these areas，在这样的一些区域当中，他说the climate，the climate suits the tree perfectly OK.</p>
+    <p>好，所以其实就相当于condition出现在最前面，就是这个condition这个单词出现在最前边，然后出现了加拿大，出现了北美，这都是后边的定位了。然后解释完了之后后说在这些地方the client suits the tree perfectly。还有一大难点，这个题好像很多同学把这个答案写成了写成了复述这道题是错误，就是算错。为什么算错？你听我给你解释。还好多好多同学跟我battle，他说老师我听那个听力原文里边，他就是说是一个复数。行，我先放一遍这个听力原文，你先感受再感受一遍。In fact, canada produces over. 等一下，刚才我得往回倒腾一下子。In these areas, the climate suits the trees perfectly.</p>
+    <p>你有没有发现这地方是一个连读，the climate suits, 所以它其实就是这个的这个音其实是来自于后边这个suit这个单词的S。那我为什么这个空上必须要填单数？大家必须要听我的解释。你想气候，如果这个地儿的气候适合一个生物的生长，它是不是就是一个气候？你总不能说这个地方有好多种气候都适合这个地儿的这个东西的生长。所以其实适合这个东西生长的condition条件可能有很多，你比如什么温度、湿度什么的。但是气候它应该是一个统一的气候，所以它不应该是有不同的气候，所以这里不应该加复数，对吧？所以这道题非常容易错，这道题如果做错了的话，我觉得也是情有可原的。</p>
+    <p>好，答案就是climate单数，注意整体结构大于内容。这道题虽然考的是并列结构，但是在听的过程当中，它远比并列结构这个单一结构要复杂了一些。先出现了condition这个单词，再出现了后边的地点，后面又用到这个代词指代这些地点，又说到了在这些地方climate suits the trip perfectly。然后这地方还有一个连读考的一些语音现象，所以这个空如果错太值得了，错了呗无所谓。</p>
+    <p>OK接着我们继续往后听34题，这道题我们已经知道这个题考的就是你形容词和动词的替换，那我们就关注形容词和动词替换继续。In fact, canada produces over two thirds of the world's maple syrup, which is why the five pointed may believe is a canadian symbol and has featured on the flag since nineteen sixty four. 听到什么我就顺手画一下。How did maple serve production begin? Well, long before europeans settled in these part of the world, the indigenous communities had started producing maple sugar.</p>
+    <p>They bored holes in the trunks of maple trees and used containers made of tree bark to collect the liquid sap as IT pulled out马上了。As they were unable to keep the liquid for any length of time, they didn't have storage facilities in those days. They boiled the liquid by placing pieces of rock that have become coaching hot from the sun into the sap.</p>
+    <p>刚才这句话当中，我相信大家应该有很多人都听到了boiled liquid。所以heat它的sap它是最小的一个部分。在文章当中它其实就替换成了boiled liquid。</p>
+    <p>其实sap这个单词，虽然你可能一开始并不知道它什么意思，但是随着这个行为的推进，大概就猜测出来。可是从那个树里边去收集出来的一些个水儿，就那个树的一些之就这些东西。然后他说的they boil the liquid，然后后边他说了一个方式状语，by policing这个地方可能就有人反应过来了。By placing pieces of rock which become，我也记不太住了，which become very hot from the sun，好像是这么说的。好，所以它的意思是什么呢？它加热这个液体通过什么样的方式，通过放置一些石头块，然后这个石头块变得非常热，太阳晒着就变得非常热。</p>
+    <p>好，我估计70%的同学是听到了后边这个eight的sap对应boiled ed的liquid。又有这70%里边可能又有50%同学应该听到了hot这个单词的原词。但是可能又只有一半的同学才能做对这个题。</p>
+    <p>这个题其实也是一道相对来说比较难的题目。原因就是在于空前的定位词，你是等它的替换的对吧？它没有被替换，它原词重现，但是它出现在了答案后，这种现象我们叫做后置，叫做定位后置。你的这个hot你期待它，你等待它的替换，但是它却说出现在了答案后，答案在前面其实你都已经忘掉了，对吧？</p>
+    <p>好，我还是要把这句话给大家再放一遍，各位。As they were unable to keep the liquid for any，好，has they were unable to keep the liquid for any length of time. They didn't have storage facilities in those days. They boiled the liquid by placing pieces of rock that have become scorching hug from the sun into the sap OK.</p>
+    <p>好，我把整个原句从这个文章里边给大家复制出来。其实这个过程就是你应该去复盘，然后写出来的过程。早上就是大家课后去练习，课上我们就知道这个原理就可以了。</p>
+    <p>They boiled liquid，这个liquid其实指的就是sap。然后通过什么样的方式？By policing pieces of rock，这个rock就是叫做石头，这个石头来了一个定语从句修饰它了，但它become scorching cold from the sun。这个scotching这个叫极度炎热的，就是从这个太阳晒着就变成贼炎热。然后他们就用这个石头去加热，去加热这个蜂糖，让它变成液体。所以你想象一下这个物理过程，就是这么粘稠的东西其实放在常温条条件下，它其实就容易凝固了。所以它为了让它保持液体的这样形状这个形态，所以他们用热石头去加热它。所以这道题答案就是这个rock。</p>
+    <p>实话说这道题并不简单是一道难题，难题我都会在这稍微标记一下。然后我们在做完整个十个题之后，咱们一块来复盘一下，我们正常应该对多少个题难题。如果你能再稍微对几个你能拿到多少个分数？</p>
+    <p>好，接下来下一道题，下一道题，这个空闲又是一个形容词。你看刚才空前的形容词是变成了定语从句出现在你面前，现在这个空前的形容词会变成什么呢？刚才是不是变成了定语从句？这里边这个that对吧？所以其实刚才是定语从句，那现在这个大空前的形容词又会变成什么呢？好，我们带着一些期待继续往后。They did this until they turned into sugar, and they were then able to use this to sweden, their food and drinks.</p>
+    <p>过了。Since that time，improvements have been made to the process, but IT has changed very little overall. 长暂停，什么都没有。So let's look at the production of maple today.</p>
+    <p>Clearly, the maple force are valuable resource in many canadian and north american communities. The trees have to be well looked after, and they cannot be used to make syrup until the trunks read diameter of around twenty five centimeters. This can take anything up to forty years, as i've already mentioned.</p>
+    <p>我相信百分之百的同学都知道，刚才说的那个对应的内容里边肯定是有答案的。为什么我这么确信？因为我相信百分之百的只听到了这个forty years。那会有同学没有听到这个forty years吗？我不服。如果你没有听到这个forty years，那你给我回炉重造，把part one、part two part再给我重新捋一遍，所以基本上绝大部分同学都知道答案已经过去了，但是我并没有get到这个答案。</p>
+    <p>你为什么没有get到这个答案？其实究其核心就是两个点没有get到。一个是你看题干当中是不是有一个否定，这个否定其实你刚才可能没有听到否定的替换。否定就是这个not until这个否定，你其实没有听到这个替换。这not until不是否定，他表示直到什么什么才，它是一种肯定。直到什么什么才之前我记得我是讲过的。好，就这个你可能没有听到替换。另外第二点就是这个correct和这个小词，你没有听到他的替换，就是由于这两个原因，所以你答案没锁死。</p>
+    <p>来跟我再听一遍刚才那个句子。The trees have to be well looked after. The trees have to be well looked after. 就这个数，你得好好照顾一下，这地方啥也没有，和我们这个题根本都对，就题干没有任何关系。在。</p>
+    <p>The trees have to be well looked after, 说这个树它必须得被好好的照顾着。好，接着往后，look after少个单词，然后接着往后，后边就是重点了。And they cannot be used to make server, 我们一半一半写，他说and they can not be used to make erp你写了。Until the trunks read a diameter, until the trunk reach diameter, 然后接着over around twenty five，seven meters off off around twenty five centimeters centimeters.</p>
+    <p>这个是一个长度单位，表示的是厘米。当这个数它必须得被好好照顾着，然后并列句其实前面这一句话，就这个数被好好照顾，你根本都不用在意，因为它毕竟是一个并列句。那啥叫并列句？啥叫并列成分呢？并列句就是它前面这一半有主谓宾的对吧？数主语、谓语这都有啊。那后面这一半有没有主谓宾也有，那这是不主语吗？谓语都有，所以这两半，那前面这一半就不重要了，从后边这一半开始听。</p>
+    <p>刚才我给大家布置的任务not unto，听到没？Cannot这是not吧？哎这地方是不是有until？所以原词重现了they not unto，但我get到了OK，那答案肯定在这半句话，they cannot be use什么cannot这个they指代的是什么？这个树，对不对？他说这个数cannot be used，就是他们不能用，然后在什么条件下能用呢？说条件了，until the trunk rich diameter of around twenty five centimeter。所以能用的条件应该是这后头这一坨树干必须要到达直径25厘米。</p>
+    <p>好了，空前的那个correct。还记不记得你这空空前是有个correct这个小词呢？Correct的这个小词在文章当中是不是被具体化了，具体化成了一个25厘米。也就是说直到这个树干达到25厘米这么粗的时候，我们才能用这个树去生产一些糖浆，否则的话我们就不能用。</p>
+    <p>相当于这道题它真正的考点是一个形容词被具体化，且这个具体化是一个什么形式出现的呢？后置定语的形式，你看diameter of five centimeter，所以它所能用这个数的条件就是这个数它的直径必须要达到25厘米。这个25厘米就是一个正确的尺寸，这是一个具体化，但它的形式是体现在了后置定语上，所以这道题是难上更加难。</p>
+    <p>所以这个空里边，当然还有一个难点就是在于这个单词。大家可能有些同学并不认识这个单词意思diameter叫做直径的意思，OK。所以如果这个空上单词你再不认识，那这道题基本上就等同于死亡的一道题，它是本文最难的一道题目，所以它是一个难上加难的题。单词又不好拼，然后考点又很难。如果错了，正常你就淡定的面带微笑地接受它。</p>
+    <p>好，于是有同学说，老师你盘一盘，现在总共做了五道题，你说其中的三道题都很难。我估计绝大多数同学做这篇题的时候心态已经崩溃了，崩溃的点其实就在于这里。前两个题正常做出来了，然后咵咵咵三道题没写出来，完了就有同学崩溃了。其实你不用崩溃，因为后边所有题都是简单题。不信我们来做一做，那接下来走起。This can take anything up to forty years.</p>
+    <p>As i've already mentioned, maple trees need the right conditions to grow and also to produce sap. Why is this? Well, what happens is that during a cold night, the tree absorbs water from the soil, and that rises through the trees rescue system.</p>
+    <p>But then in the warming daytime, the change in temperature causes the water to be pushed back down to the bottom of the tree. This continual movement up and down leads to the formation of the sap needed for maple sera. Production科学过程不重要。When the tree is ready, IT can be tapped. And this involves drilling a small hole into the trunk and inserting a tube into IT that ends in a bucket.</p>
+    <p>The tree目前是不是有一个A所以答案是不是tube。他说inserting ing a tube，就是插入到一个就插一个小管子。他说你把这个树干打上一个孔，然后插一个水龙头，然后接着他就会inserting a tube。Insert这个单词本身就表示的是插入的一给大家写一下，插入一个小管子into IT that end in the bucket，所以这个Carry是不是替换成了that end in a bucket？这个后边的意思其实就对应上了，因为这个Q本身这道题巨简单，因为它冠词不变，你就根据冠词不变这题就做了，没什么太太大难度。那你如果说这题有难度，就是前面可能有一冰山，看不见的冰山，好吧，然后接着继续往后看啊，通过什么玩意儿去加热，通过什么去加热，跟我一块儿再继续走起。</p>
+    <p>This can often take several type。Although the workers take care not to cause any damage to the healthy growth of the tree itself, the sap that comes out of the trees consists of ninety eight percent water and two percent sugar and nuts. 数字has to be boiled，so much of that water is apparent.</p>
+    <p>And this process has to take place immediately, using water called evaporators提交定位。These are basically extremely large pants. The sap is poured into these倒进去，a fire is built, and the pants are then heated until the sap boiled.</p>
+    <p>他前面说的这个过程非常明确。他说我们得用一个evaporator去给他加热，这个通常来说都是一口大锅，然后。And then a fire is bill.</p>
+    <p>这道题虽然我在看题的时候认为它是一道难题，但是我发现它也冠词不变。然后人家非常明确的说的是a fire is built，建了一把篝火，接着就加热了，在后边就说了这个加热了冠词不变，所以答案fire。而且你有没发现，只要你提前对这个体进行了预判，当你听到fire这个单词的时候一点都不意外。因为本身我们就说好了，这个空上再填一个能起到加热作用的东西。比如像什么木柴、什么碳、能能能源、什么feel，就什么燃料的这种东西，那fire肯定是能够起到加热作用的，所以就是它这题虽然看着难，但实际好像通过技巧是能做的题目，对吧？</p>
+    <p>好，接着我们听38题，什么玩意儿？很多产生了the this is the water evaporates and the series begins to form。The evaporation process creates large quantities of steam and the sap become这题巨简单，a lot of替换成了什么叫做large quantity。For steam OK, 所以答案是不是steam，steam是什么意思？正气，就是large quantity of steam替换a lot of这题送分题对吧？不说了。</p>
+    <p>好，接着往后看下一道题，这后边的反正都不不算太难。I'm sticker and dancer. And at just the right moment, when the sap is stick enough to be called mobile syrup, the worker removes IT from the heat. After this process, something called sugar sand has to be filtered out as this builds up during the boiling and gives the syrup a cloudy appearance and a slightly greedy taste.</p>
+    <p>买这道题又是送分题，其实就是look这个单词人家有个替换词是吧？这个look这个单词替换成了外表就是cloudy appearance，就是给这个买东西一个不好的这丑陋的灰灰突突的这样的一个颜色。Look cloudy, 就这么一个形容词，简单。</p>
+    <p>好，接着40题也不算太难听。Once this one, the syrup is ready to be package so that I can be used for a whole variety of products. IT takes forty leaders of sap to produce one leader of maple syrup.</p>
+    <p>So you can get an idea of how刚才这最后这道题立即就出来了。前面这个huge quantity sap，这个huge quantic人家替换成了什么呢？它是forty of sap然后to produce one litter of series，所以答案是不是就是litter。Litter这个单词是什么意思？它是一个单位，它表示的是公升就是升。你正常咱那个大饮料瓶，饮料瓶外边是不是有那个L其实它stand for litter，好像就是升的意思。</p>
+    <p>好，所以我们复盘一下整体这几道题。37题这个题虽然看着难，但实际还好。只要做提前的预判应该还OK。35题做不对我觉得太正常了。一道难题、34题、两道难题、33题、三道难题，前面两题送分题，所以整个这个题如果你做好了这个七个题，我觉得是OK的这七个题很难吗？</p>
+    <p>其实你有没有发现，在讲这个part 4的时候，我根本没有在意思的层面上去跟大家过多的纠结。我没有说这是一个什么意思，他讲的是一个什么过程，怎么个变化，你能我一点都没有提我在干什么？我在带着你去预测，带着你去听的时候找到替换。这个就是我带着大家去复盘的这样的一个过程。这个过程如果以后你们自己做题就是要做到这样的对吧？</p>
+    <p>读题读懂了，复盘复明白，那你就知道原来这个题其实无非理论上它就只有那么三道难题。那三道难题好我都不要了又能怎么样呢？我整体拿七个题，其实也是阶段性的达成目标。因为我们总不是说奔着听力要满分去的，大家总觉得拿一个还不错的分数就可以了，那就挺好，对不对？</p>
+    <p>好，这是一道植物学的题，就是讲这个分数的那来看一看这个大象的这个题，这题是一个健十八的题目，讲讲这个大象的这个标题怎么串上去了？等一下我给大家修改一下。这一篇题和刚才这篇题，我觉得是有异曲同工之妙的。就是只要你有一些地方读懂了，它是有简单题的。简单题就是容易拿分好做的，但是它是有难题的，我绝对不排除这绝对是有难题，难题拿不着也无所谓，这就是我们整体的一个做题思路，不能既要又要还要，对吧？</p>
+    <p>好，那这个题我带着大读题，然后咱们你们来做一遍，然后再说一说。首先空上一个单词，然后这一共分成几个部分。第一个部分这个不填了。一些reason就是over population的reason。就大象数量可能比较多呗，这地方没有提就不看了，产生了一些problem，带来两个问题。第一个问题就是它会有比较激烈的竞争，然后带来了一些饥饿，就大象没有吃的了。第二个就是破坏了什么东西，就是这个公园里面的什么东西，这是前两个部分就一道题。</p>
+    <p>然后接着他就开始了这个translocation process，就是整个这个过程。那整个这个过程OK这题就挺多的了，一个一个看吧。他说这适合一些大象，他们是来自于相同的什么，所以这空格里边是名词空前，肯定有一个形容词替换。好，33题你他说这俩人用了什么东西去帮助指导大象，所以用了这地方就应该是范围定位to help guide，就是来给大象指导给他定方向对吧？</p>
+    <p>好，那接着这不认识无所谓。他说这个过程completely quickly to reduce动词替换空前得有动词，减少什么东西空上名词。大象必须要躺下turned on there。你想大象躺下用他们的肯定是身体结构当中某一部分，你总不能说用头躺下吧，对不对？用脚躺下也不太，大概就是用后背，或者用肚子，或者用什么地方躺下。为了避免一些损害，所以这是一个否定词，对吧？</p>
+    <p>OK然后接着往后损害什么呢？他的让他的肺部，所以你要用什么躺下？为了避免损害他的肺部，你就想大象的什么东西必须要被监控，大象的一个东西名词，然后这地方要测量一下它的尺寸，测量什么东西的尺寸呢？一个东西叫做task，不知道这是啥东西，其实是大象那个獠牙。不知道也无所谓，你就借着这个读音就好，还有什么东西你也得去测量一下子。</p>
+    <p>好，38题这个对应另一个部分了，就是带来的一些好处，也就是说这个题结构非常的清晰了。就是大象它在公园里边太多了，人们得解决这个问题，因为它带来一些problem。然后整个过程是怎么执行的，执行完之后给我们带来了什么样的advantages，就这么个结构非常的清晰，带来了一些什么机会？OK接着减少什么玩意儿减少了呢？两方面，一个方面是poach，这个叫捕猎者偷猎者，另外并列结构一个东西，减少名词，然后接着40D，提升什么东西？作为一个GDP的主要贡献，就是增长或者说刺激了什么，就我做的这个事儿刺激了什么，然后这个东西可以作为GDP的主要贡献。OK好，那接着听力我来放一遍，然后大家走一遍，把空上答案填一填。</p>
+    <p>For my presentation today，I want to tell you about how groups of elephants have been moved and settled in new reserves. This is known as translocation and has been Carried out in malawi in africa in recent years. The reason this is being done is because of over population of elephants.</p>
+    <p>In some areas, overpopulation is a good problem to have, and not when we tend to hear about very often. In malawi's majete national park, the elephant population had been wiped out by poachers who killed the elephants for their ivory. But in two thousand and three, the park was restocked, and effective law enforcement was introduced.</p>
+    <p>Since then, not a single elephant has been poached. In this safe environment, the elephant population boomed. Breeding went so well that there were more elephants than the park could support. This LED to a number of problems. Firstly, there was more competition for food, which meant that some elephants were suffering from hunger.</p>
+    <p>好，前半部分的信息到这儿终于告一段落了。这个听力已经开始一分半了，到现在还没有提。有同学就慌了，你慌什么慌？淡定，我们刚才都是跟着他这个节奏走的那终于说到了竞争激烈了，一些大象要忍饥挨饿了。好听damage这个单词替换。</p>
+    <p>As there was a limit to the amount of food in the national park, some elephants began looking further a field. Elephants were routinely knocking down fences around the park, which then had to be repaid at a significant cost to solve this problem, the decision was made to move dozens of elephants from majete national park to enter kota wildlife park, where there were no elephants. But obviously, attempting to move significant numbers of elephants to a new home three hundred kilometers away is quite a chAllenge.</p>
+    <p>长暂停竟然发生在了这里。So how did this translocation process work？In practice? Elephants were moved in groups of between eight and twenty, all belonging to one family.</p>
+    <p>Because relationships are very important to elephants, they all had to be moved at the same time, a team of vets and park rangers flew over the park in helicopters and targeted a group which were rounded up and directed to a designated open plane. The vets then used darts to immobilize the elephants. This was a tRicky manuva, as they not only had to select the right dose of tranquilizer for different sized elephants, but they had to dip the elephants as they were running around.</p>
+    <p>This also had to be done as quickly as possible so as to minimize the stress caused. As soon as the elephants began to flop onto the ground, the team moved in to take care of them. To avoid the risk of suffer cation.</p>
+    <p>The team had to make sure none of the elephants were lying on their chests because their lungs could be crushed in this position, so all the elephants had to be placed on their sides. One person stayed with each elephant while they waited for the vets to do checks. IT was very important to keep an eye on their breathing.</p>
+    <p>If there were fewer than six retha per minute, the elephant would need urgent medical attention. Dollars were fitted to the matriarch in each group so their movements could be tracked in their new home. Measurements were taken of each elephant tasks.</p>
+    <p>Elephants with large tasks would be at greater risk from poachers and also of their feet. The elephants were then taken to a recovery area before being loaded onto trucks and transported to their new home. The elephants translocated to and cota koa settled in very well, and the project has generally been accepted.</p>
+    <p>There have been a huge success, and not just for the elephants. Employment prospects have improved enormously, contributing to rising living standards for the whole community. Poaching is no longer an issue as former poachers are able to find more reliable sources of income.</p>
+    <p>In fact, many of them volunteer to give up their weapons as they were no longer of any use to them. More than two dozen elephants have been born at n. Coteaux a since relocation with an area of more than eighteen hundred square kilometers, there is plenty of space for the elephant population to continue to grow.</p>
+    <p>Their presence is also helping to rebaLance encotesa s damaged ecosystem and providing a sustainable conservation model, which could be replicated in other parks. All this has been a big draw for tourism, which contributes five times more than the illegal wildlife trade to GDP. And this is mainly because of the elephants. There's also been a dramatic rise in interest from OK.</p>
+    <p>这一篇题目我们就已经做完了。其实大家通过我刚才在旁边写的这个记录，你就会发现这个题肯定比刚才这个题在很多点上是要简单一些的。你比如说像第一个空，这个空虽然进的比较晚，但它好了一个动词替换空前damage对应的是knock down，所以空上答案我们就填这个fences。Anis有人不知道什么意思，它叫栅栏的意思。这是一个四级词汇，如果不认识的话，是必须要去给我把把这个词给毙了，背了的。</p>
+    <p>然后接着32题，又是一道送分题，空前形容词，形容词它替换成什么呢？他说all the elephant have to belonging to one family。因为大象是比较注重这个家庭的，所以所有的大象必须都得属于同样的一个家庭，是不是same family对吧？所以same对应出来的就是all belong to one。这个是替换。</p>
+    <p>好，接着三十3题，33题好像到这就是前三个题里边，33题是唯一一个意思上可能多多少少有点小替换的。他这个文章当时直接定位了这个White and a Parkers p就是说这些员工他们fly over the park with还是with with，还是in呢in in in helicopter，就是他们飞过整个公园，用helicopters，然后用helicopters去指挥这个大象。那么这个就是target one group，好像他用的这个动词是一个target，这个target对应的就是help guide。小婊达这句话我觉得值得大家再听一遍，我给大家再往回稍微倒腾，一下子把这句话找到。A team of vets and park rangers flew over the park in helicopters and targeted a group which were rounded up and directed to a designated open plane.</p>
+    <p>对应的是directed。好，这句话我给大家完整的写到这个地方，写到咱们的笔记当中。这就是大家自己复盘的时候，你们自己就得去写一下这句话了。这些White and rangers，这肯定对应的就是题干当中的那个White and park stop，对吧？Flew over the park, 然后一个小介词in helicopters，请注意它的单复数问题。这个如果写错单复数可能是不给分的。这个helicopters必须得是一个复数OK。</p>
+    <p>Target group就是一个组盯，就是盯着一组大象，这个大象就是按家庭去迁徙，对吧？所以就是他们坐在飞机上就盯着一组大象，which rounded up and direct。Direct这个小词其实对应的就是那个help to guide，就是对应这个的direct这个词，它作为动词的意思，作为动词叫做给什么什么指导。比如说我作为一个老师，我现在就是在指导大家学雅思这个事儿，对吧？那当然它也可以叫做引导，对于大象来说，这就是引导方向的一件事情了。</p>
+    <p>所以这道题目前为止，就这个33题它是一个可错题。但我并不认为它是一道难题，这还算可错。三十四题巨简单，空前reduce对应了一个什么？Minimize, 然后答案就是这个stress不听了。如果有问题同学回头你自己再去听一听。我觉得这种题就算你能得分简单题，然后接着35题这道题，我觉得它也是一道可错题，但是也不算难题，文章结构是这么说的。</p>
+    <p>我们要make sure none of the elephant什么lie on their chest。Chest这个单词的意思叫做胸部，所以我们要确保所有的大象都不是用胸部去躺下的，他们都得用自己的这个size，这个size是啥意思呢？叫做侧面。我为什么说我为什么说这个题是一个可错题？其实主要原因就是在这儿，这个size有同学不知道它是啥意思，所以不敢写，这句话我也再给大家放一下。</p>
+    <p>To avoid the risk of suffer cation, the team had to make sure none of the elephants were lying on their chests because their lungs could be crushed in this position. 这是前半截，就是前半截被否定的那个答案，就是为了确保一下子to avoid risk suffer cation，这个叫做窒息词。但这个单词其实可能是个阅读词汇，在听力当中你就知道听到就行，也不用重点关注它。</p>
+    <p>这个团队的成员他们要确保none of the elephant这个单词是必须要听出来的。它就是替换那个avoid的这个单词的对吧？他要确保什么呢？确保这个大象它lying on their chest，就是没有大象用他们的胸部去躺下，因为他们的这样的话肺部会挤压在一起，可能就会窒息。所以这个答案当中其实带了一个so我为什么把后边这个就写了这么半截，这个so我不知道各位听到没有，还记得我们的信号词这个概念。啥叫信号词来着？就是一些信号句，一些信号词告诉你答案就在这个句子里边。</p>
+    <p>So是不是后边就接答案的OK来听，so后边这个句子他说了什么？So all the elephants had to be placed on their sides. So all the elephants has to be place on their size.</p>
+    <p>所以所有的大象都必须要用它的什么躺下，要用它的size躺，那这个size就是答案。这道题也是一道可错题，它可能稍微比其他题要难那么一点点。好，然后接着36题空后有一个monitor，对应的是keep an eye on，所以答案就是breathing，breathing叫做呼吸，大象的呼吸要被监控一下子，这题巨简单，没啥可说的。</p>
+    <p>37题也巨简单，就是我们要测量一下它的尺寸，因为有那个大獠牙，一个是大獠牙，然后再一个并列词它就直接冒出来了，然后答案是feet。除了大獠牙之外，还有他那个脚丫子，也得去测一测，聊一聊，好吧，就这俩题就送给你的，这太简单了。好，38题这道题我觉得这个题也是一道可错题，但它其实不难，就这整个这一篇都不难。他说到了有一些好处，取得了巨大的成功了。首先第一大好处是什么呢？第一大好处就是大家我我我还是倒腾一下子。</p>
+    <p>The elephants translocated to enter employment prospects have improved enormous。Ly, 这个地方就是答案，它叫做employment prospect就是表示的是就业前景。有人可能是不认识perfect这个单词，所以导致这个空没写。对他说的是什么的？会这个机会opportunity这个单词，你说它替换prospect他很过分吗？没有很过分。</p>
+    <p>机会前景这个行业有机会，这个行业有前景，这不一样的事儿吗？所以employment prospect have been improved enormously。就是就业的前景被大大的增加了。所以这空上应该填的不就是这个就业，对吧？就这个空为啥可错？是我能原谅大家对于opportunity和perfect没对应上，这个我能原谅。</p>
+    <p>好，接着39题，空前有一个reduction，这表示是下降。文章并列结构，他说不但这个偷猎者下降了，而且他们好多人volunteer to give up their weapons。那就是这个叫什么放弃了自己的武器，那是不是就是武器减少了？这就是一道简单题，没啥可错的。</p>
+    <p>好，下面这个就下面这个句子里边虽然没有题，但是有一个单词是必须要会的，我就写了一下。那就是说这个公园它是一个很好的例子，别的也可以去学一学。它文章里面说到的一个单词叫replicate，这个单词也叫复制。所以别的公务员也可以去学一学，复制一下这个模式。</p>
+    <p>好，最后的最后这个答案又很简单，没啥可错的。他说这个叫什么旅游业增长了五倍，是一个GDP的主要contributor一个贡献，所以答案不就是tourism吗？对应最后一道题，这儿我估计可能听到最后有些同学就有点让他精神涣散，所以咱们再添five times more than the illegal wildlife trade presence is also helping to rebaLance encoder quoters damaged ecosystem and providing a sustainable conservation model which could be replicated in other parks。replicated.</p>
+    <p>All this has been a big draw for turismo. All this have been a big draw for tourism. 这个big draw是什么意思？它叫做一个巨大的吸引力。所以他就想所有的这一切都是一个巨大的吸引力。对于旅游业来说，所以这个big joe其实已经可以替换这个race了。但是后边其实还有更明确的替换，马上过来。</p>
+    <p>是不是说five times more比之前要超过五倍，就gdpr就是对于GDP的贡献，所以它成了一个主要的contributor。这个contributor它来自于contrived这个动词叫做贡献。所以这个contributor就主要贡献的来源了，这个题我觉得也没啥可错的，也算简单题。来看一看几道可错题，三十八题可错，三十五题可错，三十三题可错，一共可错三道题。所以也就意味着对于这样一个篇章来说，大家是不是大概率应该是能给我正确七个题。通过你自己的努力，通过你不断的复盘，抓细节、找替换，那正常应该是对七个题的。</p>
+    <p>这七个题以上我觉得是比较OK的。你再多我觉得就不行了好吗？当然自然科学类的文章相对来说它不太需要理解，就是你只是听到了就能抓到答案。那么我们接下来会对比如说心理学，人文学商业的去再进行一个探讨。</p>
+    <p>剩下三个场景可能就不会像自然科学这么直接，它会有一些小弯弯绕，但总的来说也没有太难。希望大家在这个阶段一定要给自己打气。并不是说听力文本你听不懂就做不对题。我相信绝大多数同学经过训练之后，虽然听不懂依旧能做对题。OK好，我们下节课再见，see you next time，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-17.html">精讲逐字稿</a></li>
+      <li><a href="qa-17.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-16.html">上一讲 16</a></li>
+      <li><a href="lesson-18.html">下一讲 18</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>
