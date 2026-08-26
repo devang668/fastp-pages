@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第13讲 · 目标 6.5 以下备考策略 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 13 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a class="active" href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第13讲 · 目标 6.5 以下备考策略</h1>
+    <div class="abstract"><b>本讲概要：</b>Hello, 陪考研的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课。我们在这节课就正式进入到了part three的内容讲解了。</div>
+    <h2>精讲逐字稿</h2>
+    <p>**在雅思口语考试中，为什么建议目标分数在6.5分以下的学生重点练习part one和part two？**发言人：对于目标分数在6.5分以下的学生，我们建议将大部分时间投入到part one和part two上，因为这部分是基础和关键部分。就像高考数学中，如果当前成绩离满分还有一段距离，应先巩固基础题，提高简单题目的理解和解答能力，而不是过多地去挑战难题。对于雅思口语考试来说，确保part one和part two回答清晰流畅、信息量充足，可以显著提升分数，甚至达到100分或更高。**为什么在准备雅思口语时不需要过多练习part three？**发言人：部分原因是part three部分的内容更具灵活性，没有固定题库，考官可能会提出多个问题，且每个学生的答题长度并不固定。相较于part one和part two，part three更侧重于学术能力，如分情况讨论论点和举例论证等。如果当前分数较低，重点放在part one和part two打基础、积累语速和素材背诵更为重要，而在达到一定分数后，再针对part three进行深入练习和提升。**part three部分的考试形式和时间安排是怎样的？**发言人：part three部分没有固定题库，考官可能会问2到6个问题，总时长大约5分钟，包括考官提问时间。学生对于每个问题的回答长度没有严格要求，但建议控制在1分40秒左右，即每个问题回答180至220个单词，准备时可准备约100+150个单词的内容。这样做的目的是让考官减少纠正我们的弱点，避免深入提问，同时也集中思路减少无法回答的情况。**如何处理比较宽泛的问题以及具体问题在part three部分的回答策略？**发言人：对于比较宽泛的问题，采用A+5W法，即直接回答考官的问题，然后从what、where、when、who、why五个方面详细展开。对于具体问题，需要给出明确的观点（standpoint）、直接解释（explanation）、生活经历支持（concrete examples）、反证角度阐述（descive）以及考虑问题的另一面（contrary aspect）。确保回答具有针对性和深度。**part one和part three在问题类型和回答逻辑上有什么区别？**发言人：part one的问题通常较简单且具体，询问考生个人看法；而part three的问题长度更长，更客观，探讨的是大多数人情况下对某个话题的看法。因此，在part three中，考生需要围绕更广泛的主题进行论述，而非局限于具体情境下的个人感受。同时，part three的回答时间更长，要求考生能够提供更为全面和深入的观点阐述。**在Part Three的回答中，为什么需要讨论社会现状和客观点？**发言人：因为Part Three的问题通常比较抽象、客观，关注的是大多数人的想法和社会现状，而不仅仅是个人主观的看法。好的回答会提供详细的理由，对不同情况进行分情况讨论，并用实例进行论证；而不好的回答则倾向于使用大而空洞的理论解释。**中西方文化在论述问题上的主要差异是什么？**发言人：中方文化倾向于谈论宏大而抽象的概念，喜欢从宏观角度思考并抽丝剥茧寻找核心原理，而不喜欢用具体事实去论证。而西方文化重视实证和论证，强调用具体证据证明观点。**对于“为什么人们要去亲近大自然”的问题，应该如何给出一个有说服力的回答？**发言人：一个好的回答应该涵盖不同人群，如年轻人和老年人，举例说明亲近大自然的具体益处，比如年轻人在办公室工作后需要身体放松和新鲜空气，老年人从大自然中获取能量并与朋友交流得到放松。这样的回答不仅有广泛的覆盖面，还通过举例论证更具说服力。**在Part Three写作中，如何避免被导师批注为“假大空”？**发言人：避免“假大空”的关键在于提供有证据支持的观点，而不是仅凭理论性表述。举例来说，提到生活水平提高时，应指出恩格尔系数下降、国民收入增加或幸福感提升等具体指标的研究依据，确保说话的内容具有说服力和劝说力。**在回答Part Three问题时，应该如何结构化论述内容？**发言人：应将回答当作大作文来写，采用起承转合的方式进行论述，首先提出观点，然后用case原则给出核心关键词解释，接着举例说明，最后从反面假设并辩证看待问题，展示全面而深入的理解。**在辩论中，您对于“年轻人买车是因为经济发展”的观点持反对意见，能具体说明一下您的立场和理由吗？**发言人：我不同意这个观点，因为我认为除了经济发展这个主要原因之外，还有其他因素促使年轻人买车。比如，有些人可能认为汽车对他们的生活有重要提升作用，或者他们会开父母的车。此外，还有特殊情况存在。我的立场是辩证看待问题，认为年轻人购车的原因是多方面的。**您能否解释一下在西方文化中“转”的重要性以及它如何体现辩证思维？**发言人：“转”在西方文化中是展现辩证思维的重要部分。通常，我们会倾向于在辩论时提出反面观点以平衡讨论，这样可以体现全面客观的思考方式，并展示自己的观点和思路。例如，在讨论手机发展的影响时，既要指出其便利性和沟通优势，也要提到可能分散学生注意力、对老年人不友好等坏处，这种正反两方面的讨论有助于体现辩证思维和清晰的思路。**分情况讨论和举例论证在口语表达中的核心作用是什么？**发言人：分情况讨论是指在分析问题时需从不同角度进行细致剖析，比如按年龄、性别、地域等进行讨论，确保问题得到全面考虑。举例论证则是通过具体的事实或数据来支撑观点，如引用最近的研究报告或官方统计数据来说明现象背后的原因，增强论述的说服力。在实际应用中，可以通过列举不同人群的具体例子来有力地论证论点，例如解释为什么部分人群仍然使用现金，可以基于他们的年龄、习惯和安全感等因素进行分析。**对于老年人是否能有效使用智能手机和线上支付，您有什么数据支撑吗？**发言人：根据最近的一些可靠数据，大约50%的中国老年人不太会熟练使用智能手机，因此对于他们来说，使用线上支付可能会存在较大困难。**在讨论学生是否应该在学校学习做饭这一话题时，如何运用对比论证的方法？**发言人：对比论证可以通过列举两种思路来阐述观点。一方面，学生学习做饭能够提供更好的休息方式，并促进社交；另一方面，是否适合学习做饭应考虑个人情况，不是所有学生都适合或喜欢做饭，强迫他们可能会导致抵触和浪费时间。所以，建议将做饭设置为选修课，而非强制课程。**因果论证如何在讨论消费主义和经济发展对人们购买新东西的影响中使用？**发言人：因果论证明确指出，经济发展是导致人们购买新东西的主要原因。随着经济发展，人们生活水平提高，追求更加便捷舒适的沟通方式和生活方式，从而促使他们更愿意更换旧手机等物品。同时，还有其他因素如新鲜感、社交媒体影响及消费主义陷阱等共同作用。**分析论证在讨论运动员代言与品牌效应时的作用是什么？**发言人：分析论证通过对运动员形象、影响力等多方面进行分析，指出运动员因其代表的更好身体素质、坚毅精神以及广泛的影响力，能够为品牌带来强大的宣传效果，从而分析出运动员代言对于品牌营销的重要性。**假设论证在讨论提供免费公共交通是否能解决交通问题中的应用是什么？**发言人：假设论证可用于分析反例情况。一方面，有人认为提供免费公共交通可以增加出行便利，减少私家车使用，解决交通拥堵问题；另一方面，也有人提出假设，如果公共交通全部免费，可能会在高峰期加剧交通拥堵，反而造成交通瘫痪。因此，是否实施免费公共交通需权衡利弊。**在材料中，主素材和对比素材的主要内容是什么？**发言人：主素材分为九个部分，包括“独立放松”、“上进激励”等主题，以及互联网、政府、文化、经济、旅游和社会上的社交（P2P）和商业策略(B2B)等比较客观的领域。对比素材则涉及一些好坏、选择双边气象选择一边倒对比方式，以及一些常用句型。**“独立”这一主题的主要优势是什么？**发言人：独立的主要优势在于能够节省时间、提高效率，并增强自信心和适应未来挑战的能力。通过减少对外部的依赖，个人可以变得更加独立自主。**“放松”这一主题对个体有哪些积极影响？**发言人：放松有助于减轻压力、提升专注力，让人更加健康。具体表现为可以分散注意力以逃离压力生活，帮助充电；增强心理韧性；提升注意力集中度，使大脑更利于学习和创新；改善身体健康，如降低血压、减轻肌肉紧张、增强免疫系统并对抗失眠等。**“个人成长”这一主题的主要体现是什么？**发言人：个人成长体现在持续学习和挑战自我，拓宽视野，超越单一能力范围，保持经验的吸引性和充实感。此外，还能带来收入增长（竞争力提升）和自我认可（自尊心满足）。**互联网作为社会现象，它的趋势和优缺点是什么？**发言人：互联网的趋势表现为便捷性（随时随地获取信息）、多样性（提供多种内容选择）和实时更新（确保最新信息获取）。然而，其缺点也很明显，比如可能涉及隐私泄露和真实信息辨别困难等问题。**政府行为在材料中是如何被描述的，以及政府应如何应对这些问题？**发言人：材料中提到政府行为可以通过立法、财政激励等方式来应对各种问题，政府承担着相应责任，可以通过法律手段、经济手段以及履行职责来解决问题。具体的政府措施将在后续的模板套话回答中进一步讨论。**在文化层面，艺术、食物和传统活动如何帮助弘扬中华文化？**发言人：艺术表达、文化弘扬可以通过多种方式展现，例如通过食物提供精神支持，唤醒情感共鸣，并带来美的体验，如建筑、雕塑等艺术形式。此外，了解和喜欢中国人的生活方式、文化习俗也是弘扬中华文化的一部分。**旅游业和商业策略在经济视角下如何体现文化价值？**发言人：旅游业可以通过文创产品和提升城市竞争力来体现文化价值，同时商业策略作为政府措施的补充，通过提高竞争优势、建立良好形象、推出负责任的产品以及进行慈善活动和广告代言等方式促进购买行为，从而间接展现文化价值。**个人层面如何通过社交活动加强文化联系？**发言人：个人可以从政府和企业角度出发，通过建立联系提高社交能力，比如参与运动等活动以实现人们之间的紧密联系，促进文化的传播和交流。**对比类素材中关于性别差异的理解是什么？**发言人：在对比类素材中，男性可能更侧重于综观全局、力量和理论逻辑，而女性可能更注重细节和人文艺术方面。这并不代表所有男性或女性都具备同样的偏好，而是指出一般情况下男女性别可能存在的倾向性。**内向与外向性格在处理问题上的差异是什么？**发言人：内向的人倾向于独立解决问题，享受独处充电，而外向的人则喜欢通过社交合作来解决问题，寻求他人的帮助以放松自己。**如何看待和处理存在偏见的对比素材？**发言人：在处理对比素材时，为了保证政治正确，可以适度表达可能存在偏见的观点，并指出这些观点可能具有一定局限性，且随着时间和情况的变化，人们的看法可能会有所改变。最后，通过添加防杠声明，使回答显得更加完整和客观。**part three的核心内容是什么？**发言人：part three的核心内容是如何进行分情况讨论并举例论证，包括从不同角度分析情况，并采用正反论证、分析、举例等多种方法进行论证，以此构建起有说服力的论述体系。</p>
+    <p>Hello, 陪考研的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课。我们在这节课就正式进入到了part three的内容讲解了。</p>
+    <p>当然在开始part three之前，我先带着大家回顾一下之前part one和part two的内容。首先我们part one给大家讲解了，在这之前先说了一些考务信息，对吧？还记得我们说流畅度是最最重要的。我们说到part one是一个训练。大家能不能用一些简单的句子，把你想说的内容说出来的一个部分。那么在part one中不需要说的太难，不需要说的太长，也不是一个让你去秀自己水平的部分。那么在part one我们尽量表示清晰流畅的把小说的内容表示清楚就可以了。</p>
+    <p>那么说到part two，part two大家都要准备适应自己的素材。那么不知道大家的素材准备的怎么样？有没有好好的去准备自己的素材，并且把素材背熟去串题？那这个部分一定是非常重要的。而针对我们分数目标分数在6到6.5分左右，甚至是比如说目标分数在6.5以下的学生呢，我们都建议大家花大多数的时间在part one和part two上面。</p>
+    <p>为什么不练part three呢？这就像是我们高考？高考数学的时候，前面一些是简单题，后面一些是难题。如果我现在是一个满分150分，我现在是一个六七十分的水平，我想上100分。那这个时候我就不建议大家去做后面的，我们去猛攻最后一道难题，吧？没有太大的必要，而且比较浪费时间。而且我们方付出再多的努力，其实最后一道难题也很难解出来。这个时候我会告诉大家，你们先把这个简单题给我做明白了，能把简单题做清楚，做明白了，那你的分数就能上100分甚至120分了。</p>
+    <p>如果是一些目标分数，比如说我现在已经能数学能考到130了，我想要考100 450的时候，那我怎么办呢？我会跟你说，那我们就多花时间去研究一下最后一道大题。而这里我们说的part three就非常像是最后一道大题了。所以说如果目标分数在6.5往下的同学，我们一定要多花时间在part one上面打基础，part two上面去总结一些素材，并且把素材背熟，去积累一些语速。而到了part three这里我们就需要锻炼的大家是一个学术能力。关于能不能分情况讨论去表达你的论点，以及去举例论证这样一个能力。那么我们来看一下具体要说哪些内容？</p>
+    <p>说到part three，首先我来简单的介绍一下，part three部分是没有固定题库的，也就是说不太像part one和。而且现在有说法之后可能会题库渐渐的消失，越来越少的会有part two了，会有题库了。所以说part three部分是没有固定题库的，它考的内容就会更为灵活。考试的总时长大概是五分钟，基本上不会超过五分钟，包括了考官的提问时间，也就是说考官在这个部分可能问的问题比较少，两个问题可能问的问题比较多，六个问题这个是取决于学生的。</p>
+    <p>什么叫取决于学生呢？大家想一下时间是固定的对吧？那么什么不固定呢？那其实就是每个学生回答这些问题的具体的长度。如果考官问你一个问题，你只说了一两句，那么考官很有可能就会接着往下延去问很多很多的详细问题。问你为什么这么觉得呢？你能给我举出来一个例子吗？对吧？</p>
+    <p>但如果你每一个问题都说的相对来说比较多的话，我们可能考官就不会去问你问的那么详细了。他可能就会多几个方面，然后能让你多回答一些，多去了解一下你对于不同方面的理解。所以我们这里能看到每个问题说的越多的话，考官问题数量就会越少。所以说我们尽量让考官少问一点，对吧？不给他机会去问，我们把话说的密一点。所以我们尽量每个问题都回答到1分40秒左右。</p>
+    <p>其实这里1分40秒我觉得对于大多数同学来说要求算是比较高的了。而且在实际操作中很有可能会被考官打断，所以说我们的要求就在一分钟左右其实就可以了。这样的话我们问题数量能控制在三个，也就是每个题的答案对应是180到220个单词。其实大家在准备的时候，准备100加大概150个单词左右就可以了。</p>
+    <p>也就是说首先解释一下为什么要去在psy多做准备呢？是为了让考官少去纠正一些我们的弱点，进行更深入的提问，尽量让他少问问题。这样的话同时避免了我们对听力造成的影响，同时也能够让我们思路比较集中的少回答几个问题。我们多说一点，去避免遇到一些我们可能回答不来，不知道该怎么说的问题。</p>
+    <p>我们说part three的一些回答问题的基本思路，我们对于一些比较宽泛的问题我们用一个叫做A加5W法。所谓的宽泛问题就是我们要具体某一个问题来展开回答。最常见的形式就是do you like什么什么？你认为大多数情况下人们会选择什么什么吗？这样的问题比较宽泛对吧？它没有限制到具体某一个领域，以及某一个具体的区域下的。比如说这个。</p>
+    <p>Do you think most people like music, 对吧？大多数人会喜欢音乐吗？这种问题我们在回答的时候，直接A加5WA叫answer，直接回答考官的问题。我认为大多数人喜欢或者说是啊一半一半。5W法从what类型，where地点，when时间，who人物，why原因来说，这是比较宽泛的问题。下面根据比较具体的问题。</p>
+    <p>那比较具体的问题就是考官给出问题让你做选择，你认为有好处，好处大于坏处，还是坏处大于好处呢？你认为为什么我们要这么做呢？哪种方式能够更好的帮助呢？你认为是展示，还是说直接去输给学生是一个更好的教育方式呢？那么对于这种具体类型的考官考察的角度，比如说我们是否给出来了一些明确的观点叫做standpoint，是否进行了直接的解释叫explanation。是否能够用自己的生活经历给出一定的支持，叫做concrete examples。是否能够从反证的角度给予阐述descrive，以及能够想到问题的另一面contrary aspect。那么这里我需要强调的是，能够用自己的生活经历给出一定的支持。</p>
+    <p>这里很多小伙伴会想说老师part one和part three既然是一样的，都说的是你自己的问题，那么是不是part one和part回答逻辑就不一样？当然在这里一定不是的，我们来说一下part one和part three区别。首先我在这里写一下part one和part three。说到part three，part three首先第一个它的问题长度会更长，比起来part one的part one可能问的是一些比较简单比较小的问题。而part three它的问题长度长，所以回答的时间也要长。那么在问题的主体部分，power one问的主体是在问你是怎么想的，对于这个情况你是怎么看的？而part three问的是大多数人情况下，他问的是一个比较客观具体的一个比较客观的，现在人们都是怎么想的情况，没有再问你。所以说这就解释了为什么我们有些同学在考试过程中会跟我那老师为什么考官一直在问我，让我说一些something，say something in general.</p>
+    <p>其实就是你说的太具体了，当然针对这个问题我们很好解决。如果我想说i because of for me for my point of view，对于我自己来说，根据我自己的经历，那么我就把对于我来说，把我替换成年轻人就可以了，对吧？对于大多数人年轻人来说是怎么样的，年轻人认为怎么样。年轻人可能有些年轻人会有这样的经历，对吧？我们把我替换成年轻人，替换成大多数人，替换成有些人就完全OK了。</p>
+    <p>所以说part three最大的区别在于，part one问的问题比较简单，而且问的是你是怎么想的。而part three问的问题，他问的比较抽象，比较客观，问的是大多数人怎么想的，跟你就没有太大关系了，是你对社会的看办法。那么这个时候，我们要多讨论一些社会现状，一些比较客观的点。我们如果说什么叫做一个好的part three的回答，什么叫做一个不好的part回答呢？比较好的回答，我们会给出来一些详细的理由去分情况讨论，并且举例论证。而不太好的回答就是说一些很抽象的，为什么会这样呢？</p>
+    <p>你认为为什么人们要去亲近大自然呢？有些学生给我理由就是因为他们认为他很有趣，能够亲近大自然，能够让他们放松。那大家想一下，这是不是就相当于说了句废话，那有趣放松，什么都能有趣放松，在家里待着也挺有趣，也挺放松的对吧？那我们需要分情况讨论，并且用例子去论证。</p>
+    <p>中西方文化最大的差别就在于中方文化很喜欢说一些很大、很空、很抽象的东西。当然了，这是由于我们东方文化体现的一个比较宏观的。我们喜欢从宏观的角度去看它的的核心的逻辑，去抽丝剥茧的去想它的核心原理，而不喜欢用一些事实去论证。而西方文化，西方逻辑是非常看重论证二字的，要用实证去证明你的想。想法，所以说如何去实证呢？在我们这里当然是举例了，你认为还是一样的问题？</p>
+    <p>你认为为什么大多数人喜欢去亲近大自然呢？首先我们可以举例来，对于年轻人来说，可能年轻人大多数时间花在办公室里了。那么亲近大自然可以让他们的身体更舒服，可以让他们呼吸更多的新鲜空气，以及能够享受到不一样的景色，对于他们的眼睛的放松也很不错。那对于老年人来说，可能老年人认为可以从大自然中获取一些能量，可以和他们的朋友一起在大自然中交谈，他们会感觉到更放松，这也是可以的对吧？那么你看一个好的回答，它是分情况讨论，讨论了年轻人，讨论了老年人。它涵盖的范围比较广，不把所有的情况一概而论，并且举例去论证它更加的有说服力，更加的令人信服。这个点大家一定要学会，因为为什么呢？这是我自己的亲身经历，大家在出国之后，很有可能有很大一波同学会遇到跟我一模一样的情况。</p>
+    <p>什么情况呢？被导师说假大空，什么意思呢？就是中国学生在写作，在说话，很喜欢说的一些理论性的东西。比如说我举个例子，你们一定都写过类似的句子。随着科技的发展，人们的生活水平逐渐提高，或者是随着什么样的人们逐渐怎么样的那这些我当时有一科考试差点就挂了。在考试之前的导师给我发回来的批注，我一看他说why is there any evidence？为什么？有任何的证据去支撑吗？</p>
+    <p>Any support有任何的支撑，有任何的论据吗？你凭什么觉得人们生活水平越来越高呢？是比如说人们的恩格尔系数逐渐下降了，还是说人们的国民收入逐渐增加了，人们的幸福感逐渐增加了？哪里的什么样的研究告诉了你这个结论呢？你为什么会要这么说呢？这个是在西方探讨中，他们非常注重的一个点，叫做persuasive and的你的劝说力和你的令人信服的能力。</p>
+    <p>所以说我们在回答part three的时候，要把它当做一个大作文来写。也就是说大作文你看和我们的中文写论文就写作文就不太一样了。大作文要求你却爱分情况讨论，并且举出一些详细的例子，口语也是一样的。</p>
+    <p>我们来看一下一个比较好的回答。可能会有几个方面，我们一般有这几个起承接反转和这几个方面，那其实就是起承转合，对吧？我们接了一个接和反起，其实最简单，大家都会说，我不同意，我认为他要看情况讨论。我认为要用两方面的看法去看待他。不一样的人有不一样的说法，是我们的起用一句话去概括我们的想法。那么成我们用一个case原则，什么叫case原则呢？Keep IT simple and string forward, 保持简单且直接，简单直接的给出一个核心关键词进行解释。比如说我们这里关键词可能是simply because many，because things, 可能是就是因为什么什么？</p>
+    <p>我们进行解释，接用身边的一个例子给出一些看得见摸得着的体验。比如说例子举例我们这里有说，当然一会儿我还会再去拓展，有哪些核心的这些逻辑词可以使用，还有从反正的角度做出假设。如果不这样的话，否则我们可能会怎么样，然后转转所谓的转其实就是考虑到另一面在，但然而可能还有另一方面怎么样，这是西方文化中表示辩证的一点想法小点最后和表示我们讲完了，所以这就是我要说的了。</p>
+    <p>我们一般有很多同学会说什么that all thank you。我们不建议这么说，我们可以说什么呢？可以说。So generally, that's why I believe或者是that's meaning about what I think about IT。So maybe other people have more idea about IT, and that's mostly about myself.</p>
+    <p>可能有一些人有不一样的想法，这是我的看法。那么这里起承接反转和这里的转可能有很多同学不太会理解，反和转有什么区别呢？那么反说的凡和这里的接举的例子是一方面的，什么意思呢？</p>
+    <p>比如说我举个例子，为什么人们会越来越多的人会买车，对吧？那么我们的企就说确实现在我认为越来越多的人会买车。我的呈我说主要原因是经济发展。那么我们是不是就可以解释经济发展了？我觉得主要是由于经济发展，随着经济发展，人们收入水平提高了，所以说人们会提高一些生活质量。那对于买车来说，买车车对于他们的生活质量有有很大的提升。所以说我认为人们会买车是主要是因为这个经济发展，人们越来越有钱了，就我身边我们来接了。</p>
+    <p>就我身边的一个例子来说，我自己或者说是我认为很多的年轻人都会选择买车。比如说我的一些朋友们，一些学生在确定了工作以，就会买车。因为买车对于生活的幸福感有很大的提升，并且因为他们有足够多的积蓄了。</p>
+    <p>那么我们来看一下反和转的区别。反这里他就会说，当然了你想一下，如果没有这样的经济支撑的话，我认为买车对于年轻人来说还是很困难的。所以说，我觉得最主要原因是经济支撑。</p>
+    <p>其实反它只是从反正的角度来论证。刚才我这个观点而转说的是我不同意这两个观点是怎么回事儿？那也就是说，接和反是一正一反的来论证。年轻人买车是因为经济发展，而这里的转是为了表现。辩证说除了经济发展的，可能还有其他的原因。比如说可能有一些人觉得车是比较重要的，或者是觉得能够对他们的生活有很大提升，或者是他们会开爸妈的车，对吧？也有一些特殊情况了。最后和说这就是我的立场，我是这么认为的。</p>
+    <p>我们主要来说一下这个转，这个转在西方文化中是体现辩证的一个非常重要的部分。我们来想一下，在东方文化中，我们从小到大体现我们的辩证思维。我们一般怎么说呢？小时候写作文让你二选一观点，你认为这件事情对于社会有什么影响呢？你认为手机的发明对于社会有什么样影响呢？东方思维用来体现辩证的，我们就两边都说我们取其中庸之道，对吧？我们说我认为这个要分不一样的情况来讨论，有好处也有坏处。</p>
+    <p>手机的发展的好处可能是让我们的生活更便利了，有更多的沟通了，能够让我们沟通更方便。而它的缺点可能是手机对于一些学生，或者是对于一些年少的人来说，可能能够甚至是分散他们的注意力，让他们不好好学习。手机对于一些老年人来说也非常的不友好。所以说可能有一些人作为数字器皿，那就被遗落在这之后了。</p>
+    <p>这是我们中国传统的体现辩证的方式。而这样的方式大家如果之后在西方文化中去留学，去西方文化中去表达这些观点。如果你这样说话，一定会被质疑。什么被质疑？你这个人没有观点，你没有思路，什么意思呢？如果你只说我两边都认同有好处有坏处，我不说自己观点的话，不管是老师也好，你的朋友也好，会觉得你这个人没主意没主见，为什么呢？是因为他们比较侧重于个人精神，对吧？</p>
+    <p>我们中国人侧重集体经济，他们比较侧重个人精神。而个人精神的核心就是展现你和他人的不同，你的观点是非常重要的。所以说在西方文化下我们要展示观点，为了体现辩证。我们前面展示观点说，我认为手机对于柯社会发展带来的好处一定是大于坏处的。它带来的好处有1点2.3点4点。然后我们在最后说，当然也有一些坏处，比如说什么什么。那这里的当然就是我们的转说也有一些坏处了，是为了体现我们的全面客观，为了体现我们的辩证的。大家这个get到了吗？</p>
+    <p>那么为什么我说这个转是很重要的？是因为在整个口语过程中，一个是有些时候你们不知道该说些什么，我们说完核思路有可能就不知道后面该说些啥了。那我们是不是可以从反着的来，对吧？我们可以反一下，可以转一下。可以说如果不这样的话有什么后果？或者说当然有些人也不是这么想的，也有一些其他的思路不拉，这就可以体现我们的辩证，能够让我们的思路更加清晰了。</p>
+    <p>说完启程接反转合以后，我们来讨论一下在口语past three中最核心的两个能力。一个叫做分情况讨论，一个叫做举例论证。我们说分情况讨论，什么叫分情况讨论呢？就是我们不能只说一方面，对吧？我可以说这个方面我们要分这个问题，我们要分不一样的情况讨论。我们要从老人和小孩的角度来讨论，我们要从年轻人和过去和现在和未来角度，从男性女性，从内向外向，从城市乡村，从大人小孩了不一样的角度去讨论这个问题。</p>
+    <p>那么关于分情况讨论，这里我们举了一些句式。IT depends on different situation。The answer may varied. Depending on the circumstance, the outcome could be different based on difference in the rules.</p>
+    <p>这里的scenario，相当于替换了，你看我给你们了多少同义替换，circumstance scenario situation condition？这些都是情况，都是场合，都是occasion，都是这个places，都是不一样的idea。那么后面也是一样的，说这个意识这个话题了。应该被讨论。那你看我们这里可discuss、consider？Base on depending on？这些都是统一替换。</p>
+    <p>大家在回答的时候，不光是这里，我们之后还给大家提供了一些固定的句式。大家在回答的时候，一定要注意使用这些表示结构性的句式。因为用这些句子能够让你们的结构听起来更加的清晰。就不像是我们写作，有分段的机会，口语你也没有分段，除了停在那儿没有其他的能表示你喘气的机会了。所以说我们要习惯于使用这些总结性的，或者是表示次序的这样一些句子结构。当然后面我就不一个一个念了，我觉得也没有特别多的生词。我们来看除了分情况讨论以外，我可以分成各种情况，我们一会儿来补充。</p>
+    <p>我们需要说一下先后顺序了？我分为年轻人、老年人还有小孩？那我们就按照比如说按照优先顺序，按照顺序来说，in the order of age？以年龄的顺序来说，首先、其次、最后以及我们这里补充的，比如说falling在什么之后，first and foremost什么second，还有一些大家很会说什么lost but not list，对吧？这些都可以的。</p>
+    <p>我们说完分情况讨论，我们来看举例论证，也就是刚才我们说的启程接对吧？接的这个部分。那么接也就是说我们需要用一些事实去论证了。那么我们可以怎么去论证呢？首先第一个以事实或者数据为证据论证的。比如说根据最近的一项研究，according to a recent study, 根据可靠数据显示according to reliable statistics，还有一项研究显示a study shows that，对吧？那么这里也说到研究显示了，比如说像这个问题，why do some people still use cash?</p>
+    <p>有些同学可能会问老师，那我也我现在咱们是现在在写考试口语对吧？那我也没有机会去看什么文献，我也没有机会去做一些research，我怎么能说出来呢？口语中用这个也很好用，我就直接说说，我记得？我两天之前，我上周看过一项研究表明，我看过一项官方的发布的数据表明，比如说这个问题，why do some people still use cash?</p>
+    <p>为什么一些人还在使用现金呢？大家来先想一下，我们去怎么分情况讨论，怎么去举例呢？那分情况讨论是不是就可以讨论，比如说什么人在用而什么人不用，对吧？那比如说对于在用的人，比如说老年人，或者是在一些乡村的人是不是就在用？他们可能在用的原因主要是两个，一个是他们用不来买手机，对吧？一个是他们觉得现金更安全吗？</p>
+    <p>那我是不是就可以说分情况？Actually IT depends on different situation，and especially for the old people and the people in the rural area, in the countryside, 对吧？我认为，firstly lets talk about the old person。那先说老年人，我们这里就可以说了，以事实，以数据为支撑。我们国家，我上周刚看了一个报道，我们国家有百分之多少是老年人，而这部分老年人又有百分之多少是不太会使用电子手机的，我们可以说i sir，you know, last time, like a few weeks ago, I have read a newspaper, have some according to the recent study, IT shows that there are some reliable statistic CS.</p>
+    <p>That means, uh, many old people in china, especially the I think maybe the fifty percent of the old people in china can just use mobile like a device pretty well. So maybe IT is really hard for them to use the online payment. 我之前看到的一些可靠数据表示中国有50%的老年人都不太会用这个智能手机，对吧？所以说他们用这个陷阱，当然这个50%是我编造的，大家也不用太遵循于现实。其实就是我们到底说的对了，说的不对了，只要能展示，你能够用数据作为论据论证就可以了，能展示这个能力就OK了。</p>
+    <p>我们来看第二种叫做对比论证。也就是说对比论证我们可以从两个思路来说。我们先说一个方法，然后说与这个方法相比，其他方法可能不太好。还有一种可以说一方面，另一方面，比如说这个问题问should students at school，学生应该在学校里面学习怎么去做饭吗？那么我们第一种思路可以说学生应该学习做饭。因为做饭可以给大家提供更好的休息方式，同时还可以让学生在学校里面和其他同学社交。比起来其他方式，学习做饭我认为又安全，又能够给学生提供一个独立生活的生存的技能，我认为它是一个非常好的办法。</p>
+    <p>或者我们可以说一方面，另一方面说，我认为一些学生要看看个人，有些学生可能很适合去学习做饭，比如说他们有天赋，或者他们本身就擅长。而另一些学生呢可能学习做饭对于他们来说是一个非常大的压力，或者说是他们本身的爱好不在这里。那么如果我们强迫他们去学习做饭的话，可能他们会很抵触，或者是在浪费学生的时间。甚这是可能反而给学生增加了一些压力。所以说我们在这里可能要看个人情况。所以我认为不应该是强制的课程，可以是一个选修课。那么这里我们用对比论证的方式来讲述是否应该做饭这样一个过程。</p>
+    <p>然后第三个我们说到因果论证。因果论证很明显，就是说因为什么导致了什么，由于什么所以什么。这个因果论证的是通常用在一个话题里面，我们乘然后后面跌的时候用这个因果论证说因为这个原因，就像我刚才说的，最主要原因是经济发展，对吧？那我们就可以说了，因为经济发展人们怎么样。比如说很明显是经济发展导致了人们买车，作为由于作为经济发展的结果，人们会更多买车，或者说最主要的这个现象发生的原因是经济发展。</p>
+    <p>比如说一样的思路，我们说为什么人们总是想要买一些新东西去去去替换一些旧的东西呢？那么一样的思路我就可以说是经济发展对吧？或者是人们的新鲜喜新厌旧这样的一个思维。</p>
+    <p>那么我就说了，最主要的我认为是一个人们的经济发展的情况。随着经济发展，人们生活水平提高了，所以说人们就喜欢买一些新的东西。可能新的东西能让人们给人们提升更多的生活质量，让人们开心。比如说人们这个手机，以前的手机可能用很多年都不换。但现在随着经济发展，人们想要更更方便的沟通方式，想要更加便捷的生社会生活。所以说人们有了一个手机坏掉了，也会立马换一个新的了。这是第三个因果论证。</p>
+    <p>说到原因和结果，再下一个叫分析论证。分析论证其实和因果论证还是比较像的。但是这个其实是没有直接的因果联系的。我们用分析论证来说说根据什么什么可以分析出怎么样，或者是进一步分析后会变得更明显的。以及考虑到上述因素，我们可以得出结论。那你看刚才那个适用于开头，现在这个适用于结尾，对吧？根据刚才我们说的那么多，我们可以分析出来确实是人们随着经济发展最主要原因。</p>
+    <p>人们换一些东西可能是因为经济发展，当然也有其他因素掺杂在里面。可能有比如说人们的偏好，还有社交媒体的渲染，以及一些消费主义的陷阱，那比如说我们这里说的为什么这么多的athletes，运动员在这个广告中，我们其实就可以说了，我认为主要有几个点。第一个点是运动员的形象更加可信，他们代表着更好的身体素质，更坚毅的精神。而第二点是运动员往往有更广泛的影响力。一个很成功的获得金牌的运动员，能够让人们带来更加强壮的品牌效应。</p>
+    <p>分析经通过这些我们可以分析出，其实最主要的就是两点。运动员是非常可信的，并且它有非常大的影响力，对吧？它代表着更好的体魄，那么这个我们就的分析论证。</p>
+    <p>而最后一个叫做假设论证。假设论证大家想一下我们可以用在哪儿？可以用在反例对吧？如果不这样的话，那么我们这里就是反和转就可以用这个了。假设怎么样，那么可能怎么样，或者是if对吧？如果怎么怎么发生的话，可能会怎么样？</p>
+    <p>比如说这个问题，这个问题非常的经典，说你认为提供免费的公共交通会解决交通问题吗？我们来想一下，从大家的角度，我觉得大家如果是学生的话，可能就会很天真的觉得，提供公共交通就会解决问题的，对吧？会解决交通工交通问题的。我们如果根据这个思路，我们政治来说的话，是不是就可以说公共交通可以解决这个交通问题。比如说提供更多班次，限制私私私人的车辆出行，怎么这样的能够让人们更加环保，也减少了交通拥堵。当然了，反之如果不提供公共交通，反而让他们变得收费越来越高的话，可能越来越多的人就选择倾向于去开自己的私家车，或者选择其他的这个收费的方式了。所以说，我认为这里是不是假设论证。</p>
+    <p>当然我们还可以再反过来说，我说我不认为提供免费的公共交通会让人们能解决这个问题。因为比如说如果公共交通全部都免费了，那么人们在pick hour在一些高峰期很有可能会变成更加的拥堵，对吧？这样可能会造成更加严重的交通瘫痪。反之否则如果不这样的话，可能现在反而收费的阶梯收费能够限制一下人们的出行的人流出行。平衡一下，baLance一下公共交通和个人交通，对吧？这是我们的假设论证。</p>
+    <p>说完这些，我们来补充一下一些常见的逻辑链，以及后续我们还会补充一些句式。我们来看一下具体的party中有哪些很好用的逻辑链可以使用。那么大家来看一下，这里是我给大家目前比较大致的总结出来的逻辑链。最左边的这个棕色的区域，是我们拿了一个例子给大家做了一个简单的串题。在课上我就不带着大家去讲了，大家可以下去去看一下，怎么去使用就可以了。</p>
+    <p>中间这个部分，我们主素材分为了九个主要的素材，以及右边的我们说的对比素材。说到了四个最主要的对比素材，再往下绿色的部分是一些说到好坏，气象选择双边气象选择一边倒对比方式Y元音观点一些常用的句型。这些句型我就不再给大家一个一个读了，我觉得这个已经我也在这里写的非常明确了，我们大家就自己下去去看这个课件就可以了。</p>
+    <p>我们来主要的看一下中间的主素材，以及右边这里说到的对比素材，我们怎么去使用。首先主素材我们分为这么九个，叫做独立放松、上进激励。这是三个心理的。后面两个比较这四个这四个比较客观的互联网、政府、文化、经济、旅游以及说到一些社会上的社交，人与人之间？这个p two p还有这个商业策略B2B我们先看一下第一个独立叫做我们可以不依赖外界对吧？Actually we don't have to rely on什么东西。We can save a lot of time and money by doing ourselves, which make us become more independent.</p>
+    <p>能够让我们节省时间，变得更独立。其实这个思路我只是换了一个说法，包装了一下。我们是不是可以回归到刚才九大原因中说过的，节省时间，提高效率，那么独立的好处？Being independent can boost to self confidence and self item，which can make you more resilient in the face of future chAllenges.</p>
+    <p>能够让我们对于面对未来的改变，未来的一些挑战更加的坚毅。那么说到后面的放松，它可能会给我们减压，可能会让我们更加专注，让我们更加健康。比如说其实有很多同学都喜欢说能够让我们很放松，那我们除了之前补充的压力与放松以外，我们可以在这里说它可以帮助IT can help to reduce stress，and when people are overwhelmed by stress, they need to do something, a erratic, to divert attention and escape from a successful life, such as something which is perfect ways to reach their batteries.</p>
+    <p>我们说可以去帮助减轻压力吗？当人们太大压力太大了的时候，可能需要一些分散注意力的事情，然后逃离这个压力的生活。比如说什么什么事情，这个是对于给我们充电是很有帮助的。那么说到第二个专注放松，可以让我们更加专注，可以集中注意力来提升我们的注意能力。They can Better focus on task line.</p>
+    <p>Their overall productivity focused minds are more receptive to learning and creative. 一个淡定的、一个镇静的和集中注意力的大脑，对于一个接收是更加有包容度的，更加能接收学习和创造力的。再往下一个我们说到了放松对健康也是有好处的，可以enhance physical health，可以增强身生理上的健康，对于身体好。Has numerous positive effects on physical health. IT can lower the pressure, read most tension and base their mu system.</p>
+    <p>能够降低我们的血压，减轻肌肉的紧张，然后能够增强免疫力系统，免疫系统system，还有可以对抗失眠，promote Better sleep quality, and can help combat in salmonia失眠对吧？你好，那么这放松我们其实最主要的三个方面，一个是很解压，一个是能够提升专注，一个是能让我们健康。再下面我们说到个人成长，个人成长说到IT is good for personal growth。可以持续学习。I involves constant learning, 持续学习，constant learning或者是learning constantly。This requires people to be more than a single ability they need to continuously chAllenge themselves and expand their horizons, which keeps the experience engaging and fulfilling.</p>
+    <p>能够让他们能够让他们除了一个能力以外，还有其他更多的能力可以他们需要去持续的挑战自己，拓宽他们的眼界，能够让他们的这个精力更加的能够促进和更加充实，更加有这个价值。下一个可以赚钱。IT can be look rather make money.</p>
+    <p>那我们说赚钱，wall IT can be competitive, 它有竞争力。Being successful can potential incomes or profits可以有持续的收入。再下一个自尊吧？Self is steam, 自尊可以被认可。Imagine their performances are often recognized, providing validation for their efforts and talent, which is inspiring. 这个是非常令人激动的对吧？他们的这个表现总是被认可。</p>
+    <p>好，这是我们前面说的三个关于自我成长的独立放松以及上进激励。再往下我们来看这四个社会现象，一个互联网、政府、文化经济。我们先来看互联网说到第一个互联网的趋势它会更加便捷，它有多样内容，它实时是怎么样的。但是可能会有一些缺点，对吧？这里就反了。</p>
+    <p>那我们来看一下，说到互联网的趋势可能there is no denied that the years of internet has been trained。已经成为了一个趋势了。Even some people think that什么什么have been eliminated，eliminated, so if they do not to use the internet to do the corresponding things, they will be considered out of talk with the society.</p>
+    <p>如果他们爱一些人，如果不用互联网的话，可能会觉得跟社会脱节了。第二个，第一个是已经成为趋势，这里我们是不是反例了，说如果不用互联网就脱节了，那这里就是一个反。再往下说到便捷说。The internet allows people to assess information at their convenience. They can assess information on their computers, small phones or tables whenever and wherever they want, without being tied to a specific schedule.</p>
+    <p>说到互联网可以允许人们去获得更多的信息。他们非常的方便，可以用各种各样的设备？电脑、手机、平板，不需要被具体的各种所限制，他们想怎么样获得信息都可以，以及内容多样，has a diversity of content, 有一个多样的内容，offers a vast array of information countering to various interest and perspective, so that people have a wide range of choices.</p>
+    <p>人们有各种各样的选择，给人们提供了多种多样的兴趣和去满足适应人们多种多样的兴趣和这个视角不一样的观点，以及它非常的实时。A real time updates, 实时的一些更新offers world time upsides，ensuring that people are promptly informed about the latest development in ongoing stories. 一些正在进行的ongoing一些正在进行的故事，人们有了最新的一些发展，能够被更新到。</p>
+    <p>互联网的缺点很明显，可能会有privacy disclosure或者是explosion？这个隐私的暴露或者是i IT may lack of privacy，可能会很难去distinguish accurate information？很难去去分辨很真实的信息。</p>
+    <p>我们说完互联网，它有各种各样的好处，各种各样的风险缺点。我们来说政府的一些行为，那么有什么什么样的原因，我们可以说是政府的原因。政府应该怎么办呢？当然这个我们在之后的具体的模板套话回答中还会再讲到的。所以说大家可以去结合一下子，可以把这个和那个结合在一起。大家觉得哪个更适合自己就用哪个就可以了，或者是可以两个都去准备。</p>
+    <p>我们说到政府的措施可以是立法，可以是这个风转化为怎么样的对吧？这里我们举了一个例子，可以是财务激励，可以是让人们意识到，可以是政府职责的一些套话以及承担责。这里我就不再详细去说了，因为我们后面还会讲到政府的一些措施。这里其实大家最主要的需要记住的，其实就是说到很多原因，我们都可以去推给政府，对吧？政府为什么呢？因为政府有这个职责，因为政府承担了很多责任，怎么做呢？从立法的角度，从法律角度，从钱的角度，从人们的角度，其实就是这三个角度就好了。</p>
+    <p>再说到文化，说到文化可能会有一些情感支持、艺术表达、文化弘扬。比如说说到了弘扬传统文化，为什么一旦问到了跟your country相关的，你们国家人会怎么样呢？或者是食物、关于艺术，关于跨文化，这些都可以用？那食物可以提供精神支持？可以唤醒我们的情感，可以给我们更多的什么建筑、雕塑一样的美的东西，可以给我们更多艺术表达，以及我们为什么喜欢，为什么中国人喜欢做什么什么事情？可以弘扬我们的中华文化？那这个我也不详细的说了。</p>
+    <p>再往下我们说的经济，旅游，历史文化的经济，我们说到旅游可能会说到一些文创产品以及城市的竞争力，基础设施。最后我们说到一个商业策略，商业策略其实对应的是刚才说到政府的原因措施。政府做不到的事情，我们可以用business，business怎么后可以满足什么？可以提高自己的竞争优势，区分自己与他人吧？那这里后面就说是怎么去提升竞争优势，以及建立一个良好的形象。产品负责任，慈善经常做以及促进购买。如何去促进购买呢？比如说去这一些赞助、广告、代言。</p>
+    <p>除了商业策略以外，我们个人还会这里从政府企业个人角度说到个人建立一些联系，可以提高我们的社交能力。当然了，这个也和我们九大原因能对得上说到了。比如说people more connected做运动那个里边？让人们联系更紧密。</p>
+    <p>这里的主素材我详细的说了前面三个，后面的这几个大家自己下去看。我们可以把这个作为一些比较细碎的一些原。原因用在我们之后提供的一些框架模板里面。然后我们来看对比类素材。对比类素材我之后会详细的讲老人、年轻人以及这个城市和乡村。所以说城市乡村老人年轻人我就不详细说了。</p>
+    <p>我们说一下男女以及说一下内向外向。其实说到男性女性，其实就是不一样的人有不一样的选择。可能男性更侧重于这个，综观女性更侧重于细节，那么女性可能更侧重于细节，男性的更侧重于力量，以及有不一样的心兴趣，男性可能更侧重于理论，或者是逻辑，或者是理科类的科学类的兴趣，而女性更侧重于这种人文？Humanity的、art的、艺术的。</p>
+    <p>而在说到这个内向和外向，内向比如说我们说到问题解决，其实就是最近所说的一人和爱人，对吧？爱人喜欢自己解决，自己呆着，那么这个就相当于自己待着就是their energy了，就在充能了。那么对于艺人来说，我们动不动的就去找人问对吧？这个你怎么解决？这个能不能帮我？需要社交？所以说也就是说我们在需要一些外像人可能需要合作解决，需要一些社交来放松自己。</p>
+    <p>那么关于这个对比类的素材之后我们可能会有一些存在偏见的对比。比如说现在为了保证政治正确，对吧？我们在说到男性女性的时候就不太敢说所有男性都擅长力量，所有女性都擅长这个细节。我们为了保证政治正确，不要去冒犯某一些人某一些群体，我们可以说存在对比加一句这些可能我的这些观点可能只是比较narrow的对吧？那人们可能会根据时间不一样，根据情况不一样去替换不一样的这个态度，会有不一样的想法。那么这些你可以在最后结尾加一句，然后来加一个防杠声明，对吧？能够让我们的回答更加的听起来更加的完整，听起来更加的客观，看起来你是站在一个宏观的立场上去想这件事情的。</p>
+    <p>好，我们part three的综观就说这么多，我们来回顾一下，其实整个的part three最主要的我们说到的内容其实就是如何去进行分情况讨论并举例论证。分情况讨论我们可以分成不一样的角度情况。而举例论证我们有不一样的方法可以去正着证明，可以去反着证明，甚至是可以去反驳一下自己的观点。那么证明的时候可以去分析，可以去苹果，可以去论证，可以去各种方法反证，都可以去论证。这是我们关于part three的一个综述。</p>
+    <p>下节课我们就会带着大家回到配合后续的模板。我们从刚才讲了九个方面，四项对比，大家可以去记一下。中间有一些非常地道非常好用的一些句式，大家可以背一下。配合着后面我们说到的原因类、解决类分组列举好处坏处以及城市乡村的对比类。配合后续模板，我们就可以拼凑出来一个完整的part three的回答了。我们这节课的内容就这么多，我们进入到作业环节了。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-13.html">精讲逐字稿</a></li>
+      <li><a href="qa-13.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-12.html">上一讲 12</a></li>
+      <li><a href="lesson-14.html">下一讲 14</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

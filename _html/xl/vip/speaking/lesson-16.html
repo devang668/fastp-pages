@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第16讲 · 实践与题库串讲总结 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 16 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a class="active" href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第16讲 · 实践与题库串讲总结</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次雅思口语课程的总结中，老师着重强调了实践在学习过程中的重要性，鼓励学员们边听边练，从基础练习到题库串讲，保持日常练习习惯，以有效提升口语能力。通过个人经历分享，老师强调了持续交流对于语言运用能力的维持至关重要，并强调个人努力的必要性。课程内容覆盖了Part Three部分的特定练习方法和技巧，如处理好处坏处类、分组列举类、对比类等问题的策略，同时强调了回顾与自我评估的重要性，建议学员通过模拟考试检验学习成果，并针对性改进。老师还特别提到，作业将涉及特定类型题目的处理，课程将通过综合口语测试来评估学员的进步。此外，老师讲解了如何构建有效的回答结构，提醒学员注意口语表达中的文化差异，确保在考试中准确、流利地表达观点，旨在全面提升学员的雅思口语能力、逻辑思维和文化适应性。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-16.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次雅思口语课程的总结中，老师着重强调了实践在学习过程中的重要性，鼓励学员们边听边练，从基础练习到题库串讲，保持日常练习习惯，以有效提升口语能力。通过个人经历分享，老师强调了持续交流对于语言运用能力的维持至关重要，并强调个人努力的必要性。课程内容覆盖了Part Three部分的特定练习方法和技巧，如处理好处坏处类、分组列举类、对比类等问题的策略，同时强调了回顾与自我评估的重要性，建议学员通过模拟考试检验学习成果，并针对性改进。老师还特别提到，作业将涉及特定类型题目的处理，课程将通过综合口语测试来评估学员的进步。此外，老师讲解了如何构建有效的回答结构，提醒学员注意口语表达中的文化差异，确保在考试中准确、流利地表达观点，旨在全面提升学员的雅思口语能力、逻辑思维和文化适应性。</p>
+    <p>喽陪考研的小伙伴们，大家好。欢迎来到我们瑞老师的雅思口语课程。今天是我们这个系列课程的最后一节了。包括我们先说把part three没有说完的思路链，包括好处坏处，分组列举对比类。说完以后，我们来给大家做做一个回顾性的总结。并且我们在最后的训练中，有一个又是来一次模拟考是了。也就是说大家可以从现在上完所有的课以后，大家看自己吸收了多少，背了多少。</p>
+    <p>我们把现在的这个模拟考试自己的口测的水平和在第一次的时候的这个水平来进行一下对比。看看你们有没有学到什么知识，有没有长进，哪部分比较强，哪部分比较弱。那么我们强的地方可以再去努力，再去保持一下。那么不太强的地方我们就可以回去继续看视频，哪里没背熟我们再去背一背。好，那么我们这节课就开始先说part three的思路链。第一个好处坏处类。</p>
+    <p>首先说到好处坏处，我知道有很多同学都知道，我们说好处坏处，肯定是先说好处，然后说坏处，然后说好大于坏或者坏大于好。但是大家要注意，说到好处坏处，我们不能只会那两个词儿，advantages、disadvantages, 对吧？那么我们这里关于好处坏处有很多个词可以表示。比如说benefits益处，drew backs对吧？它的不好的地方。Advantages, disadvantages, 优点缺点，ops and dances起起落落。它的好处坏处，那些好的，good ones, bad ones, 坏的，positive积极的，negative消极的。</p>
+    <p>那么我们来看一下好处坏处类的一个思路是怎么说的呢？我们说到好处坏处类，其实它的结构就是先说对吧？我们先说有好有坏。来说一下，我认为好大于坏或者是坏大于好。然后我们来说好是什么？不光好，这是一个结构性的，不光好还有坏。再说一下坏是什么什么什么。最后结尾，我认为好大于坏，以上就是我的理由，这是一个比较完整的结构。我们先说我是怎么认为的，然后我们把两个都分情况来说出来，最后结尾一下子，我们来看一下这类的模板。</p>
+    <p>首先第一段you know the thing that we are talking about can have an impact on people on the road in different ways，right? 你知道我们要说的东西是对于人们，或者是对于这个世界有不一样的方式的影响，对吧？IT really depends on how you look at IT and where you're coming from. 这真的很取决于how you look at IT，你如何看待它。那么这里的where you are coming from，我们本意叫做你是来自于哪里的。但是大家一定要注意，这个where you are coming from，我要特别的强调，他不是说你来自哪儿，而说的是你对于这个事情的看法是什么。为什么我们要强调这个呢？是因为我自己亲身的经历有过这样的乌龙。</p>
+    <p>我在伦敦上学的时候，我们有一次小组作业，除了我，剩下的几个同学都是中国人，然后只有一个人是英国人，是伦敦人。然后我们一起做小组作业，我们在群里面探讨，他就一直不说话，这个伦敦人不说话。所以我们就在想，反正大家都是中国人，那就去微信聊吧。我们就微信组了一个拉了一个群。结果等到学期快要结束了，我们这个作业都做完了以后，这个英国人突然说，朋友们你们开始做作业了吗？我们是不是应该开始了？我们就想着你是不是就想捡便宜，捡现成。</p>
+    <p>我们就说我们已经做完了，你可以去跟老师说一下，你自己去完成，或者是加入其他还没有开始做的组。他就说你们能怎么能这样？你们怎么做作业不带我呢？怎么样的那我们肯定就据理力争，我们说我们讨论的时候，你也不参与艾特，你也不回复怎么样的，他就突然来了一句说i totally understand where you guys are coming from。我非常理解你们来自哪儿。你知道我们当时一下子全部都炸了，因为我们以为他在种族歧视，在歧视我们都是中国人。所以说当时在准备把他投诉到那个校方说他歧视的时候，正准备投诉。</p>
+    <p>在跟一个朋友吐槽这件事情的时候，那个朋友突然给我来了一句，说他可能没这个意思，可能是一场误会。我们说为啥？我们当时还回怼他，还说你不要种族歧视，don't be such racist.</p>
+    <p>然后他就说how can I be racist？我怎么种族歧视了，我们当时还以为他嘴硬，后来才知道where you are coming from是口语中非常常用的一个表示。我明白你的意思这样一个含义。也就是说有可能人家真的没在阴阳，我们没在说我们，但是我们自己没有理解这个口语的含义，所以说把它理解成了，他说我知道你们都是中国人，你们抱团儿怎么样。所以说大家如果在之后看到，比如说看美剧，或者是听到说，或者大家自己也可以这么说，说到我理解你的意思，我懂我懂你说的我都懂这样一个意思的话，我们就可以说II understand you know just I understand where you are coming from，我理解你的意思。所以说我故意在这写了一个你来自哪里，但其实它不是的意思，就是我明白你的意思，那我们继续往下看说。</p>
+    <p>If we have to choose which effects are good and which effects are bad, i'd say the good ones are way bigger or weight smaller than the bad ones. And here's what I think. So这里我要强调一个点，叫做we我们在讲part one的时候有说到过增强语气，那么这里这个we是干嘛用的？We我们当时说we加在比较级之前，表示谁比谁怎么样样的多。我们在这里再强调一遍，we可以替换成far more怎么样，对吧？那这里的we用来强调谁比谁怎么样的多。我们说我认为好处要比坏处要大得多。以下就是为什么我这样来想了，我们来说这里的素材，first of all I think is awesome，because I can怎么样。我认为它非常的棒，因为它能够怎么样，我们来说正面的线索。But is not all roses.</p>
+    <p>There are some jew bax take. 那这里的rose是什么意思？Rose是玫瑰花对吧？Rose玫瑰花。那么为啥我要说这个is not all roses呢？</p>
+    <p>就像我们中文说的，世界上哪有那么多天上掉馅饼的事儿，对吧？那馅饼是啥？如果一个老外你跟他说哪有那么多馅儿饼，老外说哪里有馅饼，吧？他是不明白你在说些什么的，所以说这个馅儿饼就像是rose一样，在这个中西方文化中分别代表了一些好事。比如说我们西方代表一些好吃的，还有rainbow and unicom。Rainbow是什么东西？彩虹吧？Unicorn叫叫独角兽对吧？</p>
+    <p>那我们说不光是这个彩虹和独角兽，也有一些坏事。There are some joe back to，也就是说这里不光是生活中不光只有玫瑰花，还有一些坏事。那么什么坏事儿呢？That's really bad if we decided to go ahead and doing that way.</p>
+    <p>我们这里来说一下坏事儿，这好事儿说不光有好，然后坏事最后结尾。So yeah, IT has these ops and dance, but I think the ops are more important and cool than dance, or less important than cool than the dance. 我认为好处比坏处更重要，或者是更不重要。这是我们的思路。</p>
+    <p>顺着刚才我说的这样的一个思路来说下来的，我们来看一下这道例题。这道例题说do you think IT is important to be on time？On time和in time大家要在这里区分一下是吧？On time叫做准时，in time叫做及时。比如说准时准点的八点上课，记得just remember to attend the course on time，准时来上课。我说我当时用完了这个，我喝完水了，送水的送奶茶的人，这个外卖小哥很及时的赶到了。The delivery guide just arrived in time, 很及时。</p>
+    <p>那么我们这里来说，准时有什么好处，有什么坏处呢？大家来跟读一下。So you know, this thing that we are talking about can have an impact on people, and they rolled in different ways, right?</p>
+    <p>IT really depends on how you look at this and the where you are coming from. If we have to choose which effects are good and which effects are bad, i'd say the good ones are way bigger than the bad ones. And here's why I think so.</p>
+    <p>First of all, I think it's awesome because I can save a ton of time when we are dealing with something like this, and then we can get more benefits from IT beside saving time. After we save time, we work Better and faster because of this thing. And that way already efficiency will improve.</p>
+    <p>But it's not all roses. There are some drawbacks too. That's pretty bad if we decided to go ahead and do you that way, it's obvious that this kind of thing can pit me under a lot of pressure if I should finish one thing before the deadline.</p>
+    <p>Even worse, one best thing leads to another bad thing, and IT becomes a Victory cycle. This is a big threat to our creative ideas. If we don't try to organize ideas, we mess up before and make things right. So yeah, IT has its absent dance, but I think the ops, and more or less important, and call that the dance.</p>
+    <p>我们这里说的有什么好处，有什么坏处？前面都一样，我就不再说了。我们这里分析一下说，首先我认为好处要比坏处大得多，对吧？那好处是啥呢？It's all some.</p>
+    <p>大家注意这个W是这个E是不发音的，有很多同学会发成a way some，我们不是awesome，它叫做awesome。It's awesome. 他很棒的。Because of because I can save a ton of time.</p>
+    <p>Time是什么？是一个重量单位对吧？有比如说kilogram什么之类的那趟叫做吨，节省一吨的时间，其实就是节省了特别多的时间？</p>
+    <p>当我们在处理一些事情，像这样的事情的时候，we can get more benefits，可以获得更多的好处。除了节省时间，除接种职称以外，我们可以更好更快的工作。因为这件事情我们的效率提升了，efficiency improve a lot。熟不熟悉？我们九大原因中的提高效率吧？那我们其实可以再把那个里面的东西再套到这儿也可以。</p>
+    <p>然后我们来看它常见的坏处，不光有玫瑰花也有一些坏处。首先这些事情可以put me under a lot of pressure，有压力对吧？如果要在deadline之前做完这件事的话，更可怕的是一个坏事会导致另外一个坏事，它成为了一个Victory cycle。我们这里是Victory cycle，对吧？Victory叫做恶性的cycle，叫循环，但是我们连读了就叫做venture cycle。这是一个很大的威胁。对于我们的创意点子来说，如果我们没有在这个之前把这个事情把想法整理好，然后把事情变得正确。所以说有好处有坏处，我认为好处大于坏处。</p>
+    <p>这是我们说的常见的一个好处和坏处的原因。好处节省时间，提高效率。坏处可能会有压力，陷入恶性循环，会影响创业思维。我们来想想这里有什么好处，是不是就能用放松、新奇、有意义、高效率、联系更紧密，那么坏处无聊烦躁、拒绝做某事，是不是这些就可以用上了。</p>
+    <p>我们来看一下这里的例题说，首先第一个what are the benefits or disadvantages of making changes？一模一样的这个我就不再带着大家练习了。我们说到做出改变的好处坏处，做出改变首先最大的好处就是节省时间，提高效率。坏处可能陷入恶性循环，影响创造思维。因为比如说我们有太多的事情需要适应了，我们有太多了line了，有太大的压力了，总是做出改变就不是特别好。再下一个，比如说我们来尝试回答一下说，our children's opinions influenced by the parents.</p>
+    <p>说到小孩的意见，小孩的想法会被他们的父母所影响到吗？那么这里我们就可以说了，你认为小孩的意见会被影响到吗？那我们可以在这里回答说，当然会影响到了，然后有好处有坏是吧？大家来暂停一下，先回答一下，看怎么说OK暂停结束，然后我们来一起来回答一下，那肯定会被影响的对吧？我们来看一下影响的好处其实一样的节省时间，提高效率。坏处有压力，陷入恶性循环。</p>
+    <p>So you know this thing that we are talking about can have an impact on people and the and the road in different ways, right? IT really depends on how you look at IT and where you're coming from. So if we have to choose like a there any good things or bad things when just children listen to their parents, i'd say the good like effects are way bigger.</p>
+    <p>Then the about effects and here's what I think so. So first of all, I think is awesome because like I listen to their parents can save a ton of time when just children are dealing something like their parents have already experienced, and the parents always have more knowledge about this, say children can get more benefits from IT besides saving time. After children save time, they can just learn or work Better and faster because listen to the devices, so that way just children's efficiency will improve a lot when they study or when they work.</p>
+    <p>And is not all roses, there are some towns acks too. That's really bad. If just children decide to go ahead and do IT, that way is obvious that this kind of thing can put children under a lot of pressure, if just listening all of the things for their parents because, like you know, parents are adults and they have the enough ability to deal with something.</p>
+    <p>But sometimes for children, IT is maybe too much. So maybe just if they want to finish everything before the deadline, and even worse, just one best thing late to another, bathing and IT becomes a vital cycle, and children can adapt to IT. So they feel, and this is also a big rat for children's creative ideas. If they just follow their parents lead and don't think, don't think about the problem by themselves.</p>
+    <p>So yeah, IT has this ops and downs, but I think the ops are more important than the这样子我们这里提到的最主要的好处就是节省时间，提高效率。因为小孩听从家人的建议，家人父母是更有这个经验的。针对一些比较困难的问题的话，可以给出很真实的建议。那么小孩可能在处理学习工作的时候能够更迅速，坏处就是陷入恶性循环，有太有压力了。小孩可能会因为父母做事情很快，小孩如果没有办法这么快的做到的话，那么可能会非常的有压力。这是这个。</p>
+    <p>然后我们再来看一下下一个问题说到。Do you think offering free public transport will solve traffic problems in the city? 一样的提供免费的交通公共交通是吧？能够解决城市的交通问题吗？那么我们还是一样的思路。可以说首先提供免费的公共交通会有肯定有好处有坏。我认为好大于坏，或者是我认为坏大于好。好处可以说是可以提高效率，或者是可以让人们生活更便宜，减轻人们的压力生活压力。</p>
+    <p>坏处可以说是，比如说会让这个陷入恶性循环。比如说有太多人乘坐这个公交汽车了，对吧，也太多人乘坐这个公共交通了，那么可能会有这个恶性循环，比如说会有踩踏，some dangerous things。那我们来回答一下，比如说说到了，you know前面我就不再串了，我们来说一下它的好处，就直接说了，我说到提供这个免费的public transport。So I think the good thing for offering free public transport，just because like I can uh decrease or you can just make people spend less money on like going out for a commute and the which can just make people maybe just eh just take more public transport.</p>
+    <p>And IT is very effective for environment protection, 对于环境保护来说是非常有效的。But there are not all roses. There are some drew backs too. If just too much people just taking the public transport, if will, may be lead to a picture cycle, such some too much people just take the public transport and influence the Normal usage of IT.</p>
+    <p>And maybe some car just a overloaded, 可能会对吧？Overload叫overload，这是一个连连起来的overload，那可能会超载。Or just make people feel really dangerous if just overlook happens。So I think there are just a good ones and bad ones. I think the bad ones are way bigger than the good ones. So I don't think like offering free public transportation will just make the city Better.</p>
+    <p>好，那我们下一个再来说最后一个问题，is IT good to share something on social media, 在社交媒体上分享的好处是什么？坏处是什么呢？大家先来自己想想，然后我们一起回答OK那我们这里来提醒一下，你像这个分享？好处第一个释放压力，释放压力可以看到很多其他人说的新奇的东西，有痕迹，有很有纪念意义。当我们发一些东西的时候之后再回去看啊，非常有纪念意义，或者是可以让我们和朋友联系更紧密，通过互相的like点赞或者是comment。或者是可以说是在各种场合上面抛都可以。</p>
+    <p>那么坏处呢？坏处是每天有很多人发太多了，我觉得非常无聊，非常烦躁吧？影响我的效率，巴拉巴拉都可以。或者是我们或者还可以说influence our privacy？影响了我们的这个隐私，或者是a privacy explosion，隐私的暴露，或者是maybe just someone just don't like to grow the social media，不喜欢有些人不喜欢使用社交媒体也可以。</p>
+    <p>那么我们说的好处坏处类总结一下，其实就是还是一样的结构，说这个事情有好处有坏处。我认为好大于坏，坏大于好。好处是什么？不光好处还有坏处，坏处是什么？最后结尾好大于坏，坏大于好。</p>
+    <p>我们来看下一个问题，分组列举类。好，那么分组列举类这样的问题真的非常的难以把它放到模板里面去回答，为啥呢？因为每个列举的都不一样。比如说人们喜欢做什么样的运动，喜欢买什么样的东西，看什么样的广告，喜欢在休息的时候干些什么，来做什么样的户外活动，去哪里，去和谁一起，这样的很难去列举。</p>
+    <p>如果我们再去回答的时候，首先第一个很难去把它归类。第二个如果我们回答的时候就按照正常的思路，说你在野外能看到什么样的野生动物，那我们光想中文就要想很久，野生动物松鼠、猴子、长颈鹿或者大象，这光想中文思路就要想很久了。更何况是我们要去去分组列举，再举例论证，那太费劲了。也就是说这里我给大家提供的思路叫做分情况，一个叫做大多数，我们只需要提一个大多数，剩下的就直接说少数就可以了。这就像是我们在写作中说观点，我们就只需要详细的阐述一部分，另一部分简单带过就可以了。</p>
+    <p>我们来看这个回答思路。Yeah, I totally understand what you are saying, 我理解你在说什么。This topic is not easy to talk about at all. 这个话题非常难说。IT will be really chAllenging to put everything into different categories or groups. 非常的有挑战性。如果要把所有的事情放到不一样的这个类别分组里面，based on what I have seen and experience ed in my life, 根据我所看到的，经历过的，在我生活中and the situation china和在中国的这个情况，i think I can mention two of them that stick out to me.</p>
+    <p>我觉得能够提到2个。这里的stick out to me叫做让我印象深刻的，就是粘在我身上的对吧？就叫让我印象深刻的the first one is不拉了，那第一个是什么什么样的这是一个this is a common tide。I have run into many situation, 我在很多情况下都见到，mainly due to global.</p>
+    <p>这是第一个我们着重去说的，我们去对它进行一些解释。另外一个，another situation will appear slightly less, 稍微少一点的，比如说什么什么，but this one appears more, 对吧？这个通常出现在哪里哪里？这一个我们就稍微少一点说就可以了。最后结尾说。Of course, there are many other factors and things involved in this topic, but these two examples might be some idea of what I mean and how I feel about IT.</p>
+    <p>这个我们说的是有一些其他原因对吧？但是这个两个例子可能给你一些关于我的想法，我对于他如何看法的。我们这个话题其实分组列举类它的模板不难，只是回答的时候没有那么多固定的例子来让我们去背诵。比如说我们来看这个问题，说到了what technology do people currently is，人们现在都在用什么样的这个技能呢？那前面一样的废话我们来跟读一下。I totally understand what you are saying。This topic is not easy to talk about at all, if would be really chAllenging to put everything into different cut grades or groups.</p>
+    <p>But based on what I have seen, an experience in my life and the situation in china, I think I can mention two of them that take to me effort. One is communication technology, such as a mobile phone. This is a common type that I have run into many situations.</p>
+    <p>It's mainly due to IT can interactive whenever we are dealing with something like this, and then we can get more benefits from this besides interaction. After we interaction, we communicate Better and faster because of their thing. In that way, our social situation will improve a lot.</p>
+    <p>Another situation will appear slightly less, such as machine technology, but this one appears more in factories. Of course, there are many other factors and things involved in this topic, but these two examples might give you some idea of what I may and how I feel about IT. 好，那么我们来说，前面的都是一样的，我们就不说了。</p>
+    <p>主体段首先第一个大家来总结一下，这里我说了两个technology对吧？两个技术分别是啥呢？首先第一个叫做technology沟通技术，比如说移动手机，这是最常见的i run into many situations，最主要是因为它可以interactive叫做交互。不管我们在处理任何事情的时候，它都可以交互。我们可以除了交互以外，还可以获得更多的好处。我们可以更好更快的聊天，提高社交的技能。其实还是一样的对吧？节省时间，提高效率，提高社交技能，或者是让我们释放压力、放松都可以。</p>
+    <p>另外一个出现的稍微少一点是machine technology机械技术，这个通常出现在工厂里面。好，那么我们分组列举类，其实就是一个我们多说一点，详细说把它说的大一点。另外一个少出现一些，比如说我们来看例题，在这里什么压力与放松，新奇的事情，无聊烦躁这些都可以说，我就举例了。</p>
+    <p>我们来看例题，首先第一个说what do people usually do while waiting？人们在等待的时候一般都干些什么？那我们是不是就可以说了，大多数情况下大家来想一下干嘛数情况下干嘛呢？给大家一分钟时间思考一下，然后我们来回答一下。</p>
+    <p>OK思考结束了，那我们来说一下人们在等待的时候一般干嘛？肯定大多数人都是玩手机，对吧？那我们说除了玩手机，可能还会聊天儿，那我们是不是就可以直接把这个往上串了，你像一两玩手机，这个可以压力与放松，可以让我们感到新奇，可以提高我们的效率，可以跟朋友聊天联系更紧密？那我就可以说了，大多数场合人们玩手机，人们去释放压力不得不拉，或者是在手机上面看什么，看什么chat，或者是这个video，或者是什么watch some news，或者play mobile games都可以。</p>
+    <p>少数情况下跟一起来的朋友聊天，这通常出现在当人们和别人一起来的时候。那我来示范回答一下。So yeah, I totally understand what you are saying.</p>
+    <p>This topic is not easy to talk about at all because like different people would choose different little like doing things when they are waiting. So IT would be really chAllenging to put everything into different cat Grace grades. But based on what I have seen, an experience in my life and the situation in china, I think I can mention two of them that take out to me.</p>
+    <p>So the first one, I think maybe just most people will just play play their mobile phone. And this is a common type that most people have run into in many situations. So when they are playing mobile phone, they can just maybe chat with their friends and they can just maybe uh, watch some news or some videos to spend time and also maybe play video games.</p>
+    <p>And this can make their feel pressure releasing, just don't feel so annoying, or borrow ing when they are waiting and just make their life more efficiency. Another situation, meals appears slightly less, such as may be chatting with their friends that they are coming together with. But this one usually appears when people are not waiting alone.</p>
+    <p>另外一个，人们当和他的朋友们一起交谈，对吧？这个突然出现在当他不是自己来了的时候。So of course, there are many other factors and things involved in this topic, but this takes ample es might give you some idea of what I mean and how I feel about IT.</p>
+    <p>好，我们这个示范结束，我们来看下一个说what kind of photos do people like to take？人们喜欢拍什么样的照片？大家现在想一下，你们一般手机里面，点开手机现在来看看存储的最多是啥呢？别告诉我表情包对吧？表情包可不是你们拍的照片，大家拍的最多的可能就是人像照对，人像或者是风景。</p>
+    <p>那么我们说人像照怎么说？人像照它的这个词叫做portrait，PORTRAIT叫做人像肖像，或者我们说肖像画也叫portrait。有时候i will take some portraits for our family members，or sometimes we even take some self fie, 吧？我们可能会拍一些自拍，那么风景照就是the beautiful scenery pictures。我们来回答一下，我就不回答前面那些这个客套话了，我就直接说了。Sir, in most cases, what I think people will take many portraits for, maybe for their friends, their families or their their kids, or take some portrait photos for their pets, because they think they are cute and want to catch some interesting moment.</p>
+    <p>And also people may take some self fie to, I just show their beautiful phases, beautiful like a performances, and also except from this, and I think, uh another uh another occasion will appear slightly less. For example, people may take some beautiful, take some pictures about the beautiful scaries, such as when they are go traveling, they want to take some pictures about they sound down, or the sunt rise, or the beautiful like sea level things like this。可能人们会拍一些人像照，一些风景照去记录日出日落，或者是美丽的这个海平面？</p>
+    <p>那下一个比如说what kind of kidneys to people often share，人们一般分享什么样的这个社区里面分享什么样的好消息，那我们就可以说了，分享比如说大多数情况下分享一些新的政策，或者是对于这个社区里面有什么好事，少数情况下可能分享某一家人有什么喜事儿，或者最后一个what kinds fast fit are more popular in china？为啥我要格外把这提出来呢？因为一说到fast fit，很多人一上来就是KFC。我们除了说KFC crazy thursday，那我们不能说，为啥不能说KFC呢？是因为这就像是我举一个例子，有很多的中文在说英语的时候，它形成了一个中文的英语习惯。但是除中国以外没有任何人这么说。</p>
+    <p>比如说我举两个例子，一个叫做CCTV1个叫做ins这两个在中国和中国以外的所有国家，它是两个不一样的意思。CCTV在中国表示中国中央电视台，对吧？中国的china's central television什么东西，应该是这么个意思。中国中央电视台。但是当大家出国以后看到CCTV，CCTV is covered，它叫做闭路监控摄像头，也就是说这个地方有监控。那么CCTV只有在中国表示中国中央电视台，在其他的地方都叫闭路监控。</p>
+    <p>第二个比如说ins，只有中国会说我想要发一个ins，或者是ins风，或者是看到了很ins，ins上看到什么。但是除了中国以外，所有人都管它叫做IG是吧？我们会有一些表达方式的区别，那么TFC也是一样的。</p>
+    <p>KFC的全称叫做can turkeys fried chicken。叫做肯德基上校的这个炸鸡，对吧？因为那个老头白胡子老头是肯德基上校，那么只有中国人会把它称为KFC，就像我们中国人说的SWC是吧？那我们外国人不这样说，如果外国人说的话，i prefer to have something counters, uh, I want to eat at can turkeys, 我想要吃肯德基是吧？或者说是mcDonald者是burger king，我们替换一些比较好说的东西。</p>
+    <p>这个我简单的强调一下，我们来看下一组，最后一组了叫做对比类题目。对比类题目说的是比如说过去现在未来，老人、年轻人、小孩、乡村城市，或者用我们自己想要用来表达对比的来说一下。那么对比类的题目我们通就先说先说我要分成几类，然后先说我在的，再说我不在的。如果有其他类别，我们再说最后一个类别，然后解释一下，比如说我们来看这个模板说。</p>
+    <p>Though I think he makes more sense to talk about this topic. Different situations在不一样的情况下探讨更有意义。We can split situations into three groups, o folks, Young folks and kids.</p>
+    <p>我们可以分为三个组，老人、年轻人、小孩，或者是past、present、future. 过去现在未来是把我们分成不一样的情况。First, let's talk about, let's talk with the Young folks.</p>
+    <p>让我们来先说年轻人吧，或者是先说现在，because that where I am right now, 这是我现在所在的对吧？I know very well that for Young folks, 我非常清楚对于年轻人或者对于现在this means怎么样，这意味着什么什么，我们直接举例就可以了。然后说完年轻人，我们来看next，let's talk about the old fox, or lets talk about the past.</p>
+    <p>我们再来说，说完现在我所在的，我清楚的，我们再说我不在的，我不了解的。For the old folks or for a long time ago, i'm not very sure what to say. 我不太确定有啥能说的，因为i have a little such a situation，没有生活过这样一个情况。But I can talk about IT based on what i've heard and imagined.</p>
+    <p>我能根据我所听说的想象的来说一些。我们后面这里再进行一点解释，对吧？我听说老人是怎么样的，我们再来说。</p>
+    <p>I finally, I have many different ideas about kids all the future. 我对于小孩，对于未来有很多的想法，because they have the most potential, 他们最有潜力。The current technology is changing very fast.</p>
+    <p>现在的技术改变的非常快，so there will be many options in the future, or for the kids, 对于小孩，对于未来有很多的选择。But from now on, I can still share the falling thoughts. 后面就开始废话了。现在开始我还能分享一下想法，this is just my perspective on this topic, 这是我的想法。</p>
+    <p>Well, i'm confident about the situation for someone like me or for the present. 我对于和我一样的人，或者是对于现在非常充满信心。I can't say for sure that the same situation applies to all people and kids as well or past the future as well.</p>
+    <p>我不能确定对于老人、小孩或者是过去未来也是一样的。其实就是把三个类别分出来拿来说。我们来看例题，例题我用了一个特殊的例子，我们说到了城市和乡村，对吧？Do you think the city is cleaner or dirtier than the countryside, and why你们认为城市比乡村更干净还更脏呢？那我们来跟读一下。Well, I think he makes more sense to talk about this topic in different situations.</p>
+    <p>We can split situations into this two group's city countryside. First, less stop with the city, because that's where I am right now. I know very well that for the city, pollution in cities comes mostly from stuff made by factories, which are hard to break down.</p>
+    <p>Stick around for a long time in a mess of the environment for good. Next, let's talk about the countryside. For the countryside, i'm not very sure what to say because I haven't leave research situation, but I can talk about IT a bit based on what i've heard and imagined.</p>
+    <p>Pollution in the countryside comes mostly from animals and plants in nature, which will rock away after a while and go back to the natural cycle. So I think the city is dirtier than the countryside. This is just my perfect active on this topic. While i'm confident about the situation for someone in the city, I can't say for sure that the same situation, please, countries as well.</p>
+    <p>好，我们这里说，前面开头结尾我就不说了，我们直接说城市。我很清楚城市，这是我现在所在的，非常清楚城市的污染是来自于工厂制作的东西，对吧？Staff made by factories很难去break down，大家来分析一下break down在这里是什么意思？很难去分解，stick around围绕在周围很长时间mess up。把什么好东西变坏呢？把好的环境都变坏了。我们来看第二个，说到乡村了，对于乡村来说我不太确定，因为我没有生活过这种情况，但是我可以。Talk about the bay a bit based on what i've ever heard and imagined.</p>
+    <p>根据我所想到，我所听到的，我能够猜一猜，对吧？那我认为最主要的来自于最主要污染来自于动物和植物。自然界中will wrote away wrote，可能大多数同学都不认识。我们来猜一下说它会可能会怎么样。然后一段时间after a while，一段时间之后，回到了natural cycle，回到自然循环，那叫腐烂对吧？来自于这个动植物的污染会腐烂，回到自然循环中，所以我认为城市比乡村更糟。我们来看一下这里的关于这个对比类的，我们可以说比如说城市能够有更多新奇的事情，这个乡村能够释放我们的压力，巴拉巴拉直接穿就可以。</p>
+    <p>我们来看一下这里的例题，比如说第一个谁能够更好的接受改变呢？年轻人还是老年人？那我们这里就可以分情况来说，我先说年轻人，这是我所在的对于我们年轻人来说换什么换工作、搬家都是怎么样的。那么对于老年人来说，换工作搬家会怎么样，我们来大家暂停一下，想一下怎么说，然后我们来示范一下，暂停结束我们来一起回答一下这个问题。</p>
+    <p>我说wow，I think he makes more sense to talk about this topic in different situations. So first let's go with the Young folks because that we are I am right now as a Young folk. I know very well for us.</p>
+    <p>This thing means like if we are going to move or if we are going to change a job, we want to move to another city for Young folks, IT is very easy for us to get used to a new place for we can just a search online and make more friends and can know the public facilities for the city very well, like in just in one or three days. So I think Young people are pretty good at getting used to the a new environment or a new changes. Next, let's talk about the old folks, sir.</p>
+    <p>I think for the old folks, I am not very sure what you say because I haven't lives such a situation, but I can talk about this a bit based on my observation about my grandparents. I think if the old folks move to another, a new place already, they go to some place, new IT is really hot for them to get used to the new situation. Or just understand how does this works just because, like they are used to the old things and they are used to, like, I interact with their old friends.</p>
+    <p>So maybe making new friends and knowing something new is really hard for them. For example, like IT is really hard for my parents to use iphone fifteen and how to use the value or just use computers. So I think maybe like for old people is pretty hard to get used to IT.</p>
+    <p>So a this is just my perspective on this topic. I'm confident about situation for someone like me, like the Young people. But I can say for sure that the same situation applies to the old people as well. For example, like some old people are really fashionable and can use the technology even Better than us Young girls. So I can say for sure.</p>
+    <p>好，我们这里就说到年轻人搬家或者是换工作，可以从网上查信息，可以交到更多好朋友啊。1到3天就适应了新城市了。而老人我不确定，我根据我对我爷爷奶奶的观察，我认为他们可能如果要搬家的话，要适应新环境话非常复杂。他们不知道怎么用公共设施，或者是比如说使用一些电子产品的时候，他们来说也是非常困难的。所以说我非常确定对于我来说可能是怎么样的。</p>
+    <p>对于我来说年轻人来说接受改变很简单，但是对于老年人来说，可能接受改变就非常难了。因为可能老年人他们就需要做出太多的改变，或者适应太多东西了。当然我也不确定对吧？可能对于一些老年人来说，做出改变还是很简单的。可能有些老年人甚至使用这些科技产品，用的要比我们年轻人好多了。</p>
+    <p>这是我们关于这个题目的回答，我们来看一下还有什么其他的题目。我说道what kind of sports are popular now，but not popular fifty years ago? 那我们就可以说一下现在流行的和50年前流行的对吧？那最简单的我们说exports电竞运动？</p>
+    <p>那比如说再往下，do you agree that the shopping habits has been changed in recent years? As你认为购物习惯最近些年来有改变吗？那我们可以说现在我们的购物习惯是怎么样的？十几年前，几十年前人们的购物习惯又是怎么样的那比如说我们来举个例子示范回答一下。在前面的这些废话我就不说了，我们直接let's start with the chair，like the shopping habits。Now我们先来说现在对吧？For now, I think especially for Young people when we ages shopping, and even for some of my grandparents, they when they are shopping, they prefer to compare the Price with the online Price, and sometimes they prefer to buy something online because they have the variety is more and they can have more choices and IT is more convenient because the delivery can just send directly into the head or那可能现在的人们的购物习惯，就是要对比网上的价格。因为网上更便宜，网上有更多的选择，甚至是快递更方便，能够直接送到家门口。</p>
+    <p>But actually a few years ago, when I don't know, i'm not really sure because I haven't leave such a situation. But according to my parents and my grandparents, they said when they were Young like IT is really hard to buy something. For example, if we if they want to buy something, they need to take a vote or a credit, a paper, a ticket to buy something.</p>
+    <p>And the products are limited, and there are only a few variety of the things they can buy. So and also they want to they need to buy something, they need to maybe go to the market. And especially in some a countryside, the market will open once a month.</p>
+    <p>So are many people just store the whole month of or just the like in the monthly market. So IT is really hard for them because they need to buy a lot of thing. And IT is really uninformed ied if they just forget to buy something and want to buy IT immediately.</p>
+    <p>我们说对于老年人来说我不太清楚，但听我爸妈听我爷爷奶奶说，他们那时候买的东西很有限，得去这个固定的集市才能买到。然后具体要买什么东西，都要看。有可能如果在乡村的话，要比如说当时计划经济要凭这个票？Ticket voter去买，或者是甚至是他们有时候如果在乡村的话，可能要等到集市，一个月1次的集市去买够整个月需要的东西。如他们忘了买什么东西的话，非常不方便，而且一次性要买很多东西。这是我们的一些思路。大家可以根据自己的不一样的思路，用我们这个分情况的讨论的方式，先说年轻人，再说老年人，或者大家可以灵一点，换过来也行，先说老年人再说年轻人也行。</p>
+    <p>那么我们来我们来总结一下这节课说到的内容，我们来总结一下之前说到的内容，我们把part three的所有的素材都来说了一遍，包括原因类社会原因、个人原因，解决类社会解决、个人解决，分组列举好处坏处和对比类。我们来回顾一下，大家跟着我回顾原因类，社会原因是什么来着？说道为什么整个社会这样，我们说的是因为经济发展，经济发展收入提提高要求提高。那么个人原因？个人原因有盲目从众，有这个社交偏好，有这个个人偏好对吧？社交需求个人偏好，有些人可能不这么认为。</p>
+    <p>我们说到解决类，解决类的话社会解决氛围不一，这样的整主体有这样的社会问题你怎么办呢？大多数情况下政府应该怎么办？企业或者是一些社会群体应该怎么办？个人听从专家的建议，说到个人解决，小孩怎么花零花钱，大多数情况下不管少数情况下我要干预一下子。</p>
+    <p>我们说到好处坏处类，好处坏处就先说有好有坏，好大于坏，坏大于好。然后说好处是啥？然后不光好处也有坏处，坏处是啥？最后结尾好大于坏，坏大于好。分组列举类，我们说大多数情况下是什么样的情况，少数情况下是什么样的情况。对比类先说我不在的先说我在的，再说我不在在的。最后对于未来的一个猜测，总结一下。</p>
+    <p>以上就是我们对于part three的所有内容的讲解了。我们来总结一下它整个的雅思口语考试，大家不光是要听，因为口语大家要知道是最依赖大家日常下去去练习的。所以说希望大家在听完了这个课以后，不要听完了老师的话耳边过，心中片甲不留，对吧？不希望大家有这样的结果，我们希望大家能跟着我的课程一边听一边练。讲到part one，你们就把这个part one对应练习练下去，甚至把题库都串一遍。讲到part two，把part two对应的题目练一遍，然后串一遍。讲到part three，我们把part three的能用的方法来串一遍。这样的话，大家可以保持一个每天去练习的习惯，这样对于大家的口语提升一定是有很大的帮助的那我为什么要说每天练？</p>
+    <p>不是说一天我就往死里练，是因为大家想一下，我用我自己亲身经历来说，在我之前疫情期间的时候，我们我当时是在家里面，就是在这个酒店。因为我刚才我刚从伦敦回国，我在这个酒店里面待了14天。中间有时候会跟朋打电话，打打游戏。但有的时候有两三天的时间就没有任何人跟我一起交流。在这样没有人交流的情况下，我如果我这时候都不说话，我连中文都不说的话，我在两三天之后，我发现我跟那个前台的人员交流我都费劲，连中文都费劲。</p>
+    <p>更何况是大家的英语，本来就不熟悉，我再不多练的话，那么英语很有可能说起来就非常的困难。所以说大家英语老师领进门，修行靠个人。我把这么多的技巧告诉你们了。那么关于词汇积累、语速积累、关于练习、流畅度的提升，就全靠大家了。我们接下来来看作业，作业对于大家最后的一个有一个提升，比如说我们如何去解决关于刚才说到的好坏分组列举对比类的题目。我们有一个综合性的口测，来看一下现在跟过去有什么区别，那我们就作业见喽。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-16.html">精讲逐字稿</a></li>
+      <li><a href="qa-16.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-15.html">上一讲 15</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

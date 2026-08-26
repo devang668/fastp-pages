@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第11讲 · 物品类素材：礼物/家居/衣物 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 11 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a class="active" href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第11讲 · 物品类素材：礼物/家居/衣物</h1>
+    <div class="abstract"><b>本讲概要：</b>在雅思口语课程中，讨论从地点转向物品描述，重点讲解了描述礼物、家居用品和衣物的技巧。瑞老师强调了描述物品时的难点，并提供了丰富的表达方式，如使用地道表达和进阶词汇，尤其在描述礼物时。课程特别关注不同水平学生的需求，指导如何选择合适的描述方法。通过具体例句和场景模拟，帮助学生实践有效的表达，以提升口语考试的流畅度和准确度。瑞老师的讲解旨在增强学生对物品类素材的理解和运用能力，以应对雅思口语考试的挑战。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-11.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在雅思口语课程中，讨论从地点转向物品描述，重点讲解了描述礼物、家居用品和衣物的技巧。瑞老师强调了描述物品时的难点，并提供了丰富的表达方式，如使用地道表达和进阶词汇，尤其在描述礼物时。课程特别关注不同水平学生的需求，指导如何选择合适的描述方法。通过具体例句和场景模拟，帮助学生实践有效的表达，以提升口语考试的流畅度和准确度。瑞老师的讲解旨在增强学生对物品类素材的理解和运用能力，以应对雅思口语考试的挑战。</p>
+    <p>**00:00 雅思口语课：物品与礼物描述词汇**课程讲解了物品和礼物的英文表达，包括礼物赠送、接收及丢失相关术语，以及如何描述物品特性，如精美、形状、雕刻等，适合准备雅思口语考试的学习者。**02:52 送礼话题与礼物选择指南**对话围绕送礼主题展开，讨论了不同礼物的选择，包括家居用品、时尚配饰、美妆护肤品、电子产品、体育用品等，强调了礼物应体现送礼者品味及与收礼者关系的密切程度，还提及了定制礼物和旅行用品的赠送场景。**09:03 礼物选择与衣物描述词汇拓展**对话首先探讨了为游戏爱好者挑选礼物的建议，包括经典玩具、拼图、玩偶、桌游及乐高套装等，强调选择应基于收礼人的兴趣和偏好。随后，话题转向衣物描述的词汇拓展，详细列举了从T恤到西装等各类衣物的专业词汇，旨在丰富描述衣物时的表达，提升语言的地道性和专业度。**11:45 衣物描述技巧与文化细节解析**对话深入探讨了衣物描述的多个维度，包括颜色、材质、装饰和款式等，通过具体案例展示了如何生动描述一件衣物。同时，对gift与present的区别进行了文化层面的解析，强调了西方文化理解的重要性，旨在提升口语表达的地道性和文化敏感度。**16:13 Gift与Present的区别及地道口语表达**讨论了Gift与Present在使用范围、含义和社交地位上的区别，Gift更侧重于抽象和上级对下级的礼物，而Present多用于具体物品和同级或下级间的礼物。此外，还介绍了地道口语中表达礼物的方式，如'a little something'，用于描述非正式场合下的小礼物。**18:20 礼物与文化：从礼品袋到圣诞袜的分享**讨论了不同类型的礼物及其文化背景，包括免费发放的糖果礼品袋、购买巧克力后赠送的beauty bag，以及西方特有的圣诞袜。同时，探讨了如何用英语描述收到礼物的场合，强调了礼物的情感价值和个人感受。**20:10 惊喜礼物：一场小聚会上的吉他惊喜**在一次家中的小聚会上，某人收到了一份惊喜礼物——一把全新吉他。这份礼物完全出乎意料，因为对方一直渴望学习吉他，而这份礼物不仅体现了送礼人的细心与周到，还带来了极大的喜悦和感动。**22:28 提升英语口语：从简单描述到进阶表达的吉他描述实践**对话中详细描述了一把吉他的特点，包括其木质感、音色、设计美学及其激发创造力的能力，通过个人化的表达方式，探讨了如何在保持口语流畅简单的基础上，进一步提升语言表达的丰富性和感染力，以达到更高的英语口语水平。**24:54 吉他礼物描述与情感表达进阶**对话探讨了如何通过地道表达、进阶词汇和细腻描绘来提升对吉他礼物的描述，以及收到礼物时的深刻情感体验，包括感激、创造力激发和友情象征。**31:18 礼物描述技巧与作业指导**讨论了如何详细描述礼物，包括礼物的接收场合、个人感受等，以丰富叙述内容，并指出作业环节将直接应用此方法，无需额外串题示范。</p>
+    <p>Hello, 陪考研的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课。那么我们这节继续上一节的内容。我们上一节说了一个地点类的素材，这节课我们来说一个叫做物品类的素材。说到一个物品类的东西，我们经常会说到，比如说有没有一个你喜欢的东西，你一个想要的东西，你收到的东西，或者是卖东西的地方，或者是这种跟东西相关的一个话题。</p>
+    <p>那么我们说到这样的话题，还需要准备一些关于一个物品的描述。因为大家也知道，描述一个物品可能用我们自己的话稍微有点难。比如说它很精美，它是一个什么形状，它上面有什么样的雕刻，什么样的花纹，它到底是怎么好用的？你像这些东西，我们直接去说说的话可能比较难说了。因为我们小脑瓜里面没有那么多的词汇积累，所以说我们这节课来看一看，首先有哪些东西是可以作为礼物去送出去的，或者说我们日常中可以描述哪些物品。然后我们再来说说它的英文表达，以及来串一串题目。</p>
+    <p>首先我们来看一下说到送礼物对吧？说到赠送礼物的行为叫做gift giving。我们一般可以说，i say IT is a process of gift giving, 或者是IT is a really good opportunity for gift giving。或者是我们一般不太说IT is a good opportunity to give a gift，吧？是一个赠送礼物的行为。还有比如说可能要到圣诞节了，我们十来个朋友一起进行一个gift exchange，礼物交换。还有这个收礼的人，我们一般不说receiver叫做gift recipient。</p>
+    <p>那这里大家要注意一下，我们再补充一个，说到比如说丢东西对吧？丢东西的失主，我之前有一些一对一的学生会说是gift loser或者是things loser。那肯定loser不对，因为loser说的是一个失败者对吧？那我们肯定叫做the saying the owner，这个东西的主人或者是直接就说the people who lose IT OK。</p>
+    <p>再下一个送礼人gift giver，然后打开礼物，礼物的包装叫做rap？包裹起来，那么打开礼物叫做on rap，把它从这个包裹里面打开on rap gift，打开礼物以及礼物的包装，gift rapping以及下一个礼品card。Gift card, 一个体贴的礼物，thoughtful gift或者是considerate gift，还有特殊的场合special的然后对什么什么礼物感到惊喜，surprised by a gift感谢信，thank you.</p>
+    <p>Not一般收到礼物？我们得回礼，或者是给一个对方寄一个感谢信，还有这个gift registry，礼物登记册一般是比如说婚礼，那像我们国内可能婚礼就直接随礼了，给钱的比较实在。国外可能会送一些这个礼物。结婚完了以后，一个很值得期待的环节就是拆礼物了。虽然我没有在国外结过婚，但是听起来还挺有意思的对吧？就直接拆礼物。</p>
+    <p>好，我们说完送礼，我们来看看常见的能送哪些礼物。因为有很多学生跟我说，老师我是学生，我没有钱？我不送礼。那么我们说到这些话题的时候该说些什么呢？我们来看看有哪些话题可以说。</p>
+    <p>比如说常见的礼物叫做家居用品，比如说就家里用的对吧？我之前有一个朋友跟我说，我说送礼物我得看最核心的要看对方喜欢啥。他说不对，送礼物要看你展示出来你是什么样子的人。那么礼物最好选的就是性价比低的那些东西。什么叫性价比低的东西？那你想你如果送礼物对吧，你送你送朋友有礼物，你送他一支笔可能就没有你送他一个豪华的很贵的钢笔，比起来送他一套这个彩千要看起来更适合一个礼物，就是性价比低，对吧？就是花更多的钱，买一个没用的东西就显得很高档了。</p>
+    <p>比如说家居用品就是这类的重灾区了。家居用品叫做home docker对吧？Docker叫做dark ate的decoration，它的缩写。装饰品比如说decorations、花瓶、VS、香薰蜡烛、senate candles, senate叫做香氛蜡烛、canals、床上用品、bedding sets, 对吧？</p>
+    <p>床上的一些四件套之类的时尚配饰，fashion accessory accessory叫做配件或者是小饰品、小装饰。为什么叫accessory呢？其实说的是这种配饰就是你身上的一个小小的配件。为什么不叫这个jewelery？因为jewelery叫做珠宝，他说的是比较高级的东西了。所以说如果大家去网上购物，如果看到了什么比较奢侈品牌的这种官网，什么迪奥、香奈儿，大家可以去点开去看一看它的列表。</p>
+    <p>它的大类目先会分为closes，对吧？男士女士成装高级定制，然后会分上衣tops下衣bottom。除了衣服，还有handbags就bags这些包。</p>
+    <p>再下面就是这个accessory，accessory叫做配饰配饰点开配饰的下一个类目叫做jewellery。他有这个fashion jewelery和high jewelery，有时尚的珠宝和高珠宝。我们这里说到的这个配饰，比如说watches、手表、jewellers珠宝，还有wallets钱包，男士钱包、wallets, 女士钱包、purse、围巾、scots帽子、hats, 帽子也有各种各样的，cap鸭舌帽，那hat可能说的是那种带顶的帽子。还有除此之外，女生之间互相可能会送一些beauty and skin care products、beauty美妆、skin care、皮肤护理？护肤品比如说cosmetics、化妆品、perfumes、香水、skin care sets、护肤套装、hair care products, 这个头发护理头发的一些产品。</p>
+    <p>除此之外，男生之间可能就比较喜欢送一些电子产品了。电子产品electronic products such as smart phones，top less headphones. Speak is Sarah.</p>
+    <p>我们经常我有很多同学，我问他平板怎么说，他跟我说ipad，我说耳机怎么说，他跟我说AIRPODS pro。这只是苹果的一些型号，那耳机叫？头上的这个电话。那平板叫做tb一个平板。这个平板，除了说这个平板电脑以外，它还指一个平板的一个台面。除此之外，可能男生之间还会送一些sports equipment，such as sports wear、fitness equipment, sports shoes, sport shoes.</p>
+    <p>把运动鞋我们可以再细分，为什么trainer trainer sneakers之前我们讲过，然后再往后看，除此之外还会送一些图书音像，这个可能送的是一些有具体爱好的，或者送一些小朋友？这个bikes and audio visual，比如说这个best selling bikes畅销书？最好卖的书best selling。如果说这个东西，这个书我说this is our best seller，这是我们的畅销品牌。椰树椰汁，除此之外还有music CD这个音乐CD还有movie DVD，还有电影的DVD。</p>
+    <p>但是现在我们好像不太送这些了，我们可能会送一些比如说说这个皮肤对吧？游戏皮肤，some gift sets in the games或者是some skins。那可能还会送一些，比如说送一个netflix会员对吧？Netflix premium我们上节课有说过，premium叫做什么什么加什么什么升级的。还有比如说gift basket，这个通常是比如说看望病人，会有fit basket？果篮，还有一些鲜花，a poquit of flower花束。</p>
+    <p>这里说到chocolate gift boxes，a coffee gift packs, t gift boxes is a就是有巧克力、咖啡、茶叶，还有一些个性定制？Customized gift这种直男装备，直男必备的一些什么刻名字的笔，什么水晶球，什么一路有你这种东西。比如说pens with personalized in graving或者是coffee？一些雕刻。</p>
+    <p>其实还有很多同学也会，比如说买这个苹果电脑，他会这个苹果笔记本，或者是这个平板，它会配那个笔笔上面，或者是平板上面也可以刻字。还有比如说custom t恤，ers一些定制T恤，上面写着我爱上海。还有比如说个性化的相册，personalized picture frames、相册相框。还有比如说除此之外的旅行用品，当然这个就感觉比较亲密了，对吧？</p>
+    <p>我们送普通朋友应该不会送什么行李箱、折叠伞，送一些比较很熟的朋友。如果他最近刚缺一个行李箱，或者我们马上要一起去旅行了，我们可能会送一个suitcase，travel bag, folding umbrellas. Passport holder.</p>
+    <p>那holder大家看一下，holder叫做夹，什么叫夹呢？就是放护照的这个东西。比如说我在去伦敦的第一时间，我就买了一个count holder，一个卡包，其实就是一个放卡的一个holder，一个放卡的一个东西。为啥呢？是因为在国内我们只需要用支付宝钉一下就可以了。但是在国外上学的时候，你要拿什么校园卡，你要拿什么什么健身房的卡，你要拿什么时候各种各样的卡片，所以就需要一个holder。</p>
+    <p>然后再除此之外，如果送小孩或者是送这个game editor？一个游戏爱好者的话，我们可能会送一些classic toys，such as puzzles、一些拼图、soft animals玩偶、board game、棋盘游戏或者是桌游legal building blocks、乐高积木的套装，或者是我们可以比如说比较流行的像这个jelly cat？一些玩偶，或者是一些toys。这些these are just some common gives category。This the specific choice should be based on the recipient interest, hobby and personal preferences.</p>
+    <p>可能需要依靠取决于他的个人的爱好，他的兴趣，还有个人的喜好来决定了。我们来说一下衣服。首先为什么我要说衣服呢？是因为在这里补充一下，衣服是属于一个物品的范围内的。所以说我们可能在之后的题目中会遇到描述一件衣服。那么有很多学生在描述衣服的时候，他就只会说t shirt shirt dress skirt，就不会说一些更进阶的或者是更加地道的词了。</p>
+    <p>我们在这里来补充一下，首先让你的词汇量看起来没有那么匮乏，然后我们来说一下描述衣服一些常用的词汇。比如说前面T恤确实就不说了，blouse blouse是什么东西呢？就是我身上穿的这个叫做女士的衬衣，这种花边的或者是带蝴蝶结的这种衬衣叫blouse。还有dress girl这些不说了，jeans、牛仔裤、shorts、短裤、sweater sweater叫做毛衣hui叫做卫衣jacket对吧？这个夹克coat外套，还有比如说dn coat，当扣子叫做下面的衣服，当其实有羽绒的含义，所以说当扣子叫做羽绒衣。那大家记的时候就记得拽的都往下掉了，那就是很厚的衣服。Suit套装，男士的西装叫suit，女士的这种小香风套装也叫suit。Tie、领带、socks、袜子、underwear、bra对吧？</p>
+    <p>形容胸罩pajamas有睡衣、bathrobe、这个浴袍、swim suit、游泳的这个泳衣cardigan的叫做毛衣的开衫，就是这样扣扣子那种毛衣外套blazer这种这个就比较酷的这种西装的外套，或者是这种比较这个型比较正的这种西装，或者衬衣vast老头背心jump suit。Jump suit说的是这种这个套装就是上面卫衣底下卫裤的这种叫jump suit，就是跳的套装，其实就是运动套装。Leggings最近比较流行，有很多女生会买66 leon的leggings，其实就是这个瑜伽裤或者是紧身裤，还有比如说各种各样的裤子。</p>
+    <p>和tank top、tank tok. 我们来着重讲一下什么叫tank。Tank最本身的含义叫做方的钢或者是坦克这样的意思。那么tank引申出来就有这种方形的。什么叫tank top呢？那叫做这个吊带上衣。还有比如说如果我们要说的这个cross top，那叫做短上衣。</p>
+    <p>比如说露肚子的描述衣服的时候，我们有这些词儿了。当然如果让你描述一件衣服的话，有这些词肯定不够。IT is a projet a, and IT is really comfortable.</p>
+    <p>就没了，对吧？那我们怎么去描述呢？我们可以从颜色，可以从它的花纹，可以从他的长袖短袖上面有什么decoration，可以从它的场景以及它的材料，以及它的一些领子，或者是一些花边，我们来阐述它。比如说首先第一个我说的颜色？我们之前补充过，说颜色不要说太简单了，不要说它只是这个blue或者是yellow，我们可以说is a lemon yellow with a lemon yellow color，或者是is a navy blue。</p>
+    <p>除了颜色我们可以描述它的长袖短袖，袖子叫做sleeve，那长袖叫long sleeve，短袖叫做short sleeve。这个无袖叫做sleep less less LESS，sleep SLEEVE, 好难写，less LESS吧？就是那无袖的。比如说还有除了袖子以外还有button对吧？还有这个有没有button，有没有color？有没有领子，或者是它的材质，那是我们最常见的材质cot棉的。其他的话我就不给大家补充什么涤纶、什么化纤，因为这个很难说，我觉得告诉大家也记不住，对吧？</p>
+    <p>那我们如果想说，描述到我的校服，说它不是棉的，它的质量我也不知道。那什么玩意儿，它质量可能是化纤，那我就说i think IT is not like the the the texture is not cotton。I think maybe is something um just not gonna.</p>
+    <p>IT is really uncomfortable? 它是一些不舒服的材质，and I don't know what IT is, 我不知道它是啥就可以了。好，那我们说完材质，可能还有比如说它的一些decoration，有没有一些pocket？有没有一些口袋，有没有一些小的什么graph，这个graphic或者是graph，有没有图片，或者是prince有没有印花，有没有什么样的texture，什么样的质量或者什么样的花纹，那这一类的东西我们都可以用来描述一件衣服。所以说大家在描述的时候，除了它的厚度，它的它到底是hot还是cold，我们还可以描述很多表，包括它的外形，比如说我身上这件，我来给他给大家描述一下。</p>
+    <p>So now i'm wearing a blouse, a women blouse, sir IT was a tie blouse with a cute like butterfly tie. And IT was, uh, I think the base color is kind of beige. 它的基调的颜色是有一点点象牙白with many pain，and maybe orange like pattern of flowers。它有这个粉色或者是橘色的这个花朵的这个模样，对吧？花朵的花纹好像是花吧，反正类似。And I think the texture is silk.</p>
+    <p>我觉得它的材质是丝的，so IT is really comfortable to wear, especially in summer. 所以说它很好穿，尤其是在夏天。IT was a long sleeve, and I looks me really cute and formal.</p>
+    <p>它是一个长袖衣服，看起来非常的精致且非常的正式。我们之前说过cute对吧？它不光是用来描述这个可爱，也可以用来描述精致或者是小巧，或者是有一些小小的设计，小小的巧思的。比如说我说你的这个房间，such a cute room，such a lovely room, 真是一个很温馨的房间，对吧？或者说我新买了一个手机壳，such AQ one说的不是它很可爱，说的是它很精致，是或者还可以说一个q girl q boy，说这个人非常的讨人喜欢的意思。好，那我们描述完这件衣服，我们再来看看，比如说收到了礼物，收到了礼物雾gift和present还有一点点小区别，我们来简单的区别一下，因为在口语中有可能也会考到我们这个区别。如果大家能够把它说的更地道的话，其实表示你们对西方文化更加了解了。</p>
+    <p>首先就使用范围来说，gift的用法更加的广泛。Gift除了礼物对吧？还有比如说gift IT，它是一个talented，一个有天赋的人，也可以包装纸，比如说gift rap或者是gift token礼券。</p>
+    <p>Present用法更具体了对吧？Present除了这个礼物，还表示现在就是拿在手里的东西。The present I hold那么gift，当然比如说我说一些抽象的东西，比如说我要我给你准备了一个礼物，其实给我妈妈一个亲亲对吧？但是其实这不是一个能hold在手里的东西，那我就没法说give you a ent，因为present是something physical，是一些具体的实际的东西。而gift includes包含了something abstract，包含了一些抽象的礼物。比如说我们说这个礼券对吧？这个一个你可以让我指定让我做任何东西的一个礼券，或者是一个gift card。这些都可以叫gift，而不叫present card。</p>
+    <p>而这个gift和present单就礼物的含义来说，gift侧重于表达送礼人的这个礼物的分量，送礼人的诚意一般是上级或者是同级给的礼物。其实就是说一个上级给下级的一个礼物，说的是给你的一个东西，说的是让你惊喜的送给赠予你的一个东西。而present一般指的是同级或者下级赠送的，在口语中用的比较多。Present一般说的就是其实就是比较谦卑，说我送给您的贡献给成奉上给您的一个礼物，对吧？陛下请收礼吧？就说的是一个下级给上级的礼物，所以说口语中用的更多，比如说口语中是比较谦卑的，我们要谦虚一点。</p>
+    <p>好，那说完gift和present的区别，我们来说一下礼物除了刚才那些give present，还有一些地道的口语表达。比如说a little something，比如说i've prepared a little something for you，我准备了一个a small gift for you，是吧？Here is a little something for your birthday, 这是给你的生日的一个小东西。This what IT is, a little something from my best friend, 是我的朋友的小礼物，对吧？而不是说我朋友的小东西。</p>
+    <p>除了这个a little something以外，还有一个叫做bag，叫做糖果礼品袋样品袋，其实在路上那种免费发放的一个试吃的一个gift bag。A children will get goody bags with sweet Candy at the end of poverty. 小孩们会在这个party结束后，party的最后获得一个礼品袋。或者是people who buy piece of chocolate will get bag，会获得一个beauty bag，这是beauty bag。好，那我们说到买一块巧克力的人会获得一个礼品袋。</p>
+    <p>除此之外还有一个西方文化比较特有的叫做stocking filter，叫做圣诞袜。小礼物什么呢？什么意思呢？Feel对吧？填满failure，就是填在里面的东西，就是这个填的内容物填充物叫做袜子的填充物，是吧？那其实就是圣诞袜的礼物了。I have already a make stocking filers for each kid child. 我已经给每个小孩都准备了很可爱的礼物了。</p>
+    <p>好，我们说完礼物，我们来看一下怎么去描述一个礼物。右边这个图我找的实在是太土味了，但是实在是没有办法，因为这个网上也就这几个图。那我们来说一下，说一下你收到一个礼物的情况，一个场合。那这个场合要怎么去描述呢？怎么去描述一个你收到这个礼物，我们如果只用我们现在有的这个口语技术的话，可能大多数学生呢就我直接说a last time I ve received a gift from my friend IT was a guitar。IT is pink.</p>
+    <p>IT is really acute. And after that I found IT was AU clearly. 这个图上肯定是尤尤克里里，不是一个guitar是吧？那我能说的就这么多了。IT is so interesting, and I want to use IT. 我会说就这么多对吧？</p>
+    <p>那么我们来看一下，描述一个礼物我们可以从哪些方面去拓展呢？首先第一个我们来说一下收礼的场景？你什么时候做了什么样的事情收到这个礼物呢？我们来读一下，大家可以在这里暂停跟读一下。在跟读的时候要注意模仿这个老师示范的语气，还有我的发音以及一些连读，可以当做精听那样去跟读。So there was this one time when my best friend surprised me with an amazing gift.</p>
+    <p>We were at a small gathering at my place. Just hang out and have a good time. Suddenly, he handed me a beautiful rap box and said, I got something special for you with excitement, I tour opened at the rapping paper and found a brand new assorted guitar inside.</p>
+    <p>I couldn't believe my eyes. I had always wanted to learn how to play the guitar. And my friend knew IT IT was such a thoughtful, ful and unexpected gift.</p>
+    <p>好，我们这里读完这个话题说到受理场景，对吧？大家来想一下，我们说这是一个怎么样的场景呢？我们来翻译一下说，有一次有一个这样的时间，有一次当我的最好的朋友用一个很棒的礼物去surprise me惊喜了一下，我给我一个小惊喜，我们在一个small gathering，一个小的聚集。什么叫小聚集？其实就是一个小的聚会，对吧？在我的地方，在我家有一个小聚会，small gathering at my place, 就出去溜达，然后放松一下子。突然SHE handed me a beautifully wrapped box，他给了我一个非常漂亮的包好的一个盒子，然后说我给你准备了一些很特别的东西，那么got something special for you。这里是叹号，所以我们一定要语气要积极一点，一定要激动一点了。</p>
+    <p>带着这个激动，我立马的撕开了这个包装纸，发现了一个全新的吉他，对吧？里面有个全新吉他，我都不敢相信我的眼睛，我一直都想要学怎么去弹吉他，然后我的朋友居然知道真是一个非常考虑周全的和想不到的礼物，是吧？那我们这里后面附了一下翻译，大家来看一下。</p>
+    <p>好，我们来看下面的关于吉他的描述，这一部分就比较难了，我们来跟读一下。Let me describe IT a little. It's really cool.</p>
+    <p>The wood is smooth and they sound is super warm and nice. When I play IT, the screens fill so soft, and this is too strong, plus the design is just amazing. IT looks like a work of art with all these cool curves and details. Every time I pick IT up, I felt like i'm holding something special that inspires me to make music and express myself in a whole new way. It's not just a guitar, it's like a piece of history that brings out my creativity. 好，那我们这里刚才我把you变成了I因为我们注意一下，这里我虽然写的是you，但是我们在口语中尽量不要说当你这个弹奏的时候，我们尽量说当我或者是当有人当这个使用的人弹奏它的时候。</p>
+    <p>好，那我们来翻译一下说，让我来小小的描述一下，他真的很酷。然后这个石头，这个木头非常的光滑，声音非常的温暖和好听。当我弹奏它的时候，衔儿，string弦儿，比如说弦理论，screen theory这个弦感觉如此的软，然后很容易去弹奏。除此之外以及这个设计特别好看，它看起来就像是一个艺术品。有这么多的酷curve curve雕刻？曲线有这么多的很酷的雕刻，还有细节。每次我把它拿起来，我都觉得我在这个hold拿着一些很特别的东西，可以inspire，可以鼓励我，激励我去弹奏音乐，表达我自己。用一个全新的方式，它不光是一个吉他了，它像一个一件历史一样，可以把我的创意带出来。</p>
+    <p>这是我们关于吉他的描述，当然这个描述非常的简单，我觉得大多数同学都可以说出来。所以说我们后面是一个翻译，我们来看一个进阶变白描述。也就是说为什么我这里要把这个进阶版放在这里呢？是因为我们之前虽然说过了，口语保持简单流畅的，能回答清楚就可以了。但是有一些同学，比如说我的目标分数，老师，我现在口语本身在说的时候，我觉得已经能够保持流畅了。我说的词也比较简单了。那么我要如何去提升？我想拿到77.5甚至是八分该怎么办呢？</p>
+    <p>我们来看一下进阶描述要怎么去说。Let me tell you about this amazing guitar I got my hands on. It's such a beauty.</p>
+    <p>The wood is so rich and smooth with a deep, warm town that just rested through my cell. So when I play IT, the strains are like so under my fingertips, making IT a train to draw and pick. And the design is a work of heart.</p>
+    <p>The coves and details are just downing. Make IT not only a joy to play, but also a pleasure to look at. Every time I pick up this guitar, I feel like i'm holding a piece of music history in my hands. It's not just an instrument, is a masterpiece, inspires me to create and express myself in ways I never thought possible.</p>
+    <p>好，刚才有点嘴瓢哈那我们来说一下这里为什么这里比刚才那个好呢？大多数的同学可能就说观感上面因为这个多那个少，对吧？他肯定不是因为多少了。我们来看一下有哪些进阶版的表达，以及我们在自己去写的时候，有哪这东西是可以用上的。首先第一个i got my hands on对吧？那我们来看一下翻译说我弄到的对吧？我弄到的其实就是i got my handsome，我把手放在上面来说的就是我弄到的这把吉他。那么这里got my hands on说的不是我把手放上去的这把吉他，而说的是我得到is such a beauty，她真是一个大美人，beauty大美大漂亮，will be so rich and smooth.</p>
+    <p>他说的是木材如此的丰富和光滑，那么丰富？我们可以说rich experience丰富的经验，所以rich除了说有钱？也可以说丰富。Smith光滑，说这个with a deep warm town，有一个很深沉很温暖的音调，just rested with through my soul when I play IT和我的灵魂发生了共鸣。Resonate这里说的是共鸣，然后呢the screen are likes silk under my fingering tips，这个弦儿感觉就像是我手指尖的丝绸一样丝滑，对吧？那你看我们这里替换刚才的，刚才说的是the string哪去了？</p>
+    <p>The string feels so soft and easy to strong, 对吧？感觉好软，怎么软呢？像我指尖的丝绸一样，这样摸起来还非常的丝滑，making IT a dream to strong and pick感觉去弹弹什么的，像一个梦一样。和这个design它的设计oh man is a work of art，他真是一个艺术作品。</p>
+    <p>The curves and details are just stunning，这个雕刻细节真的很令人钦佩，make not only a joy to play, but also a pleasure to look at. 不光是弹奏对吧，光是看到它就已经是很令人舒服了。Every time I pick up this guitar, 每次我拿起这个吉他的时候，我都感觉到i'm holding a piece of music history in my hands。这句其实还好？It's not just an instrument，它不光是一个乐器，it's a masterpiece.</p>
+    <p>它是一个大师的杰作，是一个杰作。我们一般masterpiece用来形容什么呢？用来形容什么梵高的向日葵，什么贝多芬的命运交响曲，这种我们用来蒙娜丽莎such a masterpiece。我们说一个杰作能够激励我去创造，表达我自己在以一个从来没想过可能的方式去创作表达我自己。</p>
+    <p>那么大家看一下，进阶版的表述增加了什么呢？首先第一个增加了一些比较地道的表达方式，这里叫做go my hands one，这是第1.1个地道表达方式。第二我们加入了很多进阶词汇？比如说mar peace，还有这个resonate，这些都是要进阶的表达方式。</p>
+    <p>第三个我们去描述的更加细致了，我说这个弦儿很软，我怎么描述它软呢？Like under my finger tips, 像我指尖的丝绸一样。我这样描述指尖的丝绸，大家脑海里立马有画面了。那种广告里面一个指尖划过丝绸真的有这么丝滑吗？如果我说is so soft，没有其他感觉，就是感觉很soft是吧？</p>
+    <p>所以说我们如果想要做到更进阶版的表述的话，我们注意这三点。第一点更加地道的一些短语固定搭配。第二点用一些稍微高级一点的，比较能引发人想象的一些词儿。第三点我们去说一些能够把所有的比较大的表达，我们去往细了往能够引发一些人的联想遐想的一些表达方式。</p>
+    <p>好，那我们说完这个礼物，对于吉他这个描述有原始版，有进阶版，以后大家可以根据自己的情况来选择。我们再看后面说到了，说完这个礼物你不能收了就跑，对吧？I just grab my wrong, 我不能说我拿着我的礼物就跑了。我们来看一下收礼有什么样的感受呢？When I saw that guitar, my hearts give a bit.</p>
+    <p>I felt a rush of joy. And IT was not just a simple gift. IT represented my friends believe in me and her support for my dream. I couldn't wait to start learning how to play IT and create beautiful music. Every time I struck the strings, I fail a sense of empowerment and creativity that gives to become a symbol of my passion and the unfavorable friendship I share with my best friend. I forever grateful for her softness and the inspiration SHE has given me.</p>
+    <p>好，我们收到这个礼物对吧？我就一通的感谢。我说当我看到这个礼物的时候，我的心都溜跳了一拍，我感觉到非常的快乐。然后和感谢，不只是一个简单的礼物，它代表了我们的友情，还有它多么支持我，我都这个我都控制不住的，我等好等不及了，我要去弹奏它，创造美丽音乐。对，每次我击弦的时候，我都能感觉到充满力量，然后充满了创造力。这个礼物成为了一个我的激情和我们的友谊的这样一个象征。我永远的感觉为他的体贴，还有给我的这些灵感感到非常的感激。</p>
+    <p>后面是我们的翻译，我们来看一下，说到礼物，我们为什么有些同学可能我一说到朋友送我一个吉他，我就那一句话我也没什么可说的了。就是因为你没有把它分阶段我们去拓充，这个礼物本身对吧？这个东西本身我们去描述一下，再往前倒，这个朋友送我的时候是什么样的场合，再往后倒这个礼物本身是这样了，以后我收到它我有什么样的感受。我们这里就可以把它拖充的完整一点了，相当于讲了很多很多详细的细节。</p>
+    <p>我们来看一下这个串题范例。Describe a time when someone gave you something that he really wanted. 我觉得这儿我就没必要详细讲了，对吧？某人给你一个你真的很想要的东西，那我就直接把刚才这三段8888888直接说就可以了是吧？所以说这里上课我就不再进行串题范例了。因为这个示范就是把刚才来简单的读一下，我们来进入到作业环节。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-11.html">精讲逐字稿</a></li>
+      <li><a href="qa-11.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-10.html">上一讲 10</a></li>
+      <li><a href="lesson-12.html">下一讲 12</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

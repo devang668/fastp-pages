@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第07讲 · 喜欢的东西：串题素材 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 07 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a class="active" href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第07讲 · 喜欢的东西：串题素材</h1>
+    <div class="abstract"><b>本讲概要：</b>在雅思口语课程的第二部分，重点讲解了关于&quot;喜欢的东西&quot;的备考策略。瑞老师强调除了掌握九大原因之外，学生还需准备定制化的素材并力求熟练。课程内容涵盖了素材的准备、使用方法及定制技巧，特别指出定制素材应包含开头、主体和结尾，以结构化语言表达对电影、音乐、书籍等的喜爱或不喜欢。同时，提醒学生注意口语与写作的区别，使用更加口语化的表达。瑞老师强调自己编写素材的重要性，认为这不仅能提升英语能力，甚至能教授英语。鼓励学生充分利用提供的素材和方法，积极准备以提高口语能力。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-07.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在雅思口语课程的第二部分，重点讲解了关于&quot;喜欢的东西&quot;的备考策略。瑞老师强调除了掌握九大原因之外，学生还需准备定制化的素材并力求熟练。课程内容涵盖了素材的准备、使用方法及定制技巧，特别指出定制素材应包含开头、主体和结尾，以结构化语言表达对电影、音乐、书籍等的喜爱或不喜欢。同时，提醒学生注意口语与写作的区别，使用更加口语化的表达。瑞老师强调自己编写素材的重要性，认为这不仅能提升英语能力，甚至能教授英语。鼓励学生充分利用提供的素材和方法，积极准备以提高口语能力。</p>
+    <p>Hello, 小伙伴们，大家好。欢迎来到瑞老师的雅思口语课程。那么本节课开始，我们就开始说到part 2的串题素材了。也就是大家从现在开始需要背的内容，除了九大原因以外，就是自己的定制素材。并且把这个素材尽量的背熟。那么这一节课我们主要来看喜欢的东西。在说到这个喜欢的东西的传递这个素材之前，我们先说一下需要准备哪些素材，以及我们可能会说到的一些素材的使用与定制方法。</p>
+    <p>我们说到的大概是这么几个素材，关于喜欢的东西，比如说自己的一个喜欢的书、电影、音乐网站，我们可以用来描述喜欢不喜欢，它好在哪，它不好在哪儿。还有一个经常使用的物品，一个想买东西收到的礼物，或者是一个人物，一个著名的人，成功的家庭成员一个话题。比如说他的一个成功或者有趣的事人物他的事业，他生活在慈善方面怎么个成功，以及说到一次活动，比如说关于爱好的话题，描述我们日常的某一天你的兴趣爱好，你的体育活动或者是娱乐冒险，你的越线的电脑游戏这样一个活动。还有说到一个地点，我们去一个家乡或者是我旅游过的地方，不管是这个地点是你喜欢的地点也好，你常去的地点也好，想去的地点也好，我们都用这一个素材来准备。我说爱，那做了一些什么，喜欢或者不喜欢。</p>
+    <p>然后还有我们可以描述一下地点的美景，人物和动物的行为，我们的感受。还有就是一个事件，一次节日，一次庆祝活动，节日风俗和活动的表达。我们把这样的几个素材准备好以后，接下来的任务就是把这些素材被对照着每一季的题库进行串题了。每一个素材我们都可以尝试进行或多或少的修改，变成了一些问题的答案。并且我们静心把它背好了，背熟了以后去多多串题。</p>
+    <p>那么我们来看一下具体这个素材我们是怎么定制与怎么使用的？我知道有很多同学还会有看到那种网上会卖这个帮你定制素材什么的，其实那都是ChatGPT写的那与其我们去花冤枉钱让AI帮我们写，我们不如自己去定制。也就是说我希望通过我的课程能够让大家学到的不是说人物类素材我会说了，而是说我会给自己写素材了。我们掌握了这一门技能以后，你就不光是一个英语很擅长的人了，你甚至都可以去教英语了。</p>
+    <p>所以说我们来看一下素材具体怎么使用。我们素材我们一个完整的part two的这个回答就包括了开头、主体段和结尾这么三个部分。素材我一会儿会给大家提供的这些内容，包括我们后面几节课会提供的，都是主体段的内容。我们需要在开头和结尾的时候，使用一些固定的句式，将我们这个素材的话题和题目联系起来。开头最常见的我们常用的话题，比如说talking about说到什么什么，我们这个talking about后面可以加上题目的内容了。</p>
+    <p>Talking about比如说题目问你描述一个你喜欢的照片，talking about a photo that I like, 然后后面加上IT reminds me of他让我想起来什么什么，那这里我们就穿的是素材了。比如说talking about a photo that I like，IT reminds me of the photo take with my mother who is a really nice woman, 他是一个很好的人，对吧？后面加上which who这样的从句，我们去进行更深入的描述。其实这一个固定的开头我们就用talking about加题目。IT reminds me of什么什么素材，那么这里的talking about可以替换很多。Speaking of when he comes to s4，或者是啊if if talking about对吧，或者是if let me just just let me describe什么什么，i would say什么什么，我们这里后面可以替换成i would say no，或者说是on the most impressive thing。</p>
+    <p>The most impressive thing that come to my mind is什么什么是吧？哎，在我的脑海里面最佳印象深刻的是什么什么东西。那么开头我们固定的用这样的句式来说，结尾说到结尾，大多数同学可能如果把素材能够背很熟的话，我们甚至不一定有时间能说到结尾。可能说到中后期考完就打断了，但我们还是要对结尾进行一些准备。结尾就没有固定的句式了，我们可以常见的一结尾，比如说thanks to，对吧？多亏了或这样的一个经历，或者是i really admire什么什i want to怎么样，我们就上一点价值吗？多亏了这个经历，多亏了这个照片，多亏了那次经历，我有了这样一个美丽的照片，他真的很成功，我想和他一样成功。这个植物在中国真的非常重要，我希望能够更多保护环境。</p>
+    <p>来不了我们去稍微的拓展一下。主体段内容我们根据不一样的内容进行不一样的定制。这个我们后面来说，我们来看一下在定制素材的时候的一个词汇使用和串题句。</p>
+    <p>大家需要注意的是在自己写素材的过程中，一定需要注意的是口语和写作的区别。我们在写这个素材的时候，可不能写的像写作一样。About什么什么，i would a illustrate this topic from the following three aspect. The first aspect, or is什么什么compared with什么什么太书面了是吧？那像播这个播音主持的时候才会这么说的那我们日常聊天的时候不会这么说，我们就说一些口语化的东西，talking about I can think about什么什么，甚至是我们可以在这里面加入一些比较口语化的内容。</p>
+    <p>比如说guess what。猜猜你猜怎么着，对吧？像捧哏一样，您猜怎么着？是吧？或者说是我们还可以说一些什么，can you imagine？你能想到吗？或者是我们不用you的话可以说how can I imagine that怎么样，对吧？我怎么能想到什么什么？这是我们去在写素材的时候，加入一些口语化的词汇，并且加入一些比较表示情绪的一些小短语。</p>
+    <p>Guess what? You know that什么什么i can't imagine什么什么what a什么什么，还有我们的串题句。也就是说我们在说素材或者是在写自己的素材的时候，不能就直接说the paris beautiful，它左边有什么右边什么，然后说i feel really happy。我们尽量的去写一些结构性的，也就是说我们在第一节课提到的语篇标记。</p>
+    <p>那么什么叫雨天标记呢？我们第一句话一般说到公园美景了，我说最吸引我的是公园里面的美景，它左边有什么，右边有什么，前面有什么，后边有什么。说到了比如说说到这个感受，我说每一次去这个公园都能给我带来非常丰富的感受，然后我再说我的感受。而不是直接上来说的。所以说大家一定要注意一下这个结构性的句子。</p>
+    <p>那么说完素材怎么使用，说完素材怎么定制呢？我们进入到这节课，我们要说的定制一个关于一个物品的素材。那么说到一个说到一个物品的素材，我们主要分为这三个结构。说到了准备什么样的素材，还有表达如何表达喜欢和不喜欢。我们一个素材和传题示范。</p>
+    <p>先来说一下一个物品？喜欢的东西。比如说一个书、一个电影、一个音乐、一个网站，我们可能会准备哪些素材呢？比如说我们以电影为例，我们需要准备一个电影名字，比如说中文的话，我们这里来讲一下，如果是一部英文电影，那就很好说了对吧？大家最常见的man系列？什么superman、every man、spider man，或者是disney系列、迪士尼系列，什么snow White、什么little mermaid，或者是the beauty and beast，白雪公主、小美人鱼、美女与野兽这些都可以。</p>
+    <p>当然如果我要说到一部中文电影的话，这时候怎么办呢？比如说我说我最喜欢的是喜羊羊与灰太狼大电影，那这个时候我们怎么说呢？首先有两种方法，第一种方法直接说中文并且加以解释，什么意思呢？我就直接说。So, you know, my favorite movie is called喜羊羊and灰太狼。IT is a really nice movie about maybe some goals are fighting against above.</p>
+    <p>And IT is a kind of cartoon movie, 它是一个故事，关于一些羊和一些狼的对抗的故事，是一个卡通是吧？或者说是我将它直接翻译为我们想翻译的英文。其实这里的真实性大家不用太在意，因为我们怎么翻译都行。我就说my favorite movie is a chinese movie called the heavy gold and a big wolf？一个快乐的羊和大灰狼。</p>
+    <p>好，那么我们除了电影名需要准备这么几个以外，我们要看一下这是一本什么样的电影呢？是一个comedy，一个romantic，一个war，一个historical，一个fantasy，一个detective science fiction，your cartoon有disaster，your horror还是action，documentary是吧？Documentary还是怎怎么样怎么样的电影。所以说我们需要对于电影的类型有一定的了解，并且清楚他的英文怎么说。</p>
+    <p>然后我们在讲述到电影的内容方面，电影的情节a story about主人公怎么说，我们可以说是main character或者是main role？那我们说到主人公i man roll或者是hero in，或者是它的画面、它的情节、它的slot，或者是plot，或者是他的这个story？他有一个很强的story telling的能力，how does the story telling goals？他的讲故事是怎么样的？画面比如说the sing或者是the picture都可以。除了此之外，还可以说一些主角的角色，或者是一些常见的人名。我们能在这里把我们的这个内容在上一步表示你对西方文非常的了解，非常清晰。</p>
+    <p>那么这是关于一个电影，我们如何去说电影对我的感受，以及比如说可以说到电影什么inspiring感受，或者是motivating，或者是这些都可以。我们说到了这个电影对于我们有什么样的激励作用，然后我们除了电影还可以收到一些比如说音乐？那具体的某一首歌，某一个musician，一会儿我们会说到musician，还有除了这个具体的音乐风格以外，还有什么把音乐类型，怎么去学习音乐，或者音乐带来的感受有一个strong feeling，他的rhythm是怎么样的。</p>
+    <p>那么我们来看一下，比如说这里流行的一些音乐风格叫pop music流行音乐。那么c pop这个中国流行对吧？K pop韩流，那么rock music、摇滚、classical music, 古典的James music、爵士、hip hop、嘻哈、RNB rest and blues, 节奏式的蓝调country music。然后这个乡村音乐、electronic music、电子乐、folk music、民谣、blues、蓝调、这个metal金属乐、dance music曲，还有比如说我们刚才说到的一些乐器对吧？Piano, guitar in drones, sex, phone shop alone and electronic keyboard.</p>
+    <p>大家要注意一下，说的大提琴它不是shallow，它叫shallow，相当于是这样拼的shallow。所以说大家一定要注意这个词的发音，如果要说到大提琴的话，它叫shallow。然后继续往下，还有一些常见的音乐家，比如说be soften、majority、bug shopping是吧？那这些我们可以提到1到2个，我就非常记得在我第一次考雅思的时候，考官就问到我，so who is your favorite a musician? 我就当时就卡在那儿了，然后因为我当时跟他说。I have played the violin for over a few years，for over six years, and I pass some exams like get the nice, the state of the nice grade three Young.</p>
+    <p>然后他就来问我，你喜欢哪些乐曲，你喜欢哪种风格，你喜欢什么音乐家？我当时就懵在那儿了。所以说大家一定要对于这个有1到2个准备。</p>
+    <p>然后我们来看一下，再说到书籍？书籍也是一样的，主人公是什么？书籍的作者？他的OS他的这个主人公main character，或者是他的这个story情节是怎么样的，以及这个故事的叙述风格。它的ra这个词叫嚷嚷，是它的叙述风格。比如说它的小说，ms fiction，mystery, romance, science fiction, fantasy, historical fiction, SAT, hope, biography, autobiography, history, science, poultry art business? 我们各种各样的分类的书籍以及一个书的名字，说明我们还是跟刚才的电影名一样。如果说英文，那就直接说scary letter，或者是的的the proud prejuges傲慢与偏见，或者是这个老人于海，那如果我们说到中文的书籍的时候，也可以直接说这个的什么什么名字，对吧。</p>
+    <p>The flog written by mayhood is a no Price，noble Price manner in china and the famous auto and mean IT is a fiction about什么什么是吧？好，我们说完了以后，我们来看一下表达喜欢，表达不喜欢。大家最常见的在这个回答过程中，其实喜欢就是i like，不喜欢就是i don't like。那这里我们表达喜欢可以说actually fall in love with，我真的很喜欢什么，比如说i in a truly fall in love with box style bob叫做这个齐的那怎么说呢？就是bob头就是这个波波头，就是这个齐就是比较齐的，像一刀切那样的。</p>
+    <p>Which sees me for perfectly, 很适合我，或者说我们说IT is something to die for，非常愿意，我甚至愿意为他而死for me。比如说红烧肉，对吧？The pork belly is something I will die for. Now i'll be passionate about, 对什么很有热情。比如说这里的he's also passionate about running，but usually can't coin dance with my routine because he's job.</p>
+    <p>他对于他很喜欢跑步，但是通常coincidence叫做巧合，对吧？他巧合不上我的日常，什么意思呢？就是他没有办法跟我的日常去匹配一下，因为他的工作时间，比如说我们工作时间不一样。Found of也是喜欢，比如说the toy is an electronic string set with different engines and carriages，有不一样的engine引擎carriage这个车厢是吧？I'm still very fond of IT today.</p>
+    <p>我直到现在都非常喜欢它。还有be king on热衷于i was king on outdoor，是什么什么的狂热粉丝，a big fan of I am a big fan of all types cultures. So I enjoy visiting museums and galleries when I go to another country, or when I was another thing in china.</p>
+    <p>我超级喜欢各种文化，所以说我很喜欢去拜访一些博物馆。还有最后的adore叫做喜欢爱慕喜爱。SHE adoors trying out different restaurants in the city, and he has a personal blog about IT.</p>
+    <p>他有一个个人的这个blog，还有我们表达喜欢的对什么什么所疯狂。Be crazy about people in my country are real fans of korean support process. They look them. In fact, I think that some people are even crazy about them.</p>
+    <p>我们国家的人非常非常喜欢韩剧，对吧？韩国的肥皂剧他们非常喜欢他，甚至是我觉得都是疯狂了。还有be enthusiastic c enthusiast stic叫做热情的？我们这里说到i find its a lot more exciting watching sports with other people，especially people already. You all stick about the sports.</p>
+    <p>我发现对于看和别人一起看这个体育赛事是非常激动的，尤其是这些人对于这个体育非常有激情的人。还有be into，into本身就是表示喜欢的。I've always been into playing puzzles.</p>
+    <p>Puzzles叫做解谜类游戏，because they are chAllenging and attractive. 他们很有挑战性，很有吸引力。还有be fascinated by被什么什么所迷住了。I have always been fascinated by astronomy, 被天文学迷住了，be mad about对什么什么疯狂疯了。She's mad about sports.</p>
+    <p>SIM他和我一样都很疯狂，这个体育或者说是have a soft spot for，这真是戳到我了对吧？好戳我。I ve always have a sort soft sport for chocolate，我总是对于巧克力难以抵抗吧？Appeal to, 还有表示新的movie appeals to可以，或者是i have a particular faultless for be found for，对吧？Found本身就表示喜欢了。</p>
+    <p>Finance叫做名词，有一个特别的喜欢，比如说这里说的i have a particular fairness for rock music，那么这里是表示喜欢。我们来看一下表示不喜欢，那么我们表达不喜欢的常见的，比如说detest？憎恨讨厌。I detest adverse, and I get annoyed when they come on TV or on apps on my phone. 我很讨厌这些广告是吧？尤其是当他们出现在电视里面或者我手机的APP里面。</p>
+    <p>Have be second discussed by discussed by and second by those exaggerated vertie ments on TV我对于那些过分夸张的广告，电视上过分夸张的广告感到非常的恶心。你令我感到恶心是吧？还有those I love doing housework，我极不喜欢a door a door，或者是这个logic to我对什么什么过敏什么意思？就是我这个一点儿都干不了是吧？我对这个我对笨蛋过敏，我就讨厌笨蛋的意思。</p>
+    <p>I am alert C2Cooking, 我对于做饭过敏，我讨厌做饭can stand can bear这个受不了。比如说i can stand people throwing litter about，I can't bear having cats in the house? 我受不了人们扔关于什么什么的垃圾，或者说是我受不了家里面有小猫，还有比如说is not my cup of不是我的那盘菜，不是我那杯茶。那么反过来，如果说are you know just cute kid's are my cup of tea，no小猫是吧？可爱小猫是我的那杯茶就是我很喜欢的意思。如果不是我的那杯茶？我说的TV series is popular with some Young people，but TV Frankie is not my cup of take.</p>
+    <p>那么这里的to be Frank叫做简而言之直白的来讲就是实话说吧，对吧？To be honest的意思，他不是是我的那盘菜。还有比如说is not my thing，那反过来来说，如果说IT is my thing，是我喜欢的那如果说我不喜欢matters not my thing at all。这个数学一点都不是我喜欢的东西，或者说是be tired of感到厌烦。I'm tired of the feet here.</p>
+    <p>我很烦这个吃的is absolutely awful。The bad weather was absolutely awful. 坏天气真是太差了是吧？或者是is an absolute nightmare，真是一个噩梦。比如说such noise can be mely penetrating，and IT is an absolute note made for me. 这样的噪音真是真的很烦，真的很恶心，然后他是对于我来说绝对是一场噩梦。</p>
+    <p>那么我们说完喜欢表达不喜欢以后，我们来看一下，说到一个喜欢的东西，大家如何定制关于你们自己的素材呢？比如说这个话题，describe an item you like and your experience of using IT描述一个你喜欢的东西和你使用它的经历。那么我们说到一个喜欢的东西，一般分为这么两部分，一部分它的这个东西是什么样的外表描述，另一部分我们说到使用它的感受。这两部分就是我刚才说的主体段的两部分。在这前面我们加入一个开头，后面加入一个结尾。比如说开头我们还是刚才这个talking about an item I like and are talking about my experience of using IT。IT reminds me of my blue tooth earphones, which is I bought.</p>
+    <p>那我要说到的就是这个素材了。最后结尾我们一会儿来说，我们来先看这个素材描述，大家可以在这里背似雾去跟读一下。So I absolutely love my blue, his earphones, the league violence, and offer great sounds quality.</p>
+    <p>These earphones have a modern design and fit perfectly in my ears. The best part is that they connect simplest ly to my spot phone, and or are any other blue sing abble devices. This means I can enjoy my favorite music or podcast without dealing with tangled wires. Additionally, they come with a compact of charging case that provides extra battery life, make them convenient for travel or long community.</p>
+    <p>那我这里说到的，我喜欢东西是一个蓝牙耳机，是吧？我超爱我超爱我的蓝牙耳机。它是sleep sleek，叫做光滑的或者是时髦的。它很很大气，很时髦，是where叫线是无限的，提供了很好的声音质量。这些耳机有一个modern design，有一个很时尚的很现代化的设计，而且非常的适应我的耳朵。最好的部分是它可以seamlessly叫做无缝的，它可以无缝连接到我的手机或者是其他的flutes enable device这个可用蓝牙的设备？那这也就意味着我可以享受我最喜欢的音乐或者是播客。</p>
+    <p>不需要处理任何tangled wires，叫做缠绕着的很复杂的一团线，对吧？不需要把这个耳机线拽出来了，它是无线耳机。除此之外，它还有一个compact一个包裹，一个套装charging case，一个套装的充电盒，提供了extra bad reality，提供了额外的电池生命。让他们convenient for travel or lung commute，对于这个旅行或者是长距离的commute叫通勤对吧？让他对于通勤或者是长距离的旅行都是非常方便的。</p>
+    <p>你看我们这里在描述的时候，我描述了一下什么时候买的，怎么买的，然后外观是什么样子的，它的对于这个什么什么好处。这是我们说到的外表描述。我们进入到了使用感受，说到用这个蓝牙耳机能够给我带来一些什么样的感受呢？我们来跟读一下。Using these blue to see your phones has been a fantastic experience.</p>
+    <p>That sound, clarity and base are impressive, allowing me to immerse myself in the music. Whether i'm working out at the gym, going for a run or simply relaxing at home, these earphones provides a comfortable and enjoyable listening experience. The fact that they are wireless gives me the freedom to move around without any limitations. I also appreciate the built in microphone, which allows me to take calls hands free while on the go. Overall, my blue to earphones have become an essential accessory in my daily life, enhancing my music listening experience and making IT more convenient than ever before.</p>
+    <p>好，那我们这里说到什么？说到了用它的感受？使用这个蓝牙耳机是一个非常棒的体验，非常fantastic experience，一个非常好的经历。它的声音的clarity，声音的清晰度，贝斯贝斯除了说这个电音的贝斯，那我们还有它叫做低音。它的这个声音的清晰度和低音是非常的令人印象深刻，非常打动人的，允许我能够让我去沉浸我自己，把我自己沉浸在音乐里面，immerse叫做沉浸。不管是我在上节课我们讲过的working out这里又出现了叫做健身是吧？上节课我们说到很多含义，在这里我们用健身的意思，不管是在jim在这个运动体育馆里面健身也好，还是去跑步也好，或者是享受放松。在家里面这些耳机都给我提供了一个很舒服的，很享受的一个听觉盛宴，一个听觉经历。</p>
+    <p>事实上什么事实？什么事情呢？他们是无限的给了我各种自由，去挪来挪去，没有任何的限制。</p>
+    <p>我也非常的感谢那个内置的microphone b microphone内置的这个耳机，内置的这个speaker叫做耳麦麦克风。能够允许我去take course，或者是这里可以说answer phone calls，能够让我去接电话？Hands free就是释放我的双手在on the go在路上的时候。</p>
+    <p>除此之外，总结一下，我的蓝牙耳机成为了一个我日常生活中essential accessory。Accessory叫做小的配件。不管是我们说的耳环、小饰品，或者是这个笔？Ipad的或者是蓝牙耳机，它都较小的配件配饰配件。它成为了一个日常生活中非常重要的一个配件，能够增强我的听音乐的经历，让他对于我来说比之前都方便太多了。这是说到了一个使用感受。说完了一下这个结尾，我就可以说了i thanks to，或者是我们根据不一样的话题来有不一样的结尾。</p>
+    <p>我们来看一下，我的素材说的是蓝牙耳机。大家可以根据我这个素材进行一些变化。比如说说到一个手机、一个电脑、一个投影仪、一本书、一个东西，任何的一个东西，一部电影都可以对吧？或者是我的小提琴也可以。我们来看一下这里的问题范例说。Describe the product you bought that you were happy with.</p>
+    <p>描述一个你非常喜欢的，你非常热爱的一个产品。这个东西我一包你买了什么什么时间，什么地点，你买的为什么你买的？然后解释一下为什么你对它很开心呢？那大家在这里可以暂停一下，然后我们来自己回答一下。好，我们来我来带着大家来串题一下，那么我就用我的素材了，大家在串题的时候可以使用自己的素材。我们在开头第一句就用我刚才说过的固定的句式。Talking about a product I bought that I was happy with.</p>
+    <p>I was happy with IT reminds me of the blue earphones I just sorted by myself. So are talking about IT. I really love my bed there, phones.</p>
+    <p>They are sleek, wireless and know for great south quality. Those earphones have a modern design and fit perfectly in my ears. The best part is that they connect to simply ly to my smart phone, or any other blood has enabled devices.</p>
+    <p>And this means I can enjoy my favorite music or podcast without dealing with tankle wires. And also additionally, they come with a compact torgan case that provides extra that. Make them convenient for travel or LG commute.</p>
+    <p>So前面说了，买到这个东西是吧？然后我们简单的来说一下什么时间什么地点买的，以及最后。So I bought IT, like lost here.</p>
+    <p>And in the AI, I think he was in the apple store. And I think IT is really like a good experience, like using this kind of the blue test phone. Know that sounds like phy and base are impressive, allowing me to in most myself in the music, whether i'm working out at the gym going for a wrong or simply relaxing at home.</p>
+    <p>These earphones provide a comfortable and enjoyable listening experience and the fact that their wireless give me the freedom to move around without any limitations. So I also appreciate the built in microphone, which allows me to take course, hand free while on the go. So I just inclusion in overall, my blue tax earphones have become an essential accessory in my daily life, enhances my music listening experience and making IT more convenient than ever before. So yeah, I just thanks to my blitz and I think that's the most valuable purchase i've ever recent years. 我说很感谢这一次经历，我认为这个耳机是我近年来买的最好的一个东西了。</p>
+    <p>好，那么我们来说一下，基本上这个串题范例。当然我说的很快，大家如果能够达到这个水平的话，那你也能口语九分了。但是我们在自己在串这个素材的时候，大家一定要注意，一个是需要注意的几个点。第一个就是结构，我们需要把结构写清晰，并且加上开头结尾第一部分。</p>
+    <p>第二部分大家在写自己素材的时候，一定要足够的宽泛，什么意思呢？就是这个素材不能非常局限，说到一个很很细致的东西，比如说说到一个人？我们尽量说的一个广义上的成功人物，而不说这个人是额外的在某一个方面取得了多么大的成就。因为这样的话其他工作就没法串了，所以说我们素材尽量宽泛。第三个就是串题的时候，我们多去提一下，多去和素材连接一下。这个话题you are happy，它比较简单，我们一会儿作业的话题比较难，我们来看一下怎么去尽量的去串进题目里面。好，这是我们这节课的内容，让我们进入到作业部分。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-07.html">精讲逐字稿</a></li>
+      <li><a href="qa-07.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-06.html">上一讲 06</a></li>
+      <li><a href="lesson-08.html">下一讲 08</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

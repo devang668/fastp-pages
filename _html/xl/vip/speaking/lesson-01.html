@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第01讲 · 导学课：口语考试流程与评分标准 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 01 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a class="active" href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第01讲 · 导学课：口语考试流程与评分标准</h1>
+    <div class="abstract"><b>本讲概要：</b>在准备雅思口语考试时，重点应放在提升口语的流畅性、连贯性、词汇多样性及语法准确性上，其中流畅性和连贯性被视为首要关注点。考试分为三个部分：Part One要求快速反应，Part Two侧重于描述和组织思想，Part Three则需要对话题进行深入讨论。考生应准备相关素材，熟练使用结构连接词，同时避免内容同质化，提倡使用地道、贴近日常生活的表达。此外，通过模拟考试和反复练习来提高口语能力是关键。讲座旨在指导考生采取正确的方法和心态应对雅思口语考试，以达到提高语言表达自然度和考官评分的目的。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-01.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在准备雅思口语考试时，重点应放在提升口语的流畅性、连贯性、词汇多样性及语法准确性上，其中流畅性和连贯性被视为首要关注点。考试分为三个部分：Part One要求快速反应，Part Two侧重于描述和组织思想，Part Three则需要对话题进行深入讨论。考生应准备相关素材，熟练使用结构连接词，同时避免内容同质化，提倡使用地道、贴近日常生活的表达。此外，通过模拟考试和反复练习来提高口语能力是关键。讲座旨在指导考生采取正确的方法和心态应对雅思口语考试，以达到提高语言表达自然度和考官评分的目的。</p>
+    <p>Hello, 陪考研的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课程。在接下来的十几天几十天中，我将陪伴大家度过一段非常美好的口语经历。当然我希望是美好的，希望对于大家来说口语不用那么难，能够通过我的帮助让大家觉得口语好像还挺简单的。那么在正式开始上课之前，我想要跟大家先来聊一聊口语要怎么准备。以及如果我是零基础的口语，或者是我有一点点基础，想要拿到一个口语很好的分数，我们应该去怎么练呢？</p>
+    <p>其实有很多学生都跟我说过，老师你也知道我们这个初高中什么的英语教育都是应试考试，从来没有过这口语的练习，也没有过什么很好的口语语言环境。所以说其实对于我来说说口语相当的困难。但其实对于不光是对于你来说，对于我来说也是一样的。也就是说对于中国千千万万的考生来说都是一样的，大家都没有那么多的口语准备的机会。</p>
+    <p>那么如何把口语练好呢？首先第一个，我希望大家在开始跟我上课之前转变一下心态。不管你是一人还是爱人也好，都给我变成麝牛。为什么呢？是因为大家都知道我们口语考试一共就十分钟的时间。想要在这十分钟的时间里面展示你的个人情况，一定需要非常多的活力与爆发力。而我们口语是非常看重你的善于表达你的一个表现你的沟通意愿的一个态度的。所以说希望大家从现在开始，在口语准备上面变得麝牛，把一切你想要说的东西，你脑子里的所有想法都给我说出来。</p>
+    <p>那么话不多说，我们开始这节课的导学课内容了。在开始我们这节课内容之前，我希望大家来跟着我一起看一下，我们这个课一共是怎么样一个结构。也就是说大家可以根据自己的时间安排，根据自己的选择来进行这个课程的进度的调整。</p>
+    <p>首先第一个我们这节课当然是考务介绍一些导学课，也就是针对一些之前没有考过雅思考试，我从来没有接触过雅思，我也不知道口语要考有些什么。以及我可能有一些时候，我不知道这个时候能不能去问考官这样的问题，或者是我能不能提问老师，或者是这个口语大概是怎么样的一个流程，我想要看一下是怎么考试的。那么对于这些以及可能考试中比较看重的一些点，或者是我们不太需要care的一些点，我们进行一个补充。当然就算是有一定口语知识，或者是考过一次两次试的同学，我也非常建议大家仔细的来看这节课。为什么呢？是因为我中间解读了一些比较重要的东西，以及提供了一些大家可能在口语考试中遇到的问题。所以说希望大家跟着我认真的把导学课以及考务介绍课来看掉，这是这节课的内容。</p>
+    <p>首先然后我们到了下一节，后面的两节是一些基础知识补充，包括句子结构以及时态语态。那么句子结构大家如果英语基础比较好的同学可能清楚，句子结构不就是简单句、复合句、从句吗？还有什么祈使句、感叹句之类的那这些比较简单的。如果让大家写的话，我相信大家的英语水平都来考雅思了，那肯定不是大字不识一个，对吧？所以说让大家写肯定能写出来。</p>
+    <p>那么我们口语中比较关注的句子结构，其实是如何把一个很长很难的句子我们缩成一个短句。如何在口语中非常流畅非常清晰的表达。通过句子结构转换的方式来改善大家的这个口语能力，这是句子结构方面。而时态语态我需要给大家讲述一下什么时候我们口语最常用的是什么？而口语中不太常用的时态语它又是什么？所以说这两节基础知识补充，就算是这个英语能力比较扎实的同学，我也建议大家耐着性子把它看完。我们给自己的口语打一个好的基础。</p>
+    <p>打完基础以后，我们就来到了part one的宗关。Part one大家如果有一定的对于雅思口语有一定了解的同学，可能知道，我们口语分为part one、part two和part three 3个部分。而这里我把part one稍微的放的时间短了一点，而主要的精力放在了part two上面。而part three给大家提供一些中观的思思路链，为什么呢？是因为我希望大家通过我的课学习到的不是某一个技巧，而是授之以鱼不如授之以渔。所以说我希望大家跟我学的不是具体某一个单词怎么用，或者是具体某一句话怎么用，而是我希望大家能够通过一系列的视频学到具体的某一种学习方式。</p>
+    <p>什么意思呢？就是学完以后你就可以当老师了。如果你能考出比较好的成绩的话，那么你就可以很好的去教别人了。什么意思？其实就是我希望大家给大家教授的是一种学习方式，而不是具体的。比如说我如果针对这种类型的题目，我们如何去备考，而不是说我给大家列举一些比较常见的一些词汇，你们就去背。我觉得这种对于大家如果换一个话题可能就没用了？那我希望教给大家的是这个具体的学习思路，而不是具体的某一个词儿该怎么，某一种话题该怎么去拓展。</p>
+    <p>所以说我在part one中教大家的是一些比较常见的一些思路如何去拓展，大家要下去多练。而后面我们给大家做了一个素材补充，叫做九大原因。这个九大原因可以说是贯穿我们整个口语课程了。它在part one、part two以及part three中都非常的实用。所以我希望大家建议大多数同学都可以把这个九大原因来背下来，作为自己的一个素材补充包。</p>
+    <p>那么后面我们关于two，大家有学过有了解过亚瑟的同学可能知道，我们到了part two需要准备一定的素材了。那么这里我除了补充素材以外，给大家补充了一个叫做3加1的回答方式。用这个回答方式配合着我们这么多个素材的类别来进行一个part two的补充。那么到了part three，一个part three的中观以及思路链，我们说到了分情况讨论以及举例论证。给大家三个大方向，一共是七个小类别的关于part three的回答逻辑。</p>
+    <p>这是我们整个培训营的课程介绍，希望大家对于课程有一个纵观的了解，而跟着我把每一天的任务好好完成，并且在群里面大家经常的聊一聊最近的学习，我也希望听到大家的一些反馈。关于口语上面的，我们话不多说了，这个基础的一些概括性的知识已经介绍完了以后，我们开始这节课的内容，关于口语的导学课。这节课主要分为这么五大项。第一项是口语基本考试信息，第二项是评分标准解读，这个是非常重要的。第三个是一些我们可能不太清楚的，可能有一些误解，以及补充一些常用句句式和考试真题一栏。也就是说可能会给大家看一下真题，以及在最后进行一个模拟考。</p>
+    <p>是那么我们来先看一下一个基本的考试信息。从来没有考过口语考试的，或者是对于雅思一概不通的同学，可以仔细听一下了。我们口语考试不像是听力阅读写作动辄就是2 20分钟、半个小时、1个小时的对吧？那我们口语考试其实时间就是十来分钟，十来分钟的时间，那可太短了对吧？一眨眼我一紧张，一个卡壳十分钟就过去了。所以说大家需要在这十分钟里面充满爆发力，精力充沛的把大家的思路都非常集中在口考试上面。</p>
+    <p>口语考试一共就这么10到15分钟的时间，会有一个考生，会有一个考官来面试大家。那么这个考官，现在因为我们以前可能会出现一些面对面的考试。但现在如果大家都在国内考试的话，基本上口语考试不管你们这个听力阅读写作选的是纸笔考还是机考，我们口语考试都已经变成了机考。也就是说大家现在只能对着视频，不会对着这个考官本人了。当然这其实也是好事了，因为我们不用看着考官，可能稍稍的隔着屏幕还不那么紧张，对吧？如果考官比较严肃的话，那么会有一个考官来面试我们，他会用录音笔记录我们之间的谈话。那考官会严格的控制时间。所以说如果大家遇到了任何情况，不管是考官被考官打断也好，不管是这个中间考官非常的严肃，一直在提醒你。</p>
+    <p>In general in general说的笼统一点，不管是他怎么样的行为，或者是考官嬉皮笑脸的跟你这个笑面虎一样的，或者是跟他聊跟你聊的特别好，甚至是如果这个考官特别帅的话，大家也一定不要被考官的这些行为影响到自己的这个考试发挥。我真的有学生会跟我说，老师考完试了跟我说，老师我那个考官特别帅，我就一直夸他you are so handsome。结果出来一个捂结果本来这个学生其实是可以拿到6.5的水平的，结果出来一个五，就是我们不要因为考官丑也好，帅也好，影响我们自己的表达，对吧？我们把我们做好的准备去表达给考官，这就OK了。不要因为他太凶也好，太和善也好啊不要因为这个来影响我们的发挥，这是关于考官的信息。</p>
+    <p>我们说到雅思口语主要是三个part，在这三个part开始之前，考官会简短的向我们介绍一下这考试的整个流程，包括和你核对一下考试的。时间和你核对一下这个考试的地点，或者是核对一下你的个人姓名是吧？那么这个时候我们就可以稍微的自我放松一下，熟悉一下考官的声音，甚至是进行一个预热，一个叫做打招呼的环节。</p>
+    <p>什么意思呢？其实我给大家举一个例子，这个东西不是必要的，而我们可以大家可以根据这个人的情况来看情况调整。什么意思呢？就是比如说我举个例子，在我考试的时候，我考试的时候，可能有些考官他们读中文名字读的比较奇怪。因为我的名字叫瑞对吧？写在这里了，而我的中文名叫刘蕊。有很多考官，考官都是外国人，他们看到这个中文拼音他就会读。</p>
+    <p>And so your name is ruby 6，那读的很难受是吧？那我就可以在这里稍微的展现一下自信了。我说啊呀呀you can just call me刘蕊，that's my chinese name, and just I go by ray is okay, you can just call me.</p>
+    <p>那我们这里我的中文名字刘睿比较难读，所以说你就可以就叫我瑞就可以了。或者我们可以在这里可以根据自己的姓名进行一些展开的客套话，当然了也可以跟考官进行一些互动。比如说i will weather。The weather here is so hot.</p>
+    <p>You know, recently is getting summer, 对吧？夏天太热了，或者是i just have you doing recently。那么我们如果提出这样的问题的话，比如说你最近怎么样？How are you？这样的问题一定要做好回答的准备，因为考官有可能也会问回来，当然也要做好考官非常凶不搭理你的准备，对吧？比如说我非常热心的问how you doing recently？考官just nice。So let's talk with our own speaking test.</p>
+    <p>他比较着急的去push进度，所以说我们如果考官比较冷漠的话也没有关系，不要太紧张。不要因为考官不搭理你，你就内心打退堂鼓了，一定不要涨。那么说完这个正式考试开始之前的这么一个流程以后，我们来看考试内容。考试内容主要分为三个part，part one、part two、part three.</p>
+    <p>它是一个纵深的一个逐渐深入的过程。不管是从难度也好，我们回答的内容也好，还是长度也好，它都是逐渐递增的那大家可能清楚吗？大家多数来考雅思都是为了出国，对吧？不管是出国学习也好，出国生活也好。那么口语考试就是给我们提供了一个这样的测试的机会，来看你的学习或者是生活能力，看看你能不能在国外很好的生存下来。或者如果你生存下来了，活下来了，能不能在国外很好的进行学术沟通。那么part one考的相对来说就是我们的生存能力了。</p>
+    <p>问的是所谓的自我介绍，这个自我介绍就不太像是大家可能比较清楚的那种，开学第一天我们在英语课上的自我介绍，my name is什么什么，i am怎么样。这个自我介绍还是根据你个人情况来问一些跟你日常生活相关的问题。比如说你喜不喜欢做运动，比如说你喜不喜欢做体育，比如说你对于地理怎么看？你喜欢音乐吗？你喜欢看哪种电影类型的电影，爱拜喝茶、喝咖啡，你休息日的时候做什么？这些就是我们题目中会针对到的一些话题了。</p>
+    <p>当然我简单的说一下题库，我们雅思口语是有一定的题库的，大家要针对题库进行一定的准备。那么在抛万中，我们题库有四个固定的问题，叫做必考题。包括了你的家乡？你的住所，你居住住的区域，以及你现在是学习还是工作。那么这个四个必考题，它之所以叫必考题，是因为它不会跟着这个题库的变换，不会跟着某一年某一季度的变换而变换。也就是说有很多考官喜欢在开头的时候，先用这个必考题来热络一下来引入一下我们的话题。而当然了大家也知道，因为它不会随着题库而变化，所以说大多数同学对于这个必考题的准备都是相当充分的。</p>
+    <p>有的考官也会觉得没有什么参考意义，对吧？一共就十分钟，我再浪费点时间来考必考题的话，大家必考题准备的都很好，所以说那就没什么必要了。所以说可能有些考官也不会去准备太多，给大家太多时间去考这个必考题。</p>
+    <p>那么除了必考题以外，就是刚才说过的跟大家的个人生生活，个人的日常相关的一些话题。比如说你爱不爱喝茶喝咖啡，你如何看待机器人、科技发展、环境污染，这些跟我们日常息息相关的问题。这里的问题比较简单，我们回答的也相对比较简单。他大概会问到8到10个问题，可能3到4分钟，4到5分钟这样。那么这里的我们的回答就不需要太去太着重在这炫技了。我们一会儿来说，每个part需要着重说。</p>
+    <p>那么说完part one，一些比较简单的跟个人生活贴近的问题，问了大概8到10个问题之后，我们来到了part 2、part two叫做话题卡环节。话题卡是唯一一个部分我们能在口语考试中看到题目的。也就是说在part one、part three中是看不到题目的。大家需要根据这个考官，根据使用自己的听力的技巧，听力的能力来听考官在问什么。也就是说在这里很有可能我们的口语成绩会受到听力的影响了。一会我来补充我们如何尽量的减少听力能力在口语成绩中的影响力。</p>
+    <p>说到part two，我们能够看到题目了，这里叫做话题卡时间说的是让你描述一个东西，describe something, 一个时间、一个地点、一个人物、一个经历。后面会有几个4到5个小问题，关于这个大话题的补充问题。在这里大家有一分钟的准备时间，有两分钟的陈述时间。在这一分钟的准备时间中，大家是有这个纸和笔，然后也可以做一些笔记，也可以看到题的。在你两分钟的陈述时间也可以看到题的。</p>
+    <p>但大家来想一下，我如果我就不准备，对吧？我在考试前我不做任何准备，我扣一就去裸考。那么这一分钟的准备时间有可能，大家要知道，你们可以现在尝试一下一分钟有多长。我们很有可能连思路连中文思路都没准备好，我还不知道要说啥，时间就已经过去了。然后我要说够两分钟，这相当的困难，对不对？我们连中文都不知道该说什么的话，让我英文说够两分钟，我很有可能还要准备一些语法。我有些词儿不知道怎么说，或者是我这个重复的一个词儿，我翻过来倒过去就会说一个beautiful或者是relaxing。那我很有可能越考越说越尴尬，越说越尬在那儿了，越说越这个6加倍了。</p>
+    <p>所以说大家在part two中，我是建议所有同学都准备自己的素材的。除非你是一个native speaker，能够很流畅的把你想说的内容说出来。所以说一分钟准备时间是非非常非常不够的，我们需要花很多的时间来弥补这一分钟的不足够。而两分钟的陈述时间，尽量建议大家把这两分钟的时间说满，让考官来打断我们OK。</p>
+    <p>然后我们进入到part three的环节，part three是没有题库的，什么意思呢？前面part one、part two我们都说了是按照题库来的，而pass rate叫做一个讨论环节，你也知道吗？讨论是有来有回的？那我们会根据part two前面说的话题，比如说part two说到描述一个你喜欢的户外活动，那么我们part three会进行更深入的探讨。比如说年轻人和老年人分别喜欢什么样的户外活动呢？或者是你认为政府如何提高大家做户外活动的积极性呢？</p>
+    <p>虽然part one和part three都是提问的类别，但是大家能明显听出来它不一样，不一样在哪儿呢？Part one问的是跟你个人相关的，你喜不喜欢？你爱干什么？你日常会做些什么。而part three问的是大多数人社会上有哪些方式能够让人们？他问的是一些跟社会上比较朴实的内容。所以说power three谈的比较抽象，比较客观，就跟我们自己没有那么大关系了。也就是说很有可能有很多同学会在part three中经常遇到我就经常说一些拿我来举例，而考官经常让我说in general in general，它的意思就是我们要探讨的稍微客观1点OK。</p>
+    <p>那么part three的问题大概是一些相对来说比较客观的内容。我们跟考官进行互相的探讨，他会根据你part two的回答来进行后面的提问。我们逐渐的往深入的来了解。那么part three它问的比较难，我们回答的就不能像part one那么简单了，也要回答的相对来说更加深入一点。</p>
+    <p>这是整个雅思考口语考试的三个part，我们来看一下每个part分别都注重一些什么？首先part one它问题比较简单，所以说我们回答的时候相对来说也要稍微简单一点。我们可以给出明确的答案，加上1到2句的解释。那么具体要part one怎么去回答呢？我们下节课到了part one的内容，我们来讲part one怎么去解释。大家在这里只需要清楚一个思路，就是part one不是给我们炫技的地方，所以说不要尝试着在part one使用太难、太丰富、太复杂的语法结构以及太多的内容介绍。在part one中我们只需要保持简单流畅就可以了。</p>
+    <p>而到了part two我会给大家介绍一些素材。我们part two专注在词汇使用上面，我们用。准备好的素材尽量的不要现编，而说一些亲身经历把时间拉满。为啥要把时间拉满呢？因为大家每一个人的对于时间的把控不一样，语速也不一样。我们part two是要说够两分钟中的，而有些时候大家如果时间说不满的话，说个一分来钟，我觉得说的差不多了。那考官很有可能还没听进去，他还没有对于你的能力有一个纵观的了解。所以说我们尽量在part two上面把时间说够了让考官来打断我们。而在part three我们可以进行的就是给出答案，进行这个解释答案以及举例，再加上另一种可能的选择，以及我们的对立面。也就是说在part one中我们回答相对比较简单，考官可能会给我们一个分数区间。</p>
+    <p>这个学生我觉得至少是一个六分往上的学生。这个学生连part one都说不明白，那我觉得可能也就五分左右了。而part two会给我们有一个整体的印象，奠定我们的分数区间。也就是说清楚了，大概这个学生part two说的也比较流畅，可能在六分左右。而在part three如果表现好了，我们可能6点5分，甚至power three说的非常精彩，拿到7分。而part 3说的不好的话，可能也就是六分基础，大概就不会再降到5.5了。也就是说它三个part是有不一样的分工的作用的那我们这里需要记住的就是part one简单流畅per two，使用素材per three。</p>
+    <p>我们深入讨论说一点难的，比较注重逻辑性。说完这些以后，说完整个三个part来考些什么以后，我们来说一个很重要的东西，叫做评分标准。不过我相信对于口语有一点了解的同学，其实对于这个东西应该是见过的对吧？当然没见过也没有关系，我这里会带着大家详细的来看什么叫评分标准，为什么？首先我们要看这个评分标准，大家就清楚了。高考的时候我要熟悉题型，我要知道他怎么判分的。口语考试我们也要知道考官非常在乎什么事情，什么东西表现好了能够帮我们拿分，而什么东西好像评分标准不太在意。那我们在回答的时候就可以完全不care这些东西了。</p>
+    <p>我们首先来看一下评分标准是分为这么四项的，叫做流利性、连贯性、词汇多样性、语法多样性、准确性以及发音。也就是说我们通过这个可以看出来，它不是一个part one、part two、part three分别给分的情况，对吧？它不是说part one 36分，part two 6点5分，part three 5分，然后综合一下平均分。不是的，它是这四项平均的。</p>
+    <p>而这四项我们仔细来看的话，会发现它中间有小小的玄机了。首先第一个，我们以一个七分，对于大多数同学来说都是比较高分的选择了。我们以七分为标准来看一下，第一个叫做流利性与连贯性。什么叫流利性与连贯性呢？说的其实就是我们说话比较流畅，对吧？会不会卡壳，会不会结巴。这里流利性与连贯性的要求叫做表达详尽，无明显困难，不失连贯。</p>
+    <p>有时候可能会出现语言相关的犹豫重复或者是自我纠正。什么叫犹豫重复自我纠正呢？比如说我举一个例子，我在说到一个part two的时候，我想用过去式。我说。Yesterday, I go to the swimming pool with my friend, and I feel very happy.</p>
+    <p>We have a nice day, 对吧？那我都说了yesterday了，但是后面不知道大家有没有注意到，我用的都是一般现在时是吧？我给忘了我给忘了我要用过去式了。但是好像大家觉不觉得其实没有太大影响？我就算是使用了这个一般现在时，对于内容表答方面其实没有太大影响的。但是有些同学在这里就有一个不太好的习惯，我要纠正了什么习惯呢？他会去自我纠正，啥意思？</p>
+    <p>还是一样的情况，他说。Yesterday I go to the swimming, my friend, and we are, uh, uh, uh, sorry. Um uh, h yeah. Yesterday I went to the swimming pool with my friend, and and we, we, we felt very happy. We had a nice day.</p>
+    <p>这里这个学生就进行了自我纠正。大家有没有觉得这个自我纠正，这也太难受了，对不对？我好像在日常听这个说话的时候，如果有人这么说话，我都觉得有点难受了，为啥呢？首先第一个，它影响了我们的连贯性，而连贯性在口语表达中是非常重要的这是第一点。我们因为去自我纠正了，后面有可能会把后面要说什么的内容给忘了我不知道搁后面该说啥了，或者是要我卡在那儿了，我就不知道该说啥了，或者是就影响了我自己的连贯性，这是第一点。</p>
+    <p>第二点自我纠正如果你不纠正的话，很有可能？我第一次说的时候，大家很有可能都没听出来，我忘用过去式了。但是你第二次自我纠正，就相当于跟考官说，注意了，我这说错了，你们一定要注意，我刚才说错了。那为啥不要自我纠正呢？你希望大家想一下，不管是这个新闻联播的主持人也好，或者是大家听这个车载广播也好，那都是人，都会吃螺蛳，对吧？都会说错一些事情。但是你从你什么时候会见到新闻联播主持人说大家好，观众朋友们大家好。</p>
+    <p>今天是农历9月15日星期，欢迎来到大家。不好意思，我刚刚说错了，今天是9月15日星期六，一定不会有这样的对吧？那不会有人去重新说一遍，我刚刚说错了，我赶紧把它纠正一下，不会这样的那他们会做什么呢？新闻联播的主持人只会我尽量的去把它弄过去，不要让观众意识到这件事情我赶紧过去？</p>
+    <p>用后面的事情去弥补我前面的问题，而不要去重复自己的问题。加深听者对于你的这个口语上出错的影响。所以说我们尽量的在口语中，如果这个东西不是你把一个活人说成死人，你把好人说成坏人，没有对内容没有重大影响的情况下，有时候语法有一点小错误，词汇使用有一点小不地道，这些大家都不要去自我纠正，一定不要。我们后面有机会再去纠正就可以了，不要因为这些事情影响我们的连贯性，这是关于犹豫重复以及自我纠正。</p>
+    <p>再下一点，能够有一定灵活度的使用一系列的连接词或者是语篇标记。首先第一个，什么叫连接词呢？连接词可能有些同学知道什么and什么什么but什么however，那这些连接的作用是啥？连接词叫做连接句子中间的结构，或者是连接句子与句子的这样的一些词汇。比如说and并列两个词或者是两个短句，but表示转折，也可以用在句中，可以用在这个句子与句子之间。However也是。连接词是用来连接一个句子内部的一些小结构，或者是连接句子与句子之间的这样的词。</p>
+    <p>那什么叫语篇标记呢？语篇标记联系的就是段落与段落，吧？那我们像这个写作，大家可以通过分段的方式来让考官知道你的这个段落结构，能知道你的思维。但是口语我们除了停在那儿以外，就没有任何的方式能够让考官从形式上面知道你的这个到底结构是怎么样了。所以说我们在这里需要使用到语篇标记。语篇标记比如说什么first ly，first ly，second之类，这些叫做语篇标记。还有比如说我们说到一个成功人物了，我前面说他的工作做的非常成功。然后我后面帮我爸爸阐述，然后下一个说到he's not really good at，he's not only good at his job，but also really good at his personal life.</p>
+    <p>他不光是工作很成功，他的个人生活也很成功。那么这里这一句话以及这一句总体的句子也叫做语篇标记。其实就是让考官清楚你的你说到哪儿了，你的一个逻辑结构。</p>
+    <p>我们接下来就要说流利性与连贯性。为什么我放在第一位，以及为什么我要花这么多的心思来讲流利性与连贯性？为啥呢？是因为我要说到一个重大总结，叫做流利性与连贯性比其他的三项要远远高于它的位置永远是优先于其他三项的。</p>
+    <p>什么词汇、什么语法、什么发音都不那么重要。为啥呢？你看我们对于流利性、连贯性的容错叫做犹豫重复自我纠正。而对于词汇多样性可能只是词语选择不甚恰当。对于语法多样性，可能就是反复出现一些语法错误，语句通常无误对吧？那么对于这个发音可能展现一些六分水平，也可能展现八分水平。那么六分水平掌握程度不一，不能持续表现这一能力，发音不准确导致清晰度下降？那么我为啥要说这些呢？</p>
+    <p>为什么我们说词汇、语法、发音要比这个流利性的排序要靠后，这是不是不公平呢？这其实是非常符合我们中文或者是我们人类语言的日常说话逻辑的。什么意思？大家现在作为一个中文考官？大家作为考官来面试两个国外学生，我们来看一下这两个学生对于你来说哪一个你想给高分，哪一个你想给低分呢？那我们来先来看一下学生一号，学生一号说都说到一本书，学生一号说我喜欢读书，我读了一本书。</p>
+    <p>这本书非常有趣，书名叫做西游记，它有许多故事，有许多关于妖怪的故事书的作者是吴承恩，是第一个人，那么我先不对他进行点评对吧？我们来看第二个学生，第二个学生来了，他说我我近期拜读了名师之作，吴承恩所著之。巨作西游记，它是关于关关关于魑魅魉魉的五花八门的故事。</p>
+    <p>这是第二个学生。那么给大家一秒钟的时间来想一下，如果你你是中文考官的话，你会更愿意给谁高分？甚至是我们更朴素一点，如果你是一个普通的中国人，你想要跟谁聊天？大家想一下，一定是学生一号对吧？他的分数更高的。不管是我们作为考官，还是说符合我们朴素的期待，你们日常中肯定也不太想跟学生二号这样的人聊天。他这样说话为啥呢？说白了就是一号听起来说的更像人话，二号好像说什么玩意儿，说半天没有听懂，那二号会觉得很离谱，我不理解凭什么呢？</p>
+    <p>那如果是在写作的话，我这写的句式结构又完整，我又用了复杂词汇，我又是长难句，凭什么给他搞他们写的什么东西？又弱智又小学生，句子结构很简单，然后说的词汇也非常的。这个小学生凭什么给他高分给我低分呢？第一个学生只做到了一件事情，叫做清晰且流畅，第二个是你觉不觉得有点画蛇添足了？有些时候你那个魑魅魍魉你都没用，对吧？</p>
+    <p>你说的魑魅魉魉，然后你的这个词汇使用也不是那么的地道，然后你的加入了一些复杂词汇，反而会影响我们作为听者听懂你的内容。所以说大家在口语中英语口语中表达也是一样的思路。不要想着我在口语中使用阅读中的什么长长的难的词，或者是说一些非常高级的句式表达这种的这些没有那么重要。</p>
+    <p>那什么重要呢？最重要的点在于流畅度。也就是说大家如果能用很简单的句子，能用很小学生的句式，把你想说的内容清晰流畅的表达出来的话，六分就有了。一定要注意六分我们一个已经算是在口语中不低的分数了。六分只要清晰连贯流畅就可以了。所以说大家在口语中先要反过来，这个思维流畅度要比其他的重要100倍。那么我们再来看一下，说完流畅性以后，我们把其他几个比较重要的部分也来讲讲。</p>
+    <p>第二个叫做词汇。首先词汇第一点，灵活的使用各种词汇讨论话题，其实就是我们的词汇储备。是不是总是用一个词儿，我就只会说relaxing，我不会说pressure releasing？第二点叫做使用一些非常常见的词语或者是习语，对于语体及词汇搭配有所认识。但是有时候词语选择不甚恰当，比如说什么叫不甚恰当？我在这个时候需要说难，男性比女性普遍身高要高，那我说的是boys比girls身高要高，我没有用male和female，这个就可能有时候词汇显得不甚恰当，或者是我把这个on time说成in time，对吧？那这些固定搭配我说错了，这叫不甚恰当。</p>
+    <p>当然这里的词汇使用所谓的词语或者习语，不是说大家要积累多少的俚语。什么叫俚语呢？俚语叫做方言对吧？那如果我说我我现在我口语我要积攒很多的俚语，那大家有可能大家可能因为对于口语不太清楚，那我作为一个比较有经验的老师告诉大家，如果我们把俚语乱用的话，很有可能会造成一个现象，什么现象？</p>
+    <p>英语不一样的国家有不一样的语系，对吧？比如说澳大利亚有澳洲的口音，a good guy might是吧？英国有英国的口音，hat report a bottle of water对吧？A bottom of water他会说成a bottle of water。或者是see you like see you later。那么美式它会更注重R的发音，比如说that's great，see you later？它会很注重这样的发音。那不一样的发音会造成也带来了不一样的生活习惯，带来了不一样的理俚语的使用。</p>
+    <p>都别说俚语了，有些很多情况下连词语使用都不一样。比如说薯条？大家最常见的薯条叫做french fries是吧？那么这个french fries是美式的。如果有去英国留学的小伙伴们一定要注意了，英国的薯条叫做chips。而且他也英国人常吃的那种炸鱼薯条，是那种那种圆的、大的，也不是那种美式的这样的方盒一条一根一根那个那个小薯条是吧？那么首先它单词的使用就不一样。</p>
+    <p>再举一个例子，比如说茄子，英国茄子叫做all bergin，大家听都没听说过，我去我压根都没听说过。我们最常见的美式的茄子叫做ex plant鸡蛋植物。再比如说地铁，美国地铁可能叫metro或者是subway？那么英国地铁叫做underground或者是tube，tube叫做管道on the ground，叫做地下？</p>
+    <p>那么对于这种比较常见的词汇，樱美，或者是不一样的澳洲文化，或者是其他的英语语言国家的地方都有不一样的使用。这就像是有不一样的方言，对吧？我们有不一样的方言使用词汇。如果我们把俚语再串在一起去使用的话，这听起来就像是我们把北京话、东北话、闽南话、江浙话以及川渝话混在一起来使用了这个相声。我在回答说，我说哥们儿今天吃了一碗儿老北京豆花，它是非常好吃对吧？听起来非常的奇怪？所以说我们大家尽量的使用可以使用俚语，但一定要注意自己的使用情况。</p>
+    <p>那么我们在口语中，什么词汇叫做好词汇？什么词汇叫做不太好的词汇呢？好词汇叫做比较地道，比较local的表答。比如说说到颜色大家最喜欢的颜色是什么呢？我不知道你们是怎么样一个情况，我前两天发现我的一个七岁的一个小侄女，他居然已经背单词背到pink了。也就是说如果我们在口语中回答what's your favorite color的时候，我如果只说i like pink，I like yellow, I like Green, I like blue, 那这些你跟我那小侄女回答的也没有什么区别是吧？那你的水平我就界定为一个小学生的词汇水平了，那肯定不行。</p>
+    <p>那什么词汇能够让我们稍微进一步呢？比如说一些简单的silver、gold? 银色、金色或者再进阶一点。我们说到blue蓝色，我们可以在前面加上修饰限定词。比如说navy blue、海军蓝，比如说skyblue，这个天蓝或者是再进阶一点什么三文鱼色、soft或者是柠檬lemon yellow，或者是这个Violet薰衣草紫罗兰色。那么我们对于颜色可以进行更进阶的使用。这种叫做很好的口语中喜欢的词汇，而不是那些特别难、特别高级、特别大的词汇，这是我们说的词语选择。</p>
+    <p>第三点叫做有效的进行改述，这个我要着重强调了。什么叫有效进行改述呢？比如说考官问你，do you think closes and clothing fashions are important to you? 我举一个例子，很多很多学生你们想一下你们第一反应是什么？有非常多的情况下，有很多学生会第一反应就是yes，clothing and closest fashion's are important to me.</p>
+    <p>好像有点问题，又好像没啥问题是吧？那么为什么你觉得好像没啥问题呢？翻译成中文你就立马觉得有问题了。别人问你，你的朋友问你，你觉得穿衣服和衣着时尚重要吗？那你跟他说的是的，我认为穿衣服和衣着实际上是重要的。你这不说废话，对吧？</p>
+    <p>我们正常聊天，正常人说话，哪有这样说话的，什么人这样说话？Siri吧？你问他你怎么样吗？他说是的，我认为怎么样的。为啥外国人说中国人说英语像个机器人呢？就是我们有时候在回答的时候太过刻板了。</p>
+    <p>那么如何进行改述呢？我们刚才说clothes fashion？衣着时尚可以说是wearing smart clothes或者是wearing different clothes对吧？我们可以说，of course I think like var，smart clothes is important in my daily life.</p>
+    <p>那这样的话我们就叫做有效的进行改述。当然了我也知道大家有时候可能会做不到这个改述。那么我们后面来补充，如果不能够在短时间内做出这样的改述，我们应该怎么办？我们如果对于这部分很着急要看的小伙伴，跳到part one那节课。好，我们说完词汇多样性，可以灵活使用各种词汇、词语选择以及感受。</p>
+    <p>我们下一个来看语法，语法和发音我放在一起说，因为这两部分没什么太多要说的。我们说来看一下，这可是一个七分的评分标准，它对于语法说可以反复出现一些语法错误。那对于发音一个六分的发音说掌握程度不一，不能持续表现这一能力，发音不准确导致清晰度下降。那也就是说我们对于语法，对于发音，它的容错是相当高的，对不对？也就是说大家在口语中啊不要太care语法。与其那么揪着语法不放，我们不如多去提高连贯性，更多去纠结一些上位词。</p>
+    <p>那么发音我需要强调在这里说一个小点，为什么有很多同学说出来的英语就觉得太chinglish了，太中式英语了是吧？最主要的我觉得大家做到一点，就可以把自己的发音变好听十倍。这一点是什么呢？叫做弱读TDK，什么意思呢？比如说我说i think IT is important？我认为它是很重要的那有很多学生会读成i think IT is important and think IT is and吧？那像这个and如果我们读成了and的话，它就非常难听了。那在口语中一定肯定是对于你的发音是有影响的对吧？</p>
+    <p>那么我们把所有的K的T都去弱读。我们都把它发的轻一点，甚至是去把它吞掉。I think IT is important? 我们就稍微的拖出来一点就可以了。不要把它说IT is in IT is important，说不用把它太重度了。</p>
+    <p>这是我们解读这个评分标准。刚刚说到的一点叫做流畅度，对吧？流畅度是远远大于其他四其他三项的。第二点我们来说一个东西，看评分标准。</p>
+    <p>第二项叫做内容。大家来看，不管是7654321分还是8分9分，关于这个评分标准里面有没有任何的关于内容的一些阐述。比如说学生是否能够体现对于讨探讨话题的了解程度，学生是否对于有足够多的知识储备，知识积累，有吗？没有，对吧？他关注的是我们的语言能力，而不是你这个人的学术能力或者是知识储备能力。</p>
+    <p>也就意味着首先第一个我们在雅思口语中可以回答no，这是跟我们之前了解的不太清楚的不太一样是吧？有些时候我必须得回答，那么在雅思口语中不是所有问题你都要清楚怎么说的，我们完全可以在这里回答。No什么意思呢？比如说考官问你，have you ever watch any movie by Robert? 你可以说no，但是要注意了，我不能只说no是吧？因为我们power one，比如说是在模拟日常未来你出国以后的认识的一些新朋友。</p>
+    <p>人家你爱看电影吗？No, 你喜欢出去旅游吗？No, 你都要出去旅游，你多时候出去旅游一次，半年一次。那你礼貌吗？吧？我们至少要有来有回沟通，人家问你问题了，你至少阐述个两三句。如果说我说我不爱看电影的话，我说我不太爱看电影，我觉得我更喜欢花费时间在学习或者是做一些户外运动上面，我觉得看电影比较无聊，这是一个比较好的回答。</p>
+    <p>我们首先第一点，在这里说到的是可以回答no的。也就是说你可以对于一些东西不清楚，或者说你可以不感兴趣的，但我们别什么都回答no是吧？这是第一个。第二个，我们在回答的时候，既然它对于内容没有限制的话，我们再回答尽量选择那些我们说的来的内容，而不选择那些很难的，觉得自己很厉也很显示你自己的那些内容。</p>
+    <p>什么意思？举一个例子，有一次我上课问一个学生，what your favorite subject，你最喜欢的科目是什么？这学生跟我说philosophy想一秒钟，philosophy是什么？叫哲学对吧？可能有些同学会想到心理学，心理学叫psychology，地理叫geology，这个物理叫physical是吧？那么他说的是philosophy哲学。</p>
+    <p>我就非常纳闷儿，我说为什么你会说哲学？说哲学的话，你后面怎么说？如果考官问你你为什么喜欢哲学？你最喜欢哲学人物是谁？哲学能给你带来什么？那你这不尬死在那儿了吗？你怎么想的？他跟我说，老师我看了小红书上说中国考生口语考试的这个同质化内容同质化的问题非常严重。我不想跟别人说的一样，我想要说一点，特别的让考官觉得我这个人比较特别，给我高一点印象分。</p>
+    <p>首先第一个，咱这是口语考试，对吧？它考的是你的英语口语能力，考的可不是你的人品，你到底有多么优秀。他不是考研，也不是高考，对吧？没有在考你的知识储备，也不是考公面试，看你这个人的品德到底高不高尚。所以说他压根儿不在乎这些东西，他在乎的只有你的英语水平。首先内容同质化，其实这个问题并不是很影响我们的分数。我说的跟别人的说的一样又怎么样？</p>
+    <p>那他说的不太流畅，他拿个五分，我说的非常流畅，我拿个七分没有问题的，这是第一个内容同质化不会很影响我们的分数。第二个你一定要想想，你说这哲学你后续怎么说？你说我最喜欢哲学了，那后面就考官问你为什么你喜欢哲学，你怎么用英语来解释唯物辩证？不给自己卡死挖坑，对吧？</p>
+    <p>所以说我们尽量的不要在自己的考试中选择那些特别展示我个人性格的非常小众的话题。我们选一些你最简单的，你认为你最说得来的一些轻松的内容。比如说我就说我最喜欢的科目是英语，因为英语能够帮助我交到很多外国朋友。或者是当我出国旅行的时候，我不需要翻译软件，我可以很好的在外国生活。考官是不会因为你喜欢哲学就觉得这人好厉害，好高深，他喜欢哲学给他一个高分。也不会因为我喜欢英语就觉得嗨什么人？他喜欢英语给他一个五分，对吧？不会这样的，他只看我们的表达流畅程度，你的表达能力。</p>
+    <p>所以说大家在选择的时候，尽量选择那些简单的我们说的来的内容，而不选择那些看起来特别厉害的内容。这是我们看评分标准看出来的两件事情。一件事情是尽量的在回答中保证流畅，其他的词汇、语法，关于这个发音都没有流畅重要。第二点是内容容不重要，也就是说我们尽量选择那些我们说的来的简单的内容。</p>
+    <p>好，说完评分标准以后，我们来看一下各部分的关注点。那么part one刚才说过很多遍了，我们最关注的是流畅度。而part two最关注的是流畅度以及结构连接词，以及我们的内容和词汇，这是对它的每一个部分都关注，所以我们准备素材。而part three最关注的是结构和连接词，然后三个part都相对来说比较看重语法。</p>
+    <p>那我们就说到了口语考试中的三个误区。首先比如说有些同学会喜欢背诵别人的范例素材去看。我看B站上面有好多人都用这个素材，我就去背。我前段时间高考学生考出分数来说，老师我觉得我说的不错呀。但为什么我拿到了五分或者5点5分呢？我一听他part two说的是一个什么，就是一个人物，他的女朋友给他做蛋糕的一个素材。这个素材我在学生中听到过很多遍，他你想想我都听到过很多遍了，那么考官也一定听到过很多遍重复的素材。所以说给它判为了背题，那么我们尽量不要背诵别人的范例素材，就算自己写不来的话，我们把这个内容稍微进行修改一下，用自己的真情实感的素材。</p>
+    <p>第一个点。第二个点我们尽量不用不要使用大词生僻字，尽量的做到比较地道的表达。什么意思呢？刚才说过了，不要使用那些看起来特别厉害的词儿，我们使用一些跟我们日常生活息息相关的。比如说姜怎么说？叫ginger对吧？那个炒菜用的姜，或者说是我穿的连衣裙叫dress，那么我穿卫衣，卫衣叫hoody对吧？耳环我会说发夹叫做hair cap。这些叫做地道表达，而不是说用一些多难的词in psychology a百科全书？这些词其实没有那么难，那么重要。</p>
+    <p>第三个有些同学可能觉得写作和口语都是输出型的，那么我写作如果能得拿高分的话，我口语就已经成功了。其实不是这样的。首先写作和口语有很大的区别是写作非常的书面，而口语非常的口语化。我们口语中会加入很多的，比如说guess what，can you imagine这样表示情绪的内容，而写作中是不会加入的对吧？而写作中会说到IT described，IT illustrate, IT demonstrate, 对吧？那illustrate demonstrate这些词在口语中是不太常用的。所以说大家要注意写作和口语的区别，多去积累一些相关的词汇。</p>
+    <p>后面我们来说到一些我们不知道的问题。比如说第一个考生可以要求考官重复解释问题，解释某一个词儿吗？在这里一定是可以的对吧？我觉得大多数学生都会觉得是可以的，为啥呢？那你想想我们现在都是机考了，很有可能网卡一下，或者是考官有点口音，没听懂，没听清，当然是可以要求重复解释的。那么这里就衍生出来了一个小问题，如何要求考官重复解释问题？我为什么要说这个呢？大家作为考官互换一下，因为我可考过很多次试了，我能够清楚的听到。</p>
+    <p>那么大家互换一下，你们作为考官是什么样的感受呢？如果第一个学生过来了，你提完你说完问题以后，第一个学生说，sorry, I can't hear you clearly, can you repeat the question? 他非常流利清晰的把问题问出来了。那么你可能会觉得，是不是我们说清楚？我给这个学生再说一遍。但是如果有学生说的时候，说的是i'm sorry，teacher, I pardon？我是在模仿谁谁汗流浃背了，我在学谁谁自己心里清楚是吧？</p>
+    <p>有很多学生都会这样提问，那你想想如果你是考官听到这样的提问方式的话，你连提问都提问不清楚，更何况是来表达自己的思路。所以说我对你的印象分一定不会好。我们在这里要做到第一个就是清晰流畅的提问？我们要做到一个很好的提问。</p>
+    <p>第二个要做到有效提问。什么叫有效提问呢？有些情况一下，有很多学生跟我说，老师为什么我在口语中问问题，尤其是part three，我问完了也没有能听懂。我问了半天，然后感觉考官解释半天也没有听懂呢？那我们要反思一下自己的问题，自己的提问到底是不是清晰有效的，什么意思呢？我们很有可能有些情况下问的问题，压根就没再问你想问的那些东西。啥意思？</p>
+    <p>就是如果有时候比如说考官问问题，do you think you could many important in photography? 如果大家是没有听清楚中间他说的某一个词儿的话，那我们问的是can you repeat the question？你能重复一下问题对吧？那如果考官再重复一遍说，do you think equipment is important in photography? 那我不懂equipment是啥意思，photography又是啥意思呢？我没听懂。那我如果这时候再让它重复问题的话，好像就不太合适了。</p>
+    <p>考官说的再慢再说几遍，你也还是不懂这个词儿啥意思。那这个时候我们需要做的就是去向考官提问，让他解释吗？Sorry, I don't understand.</p>
+    <p>Can you just use another way to explain IT? Or just can you explain a word equip? What does he mean? 这个equal是啥意思？这时候考官很有可能就会跟你说了。So equipment means like different devices, for example, are you just do you think using camera or using phone taking pictures is different? 那么这时候是不是解释了就听懂了？</p>
+    <p>如果有学生跟我说，老师这个情况下，考官跟我解释了半天，我还是没有听懂怎么办呢？你怎么办？有很多学生这时候就跟我说，老师那我就我就按照我自己的想法瞎回答一个，我就随便说一个。我们在这儿一定不要随便说，为啥呢？因为你瞎回答了，说明你听力没听懂，说明你这个沟通就是完全一个失败的沟通。那你这个时候还怎么办？我有很多就觉得我不好意思，我要再问他一遍吗？</p>
+    <p>我们这时候可以进行反问，什么叫反问呢？我们可以去提问考官，are you asking me什么什么吗？Are you asking me？Like using different uh devices or different equipment is like different.</p>
+    <p>我们可以对于考官进行一个反问，这个时候我们可能会得到两个回答，一个是yes。如果考官说yes of course，那我们就放心自如的大胆的回答了。如果考官说的是no I mean多宝宝，那么我们是不是又多了一次听考官解释的机会？这里有两次机会，我们一定能把这个问题就听懂了。所以说大家尽量的要做到清晰的提问，并且清楚自己的问题，进行有效提问。还没听懂的话我们要进行反问，而不要去随便瞎说。</p>
+    <p>那么这里说到了考生可以要求多想一会儿吗？是尽量不要的，跳过某个问题或者换题也是尽量不要的，为啥呢？因为你想想，跳过某个问题换题，那不就相当于我对于这个问题回答不了吗？那不就是你的口语能力不够吗？就相当于是高考的时候，你说我不想答这个，你给我换一道题，那肯定是不合适的对吧？然后我们来说一下，其实大家在考试的时候，如果这么要求了，考官会照做的。但是我们尽量不要这么要求。</p>
+    <p>我们说完这些不知道的事以后，我们进行一些这个句式的补充。比如说我们在刚开始和考官见面的时候，可以打招呼热络一下。如果回答完了以后无话可说了，可以说些什么？换一种方式重述一下可以说一些什么？我来这里读一下，大家如果对于这些句式觉得比较有用的话，可以进行跟读，进行背诵。</p>
+    <p>Foot one, glad to meet you here. Glad to meet you here. How nice to see you.</p>
+    <p>How nice to see you. IT is a pleasure to meet you here. IT is a pleasure to meet you here.</p>
+    <p>I'm afraid that is all about as much as I know. I'm afraid that is all about as much as I know. I cannot think of anything else right now.</p>
+    <p>I cannot think of anything else right now. I think that's pretty much about IT. I think that's pretty much about IT. In other words, in other words, let me put IT this way, let me put IT this way.</p>
+    <p>What i'm trying to say that, what i'm trying to say that OK这是这一部分。后面一部分我们关于听不懂考官的问题，我们这里要着重强调了。也就是说大家可以着重的把这几个句子来背一下。</p>
+    <p>First one, sorry, I don't understand the word. Second one, sorry, can you repeat the question please? So when sorry, I didn't get the question, could you say IT in a different way, the force one, sorry, I don't really understand what you mean.</p>
+    <p>Could you explain the question, please? 下一个关于提问的回答，我们可以说i guess或者是personally I would say描述事物这里包括后面的一些表示某人喜欢某事，回忆过去，解释原因，还有谈论变化，举例说明，提出解决方法以及做出总结，提出建议。这些具体的一些词汇，或者是句式结构、短语，我就放在这儿不再给大家详细讲解了。因为我们在后面的内容中，还会对于每一个部分都有详细的讲解。大家如果在这部分觉得自己这里有欠缺的话，可以先行补充一下。</p>
+    <p>我们这节课的内容大概就是这么多。我们来说一下关于考试的时候，大家练习的时候可以怎么练习呢？首先我们可以找一个相关的话题，把power one part two都围绕着这一个话题去说。为什么我们不去多样性的在一次性准备多个话题呢？是因为一个话题我们可以相对的积累更多的素材。比如说关于衣服？衣着的时尚、衣服的类型、衣服的种类，我们可以积累各种各样的词汇在这里去用。而在part two、part three中也是一样的，我们积累各种各样的句型。大家在练习的时候，可以先来尝试着练习一下这些题目。</p>
+    <p>我们这节课的内容关于。我们这节课的内容就关于这么多了，大家在收尾的时候，可以尝试着去回答一下这些问题。我来读一下，大家来尝试着回答一下。</p>
+    <p>The votes when let's talk about pot one or do you think our clothes and clothing fashions important to you? So what different closes do you wear for different situations? Do you wear different styles of clothes? Is now compared with two years ago? Do you think the closet we wear say something about who we are?</p>
+    <p>以上是抛光的问题，大家可以暂停练习一下。Part two大家就我就不给大家在这里留时间了，大家再继续练习。We move on to post three.</p>
+    <p>So for which jobs are people required to wear a uniform in your country? Do you think people are treated differently when they are in uniform? What are the advantages of making children were uniform for school? 我们第一节课导学课的内容就这么多，我们后面作业来看作业见喽。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-01.html">精讲逐字稿</a></li>
+      <li><a href="qa-01.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-02.html">下一讲 02</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

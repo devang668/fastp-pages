@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第12讲 · 节日与有意义的一天 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 12 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a class="active" href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第12讲 · 节日与有意义的一天</h1>
+    <div class="abstract"><b>本讲概要：</b>在雅思口语课程中，一位老师强调了准备Part 2关于节日、庆祝活动以及有意义的一天话题的重要性。他首先指出积累相关节日描述和风俗活动表达的必要性，通过具体例子，如春节的大扫除、装饰、囤货和家庭团聚等，展示了如何详细描述节日准备过程。此外，还讨论了有意义的一天，强调反思、人际交往和志愿服务的重要性。老师也提到了西方课堂的不同教学方法，如讲座、辅导、研讨会和工作坊，强调回答问题时需要使用地道表达和具体证据。最后，他鼓励学员不仅要关注内容的地道性和具体性，也要了解不同文化背景下的表达方式，以提升雅思口语成绩。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在雅思口语课程中，一位老师强调了准备Part 2关于节日、庆祝活动以及有意义的一天话题的重要性。他首先指出积累相关节日描述和风俗活动表达的必要性，通过具体例子，如春节的大扫除、装饰、囤货和家庭团聚等，展示了如何详细描述节日准备过程。此外，还讨论了有意义的一天，强调反思、人际交往和志愿服务的重要性。老师也提到了西方课堂的不同教学方法，如讲座、辅导、研讨会和工作坊，强调回答问题时需要使用地道表达和具体证据。最后，他鼓励学员不仅要关注内容的地道性和具体性，也要了解不同文化背景下的表达方式，以提升雅思口语成绩。</p>
+    <p>**00:00 雅思口语课程：节日与文化描述**课程聚焦于雅思口语考试Part 2中的事件类话题，特别是中国节日及其相关习俗与食物的英文表达，如春节、元宵节、端午节等，旨在帮助学生提升对中国特色节日的描述能力，避免直接使用中文表达，增强口语表达的地道性和文化深度。**03:14 中国传统节日饮食与习俗**讨论了中国传统节日的特色食物，如月饼、馄饨、八宝饭、烤鸭等，以及过年的习俗，包括大扫除、装饰家宅、囤积年货等。强调了红色和金色作为装饰色的重要性，以及通过这些活动祈求好运和财富的文化意义。**07:09 春节传统与现代庆祝方式的融合**讨论了春节期间中国人对传统食物的偏好，如饺子、鱼和年糕，强调了手制饺子的文化意义。提及了红包习俗，即长辈向晚辈赠送装有现金的红色信封以祈福新年好运。此外，团圆饭被视为家庭团聚的重要时刻，包括共进晚餐、聊天、笑谈和分享近况。春节庆祝活动还包括放烟花、参加庙会、观看舞龙舞狮及传统游戏，体现了对节日精神的延续与狂欢。**12:11 春节庆祝活动与传统美食体验**对话围绕春节庆祝活动展开，详细描述了节日氛围、家庭团聚、传统美食制作及寓意，如包饺子时加入硬币的传统习俗，以及食用如热锅、蒸鱼、宫保鸡丁等地方特色菜肴，展现了中国新年丰富的文化内涵和家庭温馨场景。**17:13 春节庆祝活动的精彩瞬间**对话围绕春节庆祝活动展开，重点介绍了舞龙舞狮、烟花爆竹和红包等传统习俗。舞龙舞狮表演通过精致的服装和面具，配合鼓乐，带来驱邪迎祥的美好寓意。烟花和爆竹点亮夜空，象征着驱散负能量，迎接繁荣。红包作为好运与祝福的象征，加强了家庭纽带。整体庆祝活动体现了对传统文化的尊重，创造了难忘回忆，弘扬了团结与复兴的精神。**21:13 充实的一天：感恩与连接**对话围绕一天中的几个温馨时刻展开，包括早晨的宁静反思、与老友共进午餐、下午的社区志愿服务以及晚上与家人的团聚时光。这些经历强调了人与人之间的连接和自我反思的重要性，展现了生活的美好和内心的平和。**23:18 西方课程形式与研讨会探讨**对话详细介绍了西方教育体系中的四种主要课程形式：讲座、导师辅导、研讨会和工作坊。讲座侧重于讲师的个人输出，导师辅导关注于学生的理解和应用，研讨会鼓励对特定话题的深入讨论和批判性思维，而工作坊则强调实操技能的培养。此外，研讨会也被提及在学术交流中的重要性，专家们通过分享案例和经验，促进同行间的知识共享和实践创新。**28:47 中西文化差异下的学术写作与口语表达**对话讨论了中西方文化在学术写作和口语表达中的显著差异，强调了引用和证据的重要性。指出中国学生在写作和口语中常犯的错误，如缺乏数据支持和具体例子，提倡使用实例来增强说服力和可信度，尤其是在旅游带来的好处等抽象话题的讨论中。**32:38 描述忙碌且有意义的一天**对话围绕描述一个充满意义和忙碌的日子展开，分享了与老友叙旧、参与社区活动、结交新朋友以及与家人共度时光的经历，强调了这些活动带来的积极影响和个人成长。最后，提到了如何将地道的表达融入日常对话中，以提升语言的地道性和表达的丰富性。</p>
+    <p>Hello, 陪考研的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课程。我们这一节是整个part two的最后一节。我们说完了整个的前面说到了各种各样的串题素材的这节课，我们来看最后一个穿题素材材。并且我们说完最后这个串事件类的串题素材之后，还会带着大家再复盘一下，以及来说一下大家在part 2中有了这些素材该怎么去准备，以及一些常见的我们准备完了以后的问题。</p>
+    <p>首先我们先来看一下事件类的素材。事件类素材，我们一般说的是一个节日，一个庆祝活动，或者是我的一天？一个比较有意义的一天。那么我们就需要在这里积累一些节日的描述以及风俗活动的表达了。我这里写了很多很多个节日，以及我们吃什么东西，为什么要补充这些东西？是因为我有很多的学生呢会在尤其是part one或者是part three中，我们说到了比较深度的东西。</p>
+    <p>比如说到了过一些节日，有尤其是中国特色的一些节日的时候，大家就喜欢直接说中文。比如说重阳节、清明节的，有很多同学就不知道该怎么去用英文表达了。所以说我们先在这里积累一下有什么样的节日，以及我们中国特色的一些文化，我们吃什么样的东西。</p>
+    <p>首先第一个最常见spring festival，或者是chinese new year，或者是chinese new year？中国农历新年春天的节日。第二个lantern festival，lantern叫做灯笼，灯笼节其实就是元宵节，下一个dragon boat festival端午节。端午节我们一般说的就是要赛龙舟，所以说叫做龙舟节，以及下一个中秋节mid autumn festival。秋天的中间那mid是middle的缩写，秋天的中间的节日以及重阳节double nice festival，不是double nine，不是九九节，而是两个第九的节日，第九个月份的第九天，所以叫double noise festival以及清明festival，或者我们直接叫做tom sweeping day扫墓对吧？Tom或者是grave墓碑那扫墓tom sweeping day以及重阳festival刚才我们说过了，它可以用double nice，也可以直接说重阳，还有腊8 festival，直接就说腊8节festival，winter source days festival, 冬至节，冬天的来临的节日，还有比如说single day，光棍节以及double seven festival，chinese valentine's day.</p>
+    <p>中国的七夕，中国的情人节就两个双第七号？七月的七号7月7，双七号的节。我们说到中国有各种各样的这样的节日，我们来看一下在节日中会做些什么？首先我们先看看吃什么，比如说最简单，逢年过节的，反正南方人可能不太会，但是北方人就逢年过节的，但凡有点节我们就吃饺子。还有比如说glutenous rice cake，或者直接就叫做rice cake年糕。还有比如说汤圆、sweet rice ball、spring roll、春卷、long gavi noodles、长寿面、fish鱼饺子、dumplings, 还有这个steamed bonds包子，蒸的包子？粽子或者是sticking rice dumplings，一些年的米饭的这个饺子，还有年糕。</p>
+    <p>刚才我们说过moon cake月饼、vinton馄饨，什么节日？吃馄饨馄饨节，我也不知道什么节吃馄饨，但是我们可以去积累一下。还有八宝饭eight treasures rice 8个，这个宝藏的米饭hop好火锅reunion dinner团圆饭，sweet rice wine, 甜的米酒对吧？就是白酒。白酒是粮食酿造的。你像有些西方的酒，它可能是甘蔗或者是什么土豆酿造的那我们中国比较喜欢用水到来酿酒。The sweet White, a sweet rice wine, 还有比如说烤鸭rose dog，北京烤鸭就叫做packing roast duck，以及火腿glass黄梨酥、piney apple tars, 还有稀饭rice porridge或者是kg稀饭。我们说有这种各种各样的吃的是吧？</p>
+    <p>然后我们来看一下，我们以其中的一个为例，我给大家举一下过年的例子，来看一下我们在准备一个年节的时候会说些什么内容呢？首先我们去总结出来这么几点，123456，说到过年的时候，我们做这些准备，第一个叫做deep clean the house，深度的清洁这个房子。我这里使用的是一个比较客观的态度。说到chinese folks，如果大家可以说到这个习惯的时候，直接用chinese folks，中国人喜欢怎么样。但如果说到了说我们做了什么准备的话，就直接把chinese folks替换成we I就可以了。</p>
+    <p>Chinese folks believe in stopped in the new year fresh. 他们坚信要开始新年要很新的，对吧？一切都是新的，焕然一新的。So they do a major cleaning spray before spring festival. 所以说他们在这个春节之前做大扫除。They sweep away any backlog or negative energy from the previous year and make everything speak and spend.</p>
+    <p>让一切干净整洁。那么这里的speaking span大家可以学习一下。其实英文中的一些比较喜欢的地道表达，就像是我们中文中的平仄对应，或者是比如说这个听起来比较押韵，那么他们的押运叫前韵和尾韵，前韵space，speak and span，或者是我们说到前后都押韵。比如说he is both successful in his personal life and his professional，personal and professional都是P开头no结尾。Personal和professional这样的话就会让考官觉得你对于英语有一定的掌握能力了，就像我们说出一个成语一样。</p>
+    <p>这是第一个叫做大扫除，扫除了一切的负能量？Any bad luck or negative energy。第二个我们说decorates crazy，疯狂装饰对吧？各种各样的装饰。Chinese homes get ducked out in red and go decorations, the hang up planters college with unspiteful races and paper cut teams to bring in good look and for chain for the new year.</p>
+    <p>我们说中国人喜欢用红色和金色，有些同学就会忘掉金色的，金色也是一个象征中国的好吃的一个颜色，会悬挂起来lantern灯笼，complex对子、对联儿with all specious phrases，写着一些很吉祥的短语的对对联and paper counting，一个剪纸，但是这有些地方会加这个帘子符，还有些不加。也可以去带来一些好运气和财富。我们说完了年节准备，有些大扫除，然后装饰完了以后，还要stop stock up on good days，要囤货了是吧？</p>
+    <p>Chinese people locked their fairy, especially during spring festival, 尤其是在春节，这个春中国人特别喜欢他们的食物。They go on a shopping spring to stock up on all of the traditional duties, like dumplings, fish, rice, cake and vice nx. The more the merrier.</p>
+    <p>那我们这里在说什么？中国人会喜欢去超市买很多的传统食物，传统的小零食儿。比如说饺子、鱼，还有这个年糕对吧？但我之前有朋友跟我说，饺子必须得自己家做的才有意义。到春节的时候，如果你去吃速冻饺子的话，就会失去一部分中国的这个我的意思。但其实我们也可以在这说。Sorry，the dumplings must be home made.</p>
+    <p>If we just buy the the dumplings from the restaurant or buy IT from the supermarket。IT just loves the meaning of spring festival, 它失去了这个意义。The more marry，marry是什么意思呢？比如说大家肯定见过merry Christmas，对吧？Merry Christmas, 那么mary叫做开心，就像是happy halloween，这个万圣节开心，或者是happy valentine day，这个情人节开心，那么mary叫做快乐对吧？那祝你这个快乐，那更多越多越开心。</p>
+    <p>再下一个，我们除了囤货以外，还有比如说red envelope fan francy。什么叫red envelope？我们解释一下，giving and receiving red envelopes, 收到或者是给出来红色的信封，also known as红包，is a big deal. During spring festival, chinese focus off of these little red packets with cash and give them to family members, friends and even call workers as a symbol. Good luck and blessing for the new year.</p>
+    <p>嘿，中国人会喜欢用现金装这些小小的包，小小的小红包里面，给他们的家庭成员、朋友，甚至是同事作为新年的好运祝福的象征。其实我们可以在这在这这里加一句the red pocket always given from the elder people to the Younger people，just to make a Better with hope. They are, they have a good process of growing up.</p>
+    <p>一般的红包都是长辈给小辈，大人给小孩的，希望他们有一个很好的长大的过程。再往后，年姐准备说到到了family reunion time，一个家庭团聚了对吧？那么我们说团圆饭reunion dinner对吧？Reunion union叫做联合，重新联合就是团聚。我们本来生下来的时候是联合的，但是怎么这么痒？</p>
+    <p>我们生下来的时候是联合的，但是后来因为各种各样的情况，比如说要上大学、上学、工作什么的会分开。那么reunion重新团聚的时光，对吧？重新团聚在一起at spring festival is all about family，so chinese people make sure to gather together for a reunion dinner on new year's eve.</p>
+    <p>It's a time to eat, chat, laugh and catch up with loved ones, plus there are fireworks and fired crackers. Glory to celebrate the thought of the new year with a bang. 春节，is all about family。大家来学一下这个all about全部都是关于这个的那其实我们在这里加强了一点情绪，所以说中国人会确定去聚在一起去吃一个reunion dinner团圆饭，在这个春节的晚上。</p>
+    <p>我们来看看这个if，大家可以学一下，就除夕夜对吧？比如说我们说这个圣诞前夕，这个平安夜叫做Christmas eve。Eve是evening的缩写。我们说到春节spring festival eve或者是new year's eve都可以。这个时间是去吃饭，然后聊天笑，然后和朋友们，和那些我们心爱的人去叙旧的catch up。</p>
+    <p>Catch up叫做抓到，抓到了什么意思呢？就是保持比如说原来有一些差距对吧？有一些信息差，那我们去catch up一下，就是去减少一下这里的gap，我们去跟上。除此之外还有烟花、firework、cracker爆竹以及去庆祝新年with a band。</p>
+    <p>随着伴的一生是吧？随着伴的一生，我们会放烟花、放爆竹，去庆祝新年的开始以及最后一个准备了。Get ready to party. Chinese folks love the festivities, so we make sure to have a blasts. During spring festival, we attend temple face, watch dragon and lion dances, play traditional games, and even set off more fireworks to keep faster spit spirit going.</p>
+    <p>我们说要准备好狂欢，中国人中国的一些民间的人喜欢各种各样的节日festivities。我们会确保去有一个blast，blast叫做狂欢盛会，要玩的痛快。在春节过程中我们一定要狂欢，我们会参加庙会，看这个龙和狮子的跳舞，其实是舞龙舞狮，玩一些传统的游戏，甚至是放更多的花去让这个festive节日的spirit精神氛围going继续，好，我们说做了这么多的准备，这里的准备大家其实就可以用在自己的回答中了。</p>
+    <p>以及我们来看看如果说到你春节一般会做些什么呢？我们一般怎么回答？我们来看这个题，describe traditional celebration you enjoy in your country。描述一个你们国家的庆祝的传统的一个节日，对吧？What什么when什么时候，who和谁？Why为什么？那我们来看一下，前面这个也可以用，但我们后面补充了更多的素材，再说过了春节的时候我们会做些什么事情。</p>
+    <p>The first one celebrating chinese new year is an extraordinary experience filled with joy, excitement and deficits. The atmosphere is viBrant and faster as families and friends come together to welcome the new lunar year. The streets are adorned with colorful decorations, lanterns and banners, symbolizing good luck and prosperity.</p>
+    <p>好，我们这里说庆祝传统的中国年是一个extraordinary，是一个非常的意义非凡的一个很不平常的对吧？很鹤立鸡群的一个经历，充满了快乐兴奋和非常深的文化意义？文化的significance，它的氛围是viBrant，viBrant叫做非常的生动，非常的有活力。And festive叫做节日festival？节日festival节日的作为家庭和朋友们聚在一起去欢迎新的中国年。</p>
+    <p>Streets are adorn, adorn叫做装饰，其实就是decorated对吧？街上被装饰着用各种颜色丰富的装饰，比如说有这个灯笼，红色的banner是吧？Banner叫横幅，红色的横幅象征着好运和prosperity繁荣。我们其实这里就总结了一下前面我们说的那个做准备对吧？做了哪些？比如说会做一些装饰的准备。我们来看后面说到during this time，there is a former able sense of anticipation and renewal in the air.</p>
+    <p>People clean their homes, droughty to sweep away and a bad lock, and to make way for good fortune. A roma of delicious traditional dishes wafted through the house as families gather for union dinners, sharing laughter stories and delicious food. 我们这里就说到了吃吃饭了，对吧？充气中充满了期待和焕然一新的renewal或者是refreshment。然后人们打扫整个的完整的打扫了他们房间，任何的扫除了所有的不好的运气，make way for给什么什么让路，给好运气让路。</p>
+    <p>这个aroma叫做焚香香味，那么说很焚香的叫做matic后面加一个TIC。我们说这个aroma香气，这里不光说食物的香气，说到香水，说到花朵，这种香气都可以叫aroma。食物的各种好吃的传统食物的香气扩散？这个传播弥漫了整个房间，家庭聚在一起吃这个团圆饭，分享了一些欢笑、故事和好吃的食物。我们说可能在这里就可以加一下了，we had什么什么吧？我们吃了什么什么，比如说we had the hot pot and we made the dumpling together and we just eat the dumpling。And also you know there was a traditional chinese customer that we some place uh in some area we will just put some coins in the uh dumplings. And if someone just eat a dumpling with a coins, which means he or SHE will get the great lock in the new year.</p>
+    <p>我们还有一些传统，会把这个硬币包在饺子里。如果他们吃到这个硬币的话，会代表着新年有一个很好的运气。不知道你们那里的家乡有没有，反正我从小都这么吃。然后我每次过年的时候吃饺子是吃的最不安的一次。因为我老怕那个饺子的里面要是吃到硬币的话，他别给我绷着，或者我万一把硬币吞下去可怎么办。所以说我们这里可以加入一些这种比较生动的，跟你日常生活相关的这些小小的传统，能够让你的回答听起来更加的接地气，也可以将你separate you from others，make you an extraordinary ary answer.</p>
+    <p>让你和其他人不一样嘛，你说了更多的细节，考官知道更多新鲜的东西，让你和其他人的答案就展现的不太一样了。我们这里说到吃各种东西，除了饺子以外？我们可能还做了一些fish steamed fish、蒸鱼，或者是fried chicken、炸鸡，或者是可能还会做一些我想我们过年吃什么？吃肘子对吧？吃肘子那我们可以像steamed或者是soy saw。这个黄豆酱的pork，猪肉或者说是这个五花肉。K belly猪的小肚子，猪的这个腹部，pork belly 5花肉。还有比如说我们可以说吃一些空泡chicken、宫保鸡丁，或者是四川亏损川菜，或者是各种各地的各种比较好吃的东西，大家自己发挥。</p>
+    <p>说完吃的东西了，然后我们来说开始这个庆祝活动了。The highlight of the celebrations is the iconic lion and dragon dances. Dancers dressed in elaborate costumes and masks brings these mesi creatures to life, accompanied by the recent tic bits of drums and symbols. The performances are mass marine and believed to word of evil spirit. While bringing in good luck for the year ahead.</p>
+    <p>好，我们说这个活动的高潮，活动的亮点？是非常标志性的舞龙和舞狮。这些人会穿上很精致的或者是很精美的服装，这个costume叫做cos服？一个道具服装，还有mask还有面具，会带来把这些神秘的生物带到生活中，或者是给它赋予bring them life，给它们赋予生命。伴随着很有节奏感的拍子、鼓或者是这个乐器？它的表现是mm rising and believed to word of。我们说它的表现是非常的令人着迷，我们这个说不来可以替换成什么amazing、attractive都行。人们相信对被认为是能够word of祛除，让远离使什么什么远离，使这个邪恶的灵魂远离，给人们接下来的这一年带来一些好运气。</p>
+    <p>好，我们这里说的就是这个服装表演，我们看了哪些有趣的表演，再往下我们来看到说到了fireworks and firewall ackers fireworks and fired crackers light up the nice guy similarities ing the dispelling of negative energy and the welcoming of prosperity。The sound of prickling fireworks fills the air, creating an atmosphere of excitement and delight. 怎么说？烟花、爆竹点亮了整个晚上的夜空，象征着这个驱散对吧？它的祛除关于这个负面的能量和欢迎繁荣，也就是迎接繁荣。声音这个crackling就是噼里啪啦巴拉巴拉的那种声音。这个crackling噼里啪啦的这个爆竹的声音充满了空气，创造了一个非常激动和非常开心的这样一个氛围。</p>
+    <p>我们然后说到了红包。Red envelope snow, as红包are exchanged containing money as a symbol of good luck and blessings，children eager anticipate these red envelopes and is a hard warming tradition that strengthen family bonds. 孩子们eager anticipate，对吧？热切的期待着这些红包，真是一个很暖心的，很温暖人心的传统，然后加强了家庭的纽带。好，最后结尾一下说，总的来说是怎么样呢？Overall, celebrating chinese new year is a time of deep cultural pride to gardeners and hope for prosperous future is a time to honor traditions, create lasting memories, and embrace the spirit of unity and renewal.</p>
+    <p>前面就不用说了，这是一个时间去尊重传统，创造了持续的回忆和embrace拥抱精神，关于团结和renewal复兴？焕然一新的这样一个精神。好，其实前面我也是补充了一些活动，说到了比如说这个是做什么装饰，然后有吃什么东西，然后做什么什么样的活动，看什么表演，然后烟花爆竹以及红包。然后最后一个总结，我们来看一下，刚才说的是一个过年的。节日对吧？那我们来说一个比如说是一天普通的一天会怎么说呢？这里我就不停顿了，我直接带着大家直接通读一下我们这里一个其他节日或者是事件的描述。所以，you know, today was a really meaning day.</p>
+    <p>I all of the morning with a cup of my favorite coffee and a quiet moment of reflection, I felt grateful for the day ahead and all the opportunities I would bring. Later, I had the chance to catch up with an old friend over lunch. We talked about our lives, shared stories and loved a lot.</p>
+    <p>IT reminded me of how important IT is to stay connected with people who matter to me. In the afternoon, I volunteered at a community event. I helped to set up a booth, talked to people about the cause and even made a few new friends.</p>
+    <p>I was so rewarding to see the positive impact, my small contribution head on the events and the people around me to the end, the day I spend some quality time with my family. We watched a movie at dinner together and shared our thoughts and dreams. IT was a reminder of how important IT is to cherish the moments I have with them.</p>
+    <p>Overall, today was a day filled with purpose, connection and love. I felt truly filled at peace every moment was made for, and i'm grateful for the chance to experience IT all. As I settled into bed tonight, I can't help a smile knowing that i've made a positive difference in someone's life and strengthened my own relationships in the process.</p>
+    <p>好，那么这个素材大家一看明显的非常简单了是吧？我们这里其实没有用到任何的复杂词汇，为啥呢？是因为给大家做一个示范，我们难是什么样的，简单是什么样的。大家可以去进行一些比较困难的提升，加入一些复杂单词。</p>
+    <p>虽然说我这里说的很简单，但是如果你把这个用在考试上的话，你也能拿到7分往上的分数。为啥呢？因为这里面我们说了很多比较地道的表达方式。比如说start off the morning对吧？开始with a couple of my favorite coffee，还有这里说的a reflection，reflection叫做反思回忆。那么这个reflection是西方的这个学习体系中一个很重要的过程，叫做反思。</p>
+    <p>我们既然说到这里了，我们来说一下西方的课程会分为哪几个部分。大家上课的时候，还有的可能是高中生、大学生，甚至是各种各样的学校的学生。我们中式的讲课一般就是一种叫做lecture，对吧？叫做讲座。什么叫lecture呢？其实就是这个演讲。</p>
+    <p>这种lecture首先我第一个标一个L这是第一种上课形式。Lecture通常就是我们在听力中part four会遇到的这种，要不就是一个导师？站在讲台上面去讲，今天我们要讲的是什么东西，他不给你把知识点用PPT罗列在上面。那么我们只需要跟着老师说的，直接一点一点的去往下学就可以了，可能偶尔的会有提问环节，或者是有你这个问答的环节，但是这个东西互动不多。这是第一种叫lecture，主要是老师的讲师lecture的个人输出。</p>
+    <p>第二种形式叫做tutorial TUTORIAL。Tutorial tutor是什么呢？叫做这个讲师的辅导。大家看一下，把real去掉。Tutor tutor其实是导师的意思。比如说我们研究生或者是对硕士、博士研究生都要选导师。那么tutor一个tutor的辅导，其实就是一个导师的辅导了。这个部分在tutorial的部分，导师可能就会像这个辅导家庭作业一样，来看一下你对于我们这个单元讲的内容有没有什么很好的了解，老师会辅导一下大家。</p>
+    <p>第三个叫做seminar SEMINAR，我写的比较丑，因为我这个鼠标实在不好写。Seminar seminar是什么呢？它在学习中叫做研讨会。除此之外，有很多的学术会议，或者是这个企业，都会有这样的seminar。比如说如果是在学校的话，我们开一个seminar就是针对一个话题，比如说我们这一个单元，unit ten，这个十单元我们学的是这个。如果像我当时学的是传媒，我们十单元就会说到这个真新闻和假新闻，新闻的一些原则。那么在lecture上面，lecturer这个讲师就会跟我们说什么是真的新闻，什么是假的新闻。我们学新闻的原则是怎么样的，以及报道新闻的态度，还有现在的现实，其实大多数都是假新闻。</p>
+    <p>第二个在tutorial上面就会说到，你读了一些跟新闻相关？Fake news、true news, 你读到这些journal的相关的这些材料，reading你有什么反思，你读了些什么，你得到了些什么关于相关的理论。第三个在summer上面叫研讨会了，我们就可能围绕着一个话题叫做，比如说如何在实践中避免这个假新闻，或者是如何去分辨？如何用你的critical thinking，用你的辩证的思维能力去解决去解决去看哪个新闻是真的，哪个新闻是假的，那第四个方式叫做workshop，什么叫workshop呢？那叫做一个什么叫工作的小商店。我不知道大家有没有这样的经历，比如说去商场，或者商场附近有那种做手工的对吧？DIY, 那么很多他就会管自己叫workshop或者是一个studio，studio叫工作室。Workshop说的是一个课件，或者是大家去这个苹果去苹果店里？看到总有一些人跟店员坐在那儿不知道在干嘛呢。</p>
+    <p>这个workshop讲的是什么呢？讲的是practical skills，一些实操性的技能。那么在workshop里面，比如说像我们刚才那个unit，我们说到了，如果是一个workshop的那可能就会让你们去做一篇新闻，对吧？去报道一篇新闻是如何采集材料的，如何去如何去收集信息的，然后如何整理，如何发布。在这个workshop里面我们前期做了一些工作，后面我有少比较分享了。然后说你有什么问题，他有什么问题。那么这个workshop除了说这种课上的以外，比如说课下的那如果就比如其实就是一个手动的一个非常实践的一个工作的过程。</p>
+    <p>这个seminar我们刚才说它还有其他的含义。比如说在学术中是研讨会，在其他的像这个工作中，它也叫研讨会。他说的是另外一种了，就比如说我妈妈是医生，她就会经常的会去去全国各地参加一些学术会议。</p>
+    <p>比如说因为我妈妈是眼科医生，那有时候在我们家小城市，她看到看眼科医生的时候，还有一些疑难杂疑难杂症。比如说小孩儿他就你不让他玩手机，他就非要玩手机。然后他有斜视，他两个眼睛看的不是一个两个眼睛轮流站岗是吧？一个看这边一个看那边。那你这个问题怎么去解决呢？你让他去配合，他也不好配不合。那这时候我妈妈就会去，比如说去北京、上海，参加一些seminar研讨会。作为她来说，他肯定是去看的。</p>
+    <p>有一些受邀的，比如说知名的专家家，他们在解决这个问题的时候，他们会在三分钟上面分享自己的案例，做一个PPT说我们在这里有一个什么样的案例，这个小孩是什么样的情况，我们采取了什么样的办法，大家可以共享一下这个经验。然后另外一个专家就可以说了，我们这也有类似情况，我们处理这个的时候，采用的是另外一种方法。我们其实就是在通过向同行的一个了解，我们去获得一些实践的经验。当然这个设计就比较深了？就是在我们比如说读到硕士或者是博士研究生的时候，会参加很多的这样的学术的去交流。目前世界上latest或者是the most opposition最新的一些学术成果。我们如何应用到中国的使用中，应用到我们的领域，或者是如何根据这个研究去开拓一个项目，这些思路。</p>
+    <p>好，那我们说完，这里说到了一个reflection，那reflection是什么东西呢？叫做一个反思。在我大学的时候，我大学的时候上到一门课叫做好像是数字的什么，就是现在的一些新的数字的叙事方式对于人们阅读的影响这样一个课题的时候，导师要求我做一个reflection。我以为这个reflection我就是自己反思，就是一个反思。我就写通过这个我得到什么，非常一个非常一个通篇都是在想我的逻辑，我获得了什么？就是那种百度上面随便一搜都一堆那种感言。但是后来我老师给我这个差点不及格，他跟我说你这个必须重写，否则的话我会让你fail。</p>
+    <p>为什么呢？因为没有任何的引用，你是看到因为西方人非常注重这个引用，他会觉得你是看到什么东西，所以你想到这儿的对吧？所以说我们一定要想中西方文化的区别，尤其是大家在口语回答过程中，part one和part three一定要注重。这个点叫做中西方文化的差异。</p>
+    <p>有很多中国学生，尤其包括我自己的亲身经历。我在出国了之后，不管是说话还是写作，都遇到了很大的困难。我有在交一篇论文上去的时候，我的导师给我标注了很多，都标红了。我一看最明显的一个点是我在开头的时候写了很多很多中国学生爱写的套话。</p>
+    <p>什么线下社会人们的生活，随着人们生活水平的日益提高，人们对于这个科技产品的使用也逐渐增加了，有大幅增加了。在我觉得很多同学可能你们自己也深有同感，对吧？你们自己在回答的时候也会说一模样的，在写作文的时候也会说一模一样的东西。但是这个是西方人非常不认可的，为啥呢？你凭什么说人们使用这个东西增加了呢？有没有什么数据呢？你说人口老龄化越来越多了，或者是人口老龄化越来越严重，或者说你们说人的人们越来越有钱了，你凭什么这么说呢？有没有任何的数据研究去支撑呢？</p>
+    <p>比如说人们的恩格尔系数下降了，人们的消费对于数码产品的购买力上升了。比起去年来，今年人们买的更多的是什么什么产品。你有没有说这些呢？你没有，那你凭什么武断的下一个定义就说我们现在就有这样情况的，你不能这样。所以说应用到我们的part one和par three的回答中，我有很多学生在回答的时候，回答的非常的抽象，为啥呢？</p>
+    <p>就比如说我问你，你为什么喜欢旅游，或者说我说你喜欢去哪儿旅游，他会说或者我再换一个比较抽象的问题，他说你认为旅游可以给你带来快乐吗？他就说旅游可以给我带来快乐。他让我感觉到内心很充实，我增加了我的见解。我感觉到每次旅游回来，我都浑身放松。</p>
+    <p>这个回答还是我们很多很多学生都会回答的问题。但是是一个不好的现象，为啥？因为没有evidence，你的说话不够persuade，不够convincing，不够令人信服。</p>
+    <p>什么叫令人信服的答案呢？旅游你会感到什么？对吧？就比如我说我通常旅游回来，我会感觉整个人焕然一新。就比如说上次旅游，我通常是平时很忙忙在工作和学习上了。那么我好不容易有一个假期，我出去旅游完以后，在旅游的过程中我就不需要想这些工作学习这样的事情了。我一心投入新的文化的学习，以及了解一些有趣的事情和感受大自然。所以我会觉得可以扩充我的视野，可以让我放松整个身心，对我身体的发展也是有好处的。</p>
+    <p>这里他们非常看重的一个东西叫做evidence和support。你有没有任何支撑，有没有任何证据去证明旅游能给你带来这些好处？那我们在回答的时候也要注意，其实解决这个问题很好的方法就叫举例，一切都举例，尤其是part three。</p>
+    <p>好，这里说太多了，我们继续往下看。回到这个话题，说到描述一个日常的一个很有意义的一天，我觉得非常的很期待这一天。所有的很期待这一天的带来的各种各样的机会。我有一个机会去catch up with catch a boys。</p>
+    <p>我们之前讲过对吧？是追上谁谁，其实就是和谁谁叙叙旧，和一个老朋友饭后叙叙旧。我们说了生活，分享了一些什么东西，然后他让我意识到了那些和我重要的人保持联系的重要性。除此之外，我还自愿的参加了一些社区的活动，我帮助弄了一些组建好了一些boost，boost叫做座位卡座。和和人们去聊了聊，甚至是做了一些交了一些新朋友。他真的很值得去看到很多的这么一个小小的贡献，然后有了这么多的积极的影响，能够在周围在我周围的人们有多大的影响。</p>
+    <p>在一天结束，我还花费了一些很有质量的时间陪伴我的家人，我们一起干嘛了。分享了我们的梦想，然后很很好去珍惜，非常好的一个机会，去珍惜这个时光。最后结尾也说比较简单，我们我当我躺在床上的时候，我控制不住的笑，因为我觉得我做了一个很有意义的事情。</p>
+    <p>那么我们为什么说这个世界描述？虽然说的很简单，但它分数可以很高，是因为说的非常地道，对吧？用了很多地道词是我们不太会说的，而且我们觉得跟我们思路有点不太一样的，以及一些地道表达。</p>
+    <p>那么大家在说的时候，也可以在自己的回答中加入一些稍微的地道一点的。我觉得可能我日常中不太会说出来的，但是在我这个生活圈，其实西方人会经常说的一些话？好，我们这节课的内容说这么多，我们来看一下，一个题目练习叫做describe a time you were very busy。</p>
+    <p>描述一个你超级忙的时候。那么我们来想一下，这节课我们说的是一个或者可以说忙碌的一天，对吧？或者可以说准备过年过节。这过年过节的这样一个经历，我们非常忙。那么大家在想这里想一下，我们该怎么说呢？什么时候哪里做了什么？为什么？这个我也不再示范了，我们直接就照着这样的一天去说也行，对吧？</p>
+    <p>多加一点这个感叹词。Such a busy day, I was so tired, 或者是i feel，although I feel tired, but I was really feeling. 或者我们用这个过年对吧？我们看了这个干了那个吃了好吃的，然后包了红包什么的，非常的忙碌。那么我们的题目练习就说这么多，我们进入到今天的作业部分。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-12.html">精讲逐字稿</a></li>
+      <li><a href="qa-12.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-11.html">上一讲 11</a></li>
+      <li><a href="lesson-13.html">下一讲 13</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

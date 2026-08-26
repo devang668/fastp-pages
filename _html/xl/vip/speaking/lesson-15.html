@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第15讲 · Part Three 解决类话题 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 15 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a class="active" href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第15讲 · Part Three 解决类话题</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次雅思口语课程中，老师详细讲解了Part Three部分解决类话题的策略和素材，分为社会解决和个人解决两大类。首先回顾了上节课的原因探讨，通过例子分析了经济发展、社交需求和个人偏好等因素对问题产生的影响。课程重点转向解决类话题，强调了政府、社会群体和个体在解决问题中的角色，比如政府制定政策、社会群体参与讨论和宣传、以及个人的自由选择和必要干预。通过具体问题如空气污染、老建筑保护等，展示了如何灵活运用素材提出解决方案。老师强调了掌握题型特点、答题结构的重要性，并鼓励考生积极思考，提升口语表达能力。最后，布置了课后作业，鼓励学员实践，深化理解。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-15.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次雅思口语课程中，老师详细讲解了Part Three部分解决类话题的策略和素材，分为社会解决和个人解决两大类。首先回顾了上节课的原因探讨，通过例子分析了经济发展、社交需求和个人偏好等因素对问题产生的影响。课程重点转向解决类话题，强调了政府、社会群体和个体在解决问题中的角色，比如政府制定政策、社会群体参与讨论和宣传、以及个人的自由选择和必要干预。通过具体问题如空气污染、老建筑保护等，展示了如何灵活运用素材提出解决方案。老师强调了掌握题型特点、答题结构的重要性，并鼓励考生积极思考，提升口语表达能力。最后，布置了课后作业，鼓励学员实践，深化理解。</p>
+    <p>政府 社会群体 个人 规则 资源 风险 专家 污染 建筑 旅游 保护 惩罚 宣传 广告牌 垃圾 建议 解决 影响 改变 学校</p>
+    <p>Hello, 陪考研的小伙伴们大家好。欢迎来到瑞老师的雅思口语课程。我们这一节是part three的素材思路链二关于解决类，包括了社会解决与个人解决。</p>
+    <p>我们上节课能回顾一下上节课说的是原因类，包括社会原因和个人原因。社会上为什么会有这样的东西呢？我们说到社会原因的话，总结就是一个经济发展。说到个人原因，为什么个人这样呢？我们上节课说了很多个，包括了比如说盲目从众，包括了满足社交需求，包括了个人偏好，以及我们九大原因能补充的。什么压力释放、新奇、高效率、什么联系更紧密，原因二，这些都可以补充在内。那么这节课我们来看一下，有这些问题，我们知道了原因了，我们该怎么去解决呢？包括了社会上的问题怎么去解决，以及个人的问题要怎么去解决。</p>
+    <p>我们来看一下，首先第一个社会解决类题目的关键词一般都说的是how to do或者是in what ways can we solve the problem。这里的主体一般说的是政府、学校、公司，或者是大多数人。我们的回答分三个方面。第一个government。第二个我们说的是一些social brit，一些社会群体。第三个我们可以说是individual。我们其实就是分为这三个主体来说的那你想想遇到一个社会问题了，比如说我们随便任何一个社会问题，那政府肯定是很宏观的制定一些规则，对吧？那么社会群体可能是发自自发性的做一些事情，那个人做一些力所能及的事情？</p>
+    <p>那我们来看一下这里的这个思路，我们这里说到的社会解决类，我们来看一下开头说wow，that's a top one. Get me accept to think this is about making a choice, right? 那么这里我们在这里故意加了很多的，在废话中加入了很多语气，that's a tough one, tough one.</p>
+    <p>太难的，太硬的对吧？难的，这个题还有点难度。Give me a sec to think这个sac是second的缩写，give me a set to think。让给我一秒钟想一下，这是关于做出选择？So different people would choose differently，but based on what are done before, I think I would discuss the problem first.</p>
+    <p>不一样的人可能会有不一样的选择，但基于我之前所做的，我认为我要先讨论这个问题。其实像这里还是废话对吧？也就是说前两段都是废话说我先想想，这是要做出选择。不一样的人会有不一样的选择，但是根据我之前了解的情况，或者是我做过的事情，我觉得我们要先讨论这个问题。我们来说像这个问题，like this problem，对吧？像这个问题非常确定的是is clear that the reason for is that它的原因是怎么样。If we get the reason, I will be a lot either to find solutions.</p>
+    <p>如果get到这个原因了，找到解决办法就很简单了。我们来看一下怎么解决？First one，government来了第一个部分，对吧？政府该怎么办呢？</p>
+    <p>For example, a government rule on for like putting more resources into, 我们可以制定规则。Rule在这里除了它本身是一个名词rule对吧？叫做规定。那么除此除了名词之外，我们还可以做动词叫做制定规则。制定规则我们可以说really on是一个固定搭配。或者是我们除了说制定规则，也可以是putting more resources into，可以倾斜更多的资源，could be our first option, 可以是我们的首选。</p>
+    <p>As only government action can affect everyone and make a big difference. 只有政府的行为可以影响每个人，然后做出巨大的改变。这是第一点，政府应该干嘛？第二点我们来看，其他的第二点？Somebodies talks that shows the possible risks might work well and help will understand the issue。</p>
+    <p>一些社会群体对吧？我们可以说social group。一些社会群体的会谈。比如说什么企业会谈、学术论坛，什么社区的会谈，都可以让人们来展示出来可能的潜在的危险，然后帮助人们理解这个议题。这里我们后面是对它进行了一个补充。</p>
+    <p>The message or the slogan should be clear enough and informative enough to learn people about the hidden dangers and make them cy. 就是说信息或者是口号要足够清晰和informative。叫做有信息量的足够引诱信息量的去警告提醒人们关于这个隐藏的风险，让他们care。是第二点。</p>
+    <p>第三点我们可以说。We can talk about the of both solutions with ever get experts and get their feedback. 我们可以和专家谈谈，然后获得专家的反馈。那么和专家我们个人怎么办呢？就是听从专家建议呗。然后再往后我们来看，this can make the solution either today and effective and improve.</p>
+    <p>这里我们解释一下，刚才跟专家说这个就能让这个解决方案更加的简单，更加有效提升成果。其实个人听从专家的建议。So oj, that's what I think about this issue. Some people might just not agree with me, but I think that is the best way to for me to handle this situation.</p>
+    <p>有些人这最后又是废话了是吧？有些人这是我关于这个话题能心想到的部分了。有些人可能不同意，但是我认为这是最好的方法去掌控这个情况了。我们关于这个社会解决类，其实就是分主体政府制定规则，民间有更多的探讨展示风险。最后我们可以听从专家的建议。</p>
+    <p>我们来看这道例题说到。In which ways can air pollution be reduced effectively? 空气污染如何能够被更加有效的解决呢？空气污染如何能够更加有效的去减少呢？那我们来读一下，大家来跟读一下。</p>
+    <p>Wow，that's a tough one. Can we suck to think this is about making a choice, right? So um different people would choose differently.</p>
+    <p>But based on what i've done before, I think I would discuss the problem first. Like this problem is clear that the reasons for you is that the government doesn't care enough to make you Better. If we get this reason, IT will be a lot either to find solutions. For example, a governmental rule on air pollution could be of a first option, as only government action can affect everyone and make a big difference. Secondly, community talks that show the possible risks might work well and help people understand the issue.</p>
+    <p>The message of the slogan should be clear enough and the informative enough to warn people about the hidden dangerous and make them care, or so we can talk about the above solutions with our experts and get the feedback this can make the solutions either to do and more effective than improved c outcome. So that's what I think about this issue. Some people might not agree with me, but I think this is the best way to for me to handle the situation.</p>
+    <p>好，那我们跟读结束，我们来看一下这里说有哪些方法可以有效的解决空气污染呢？那其实很简单。我们开头说这很难，波波前面还是一样的废话，说我们先去探讨问题。像这个问题，我说很明显它的原因是government doesn't care enough to make IT Better，政府不够care对吧？政府不够在乎。那么get到这个原因了，我们这里提到一点原因，然后就开始解决了，更好找到解决办法。</p>
+    <p>第一个说government rare on air pollution，说政府制定关于空气污染相关的规则，可能是第一选择了。只有政府的行为可以影响到每个人，做出巨大的改变。比如说我们可以在这里，甚至是even relation。我们可以在这里举例？Publish some laws or regulations about uh just protecting environment and even limit the limit the usage，of course甚至是limit限制？限制的year's age，限制这个车辆的使用，这是第一点。</p>
+    <p>第二点，我们来说一下社区的探讨。这里说到了让人们意识到空气污染，我们需要一些社区的探讨。可能会展示可能的风险，或者我们换成company talks是也可以，我们可以在这里再加一点自己的举例，比如说中公司一些造车的car company。造车公司的探讨可能想了一些more effective way to reduce the air pollution，such as a new energy car, 新能源汽车。最后一点，我们可以和专家探讨，获取专家的建议。And even listen to the experts, uh listen to the expert suggestions such as just use more, uh just reduce more of our carbon dioxide ce来减少我们的二氧化碳的产生，或者是to protect the natural scenery，or protect the trees, or build more trees, 就是保护树木或者是建造更多的树木。关于这个我们就说这么多，最后这些都是一样的东西，我们就不再重复了。</p>
+    <p>我们来看题目，在看题目之前还是一样的想想社会解决类，对吧？有什么能说的呢？比如说社会解决类，其实能说的这里比较少。我们可以就说一些比如说这个可以提高效率对吧？或者是元音2就可以了。</p>
+    <p>我们来看这个问题，第一个问题。A who should be responsible for those buildings, government companies or individuals? 谁应该对那些老建筑负责呢？是政府、公司还是个人？那我们这里就可以换了，说政府应该怎么做，公司应该怎么做个人应该怎么做？大家在这里暂停一下来尝试回答一下。我来带着大家回答一下这个问题。Sorry, wow, that's a tough one game.</p>
+    <p>Is like to think this is about making a choice, right? I think maybe different people would choose differently, but based on what i've done before, I think I will discuss the problem first. So like this problem, like how to who should protect the old buildings, IT clear that the reason for IT, that someone just broke IT, and don't just worry about the result.</p>
+    <p>So I think maybe just everyone in the society should do something. And if we get the reason, you will be allowed either to find solutions. So I think maybe like government or companies or individuals all shared, just help protecting the old buildings, for example, government rule on protecting or just rule on the a punishment of harming or damaged the public of facilities could be our first option, as only government action can affect everyone and make a big difference. 这里政府制定的规则，比如说帮助解决这样的问题是是让大家制定一些regulation，让大家去保护这个老建筑，或者说是给一些punishment。</p>
+    <p>给出一些惩罚，对吧？关于这个damage for the damage of the，public，对于这个公共设施的一些损坏，政府会给出一些惩罚。So secondly, I think communication, community or academic talks that shows the possible risk might work well and happy to understand the issue. So the message or slogan should be clear enough and informative enough to learn people about the hated dangers and make them care. Sorry, maybe some media might be involved and just produce some programs about like the protection or the meaning of the old buildings, make people care and just afraid of like maybe be harmful for them.</p>
+    <p>我们可以这里说到一些学术论坛，对吧？Even just produce some academic papers or just exchange some academic ideas去交换一些学术的意见，或者是产出一些学术论文，或者是一些媒体甚至可以参与其中？媒体去了解一下大家都是怎么想的，然后来探讨一下这个问题。最后also，we can just talk about the both solution with experts and get their feedback.</p>
+    <p>And individuals can just listen to experts feedback, maybe just stay far away from the a of buildings, and just tried themselves to protect the old, old buildings. So this can make the solutions either today and more effective and in the outcome. And that's what I think about this issue. Some people might not work with me, but I think this is the best way for me to handle this situation.</p>
+    <p>好，我们这里说到的是关于老建筑谁应该保护，对吧？那我们下一个一样的。How can people prevent the environmental damage caused by tourists? 如何去阻止这个旅游业影响的自然损坏呢？政府制定规则，游客应该怎么办？或者是cleaner应该怎么办，会让一些更多的人或者是更多的security保安。Stay in the house, 保持专注，或者stay focus on if someone's hurting IT？</p>
+    <p>如果有人在伤害他的话或者，第一个是政府制定规则。第二个就是民间的大力宣传，或者是make more bill board，有更多的宣传栏、广告牌？BOBILLBOARD这写错了，我们说有更多的广告牌，让人们去意识到，或者是张贴more posters，然后上面写上一些有信息量的message or slogans，写上一些什么环保靠大家，什么你我他，第三个，个人就是听从专家的建议，比如说当我们是游客的时候，when we are just uh tourist，we just try to protect the environment and take our maybe luggage or take our personal belongings, such as the trashes the garbage with us and throw IT to the surgeon places, 把我们的垃圾带到固定的地点去投放。</p>
+    <p>或者是when we are just hesitate or just uh maybe when we are the citizens and we just try to help the government to protect the vironment。如果我们是市民的话，我们可以帮助这个政府去保护环境。这个我就不再来说了，我已经思路说清楚了，大家下去去训练。</p>
+    <p>再下一个。Do you think there should be classes for training Young people and the children how to relax? 你认为应该有课程去训练年轻人和小孩，去告诉他们如何去放松吗？那你像这个，我们如果说有的话，政府从这个educational department一些教育的部门，应该make some real on IT。比如说这个学校schools？Schools应该宣传口号，设定足够多的课程，要让人们意识到，让小学生孩子们意识到这个休息的重要性。那么个人个人也应该好好好去学习，比如说如何去休息，或者是放松的重要，如何去放松自己。</p>
+    <p>我们从三个方面不一样的来说，这个话题稍微有一点点的灵活，大家一定要注意我们这个话题这些解决类，或者原因类，或者是甚至后面我们补充一些素材，都不是说只能用在一个回答里面的。我们大家一定要非常非常的，怎么说呢？就是比如说非常灵活的，用这些话题，你像甚至最后这一个题目我专门就放在这里，我们甚至可以把原因类放在这儿，对吧？</p>
+    <p>把社会原因类，比如说我认为当然了，随着社会发展，人们生活水平提高了，人们消费水平提高了，可能更加care生活的质量，甚至是学习的质量。恰当也更care小孩的学习质量，小孩也更care自己的生活质量。那么这个学习如何去休息，这是非常重要的。就比如说现在我们举例子，现在中国更越来越多的大学或者是初中、高中要开设一些社团、文体课、创意课。那么这里就是教小孩如何去休息，或者说是去physical building，一些身体的锻炼练习，这些都可以。也就是说你像这些话题，不是说每一个话题都只能对应一个素材的。你像这个我们可以用解决类来说，也可以用元音类来说。</p>
+    <p>有些同学可能有时候会疑问说，老师我这样如果说那样的话，我穿的太远了，会不会涉及到跑题？我们在口语中是没有跑题这一说的。什么叫跑题呢？我问你，你如何看待旅游业？你跟我说我很喜欢旅游，旅游的时候我能感受到怎么样，那这叫跑题对吧？你没有听懂问题，但如果说我们思维很发散，根据这个话题我们了解了以后，我们去拓展很宽的内容。跑的说的时候跑的稍微有点远，这是完全OK的，大家不用太担心。</p>
+    <p>那么我们说完社会原因，社会原因最主要的就是三个点。第一个政府制定规则。第二个民间的一些会谈。第三个个人听从专家的建议。</p>
+    <p>我们来看一下个人，个人刚才说了，社会遇到这样的问题的话，社会要怎么办。我们个人如果遇到这样的问题的话，我们个人应该怎么办呢？那个人就没法分主体了，对吧？没法说我个人再分一个柱体。</p>
+    <p>我们个人其实分为两个部分，一个就是大多数情况下我们去不管。少数情况下我们去干预一下子，其实这就是一个思路。大多数情况下问到你如何去解决这个问题，如何去应对，如何怎么怎么样呢？大多数情况下我们就顺其自然，let is go，对吧？Let let IT go.</p>
+    <p>随他，对吧？大多数我们就佛系一点，少数情况下我们可能要管一管了，如果太离谱的话，我们可能要甚手干预一把子。比如说我们来看一下这里的这个话题的结构，我们说前面还是一样对吧？这两个句子是一样的，我直接过一下。</p>
+    <p>Sorry, that's a tough one. 这是一个很难的问题。Give me a second thing，给我一秒钟想想。This about making a choice，right? 这是关于做出选择，对吧？不一样的人有不一样的想法，different people chose differently.</p>
+    <p>Based on what i've done before, I think I will discuss the problem first. 根据我之前做过的，我觉得我要先探讨问题。Like this problem, obviously, the reason for easy that some adults have a hard time figuring out the best way to.</p>
+    <p>这里我们说像这个问题很明显的原因是有一些adults，有一些成年人have a hard time，不是说有一个很困难的时间，而是说他们很难去怎么样。为啥呢？我们说比如说我说你会弹琴吗？我说我小时候我是比较擅长数学的，对于这种艺术i have a hard time learning，like this art.</p>
+    <p>我有一个很难的时间去学这个东西其实就是我学他学的很困难，对吧？那也就是说这些成年人很难去找到最好方式干嘛。They don't know windy should or windy should.</p>
+    <p>他们不知道什么时候应该干嘛，或者是什么时候应该干嘛，那就什么时候应该管，什么时候应该不管。Let IT go. Now, if we get this reason, I will be a lot either to find solutions.</p>
+    <p>如果get到这个原因，找到解决办法就简单多了。在大多数情况下，in most cases for somebody, something is free for them. At this time, I don't mind if对大多数情况下爱干嘛很自由是吧？这个时候我不建议什么什么。</p>
+    <p>In a small number of cases, this matter will exceed the Normal range, such as少数情况下，这个事情超出正常范畴了，比如说怎么样，太离谱的事情，我们举例。So at this time, I think we need another solution. I will have a good talk with him.</p>
+    <p>And even少数情况下，我们可能要需要另外一种解决方式，我会和谁好好谈谈，甚至怎么样。This can make the solutions either today and more effective and in the outcome. 这可以让解决方式更简单，更加有效，可以提升成果。So that's what I think about this issue. Some people may not agree with me, but I think this is the best way for me to handle the situation.</p>
+    <p>最后又是一样的废话，对吧？所以说我们这里结构就是先要找到原因是吧？找到原因什么时候该干嘛，大多数情况下怎么样，不管少数情况下怎么样管一管。我们来解释一下怎么个管法，然后就结尾就可以了。</p>
+    <p>我们来看这个题目说。How should childrens spend their alone with money? Alone is money.</p>
+    <p>我这里写了叫零花钱对吧？那么allowance大家再想一想allowance是什么意思？不是说允许，allow就要允许，对吧？那么allowance叫做津贴。那什么叫津贴的钱？就是额外的钱是吧？小孩如何使用津贴的钱呢？那么我们来跟读一下子来读一下这个回答。</p>
+    <p>Wow, that's a tough one. Give me acceptive thing that says about making a choice, right. Different people would choose differently. But based on what i've done before, I think I would discuss the problem first.</p>
+    <p>Like this problem, obviously, the reason for that is that some adults have a hot time figuring out the best way to teach kids how to behave. They don't know when they should stop kids from doing something bad, or would they should let them have some freedom in fun. So if we get this reason, evil be a lot either to fight solutions.</p>
+    <p>In most cases for kids, pocket money is free for them to control. At this time, I don't mind if they use IT whenever they want. No need to ask me first.</p>
+    <p>In a small number of cases, this matter will exceed the Normal range, such as drinking. At this time, I think we need another solution, will have a good talk with him, and even limit his pocket money. That's what I think about this issue. Some people might not agree with me, but I think this is the best way for me to handle this situation.</p>
+    <p>我们说到零花钱对吧？最主要的问题，最主要的原因是有些大人have a hard time figuring the best way to teach kids how to behave。大人很难去分辨，最好的方式去教他们的小孩如何去behave，表现就是大人不知道该怎么教小孩，他们不知道什么时候应该阻止小孩doing something bad，做一些坏事，或者是什么时候应该让他们have some freedom and fun，让他们自由快乐，爱干嘛干嘛去。那么get到这个原因就很好找到解决办法了。解决办法就大多数情况下我们这里做了一个替换，along with money替换成pocket money？零花钱对于他们来说爱怎么花怎么花吧。这个时候我不介意他们想什么时候花，也不用问我？买点零食，爱干嘛干嘛去。</p>
+    <p>那么少数情况下，这个问题exceed the Normal range，超出正常范畴了。比如说drinking，那这里的drinking是什么？肯定不是说喝饮料，对吧？喝饮料的话，小孩花零花钱喝饮料很正常，我们这里的drinking叫做喝酒。比如说这就像是我们中文其实也是一样的，对吧？</p>
+    <p>比如说我今天问你，喝点儿，那喝点是喝点饮料吗？那肯定不是，对吧？是喝点奶茶吗？那也不是你就喝点酒。</p>
+    <p>所以说比如说drinking叫做如果小孩用花钱喝酒的话，那么这个时候我们需要另外一种解决办法了。我会和他好好谈谈，甚至是limit限制他的零花钱。最后结尾这是我能想到的，可能有些人不同意，我认为是最好的方式了。</p>
+    <p>我们来看一下个人解决类，就说大多数情况下不管，少数情况下管一管，只要分辨出来是最主要的原因是啥就行。那么我们来看一下这里说到了个人解决类，我们能用哪些线索呢？比如说可以用着开明的父母，高效率，或者是有纪念意义，或者联系更紧密，这些都可以。</p>
+    <p>那我们来看一下个人解决类的题目通常是怎么问的呢？比如说how do we have children learn english？我们怎么帮小孩去学英语呢？或者是do you think parents are the basketball to make decisions about their children's education？你认为父母是最好的人去帮助他们的小孩做关于教育的这些抉择吗？</p>
+    <p>我们先来说第一个，你怎么帮助小孩学英语？就是大多数的情况下管少数情况下不管呗。大家先暂停一下，你们自己来回答一下，看看这个问题怎么回答呢？暂停结束，我来大家带着大家回答一下。其实就是大多数情况下不管怎么个不管，那跟老师学呗。</p>
+    <p>少数情况下怎么个管？那就是我们去比如说干预一下子，让他去给他找个补课班，对吧？So that's a tough one. Give me accept thing.</p>
+    <p>This is about making a choice, right? So different people will choose differently. But based on what i've done before, I think I will discuss the problem first.</p>
+    <p>Like this problem, obviously, the reason for that is that some parents have hot time figuring out the best way to teach kids how to learn english. They don't know when they should just take care of their children's score, or when they should just let them go and just do whatever they want. So if we get this reason, IT will be allowed easier to get this to find the solutions.</p>
+    <p>So in most cases for kids, english score is just free for them to learn just at this time. I don't mind if they just learn english from their school teacher or just learned or practices with their friends, or just find some foreigner friends to practice. I don't nature maybe.</p>
+    <p>Bother我不需要去bother，不需要去干预是吧？不需要去打扰。大多数情况下小孩学爱怎么学怎么学呗，跟他们这BOT是一样，跟他们的这个老师学呀去和朋友互相练习，甚至是交一些外国朋友都可以。那么少数情况下in a small number of cases，this matter will exceed the Normal range, such as when children want to go abroad.</p>
+    <p>Or the score is really bad是吧？或者是the performance of the english is really like poor，他们的英语表现非常的差劲，或者是小孩需要go abroad。要出国了对吧？那么at this time，I think we need another solution. I may have a good talk with him, and even maybe just teach them how to learn english by myself, or just hire him a professional teacher or send him to after school tutorial.</p>
+    <p>帮他请一个家教，hired对吧？雇佣a professional。Teacher或者是这里tutor一个导师都可以，或者是send him to after school叫做课后的辅导班。Tutorial叫辅导班，对吧？我们可以把它送到这个课后的辅导班去。Now that's what I think about these issues. And people might not to break with me, but I think is the best way for me to handle this situation.</p>
+    <p>A有些人可能不同意，我认为这是最好的办法了，那我们来看下一个问题，说到，do you think parents are the best people to make decision about their children's education? 那我就不给大家解释了，我们就暂停一下，大家回答一下，然后来跟我一起回答。Ah yeah, I don't I don't think so.</p>
+    <p>That's a pretty tough ones. So give me a security thing. This is about making a choice, right? I think different people choose differently. But based on what i've done before, I think I will discuss the problem first. Like this problem, obviously, the reason for a day that some adults just have a hard time figuring out the best way to teach their keys how to make decisions.</p>
+    <p>They don't know when they should let the keys make decisions by themselves, or when they should have the children, or just stop or prevent them from something bad, or just making some weird decisions or just some like dangerous decisions. If we get this reason, IT will be a lot of either to find solutions. So in most cases, I think for kids, decision is free for them to make at this time.</p>
+    <p>I don't mind if they, if they make any of the decision. No need to ask me first, for example, if they want to maybe a rent their time or just choose like which like the course selection or the elective courses or just which sport they want to do or like the future plan, I think that is like can be decided by the children themselves. But actually in a small number of cases, this matter will exceed the Normal range, such as the children's are making some dangerous decision.</p>
+    <p>For example, they want to uh maybe get married when they are in primary school or they are pregnant after, like high school. So at this time, I think we need another solution. He will have a good talk with him or her and even just guide him how to make a good decision, or even just force them to do some, to make some decision if they are going to the law.</p>
+    <p>So that's what I think about the issue. Some people might not agree with me, but I think this is the best way for me to handle the situation. 我这里说大多数情况下，小孩爱怎么做选择就怎么选择。他们不管是想要选什么课程，未来想做什么工作，这些都是他们有能力去做这样的选择。</p>
+    <p>少数情况下，如果小孩要比如说辍学quit the school，对吧？Quit QUIT, quit the school, 或者是and they want to maybe do something illegal，做一些违法的事情对吧？或者是他们想要getting married in the primary school，小学时候就结婚或者是get pregnant？想要怀孕，那么这个时候我们可能就要阻止她了？或者是劝导她。我们可以首先第一步guide去引导，那如果引导不成的话，可能就要force了强迫他做一些事情去。To prevent he doing something dangerous and weird weird. 比较奇怪的离谱的？阻止小孩去做一些离谱的事情。</p>
+    <p>好，我们这节课主要说的是两个解决类，一个是社会解决类，一个是个人解决类。社会解决类说的是如果有这样的会问题，我们该怎么办呢？谁去怎么办呢？那么政府怎么办？企业怎么办？个人怎么办？政府制定规则，社会群体我们多一些探讨，个人可能听从专家的建议去怎么怎么做。那么个人解决类，我们可以说是，大多数情况下我们就不管，爱干嘛干嘛，少数情况下超出正常范畴了，我们得赶紧干预了。那么我们进入到这节课的课后作业环节。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-15.html">精讲逐字稿</a></li>
+      <li><a href="qa-15.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-14.html">上一讲 14</a></li>
+      <li><a href="lesson-16.html">下一讲 16</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

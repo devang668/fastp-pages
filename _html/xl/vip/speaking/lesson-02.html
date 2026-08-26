@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第02讲 · 口语三大基本能力与基础 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 02 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a class="active" href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第02讲 · 口语三大基本能力与基础</h1>
+    <div class="abstract"><b>本讲概要：</b>本次课程首先强调了雅思口语考试中流畅度的重要性，并以此作为基础，</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-02.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本次课程首先强调了雅思口语考试中流畅度的重要性，并以此作为基础，</p>
+    <p>深入讲解了基础语法和句子结构，包括简单句、并列句、复合句、特殊句式以及句子类型，特别强调了简化复杂长句为短句的技巧，以确保表达流畅。课程详细介绍了主谓宾、主系表结构，宾语补足语的概念，并通过例句和练习帮助学员更好地理解和运用。</p>
+    <p>此外，还涵盖了从句的种类，如名词性从句、定语从句、状语从句等，讲解了如何通过连接词和从属连词构建复合句。课程最后提到了强调句、倒装句和虚拟语气的使用，以及祈使句和感叹句在增强口语语气中的作用。整堂课旨在通过语法知识和实用技巧的传授，帮助学员提高雅思口语的流畅性和表达能力。</p>
+    <p>Hello, 小伙伴们大家好。我们欢迎来到我们配考营的课程。第二节叫做课程的基础补充，包括语法以及句子结构内容。我们上节课来说了一下雅思口语的整个的考务介绍。说到雅思口语比较关注什么，比较不关注什么？我们还记得着重强调了一下要流畅，对吧？那么怎么做到流畅呢？有很多同学会说，老师我现在造句都造不明白，我有时候想说一个句子我就说不出来，那么该怎么办呢？这节课我们不光是给大家补语法，还收到一些小技巧。</p>
+    <p>如何把长句换简单？把长句换短句，把长句变简单。为了保证流畅的前提下，我们做一些简简单单的小变化。</p>
+    <p>那么我们来看一下，关于这个语法，句子结构包括哪些呢？我们主要分为简单句。简单句主谓宾、主系表、并列句、颌句、特殊句式以及句子类型。并列句就是把两个简单句放在一起，复合句相当于就是一些从句，特殊句式包括了比如说像祈使句这样的句子以及一些句子类型。</p>
+    <p>第一个我们先来看看简单句，简单句我觉得大家都知道对吧？所有的句子都是通过简单句组合的。只不过句子结构拓宽了一点，词汇丰富了一点，然后变成了其他类型的长句。简单句一共就是这几种类型，就这么四种。</p>
+    <p>第一种叫做主谓结构，主语加上谓语的结合。比如说主语是spring，谓语叫come，谓语一般都是动词对吧？主语通常是一个引领句子开头的部分，是一个句子的主体。那么英文叫做subject，我们叫它S谓语相当于是动词。一般谓语。大家也知道谓语动词，谓语动词的一般谓语都是动词，那么叫verb，我们用V来代替，这里S加V叫做主谓结构。比如说S作为春天是spring对吧？春天来到了，那么V来到动词，那么所有的句子的基础都是主谓。</p>
+    <p>除了主谓以外，主谓还会加上一个宾语。宾语通常也是一个东西，一个主一个这个句子发生的一个动作的接受的人，对吧？那么叫object。Object我们用O来代替，这里就是S加V加O这样一个句型。</p>
+    <p>比如说i love you，I like you, I hate you, 对吧？Love like hate都是动词。那么I和you一个是动作的发生者，一个是动作的承受者。那么主谓宾宾，这里双宾语两个宾语都是谓语动词所产生的作用。比如说i give you money，我既给了你也给了钱，对吧？那么you和money都是give的这个承受者，所以说i give you money，那这是主谓宾双宾语。</p>
+    <p>再下一个，主谓宾宾补主语、谓语、宾语加上宾语补足语，就是补充说明宾语的情况的。什么意思呢？比如说IT makes me happy，他让我开心。那开心我们如何区别它与这个主谓双宾呢？他不能是他是开心对吧？那开心是用来说我的，也不是用来说他的，也不是用来说make的。所以这里的happy叫做宾语补足语，是用来形容宾语的。那么所有的词儿，所有的一些句子都是源自于这么四个最简单的句子结构了。</p>
+    <p>我们来看一下，除了主谓宾以外就是主系表了。那系动词，系动词通常就这么三种，一个叫做be动词，am is, are, was, were, 一个叫做感官动词。看起来look听起来sound、smell, 闻起来taste，尝起来fail，摸起来对吧？那么我们主系表，系动词通常就是am is、are、service或者是变化动词，become turn, go, get grow.</p>
+    <p>这样的类别的这个系动词主语还是一样的。那么后面的表语其实就相当于刚才主谓宾的宾语，只不过后面它现在加在系动词后面，我们管它叫做表语。主系表结构和主谓宾结构是我们最基础的口语中的两种结构了。我们来看一下简单例子的举例练习以及句子拆解。</p>
+    <p>首先第一个我们来多造一些简单句，能够流畅的造出很多的简单句的话，我们口语就已经算是上手了。比如说回答这个part one的问题叫做do you like traveling？那么我们来先想一下，大家在回答的时候，如果基础比较好的同学可以直接回答这个问题。如果觉得我的基础不是能够支撑我，直接说下来的话，那我们可以先用中文先来考虑一下思路。这个问题叫做你喜欢旅游吗？那我们的思路，比如说我这里举个例子叫做我很喜欢旅游，旅游能够让我开心，我喜欢去很多城市旅游。第一句话，我喜欢旅游，i like traveling, 旅游让我开心，traveling makes me happy, 这是一个主谓宾宾补吧？Makes me happy.</p>
+    <p>我去很多城市旅游，i go to lots of cities to travel, 对吧？我去很多城市去旅游，这是第一个简单句。第二个，我们how often do you go traveling？你通常多久去旅游旅游一次呢？大家来想一下，我们在这里就可以说了。第一句话我说我比如说半年一次i go traveling，这是主谓宾。半年一次我们加上一些状语，half a year吧once或者是once once half a year半年一次对吧？或者然后我们下一句说，尤其是在我喜欢在寒假或者暑假的时候去旅游，i like to go travelling during summer vacation or winter vacation.</p>
+    <p>在后面两个练习两个句子大家自己下去练习。Where do you you ally travel? 你通常去哪旅行呢？How do you feel when you are traveling? 你一般旅行的时候会怎么感觉呢？</p>
+    <p>我们简单句的练习就到这儿，我们来尝试一下句子拆解，如何把一个我中文想的很难的思路，我中文想的这个非常难的一个长难句，我口语中我说不出来。如果让我写作，我可能想一会儿能把它这个句子结构写明白，但是口语中太难了。那我们怎么去拆解呢？首先这里句子拆解涉及到一个技巧，叫做中文小学生的一些技巧，叫做缩句是吧？我们把句子的主谓宾划分出来以后，把主谓宾英文翻译过来再去补充状语。也就是说进行句子拆解的步骤。</p>
+    <p>首先第一个中文缩句。第二个翻译。也就是说中文的简单句一英。第三部分我们再去补充翻译过来的这个英文句式中需要补充的一些小的细节。</p>
+    <p>我们来根据这个思路来看一下，比如说这第一道例题说每年暑假我都和家人一起去全国各个国家旅行，全球各个国家旅行，感受不同地方的文化氛围。那么逗号后面的我们先不去看，我们看前面的每年暑假我和家人一起去全球各个国家旅行。大家来想一下，在这里我们的主谓宾是什么呢？中文的缩句怎么说呢？中文缩句叫做去旅行对吧？那么我们中文说出来了，我去旅行以后，我们来看一下英文要怎么翻译。我们第一步中文缩句，把它我去旅行。然后我们把它翻译成英文，i go traveling.</p>
+    <p>I go traveling，这是我们英文翻译，然后再去补充这些中文的细节。我和谁呢？我和家人。I go traveling, where is my family? 每年暑假everyone。Summer holiday.</p>
+    <p>我就这样随便写了holiday，I go traveling with my family every holiday是吧？那么这些都是状语。我们在这里加上刚才说去全球各个国家旅行to many countries。I go traveling to many countries with my family every summer holiday。这我们第一句就拆解完成了。</p>
+    <p>第二句感受不同的文化氛围，那么它的主谓宾叫感受氛围，feel氛围。如果基础比较好的同学可能知道氛围叫atmosphere。那么如果大家不知道这类氛围怎么办的话，我们用一个很好用的技巧叫做把它简单化，把它抽象化，或者是用自己的话去解。是比如说氛围是什么意思呢？可以说是那种感觉？Feel different feeling，或者是我们可以说get different feeling，get different feeding from different places, 感受不一样的感觉，从不一样的地方。</p>
+    <p>我带着大家来做了第一个。第二个大家先来尝试着暂停一下，我们来尝试着做一下这道第二道题。这座经过精心设计建造的石拱桥，能够减轻流水的桥身的冲击力。这里我们说的是桥能够减轻冲击力？它的主谓宾，大家来尝试着在这里来做一下这个翻译并且缩句。我们来说一下，做完这个大家来做翻译练习？我们来回顾一下，这里的主谓宾叫做桥减轻力，那我们说瞧叫bridge减轻，叫reduce力，叫power或者是effect影响。那我们说其他的什么精心设计，建造这个石拱桥、流水对它的冲击力，大家就根据自己的能力去补充就可以了。那么我们简单句的句子举例练习，句子拆解就说这么多。我们来看下一个。</p>
+    <p>说到了并列句，并列句就更简单了，对吧？我们把简单句通过不同的连接词并列成了不同的句子，通过并列词组成了并列句，通过重组连词组成了复合句。那么我们先来看并列词，并列词有很多，比如说and表示？表示并列，or表示二选一，but表示然而，so表示承接，while表示也是，然而yet表示没有，for表示原因，however表示反转折，对吧？那么通过这些并列词，比如说不一样的表示并列的and not only but also neither nor his her father is a doctor and her mother is a teacher。那么这里的and表示并列，表示选择，or or else otherwise either or比如说hurry or you won't make the train快点，要不然你就赶不上火车了是吧？那么这里的偶尔表示选择，或者是第三个表示对比转折。But wow, yet however never.</p>
+    <p>I like while he likes coffee. 那这里的while就表示的不是时间了，表示的就是转折对吧？我喜欢喝茶，但他喜欢喝咖啡？最后一个for表示原因。I am thursday for IT is hot. 我非常的渴，因为他太太热了，因为水太热了。我们再来看后面的，说到复合句了，通过从属连词就组成了复合句，不一样的重组。从属连词会导致不一样的从句，我们这里分为名词性、定语、状语以及各种其他它的从句。</p>
+    <p>首先第一个名词性从句，当名词性从句作为不一样的句子成分的时候，有被称为不一样的从句。比如说主语作为从句的话，那么就叫主语从句。比如说what he said is wrong，对吧？那么什么是错的呢？那这里是主语，系动词表语，那么他说的是错的那他说的作为主语是一个从句，那么后面当我们从句作为宾语的时候，叫做宾语从句。I said that I主语that谓语that后面是宾语，我说了它是错的，那么它是错的叫做宾语。</p>
+    <p>宾语从句作为表语的时候，主系表主语的fact，系动词is后面怎么样的fact is什么呢？The fact is that he don't, he doesn't really try, 事实就是他压根就没试过，对吧？那么这里的表语从句，这里意思后面表语从句在下一个作为同位语的时候，也同位语叫做用一个长点的名词对于另外一个名词进行解释。什么意思呢？The news that he will come back is true.</p>
+    <p>那么这里叫做这里的结构，the news is true, 对吧？在这里主语叫news，系动词is是表语。后面我们用一个长一点的名词对它进行说明，the news that he will come back, 他要回来的那个新闻是真的是吧？那我们这是名词性从句。</p>
+    <p>再往后来看定语从句，定语从句就有各种各样的类型。比如说表示指代关系的引导的定语从句，说人对吧？互指人。Yesterday I helped an old man。He lost his way.</p>
+    <p>昨天我帮了一个老人，什么人呢？他找不着路了，那么用到whom知道人的时候，用在定语从句中充当宾语常可以省略。比如说mr 0 is just a boy he might want to see，那这个林先生就是那个男孩，我想要见到的那个男孩。那么这里的whom是可以省略的，可以直接说成you know he is just a boy，I want to see, 后面说到which指代的是一个东西，在定语从句中作为主语或者作为宾语，作为宾语，这时候可以省略。This is a pen he bought yesterday.</p>
+    <p>这是那个笔，什么笔呢？描述的是这个东西，他昨天买的那根笔。下一个that that在指人的时候可以替代who或whom指物，who 5的时候可以替代watch最后一个whose通常指人也可以指物。</p>
+    <p>在定语从句中充当的定语说的是谁的？Do you like the big? Whose cover is yellow? 谁的封面是黄色呢？你喜欢那本封面是黄色的书吗？对吧？还有比如说还有一些关系副词引导的定语从句，when或者where或者why。</p>
+    <p>我们再来看下一个叫做状语从句。那么说到状语从句的状语从句，通常什么叫状语？就是状况吧？状态的用语就是修饰一个动作发生的时间、地点、原因、方式一个一个情况，什么样的背景情况。时间状语从句的用的一些引导词，比如说时间when as well as soon as before，after things till until.</p>
+    <p>那么特殊引导词，at the minute, the moment, the second, every time, the day, the instant. 比如说这里举例，i was fast when I was a child, 我当我是个小孩的时候，我还挺胖的是吧？那这里说的是时间，或者是i was fat at the moment I was a child，或者是you know I was fat every time II feel I was fat every time I eat food，我每次吃饭的时候都觉得自己很胖。那下一个地点状语从句通常用where来引导，也会有一些特殊引导词，wherever, anywhere, everywhere. 比如说keep IT where you can see IT，把它放在你能看到的地方，或者是i put IT wherever I can see IT，我把它放在了任何一个我能看到的地方，那下一个元音状语从使用的是because since as for来引导，还有一些特殊引导词。</p>
+    <p>Seeing that, now that, in that, considering that, given that, 比如说这里my friends just like me because i'm beautiful，那么这里because引导了一个句子说我朋友不喜欢我，因为我很漂亮，当然不太可能了。那这里我们区别一下，because和because of对吧？Because of后面大家可能知道接名词，而because后面引导的是句子，那么如果这句话变成because of，可以说my friends just like me，just because of my beauty, 我的美貌是吧？我的美貌它是一个名词。</p>
+    <p>下面再来看目的状语从句修饰的说的是一些目的。比如说这里常用的引导词有so that或者是in order that，或者还有一些特殊引导词。Least in case for fear that in the hope that for the purpose death to the end that比如说我们这里的举例叫做thirty hard，so that you can pass exam努力学习。要不然因此为了so that为了目的是you can pass exam，你能够只有努力学习，你才能够通过这个考试。</p>
+    <p>再下一个结果状语从句，比如说so什么that so什么或者是such什么什么that特殊引导的to the degree that to the extent或者是to sort of degree that比如说这里例句，he got up so early that he caught the first boss, 他起床，他那么早就起床了，所以他能够赶上第一班公交车。在下一个条件状语从句，我们用if或者unless，除非对吧？As long as只要only if，除非providing provided that supposing that考虑到什么什么in case that以防on condition that有这样峰值，有这样的情况，if you ask him, he will help.</p>
+    <p>如果你问他他将帮助你是吧？那这是条件状语从句，说的是一旦怎么样才能怎样。在后面还有方式状语从句，比如说as if how引导，或者是the way引导的，比如说这里的think as I think像我一样思考，或者是比较状语从句，和谁谁比较as the more the more just as a to a is to b what as x is to y或者no more than not a so much as b比如说这里的例句，the house is three times as big as hours, 或者后面的让步状语从句，我们通常用do or do，even if even though来引导。那么或者是还有as引导的倒装，why引导的，或者是no matter，或者是in spider of that of the fact that或者是while whatever，whoever, whoever, whenever, however we cover.</p>
+    <p>这些樱桃的让步状语从句，比如说though I believe IT yet I must consider？尽管我相信他，但我还是得考虑这个问题。我们说到从句，就说这么多有这么多的从句。除了从句，除了并列句，除了简单句以外，还有三种特殊句式，叫做强调倒装以及虚拟语气。</p>
+    <p>那么强调句说的是他是什么什么是被强调的。比如说IT was SHE him we are talking about。比如说你妈妈你在跟朋友打电话，你妈妈就说我怎么听着有一个男孩声音，你在跟谁打电话呢？那我就可以说了。IT was my best day.</p>
+    <p>Him I am talking, I am talking with是我闺蜜，我在跟我我是在跟我好的闺蜜说话，对吧？那么后面前面我们就把这个名词提前来强调一下，IT was my best, 我的。Best叫做我的好闺蜜。</p>
+    <p>还有比如说我们还有一些倒装句，正常语那叫做主谓宾。We can win only three hard work，我们可以赢，只有通过努力？那么倒装句叫做谓主宾，我们把谓语提前，only three work can we win? 那么这里的can叫谓语，我们把谓语提前，把主语和宾语放在后面，再下一个叫做虚拟语气。来就可能会说的是，比如说会有什么样的情况，对吧？主句就是用could、would，might, should have done, 那从句用have done，或者说对现在对将来的情情况虚拟。</p>
+    <p>我们后面来举例，这里我们来尝试着进行一些增强语气的句式练习。比如说我说约翰打破了窗户，我们来看这个句子。如果普通造句的话就是john broke the window。如果说这个邻居来问了，你们谁打破的窗户？那我说我就问是不是你，然后你说是strong打破的窗户，那我们就可以用在这里用城市。He was strong, he broke the window.</p>
+    <p>那或者是下一个今天多么美好的一天。我说今天是美好的一天，today is a beautiful day吧？我们替换成了一个增强语气的，what a beautiful day IT is today.</p>
+    <p>还有比如说重要的不是钱，而是幸福。我们正常语序叫做钱不重要，幸福重要。Money is not the important, happiness is important.</p>
+    <p>我们这里替换成强调就是IT is not money that matters，matters叫做有影响对吧？重要but the happiness。我们这里用一个强调句式来体现一下，不是钱重要，而是幸福重要。还有比如说花很美，那么flower is beautiful。那我们这里用一个感叹句，how beautiful the flowers are.</p>
+    <p>这里增强一些语，为啥我们说要增强一些语气呢？是因为经常有学生在说话的时候会被我指责说你怎么说话像个机器人呢？那我说IT is the window is not broke by me。IT is a broke by john, 对吧？那听起来就非常的没有语气，我们用一些强调IT is not broken by me。IT was broken by john.</p>
+    <p>IT was john who broke the window. 那么这里可以增强一下我们的语气。在后面我们来看一下，除了前面说的句子结构以外，除了说主、简单句、并列句、复合句以及三种特殊的强调句类型。我们这里还有一些句子类型，比如说陈述句、疑问句，这些比较简单，我们就不说了。</p>
+    <p>陈述句，i like english very much, even you, is that your key? 后面比较重要的是祈使句以及感叹句。这个在我们口语中是非常常用的。比如说祈使句，mind your head以动词原形开头，在动词原形之前加的对吧？比如说take on your head。这疫情一定要小心碰头，吧？Please do take care of my baby, 请一定要照顾好我的小孩。还有比如说以let开头的，let s have another try, 让我们再试试，或者是以及感叹句what a brave girl you know，或者是what a nice plays，what an amazing experience.</p>
+    <p>那么这里我们可以在口语中多使用祈使句与感餐具，用来增强我们的语气。那么这里比如说我们造句了，真是美丽的一天。如果正常说的话就是IT is a beautiful day。那我们这里感叹一下what a beautiful day，或者是我们这里提供了一些关于感叹句的造句结构，大家下继续学习。我们在这里只要简单的提一下。How amazing he sings, how delicious IT takes.</p>
+    <p>Such a lovely poppy. So funny he is OK. 我们这节课的内容就这么多，我们来看作业部分。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-02.html">精讲逐字稿</a></li>
+      <li><a href="qa-02.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-01.html">上一讲 01</a></li>
+      <li><a href="lesson-03.html">下一讲 03</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10讲 · 地点类素材与旅游话题 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 10 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a class="active" href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第10讲 · 地点类素材与旅游话题</h1>
+    <div class="abstract"><b>本讲概要：</b>Hello, 陪考营的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课。我们这节课还整点有意思的，我们来说一个地点类素材。说到地点类素材，难免的肯定就是出去旅游了，对吧？那我们来看一下，说到了一个家乡或者是一个旅游过的地方，我们如何去表示，如何去说呢？肯定我们会说到一些我去回家了对吧？我回老家的时候会做了些什么事情，包括了我做的事情以及我的感受，事情我写一个sing感受，我写一个feeling，包括喜欢不或者不喜欢，有什么事情我喜欢i like，有什么东西我不喜欢i dislike，以及地点与景色。有什么样的比如说这个tory attraction，有什么样的旅游景点，有怎么样的beautiful scenery，还有我和谁一起，人物与动物行为有什么有趣的活动。</div>
+    <div class="tip">本讲含 16 组问答精要，可到<a href="qa-10.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>Hello, 陪考营的小伙伴们，大家好。欢迎来到瑞老师的雅思口语课。我们这节课还整点有意思的，我们来说一个地点类素材。说到地点类素材，难免的肯定就是出去旅游了，对吧？那我们来看一下，说到了一个家乡或者是一个旅游过的地方，我们如何去表示，如何去说呢？肯定我们会说到一些我去回家了对吧？我回老家的时候会做了些什么事情，包括了我做的事情以及我的感受，事情我写一个sing感受，我写一个feeling，包括喜欢不或者不喜欢，有什么事情我喜欢i like，有什么东西我不喜欢i dislike，以及地点与景色。有什么样的比如说这个tory attraction，有什么样的旅游景点，有怎么样的beautiful scenery，还有我和谁一起，人物与动物行为有什么有趣的活动。</p>
+    <p>那我们来先看一下来先积累一下关于地点，说到一个地方，我们如何去描述它的景色，如何去说我们需要做什么样的准备呢？我们来先看一下地点类的美景的一些常用表达。当然我这里积累的这个素材稍微的比较进阶，对于有些同学来说可能有点难了。如果我们目标分数在5到6分的同学，可以稍微的把这个点简化一点，变成直接说view scenery对吧？前面的breath taking a picture risk，这些就不太用我们去记得特别牢固了，我们就只需要能收到view和scenery就可以了。</p>
+    <p>当然如果我们目标分数在七分左右的小伙伴，给我把它都记下来。第一个breath taking view，就是让你的让你的呼吸都快停止的一些美景？第二个是picture risk，像图片对吧？Picture叫图片，picture risk叫做像图片一样的美景。第三个majestic landscape，landscape也是景观，你看view scenery landscape vista对吧？Vista叫全景。但是前面这几个都是说到了描述景观的，那么大家就可以在这里进行统一替换了。</p>
+    <p>Majestic说的是壮丽的那panoramic叫做全景的vista就美景对吧？非常美丽的全景，searing and tranquil setting, 一个宁静和非常宜人，其实这两个都是宁静的意思了。还有这个一个setting，setting相当于一个什么样的，就是一个设置，一个怎么样的环境。还有这个league countryside，stunning natural beauty in chatting landscape or inspiring panorama, captivating vistas.</p>
+    <p>这些都是说到迷人的景观，当然大家不需要把这么十个，后面还有20个都背下。我们只需要记住其中的四五个，能够做到在这个地点类美景中替换就可以了。然后我们再来看后面还有比如说sync beauty对吧？优美的风景losh Greeny Green叫绿色Greenery，其实说的是绿色植被，lush郁郁葱葱的，还有Crystal clear waters，清澈的水towing mountains，雄伟的山脉，Price which is原始污染的这个沙滩，还有vector version valleys，翠绿的山谷，rated sunset, 美丽的日落，tranquil lake, 宁静的湖泊，color for god dance, 色彩斑斓的花园，all inspiring clips, 令人惊叹的一个悬崖的inspiring。或者是awesome，或者是stunning，或者是这个amazing，消消乐里面常玩的什么amazing、excEllent，这些都可以用在这里来表达。</p>
+    <p>然后我们说完一些常用的表达方式，我们来看一下一些常用的景点。比如说我们去旅游了一般去哪儿呢？我们先来国内游，可能会去到一些great wall of china，forbidden city, the tycoon, a army, the lee river, polluted palace, yellow mountain, 张家界national forest bark，九寨沟valley，the vast lake, and melt ever rest, melt ever rest.</p>
+    <p>从来不休息的山脉，珠穆朗玛峰绵延不断。对吧？好，我们说的是中国景点。当然这里我们讲一个小知识点叫做我们说的如果经常需要用中文来说一个比如说名词或者是一个专用名词的时候，大家一定要记得给它一个解释。</p>
+    <p>为什么呢？我经常有听到有一些同学说，last time I went to兵马俑and we怎么样，那你想想你是中国人，我是中国人。我听懂你说了，你说你去兵马俑，但是考官不是中国人，对不对？那么考官有可能在你这里就听听你说就听不懂了，不知道你在说些什么，这是什么感觉？大家去统一替换一下去感受一下，就是身临其境一下子。</p>
+    <p>比如说你出国了，我们欧洲有很多，因为欧洲国家很小，它的有些语系是很像的。比如说西班牙语系和德语和英语，它有很多是可以替换的。那么有很多学英语的人就会说法语。那你像比如说一个法国人，他跟你说i，you know, last time, uh, my favorite food is caught him and I so much.</p>
+    <p>那他说了一个不，你都不知道这是什么东西。然后你在这儿就他说完这个话，你是不是没法接话了。我们这里是不是听到了，他如果这样跟你说话的话，是不是觉得这个人不够considerate，不够体贴，对吧？那如果换成了这个人跟你说，you know，my favorite food is called bra. IT is a traditional spanish food, and IT looks like a little bit like tackle, and also is a smaller size of pizza. IT was made of avocado and some ginger, and I love you so much.</p>
+    <p>他给你稍微解释了一下，先说这个巴拉巴拉这个东西是什么？它是一种类似这个塔壳或者是一个小披萨的东西。里面会放一些牛油果和姜，当然这些是我编的，听起来就很黑暗。那我就这个意思，如果他这样跟你详细的解释了，是一个什么东西，里面是什么的话，那你是不是就觉得我可以稍微评判一下。So is not really good.</p>
+    <p>I don't think you can try IT或者是wow that is really amazing。Maybe next time we can just eat together. 那我们可以尝试着去根据听到他说的，然后我们去做出一些反应。为啥？是因为我们听懂了，虽然不知道这个不拉到底是什么东西，但是我知道大概是一种吃的，像塔可一样的小面点，或者是小主食。但是如果他就只说了i my favorite cafe is called bora，一点都不considerate，都不知道他在说什么，你就没法接话了。</p>
+    <p>所以说大家在说到一个中文的专有名词的时候，不管说的到人名、说到学校，说到这个地点，说到任何一个书名也好，任何一个东西都好。我们在说完中文以后，去给它进行一个解释。比如说我们在这里进行一个训练，我说我很喜欢吃青团，它是一种它是非常好吃的东西。我们说我们在节日会吃青团对吧？那如果我说are we just have some青团during the some festivals？那你看青团我不去进行解释，考官很有可能不知道你在说啥，对吧？那如果我这么说，我说so you know during the chinese traditional festival，we will have some青团，which is kind of a looks like a Green pie or Green ball.</p>
+    <p>IT is made of, I think, maybe flower and uh, sea and maybe vegetable things like this. And I kind of desert, I think, and IT is so delicious. 我说了它是一种甜点，然后是由什么东西做成的那这样是不是就表述出来就听起来很舒服了，那考官可能就知道了。Oh, i've heard about IT, and maybe i'll try IT.</p>
+    <p>好，也就是说在这里大家不管说到什么地点，什么东西的时候，一定要记得给它加一个解释。比如说我们再用这个地点类的来举个例子，我们说我就不会说forbidden city，我不会说它是紫禁城，我就说它是故宫，其实也没有多大问题，我就说last time my parents took me and we went to the故宫，which is already famous palace in china, are where like the emperor and the kings of china lived, 对吧？我们上次去了一个很豪华的大宫殿，是中国的国王去居住的地方，它叫做故宫。这一点毛都没有，对吧？所以说有时候我们可能不知道这个东西的官方英文翻译是什么，但我们用自己的话去给他解释出来也完全OK的。</p>
+    <p>那么我们说完中国常见景点了，外国常见景点？像apple tower、touch mahan？泰姬陵、grand canyon大峡谷、statue of liberty、自由女神雕像、nia 4尼、尼加拉瓜大瀑布、SAndra I圣托里尼、sydney Opera house、悉尼歌剧院、milt、fuji富士、富士山love world museum、卢浮宫，amazing in forest、亚马逊雨林。像这些东西，当然了，我刚才说到的就是我们之前也说过的，在雅思回答中内容是不重要的。但是如果你说到一个中文东西，骗傻老外他们可能就信赖你，随便瞎说什么，你说兵马俑里面放的都是一些小动物的雕像，他们有可能会信的，对不对？但如果你跟他们说，埃菲尔铁塔是印度为了纪念他的皇后所建的，那么这个就明显的出现了一些认知的偏差。所以说我们如果对于一个外国的东西不太拿得准的话，我们尽量讲中国的。这样的话就算说的有点错误，那老外也不知道，对吧？</p>
+    <p>然后我们继续往下看，说完景点了以后出去旅游了，马上要旅游，好激动，我们肯定要做一些准备的对吧？那在做准备之前，我们肯定会上网去查一些攻略的。攻略就包括了有各种各样的这个方面。比如说旅行的酒店预定？对这个reservation或者是baking？还有这个机票，包括出行的时候需要携带的衣服，气候以及一些当地的文化。还有比如说是不是要给小费，以及如果我们出国可能要给小费。还有比如说我们往返是怎么个承诺，什么样的交通工具。吃什么东西，还有具体哪些景点我想去，哪些景点我不想去。</p>
+    <p>而去景点的时候还要有什么一些什么instruction注意事项，就比如说我当年在大学的时候去大皇宫，我穿个大短裤，我就去了。结果到了到当地了，然后这个导游跟我说你不能进去，我说为什么？他说你这穿短裤，人家不让穿短裤的，必须得遮住膝盖以下。那没办法，我买了一条中老年大纱巾围在屁股上。所以说还需要看一些instruction对吧？那么我们来看一下一些常备词汇，比如说一些travel vacation tourists seeing destination这些比较简单，还有initial commotion reservation，passport VISA这些可能出国旅游需要用的civet纪念品。</p>
+    <p>Got big attractions toward grape culture shock budget travel那这里我们去说一下budget travel，比如说有什么会是低预算旅游呢？其实我们中国可能大家在作为学生可能不太常见。但是其实像老外或者是一些成年其实还比较常见的。比如说我背个包，像这种僧人如果去西藏，有很多僧人非常虔诚，他去西藏走一步磕一个头，走一步磕一个头，也算是about to travel，就是苦旅？穷游，还有比如说背包旅行、backpacking、adventure travel、冒险旅游以及road trip自驾游。自驾游我们说自己开车save driving。</p>
+    <p>好，我们说到有这么多的旅游类型以后，我们怎么去积累旅行相关的单词，以及如何去做练习呢？你像有很多同学会跟我说，老师我知道这个四上五分、五上六分都比较好上，但我现在目标分数我想要上到7分。老师你也说了七分，不管是七分还是八分还是九分。</p>
+    <p>口语中不是说要说那些难词、生僻词，要说地道词。那么D道词都是啥？啥叫D道词？对吧？那么这里我就给大家补充一个方式，如何去累积地道的所谓地道词？</p>
+    <p>我们来看一下，首先我们就这节课要说的这个地点类来看，我们地点类的很有可能要去说一个旅游或者是回家一次出行，对不对？那么我们其实就可以直接点开小红书去搜旅行攻略。你看这里面有各种各样的说去济州岛？ENFG去济州岛玩，超低价区的一个旅行攻略，重庆的攻略，以及自己做一本新疆的路书，这些是不是都是不一样的人的风格，你像这个ENFG可能是一个非常外向，但是非常有规划的人做的一个这样的旅行。你看小女孩做的，那么这边济州岛的攻略，这边这个人做的比较偏黑色，可能比较商务风。像这边这个重庆的攻略，可能比较注重于玩儿。那新疆肯定都是路输了，一定是自驾游。</p>
+    <p>大家其实就可以选择不一样的风格，对吧？不一样的体验的这样的东西。在这里作为不一样的风格，不一样的这个东西，我们是不是可以就去积累一下词汇。</p>
+    <p>路书怎么说？重庆旅游它侧重什么？一个很有决断力人，很爱做这个计划的人是怎么样的？比如说我随便点开，左边这是一篇广州人家做的攻略。我看到了首先我们从上海出发，提前2小时到达，arrive the airport two hours in advance，然后我们选择了什么样的酒店，然后吃了什么样的地方，酒店的location，酒店的一些service，酒店的一些surrounding，酒店的周围是怎么样的。然后我吃了肠粉，吃了蛋挞、tarte, 然后去了什么样的tourist action，还吃了好多东西，这个人。我们后来第二天又到了什么地方？</p>
+    <p>然后我去住了什么样的酒店，然后我又吃了什么样的小甜点，去了什么样的cathedral大教堂，还有各种饭是吧？那么这里还说到饭也还是一样的。我们说chinese cuisine有各种各样的东西，我们其实可以直接说中文，然后用英文去解释它，对吧？这里就可以练习我们的这个小技能了。我们来看一下，说完这个地点类的素材积累以后，我还要跟大家说一下，比如说日常中我给你们说了旅行攻略了，那可能你们就知道旅行该怎么做了。</p>
+    <p>那其他的，比如说说到了一个吃的，对吧？那我们去超市里面，你想一下我们就不要去看那些potato tomato的，那些我们都知道，我们去看一些我们不知道的葱姜蒜，对吧？聪Green onion，绿色的洋葱、姜、ginger? 我们去看一下这些东西，还有比如说调味品seasoning，调味品里面包括了盐，比较简单盐和糖？Salt sugar比较难的蚝油，oyster这个sauce，还有比如说这个酱油，soy, so黄豆的酱，还有各种各样的，比如说调味料，什么样的底料，这些大家都可以去看一看。</p>
+    <p>以及我们再换一个说到了如果说穿衣服，大家最喜欢说的就是shirt t shirt什么dress什么这些东西。这些东西很小的小孩都能说出来了。什么样的词是进阶的呢？我们中国还点开淘宝，你可能看到的这个商品描述条，他说的是啊韩版女装精致什么什么风。</p>
+    <p>这个其实不太有参考性，在我们练习中什么东西比较有参考性？大家把那个ZARA HM的官网切换成英文。你们去看他们的那个衣服描述，这样的衣服他会说成是蓝色丝绸褶皱衬衫。那你是不是可以看到丝绸褶皱衬衫都是怎么说的？比如说一个裤子，它就不会像我们中国人说什么淘宝上面链接写的韩版什么超显瘦，什么梨形身材必备的什么什么韩版超显瘦梨形身材必备的什么西装阔腿裤对吧？那它上面就会说阔腿的裤子有纽扣和口袋，对吧？With button and pocket.</p>
+    <p>这样的话其实就对于我们的英文的这个常见的东西积累就很有用了。再比如说，我给大家小小焦虑一下，我上周去家庭聚会，家庭聚会的时候，我有一个小侄女，她才刚上学前班，然后明年上这个小学。他跟我展示他的英语能力。我说那你说一个颜色，他从紫色，他从红黄白绿，然后一直背到粉色，这些东西他都说来了。那你想想大家都是大学生，甚至是研究生，甚至是已经工作很多年的人了。</p>
+    <p>如果我问到你，你喜欢什么颜色？你还跟我说我喜欢红色、蓝色、绿色，是不是就太小学生了？你连我小侄女都比不过，对不对？那如何我们去差异化呢？如何体现你比他厉害？我们说一下他说不来的对吧？比如说我不说蓝色，我说navy blue、海军蓝，我不说这个，我还可以说天空蓝对吧？Sky blue, 还有比如说一个常见的词叫bage BE ige。</p>
+    <p>女生可能知道粉底液的色号，或者是这个粉饼的色号，她会说很白的这种象牙白。还有比如说那是再说不来这些比较难的，我可以说silver和gold对吧？银色和金色。</p>
+    <p>好，所以说我给大家去积累一下。这些说到了一些常用的单词，那么大家在之后可以在生活中多去积累一下，多去练习一下。以后希望大家就在说到衣服的时候，不只会说t shirt，还说一说cardigan？Cardigan叫做毛衣、开衫外套，还会说tank top吊带衫？还会说sneakers、运动鞋以及trainers、ankle boots? 运动鞋、什么脚腕薛，这些都是非常常见的一些词了。</p>
+    <p>我们来看这节课我们要说的一个旅游类的地点类的素材。这个素材我不给大家提供文本的素材，因为我觉得我的这个素材的这些单词积累已经够多了。我只是给大家提供一个思路线索，大家去照着看图说话练习。所以说这样的话更有利于大家练习自己这个呃素材积累以及定制素材的能力。</p>
+    <p>比如说说到了我这个话题，你看一个人去迪士尼对吧？那我要说的是，比如说前面what about后面接这个题目？如果题目问我来说一是你的旅行经历。Talking about a travel experience, IT reminds me of the experience of the lost summer vacation, 对吧？让我想起来了上一个暑假，which I went to the disneyland by myself.</p>
+    <p>那个时候或者是when？那个时候我去了迪士尼，我自己这是我们的一个开头？先点出来我去做了些什么，然后我们进行着看图说话练习，进行一些背景准备，我背景照这里来说，小时候经常听说同学去迪士尼乐园，他们无不洋溢着幸福自信的表情，再加上迪士尼动画的影响，从那时起迪士尼对于没去过的我来说就是天堂般令人向往的存在了。那大家可以我来说说一下，大家可以做一下，听一下，看看你们说听懂了多少？而你们又能说出来多少呢？小时候，when I was a child, I always hurt from my classmates that he or SHE went to the disneyland.</p>
+    <p>And they are fill, fill, filled with the face of happiness. sorry. And also including the influencing of the disney movie and disney cartoon, and also the animation. So since then, I just the this name means a really heaven for me, because I haven't been to there before, and I was filled with the expectation.</p>
+    <p>我充满了期待是吧？这里我说的是一个对于我来说是一个背景，以及我们可能会做一些什么样的准备，比如说我们看到后面说到来上海以后，我一直计划去迪士尼。知道了门票涨价，我就立马买了门票，一个人踏上了旅程。我说after I come to shanghai，I always plan to go to disneyland, and after I know that the ticket, the entrance ticket will be like the Price of the entrance ticket will be rising, so I just book the ticket immediately and went to disney land alone.</p>
+    <p>我就立马自己去了。我们这里可以加入一些连接的句子，对吧？这里其实就是一个连接句子，以及加入刚才我们这里说的一些preparation。我们可能会做一些哪些准备呢？比如说去迪士尼要拿好身份证，ID card，然后要做一些攻略，make some preparation about what you wear，一些什么样的衣服，以及玩一些什么样的项目，which item should I play first？And about some instructions in the park, 对吧？比如说i for example，some people said that we cannot bring a lot of food in IT, so maybe I don't need to bring a lot of like nx with me here, just a bottle of water.</p>
+    <p>好，我们说完了做这些准备，我们准备去迪士尼了。我们来看一下迪士尼一开门我们就去飞跃地平线。我大学体测都没有这么拼命过，对吧？这里说的比较形象，当然我们口语表达的时候，不用说的这么详细，我们就可以说。When I just went to the disneyland，or just as I step into the disneyland, 或者说是as I step into the gate of the disneyland，更加细了对吧？当我迈进迪士尼的大门的时候，everywhere are aiming at the jumping from the earth, 是吧？我这里随便翻译了，我也不知道飞跃地平线是什么意思，但我就说jumping from the earth或者是flying from the earth没有毛病对吧？</p>
+    <p>从地球上面飞出去，and I haven't run such a quick a time, 对吧？我都没跑过这么快。I thought I was old enough, but I haven't think about the premium users are already listening there, queuing there for over ninety minutes.</p>
+    <p>我这里说了一个早想卡哈，大家可能会习惯用这个VIP对吧？但是我们其实在英文中很多时候不用这个VIP，我们用的是premier。Premier叫做家对吧？就是这个高一级的，比如说升级的一些用户。这里i think the premier visitors，当然我也不知道迪士尼到底他们官方称这个到底是VIP，还是什么什么pass，还是这个premier user，我只给大家补充一下。</p>
+    <p>我说that you have already queue here for over ninety minutes。他们已经在这儿等了95分钟了。Q排队。But after like a long time waiting when I finally went into the entertainment item, 或者是i when I finally we wait in，当我最终走进去的时候，the only thing left was curiosity and happiness, 留下来的唯一的一件事情就是好奇和喜悦了。</p>
+    <p>Actually, i'm a little bit afraid of hate, so I just hold the tight, really, I just hold the holders 1 tly其实我有一点点害怕高，所以我就使劲的抓住了这个holder，抓住了一些扶手。我们这里说的是一个第一个活动对吧？大家可以再参考一下，我这个逻辑我们前面先说了一个开头，我点出来要去迪士尼，我说我做了哪些准备，是一个什么样的背景？第一个活动干嘛？我们进行了一些连接。</p>
+    <p>除此之外我还玩了加勒比海盗、七个小矮人矿车、小熊迪士尼历险记、古迹做临床激素关联，这些太难说了，对吧？我们没必要一一去列举，不去进入它的这个列举坑。那我们怎么说呢？我就说除此之外我还玩了小熊维尼历险记之类的游戏。</p>
+    <p>Except that I continues playing logic like uh, entertainment such as the a adventure of the winning the pool是吧？Winning the pool小熊维尼。And just because I was alone，II was always arranged in the front place, 对吧？The front range, the front list都可以。我总是被安排在第一排，i got a really nice fee, 我获得了一个超级好的视线，但是这个抱抱龙冲天赛车我好像没有玩过，不知道大家玩没玩过，有点好像看起来比较刺激的。And there also a really horrible item. I looks pretty scary, so I didn't try IT, I just laugh, ignore IT.</p>
+    <p>那有一个看起来有一点scary，有一点点的horrible，所以说我就直接走了，我就没敢去。然后我们来看主要的活动，前面说第一个活动我是玩了飞跃地平线。第二个活动我要跟IP互动了。我最喜欢的迪士尼，我们肯定要去见见琳娜贝尔，见见米老鼠、唐老鸭。首先第一个我买了很多奇宝玩偶，还给亲戚朋友买了一些周边礼物。I bought some souvenirs for my friends and just buy something for my friends, 买一些东西给我朋友，for example some iconic toys, 一些经典的标志性的玩具。And I also made some disney friends and watch the the the travel, the tour, and also looks some like the performance there.</p>
+    <p>I love every prince and princess in the disney. 我爱每一个迪士尼的公主。比如说如果我们在这，大家如果要说迪士尼这个话题的话，我们可以在这稍微加一点。For example like in the SHE is very beautiful, 吧？仙诺瑞拉是这个灰姑娘的名字，那我们是不是就可以说一下，比如说这个仙德瑞拉她真的好漂亮。如果我们能说出一两个名词的话，是不是听起来你的表达就更加地道，你只对西方文化了解的就更多了，这是我的第二个主要活动。</p>
+    <p>然后我们最后结尾来说。At the way home，I took the subway, but I didn't get any seed or any boost there, boost一个位置。So I just use all of the last of my energy and stand for the one hour and thinking about how long has he has been since I just played such like this, 我内心一直想着，有多久了我没有这样玩了。I was so tired, but my heart was filled with foot filled.</p>
+    <p>我的我真的太累了，但是我的心里面充满了这个充实感？最后我们可以总结一下说，比如说常见的一些总结。多亏，感谢，我非常喜欢这个经历，我爱死这个经历了，这个经历真的让我充满了什么样的感觉，这就是我说的完整的一个地点类的素材，需要说到什么样的东西。那么大家在写的时候也可以写一些，其实就是可以想一下自己的一个经历，对吧？我们从几个结构上来看，其实就是开头我先点出来这个地点是哪儿，我说我做了一项活动，两项活动以及我的感受，以及最后的一个结尾，其实就是这些东西了。我这里就不给你们提供了，我就直接说我们下一个开始练习的题目了。</p>
+    <p>比如说我们这里的串题范例叫做describe an usual holiday or vacation，you had描述一个不同寻常的假期，或者是这个假期，你其实holiday vacation都一个意思吗？那么这里when and where you went，什么时间，你什么地点去的？然后你和谁一起去的？你在那儿做了什么？解释为什么它很不寻常？那我们来简单的嘱咐一下，我突然想到最近有很多学生在问我，老师这个part two的题目我需不需要把它完全的考官会不会读？或者是到底有没有我需不需要把每一个问题都回答到，或者需不需要按顺序去回答。</p>
+    <p>首先第一个考官大多数情况下都不会读的，他只会读这里下面的小问题，不会读的。然后第二个问题，我们有没有必要完全的每一个问题都回答，以及每一个问题都按顺序回答呢？答案是没有必要。也就是说大家在读题的时候，我们一分钟做笔记的时间真的非常有限，对不对？就不要把它浪费在读题这种没有意义的事情上面了。</p>
+    <p>那我们怎么办呢？立马看一下when where？看疑问词who what和why，那就直接可以了？那我们看一下什么时间，什么地点，谁什么和为什么，我们基本上对于这些小问题就已经了解的足够清楚了，所以说不需要把每一个字都看清楚。When and where you went是吧？不需要。好，大家这里来回答一下，根据自己的素材，根据或者刚才我讲的内容，你们来说一下一个对于你们来说非常特别的假期是吧？</p>
+    <p>好，那我这里做一下示范，我们就拿刚才这个迪士尼来说对吧？我们来回顾到刚才说到talking about a year o holiday，IT reminds me of the experience of last spring festival, which I went when I went to the disney by myself. So IT was a really a nice experience, because when I was a child, I always heard one of my close women went to the disneyland, and they are few filled with the face of happiness.</p>
+    <p>And also I was influenced by the disney enemy and disney trains. So since then, disney is always a heaven for me, because I haven't been there before, and I always eager to be there. So a years later, after I come to shanghai, I always planned to go to disney.</p>
+    <p>And after knowing that the Price for the ticket of the disneyland is going to rise, I got to like twenty RMB. I just put the ticket immediately and they go to on my way to disneyland alone. You know i'm pretty like colorable, right? 我还挺充满我还挺有勇气的。</p>
+    <p>So the first one is, when I step into the disneyland, I think, like everyone include me, are targeting at the flying from the earth, which is a really famous and interesting activity there. So I just run so quick, and I haven't like II think I haven't run IT for several years, and I thought I was early enough, but I never imagine that the premier visitors is already there for thirty minutes. Killing, sorry.</p>
+    <p>But after a long time waiting, after I went into they are they flying over the earth, I finally play IT. And at that moment, everything was left. The only thing left was the curiosity and happiness.</p>
+    <p>So actually I was a little. Afraid of hate. So I just holding the holders really tightly. And except from that, I also played a activities such as the adventure of the winning the peers.</p>
+    <p>And just because I was alone, I was always arranged in the first range, and I got a really nice bear. There are also a really horrible uh like activity called the uh, I think he was called the flying like car or something like that. And IT was really scary.</p>
+    <p>So I didn't play a time a little bit afraid of that, so I just tried to play other games. And except from the items, except from the activities, I also buy a lot of things and have some interaction with disney iconic toys. And like the characters, I bought a lot of toys for my friends and bought some gives and souvenir for my friends and relatives.</p>
+    <p>And also I met many Disney friends. II watch the a ruiz and what some performances. And I love every prince and princess in the disney, including, like, especially in the reality, is, is so beautiful.</p>
+    <p>And even the I was saw an anna. So are just, that is all of my day and on my way home I took the train, but actually there is no post on the train. So I just use the only thing, laugh and and stand for an hour. And I think about how long have you been since I just play such a happy time, so I was so tired and my heart was very food with, uh, happiness. And I love the different and and II hope I can have the opportunity to win there again and maybe next time I can have some of my friend company OK.</p>
+    <p>我说的比较多哈，我说的比较长，大家其实我只是给大家进行一个范例。当然了大家在回答的时候不一定要回答这么长，我们只需要去想一下怎么去把它穿进去就可以了，对吧？好，那么我们这里，刚才我这里说到地铁的时候，故意用了train。给大家补充一个小小知识点。在西方有很多地方他们会把地铁管做train，尤其是在我在伦敦上学的时候，他们会把直接说i take the train home或者take the tube home tab管道是吧？那也叫这个地铁的意思。</p>
+    <p>好，那么这节课的内容，我们主要的上课素材就这么多。大家需要根据我上课说到的，比如说这个看图说话练习，我们去写一个关于自己的素材，一个出去旅行或者是回家过年的一次经历。然后我们去多去进行一些单词积累，我们多练习一下如何去积累更适合自己的一些旅游素材。我们去准备一些关于旅行准备，常见景点，以及关于地点类的优美的表达。我们进入到这节课的作业了。</p>
+    <p>&gt; 在这次雅思口语课上，老师强调了准备和运用地点类素材的重要性，特别是在描述旅行经历时，如何使用地道的词汇和表达来提升口语水平。讨论地点时，可以涵盖景色、活动和个人感受等，建议学员根据目标分数调整表达的复杂度。老师特别指出，为中文专有名词添加英文解释能帮助非母语考官理解。通过具体例子，老师展示了如何用英语描述旅行景点、准备旅行、活动及感受，并强调积累地道表达和常用词汇对口语提升的帮助。最后，老师鼓励学员通过实际经历和看图说话练习来丰富素材库，同时分享了如使用“train”而非“subway”等小技巧，以增加回答的地道性，为雅思口语考试中的旅行话题提问做好准备。</p>
+    <p>**对于描述一个不同寻常假期的题目，考官是否会读题，并且我们是否需要按顺序回答每一个问题？** 发言人：考官通常不会逐字阅读题目，只会读小问题。没有必要完全按照问题顺序回答，我们应直接关注关键信息，如时间、地点、人物、事件及感受等。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-10.html">精讲逐字稿</a></li>
+      <li><a href="qa-10.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-09.html">上一讲 09</a></li>
+      <li><a href="lesson-11.html">下一讲 11</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

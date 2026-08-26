@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第04讲 · Part One 综合练习与拓展 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 04 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a class="active" href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第04讲 · Part One 综合练习与拓展</h1>
+    <div class="abstract"><b>本讲概要：</b>在雅思口语课程的第四阶段，重点放在了Part One的综合练习与内容拓展上。课程强调在回答简单问题时应保持回答的简洁性，并提供了个人经历和个人见解两类问题的有效应对策略。学员被教导通过讲述具体细节，如时间、地点、人物、起因、经过、结果等要素，以及表达情绪的方法来丰富回答内容。对于遇到不知道的话题，建议通过猜测相关话题或巧妙转移讨论焦点来灵活应对，避免尴尬。此外，瑞老师还传授了如何通过调整语音语调、使用强调句式和调整语气等技巧，使回答更加自然流畅。最后，瑞老师提醒学员在练习时要注意回答的内容多样性与自然流畅性，以有效提升雅思口语考试的成绩。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-04.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在雅思口语课程的第四阶段，重点放在了Part One的综合练习与内容拓展上。课程强调在回答简单问题时应保持回答的简洁性，并提供了个人经历和个人见解两类问题的有效应对策略。学员被教导通过讲述具体细节，如时间、地点、人物、起因、经过、结果等要素，以及表达情绪的方法来丰富回答内容。对于遇到不知道的话题，建议通过猜测相关话题或巧妙转移讨论焦点来灵活应对，避免尴尬。此外，瑞老师还传授了如何通过调整语音语调、使用强调句式和调整语气等技巧，使回答更加自然流畅。最后，瑞老师提醒学员在练习时要注意回答的内容多样性与自然流畅性，以有效提升雅思口语考试的成绩。</p>
+    <p>Hello, 小伙伴们，大家好。欢迎来到瑞老师的雅思口语课程。前面的三节课我们已经给大家的把基础打的比较扎实了。这节课我们就正式进入到了part one的综观以及内容拓展。那么我们来说一下，说到part one，之前说过很多很多遍了，parwan问题比较简单，我们比较简单的回答。我们先来看一下part one的题型介绍以及回答规范，以及part one我们如何用内容去拓展，如何用技巧去拓展？</p>
+    <p>我们先来看一下抛一长什么样子，大家尝试着在这里每个问题我问完了以后，大家暂停一下来尝试着回答一下这个问题。OK我们刚才简单的尝试了一下一个power的回答。那么大家可以看出来，这里part one我选的问题。前面三个问题我们选的是必考题里面的hometown。后面又选择两个话题，一个说到了number，一个说到了motor back。当然了这个题目我只是随便选了几个，我们可能会大家现在越到的题目会根据不一样的题库有不一样的变动。大家来看一下，大概在power one中就是这么样一些问题。</p>
+    <p>刚才大家自己回答怎么样呢？能不能做到流畅且简单呢？那我们来看抛Y，如果做不到的话，我们要有哪些技巧呢？有很多同学在刚才回答的时候会出现这样的问题，就是老师光让我说中文，我都不知道该怎么说，更何况是说英语了，我压根就没话说。那么这样的同学我们该怎么办呢？</p>
+    <p>我们这里关于pone给大家补充了两个部分，一个叫做内容，一个叫做技巧。说到内容方面，我们有这么多的东西可以给大家举例。比如说我们把power的问题分为了个人经历和个人见解两个部分。个人经历类我们可以用讲故事谈心情的方法，而个人见解可以一方面，另一方面。政治经济文化转经历什么意思呢？</p>
+    <p>个人经历方面的问题通常问的是，比如说你有没有做过什么事情？你跑过步吗？你看过和鱼相关的电影吗？你会喝茶喝咖啡吗？那问的是你有没有做过这样的事情。</p>
+    <p>而个人见解类的问题，问的是你对一个人一个事情的态度。比如说你认为你擅长选择礼物吗？我们如何能够减轻空气污染呢？你认为未来会有更多的人开车吗？你认为现今在未来还会受欢迎吗？你认为电子书或者你认为纸质书会在未来消失吗？这样的个人见解类的问题，我们采取的是不一样的态度来解决的。以及最后我们可能会说到一些不知道关于我说i don't want to talk about this question，我对于这个问题没有太多的见解的时候，我们该怎么去回答呢？</p>
+    <p>首先我们来看第一个个人经历类。比如说have you ever received any gift？你有没有收过任何的礼物？那我们个人经历了，就可以在这里讲故事了。</p>
+    <p>怎么讲故事呢？比如说我收到一个什么样的礼物，那么讲故事最简单的技巧叫做时间。地点。人物起因、经过、结果这么六个点。当然这么说了，大家说我谁不知道，需要你讲吗？</p>
+    <p>我都知道，就这么六个点，那我怎么去拓展呢？比如说这个问题，你有没有收到一个你有没有收到过任何礼物？我可以说我收到过一部手机，对吧？时间我们拓展以时间为拓展，我收到一部手机是在我高考结束之后，收到的时候怎么样。地点我收到一部手机是在我家乡，我爸妈带着我去手机店里买的。</p>
+    <p>人物我收到一部手机是我爸妈给我的一个生日礼物是吧？我爸妈对我非常的好。起因我收到一个手机作为一次礼物，那是我的生日礼物，或者是那是我的考试的奖励，或者是那是为什么我收到这个礼物经过，我收到过一部手机，那是一个iphone 4，在当时已经非常新潮了，我非常喜欢这部手机是吧。那你收到什么样的礼物经过结果你的感受是怎么样呢？我收到过一部手机，我当时超级开心，因为我特别想要一部手机，所以我非常感谢我的爸妈。OK. 以上就是我们说到的讲故事。讲故事一共就是这么几个类别，时间、地点、人物、起因、经过、结果，以及我们这里列出来了一些讲故事经常用的句式。</p>
+    <p>比如说actually are I received a great gift，which is a phone, you know, IT happened a few years, so when I just graduated from my high school and my parents give IT as a gift是吧？或者是i will never forget the day when I received a phone as a gift from my parent，或者是，to my surprise, you know, my parents even give me a phone as a gift吧？或者是这里说的life chAllenging experience来改变人生的经历。或者是roller coaster emotion。什么叫情绪起伏不定的roller coster叫做过山车，一个像过山车一样的这个感情经历，或者是looking back，I realized that回首往事，我想到了IT was a chAllenging time for me。这对于我来说真是一个太有挑战性的时光了。再或者是against all odds I manage to怎么样，排除万难，我设法我尽力去做到什么。</p>
+    <p>这是讲故事，以及这里还有一些，比如说nerve racking，nerve叫做神经。Racking叫做折断，比如说you know I just rock the pen，我把这个笔折断了。那么这里的nerve racking叫做令人神经都快折断了的经历，其实就是让人紧张，这是一种比较英语的说法，或者是i learn a valuable lesson，学了一个很有精致很有宝贵的教训。</p>
+    <p>IT was a turning point in my life, 这是一个我的turning point。转弯点叫转折点是吧？或者是was once in a lifetime opportunity，它真是一次人生一生一次的机会啊。IT was a bitter sweet experienced.</p>
+    <p>它是一个bitter叫苦sweet，叫甜，它是一个一半苦一半甜的经历。Looking back, I can't believe that回回过去看，我无法相信怎么样。或者是IT was a surreal experience，是一个超现实的humbling，令人谦卑的经历。或者是。IT taught me the importance of什么什么，i will always cherish the memory of that experience. 我将永远珍惜这段经历的回忆。OK.</p>
+    <p>我们来看下一个部分叫做谈心情。刚才说了讲故事天地点、人物情经过结果。那么讲故事的同时，会经常着伴随着谈心情。比如说我感觉高兴、感觉不高兴、感觉愤怒、感觉悲伤、感觉抑郁了？那么这里谈心情，我们比如说这个问题。Do you like running? 你喜欢跑步吗？那我可以说，yes, of course I like running. Running always make me feel really happy, or because I don't like running, I always feel depressed when I go running, 我总是觉得很emo是吧？很压抑。</p>
+    <p>这里的常用句式，比如说最简单的i feel或者IT makes me feel i'm experiencing。那么后面的稍微进阶一点的说法。I overwhelmed by被什么什么所淹没，filled with比如说filled with joy，filled with happiness, 心中充满了吧？或者是IT brings me joy，happiness, sadness, 它带给我了幸福快乐、悲伤。I'm touched or I moved by, 我被什么什么所打动了，IT leaves me feeling他给我留下了什么样的感觉。I can't describe how I feel, 我都压根描述不出来。You know, I can't describe the feeling at that time, 我描述都快说不出来那时候的感觉了。还有比如说it's a mix of emotions，它是一种很复杂的情绪。</p>
+    <p>I'm on cloud nine, 非常幸福on cloud nine叫做一个非常地道的说到这个非常开心的一个感受，或者是苦乐参半。刚才说过了，i feel like a weight has been lift off my shoulders. Wait叫做重量，一个重量的东西？一个重量have been lift off，被抬起来，卸下了，从我的肩膀上面，我就是肩膀上卸下了重担，或者是i feel like the burden was released，我的负担被释放了？或者是on the top of the road，我在这个世界的顶端is a conflict feeling，这是一种非常矛盾的感觉。I'm filled with gratitude, 我充满了感情感，is what a heart warming feeling, 是一种温暖人心的感觉。I'm overwhelmed with excitement, 我被兴奋淹没了。It's a peaceful coming feeling, 这是一种很平静很镇定的感觉。这是我们说的谈心情会经常用到的一些句式。</p>
+    <p>说完个人经历，我们来看后面还有一些说到一些相关的人。比如说do you like fishing是吧？你喜欢钓鱼吗？我们也可以说到i admire him，because不，我们说到一个相关的人OK。我们比如说可以说i look up to him or her，look up to相当于前面说的admire respect，或者是这里的have a positive influence，我非常的崇拜他，这些我们就不再详细去解释了。还有后面这些他经常鼓励我，他带着我去做什么什么，这都是我们用在个人经历类的。比如说我们说到i do like fishing，那我们说到一个相关人的时候，我就i don't like fishing，like, you know, my father always like fishing, and he always encouraged me to explore something different.</p>
+    <p>我们说到我不喜欢钓鱼，我爸很喜欢钓鱼，他经常鼓励我去探索一些不一样的事情。这里我们说到了个人经历类，就说这么多。再往下看，我们来说个人见解类。</p>
+    <p>个人见解类我们比如说可以分为一方面，另一方面。比如说这个问题，how do you help people around you, such as your neighbors, family and friends? 你如何帮助你周围的人，比如说你的邻居、家人、朋友们？那我们可以说一方面怎么样，另一方面怎么样。</p>
+    <p>In some cases, I believe that I can just help them to take care of their children or pets. 我可以帮助他们去照顾他们的小孩或者是宠物。And in other hands, I think maybe I can just help them give them borrow some money maybe, or just like keep the door for我们可以给他们借钱或者是帮助他们看家吗？</p>
+    <p>还有一些固定句式，比如说depending on the situation，I think that考虑到这个情况，我认为或者是IT really depends on the circumstance。Circumstance叫做情况，我们这里可以同一替situation或者是the occasion。考虑它真的取决于这个情况，但是个人来讲，我认为怎么样或者是。</p>
+    <p>While on I understand your point, I think is important to consider, but I can see where you are coming from, but I have a different perspective on那么这里说，我理解你的观点，但我有一个不同的观点。In some instance, I agree with the idea that, but in others, I believe that在一些情况下我同意的观点，但另一些情况下我相信怎么样。Wow, I see the merits of your argument.</p>
+    <p>I still think that我看到了你观点的价值，但我仍旧认为怎么样。还有比如说我们讲到相关经历，还是这个问题，你如何帮助他人呢？那我们是不是就可以说到了，我是上次怎么样？</p>
+    <p>It's a tough cool because前面这个，but personally I link towards它是一个非常艰难的？Tough call叫一个棘手的问题，但是个人而言我更倾向于怎么样。I can understand why some people we do agree with什么什么，but I have a different dance on, 我可以理解为什么有一些人同意怎么样，但我有不同的立场或者是wow I acknowledge叫做我承认相当于admit或者是i agree with that。</p>
+    <p>I agree, I totally agree, the benefits of什么什么的好处，i also believe that we should consider, 我还是认为我们应该考虑到什么什么后面it's a complex issue because它是一个非常复杂的议题。因为怎样sa I think it's important to take into account，这是一个很复杂问题。所以我认为应该考虑到take something into account，或者是take into account something叫做把什么什么纳入考虑中。Wow, I can see the vanity of your argument.</p>
+    <p>I still think that validity叫做合理性，或者是i can see the reason，I can see why是吧？I can see why you think everybody, I still think that或者下面in certain scenario相当于刚才我们说的occasion，或者是这样的叫情况。在某些情况下我同意，但是在其他情况下我相信怎么样，或者最后is a matter of perspective because so I have slightly different viewpoint on。它是有一点点这是一个关跟观点相关的问题。所以说我有轻微的不同的看法在某些方面在下面，比如说我们还可以举例子，how to choose a gift, 如何选一个礼物呢？</p>
+    <p>那我们这里举例子有很多句式。For instance, let me give you an example here to illustrate阐述to illustrate my point。A good example of this is take什么什么，for example, consider the case of，或者是one specific example that comes to mind is to give you a concentrate example，去举例。比如说我们这里说的如何选一个好的礼物？那我们这里可以说i to give you a concentrate example，I think maybe just we should choose whatever we our friends like.</p>
+    <p>For instance, if our friends like a reading, we may we may just choose a book for them, 如果我们的朋友喜欢读书的话，我们可以选择一本好书给他。或者是除了前面说的，还有我们更进阶一点的说法。If suppose that a picture, this想象picture，它除了作为名词，在这里作为动词，叫做在脑子中想象一个画面picture或者是imagine。Imagine首先image叫图像，imagine是它的动词，叫做想象一下，或者是just think about take the situation where think of this this way，或者是here's a real life example，有一个什么样的例子。</p>
+    <p>我们说完举例子以后，还有一些说到跟个人见解相关的。比如说do you think driving to work is popular in your country？Do you think people will drive more in the future? 我们可以从政治经济文化不一样的角度来说，比如说开车政治角度。So are when IT comes to politics, I believe that driving is really important, like for individuals to just make the may maybe make the country table，吧？让这个国家更加稳定，because like people can live a Better life？</p>
+    <p>或者是这里说的in terms of political issues，在说到政治角度，说到政治的时候，或者是from a political standpoint，从政治角度上或者是government should prioritize。Prioritize叫做优先考虑，是一个动词，它的名词形式叫做priority，叫做优先级。或者是personally，I support the idea of个人而言，我支持什么，这是政治。从经济角度，i of course like I think people will drive more in the future just to work.</p>
+    <p>Because like I think from the from an economic perspective, I think that driving is really good for to for promoting economic may be decreasing那这个开车是对于经济增长有很大好处的，或者是还是一样的is crucial crucial叫做至关重要的，或者是经济的增长，economic growth can be achieved, 可以被这呃呃实现，或者是the impact of economic policies对于经济政策的影响。还有比如说文化from the cultures stamp point，或者是in terms of culture value，文化的影响，或者是i believe that cultural diversity，文化的多样性should be celebrated and respected，应该被庆祝和尊重，是吧？或者是还有to promote culture exchange，去促进文化的交流。</p>
+    <p>除此之外，我们还可能会从国家社会以及企业以及个人来说。从国家社会来说，说的是当他说到了国家national and society，国家的角度是怎么样的，或者说是in terms of social意识，比如说do you think people will drive more in the future？那从国家的角度when he comes to the national and society，I believe that the economic is getting Better and Better, so people can choose whatever are any method that they are just want to.</p>
+    <p>我觉得国家会越来越好的。所以说我认为人们可能会选择那些他们擅长，他们喜欢的交通方式。后面还有比如说that social equality，社会的平等justice，社会正义，还有比如说involve citizens去把这个市民放在这个决策过程中，在decision making process中。还有比如说the well being and development of the nation，国家的发展和人民的福祉，还有比如说的national unity and stability，去promoting这些，去推动国家的稳定和团结。比如说我们从企业的角度说到，我认为当然这个企业会优先考虑到客户的满意度。所以说会创造更多的新的汽车站来满足客户的满意。Sorry, I believe that business should prove tize customer satisfaction and quality products and services.</p>
+    <p>企业会满足个人的需求，会满足个人的一些要求，或者说是爱吃。To adopt sustained practices and contribute to the community去采取可持续的发展。还有最后个人in terms of personal beliefs或者是from a personal standpoint，I believe everyone has a right to be blob.</p>
+    <p>个人角度，我们说从企业角度，从个人角度，从国家角度，然后我们再来看关于不知道。什么叫关于不知道呢？我们在第一节课导学课的时候有说过，在雅思口语回答中的内容是不重要的。也就是说我们在回答中是可以说到不知道的。可以说我对于这个话题不是特别了解对吧？我不太清楚。那么我们怎么去拓展这样的内容呢？我不能就只说我们之前也说过，不能只说no对吧？</p>
+    <p>那我怎么拓展呢？这里说到猜测相关的人以及转移话题。什么叫猜测呢？像我前段时间有个学生过来问我说老师part three考这么难的吗？我说咋了？他说考官问我如何看待核武器，那就是我们这里写的这个问题，how do you think about nuclear weapon? Nuclear weapon叫核武器。</p>
+    <p>那么大家在这里暂停一下来想一下，如果问到你的话，你会怎么说呢？你们如何看待核武器？这句话你们要怎么说？其实我觉得大多数的学雅思同学应该都不是核武器专家，应该也不是物理学专家。</p>
+    <p>我们在说到这个话题的时候，你对于核武器怎么看？我们可以怎么说呢？要注意，我们之前说过，雅思考试不是在考你到底有多么充分的知识，或者你有多么充分的知识水平，你到底知道多少跟核武器相关的知识，对吧？没有人知道。</p>
+    <p>那么我们怎么去回答这个问题呢？如果是我的话，我当时就跟这个学生说，你其实完全可以用你的语言技巧去把这个话题绕过去。怎么个绕过去呢？怎么用语音技巧去绕过去呢？我们完全可以说，actually，I have no idea about nuclear weapons because, you know, uh, I am student, major in media or major business, and I don't know anything about how does nuclear works.</p>
+    <p>我们先第一个摆脱责任，对吧？先一个免责声明，我说我对于核武器其实一点都不了解。你也知道我是一个不管是学传媒也好，学商业也好，我是一个别的学科的学生，我对于这些东西完全不了解，对吧？</p>
+    <p>I have no idea about how does he works, 它是如何工作？Sorry, I think of what I know is all from the news. 我知道的都是从新闻上来的，我们这里就可以展现一下你的观点，你的态度了。But I think maybe people are pretty worried about IT.</p>
+    <p>我觉得人们应该挺担心的，just because like you know few years a few like months ago, japan pulled the polluted water into the ocean. 几个月前，日本把他们的核废水排到这个海洋里了。So I think IT is really uh effective for our daily life because you know my father and my mother always just asked in some pictures，apple, a fish with eight legs and a crab with twenty ice.</p>
+    <p>我觉得对人们生活还是有影响的。前两天我爸妈给我发了一张照片，一个鱼有十个腿儿，一个螃蟹有20个眼睛。I don't think that's true because i'm a student. I believe the truth, but I think IT at least shows that people are worried about IT.</p>
+    <p>我觉得那不是真的，但我觉得至少这能展现出来，人们对它是很担心的，是吧？这里你看我这一长串回答有没有回答问题？有，但是有没有给出任何专业的知识呢？没有，对吧？我们这里就是很好的用语言去cover了我们的这个能力知识上的不足。我其实就是可以打一个哈哈，我说我也不清楚，但我猜应该是怎么样的，或者是下一个相关的人。</p>
+    <p>Do you like fishing? 你喜欢钓鱼吗？我们在这里完全可以回答。I'm not really a huge fan of fishing，but you know, my father is really into fishing.</p>
+    <p>He went to fishing last week and haven't come back yet. 我爸超级爱钓鱼，他上周就去钓鱼了，现在还没回来是吧？再下一个。</p>
+    <p>How do you like geography? 你有多喜欢地理呢？如果我们是一些理科生，学science的学生，那可能就不感兴趣地理。我就可以说h actually i'm not really into geography。I spend most of my time spending mass, because I think mass is more interesting than like geography. 我们可以去转移话题。</p>
+    <p>好，我们说完这些以后，我们来补充一些常见的句式。说到不知道，比如说这里i'm not quite familiar with the topic，but from what I understand problem, i'm not entirely sure about that, but I think我不是完全的确定。关于这个to the best of my knowledge，I believe that我据我所知，best of my knowledge，我知识的最好的东西，那就是据我所知i'm not well versed in this area，我不是非常熟悉这个领域。I may not have all the details.</p>
+    <p>我可能没有所有的细节，吧？我可能知道的没有那么细节，i'm not entirely up to date on this matter, up to date更新对吧？了解我不太了解这个话题。Well AI don't have all of the information, 我没有全部的信息，i have a general understanding. 我有个大致了解，i'm not the most knowledgeable person on this subject.</p>
+    <p>我不是最有知识的人。这里我hable person可以替换成，比如说i'm not the professor。我不是这方面的专家或者是experts，我不是教授，我不是专家。在这方面i may not see expert on this era there，but I still think或者是i'm not confident in my knowledge buildings，我不太对于这个问题的我的知识不太有信心，对吧？但我觉得应该怎么样。I may not the best person to ask, but from what I guttered, 我可能不是最适合回答这个问题的人，但是根据我的了解怎么样。</p>
+    <p>好，再下一个，比如说我还有我不同意，i totally disagree with，I have a different perspective on怎么样。这些大家下去去看我就不再重复了。我们前面说的是关于内容怎么去拓展，有些东西我不知道该怎么说，我有时候我没有这么多思路，我们去怎么去拓展。下一个我们来说一下关于技巧，关于语气方面我们如何去拓展。这里我们分为两个部分，一个叫做回答词肯定否定，一个叫做语音语调。</p>
+    <p>在开始说这些技巧之前，我们来问自己一个问题，叫做how are you？我相信很多朋友们在这个屏幕前面可能都笑了，为啥笑？你们自己清楚。大多数学生都会跟我们说什么i am fine，thank you, 甚至再加个and you。那么为啥你们笑呀？因为这非常的刻板，并且这不太自然，对吧？你们什么时候见过一个外国人说？这个感觉就好像是这个测试就是一个中国人的一个统一测试，一个统一性测试，测试你是不是间谍，对吧？</p>
+    <p>我就问你how are you？你只要能回答什么，i'm fine, thank you and you就说明你是中国人。其实大家想一下，这非常的不正常，为啥呢？如果我问你就是我们普通朋友聊天，我问你你最近过怎么样？你跟我说我很好，谢谢你，好像不太正常对吧？那我们正常怎么说？如果你朋友问你，你最近过咋样？你可能会说还行，还不错对吧？或者是就那样，特别累，最近或者说是没啥好说的，或者说是最近过得特别不好，我烦死了，快准备雅思忙死了，我们这样的内容其实在英语中也完全是一样的。</p>
+    <p>如果我说我最近还挺好的，i am pretty good recently。如果最近不好的话，就no just not really a good，everything is terrible, 或者是i'm really busy。I was exhausted for preparing the else test.</p>
+    <p>我们你看我们在回答how are you的时候，尽量的回答的不要像个机器人一样，不要像这个固定的程序一样。在回答这个part one的问题的时候也是一样的，我们很多学生会喜欢用yes或者no，然后重复问题来替代。比如说do you like go traveling？Yes, I like traveling.</p>
+    <p>那你看这就非常的刻板，对吧？朋友问你，你喜欢旅游吗？那你说是的，我喜欢旅游。那么我们可以做什么呢？首先第一个把这里的yes or no替换成这里的句式。比如说absolutely，I really like travel, definite certainly, sure of course吧？或者是i do you think怎么样？I totally agree with you，I couldn't agree more对吧？这里增强一些语气，那么同样的no可以替换成no never或者是no。I don't think so.</p>
+    <p>I totally don't think so. I don't agree with see you at all. Not at all.</p>
+    <p>Absolutely not. I am afraid not. That's not sure. 这里的这些总结，我们放在这里，大家下去去多练习一下。</p>
+    <p>然后我们来看一下，除了yes或者no，我们还可能会表示一些模棱两可。比如说可能两种情况都有。IT could go either way. I'm not sure it's really hard to say it's a bit of great area.</p>
+    <p>或者是我们还可以用IT depends。IT depends有两种句式，一个直接后面这里加句号，叫做它要看情况讨论，或者是叫做IT depends on什么什么，它取决于啥。比如说i do you think every chinese like driving？我可以说IT depends because怎么样，或者说i think IT depends on the age or job，它要取决于年龄和工作or even gender吧？甚至是性别。好，还有比如说这里说的double at sword，sword这个词W不发音，大家不要把它念成sword，它叫sword，叫做键对吧？那么double edge做edge叫做边缘，那么两个边缘的剑叫做双刃剑，它有两面性或者是啊you know，I can see both sides of the argument.</p>
+    <p>我可以理解两边，两边我都能理解一下子。说完以后，我们再来看一些表示强调的句型。比如说IT is really essential that或者是IT is important that比如说你在出门前，你妈妈会嘱咐你，IT is really important that to close your door and close the electricity before you leave the home.</p>
+    <p>在离开家之前一定要记得关掉电，关掉这个窗户是吧？或者说是what加感叹词，what a beautiful girl, 真是一个漂亮小姑娘，what an incredible achievement，真是一个不可置信的成就。或者是或IT is absolutely necessary to take action，绝对必要采取行动是吧？一定要采取行动，或者这里说的i cannot stress enough how important IT is to be kind。我都压根想象不到到底他有变得善良有多么的重要，是吧？那么这里我们除了表示这些强大的句型，我不一一陈述，大家下去去看以外，我们强调两个词儿，一个叫对，一个叫做we。We也可以替换成far。</p>
+    <p>首先第一个do在这里表示强调，比如说我说i like swimming。我们用上节课上上节课说到的这个句子结构，如果把它变成强调句，变成了you know swimming is what I like，IT is swimming that I like, 它是游泳是我喜欢的？那么我们如果用这里用do来表示强调的话，我们把do加在动词前面，加在lake前面，说i do like swimming，我真的很喜欢游泳。那么这里用对表示强调，对，用在比较级，用在不是比较级，用在词汇，用在表示喜欢或者是表示讨厌。I do hate him，我真的很讨厌他是吧？I do feel annoying, 我真的觉得很无聊，很烦躁。那么do用在这个动词前面，表示真的很怎么样，就相当于really等同于ready。</p>
+    <p>下一个we和far，we在这里可不是道路方法的意思了，它叫做什么什么比什么什么怎么样的多用在比较级前面表示强调。比如说姚明比我高，叫做姚明，我就写个姚亚。Yummy is taller, 但me姚明比我高，那么我们we用在标记前面，姚明is way taller than me，他可比我高得多了，他到我这儿了？姚明is way taller than min，或者说是我用far，姚明is far taller than me。再举一个例子，马云is way richer than me，他比我有钱的多。这是我们表示强调的一些句型OK。我们这节课的内容就这么多，我们进入到本节课的练习环节。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-04.html">精讲逐字稿</a></li>
+      <li><a href="qa-04.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-03.html">上一讲 03</a></li>
+      <li><a href="lesson-05.html">下一讲 05</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

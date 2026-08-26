@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第06讲 · Part Two 素材与串题方法 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 06 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a class="active" href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第06讲 · Part Two 素材与串题方法</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学中，强调了雅思口语考试Part Two部分的重要性，指出了流畅度和内容选择的平衡是关键。瑞老师回顾了基础语法知识，并分享了使回答生动自然的技巧。他分析了Part Two的难点和其对考试成绩的决定性作用，提出了包括快速决定话题、做并列笔记和使用简短符号的答题策略。特别介绍了“3加1”回答结构，强调利用准备时间做笔记，并提倡使用个人经历来丰富内容。最后，瑞老师鼓励考生进行自我测试，评估回答质量和发现问题的改进方法，旨在帮助考生在这一部分取得更好的成绩。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次教学中，强调了雅思口语考试Part Two部分的重要性，指出了流畅度和内容选择的平衡是关键。瑞老师回顾了基础语法知识，并分享了使回答生动自然的技巧。他分析了Part Two的难点和其对考试成绩的决定性作用，提出了包括快速决定话题、做并列笔记和使用简短符号的答题策略。特别介绍了“3加1”回答结构，强调利用准备时间做笔记，并提倡使用个人经历来丰富内容。最后，瑞老师鼓励考生进行自我测试，评估回答质量和发现问题的改进方法，旨在帮助考生在这一部分取得更好的成绩。</p>
+    <p>**在雅思口语考试中，关于part two，很多学生会感到困难，能具体说说为什么吗？**发言人：part two之所以让许多学生感到烦躁或难以应对，是因为它不同于part one和part three的提问方式。在part one和part three中，考官直接提问，而part two则要求看到题目后准备一分钟，然后连续说满两分钟。这需要考生在短时间内构思思路、确定结构、翻译成英语并确保语法正确，如果没有充分准备，短时间内完成这些任务会非常困难。**对于部分学生认为如果在part two表现不佳，整个考试就无法得到高分的看法，您怎么看？**发言人：即使在part two回答得不够理想，也不意味着整个考试就无法获得高分。虽然part two的重要性很高，但如果在part three表现出色，依然有机会拿到较高的分数。不过，在实际操作中，由于紧张或其他原因导致的表现不理想是常见情况，因此备考阶段应重视part two，尤其是目标分数在5.5至6.5区间的学生，因为它对综合分数起着决定性作用。**如何有效利用准备part two的一分钟时间？**发言人：在准备part two时，要充分利用这宝贵的一分钟时间做笔记。具体来说，应迅速决定话题（不超过1-2秒），并在此基础上构思内容，而不是在过程中更换话题。同时，准备过程中还应注意并列关系和使用关键词或短语来构建答案，以提高效率和流畅度。**在准备阶段使用纸笔做笔记时，应该如何有效记笔记？记笔记时应如何选择表达方式以提高效率？**发言人：在准备阶段，建议大家采用并列的方式记笔记，而不是一长串横着写。这样可以保证在讲述时内容丰富且有条理，避免因内容单一导致的时间紧张问题。在记笔记时应尽量使用词、短语或符号代替长句子和完整的中文文字。这是因为口译工作中的快速反应要求我们无法逐字记录，所以采用符号能大大提高记录速度和简洁性。**如何构建笔记内容的结构以清晰表述经历？**发言人：笔记结构应清晰明了，例如先描述“我与谁做了什么”，再表达感受，如“我们去了哪些地方”等。通过这样的结构化方式，可以快速组织记忆中的点滴，确保回答有逻辑且完整。**为何鼓励使用真实例子作为回答素材，而非背诵模板？**发言人：使用真实例子有多个优势：一是避免因素材雷同被判低分或串题；二是让表达更流畅自然，情绪更丰富；三是防止考官针对性提问时无法回答。真实的例子更便于在讲述过程中展开讨论，增加内容深度，同时增强答题的真实性和生动性。**在口语考试中，为什么流利度如此重要？**发言人：在口语考试中，流利度最为关键，因为即使是在低级别考试中，结构的流畅性和内容的质量也比语法更重要。如果已经确定了大体的时态基调，就不必过于纠结于每个句子的语法是否绝对正确，以免浪费时间和影响整体的流畅度。**part two环节中常见的回答方式有哪些？**发言人：在part two环节中，最常见的回答方式是串素材，即将问题分为人物类、地点类、情境类、爱好类、物品类等多个类别，并围绕这些类别进行素材的串联。此外，还介绍了一种名为“3加1”的回答思路和结构，用于连接多个素材，以保证回答的清晰性和逻辑性。**什么是“3加1”回答方式，为什么需要它？使用“3加1”回答方式是否会使得回答不连贯？如何解决这个问题？**发言人：“3加1”回答方式是一种为了适应不同题目情况而采用的回应思路和结构。由于并非所有题目都能直接串接素材，有些题目可能需要较多的个性化编排内容，“3加1”可以帮助连接多个素材，同时确保回答具有清晰的结构，避免想到哪儿说到哪儿的随意性。使用“3加1”回答方式时，为了避免回答显得不连贯，需要通过添加串题词来串联题目中的各个部分。四个常用的串题词是“as to”、“talking about”、“when it comes to”以及“it reminds me of”，它们能帮助把各个问题连接起来，使回答更加流畅自然，能够满足两分钟的回答要求。**如何具体运用“3加1”回答结构来描述一个有趣的医生工作？**发言人：对于“描述一个你觉得非常有趣的工作（doctor）”这个题目，“3加1”回答结构会先分别回答“这个工作是什么？你怎么知道他的？他需要什么技能？”这三个较为直接的问题，每个问题当作一个“power”来处理，然后在解释“为什么你觉得这个工作有趣”的时候，根据问题进行分情况讨论并举例论证，这样就能让回答更充实且有条理。**线上直播表演如何帮助人们获取经济利益？**发言人：线上直播表演是一种新兴的表演方式，许多人在互联网和现实中拥有各种职业，但他们都通过线上直播表演获得了巨大的经济利益。**什么时候开始出现并了解IT相关工作？**发言人：我第一次了解到这类工作是在八岁左右的时候，当时互联网刚开始兴起，就像爆炸一样迅速增长，并且我也经常在网上冲浪，从而对这些工作有所了解。**IT工作需要哪些技能？**发言人：IT工作并不特别需要很多专业技能或特定技巧，重要的是只要你在网上展示的内容能够吸引眼球，能够抓住观众注意力，无论你擅长什么都可以在平台上发挥作用。**为什么认为IT工作很有趣？**发言人：IT工作吸引人的地方主要有两点：首先，从业者更像是自由职业者，没有固定的上下班时间和严格的规章制度，有很大的自由度去做自己想做的事。其次，他们的工作内容富有创意且开放，不同于保守的职业，不局限于特定的工作方式和框架，可以尽情发挥创新精神来吸引观众。</p>
+    <p>Hello, 陪考研的小伙伴们大家好。欢迎来到瑞老师的雅思口语课程。那么这节课开始，我们就要说到关于part two的内容了。在说part two之前，我们先回顾一下之前讲过的东西。比如说我们最开始讲了在考务信息中，对于口语来说最重要的东西叫做什么？叫做流畅度。除了流畅度以外，其他的一切东西在我们口语中都没有那么care。还有包括我们在说到一些说到内容上，其实我们只要选择能说得来的内容，不要选择那些听起来厉害的内容。</p>
+    <p>我们补充了一些语法基础，包括句子句式结构，主动被动切换，或者是一些时态语态，吧？我们说到了关于一些语法基础的东西，而上两节课我们关于part one补充了一些，当大家没有思路的时候该怎么办，或者是当大家如果思路足够了，没有很多技巧，不知道怎么能把我们的这个part one说的更加生动，更加自然的时候，我们的一些小技巧还有后我们又给抛光补充了九大原因是吧？不知道大家有没有把九大原因背下来？如果还没有的话，我希望大家都把这个东西背下来。因为它不光在part one，在part two、part three中都非常的好用。</p>
+    <p>那么这节课开始，我们就正式进入到part two了，也是很多同学非常犯难的部分。为什么？因为我们来看一下part two，我们先来说一下题型介绍以及重要性，然后再来说答题技巧。</p>
+    <p>刚才说到了part two，大概为什么很多同学都会觉得非常烦躁，或者是我不喜欢回答part two，或者是我觉得part two是最难的一个部分了。是因为part one和part three基本上都是提问的形式，考官的提问题，但是我们直接回答问题就可以了，不用说太多的东西。而在part two我们一个这样的东西出现在屏幕上面，我们可以去准备一分钟，然后需要说够两分钟的时间。那么说够两分钟？这需要我们花很长很多的精力去说。而且尤其是如果我们在考试之前，对于这个part two的内容没有非常充分的准备的话，让我们直接去说过两分钟，这非常困难。</p>
+    <p>因为你想想一分钟的准备时间的话，我们可能需要去想的。比如说想思路吧？我需要说些什么内容，我需要想到这个结构要说些什么东西，我们还需要想完思路，想完结构，我还需要想一些如何把它翻译成英语？有一些哪些英语的句式，有哪些词，哪些语法，哪些我要统一时态，我们需要准备太多东西了。那这一分钟如果之前没有准备过，直接给我们一分钟的话，很有可能别说什么英语了，我们连中文思路都还没想好。</p>
+    <p>我还没决定要说什么，就已经时间过去了。比如说这道题，他让你描述一个你觉得很开心的照片，我光把题反应过来，什么时间，什么地点，照片什么样的，多久看一次，然后解释为什么他让你开心。我们光把题看完以后反映一下，我要描描述一个我要描述一个什么样的照片？我就想想我就说跟我妈一起去北京的那张拍立得，我光想完这样的思路就已经花了很长时间了。更何况是我们还要想其他更复杂的，比如说如何去把内容拓展这些东西。所以说我们part two需要带着大家来看一些比较实用的技巧，包括了串素材以及我们一会儿要说到的3加1。</p>
+    <p>在说到这些技巧之前，我们先来说一下part two，对于大多数同学来说都是非常重要的。因为有些同学会跟我说，老师如果我拍二太紧张了没说好，或者让考官打断了，或者说是我说在这卡壳了的话，那我是不是这个考试就废了，我就直接放弃摆烂就得了，那肯定不是的对吧？因为考官也是人，他也可以理解大家这个比较紧张，会因为紧张造成的一些卡顿，会有这样的情况。所以说如果我们part two回答的不太好，回答失败了，其实在part three还是可以弥补的。甚至我们part two说的一般的话，在part three还是可以拿到。如果part three说的特别好，特别出彩的话，甚至可以拿到分那个高分的。但是这其实是理论上来说的，为啥？因为下面我们要说实际上了。</p>
+    <p>首先第一个我很有可能part two说的不好的话，我part two都那么紧张了，对吧？考试十分钟的时间，part 2没有说好，我就心态崩了。那part 2Y怎么可能说的好呢？更何况是part 2和part three它是一脉相承的。Part 22说到一张照片的话题，那么part three我们继续进行照片的聊天。那你想想你part two的关于照片的可能词汇积累就不太够的话，那么part three很有可能就更不够了，我更不知道该说些啥了。所以说其实我们不太实际上在实操性的过程中，其实不太可能。</p>
+    <p>再比如说part two说的不太好，然后part three还反而能说的很好。其实在在正常人的大多数学生的心态来说都不太可能的。所以说我们在备考的时候，要将part two视为最重要的部分，尤其是那些目标分数在5.5一直到6.5这个区间。</p>
+    <p>如果我们目标分数没有上漆的话，我们需要把part two视作是最最重要的部分去准备。为啥呢？因为它对于综合分数起了一个决定性的作用。也就是说考官听完你的part one，觉得说的还不错，比较流畅，比较清晰，能听懂也能听懂我的问题。那么power one可能给你一个既定分数，大概五分往上。如果part two说的不错的话，那考官可能觉得六分左右的水平。</p>
+    <p>而part three我们会在part two的基础上面上下浮动0点5分，就不会有太大的改变了。所以说我们part two如果能够基调起的高高一点，定在6点5分左右的话，那么part three表现的好，说不定我们努力就上七了对吧？那说不定说的不太好的那就保持一个6.5也不错。所以说我们在part two中是一个相当重要的部分，大家需要去多做准备。</p>
+    <p>我们来看一下part two在准备的时候有三个小技巧。什么小技巧呢？首先第一个就是这一分钟的时间真的非常的宝贵了，我们需要充分利用这一分钟的时间去做笔记。我们这里会说的是需要说的三个点。第一个叫做迅速决定话题，第二个叫做并列，第三个叫做使用词或者短语。什么意思呢？</p>
+    <p>我们先来说第一个迅速决定话题。也就是说我们在这个part two的做准备的这一个过程中，决定话题其实应该是占我们最少时间的？我们不能花太多的时间在这里去决定话题，去想要说些什么，因为这就太浪费时间了。所以说在我们通过充分的准备以后，一定要在part two中花最少的时间，大概不超过1到2秒的时间内决定这个topic，决定要说些什么东西。然后我们就根据这个topic去想其中的内容了，而不要在后面再去换这个话题再去想，不要现想我说些什么？不知道该说些啥了，这是第一点。</p>
+    <p>第二点我们说到的是做笔记。也就是说part two在大家一分钟的准备时间，是有这个纸和笔给大家准备的，吧？我们是可以做一定的笔记的那在这个做笔记的过程中，希望大家可以做到的是整并列的去记笔记，而不要横着一长串去记。</p>
+    <p>我们拿刚才那道题说到一个你让你印象深刻的照片来举例。那么我们在做笔记的时候，如果我做笔记写的是我和我妈妈去北京，我们拍了一张拍立得，我们去了长城，我们非常的开心，真是有有纪念意义，我们其实如果我们想这样做笔记的话，我们如果把它做成一横行的话，我们在说的时候，很有可能看自己这个笔记，就觉得这是一个体系下来的东西。所以说，我自然的很有可能一句话就把这些所有的内容都说完了。那就会导致什么结果？那时间时长不够对吧，或者是导致内容非常的单调。所以说我们在做笔记的时候，尽量的这样并列去记笔记。</p>
+    <p>而第三点我要说的就更加关键了，我们在记笔记的时候尽量使用词短语或者是非常重要的我们用一些符号，而不使用那些长的句子，或者是中文，或者不写一个完整的中文字，什么意思呢？我在当雅思老师之前，做过一段时间的口译。我不知道有没有大家同学有口译的经历的。我们做口译的时候，是不可能有时间去写这样的汉字的对吧？你想想这个人家都在上面说完一句话了。如果说是领导说一句话，你说一句话，比如说参会人说一句话，你翻译一句话的话，那我们压根儿不可能有时间去把那么一长段的东西每一个字都记下来的。所以说我们这个时候需要做什么呢？</p>
+    <p>用一些固定的符号来表示我们想说的东西。比如说一个大斜杠表示的是转折，比如说用一些我们自己使用的符号，比如说开心，对吧？这就很快，比起来。这样写开心，我们画一个笑脸非常的快是吧？或者说是然而我们画一个波浪或者是怎么样的，我们用这个符号来表达。那么你像我们这里就可以设立一些自己常用的符号。</p>
+    <p>我开始做笔记的时候，我就说首先第一个我们要清楚一下我们回答的结构。回答结构其实就是先说我和谁做了什么，然后我的感受是怎么样的那开头我的妈妈我写一个M去了北京？那很快的我写一个BJ去北的时候，我们这是第一段，说这是这样的一个经历。第二段说这张照片上面，我们当时是去那take train，对吧？我画一下这就代表着train了。然后去了这个长城great wall，去了forbidden city？</p>
+    <p>当我们玩的非常开心的时候，and在最后结尾的时候，我们想留下一张photo，想留下来一张照片。所以我们叫了一个路人，一个路人我就画了一个小人儿。我们叫了一个路人去给我们拍一张照片，我们最后都非常开心的这张照片。于是我把这个照片最后我们最后一段，他说我把这个照片放在哪儿，多久看他一次我说我把这个照片存储在我的wallet里面，那我把它放在或者说我画一个方块放在我的钱包里面，我大概是一周看一次？A week。</p>
+    <p>那你像这样的话，我们就可以完全的按照这样的结构，我现在说的是什么照片？我和我妈妈去北京，然后怎么样发生什么事情，我们去了哪些地方？结尾是我们教师给我拍照，我们非常怎么样感受，我把它放在什么样最后一个结尾。这样的话我们就可以非常清晰。</p>
+    <p>并且大家想一下，我这里写这个笔记一共才花了几秒钟的时间。而我在这里写这个笔记的时候，它又不清晰，又没有结构，而且说的时间时长也不够，写的也很慢。所以说我们在回答的时候尽量的迅速决定话题，然后用并列的方式做笔记，并且使用符号尽量不写完整的中文的句子、短语这样的东西，这是第一点，我们在做笔记方面。第二点，我们说到了这个说的什么内容？我们尽量举自己的真实的例子。当然了后面我会给大家补充一些内容。但是我希望我补充的这些素材，大家只是作为一个示范，而它可以补充适合自己的素材。因为每个人的个人经历不一样，对于一些事情的看法也不一样，所以说大家尽量举自己真实的例子。</p>
+    <p>为什么要举真实的例子呢？你像如果我去背一些那种听起来特别高大上的模板，就像我之前我都不知道这些学生的素材是哪里来的。但是我有两三个学生，他们都用了一样的素材。</p>
+    <p>在说到一个人物经历的时候，说是自己的女朋友给自己做蛋糕的这样一个素材，连我的学生我都听到过，有很多遍重复了。那你们想想，如果你们去背网上那些一样的素材的话，那么考官又会听到多少遍呢？如果被考官发现了素材的话，那我们就习题五分喽，是吧？</p>
+    <p>所以说我希望大家去举自己的真实的例子。而且这真实的例子第一个好处是可以让我们远离这些低分，或者是被判为这个串题的这样的情况。第二个好处，其实就是能够让我们说的时候能够说的更流流畅，为啥呢？因为比如说我第一个好处是避免被判背素材。第二个好处是我们在说的时候有更多的内容可说，情绪也更丰富？在说到我自己的内容的时候，我有更充足的情绪。而且第三个我们可以防止被考官问出来，防止露馅。为啥？</p>
+    <p>如果你想和我背一个网上的素材，我说说到一次照片，是一个我参加一个学术会议的照片，我参加了多么高大上的学术会议，怎么样听起来很厉害。那么如果在part three，我们part three是要根据这个part two的回答，我们继续进行更深入的探讨的。如果part 3考官问到你，那你参加这个学术会议，你认为对于你来说带来什么好处呢？那很有可能就给我们卡在那儿了，对吧？因为不是我的亲身经历。</p>
+    <p>如果我就说一个照片，我和我妈妈去北京，或者是我们非常印象深刻的一次去游乐场的经历，那考官如果问到你游乐场有什么有趣的，为什么你人们喜欢去游乐场，我们就更有内容可说。所以说我们这里尽量的举自己真实的例子。就算是大家要背素材，也尽量的将这个素材转换为自己的亲身经历，然后再背。</p>
+    <p>第三个就是不要太担心语法了，为什么呢？因为如果我们有素材可准备的话，到时候直接背就可以了。如果是没有素材准备的话，我们把内容说完整，什么时态，什么句式结构，这些的都不要太担心。</p>
+    <p>为啥？因为在口语中流利度最重要，对吧？就算是在在per 2也是结构流畅，内容更重要，永远是大于语法的。所以说大家在说之前固定了一个它的时态对吧？比如说我就说是一个过去式，然后现在对于我的放在钱包里的什么感受，那么我们只要确定了大体的时态基调以后，就不要太担心语法。我就不用说一句，想一句，这个语法说对没，那个语法说对没，这样就很浪费时间，并且很影响你的流畅度。所以说我们在回答的时候尽量表保证流畅就可以了。</p>
+    <p>说完这些技巧以后，我们来看part two的一些回答方式。这里大家可能最常见的叫做这个串素材，对吧？那我们会把part two分为人物类、地点类、情境类、爱好类、物品类这么多个类别。当然了，我这里也会带着大家串素材。</p>
+    <p>但是我们除了串素材之前，我们补充一个回答方式，叫做3加1。为什么要有这个方式呢？这是一种回答思路、回答结构。为啥会有这样的东西呢？因为不是所有的素材都好串，对吧？</p>
+    <p>这个素材我们把比如说七八十个100多个话题，总结为了四五个素材。那么这个素材就必定有一些题目非常好穿，我一个字都不用改，直接往下穿就可以了。那么有些话题可能我需要考虑一下怎么去穿，可能需要自己编的内容比较多。那么这个时候就需要3加1来辅助了。</p>
+    <p>3加1的回答方式可以帮我们连接多个素材，连接多个matera？那除此之外，还能让我们的保证一个结构更清晰。因为比起来，因为有很多同学在回答part two的时候，就是想到哪儿说到哪儿，想一句说一句。那么用3加1的方式能够让我们的说话结构更清晰，思路更明了。</p>
+    <p>那么什么是所谓的3加1呢？我们来看一下，比如说拿这个话题举例，说到了describe a job that you think is interesting，描述一个你觉得非常有趣的工作。那么我们底下小问题，这个工作是啥？你怎么知道他的他需要什么技能解释为什么你觉得他有趣？</p>
+    <p>我们来看前三个问题，他问的都相对来说比较小。这个工作是啥？你怎么知道他的和他需要什么技能？这问的比较像是power的问题。所以说我们把前三个问题当做三个power来回答。Power one我之前有讲过，对吧？一句话回答问题，两句话去解释。</p>
+    <p>比如说我说到这个工作，我认为有趣的工作是医生。医生通常就是比如说需要看治好病人的各种各样的疾病，会有各种各样的不同的分科，在医院里工作的这样一个工作。那么说到你怎么知道他的呢？我是其实是我叔叔是一个医生。在我从小的时候，我就经常听到我叔叔的一些治病救人的故事，我非常佩服他，所以我觉得这个工作非常有趣。说他需要什么样的技能？我认为医生需要首先需要丰富的知识，还需要非常强的沟通能力以及非常强的毅力。</p>
+    <p>这前三个问题比较简单，我们把它分开，每个问题拎出来当power来回答。而最后一个问题看起来为什么觉得它有趣，为什么就不是一句话有两句话能解释清楚的话了。所以说我们在说到为什么它有趣的时候，我们就可以在这里把它分情况讨论并且举例论证。这是我们说的per three的一个核心逻辑，叫做分情况讨论并举例论证这两个结合起来。</p>
+    <p>说到为什么我觉得医生是一个有趣的工作呢？我认为首先第一点，医生可以给我带来很大的成就感。比如说当我们治好一个有疑难杂症的病人，或者是一个病重的病人的时候，我们会收到病人的感激，并且发自内心的为他高兴。而另外一点是我觉得医生是一个可以见到各种各样职业的工作。因为如果是其他工作的话，我们不一定能见到起各种各样的职业。但是医生很多人大多数人都会生病，都会去到医院。所以说可以见到各种各样的职业，所以说我觉得这个工作很有趣。</p>
+    <p>我们其实所谓的3加1，就是把每个问题都分开来拎出来来回答，把每个问题我们都当做一个单独的问题来回。那么这样回答的话，有些同学就会问了，会不会很不连贯？我读what IT is，I think IT is doctor怎么样，那当然肯定很不连贯了。所以我们这里需要补充一些串题词，也就是说用这四个词我们去放在题目里面，把这些题目来串起来。四个词分别是as to talking about，speaking of when IT comes to.</p>
+    <p>这四个词它的意思都是就是弹及，说到巴拉巴拉怎么样。其实我们用这四个词把题目串起来。比如说as to what the job is，I think the most interesting job for me is the doctor BB.</p>
+    <p>然后when IT comes to how I knew IT，uh, IT reminds me of什么什么。As for what goal requires或者talking about why I think that is interesting。I think我们用这四个串题词，把这四个问题都连接在了一起，让我们的回答能够更连贯。这样的话大家在说的时候，其实就有更多的话说，而且能够让我们回答的相对来说比较流畅，能够把至少把两分钟内容说满？</p>
+    <p>那我们来看一下这里的一个视回答。当然这个示范回答我这里写的比较长，而且比较难。大家在回答的时候其实不需要说这么长这么难的。如果能做到这个地步的话，那你八分也没跑了。我们只是在这里来参考一下我这个回答说了哪些比较地道的东西，或者是来参考一下我这个结构。好，我们来看第一段，第一段我们先来跟读一下。Though this topic is something funny that reminds me of unless celebrity, which is a drop that I think is interesting.</p>
+    <p>我这里提到了一个有趣的工作，叫做online celebrity。大家一定要区别这个词，这个词和这个。以及celebration？大家一定要区别一下这两个词，为啥呢？因为celebrate叫做庆祝，它的重音在这儿，celebration它的重音也在这儿，对吧？Celebration这个词叫做celebrity，celebrity它的意思叫做名人？那么这个话题让我想起来了那些网上的名人啥意思？就是网红。</p>
+    <p>我们第一段先总体一下，先把我要说的这个工作的内容点出来，然后我们后面再挨个来回答。我们来看第一个问题说what IT is，这个工作是啥？那我们来说一下。Sorry, what I am talking about, his figures enjoying a big name and popularity on the internet. They may have varied occupations in road life. However, one thing in common is that they make decent economic benefits via live spread performances online.</p>
+    <p>我说我在说到的是那些figures。Figures大家在这里看一下，最常见的它的用法说的是那些数据，对吧？但是在这里我们说的就不是数据了，说是那些人人物形象，那些人什么人享受了一个巨大的名声和popularity，受欢迎程度。在互联网上他们可能有varied occupation，varied各种各样的occupation职业。他们可能在这个现实生活中有各种各样的职业。然而one thing in common，一个共同点是they make decent economic benefits。他们制造了decent，叫做巨大的经济benefits收益。</p>
+    <p>通过线上直播表演的方式，while相当于three对吧？通过这里这个词念live可不念live，说的是线上直播的方式。大家比如说看到这个央视直播，中央电视台直播，上面写的是life是吧？是live stream直播流表演的方式。其实我说的那些人享受了巨大的名声，在互联网上，在现实生活中有各种各样的工作。但是一个共同点是他们通过线上直播表演的方是获取了巨大的经济利益，这是我对于第一个问题的回答。</p>
+    <p>第二个问题说i have you knew ve IT？我们来看一下说的how I first knew this。Drop those back to childhood at the age of eight.</p>
+    <p>Also at that time, the internet was first emerging. And being on with someone who did to be the first one to eat, craps did all they could to become felt known. Every time I shopped online, I could read more or less about them.</p>
+    <p>这里我说的，我第一次知道这个工作，这里date back to是一个固定搭配，叫做追溯到。那么说要追溯到什么时候呢？At the age of eight or sel在追溯到8岁左右的时候？大家其实也可以用这个句式说a talking about the first time I use social media IT should date back to my primary school at about twelve years，also twelve yourself, 对吧？</p>
+    <p>在12岁左右的时候，然后那个时候互联网最先emerging叫做出现。后面这个beaming on大家知道是什么意思吗？Bm首先bom自己叫做爆炸，对吧？爆炸那么bom on，burning on叫做像爆炸一样的增长。其实互联网像爆炸一样增长叫做繁荣？那时候互联网最先出现并且繁荣。</p>
+    <p>那些人什么人呢？Who dare to be the first one to eat craps IT crap叫做crap，叫螃蟹。那么那些人什么人呢？第一个敢于吃螃蟹的人，这里的dar叫做敢于。我们举一个例子，比如说我说how dare you，你怎么敢的吧？How dare you, 或者是啊III just I how there he can just do something to him，对吧？他怎么敢去做这些事情的。也就是说这里我们说的互联网那个时候最先出现繁荣发展，那些人敢于成为第一个吃螃蟹的人。</p>
+    <p>Did all they could to become well, no. 做了他们所有能做的事，变得有名。每一次我serve online网上冲浪的时候，都能多多少少的读到一些关于他们的东西。这是我们第二个问题。来到了第三个问题，what's skills you request了，需要什么样的技能呢？我们用as for as as for skills required for this job，though I don't really know any professional techniques in doing the job IT seems that whatever you are good at works out on the platform as long as what you present catches eyes.</p>
+    <p>那么这里说到了说到了这个工作需要的这些技能，我觉得也没有什么。这里的professional没有特别多的专业的技能？Professional technique专业技巧相当于这个skill？没有特别多的在做这个工作，也没什么专业技巧。</p>
+    <p>In IT seems that我们这里来把这句话说一下，IT seems that whatever you are good at, 他不管是看起来，不管是你擅长什么，那这里是一个work，这里是一个work out on the platform。首先我们来说一下这个work out是什么意思？这是一个固定搭配，并且在口语中非常的常用。它有最常见的有三个含义。</p>
+    <p>第一个我们来说大家来听一下例句，来判断一下什么意思？我说after two hours hard working，I finally work out the math problem, 后面加了一个math problem。那么大家想一下这里的work out是什么意思？说的是我终于解出了数学难题是吧？那么第二个它的意思第一个叫做解除。第二个我们在这里说到的，比如说我说you know，this morning I went to the gym to work out, and I found something interesting.</p>
+    <p>今天早上i went to the gym team是啥？叫做健身房体育馆是吧？我去健身房去work，去干嘛？去健身锻炼。那么这workout第二个意思叫做健身。</p>
+    <p>第三个意思也就是在这里我们说的了，我们叫做呈现，或者是出现，或者是展示。也就是说这句话的意思是IT seems that看起来whatever you are good at，不管你擅长什么work out，只要是展现在platform上面，这个平台上面，as long as是啥意思？叫做只要是吧？As long as叫做只要。比如说Justin bieber有一首歌叫as long as you love me，那么这里说的就是只要你爱我，as long as叫做只要你展示的能够抓住眼球就可以了。也就是说我们说到了这个工作需要什么技能，我觉得也没什么专业技能，只要能在网上展示的抓住眼球就可以了。这是我们前三个问题的回答。</p>
+    <p>我们来看最后一个问题，回答说why为什么你觉得它很有趣呢？我们说speaking of the reasons why I think this job is interesting，you know what? 这里很简单，我们结构很清晰的分为两点了，first ly和secondly吧？第一点是什么？第二点是什么呢？我们来跟读一下。Firstly, those who engage in the stop are more like financiers, whom, for whom there isn't a fixed watch schedule, like clothing, in or out, they have sufficient freedom to do anything they feel like doing, for example.</p>
+    <p>Secondly, what they do for a living is creative and I opening, unlike conservative lines of work requiring specific s gills, there is no limitation or framework over their way of raining attention, for instance. 嘿说到了为什么我觉得这个工作有趣？第一点是我们来想一下，刚才读完了对吧？大家来总结一下，我们说了两点，这个工作有缺点。第一点是啥？第二点又是啥呢？这里我们说第一点说的是有sufficient freedom，叫做有充足的自由？第二点说的是是creative and I opening一个创有创造力的打开眼界诫的。</p>
+    <p>我们来一句一句分析一下说那些人什么人？参与进这个工作的人更像是more like更像是financer。Financer叫做自由职业者。什么叫自由职业者的那些，比如说没签约的什么画家、小说家、什么作者，或者是诗人，或者是记者，这些都叫free Lancer自由职业者。</p>
+    <p>那么对于他们来说是isn't there isn't a fix work schedule，没有一个固定的工作计划表，也就是说没有什么固定的工作安排。比如说king in or out clock叫做钟表对吧？那么这里什么叫表进表出？我们其实说的是不像是上班下班打卡对吧？就卡着点进卡点出上班下班打卡。</p>
+    <p>他们有sufficient充足的自由去做任何事情。他们想做的比如说888，比如说i if someone is比如说traveling celebrities，so he can just go anywhere and just try whatever he want, 如果他是一个旅游博主的话，他就想去哪儿，然后尝那些吃各种各样的他想吃的东西了。这是第一点，我们说的它非常的自由free。</p>
+    <p>第二点我们说它do for a living叫做赖以生存的。他们赖以生存的这个活动是creative，是有创造力的，并且大开眼界的。不像是这里的conservative，叫做传统的保守的，不像是传统的工作？需要特定的技能，对于他们吸引眼球的方式是没有limitation限制framework框架的。也就是说对于他们的这个吸引眼球的方式是没有限制，没有框架的，想怎么干都行。</p>
+    <p>好，我们来总结一下，说到为什么我觉得这个工作很有趣呢？第一点是他很自由，有充足的自由，想干嘛干嘛。第二点是他非常的有创意，能够大开眼界。这就是一个完整的我们用3加1的方式来回答这个per two的问题的这样一个结构了。确实是，但我知道这个东西这个里面比较多的生词，大家可能在说的时候也比较多，长难句比较困难。这只是给大家举一个例子，我们只要学会了用这么四个串题词，把这四个问题单独的拎出来来回答就可以了。</p>
+    <p>那么我们来看一个范例示范，比如说这个问题。Describe a positive change you made in good life. 描述一个你在生活中做出的积极改变？这改变是什么？那我是不是就可以在这说了，我们在part one中提到的那些什么时间做了什么，适合谁。然后。经过结果，这里是不是就起因了？然后和谁一起，我们把人放在这儿是一个经过，然后这是一个结果。那么给大家一分钟的时间，大家可以在这里暂停一下，想一下如果是你的话，你要怎么说。然后我们掐表尝试一下，看能不能用3加1的方式去把它说时间说满？</p>
+    <p>这里我给大家来提示一下，就是大在大家回答完了以后，大家可以去自测一下我现在的这个part two的水平大概能说出来多少内容，我能不能把两分钟说满？会不会出现一些常见的情况。比如说第一个词汇不丰富对吧？比如说我们在想说到一个内容的时候，我们的某一个词汇翻来倒过去的就这么两个词儿能说我好像就会说这么两个词儿，也不会用，就会说relaxing、comfortable，也不会用其他的词去替换了。那么我们的词汇量是不是能够提升一下？还有比如说我们的结构有没有很完整，能不能很好的用这四个串题词，我们刚才说的那个as four，talking about speaking off或者是怎么样的。</p>
+    <p>第三个，我们在描述到想说的内容的时候，能否流畅，有没有卡顿。如果有卡顿的话，大家来自己思考一下，刚才我的卡顿是因为内容上的卡顿，还是因为英语能力的卡顿。内容上的卡顿我们说过，怎么解决英语能力的卡顿我们也说过了。所以说大家需要自己去分析一下。最后来判断一下自己在回答的时候有没有什么语法结构的问题，有没有什么时态语态，或者是有没有什么很说的很奇怪的东西，有没有很多词说的很不好。那么我们这节课的内容就说这么多，说到了关于一个在part two的需要注意的一些小技巧，在准备期间需要做些什么，以及我们一些中观的关于一三加一的技巧的补充。那么我们就作业见了。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-06.html">精讲逐字稿</a></li>
+      <li><a href="qa-06.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-05.html">上一讲 05</a></li>
+      <li><a href="lesson-07.html">下一讲 07</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>

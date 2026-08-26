@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第14讲 · Part Three 答题思路链 · 口语VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">口语 VIP<span> · 第 14 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>口语课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a class="active" href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第14讲 · Part Three 答题思路链</h1>
+    <div class="abstract"><b>本讲概要：</b>讲师在对话中强调了掌握雅思口语Part 3答题技巧的重要性，提出了一套包括原因、解决、优缺点对比、分组列举等五大部分七小类的思路链，旨在帮助学员简化答题过程，提升回答质量。讲师通过实际例子演示了如何根据不同问题类型灵活应用这些思路，并强调模板学习的同时鼓励学员根据自己的理解灵活变通，即使不完全背诵模板，也应掌握其结构与逻辑。此外，讲师特别针对社会与个人原因问题，提供了具体的例子和解答框架，强调了广泛阅读、背诵和实践练习对于提高口语表达流畅性和准确性的关键作用。</div>
+    <div class="tip">本讲含 1 组问答精要，可到<a href="qa-14.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>讲师在对话中强调了掌握雅思口语Part 3答题技巧的重要性，提出了一套包括原因、解决、优缺点对比、分组列举等五大部分七小类的思路链，旨在帮助学员简化答题过程，提升回答质量。讲师通过实际例子演示了如何根据不同问题类型灵活应用这些思路，并强调模板学习的同时鼓励学员根据自己的理解灵活变通，即使不完全背诵模板，也应掌握其结构与逻辑。此外，讲师特别针对社会与个人原因问题，提供了具体的例子和解答框架，强调了广泛阅读、背诵和实践练习对于提高口语表达流畅性和准确性的关键作用。</p>
+    <p>Hello, 陪考研的小伙伴们大家好。我们上一节课说了用自己的话如何去把part three的一些核心思路说出来，包括了分情况讨论并且举例论证。我们怎么去分情况，怎么去举例。从这节课往后的三节，我们给大家提供一些非常固定的思路链，大家可以直接去使用，或者说是可以把它背下来。当然背不下来的同学，直接去使用也是可以的。我们知道这个思路以后，再回答part时候，基本上是非常的轻松了。</p>
+    <p>我们先说一下，思路链一共分为五个大部分，七个小部分。五大部分分别是原因类、解决类、分组列举好处坏处以及对比类。原因类我们说到社会原因、个人原因，解决类说到社会解决和个人解决，一共就是五大类七小类的问题。</p>
+    <p>我们关于这个素材如何去使用，来跟大家说一下。这个线索其实是给大家一个固定的模板，可以参考一下它的思路，或者是其中有一些比较地道的表达方式。我们每一个模板的固定的都是，比如说大概是一分半左右的时间的一个长度，这个原因我们上节课也解释过了。</p>
+    <p>我们说稍微说的长一点，肯定首先第一个结构性是非常清晰的。我们大多数的结构都是一个开头的套用的句子和结尾的一些套用句子，中间穿插了一些固定的。比如说会有分情况讨论，比如说会有第一点、第二点、第三点，我们这就是一个基本上比较完整的结构。也就是说前面开头和结尾的一些固定的套用的句子，我将它们称之为没用的废话。他们其实除了表示结构以外，没有什么特别在内容上面具体的意义。所以说大家在准备的时候，其实准备了这么2到3个，比如说固定的串题的废话就可以了。</p>
+    <p>剩下的部分大家主要是来听这个其中的内容，内容上的一些关于思路，关于一些表达方式，大家可以学习一下。如果能背下来的话，直接用是更好的。当然如果背不下来的话，大家直接拿自己的话说。知道了这个清晰的思路以后，自己的话说也是可以的。</p>
+    <p>我们这节课主要内容来看原因类，包括了社会原因和个人原因。那么说到party会经常问到跟这个社会上为什么会有这样的现象？为什么有些人这样？为什么有些人那样呢？那我们关于这样的原因类该怎么去解决呢？</p>
+    <p>我们来看一下，首先第一个叫做社会原因类。社会原因类通常问是大多数的人会怎么样，大多数情况下怎么样呢？那么我们的题目关键词说的就是为什么，或者说是你认为什么什么怎么样吗？题目主体通常是比如说政府，或者是比如说这个企业，或者是有些人会怎么样。</p>
+    <p>我们在这里的思路，其实就是所有的社会原因都归结为经济发展，是吧？经济发展都是一切万恶之源。所以说我们因为有经济发展了，人们更有钱了，人们的生活水平提到了，人们的要求也就提高了。</p>
+    <p>后面我们带上一个充分的例子去证明。其实，就只要说到是任何跟社会上原因相关的，就是为什么社会上会有这样的问题，为什么会这样？为什么会那样呢？我们都用社会原因类来解答，只要是能套上经济发展的，我们都可以用经济发展来套。比如说我们来看一下这里的回答线索，第一句why let me think IT is true that不不，那么这里的IT is true that后面我们就可以串题目了对吧？所以说IT is true that后面加的题目，比如说问你为什么空气污染越来越严重，IT is to that air pollution is more and more serious.</p>
+    <p>那么后面第一句话主体内容第一句话说。But if we are going to dig into the reasons behind IT, I think the main reason for this is economic ic development. 我们说到，如果要深入挖掘这中间的原因，我认为最主要的原因是经济发展。我们来看一下，其实这一句话最主要的就是点出来经济发展这个原因。我们前面的这个什么如果要深挖原因，确实是怎么样的，那这两句话我就归结为废话了。</p>
+    <p>这个废话首先第一个是提高我们的连惯性，让我们来清楚一下，让考官清楚我们发言的时候是有很强的结构性的这是第一点它的作用。第二点，它的最主要的作用就是给我们一个缓冲。其实就是拿到题目我也不可能一下子反应过来要说些什么。所以说我们通过重复题目的方式，或者是通过说一点这废话，不一样的人有不一样的想法。如果要深挖背后的原因，我认为是怎么样。那么通过这些不一样的这些废话，或者是不一样的这些表示结构的结构性的句子，我们来拖延一点时间，给我们自己留出来一点更长的时间去思考一下后面要说些什么。</p>
+    <p>这里我们点出来了第一层经济发展，后面我们来就来说了，说到经济发展就开始收入了。As economic growth，people have more income chooses in the life, 人们有更多的收入，更多的选择了。So they are not only concerned about the Price of the products they buy, but about other factors that affect the standards of living house, education and environment. 他们不光关心产品的价格和他们，不光关心产品的价格对吧？还关心其他的因素，比如说健康教育和环境。</p>
+    <p>我们这里说到这个living，大家一定要区分一下。有很多同学分不清什么时候发了live，什么时候发the I life，对吧？有些时候大家分不清楚什么发什么时候发live，什么时候发life。如果像我们之前说那个线上直播，这个叫做live。或者是有时候说的是live a Better life，如果是这个词儿我们肯定发life，我们说到它是一个名词的时候，说它是一个生活的时候叫做life。其他时候都叫live，都叫居住。也就是说人们不光care这个价格了，还care其他的因素。比如说健康教育环境，我们来说一下什么东西呢？</p>
+    <p>这里就我们可以举例了，之前的东西可能有一些negative impact，消极的影响在这些方面上。所以人们想要让什么让他们生活更简单、更好，something may have a negative impact on these factors. So people want to什么什么that can just make their lives easier and Better。人们可以让他们的生活更好更简单。所以在我居住的国家，in the country I live, they have something that I have been very effective.</p>
+    <p>在我居住国家什么什么是非常有效率的。我们这里很明显的开始举例了，对吧？我们这里前面说了，符合我们的逻辑。先说逻辑再去举例is。However, this also means that the cost of什么什么has increased，and this cost has been transferred to the consumers in the form of higher process.</p>
+    <p>然而这也就意味着什么什么的成本，什么什么的造价增加了。这部分的成本被bin has been transferred red的一个现在完成现在这个完成时，已经被转移了一个被动语态到了消费者的身上，以一个什么东西的更高价格。其实就是成本虽然增加了，但是这部分成本转移到了消费者身上，but people still pay for IT，但人们仍旧愿意为它付费，because they understand that IT is worthy.</p>
+    <p>人们认为它是值得的。They can enjoy Better equality, less heal problems and natural resources. 这里是natural，人们可以享受更好的自然资源，更多的社会，更好空气质量，更少的健康问题，更多自然资源。</p>
+    <p>我们最后可以再结尾一下，再或者是all in all IT is true that怎么样，对吧？确实是怎么样的那这就是我们一个串题的模板后我们来看一下这道题，这道题说的是why do big companies introduce new products frequently。那么这里大家来思考一下这个问题在问什么，给大家一秒时间来想想我们这里说的introduce是啥意思？我之前有学生会把这个翻译为，为什么大公司频繁的引进新产品？那么introduce有介绍有引进的意思对吧？但是这里你想想介绍新产品给谁呢？介绍给的是肯定是给客户。我们这里的introduce叫做推出。</p>
+    <p>为什么大公司频繁的推出新产品呢？这里的回答其实就是套用了刚才我们这里的这个回答线索，我来给大家读一下。大家如果有口音问题或者是有一些需要纠音的问题的话，大家可以在这里用倍速来跟读。可以用这个作为一个跟读练习。我们包括九大元音，包括part 2模板，包括这里的part three的线索，都可以给大家作为一些跟读练习。那么大家除了平时的精听以外，也可以用这口语视频来做一下跟读。</p>
+    <p>The question why do big companies introduced new products frequently? Why let me think um IT is chair, that big companies are always eager to introduced new products frequently. But if we are going to take into the reasons behind IT, I think the main reason for this is economic ic development.</p>
+    <p>At the economic growth, people have more in common choices in their lives. They're not only concerned about the Price of the products by, but also about other factors that affect the standard of living, such as health, education and environment. All products may have a negative impact on these factors, so people want to see some cool stuff that can make their lives easier and Better in the control our live.</p>
+    <p>They have introduced a new energy costs frequently, and IT has been very effective for environment friendly. However, this also means that the cost of cars has increased, and this cost has been transferred to the consumers in the form of higher process for a new cop. But people still pay for IT because they understand that is they worth, they can enjoy Better equality, less health problems and more natural resources. So that's why big companies are always eager to introduce new products frequently.</p>
+    <p>好，那么大家跟读结束了以后，我们来分析一下这里的回答，以及大家在跟读的时候一定要注意一下。可以在听完我跟读以后，大家在跟读的时候自己录一下音，来听一下你们的发音和老师的有什么样的区别。有很多同学一定要注意自己的语音语调，以及有可能大家在注意到我说话的时候会带有很强的情绪。However, this also means that but people still pay for IT.</p>
+    <p>大家有没有带上这样的情绪呢？我们来看一下这个问题具体回答了些什么？前面都是一样的，这两句废话对吧？最主要是经济发展，前面的重复了一下问题，确实是大公司更加他乐意于更加渴望去推出新产品。很频繁推出新产品，原因是经济发展里有更多收入，更多选择。人们不光关心加比哥，还关心其他的方面。比如说健康教育和环境，这前面都是一模一样的。</p>
+    <p>后面我们开始串题目来说，旧的产品可能有一个消极的影响。所以人们想要看到一些很酷的东西对吧？一些cool stuff，一些很酷的东西，让他们的生活变得更简单更好。那么有什么酷的东西呢？</p>
+    <p>那后面我们这里就正式开始举例了。比如说这道题我们拿这个new energy ical？拿新能源汽车来举例，对于环境是非常友好的。新能源汽车不管是对于环境，还是说对于人们的消费来说都是非常友好？对于年轻人的消费习惯来说也很友好，或者说是对于环境友好、方便，或者是对于这个车也是很友好的这也就意味着造车的成本增加了，这部分成本被转移给消费者以买新车的方式，但人们仍旧会愿意为它付费。不拉后面还是一样的享受更好的空气质量，更少的健康问题，更多自然资源。所以最后结尾一下，这就是为啥我们再重复一遍题目，这就是一个很完整的part three的回答了。</p>
+    <p>那么我们来看一下后面的例题。在看例题之前，大家其实可以想一下，我们之前用过的说过的九大原因，有哪些部分可以用在这里。比如说随着经济发展了，人们想要什么东西去放松，人们想要什么东西去relax themselves，或者是想要有什么样的新奇的事情，或者说是人们不想做什么事情无聊烦躁，人们喜欢保存什么东西，或者是提高他们的效率，让他们more connected，或者是这个原因原因二，比如说这个更好获得，各种场合都合适，这些是不是都可以用在这里？</p>
+    <p>那么我们来看一下例题，我们先看第二个例题，第二个例题说why do you people always want to buy new things to replace old things？为什么人们总喜欢去买一些新东西的去代替旧东西呢？我们刚才这个思路说，随着经济发展，人们生活水平提高，人们收入提高了，人们有更高的要求了。所以说新的东西往往有更好的什么什么。我们举一个例子，比如说在中国，手机的产品迭代是非常快的，然后这也意味着购买手机的成本增加了不得了是吧？那大家在这里暂停一下，想一下怎么回答。我一会儿来示范回答，大家来来听一听我的回答跟你的回答有没有什么区别呢？</p>
+    <p>暂停结束，我们来尝试回答一下。Why do people always want to buy new things to replace old ones？我们这里就可以说了。So why let me think IT is true, that people prefer always want to use some new things to replace the old ones.</p>
+    <p>But if we are going to dig into the reasons behind IT, I think the main reason for this is economic development. As the economy growth, people have more in common choices in their lives. They're not only concerned about the Price of the products, but also concerned about other factors, standard of the education and environment.</p>
+    <p>So some old dog, some old products may have a negative impact on these factors, for example, of their lives. So people want to say something new or use some new things to replace that can make their lives easy and beat. So you know, in the country where I live and also for I think the global situation, I think they have like the the changes of mobile phone is very like frequently and IT is really effective for to improve the quality of people's life.</p>
+    <p>This also means that the cost of the phone and mobile phone in every family had increase, and this course that has been transfer to consumers in the form of higher Prices for the annual expenses, but people still pay for IT. They understand IT is worthy. They can enjoy your Better communication quality, less health problems and more maybe resources on society. So that's why just people want to use some new products to replace the old ones.</p>
+    <p>我这里说到了，比如说减少人们的可能，对于这个沟通？手机的替换，移动手机的替换，更新换代对于他们的沟通效率有很大的提升。这也就意味着人们的家庭支出或者是年度支出有所增加，但人们仍旧愿意为它付费。</p>
+    <p>我们来再来看剩下的两个例题。比如说第一个叫做cheap fashion，我这里特别的使用了一些我们可能在日常中不太能见到的一些题目，我们来增加一下大家对于西方文化的一些了解。这里说到cheap fashion，cheap fashion是什么意思？我觉得大多数同学可能都不太清楚这个概念，因为这个概念不是来自于中国，它是一个西方概念。</p>
+    <p>说到便宜的时尚，什么叫便宜的时尚呢？其实说的就是那些快时尚，比如说什么HM、ZARA，它在打折的时候，一件衣服可能就1两到1两磅。那么为什么这样的时尚很受欢迎呢？有些同学可能会觉得，这不是反着了吗？这跟我刚才想的，我们说经济发展，人们不应该买更多更贵的吗？那么大家一定要注意，在part 3要保持思路的灵活。</p>
+    <p>我们这里说到便宜的时尚，其实可以想一下，以前人们买衣服更看重什么？我们可以说以前人们买衣服更看重质量，对吧？比如说quality或者是衣服的耐久度叫durable，就是衣服能用多用多久？耐久度。还有比如说衣服的texture。那么现在人们可能更关心的就是style，衣服的风格，或者是衣服的剪裁，衣服的design设计，甚至是even some brand？甚至是一些牌品牌。</p>
+    <p>所以说为什么便宜的时尚如此受欢迎呢？我们就可以说了，经济发展收入水平提高了，生活质量提高了。所以说人们可能care more about the fashion，人们更care fashion了。可能有的衣服他们只穿一次，那我来尝试着带着大家串一下题。我们会说yeah，IT is true that the chip fashion is really popular among the road.</p>
+    <p>If we are going to dig into the reasons behind IT, I think the main reason for this is economic development. About我们一直说到这里，会影响这个，他们更关心，比如说they are not concerned about the Price。They concerned more about the stand of living, such as the varying style对吧？他们的风服饰风格。So maybe some quality clothes may have a native impact on their style.</p>
+    <p>People want to abear some stylish clothes can make their life either Better, stylish, 更有风格的，更时尚的，我们可以替换成smart或者是fashion。So in the control i'll leave, many just Young people prefer to buy some tip clothes from the big brand, such as that, or HM, just because IT is very effective for a maybe matching their style or just having a fashion like wearing style. However, this also means that the cost of the closet has increased just because maybe they buy more clothes, although just a onEpace is pretty like cheap, but they buy just more clothes.</p>
+    <p>And this transform has been, uh, maybe this has been transferred into the are consumers in the form of higher Prices of the total expenses. 对于，可能一件衣服更便宜，但人们需要买更多，那也就意味着支出更多了，and even some people only varied once, just because the quality is so bad. 可能有些人只穿一次，因为质量太差了。But people still pay for IT because they understand that IT is worthy.</p>
+    <p>They can just enjoy you more, maybe varying styles and the more fashionable, and they make game more popular. So that's why a to a to fashion is really popular among the road. 可能他们会获得更多的时尚认可度，能够获得更好的社交情况。所以说人们愿意让去花费更多的钱在买便宜的时尚上面。</p>
+    <p>我们再来看最后一个问题，说到了what do you think about vegetarians？Vegetables说的是素食主义者对吧？那我们还是一样的思路。素食主义者经济发展生活水平提高了，人们更在意健康了，或者是在更在意环境保护。</p>
+    <p>很多素食主义者认为吃素食吃肉食是对环境是不友好的，对于动物不友好或者对健康不友好，所以他们选择吃素食。然而虽然说是可能吃素食反而？大家可能知道吃素食的价格其实是更高的，可能会花费更多。但是人愿意为他付费，人们认为这是值得的，对于环境友好，对于身体健康还是更有帮助的。这道题留给大家自己去练习。</p>
+    <p>我们来看下一个，说完社会原因，我们来说一说个人原因。刚才我们回顾一下，说到社会原因，社会原因最主要说的是经济发展是主要原因。这里的个人原因，我们分三个点，一个叫做目从众，一个叫做社交需求，心情愉悦缓解压力，一个叫做个人偏好。我们先来看一下这里的素材，它通常问的是为什么有的人人会怎么怎么做，或者是你认为为什么人们会这样呢？我们来看一下这里的回答线索，前面其实是一样的，对吧？如果要深挖原因，确实是怎么样重复题目，我们就不再重复了。我猜。I guess some factors might be discussed.</p>
+    <p>我猜有一些原因需要被讨论到？其实这一句话你看如果要深挖背后的原因，我才要讨论一些原因，那就是废话。我们来看一下主体内容的第一点。friendly. I guess he has something today with a society as a whole.</p>
+    <p>那作为一个整体什么呢？是社会作为一个整体，是和社会作为一个整体有关系的。I mean a lot of people nowadays, actually我意味着现在我的意思是有很多人现在确实是怎么样的。So other people might just falling the lead or how to say to fit in with the standard, or you know the heart behavior effect.</p>
+    <p>还有有些人确实怎么样，所以其他人只是跟从他们的引导，或者说是去fit这里是fit to fit in with the standard，去挤进这个标准里面。也就是我们说的her heard叫做羊群人群兽群。这里说的是一个群体的行为效应，叫做羊群效应。也就是说我们第一个原因说的是可能会有羊群效应。第二点what IT is obvious that也确实是有怎么样？这里我们一会儿补充一个线索，这个线索也是非常通用的，这是第二点，我们补充线索。第三点，我们说当然。But of course，I guess IT also has something today with individual preferences.</p>
+    <p>那么还和individual叫做个体的preference，叫做偏好，对吧？比如说我们打开偏好设置是preference setting？偏好那么和individual preferences有关，那就和个人偏好有关了。</p>
+    <p>I mean different people have different with different values。这又是一句废话。不一样的人有不一样的观点，不一样的价值观。我也知道对吧，所有人都知道不一样的人观点不一样。</p>
+    <p>我们这里sir IT is very naral that someone don't think so，because这里someone don't think so。那么这里的意义是什么呢？你看我们前面的说i totally agree吧？确实是怎么样的，也就就是我们问题问的是为什么，或者是你认为人们怎么样呢？那也就是说前面我们给出来的这123点，羊群效应、线索以及个人偏好，这三点都是同一题目所说的。</p>
+    <p>最后这里我们提到了一点，有些人可能不这么想。我们这里是作为一个反驳，作为一个大家的辩证的体现。有些人不这么想，可能他们觉得是怎么样的。然后最后我们来结尾。Finally, if we are looking for more reasons, I guess you might have something today with the e economy, technology, politics, maybe可能和政治经济文化有关，技术有关，对吧？那but i'm not sure all in there are a lot of reasons behind this phenomenon，but I guess I just mentioned the most important two or three reasons.</p>
+    <p>从这儿开始，一直到最后结尾，这全是体现结构的废话。所以说大家可以把这些废话选一两个来背就可以了。我们来看一下，就是刨去开头结尾这些废话，主体段就这么三个部分。第一个羊群效应，第二个一会儿我们补充的线索，第三个说的是个人偏好。而这里加入了一句反驳，去体现我们的辩证。</p>
+    <p>我们来看这个题目。Do you think films with famous actors or actresses will be more popular? 你认为有知名男演员或者是女演员参演的电影会更加受欢迎吗？我们来跟读一下，跟读部分开始了，大家可以暂停70.75倍速，一句一句来。Uh, sorry question, do you think films with fight most actors or says will be more popular? Um why let me think a IT is true that films with famous actors will be more popular.</p>
+    <p>But if we are going to dig into the reasons behind IT, I get some factors might be discussed. Firstly, a gasses has something to do with a society as a whole. I mean, a lot of people nowadays actually have some stars that they are crazy about.</p>
+    <p>So other people might just following the lead or how to say to fit in with the standard or just, you know the hot behavior effect also, IT is obvious that we can obtain happiness when we are chatting with other fans, and then we can get more benefits from IT besides happiness after we chat with each other, we can make a bunch of friends because of their thing, and that way our social scope will improve. A but of course, I guess IT also have something to do with individual preferences. I mean, different people have different views, different values. So it's very not more than some people don't think so because they okay, more about the story in the maybe finally, if we are looking for more reasons, I guess you might have something to do with the economy, technology, politics, maybe, but i'm not sure. All in all, there are a lot of reasons behind this phenomenon, but I guess I just mentioned the most important to those rate reasons.</p>
+    <p>好，那我们跟读结束，我们来一起分析一下这里的回答。首先第一句话，前两句我们就不说了，一句话是这个重复题目确实是。第二句话发觉原因有很多原因要讨论。那么其他的我们来说和社会整体有关，怎么个有关呢？有些人有很多的star they are crazy about，有很多人，有很多的crazy的明星，所以说其他人就跟风呗，对吧？也就是基金这个标准羊群效应。其实第一个就是追星。</p>
+    <p>第二个我们来看最常见的一个线索，这里说了三个点。第一个点叫做we can obtain happiness，可以获取快乐。当我们和其他的fans交流的时候，第一点叫做obtain happiness。这里又是一句废话，we can gain more benefits from its besides happiness.</p>
+    <p>除了快乐，除了幸福，我们还可以获取更多的好处。After we chatted with each other, 当我们和其他人聊天的时候，we can make a bunch of friends, a bunch of在这里叫做一群一堆。那么我们可以make friends，这是第二点，可以交到很多朋友对吧？第三点that we在这种情况下，our social skills will improve a lot，我们的社交技能将提升的。也就是说我们这里线索提到了三点，第一点是获取快乐，第二点是到更多朋友，第三点是社交需求会提高，社交技能提高。其实这里就是满足我们的社交需求一个新奇愉悦。</p>
+    <p>最后一点还是重复个人偏好有关了。我们这里来反驳一下刚才说的三点，不管是从众也好，交朋友也好，还是个人偏好也好，都是说同意对吧？确实是有知名演员演的电影会更加受欢迎。那么我们这里来反驳一下说，非常常见的是有些人不这么认为，他们更care电影中的故事。也就是说有些人可不太care这个明星，有明星不明星的，他们更care故事部分。</p>
+    <p>最后结尾又是一堆废话，和政治经济文化相关不确定。然后有很多的原因，我猜我只提到了最主要两三个。我们来看一下最主要的点，第一个叫做羊群效应。第二个点获取快乐，交朋友，提高社交技能。第三点是跟个人偏好有关。</p>
+    <p>我们来看一下这里关于个人原因的话，其实关于我们刚才补充的这些还可以用的。比如说他们做这个很压很有很放松对吧？或者说是很新奇，或者说是很有纪念意义，或者说是可以提高他们的效率，或者是可以让他们联系更紧密，也可以让他们广泛可获得，或者是各种场合都合适，这些都可以穿进去的那我们来看一下第一个例题，大家一定要仔细看这个例题读完以后来告诉我，你们在心里给我一个答案，这个问题在问什么？Why do you some people like to keep paintings in the home for a long time。我们来想给你一秒钟的时间来想一下这个问题在问什么呢？想完来暂停结束。</p>
+    <p>我们来说为什么一些人喜欢去keep paintings，叫做在家里保存画作。我知道有很多同学在这里可能会卡出来，我怎么觉得是一直画画呢？那么为什么不是一直画画而是保存画作呢？我们要注意keep后面加的是INGS1个动词加ING再加S的话，那么只要能加S的，要不就是动词三单，要不就是复数。这里复数，前面一定是一个名词，那么这里就不是一个动名词，而是一个名词了。</p>
+    <p>它表示的是画作，而不是说keep加ING为啥呢？因为如果我们把这个painting s去掉，keep painting叫做在家画画，而我们这里有这个S那他说的就是保存一些画作。为什么有些人喜欢保存画作呢？那你像我们这里说到的这个，首先第一个羊群效应？有些人很crazy，一些画家羊群效应。还有比如说我们可以交朋友，还有比如说个人偏好，有些人也不是，有些人就是喜欢这幅画，对吧？甚至我们可以说可以缓解压力，收藏画很新奇，有些画是很有纪念意义的，有些画可以提高我们的效率，或者是可以让我们联系更紧密一些。朋友送的对，广泛好喝的，各种场合都合适，这些都可以穿。</p>
+    <p>那么我们来串一下这个题目，我们说so why？Let me think IT is true that many people like to keep paintings in their home for a long time. But if we are going to dig into the reasons behind IT, I get some factors might be disgust.</p>
+    <p>So firstly, I guess I had something today with a society as a whole. I mean, a lot of people nowadays actually have some artists that they are crazy about. So other people might just falling the lead, or how to say, to fit in with the standard, or just, you know, the hot behavior effect.</p>
+    <p>这里我们说，有些人可能会对于一些painter或者是一些artist，一些画家非常感兴趣。第二点，so is obvious that we can obtain happiness when we are collecting like paintings, and then we can get more benefits besides its like uh besides happiness. After maybe chatting with other fans about the painting, we can just make a bunch of friends because of the same text of painting.</p>
+    <p>因为一样的taste，the same taste, 一样的喜好，对吧？一样的品味。关于一样的品味，said that way our social school will in a because we can the painting can bring us more topic for us to talk。But of course, I guess they also have something to do with individual preferences.</p>
+    <p>I mean, different people have different views, different values. So is very Normal that some people don't think so, because they just like the painting and they just enjoy the finding of the painting can bring them. Finally, if we are looking for more reasons, I guessing might have something today with the economy, technology, politics might be. But i'm not sure all in all, there are a lot of不是this phenomenon，but I guess I just mentioned the most important of reasons.</p>
+    <p>这里我来带大家串一下，比如说我们说压力和放松，对吧？我们串到第二个里面。Also, IT is obvious that people can feel pressure releasing when they keep the painting at their home, because every time when they feel the pressure building up, like watching or staring at the painting, 盯着那幅画starring。Staring at the painting can make them feel pressure releasing, 对吧？我们可以感到压力释放，或者这里的新奇的事情，我们可以说IH painting is unique and they can inspire them to think outside the books and be more creative。So they prefer to keep paintings. 他们可能会每一个画都不一样，可以鼓励我们跳出条条框框思考，或者说是有纪念意义的。AH painting is memorable, 或者是h painting is cherished，and they are the most important thing in their life.</p>
+    <p>So they make people who they are, 或者是every time when people just watch the painting，they can regard the the minimal or the best moment that or they can remind the time that the people who gave IT to as a, 或者可以提高我们的效率，say every time they watch, they look at the painting, they can just be more effective because they are more releasing或者是做运动。I say some people may just hand on the are the painting that some of others give them, 对吧？或者是，or the friends draw the painting to them and hang in the painting in their home can make people feel more connected and happier when they just look at the painting in their home或者说原因。原因二，say, maybe hang the painting is maybe a suitable for most occasions, and IT is painting is really affordable and widely available.</p>
+    <p>好，我们说完这个painting的话题，我们再来看后面的就比较简单了。比如说why do people visit tourist attractions？为什么人们会去造访一些游客的景点呢？那还是一样的思路暂停一下，大家来想一下，我们就直接回答了。那我开始回答，大家来一起来说一下。Sorry, why? Let me think IT is true that many people like to visit tourist tractions.</p>
+    <p>But if we are going to dig into the reasons behind IT, i'll get some factors might be discussed falsely. IT has something today with society as a whole. I mean, a lot of people nowadays actually have uh some celebrities that they are following on the internet.</p>
+    <p>So maybe other people just following their lead or how to say to fit in with the standard. So the celebrity go to somewhere, and others just follow their lead and go to some, you know, the hard behavior effect. So maybe the place is just not that famous, but people always want to go there just because they want to follow the celebrity ad.</p>
+    <p>And also IT obvious that people can obtain happiness when they are going to some touch structure, and also after they come back, and they can just chat with other of their friends who always went to the place, and then just people can get more benefits besides its besides happiness. After maybe chatting with the people are nearby, they can make more friends because of like traveling to the touch attraction, just because there are too many people, and that way people social gobel in private. But of course, I guess they also have something to do with individual preferences.</p>
+    <p>And and I mean, different people have different views, different value. So is very Normal that some people don't think so. Maybe just because some people just don't like to go to the attractions because they think there are too much people and they prefer to develop some on develop or unknown, maybe beautiful series.</p>
+    <p>So finally, if we looking for more reasons, I guess I have something today with the economy, technology, politics might be, but i'm not sure. All in all, there are a lot of reasons behind this phenomenon. But I guess I just mentioned the most important three reasons.</p>
+    <p>好，那我们这个问题就回答完了。当然我说的非常快，有很多同学就会说，老师你怎么可以说的那么快呢？我完全都跟不上，我怎么说的就是all in order are，为啥呢？因为我说了够成千上万遍，我说了很多遍了，其实口语就是一个重复的慢功夫。所以说大家如果能够重复一样多的变数的话，闭着眼睛都能把这些东西说出来了。所以说希望大家能跟我保持一样的流畅，也就是说日常中多读多背多练。</p>
+    <p>最后一个问题，我们说why do children like special costumes？为什么小孩喜欢很特殊的这种套装，特殊的服装呢？那还是一样的思路。首先第一个可能会follow their lead，有些小孩就是喜欢cosplay，那么其他人可能就是follow their lead，especially in halloween? 在这个hello win在这个万圣节的时候。还有第二个可以和其他小孩一起wearing costumes。可以比如说grab eyes可以吸引眼球，可以和其他小孩一起玩，可以获取快乐，可以因为这个共同喜欢varying costumes交到更多的朋友。这三个个人偏好。</p>
+    <p>当然有些小孩喜欢穿costume，只是为了扮演他们play their favorite role。I play their favorite role. 扮演他们最喜欢的角色？那么我们后面还可以比如说用这里说的扮演穿上这个服装就感觉到我们进入了另一个人格，感觉到压力被释放了，或者说是有那么多各种各样的新奇的服装，感到非常新奇，有激发创造力，或者是有的角色非常有纪念意义。或者是可以让小孩们一起穿这个服装，扮演一些玩一些过家家，我们可能会联系更紧密，或者说是很便宜。Affordable, widely available. 好，这节课的内容我们主要是补充了这么两个素材，一个是社会原因类，一个是个人原因类。那么我们来进入到作业。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-14.html">精讲逐字稿</a></li>
+      <li><a href="qa-14.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-13.html">上一讲 13</a></li>
+      <li><a href="lesson-15.html">下一讲 15</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+})();
+</script>
+</body>
+</html>
