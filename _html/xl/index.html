@@ -2,8 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" data-favicon-injected="true">
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico" data-favicon-ico="true">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎡 雅思口语闯关转盘</title>
+<title>雅思口语闯关转盘</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -119,6 +121,22 @@ textarea:focus{outline:none;border-color:#ffd200}
 .wallpaper-info{position:fixed;bottom:12px;right:16px;font-size:.7rem;color:rgba(255,255,255,.5);text-shadow:0 1px 4px rgba(0,0,0,.6);z-index:2;max-width:260px;text-align:right;cursor:pointer;transition:color .2s}
 .wallpaper-info:hover{color:#ffd200}
 .footer{text-align:center;padding:24px;font-size:.75rem;color:rgba(255,255,255,.4);text-shadow:0 1px 4px rgba(0,0,0,.4)}
+
+/* ===== 录音预览面板 ===== */
+.rec-preview{
+  display:none;width:90%;max-width:520px;margin:16px auto;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:20px 24px;
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+}
+.rec-preview.open{display:block}
+.rec-preview h3{margin-bottom:8px;color:rgba(255,255,255,.8);font-size:.95rem}
+.rec-preview audio{width:100%;margin:10px 0 14px;border-radius:8px}
+.rec-preview .rec-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.rec-preview .btn-ok{background:linear-gradient(135deg,#f7971e,#ffd200);color:#1a1a2e;border:none;font-weight:700}
+.rec-preview .btn-discard{
+  border:1px solid rgba(255,255,255,.2);color:#ff6b6b;
+}
 </style>
 </head>
 <body>
@@ -134,14 +152,15 @@ textarea:focus{outline:none;border-color:#ffd200}
   </div>
 </div>
 
-<h1>🎡 雅思口语闯关转盘</h1>
+<h1>雅思口语闯关转盘</h1>
 <p class="subtitle">转一下，录制两分钟，赚取积分，兑换壁纸！</p>
 
 <div class="section-nav">
-  <a class="nav-card" href="yue-du/lesson-01.html">📖 阅读精讲</a>
-  <a class="nav-card" href="yue-du/qa-index.html">💡 阅读问答</a>
-  <a class="nav-card" href="tingli/tl-index.html">📻 听力精讲</a>
-  <a class="nav-card" href="tingli/qa-tl-index.html">✨ 听力问答</a>
+  <a class="nav-card" href="yue-du/lesson-01.html">阅读精讲</a>
+  <a class="nav-card" href="yue-du/qa-index.html">阅读问答</a>
+  <a class="nav-card" href="tingli/tl-index.html">听力精讲</a>
+  <a class="nav-card" href="tingli/qa-tl-index.html">听力问答</a>
+  <a class="nav-card" href="vip/index.html">VIP 课程</a>
 </div>
 
 <div class="wheel-wrap">
@@ -151,28 +170,37 @@ textarea:focus{outline:none;border-color:#ffd200}
 </div>
 
 <div class="glass question-box" id="questionBox">
-  <span class="placeholder">👆 点击中间按钮开始转盘</span>
+  <span class="placeholder">点击中间按钮开始转盘</span>
 </div>
 
 <div class="controls">
-  <button class="btn btn-speak" onclick="speakQuestion()">🔊 朗读问题</button>
-  <button class="btn btn-record" id="recordBtn" onclick="toggleRecord()" disabled>🎙️ 录制音频并答题</button>
+  <button class="btn btn-speak" onclick="speakQuestion()">朗读问题</button>
+  <button class="btn btn-record" id="recordBtn" onclick="toggleRecord()" disabled>录制音频并答题</button>
 </div>
 
 <div class="timer-display" id="timerDisplay"></div>
 
 <div class="glass" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-  <button class="btn btn-redeem" id="redeemBtn" onclick="redeemWallpaper()" disabled>🎁 兑换随机壁纸 (需 5 分)</button>
-  <button class="btn btn-export" onclick="exportReport()">📥 导出今日 HTML 报告</button>
+  <button class="btn btn-redeem" id="redeemBtn" onclick="redeemWallpaper()" disabled>兑换随机壁纸 (需 5 分)</button>
+  <button class="btn btn-export" onclick="exportReport()">导出今日 HTML 报告</button>
+</div>
+
+<div class="rec-preview" id="recPreview">
+  <h3>录音预览</h3>
+  <audio id="recAudio" controls preload="metadata"></audio>
+  <div class="rec-actions">
+    <button class="btn btn-ok" id="recOkBtn" onclick="saveRecording()">保存并下载</button>
+    <button class="btn btn-discard" id="recDiscardBtn" onclick="discardRecording()">扔掉，不要了</button>
+  </div>
 </div>
 
 <div class="glass record-section">
-  <h3>📋 今日闯关记录</h3>
+  <h3>今日闯关记录</h3>
   <div class="record-list" id="recordList"><span class="record-empty">还没有记录，快去转一个吧！</span></div>
 </div>
 
 <div class="glass edit-section">
-  <h3 onclick="toggleEdit()">✏️ 编辑 / 添加问题 <span id="editArrow">▸</span></h3>
+  <h3 onclick="toggleEdit()">编辑 / 添加问题 <span id="editArrow">▸</span></h3>
   <div class="edit-body" id="editBody">
     <textarea id="questionInput" placeholder="每行写一个问题..."></textarea>
     <button class="btn-save" onclick="saveQuestions()">保存并更新转盘</button>
@@ -180,8 +208,8 @@ textarea:focus{outline:none;border-color:#ffd200}
   </div>
 </div>
 
-<div class="footer">Made for Devang · 坚持就是胜利 💪</div>
-<div class="wallpaper-info" id="wpInfo" title="点击前往必应首页">📷 正在加载今日壁纸...</div>
+<div class="footer">Made for Devang · 坚持就是胜利</div>
+<div class="wallpaper-info" id="wpInfo" title="点击前往必应首页">正在加载今日壁纸...</div>
 <div class="reward-popup" id="rewardPopup"></div>
 
 <script>
@@ -194,6 +222,8 @@ let recordedChunks = [];
 let isRecording = false;
 let timerInterval = null;
 let timerSeconds = 120;
+let recStartTime = 0;
+let pendingRecording = null;
 
 document.getElementById('totalScore').textContent = totalScore;
 
@@ -205,11 +235,11 @@ document.getElementById('totalScore').textContent = totalScore;
   const img = new Image();
   img.onload = function() {
     document.body.style.backgroundImage = "url('" + imgUrl + "')";
-    document.getElementById('wpInfo').textContent = '📷 Bing 每日壁纸 (' + dateStr + ')';
+    document.getElementById('wpInfo').textContent = 'Bing 每日壁纸 (' + dateStr + ')';
   };
   img.onerror = function() {
     document.body.style.backgroundImage = "url('https://bing.ioliu.cn/v1/?w=1920&h=1080&date=" + dateStr + "')";
-    document.getElementById('wpInfo').textContent = '📷 Bing 每日壁纸 (备用源)';
+    document.getElementById('wpInfo').textContent = 'Bing 每日壁纸 (备用源)';
   };
   img.src = imgUrl;
 })();
@@ -306,32 +336,61 @@ async function toggleRecord(){
       mediaRecorder.ondataavailable = (e) => { if(e.data.size > 0) recordedChunks.push(e.data); };
       mediaRecorder.onstop = () => {
         const blob = new Blob(recordedChunks, { type: 'audio/webm' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        const dateStr = new Date().toLocaleDateString().replace(/\//g, '-');
-        a.download = `口语练习_${dateStr}_No${currentIndex+1}.webm`;
-        a.click();
+        showRecPreview(blob);
         stream.getTracks().forEach(track => track.stop());
         finishRecording();
       };
       mediaRecorder.start();
       isRecording = true;
-      document.getElementById('recordBtn').textContent = "⏹ 停止录制并结算";
+      document.getElementById('recordBtn').textContent = "停止录制并预览";
       document.getElementById('recordBtn').classList.add('recording');
       document.getElementById('spinBtn').disabled = true;
       startTimer();
     } catch(err){
-      alert("⚠️ 无法访问麦克风。\n\n原因：浏览器出于安全考虑，可能限制了本地文件(file://)访问媒体设备。\n\n✅ 解决方法：\n1. 在当前文件夹打开命令行，运行: python -m http.server 8080\n2. 然后在浏览器访问: http://localhost:8080/口语转盘.html");
+      alert("无法访问麦克风。\n\n原因：浏览器出于安全考虑，可能限制了本地文件(file://)访问媒体设备。\n\n解决方法：\n1. 在当前文件夹打开命令行，运行: python -m http.server 8080\n2. 然后在浏览器访问: http://localhost:8080/口语转盘.html");
     }
   } else {
     mediaRecorder.stop();
   }
 }
 
+/* ===== 录音预览：听完再决定去留 ===== */
+let recPendingBlob = null;
+let recPreviewUrl = null;
+
+function showRecPreview(blob){
+  if(recPreviewUrl) URL.revokeObjectURL(recPreviewUrl);
+  recPendingBlob = blob;
+  recPreviewUrl = URL.createObjectURL(blob);
+  document.getElementById('recAudio').src = recPreviewUrl;
+  document.getElementById('recPreview').classList.add('open');
+}
+
+function saveRecording(){
+  if(!recPendingBlob) return;
+  const url = recPreviewUrl;
+  const a = document.createElement('a');
+  a.href = url;
+  const dateStr = new Date().toLocaleDateString().replace(/\//g, '-');
+  a.download = `口语练习_${dateStr}_No${currentIndex+1}.webm`;
+  a.click();
+  closeRecPreview();
+}
+
+function discardRecording(){
+  closeRecPreview();
+}
+
+function closeRecPreview(){
+  document.getElementById('recPreview').classList.remove('open');
+  document.getElementById('recAudio').removeAttribute('src');
+  if(recPreviewUrl){ URL.revokeObjectURL(recPreviewUrl); recPreviewUrl = null; }
+  recPendingBlob = null;
+}
+
 function finishRecording(){
   isRecording = false;
-  document.getElementById('recordBtn').textContent = "🎙️ 录制音频并答题";
+  document.getElementById('recordBtn').textContent = "录制音频并答题";
   document.getElementById('recordBtn').classList.remove('recording');
   document.getElementById('spinBtn').disabled = false;
   stopTimer();
@@ -354,17 +413,17 @@ function updateScoreUI(){
   if(todayScore >= 5){
     redeemBtn.disabled = false;
     redeemBtn.classList.add('ready');
-    redeemBtn.textContent = "🎁 兑换随机壁纸 (点击消耗 5 分)";
+    redeemBtn.textContent = "兑换随机壁纸 (点击消耗 5 分)";
   } else {
     redeemBtn.disabled = true;
     redeemBtn.classList.remove('ready');
-    redeemBtn.textContent = `🎁 兑换随机壁纸 (还需 ${5 - todayScore} 分)`;
+    redeemBtn.textContent = `兑换随机壁纸 (还需 ${5 - todayScore} 分)`;
   }
 }
 
 function showRewardAnimation(reward){
   const popup = document.getElementById('rewardPopup');
-  popup.textContent = `+ ${reward} 分! 🎉`;
+  popup.textContent = `+ ${reward} 分！`;
   popup.classList.add('show');
   setTimeout(() => { popup.classList.remove('show'); }, 1500);
 }
@@ -378,8 +437,8 @@ function redeemWallpaper(){
     const img = new Image();
     img.onload = () => {
       document.body.style.backgroundImage = `url('${imgUrl}')`;
-      document.getElementById('wpInfo').textContent = `📷 兑换成功：必应历史壁纸 (倒数第 ${randomIdx} 天)`;
-      showRewardAnimation("壁纸兑换成功! 🖼️");
+      document.getElementById('wpInfo').textContent = `兑换成功：必应历史壁纸 (倒数第 ${randomIdx} 天)`;
+      showRewardAnimation("壁纸兑换成功！");
     };
     img.src = imgUrl;
   }
@@ -438,20 +497,20 @@ function exportReport(){
   th,td{padding:12px 15px;border-bottom:1px solid #eee;text-align:left}
   th{background:#f7971e;color:#fff;font-weight:600}
   tr:last-child td{border-bottom:none}.footer{text-align:center;margin-top:30px;color:#aaa;font-size:0.9em}</style></head><body>
-  <h1>🎡 雅思口语闯关日报</h1>
+  <h1>雅思口语闯关日报</h1>
   <div class="stat">
     <div><h3>${todayScore}</h3><p>今日获得积分</p></div>
     <div><h3>${totalScore}</h3><p>历史总积分</p></div>
     <div><h3>${todayRecords.length}</h3><p>今日练习次数</p></div>
   </div>
-  <h2 style="color:#333;margin-bottom:15px">📋 练习明细</h2>
+  <h2 style="color:#333;margin-bottom:15px">练习明细</h2>
   <table><tr><th>时间</th><th>题目</th><th>获得奖励</th></tr>`;
   
   todayRecords.forEach(r => {
     html += `<tr><td>${r.time}</td><td><strong>No.${r.idx}</strong><br><span style="color:#666;font-size:0.9em">${r.question}</span></td><td style="color:#2ecc71;font-weight:bold">+${r.reward} 分</td></tr>`;
   });
   
-  html += `</table><p class="footer">Keep going, Devang! 每一个微小的进步，都在重塑你的大脑。💪<br>生成时间: ${new Date().toLocaleString()}</p></body></html>`;
+  html += `</table><p class="footer">Keep going, Devang! 每一个微小的进步，都在重塑你的大脑。<br>生成时间: ${new Date().toLocaleString()}</p></body></html>`;
   
   const blob = new Blob([html], {type: 'text/html'});
   const url = URL.createObjectURL(blob);
@@ -476,7 +535,7 @@ function saveQuestions(){
   if(list.length > 24){alert('最多支持 24 个问题，太多转盘会挤～');return;}
   questions = list;currentQuestion = null;currentIndex = -1;rotation = 0;
   drawWheel(0);
-  document.getElementById('questionBox').innerHTML = '<span class="placeholder">👆 转盘已更新！点击 SPIN 开始</span>';
+  document.getElementById('questionBox').innerHTML = '<span class="placeholder">转盘已更新！点击 SPIN 开始</span>';
   document.getElementById('recordBtn').disabled = true;
   document.getElementById('editBody').classList.remove('open');
   document.getElementById('editArrow').textContent = '▸';
