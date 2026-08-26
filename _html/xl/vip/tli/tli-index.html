@@ -5,10 +5,10 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>听力 VIP 精讲</title>
+<title>听力 VIP 精讲 · 20讲</title>
 <style>
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
   a { color: #2c5cdc; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
@@ -36,7 +36,13 @@
   .col-left .back { font-size: 12.5px; color: #4b5563; }
   .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
   .col-main h1 { font-size: 32px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.3; }
+  .col-main h2 { font-size: 22px; margin: 36px 0 14px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
   .col-main p { line-height: 1.75; color: #374151; }
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0 8px; }
+  .grid2 a { display: block; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; color: #1f2328; text-decoration: none; line-height: 1.5; }
+  .grid2 a:hover { border-color: #bfdbfe; background: #eff6ff; text-decoration: none; }
+  .grid2 b { color: #1d4ed8; font-size: 13px; }
+  .grid2 span { color: #6b7280; font-size: 12.5px; }
   .cta { margin-top: 24px; padding: 18px 20px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; }
   .cta strong { color: #1d4ed8; font-size: 15px; }
   .cta p { color: #374151; margin: 8px 0 12px; font-size: 14px; }
@@ -51,11 +57,12 @@
   .col-right .empty { color: #9ca3af; font-size: 12px; }
   @media (max-width: 1100px) { .col-right { display: none; } }
   @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="logo">听力 VIP<span> · 付费精修</span></div>
+  <div class="logo">听力 VIP<span> · 20讲</span></div>
   <div class="topbar-right">
     <a href="../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
@@ -67,27 +74,120 @@
   <aside class="col-left">
     <h3>听力课程</h3>
     <ul>
-      <li><a href="../../tingli/tl-index.html">听力课程目录（8 讲）</a></li>
-      <li><a href="../../tingli/knowledge.html">听力全面知识清单</a></li>
-      <li><a href="../../tingli/practice/index.html">听力考点自测</a></li>
+      <li><a href="lesson-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="lesson-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="lesson-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="lesson-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="lesson-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="lesson-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="lesson-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="lesson-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="lesson-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="lesson-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="lesson-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="lesson-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="lesson-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="lesson-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="lesson-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="lesson-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="lesson-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="lesson-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+      <li><a href="qa-18.html">第18讲 · 问答精要</a></li>
+      <li><a href="qa-19.html">第19讲 · 问答精要</a></li>
+      <li><a href="qa-20.html">第20讲 · 问答精要</a></li>
     </ul>
     <h3>返回</h3>
     <ul>
       <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../index.html">站点首页</a></li>
     </ul>
   </aside>
   <main class="col-main">
     <h1>雅思听力 VIP 精讲</h1>
-    <p>付费听力课程逐字稿。左侧目录随每一讲文稿的生成自动更新。</p>
+    <p>付费听力课程逐字稿，共 20 讲：从导学篇、三大核心能力，到 Part One 场景与精听、Part Two 地图题与客观题、Part Three 配对与流程图，再到 Part Four 填空题、科学场景与时间管理。每讲配套「问答精要」页，把整讲考点压缩成速查问答。</p>
     <div class="cta">
-      <strong>听力板块待更新</strong>
-      <p>把这一讲的文稿发给我（直接粘贴文字或丢 .md 文件），即可生成精讲页与问答精要页并加入左侧目录。</p>
-      <a href="../index.html">返回 VIP 总目录</a>
+      <strong>听力课程 20 讲已就绪</strong>
+      <p>第 1 讲讲考试形式与评分标准；中间按 Part One / Two / Three / Four 逐步推进场景、题型与解题策略；第 20 讲收束时间管理与选题策略。</p>
+      <a href="lesson-01.html">从第 1 讲开始</a>
+      <a class="ghost" href="qa-01.html">先看问答精要</a>
+    </div>
+    <h2>课程目录（逐字稿）</h2>
+    <div class="grid2">
+      <a href="lesson-01.html"><b>第01讲</b> 导学篇：考试形式与评分标准<br><span>四部分结构与难度、机考与纸笔考、目标分数设定、替换概念、语感大于语法</span></a>
+      <a href="lesson-02.html"><b>第02讲</b> 听力三大核心能力<br><span>听基本信息、识别否定词、理解转折关系三大能力讲解与训练</span></a>
+      <a href="lesson-03.html"><b>第03讲</b> 精听方法与分层练习<br><span>精听是提升听力能力的关键，针对不同水平学生的分层练习方法</span></a>
+      <a href="lesson-04.html"><b>第04讲</b> Part One 场景与方法论<br><span>问询类/介绍类场景区分、表格填空与笔记填空、读题与范围定位</span></a>
+      <a href="lesson-05.html"><b>第05讲</b> Part One 对话精听：爱尔兰家庭假期<br><span>天气、活动、住宿与费用细节，雨天冲浪改租皮划艇</span></a>
+      <a href="lesson-06.html"><b>第06讲</b> Part One 问询类与推荐类场景<br><span>求职对话精听：大型企业、员工福利与折扣、团队合作与细节关注</span></a>
+      <a href="lesson-07.html"><b>第07讲</b> Part Two 结构与地图题<br><span>Part Two 客观题结构（地图/单选/多选/配对）、地图题分类与解题</span></a>
+      <a href="lesson-08.html"><b>第08讲</b> 单选与多选解题策略<br><span>筛选与排除错误选项，通过具体例子讲解多选和单选题策略</span></a>
+      <a href="lesson-09.html"><b>第09讲</b> 配对题：细节配对与分类配对<br><span>两种配对类型的区别：细节配对找对应细节，分类配对按类归位</span></a>
+      <a href="lesson-10.html"><b>第10讲</b> 听力练习：开发项目反馈对话<br><span>住宿类型包容性、合理价格设置、乡村短途可达性的讨论与精听</span></a>
+      <a href="lesson-11.html"><b>第11讲</b> 三篇听力综合练习<br><span>读题、听题、复盘三步法，覆盖多种题型的综合听力练习</span></a>
+      <a href="lesson-12.html"><b>第12讲</b> 理解题目与核心信息<br><span>面对难题聚焦核心信息、避免过度耗时，正确解读题目信息</span></a>
+      <a href="lesson-13.html"><b>第13讲</b> Part Three 配对题与流程图题<br><span>事实配对与态度配对、流程图题的结构与解题方法</span></a>
+      <a href="lesson-14.html"><b>第14讲</b> 对话精听：学生表现与行为分析<br><span>冷静下来、竞争态度、任务难度对学生表现与学习的影响</span></a>
+      <a href="lesson-15.html"><b>第15讲</b> 复盘技巧与重听方法<br><span>高水平学生重听与对标选项，需改进学生朗读课文增强理解后再复盘</span></a>
+      <a href="lesson-16.html"><b>第16讲</b> Part Four 填空题要点<br><span>Part Four 场景复杂、原文原词与单复数一致、拼写与词性预判</span></a>
+      <a href="lesson-17.html"><b>第17讲</b> 科学场景：植物学与动物学<br><span>多选与填空题在植物学/动物学场景的解题策略</span></a>
+      <a href="lesson-18.html"><b>第18讲</b> Part Four 场景区分与模拟题<br><span>人文社科场景与科学场景的区别，剑桥雅思模拟题实战</span></a>
+      <a href="lesson-19.html"><b>第19讲</b> 研究项目对话精听<br><span>数据分析、整理与转录占 70-80% 时间，团队分工与研究流程</span></a>
+      <a href="lesson-20.html"><b>第20讲</b> 时间管理与选题策略<br><span>有效管理考试时间与题目策略，避免在单选部分过度纠结</span></a>
+    </div>
+    <h2>问答精要</h2>
+    <div class="grid2">
+      <a href="qa-01.html"><b>第01讲</b> 问答精要<br><span>21 组考点问答速查</span></a>
+      <a href="qa-02.html"><b>第02讲</b> 问答精要<br><span>20 组考点问答速查</span></a>
+      <a href="qa-03.html"><b>第03讲</b> 问答精要<br><span>8 组考点问答速查</span></a>
+      <a href="qa-04.html"><b>第04讲</b> 问答精要<br><span>30 组考点问答速查</span></a>
+      <a href="qa-05.html"><b>第05讲</b> 问答精要<br><span>34 组考点问答速查</span></a>
+      <a href="qa-06.html"><b>第06讲</b> 问答精要<br><span>34 组考点问答速查</span></a>
+      <a href="qa-07.html"><b>第07讲</b> 问答精要<br><span>33 组考点问答速查</span></a>
+      <a href="qa-08.html"><b>第08讲</b> 问答精要<br><span>33 组考点问答速查</span></a>
+      <a href="qa-09.html"><b>第09讲</b> 问答精要<br><span>29 组考点问答速查</span></a>
+      <a href="qa-10.html"><b>第10讲</b> 问答精要<br><span>33 组考点问答速查</span></a>
+      <a href="qa-11.html"><b>第11讲</b> 问答精要<br><span>26 组考点问答速查</span></a>
+      <a href="qa-12.html"><b>第12讲</b> 问答精要<br><span>31 组考点问答速查</span></a>
+      <a href="qa-13.html"><b>第13讲</b> 问答精要<br><span>26 组考点问答速查</span></a>
+      <a href="qa-14.html"><b>第14讲</b> 问答精要<br><span>31 组考点问答速查</span></a>
+      <a href="qa-15.html"><b>第15讲</b> 问答精要<br><span>29 组考点问答速查</span></a>
+      <a href="qa-16.html"><b>第16讲</b> 问答精要<br><span>25 组考点问答速查</span></a>
+      <a href="qa-17.html"><b>第17讲</b> 问答精要<br><span>25 组考点问答速查</span></a>
+      <a href="qa-18.html"><b>第18讲</b> 问答精要<br><span>19 组考点问答速查</span></a>
+      <a href="qa-19.html"><b>第19讲</b> 问答精要<br><span>36 组考点问答速查</span></a>
+      <a href="qa-20.html"><b>第20讲</b> 问答精要<br><span>41 组考点问答速查</span></a>
     </div>
   </main>
   <aside class="col-right">
     <h4>本页内容</h4>
     <ul>
+      <li><a href="lesson-01.html">第 01 讲 · 导学篇</a></li>
+      <li><a href="lesson-07.html">第 07 讲 · 地图题</a></li>
+      <li><a href="lesson-13.html">第 13 讲 · 配对流程图</a></li>
+      <li><a href="lesson-16.html">第 16 讲 · Part Four 填空</a></li>
+      <li><a href="qa-01.html">问答精要入口</a></li>
     </ul>
   </aside>
 </div>
