@@ -203,13 +203,13 @@
    - 想加回截图里的“综合搜索”？把下面注释的那行取消注释即可。
    ===================================================================== */
 const CONFIG = {
-  bg: 'https://acrichly.dpdns.org/_locol_data/andy.webp',
+  bg: './andy.webp',
   historyMax: 8,
 };
 
 const ENGINES = [
   { key:'local',  name:'本站',     local:true, color:'linear-gradient(135deg,#ffce7a,#e8920f)', glyph:'⌂' },
-  // { key:'multi',  name:'综合搜索', url:'https://search.chongbuluo.com/?q=%s', color:'linear-gradient(135deg,#7aa2ff,#3b6fe0)', glyph:'🌐' },
+  // 综合搜索已移除（2026-08-26）
   { key:'baidu',  name:'百度',     url:'https://www.baidu.com/s?wd=%s',        color:'linear-gradient(135deg,#5b8cff,#2932e1)', glyph:'du' },
   { key:'bing',   name:'必应',     url:'https://cn.bing.com/search?q=%s',      color:'linear-gradient(135deg,#33c2a8,#00897b)', glyph:'b' },
   { key:'google', name:'Google',   url:'https://www.google.com/search?q=%s',   color:'linear-gradient(135deg,#6ea8ff,#4285f4)', glyph:'G' },
@@ -227,8 +227,13 @@ const read  = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d;
 const write = (k, v) => localStorage.setItem(k, JSON.stringify(v));
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-// 应用背景图（用 CSS 变量，方便统一控制遮罩层）
+// 应用背景图（CSS 变量控制）; 预加载失败时自动降级为纯色渐变
 document.body.style.setProperty('--bg-url', `url("${CONFIG.bg}")`);
+const bgImg = new Image();
+bgImg.onerror = () => {
+  document.body.style.background = 'linear-gradient(135deg, #1a1720 0%, #2e2532 50%, #1a1720 100%) fixed';
+};
+bgImg.src = CONFIG.bg;
 
 /* ---------------- 历史 ---------------- */
 function getHistory(){ return read(LS_HISTORY, []); }
@@ -251,13 +256,14 @@ function siteRoot(){
 function goLocal(value){
   if (jumpLocked) return;
   value = (value||'').trim(); if(!value) { qInput.focus(); return; }
-  // 规整输入：去首尾斜杠、折叠重复斜杠、只取第一段目录名（防 /xl/xl 这类死路径）
+  // 规整输入：去首尾斜杠、折叠重复斜杠。支持子目录（如 xl/vip）
   value = value.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
-  if (value.includes('/')) value = value.split('/')[0];
+  // 2016-08-26: 允许子目录路径 (如 xl/vip)，不再截断。跳转锁 + 3s 超时防重触发。
   if(!value) return;
   pushHistory(value);
   jumpLocked = true;
   qInput.disabled = true;
+  setTimeout(() => { jumpLocked = false; qInput.disabled = false; }, 3000); // 3s 后恢复，防反向回来永久灰掉
   if (value.includes('.')) {
     location.assign(siteRoot() + encodeURI(value));   // 域名/文件：原样跳转
   } else {
