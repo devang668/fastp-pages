@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第07讲 · 流程图与地图 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 07 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a class="active" href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第07讲 · 流程图与地图</h1>
+    <div class="abstract"><b>本讲概要：</b>本次课程专注于雅思写作系列中的数据类图表分析，特别强调了流程图和地图的处理方法，尽管这两类图表在考试中出现频率不高，但由于相关教学资源有限，常被考生忽视。讲师通过实例展示了如何分析和描述流程图，包括不同的分段方式和步骤合并技巧，强调了只需按照图表步骤逐一描述的简单性。在写作技巧方面，提供了丰富的例句和连接词，鼓励补充图表外的信息以提升文章质量，并在结尾段总结整个流程。最后，总结了流程图的关键词汇，鼓励课后练习。整堂课旨在帮助学员克服对流程图和地图的恐惧，通过正确的方法和技巧，将其转化为雅思写作中的优势。通过学习，学员将能够更加自信地面对考试中的此类题目。</div>
+    <div class="tip">本讲含 14 组问答精要，可到<a href="qa-07.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本次课程专注于雅思写作系列中的数据类图表分析，特别强调了流程图和地图的处理方法，尽管这两类图表在考试中出现频率不高，但由于相关教学资源有限，常被考生忽视。讲师通过实例展示了如何分析和描述流程图，包括不同的分段方式和步骤合并技巧，强调了只需按照图表步骤逐一描述的简单性。在写作技巧方面，提供了丰富的例句和连接词，鼓励补充图表外的信息以提升文章质量，并在结尾段总结整个流程。最后，总结了流程图的关键词汇，鼓励课后练习。整堂课旨在帮助学员克服对流程图和地图的恐惧，通过正确的方法和技巧，将其转化为雅思写作中的优势。通过学习，学员将能够更加自信地面对考试中的此类题目。</p>
+    <p>Hello, 各位同学，我是let's see。欢迎大家来到雅思写作系列课程。我们之前已经完成了小作文数据类图表的一个学习。今天我们将要开启新的单元，进入分数据类图表的部分。</p>
+    <p>在正式开始之前，我想先纠正大家的一个误区。有很多同学会跟我说，很怕在考试的时候会遇到这个流程图或者地图。甚至有些同学他真的就来问我说，老师我下一场考试，你觉得会不会遇到这个流程图？我到底要不要去准备？所以大家会一致觉得说流程图和地图它很难。其实恰恰相反，因为流程图和地图只是因为它考的频率很低，然后导致市面上一些课程一些资料相对来说比较少。为什么所有老师的授课重点没有放在这两类图表当中呢？恰恰是因为这类图表它非常的简单，而且它就是没有那么多的变化。</p>
+    <p>如果说一场考试你遇到流程图，那么会发现整个考试写作讲作用的分数很难有特别高的一个分值。因为我们不需要做任何的信息筛选，写的内容几乎是一样的。然后这个学生他经过了这个课程的一个训练，所以这类图表它不但不难。如果说你在考试当中遇到了，只要方法得当，那我认为是非常幸运的一件事情。</p>
+    <p>我们下面先来看一下流程图它都长什么样子，主要会分为以下两种，分别是左边的自然流程以及生产流程。自然流程主要讲的是某一个动物它可能分娩的一个过程，我们需要描述出整个的一个过程。然后右边生产流程，它主要是一个食品或者一些物品的一个加工。比如说巧克力的加工，橄榄油的加工，然后包括小熏鱼的制作等等等等。这么说来，雅思考试它其实也是一个吃货。</p>
+    <p>这幅图表为例，它其实讲的就是巧克力的一个制作过程。我们一起来看一下，比如说他就描述了这个巧克力，它从这个可可豆长在树上，成熟了之后，进行豆子烘干和晾晒之后，进入妆蛋袋装袋之后，这些袋装的巧克力豆被运送到了一个doctorate，运送到了一个工厂。在工厂这些巧克力豆进行了二次的烘焙，然后去壳之后被碾压成液体的巧克力，那这个就是整个巧克力的加工流程，那我们需要做什么呢？就是要描述出这个流程。我相信大家从小都看过一个小品，就是把大象装冰箱需要几步。我们要做的就是描述出整个的这样的一个过程。</p>
+    <p>然后我们关于这个流程图的一个要点，需要掌握哪些知识点呢？第一个就是关于流程图的分段方式，其实会有4种不同的分段方式。第一种情况就是图表当中已经给了已知的步骤，会或者说给了已知的一个阶段。我们来看一下这幅图为例，这幅图它讲的是玻璃瓶的一个制作。不难看出这里面有几个比较大的数字分别是什么？Uh date one, day two, easy date three. 应该是第一步、第二步、第三步，分别对应了这个玻璃瓶加工以及生产三个不同的阶段。那么我们就可以按照图表当中给出来的这个三个大步骤来进行分段，这是第一种形式。</p>
+    <p>好，第二种形式就是图表当中有多图。这个图表刚才已经给大家简单的解读过了，我们会发现它是有十个不同的图片组成的那我们要如何进行分段呢？很简单，我们找从中间进行一个拆分，然后进行一些步骤的合并即可。像这幅图，因为它刚好有十个步骤，我可以从中间来进行一个拆分。比如说我1到5为一个步骤，6到10为一个步骤。那这样的话就将这个图表进行了一个合理的分段，用1到5步进行合并，6到10步进行合并，然后来写出它整个的加工过程。</p>
+    <p>第三个就是我可以按照地点来进行分段。我们再去写流程图的时候，难免会遇到像右边这类的一个图表，它涉及到不同的加工地点。我们来看一下这幅图，我们很容易会看到的是像这个第一步、第二步和第三步，这三个步骤它是在地下进行的。然后第四步和第五步它是在地上进行了一些操作，所以我们可以按照他们的地点来进行分组。然后在这里面少了一幅图的一个情况，什么呢？就是如果说图表当中有2到35图，那么我们就是一图一段来给大家进行一个总结。</p>
+    <p>流程图的分段方式都有哪些？一当图表当中给了影视知的大步骤，或者给了已知的阶段，我们就要用已知的步骤。如果说图表当中有两道三幅图，那我们就一幅图一个步骤。如果图表当中有多图，我们需要进行按照自己的逻辑国际按照对于生活的一个常识，将这些图表进行一个合并。最后如果说图表当中有多个地点，我们要进行步骤的一个合并。那这一个部分就是我们将整个流程图的进行了结构的一个拆分，合理的进行分段。</p>
+    <p>接下来你要做一些什么事情呢？积分小步骤，我前面已经提到过了，为什么说流程图比较简单呢？并且看图也比较单一呢？就是所见即所得，每一个小的步骤都是不能够省略的，你只要把每一个步骤描述出来都可以。如果说你觉得某一个步骤你看不懂，或者是你想做一个删减，那你记得你T的分数一定定会被减分。所以注意每一步都是不可省略的这是关于分段的问题。</p>
+    <p>我们拿一幅图来给大家进行举例，我今天也会借着这幅图手把手的来教大家如何完成流程图的一个写作。这幅图它主要讲的是how can be recycled，就是罐头它被加工制作的一个过程。然后这幅图稍微有点模糊，我先来带大家解读一下。它一共会分为九个小步骤。</p>
+    <p>第一个步骤就是recycling回收，就贯的话它被回收了。第二步delivery就是被送到了，然后这里有一个地点，这个叫什么呢？Treatment center, 送到了一个处理中心。然后接下来第三步，它送到处理中心之后，它被清洗，被洗干净。洗干净之后，它又被加热，被一个heater，这个东西是一个叫做heater加热器来进行加热。加热之后，它又被送到了一个cooling system，来进行一个冷却冷却。</p>
+    <p>接下来，他北京进入一个金属加工的一个过程，叫metal processing。然后被一个什么东西处理呢？被一个叫做processor，叫处理器的这个东西所处理，然后第七步那就形成了这个金色罐头，金的罐头被送到了传送带上面。然后送到传送带上之后就可以怎么样feeling new can早被填充上经的一些食品或者是一些饮品，然后填充好之后，它就被送到了supermarket进行一个售卖。</p>
+    <p>这幅图表一共九部，我们从中间我们需要做一件什么事情呢？进行步骤的一个合并。它是一个偶数，很显然我们就不可能把它分的特别的平均了。所以我们的分段方式可以采取，比如说从中间拆分的话，就是4加5或者是5加4的形式都可以。比如说我采取的方式就是1 4加5的1个形式，1到4步我分为一组，六到不是5到9步，我分为一组。这就完成了这个流程图最重要的一个步骤，就是来进行工序的分段。接下来我就要做什么了，来明确一下这个流程图整体的节奏结构，我具体怎么写呢？</p>
+    <p>分完段之后，我要开始写这幅图表了。它整个的写作的结构与之前学过的这个数据类图表就是大同小异。我们要开头段introduction，对于原题目进行一个简单的改写。第三来主体段的部分分别写出两个阶段，然后各自包含了哪些小步骤。然后结尾段我们来进行一个概括总结。然后大家注意，为什么这个结尾段我放在了最后一步呢？就像我说的流程图和地图，它的综述段的信息非常的一个单一以及一致，所以不需要去做什么总结概括。因此大家可以把它放在最后一段也是可以的。</p>
+    <p>然后我们来看一下，先来看一下第一段进行题目的来解。流程图开头段的一个改写真的太简单了。比如说原题目它是show加上the process of展示了什么什么流程？How can be recycled？我就其实可以把这个名宾语从句的部分变成一个名词结构，变成什么呢？那么the profile of cans recycling描述出来这个cans它加工的一个过程，这个没有问题。</p>
+    <p>接下来我们来看写主体段，主体段无非就是要我们一一详细的描述出来，这幅图表当中到底涉及到了哪些小步骤。我们下面要教给大家一个公式，就是如何把这个单一的小步骤解出来？大家一定要记住这个公式，一个小小的一个口诀。我们的公式大致是这样的，就是一个什么材料，然后它发生了一个什么样的动作。因为是生产加工，所以这个往往是一个被动的一个语态，并且加上一个介词，最后再加上器具，也就是一个什么材料，它被一个什么器具所怎么样了，发生了一个什么样的动作。</p>
+    <p>有些同学认为流程组的难点在于什么呢？图表当中很多生词，我想说图表当中的生词真的不影响大家的一个写作。因为如果说图表上的生词是一个名词，我们直接抄下来即可。如果说它是一个动词，我们就直接在这个动词后面加ED就可以了。</p>
+    <p>然后与此同时，我们要注意每一个步骤动名词之间它们相互之间的一个转化。我来举个简单的例子，比如说第一幅图，我如何套用这个公式呢？它的公式它在上面只给了这样的一个词，叫做recycling效果回收。那么它发生的动作是什么呢？我就可以把它的动名词形式转换成动词，很显然，它就是被recycled。安全人，它是被recycle的，所以我们要注意这个动名词之间灵活的一个转化。</p>
+    <p>这样第二个动作也是同理。这一步它给出来的一个信息是这个词叫delivery。那么它发生的一个动作，它到底被怎么样了呢？很明显它被寄送了，或者说它被运输了。所以我把它转化成什么词呢？叫做delivered的。</p>
+    <p>好的，按照这样的一个小步骤，我们先来尝试写一下第一步和第二步。很简单，第一步直播材料肯定是这个罐头它发生的动作就是被recycled。因为从这幅图表当中，我看不出来到底是被谁所回收，所以我后面的句子和句句在这里可以进行省略。然后来看一下第二个步骤，对象或者说这个材料依然是can，它发生的动作就是deliver，被什么所运送呢？我们可以看到这里有一个货车或者说一个卡车，所以我可以加上相应的这些词一起去去一下buy a truck或者是buy a van to a treatment center。被送到了处理中心。这个就是第一步和第二步的一个写作。我们可以用后面的一些步骤来练习一下这个公式，来熟悉一下对于每一个单个小步骤的一个写作。</p>
+    <p>我们来看一下，如果流程图我们每一个小步骤都按照这个工序写，那真的有这么简单吗？是不是截起来非常的像一个流水账，那如何让我们的流程图看起来就不是那么的工序化，不是像一个说明书呢？我们有一个小小的一个秘诀，那高分的要点是什么呢？就是我们的两个小步骤要合并在一个长句子里面，就是基本上我们相邻的两个小步骤，我们用一个句子来写。</p>
+    <p>说到这里，张俊同学们都知道我接下来要做什么，给大家补充关于流程图部分必备的一些剧情了。我们要掌握哪些长记事呢？在这里给大家准备了五个不同的句型。</p>
+    <p>第一个句型就是我why就用where引导的一个定语从句。举个简单的例子，我们用这个相同的表达，用不同的句型来翻译一下这个相同的表达。我们今天准备的是这样的一个句子。巧克力会被转移到烤箱，被加热和变成液体。那么前面的这个动作我可以正常说，chocolate is then to the open，巧克力被转移到了烤箱。然后在这个烤箱当中我可以用where引导的定语从句来写where it is headed and turned into liquid。我就把这个前后的两个小步骤，用定层来进行一个衔接，这是第一个句型。</p>
+    <p>第二个句型我也可以用before或者是after加上分词的一个结构。分词结构无非就是doing的一个形式，就before或者是after加上doing，那我们可以怎么来写呢？首先chocolate extend to the open，前面经常说，然后在这之前，他在这之后，它被加热会变成液体，所以是before being hated in turn into所谓可以的那这个是关于第二个句型分子结构。</p>
+    <p>第三个句型我们要用的是after which引导的定语从句，这上面就是说看了一下after which引导的定语从句，也就是在原句的基础之上，我要加一个时间状语叫at the first day，在这个第一步或者是在这个第一阶段，在第一步巧克力被转移到了烤箱，after which在这之后it is headed and turned into liquid，它被加热并且变成了液体。好的，那这个句型我就写完了。然后接下来第四个，我可以用until once引导的状语从句，这个叫时间状语从句。那也就是我在前面的这个动作和后面的这个动作中间，用这个ANQ来进行连接。或者我也可以用once，就直到它被加热会变成液体，这个是第四个句型。</p>
+    <p>然后最后一个句型就是再简单不过了，我可以直接用，and因为他们有一个先后的这种顺序的关系，那我可以直接用and来进行连接。我就可以写说a chocolate is taken in the oven，然后the end turned into liquid。它被变成了这个液体。这个就是关于流程图必备的一些句型，然后我们下面就用这些句型来尝试合并一下这幅图表当中的两个小步骤。</p>
+    <p>我们来看一下像第一幅图，就第一步和第二步，我就选择了中间用and来进行连接。我说罐头被毁，说并且或者说之后，他被deliver to a trip treatment center，被送到了处理中心。这个是关于第一个小步骤的部分。后面的就是说这两两的一个小步骤，我就依然可以用刚才所学到的一个句型来对他进行一个合并处理。</p>
+    <p>大家可以也是暂停本页，用刚才的一个句型做一下句式的练习。来掌握一下这些不同的流程图的一个句式。时间关系我在这里就直接给大家写好了，我做了一个具体的分配。比如说每一个小步骤就是每一个合并后的小步骤，我都选择了用不同的这个句式来写。那我们可以看到什么呢？一共有九个步骤，我合并完之后会合并成五个长句子。刚刚好我给大家补充了五个必备的一个句型，所以这些句型我就能够逐一的就用到这个合并的句式当中。我既完成了步骤的描述，同时我又做了到了句型的多样OK那我们来看一下写完的句子分别是什么样子。</p>
+    <p>第一步我就不说了，用and来进行连接。第二步就是cans are clean by tap water before being heated by a heater。就是带这个弯头背加热之前，它备一个水龙头或者被自来水进行一个清洗，然后接下来用after或者是引导的一个是从句after metal is cooled by cold water in a cooling thief，it was precise the eye, a processor.</p>
+    <p>在这个罐头被冷水冷却之后，它被一个处理器来进行处理，那叫Edward precise by a processor。接下来均等一个句型，我用的是after which来进行简介。New kinds are placed on a conveyor belt, 新的罐头被送到了一个传送带上面，然后在这一步after which来进行剪辑，在这之后can are build，那在这之后这个罐头就被整满了。最后罐头被送到了超市，叫assign to supermarket。然后在这个超市我用where引导的定语从句，在这个超市当中，kinds are sold，就是这个罐头，它被进行了一个贩卖。</p>
+    <p>大家来看一下，我的每一个小步骤是不是都完整的用不同的句型写出来了。我们写完的作文就是这个样子。这个写完的作文可以作为我们最终的主体段吗？</p>
+    <p>大家观察一下，显然虽然说它步骤是完整了，但显然还是不可以的。为什么？因为它们句子与句子之间并没有一些连接。因为我们不光要满足贴的这个要求，就是内容的完整。除此之外我们要满足的是菲菲的一个要求，也就是句子与句子之间，我们要有相应的逻辑关系以及衔接手段。所以下面我就来给大家进行补充。关于流程图需要大家掌握哪些不同的前期手段，才能够让我们的整个流程图接下来看起来是富有条理，并且是层次分明。</p>
+    <p>我们先来看一下，第一种方式就再简单不过了，就是我要给大家总结一些介词短语或者是一些副词，就表示第一步，第二步比firstly a night等等等等这些词。第二种形式就是我可以用代词this加名词来进行一个连接。如果我说我发现两句话，他们的这个名词之间是相同的一个主语或者宾语，那么我们可以用代词来进行连接。第三我可以用的是过去分词加名词的一个形式。</p>
+    <p>最后一种就是关键词的重复。什么叫关键词的重复？它无非也是增加了两个句子之间的一个粘性。比如说罐头被送到了超市，were sent to the supermarket。然后我可以说什么？来重复一下这个supermarket，我说in the supermarket在那里就会超市can are sold，在这个超市罐头被进行了一个贩卖。这样一看是不是两句话之间它就看起来更加的有粘性。这个是四种方式，我们下面逐一来看。</p>
+    <p>第一种方式就是需要给大家补充的一些逻辑前期词。那么关于第一阶段或者是第一步，我们可以用哪些不同的表达呢？我们一起来看一下。第一步我们可以直接说at the first stage，the first step, the initial depth等等等等。然后或者the early the further，the initial phase, 这个叫做第一阶段。接下来上一阶段我们可以用的是at the next or second stage，enter or reach the navigation mark or represent the stage.</p>
+    <p>或者我们也可以直接说the notebook or the second face。这个face就是什么意思？它指的是阶段阶段的一个含义。然后最后的阶段我们可以怎么说，at the final stage或者是the final or last phase，最终的阶段。</p>
+    <p>最后我们来进行总结，就是overview概述段，我们会经常用到哪些表达呢？我们可以说go through or pass through thread stage。比如说整个的生产流程，它一共有三个阶段。Ok go through或者是pass through three stage，或者我们也可以说整个的生产流程包含了三个不同的阶段。就是consists of three digit。这个是关于第一种方式的一个介词短语或者是一些puts来进行连接。</p>
+    <p>我们来看第二种方式，也就是用到一些代词的部分，我们在第一种情况我们可以说完一个步骤。之后我们可以来补充说明一下目的。我们就可以说there's a lot of this enable blah blah to do，这么做是为了什么？比如did enable the can to be cool。这可以让这个罐头它就变得更加的凉。第二种形式我可以说at the point后面再加一个完整的句子，或者utterly在这一步之后，或者我们可以重复this，加上这个名词，不是这期的kinds又被售卖，this can are sold in the market等等等等。这些就是关于代词的方式，来进行你的全帧。</p>
+    <p>然后我们下面来做一个小小的练习，我们将来拿第一段为例，比如说原就原本写完的方式我已经放在这里了，我们可以加上这些不同的衔接手段，第一步我肯定说in the first stage，在第一个阶段，然后接下来can already recycled，and then就表示一个这种顺承的关系。And then deliver to a treatment center. 它被送到了一个处理中心，然后在这儿我进行了一个关键词的重复，就是in the treatment center。在这个处理中心当中，cans are clean by tap water can，那它被自来水左清洁before being hated by your heater。然后后面我们来补充了一个分词加名词的一个结构，这是and converted into metal，它被转化成了金属，也就是我给他加了一个并列的动作，因此是分词结构加名词。</p>
+    <p>所以第二段我们可以来进行一个简单的一个练习。大家依然可以暂停本就是本页的一个视频，然后自己要做一个这种逻辑词的一个填充。然后我们下面一起来看一下每一个空到底应该都贴什么。在断手他肯定要进行一个总结，对吧？因为无论是什么类的图表，我们一定要注意的就是段落结构的一个组织，一定这个总分结构。然后接下来很显然总分结构的话有概述性的就是这一句话了。The following depth are about metal processing.</p>
+    <p>接下来的步骤是关于金属的一个加工，那金属是如何加工的呢？Afternoon is cooled by cool water in cooling thumb. 然后接下来很显然就是一个eight，it is persist by a processor, 然后接下来and you to produce new can。接下来下一步被生产完新的罐头之后，含一下燃，你在就是最后一步。第三个就in the final stage，these new cans are placed on a conveyor belt. 在最后的一个阶段，这些罐头被放到了一个传送带上面，然后after which应该是they are用了一个代词，they are filled.</p>
+    <p>然后在这里我又进行了一个内容或者是信息的一个补充。这些罐头被填充了，它为什么填充？我在这里脑补了一下，拥有的常识可以填到6 filled with fruit filled or other contents，用这个水果或者一些食物或以及其他的一些填充物来进行一个填充。然后最后应该就是eventually最终kinds are sent to supermarket，被送到了一个超市，where they are thought.</p>
+    <p>那么这个整个的主体段我就填完了。那我们来看一下，我把它从上面没有任何衔接的一个方式，变成了下面的这个形式。就加上红色的部分都是我们添加的一些衔接手段。大家看一下是不是看起来就更加的有逻辑，衔接更加的紧密了？这是关于流程图主体段的一个写作，大家来看是不是非常的简单。</p>
+    <p>然后最后我们来看一下，在完成这些内容，并且已经会有逻辑的基础之上，我们如果说还想写的更加的加分或者是出台，我们需要补充哪些要点呢？我们可以对于这个流程图进行一些信息的补充。从如下三个不同的方式，第一种我们可以补充图表当中没有标注的部分，比如说图表当中没有标注的说这个罐头被什么填充了，它为什么填充呢？我们可以把这个间隙具体的给补充出来。</p>
+    <p>第二也就是最重要的一点，我们要去补充目的，就是让我们的这个流程图写的不是那么的生硬。我们可以从人的一个角度或者功能的一个角度来进行信息的补充。我们每做一步都可以在后面加上，那这一步到底是为了什么？所以说我们会使用很多的目的状语，就to do的一个形式，或者是这种in order。In order to do的一个形式，来表明这样去做的一个目的。</p>
+    <p>然后第三我们可以补充上一些修饰的成分。比如说我们还是拿刚才这幅图为例，说这个罐头被一个货车送到了一个treatment center。那那我们在这里是不是可以修饰一下这个图表当中的这个货车，它是一个什么样的货车。比如说它是一个big check，对吧？可以加上这个形状或者是大小等定语来进行信息的一个补充，然后增加这个内容的一个完整。最后我们来看一下关于流程图的结尾段，因为流程图的结尾段信息非常的固定，我们可以从如下三点当中三选2或者把它们都写出来。</p>
+    <p>一我们说整个的生产工具一共需要多少个步骤，我们要把它解出来。或者整个的生产加工流程当中，一共涉及到多少人力，或者是涉及到多少设备。如果我们能够看到的话，那我会用到以下的两个句型。比如说there are many people involved in making something，比如说in making can，或者有多少个设备被使用了。在这个数或者说某一个产品被生产出来之前，我可以说there are多少个size of equipment used before something extend，在某些事物做好之前用了多少个设备。</p>
+    <p>然后第三我可以说整个的生产流程，but from从哪一步开始，又从哪一步结束，我会用到这两个表达。Start from blah blah以及and in blah blah，就是从哪里开始，从哪里结束，我可以来进行一个我们拿这幅图做一个最终的失败。我们刚才说可以要写到说整个的生产的加工流程一共包含了几个步骤？我们会用这两个词来表达，就是sense of或者是be computed。Be computed把叫由什么什么组成，或者叫做什么包含，那我们的一个引导词依然是overall，总之the can recycling presides，它怎么样？Consists of包含了two digits，有两个大的阶段，and nine dead in total, 一共会有九个小步骤。它从哪里开始呢？It starts from recycling can，它从罐头的回收开始，and the and in以哪一步为结尾呢？And in delivering new can to supermarket.</p>
+    <p>这个就是关于流程图结尾段的一个写作，大家来看一下是不是非常的一个简单。大家备考的时候，其实就以这个生产流程图为主就可以了。因为自然流程其实很多年都没有考到过了，所以我们按照今天课上的一个知识点来进行一个任务的一个学习。最终我给大家补充一个关于流程图的一个要点，就是我们需要掌握哪些词汇。有些同学是说，我实在对流程图当中涉及到的一些词汇，什么一些名词有没有底。我把流程图常考到的一些动词在这里给大家进行了一个总结。</p>
+    <p>这一部分就是可以作为课下学习的一个任务，大家可以将本页截图或者在讲义当中自行的学习和背诵。Ok以上就是关于流程图部分全部的一个知识点了。同样今天的课程也给大家配有了课后流程图的一个练习。希望大家认真的听完本一节课之后，掌握所有的流程图的句式和表达之后，来完成我们今天的课后任务。好的，我们本节课的内容就先到这里了，我们下期再见。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-07.html">精讲逐字稿</a></li>
+      <li><a href="qa-07.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-06.html">上一讲 06</a></li>
+      <li><a href="lesson-08.html">下一讲 08</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

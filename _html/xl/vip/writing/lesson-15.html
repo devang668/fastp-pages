@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第15讲 · 辩论：广泛科目 vs 有限科目 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 15 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a class="active" href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第15讲 · 辩论：广泛科目 vs 有限科目</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次讨论中，强调了在“大一点的学生应该学习广泛科目还是有限科目”的辩论题型中，进行双边论述的重要性。提出观点指出，多学科学习能够提升技能、增加择业优势，而专注于少数科目能让人成为专家、在特定领域有深入理解。为了获得高分，需通过具体背景分析、使用深入论证方法（如少数与多数方法）和展示对问题的深度理解来区分自己的论述。最后，强调了清晰立场和深入讨论在论述类题型中的重要性，并鼓励学生在备考时注意提升分析能力和深度理解问题的能力。</div>
+    <div class="tip">本讲含 12 组问答精要，可到<a href="qa-15.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次讨论中，强调了在“大一点的学生应该学习广泛科目还是有限科目”的辩论题型中，进行双边论述的重要性。提出观点指出，多学科学习能够提升技能、增加择业优势，而专注于少数科目能让人成为专家、在特定领域有深入理解。为了获得高分，需通过具体背景分析、使用深入论证方法（如少数与多数方法）和展示对问题的深度理解来区分自己的论述。最后，强调了清晰立场和深入讨论在论述类题型中的重要性，并鼓励学生在备考时注意提升分析能力和深度理解问题的能力。</p>
+    <p>Hello, 各位同学大家好，我是lazy。我们今天继续来进行the guard论述类题型的练习，并且对于主体段的论述部分，我们来进行一个强化。我们先来看一下这个题目，这个题目说的是有人认为大一点的学生应该learn a wide range of subject，应该多折几颗，while other people think they should only learn a number of subjects in detail. 我们需要做的就是双边的来讨论这两个观点，并且给出自己的一个观点。</p>
+    <p>我们先来看一下这道题目，它的题目非常的简单，我相信大部分同学都应该能够列出来。这两个逻辑链无非就是讨论我们要进行多个学科的学习，还是说只学有限的科目，就多而广还是少而精这样的一个选择。我们对于这个话题，已经在练的部分给大家讲过相应的逻辑链。所以我觉得第一步我们这个写观点的部分应该不会难到大家。</p>
+    <p>我们再来看一下各自的观点。第一条，学习不同的科目，可以提升更多的技能。那么提高了我们的一个comprehension ability之后，更加的有助于我们之后的一个择业。第二条我们要写的是，如果说关注某些科目的话，我们会增加对于这些科目的认识，并且成为专家。</p>
+    <p>这两条逻辑链我相信没有什么难度，那重点在于什么呢？如此简单一个观点，我们要如何进行论证呢？大家记得有的时候越是简单的一个题目，我们越是往往难以拿到一个高分。为什么？因为这个观点就是这些通识的事情大家都能讲到，你能想到的点别人也能想到。那你如何要做到一个脱颖而出呢？除非你能够有很好的词汇，或者说这个语语的一个展现。</p>
+    <p>在此基础之上，我们还要有什么？就是深度的一个讨论观点的一个能力。之前我们在第一节课给大家讲到主体段的时候，我有说过如果说想追求一个高分，或者想要在此基础之上润色自己的主体段的同学，可以多加用背景句的一个方式，多用背景的一个方式来论证自己的一个观点。那我们这节课就拿着这道习题来给大家做一个具体的讲解。</p>
+    <p>那什么叫做背景句呢？无非就是你来特定化你的观点的条件和人群，我把这个地方写在这里，比如说你要特定化。特定化人物以及条件什么意思呢？你的论点在一个什么样的条件下是尤其合理的？它是处于一个什么样的社会背景才更加的合理？或者你的这论点针对哪些人来说会更加的合理？相信针对这个论点大部分的同学都能够想到。</p>
+    <p>比如说我可以将这个题目当中的一些抽象的名词进行一个具体的举例。比如说我就把这个科目具体化以及技能具体化。我来讨论的是学习什么样的科目，我会学到什么样的技能。</p>
+    <p>如果说我们仅仅来进行这样的一个论证，那很难拿到一个六分以上的一个分数。所以在这里我们要从背景的一个角度上来进行一个讨论。背景我给大家提供了五个不同的方面，分别是什么呢？唯一性、范围、合理性、重要性以及排他性。我们可以从这五个角度，其中挑一个角度或者是两个角度来深化一下这个论点。</p>
+    <p>我先举个简单的例子，比如说针对这道题，我可不可以从重要性的一个角度来讨论一下它的背景呢？就是基于一个什么样的背景，大家思考一下我这个问题，基于什么样的一个背景条件。你有不同的专业知识，就是你有不同的技能，对于择业很重要。那我相信大部分同学就能想到了，对吧？因为这两年岗位竞争非常的一个激烈，对吧？Hear competition in the workplace, 有很多人都面临着找工作的一个问题。我们明显发现这几年找工作比前几年更难了，对吧？</p>
+    <p>因为现在的这个社会就是很卷，所以企业都会想要压缩成本，需要人们有多项技能。就比如说一个企业老板，他花3000块钱让你去当一个销售，他肯定不愿意。就是你只打电话，他还希望你能够去处理一些别的事情，叫物尽其用，对吧？所以说有各种丰富的不同的一个技能，才能让你在竞选或申请一份工作的时候脱颖而出。这个就是背景的一个角度。OK.</p>
+    <p>接下来第二个问题，也就是针对什么范围或针对哪些人来说，大家思考一下，什么样的人他才适合学习不同的科目，才能更加的容易找到工作呢？就拿我自己来举例子，我因为我像我自己，我的学生很多都是大学生，那可能才大一大二。很多同学在大一大二的时候，他们就同时做好几件事情。比如说他们一边准备考研，然后一边准备着雅思，甚至有一些同学还准备着国考的一个考试。那大家思考一下，为什么他们会这样去做呢？</p>
+    <p>这么样的做的一个原因到底是什么？无非就是什么呢？是最显著的一个原因是什么？他们不知道自己未来的一个职业走向。要很多同学在大一大二的时候，甚至上大学的时候，是不知道自己未来的从事了什么样的一个工作的。对于未来也没有一个clear idea明确的一个plan。所以我们只能够什么都学，才能够在未来有更多的一个机会，对吧？所以这就是从两个背景的一个角度来论证了一下这个观点，是不是让这个观点看起来更加的合理了？</p>
+    <p>然后下面的部分就是举例了，举例这个部分我觉得很简单，无非就是你学什么科目可以提高你什么样的一个技能。比如说我在这里给你举例了，学习数学还可以提高你的一个这种数字的一个能力。那学习语言可以提高你的一个语言表达能力。后面我们可以再具体论证，有了这些能力，你可能更适合从事什么样的一个工作。除此之外，在这一段我们要进行一个对比论证。因为之前我在主体段论证的时候，我铺垫过什么样的题型适合对比论证呢？也就题目当中出现了对比对象或者是论出来的题目的时候，我们一定要将这个主体段的部分进行一个对比论证。也就是我论证完学多学几科的好处之后，我可以再进一步的论证一下。</p>
+    <p>如果说只学有限的几个科目会有什么不好？那很简单，如果说你学有限的专业，有限的科目，那么以后就转业是比较难的。同时你只会做一件事情，你也没有办法去从事一些multiple pin，就是一件复合型任务的工作。这个就是我对于这一段的一个拓展。</p>
+    <p>接下来这一段我可以怎么去写呢？给大家做一个小小的示范。首先我的topic sentence依然是一个ACB的一个结构，也就是多学习科二可以help the people acquire different guilt。这个就是可以让你们获得更多技能，并且让他们在未来的职业选择当中处于一个有利的位置。处于一个有利的位置叫特in an advance position，处于一个非常有优势的一个位置。然后接下来主体端的部分，我要把我刚才的这些解释的部分，通通以英文的形式英文的方式呈现出来。</p>
+    <p>OK我们来看一下具体怎么解，一方面我要来从背景的一个角度来进行解释，也就是有多项技能的人在这个就业市场上是更加受欢迎的。所以是拥有多项技能在这里用的是什么表达呢？Be equipped with the vert gill are more popular in today's job market.</p>
+    <p>那现在的job market是怎么样的呢？这个就是交大的一个背景。因为公司会希望员工去处理多种工作，才能够cut the Operational cut，减少这种人力资源的成本。这个是第一个背景的一个角度，为什么有多项技能对于你去找工非常的重要。</p>
+    <p>接下来另外的一个角度，也就是另外的一个背景了，有多项技能对于哪些学生群体来讲是尤其有注意的呢？也就是不知道未来要做什么？我把它写出来。Having the knowledge of different this point, 有不同学科知识的一些技能，可以benefit student，可以对于学生有好处。什么样的学生who have no idea what career they will probably pursue in the future。他们并不知道未来自己要从事或者要追求一个什么样的事业，那么他就要多学几科by offering them more option，因为给他们提供了更多的选择。然后接下来我要进行一个举例了，到底多学几科可以给人们提供什么样的职业选择呢？</p>
+    <p>举例论证的部分。For intent, mathematics can hit the numeracy. 可以提提高他们的一个算术能力。那么这个能力对于哪些工作很有帮助呢？比如说engineer，对于从事一些工程师，a researcher account，比如说一些会计and other profession，那对于这些职业来说，这些地方的一个能力就必不可少的了。</p>
+    <p>另外我举的一个例子，就是学习语言的一个例子。Where language that is can improve children community. 语言的学习可以提高人们的一个交流的一个技能，那这个技能对于什么工作很重要呢？Which are important to some service job, 也就是一些服务型的行业，这个语言人际沟通，这是一个必不可少的一个soft skill了。</p>
+    <p>然后我们最后来进行一个对比论证，也就是我来说一下多只学一科或者只觉有限的科目会有什么样的缺点。我说people could focus on two or three subjects，find IT difficult to make real change, since they can not fix into a new position easily。就是他们很难做一个这种工作的一个转变。因为他们的技能不够，很难去适应一个新的工作岗位。They also have a limited product for promotion。他们晋升的一个前景也非常的一个有限了。为什么？因为他们有限的这个技能，due to the limited就OK。</p>
+    <p>那我们来看一下如何叫做我们解释观点能力的一个提升呢？大部分同学都只能看到表面的一些事情，比如说学什么技学什么科目可以获得什么样的技能。但是你的讨论从社会的一个背景的角度，你讨论到的竞争的激烈。同时你也考虑到了人们现在大学生就业的一些现状。比如说人们的一个自我认知不清晰，或者对于自己的一个职业规划不明确这样的一个问题。那就能够让你让你的作文在所有的同学的作文当中是不是就脱颖而出了。那用这样的方法，我们再来练习一下这篇文章body to第二个主体段的部分，也就是关注某些科目，可以让我们增加对某一项科目的认识，并且成为该行业的一个专家。</p>
+    <p>我们依然可以从这五个不同的背景的一个角度来进行一个构思。比如说我可不可以从人的一个角度，这个是最好论证的了。就是大家来思考一下这个问题，什么样的学生适合多学有限的科目呢？都有哪些学生他们需要去花时间在某一些科目上呢？</p>
+    <p>我觉得第一点就是有些人很早就知道了自己的未来的一个职业追求。比如说有些人很早就知道自己要去当一个运动员，那他可能就会把更多的注意力放在他未来的职业的训练上面。那对于学业知识方面，他可能就会不是那么的重视。有些同学可能知道我未来要走的是一个艺术的路线，那他肯定要分配他的一个精力，放更多的一个时间精力在这个艺考上面对吧？所以如果说有些学生他很早就知道自己在某一个方面有天赋，就知道了他未来要做什么。这些学生那你当然也就可以有着清晰的一个明确的一个目标，关注某些科目了。然后同时为什么有些人他还是关注某些科目，他即使没有这些非常cleared idea for future。</p>
+    <p>因为我觉得针对大部分的学生而言，大家的一个时间精力其实都是非常的一个有限的。像我们中国的一些学生，我们从小就是九门功课样样都学。但为什么到高中我们要文理分科，到大学我们要去选专业呢？因为随着知识的难度就不断的提升，我们的一个经历也很难的。所有的科目？尤其大部分的同学学习的时间非常的有限，或者有些人学习能力是不够的，很难就是说面面俱到，就是我门门九门功课样样行，我觉得这样的人很少，所以一定要到可能高中的时候进行一个文理分科。让我们把重点关注在以后自己职业相关的一些科目上面。</p>
+    <p>这个是从范围的一个角度。另外我们也可以从重要性的一个角度，就是为什么关注某些科目成为专家，这件事情很重要。这是基于一个什么样的背景，或者说为什么成为专家或者说会有专家非常的重要，那是什么？因为我觉得这个社会是需要专家，也只有专家才能解决一些complicated question，他们才能解决一些实际的复杂性的工作任务。</p>
+    <p>我举一个简单的例子，还是拿一这期间来举例对吧？那疫情期间的时候，我们是不是只有那种专家，他才能够去有这个能力去研发疫苗，或者是进行核酸检测的这种研发。那不不可能说仅仅从事这种医疗，一些学生，一些护士，一些医生就可以做这些事情，对吧？所以需要一个非常专业性的一个顶尖人才才能去做这件事情。这就是为什么社会对于顶尖人才的一个需求，需要有些人深耕于某一个领域，另外深耕于某一个领域，它本身就需要时间，对吧？专业的能力本身就需要时间才能学会。因为成为专家，他就需要长期的一个耕耘，可能长达数年甚至数十年的一个内容的一个研发，所以需要时间才能学会。也这就是为什么只有关注某些科目才能成为专加。</p>
+    <p>我可以从如下的这三个角度，对于这个论点来进的一个讨论。OK. 下面我们来看一下针对这一段具体的一个示范。</p>
+    <p>另一方面也就是有些人他会更认可学生应该去关注2到3个有限的科目。那为什么呢？因为这样做学生可以depend there and standing of a profession。这个明显，这个topic center它就是一个ABC的一个结构，按顺序来写的，可以加深对于一个专业或对于一个科目的一个理解，并且成为专家，这尤其合理，and able considering that这尤其针对哪些人呢？</p>
+    <p>也就是特定化的一个人物，针对哪些学生呢？他do not have time and cognitive ild。没有一些有限的时间和这种通识的一个能力to handle a numerous subject at the time。不是很多学生都能够同时把很多科目的内容都能学得好。另外尤其还针对哪些学生呢和realize their talent from a Young age。</p>
+    <p>有些学生很早就意识到了自己的一个天赋所在。就在自己很年纪很小的时候，就意识到了自己在某一个方面是有天赋的。然后。For this, people can create their attention on their career related subject of the Better option.</p>
+    <p>针对这些已经有着明确职业规划的学生来讲，他们更适合的是专注于他们擅长的一个领域，专注于他们职业相关的一个科目。这是一个更好的一个选择。为什么？原因就是因为IT take time to build expert，需要花费时间才能形成这个专业。</p>
+    <p>这个成为专家或者说长期耕耘，它包含一个什么样的过程呢？它包括了practice reading and trading，需要长期的练习阅读以及大量的一个训练。然后另外当人们有了，就通过这些积累，成为了一个专家。有了很强的专业知识之后，with their special knowledge有了这些技能之后，they can stop more complex issue。他们可以解决更加复杂的一些问题in the workplace and gain some competitive advantage。他们可以获得一些更加竞更有竞争的一个优势。这个就是对于body two的一个写作。</p>
+    <p>好的，然后我们下面来看一下结尾段的部分，也就是我们的个人观点。这个题无非我们还是要进行一个深度的一个讨论了。很明显它不可能共存对吧？因为这两件事儿它是矛盾的，你多学还是少学这两件事儿是矛盾的。所以我们还是要给出一个清晰的一个立场，那我们就可以怎么样去讨论呢？</p>
+    <p>既然是强化强弱化弱的一个解法，我们是不是可以通过我们在上一节课给大家讲过的三种深度讨论的方法了。分别是什么？短期、长期、少数、多数以及偶尔经常。</p>
+    <p>那么这个题我认为比较适合用的一个方法就是少数和多数。我可以这样去说，我说针对一些就在某些天赋某些方面有天赋的同学，那么他就适合去深耕于他未来想要从事的一个领域。针对大部分的同学来讲，还是要多学几科才能够有利于未来自己的一个职业发展。大家来看一下是不是很合理。因为从政治的一个角度来讲，大部分都是普通人，天才往往不常见。所以我们可以通过少数多数的一个方法来进行一个深度的一个论证。我的观点就是in my view，but majority of student针对大部分的同学来讲，attending a wearing of lesson is a Better option。多学几科，很显然是一个更好的一个选择。</p>
+    <p>Although for the children who are fully aware their own talent, 对于那些已经完全的意识到了他们对于某一个领域或者对某一个科目有着极强的天赋的人来说，focusing some relevant subject is acceptable。对于他们而言，他们应该去专注于相关的一些有限的科目。大家来看一下，我在主体段的部分进行了一个非常充分的一个解释论证。展现出来了我什么呢？透过现象看本质的一个能力。所以大家来看雅思写作，有些人他甚至就不去备考，因为他觉得很简单，你要说简单它也简单，无非就是你的论点，你的论述能够自圆其说就可以。但是你要说难，我觉得也很难。同样的一个论点，我们各自看到的深度，我们看到的理解都是不一样的。那你要增加你的这个论点的深刻度。所以这就是大家以后练习和学习的一个方向。OK这个就是关于论述类题型的练习讲解了，我们下次课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-15.html">精讲逐字稿</a></li>
+      <li><a href="qa-15.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-14.html">上一讲 14</a></li>
+      <li><a href="lesson-16.html">下一讲 16</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

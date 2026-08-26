@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第06讲 · 双镜图（双图）题目 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 06 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a class="active" href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第06讲 · 双镜图（双图）题目</h1>
+    <div class="abstract"><b>本讲概要：</b>讲师在对话中解释了分析和写作涉及两个图表，尤其是双镜图题目的方法。她首先指出双镜图的复杂性常让学生感到困惑，并通过具体例子展示了如何分析两幅图表的描述对象、单位和时态的一致性。讲师强调了分析图表时要关注单位、时态、描述对象及图表间的关系，并提供了分析和写作图表内容的步骤，包括明确标题、图表类型、概述整体情况和具体数值分析。她特别强调在主体段落中如何分段并分析每个图表的关键信息，包括百分比的表达方式和通过比较得出结论的方法。最后，讲师鼓励听众进行相关练习，并期待在下节课见到大家。</div>
+    <div class="tip">本讲含 6 组问答精要，可到<a href="qa-06.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>讲师在对话中解释了分析和写作涉及两个图表，尤其是双镜图题目的方法。她首先指出双镜图的复杂性常让学生感到困惑，并通过具体例子展示了如何分析两幅图表的描述对象、单位和时态的一致性。讲师强调了分析图表时要关注单位、时态、描述对象及图表间的关系，并提供了分析和写作图表内容的步骤，包括明确标题、图表类型、概述整体情况和具体数值分析。她特别强调在主体段落中如何分段并分析每个图表的关键信息，包括百分比的表达方式和通过比较得出结论的方法。最后，讲师鼓励听众进行相关练习，并期待在下节课见到大家。</p>
+    <p>Hello, 各位同学，我是lexie。下面我们将继续进入到小作文双镜图的学习。有些同学听到这个名称就已经非常的头疼了。因为光一个静态图的单图就已经是让我们的看图部分就摸不着头脑了。那如果双镜除要如何去写呢？今天就来给大家进行一个见面。</p>
+    <p>我们拿这幅图表为例，先来看一下老规矩，看一下这个图表分别各自它都描述了什么样的内容，也就是它们的描述对象是什么。第一幅图表相对来说比较简单，它主要讲的是the main reason，主要的一个原因，什么的原因呢？为什么什么这个土地变得led productive，为什么这个土地退化了？讲的是土地退化的原因。第二个是一个table，它描述的是how the clouded affected three regions of the world。也就是这三个土地退化的原因，对于世界上三个不同的地区，他们影响了多少。这是两个图表的描述对象。</p>
+    <p>接下来我们来看一下这个两幅图表的一个单位是否一致？既然左边这幅图它是一个柄图，涉及到的是具体的百分比。右边我们也可以看到，它的单位也是土地退化的这个百分比，所以他依然用这个百分比作为一个单位。比如说像这个图表里面的0.2就意味着什么呢？在这个北美地区，比如说有100公顷的一个土地，那么就有0.2公顷的diversity造成的土地退化，是这样的一个单位。</p>
+    <p>然后接下来第三个问题，两幅图表的时态是否一致呢？这个图表其实给大家埋了一个比较大的坑。我们在看图的时候很容易受到这个时间的一个影响。我们会发现题干里面有一个单一的时间叫1990。然后我们会认为两幅图表它都是一般过去式的一个时态，真的是这样吗？</p>
+    <p>我们来仔细看一下第一幅图。第一幅图它的标题它在这里有个词就是become，说为什么土地变得let productive become它是一个一般现在时，说明左边这个丙图它其实我们需要用的什么时态，一般现在式的一个时态。而第二幅就这个table表格图，我们需要用到的是一般过去的损失的一个时态。这个是时态上面要给大家设置的一个障碍。</p>
+    <p>然后这两幅图表的标题我们都看懂了，然后我们来看一下就是要如何去分析它并且进行一个舌头？我们先来看一下，应该是先写一个它的标题。它的题目改写的部分我认为还是比较简单的，也就是将这个原题目分别进行一个改写。在这里也是给大家选取了一个版本的一个改写，非常的简单。我们就简单来说一下它的intro部分。我们要把这个图表的类型具体化，可以直接照抄the pet chart，然后illustrates，我们可以改成shows或者是electric保持不变。另外the various reasons不同的一个原因，我可以改成the major council，然后agricultural line degradation，我变成了line degradation in the world。</p>
+    <p>接下来第二幅图表，我也是直接把这个table进行一个改写，把这个demonstrate or compared or这个show，然后改成了直接是compare。另外the percentage of land degradation改成了the effect of the code on the particular parts of the world。这个就是对于table的一个改写，这个部分非常简单，我就不过多的去赘述了。</p>
+    <p>下面我们来看一下这部图的一个概述段，就是综述段我们要怎么去写。我们分别要去概括出来丙图整体的一个情况，以及表格图它的一个要点。同时记得我说的双图题，我们要取消思考一下两幅图表到底有一个什么样的内在联系。我们要嫁接起来两个图表之间的一个桥梁的信息。</p>
+    <p>我们先来看一下，对于丙图来说就很好办了，它一共有12三四个造成土地退化的因素，那我们就可以挑里面的一些要点之类的。比如说最大值，我可以说哪一个原因影响全球土地退化，它是最大的那显而易见，是这个overgrazing过度的放牧造成了土地的一个退化。同时我也可以选择比如说挑两个或者挑三个数值来说，因为我会觉得这三个值它整体都很大，或者我也可以说过度放牧和对于分离的一个砍伐，然后对于全球体土地的退化影响是比较大的这都是可以的。</p>
+    <p>然后接下来关于表格的一个概述。既然要写概述段，我肯定要将这个table的图表来进行一个有趣的分组。注意一下，这幅图表它多了一列，叫做什么呢？Total land graded, 就是整体的这个土地退化的一个百分比，也就是在北美到底一共有多少的百分比的土地退化，在欧洲有多少的土地百分比的一个退化。我要把这个信息也要走在概述段里，所以我要采取一个特殊的分组方式，你像这幅图表会怎么去分呢？</p>
+    <p>我们肉眼可见看到这个表格有什么样的特点？我会发现整体应该是下面的两个国家，也就是europe europe and australia，欧洲和大洋洲这两个国家受到了土地退化的影响是最大的。就是在他们的各个原因的一个影响上，整体也要比这个not america，比北美要大一些，所以我可以按照这个国家来进行一个奔，尤其是既然全球影响了一个原因主要是过度放牧和过度的砍伐。那么我可以思考一下，这两个原因对于这三个地区的哪一个或者哪一些地区影响是更大一些的呢？我可以把它写出来，也就是我要在这个整体和局部之间长找到这样的一个包含的逻辑关系。显而易见，我会发现对于欧洲和大洋洲影响的是整体大一些的，所以我可以把这个信息也体现在这个overview概述段当中。下面我们一起来完成一下概述段的一个写作。</p>
+    <p>我要首先写出这个饼图拍叉当中的一个要点，所以是overall，over breathing and deforestation lead to more line degradation than other causes. 过度的报幕以及这个森林的一个砍伐。对于土地退化的一个影响比其他因素的影响要大一些，这是对于丙图要点的一个概述。然后接下来and they也就是我体现出来了这样的一个包含的关系。They就指的是这两个因素，这两个因素对于哪些国家或地区影响会更大一些呢？They attacked europe and oceania, more than not america. 这两个因素对于欧洲和大洋洲的一个局部地区的一个影响，比北美要大一些。那么这个是overview概述段的一个写作。</p>
+    <p>接下来我们来看一下主体段，主体段的部分的分段方式依然是一图一段，所以我们要逐一的分析这两幅图里面有哪些主要的信息。我们首先再来看一下拍叉的，拍叉里面的信息本身就很少，它只有四个具体的数值。所以我的建议就是我们也没有必要去进行任何的一个省略了，一共就折叠值，我们要都把它们解出来，我们分别解出来，四个不同的因素就是这个3加1，四个不同的因素对于全球土地退化的一个影响的百分比到底是多少。</p>
+    <p>然后关于table的部分，在这里我刚才强调的一个特点就是什么？它有这个total就整体的一个百分比。大家记得总值就是整体的百分比我们都要去写。或者有一些图表里有一个叫做average这样一个平均值，那我们也要把它们都写出来。我们就可以先来写这个整体整体地区的一个百分比，它们的一个数值比较是多少。</p>
+    <p>然后另外我们要在每一列当中挑选一些要点的数值，对吧？我当时说了每一列当中我们要比较的是三个国家，他们的最大值、最小值。比如说像这幅图，受到就是第一列我要觉得9.809.8和0.2，然后第二列我可以选什么样的值呢？7.7和这个oceanic 0。</p>
+    <p>大家注意，如果一个图表当中有一个数据是零或接近零或者1%这样的数值，它也算是一个很重要的数值。比如说有一些图表我们需要分析的是什么犯罪的原因，或者是犯罪率等等等等。如果有一个地区它的什么犯罪率是零，那也是需要写进去的。然后第三列我要求的是最大值以及最小值，以及最后一列全部的数值，我可以把它们都写进去。</p>
+    <p>下面我们就来逐一的看一下body one的一个写作。首先body one就比较好写了。我说整体来看，65%的土地退化是由于过多的animal breeding and trade clearing，那在这里大家看一下，我用了一个什么呢？同义词替换的一个形式，分别替换了什么呢？我用animal breathing替换了over breathing，因为本身它们都是动物的一个谤木。然后接下来deforestation，就是森林的一个砍伐，用了这个词叫tree可clearance，同义词替换，然后constitute constituting thirty five percent in thirty percent respectively。对于这个respectively，上一次我讲了它的一个用法，它就可以指什么数据的一个罗列，这两个数值分别是多少？这个是丙图当中，就是排第位和排第二位的这个数值。</p>
+    <p>然后接下来继续，我要写排名第三的网，我说a further twenty eight percent of global big radiation is due to overpopulation of proud。另外的一个全球退化的一个原因，有28%的，这个原因是由于什么呢？由于过度的一个耕种，就对于农作物过度的一个耕种。</p>
+    <p>然后最后关于这个最小值的一个写作。Other causes account for only seven percent, collectively. 就是其他因素造成的土地退化，一共占了7%。</p>
+    <p>那么在这幅图标里面非需要大家熟悉的是什么呢？百分比的一个表示对吧？那在这里你看我们可以用不同的方式体现出来百分比，比如说constitute或者是account for。之前也给大家补充了很多关于百分比的表达，比如说有哪家be responsible for。然后包括account for等等等等，这些都可以表达这个占比。</p>
+    <p>今天接下来我们来看一下body two的部分，也就是第二段我们对于这个表格图的一个写作。我刚才说了我们是先整体，然后再写的是局部，所以我们要坚信。The percentage of total line degraded in europe were the luggage.</p>
+    <p>我们会发现在这个欧洲国家，它的一个土地退化的一个百分比是最高的。具体是多少？23%。</p>
+    <p>然后在这一列当中我会发现它有一个什么，所以就有一个倍数的一个关系，就23%和13%，他们有一个性质与二倍的一个关系，所以我们可以把它写出来。当然了，如果一个图表它可能涉及到了什么八倍、九倍，那就没必要写了。但如果说什么二倍、三倍，我们还是可以把它这个倍数关系体现出来的。所以我用一个which引导的非限定性的定语从句来进行一个补充。Which was nearly twelve at large at that in ocean.</p>
+    <p>然后接下来by contract，通过对比对比，在这个bei mai aunt north amErica had only five percent of land degraded in total在北美只有5%的土地退化。这一部分我写的是整体的一个信息，然后接下来我就要写了每一个土地退化的一个因素，对于不同的地区他们到底是造成了多大的一个影响。我要把一些要点的值写出来。</p>
+    <p>首先我要从第一列开始，怎样d for retention，我说deforestation caused more land degradation in europe than australia and north america。我会发现在第一列就是森林的砍伐，这个因素对于欧洲的一个影响是最大的，远远要大于大洋洲以及北美它他的一个森林砍伐造成的退化。所以我要用一个比较级的一个句式把这个信息写出来。</p>
+    <p>然后接下来对于第二列，我也可以看到一个相似的一个情况，对吧？那我说了列与列的一个切换，我们肯定是要用一个衔接手段的那在这里我用的是similar pattern。我说这种情况就是这种就是欧洲最大，另外两个地区最小的一个情况was similar in terms of，就这个过度耕种而言也是一样的。</p>
+    <p>那这一列具体情况是怎么样的呢？我要写出最大值以及最小值。我就说在欧洲7.7%的这个土地退化是由于过度的一个更正。但是就这个地方我就是可以把这个数字切换成一个相对来说文字性的一个表达。我可以就不写说这个数字是零儿，是zero，我可以写什么？But this freedom, 这个原因did not adopt oceania at all，并没有对于大洋洲地区产生任何的一个影响。这是对于第二列的一个信息的一个写法。</p>
+    <p>然后接下来最后一列，就是over breathing过度的一个放牧。那我要挑选哪些值呢？我就可以要天然气的一个最大值以及最小值。这一列当中我们会发现，就呈现出来了一个不同的一个情况。什么呢？前面的两列这个大洋洲它都是非常小的一个值。但是在第三列当中，这个ocean它就是占的这个百分比是最高的，所以出现了一个不同的情况，那我要怎么去衔接呢？我用的是conversely来进行衔接。</p>
+    <p>我说在这个过度的放牧方面，大洋洲是怎么样的？有13%的土地是由于过度的放牧，well与北美就形成了一个森林的对比。While only一点儿500分之1.5的这个土地in north amErica was caused by too much animal grazing。也就是在这一列我挑选出来了最大值以及最小值。</p>
+    <p>所以我们来概括一下这个表格图看起来就是很复杂，但实际上还是按照我们之前对于静态图的一个分析，对吧？我们要将每一列的值进行一个大小的比较，那我们要挑选什么样的值呢？最大值、最小值，或者你观察一下这一列当中有没有这种最大的差值。像这幅图的话就没有必要写成最大差值了，因为都是这种小数点，然后就是不要去让考官做这种计算或者做减法。或者是有没有哪个值它们是相似的，或者是有着这种倍数的关系，我们也可以把它写出来。这个就是关于body two的一个写作。然后关于双镜图的部分我也给大家布置了相应的练习。大家可以观察完观看完今天的这个视频之后，来完成这个双镜图的一个写作。以上就是我们双图题的部分，我们下节课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-06.html">精讲逐字稿</a></li>
+      <li><a href="qa-06.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-05.html">上一讲 05</a></li>
+      <li><a href="lesson-07.html">下一讲 07</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

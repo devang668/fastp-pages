@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第16讲 · 报告类题型（原因-解决方案） · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 16 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a class="active" href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第16讲 · 报告类题型（原因-解决方案）</h1>
+    <div class="abstract"><b>本讲概要：</b>报告类雅思写作题目要求考生对社会现象进行原因分析并提出解决方案，不同于观点类题目的主观论述。此类题目要求客观、合理地分析原因，并提供切实可行的方案，强调报告结构的重要性，包括题目改写、内容预告（详细型或笼统型）。难点在于全面、客观地探讨原因，避免主观偏见或局限性。讲师通过具体例子和范文展示了如何构思原因和解决方案，强调内容总结和逻辑清晰性。为了应对报告类题目，考生需充分准备，了解潜在话题，以提升考场表现。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>报告类题型的主要特征是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>报告类题型最显著的特征是题目中出现“two questions”的双问结构，涉及两个不同问题的组合。第一个问题通常询问事件发生的原因（why has this happened？），第二个问题则要求提供解决方案（how to solve IT）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>报告类题型中有哪些常见的组合形式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>报告类题型还包括三种不同的组合形式。第一种是先问原因，后问解决方案；第二种是原因之后问影响，而非解决方案；第三种是虽然问的是原因和影响，但结尾处却要求给出解决该问题的方法，而这个问题并未明确表示是积极还是消极的发展。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何为报告类题型设计合适的写作结构或框架？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>报告类题型可以采用四段式或五段式结构，取决于原因讨论的充分程度。开头段进行题目改写并预告主体部分内容；主体段中，body one和body two分别讨论两个不同的原因，body three给出相应的解决方案，通常需要给出两个不同的解决方案；结尾段总结主体段的核心内容。</p></div>
+    </details>
+    <details class="qa">
+      <summary>报告类题型开头段的撰写要点有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>开头段不论何种题目类型都应进行改写题目，但报告类题型在此基础上还需进行笼统型或详细型的预告，即简要总结主体段将要讨论的原因及可能采取的解决方案，确保内容的一致性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>报告类题型与观点类题型的主要区别是什么？报告类题型在主体段的写作上有哪些需要注意的点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>报告类题型与观点类题型的关键区别在于，报告类题型不仅需要分析现象产生的原因，还要求给出实际的解决方案，而观点类题型可能只关注对现象本身的阐述或个人观点。此外，报告类题型强调对客观存在的事实进行分析和解决，而非主观结果的评价。主体段的写作长度可以根据原因的展开程度选择写两段或三段。同时，论点必须基于客观存在的事实或大多数人承认的客观现实，并且解决方案部分需要提出切实可行的方法。</p></div>
+    </details>
+    <details class="qa">
+      <summary>政府是否应该限制人们吃外卖，并且如何在提出解决方案时确保方法切实可行？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我认为政府无权限制公民人身自由，因此提出的解决方案必须是切实可行的。在阐述方法时，避免简单罗列而不解释为何这些方法能解决问题，应当对每个提出的方法进行详细解释，至少说明为何该方法能有效解决提出的问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在写解决方案时，为何应避免使用“提高意识”这一方法？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当题干信息表明公众已经意识到某个问题或越来越多的人意识到该问题时，再提“提高意识”就显得不恰当，因为这没有真正针对题目中已经存在的认知现状提出针对性解决方案。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于混合类题目（positive or negative），在讨论原因分析部分应该如何处理？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在混合类题目中，若主体段已经充分讨论了原因，对于“一边倒”的答题模式并不适用。只需针对所问的正面或负面效应进行深入探讨即可，无需纠结于正反两面论述。</p></div>
+    </details>
+    <details class="qa">
+      <summary>原因分析时应如何全面客观地考虑原因，并举例说明？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>原因分析时不应局限于个人或特定地区的情况，观点需客观且有证据支持，不能过于主观。比如分析压力大这一问题时，不应仅归因于房价上涨这一单一因素，而应从全球范围内的多方面因素来探讨。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如果遇到没有明确观点的题目，如何利用题目中的比较级进行原因分析？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>遇到此类题目，可以通过对比不同时代的情况，从今昔对比中找出变化及原因，以此作为构思原因分析的基础。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对报告类题目，可以从哪些角度提出解决方案？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>报告类题目可以从政府、教育机构（家长和学校）、社会权威人士（专家）等不同角度提出解决方案，例如政府可以通过税收、立法、宣传等方式介入，教育机构则可通过课程设置和家庭教育来引导青少年培养相关意识和社会责任感。</p></div>
+    </details>
+    <details class="qa">
+      <summary>报告类题型在原因分析和提出解决方案方面的难点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>报告类题型的最大难点在于其客观性，原因分析需要深入挖掘合理深刻的底层原因，而非仅凭主观判断。同时，这类题目往往有标准答案，高分意味着考生具备深刻理解或充分准备。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何理解并准确分析一道关于反社会行为增加的报告类题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在分析这类题目时，需结合并列名词的特点理解整体含义，而非仅关注某一关键词。例如，对于“antisocial behavior”和“lack of respect for others”，应理解为人们缺乏基本社交礼仪与对他人的尊重行为，而非狭义上的反社会人格或仇富心理导致的暴力行为。</p></div>
+    </details>
+    <details class="qa">
+      <summary>现在很多父母溺爱孩子，导致孩子自我中心化，不尊重他人。如何解决这一问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>为了解决这个问题，一方面政府应加强媒体监管和净化网络环境，采取行动对互联网信息进行严格管理；另一方面，父母需要提升自己的家庭教育水平，推广良好的育儿技能，让孩子从小意识到尊重他人以及人际交往中的边界感。</p></div>
+    </details>
+    <details class="qa">
+      <summary>随着经济发展，为什么生活水平提高的国家（发达国家）的人们反而感到不快乐，而发展中国家的人们却更快乐？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这个问题可以从哲学角度探讨，涉及人的需求层次。根据马斯洛的需求层次理论，基本生活需求得到满足后，人们会追求更高层次的精神层面需求，如自我实现和社会贡献。发展中国家的人们对基本生活质量改善的需求更容易得到满足，而发达国家的人们因已有较高层次的需求，对物质刺激不再敏感，转而追求更高层次的刺激，甚至挑战法律红线。</p></div>
+    </details>
+    <details class="qa">
+      <summary>从这个现象中能学到什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我们可以从中学习到要降低个人预期，设立相对容易实现的小目标，以达到更容易满足和快乐的状态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>父亲角色与母亲角色有何不同？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>父亲角色与母亲角色的不同主要由生理因素决定，母亲承担十月怀胎的任务，这是父亲无法替代的。此外，社会对女性的刻板要求和潜在歧视导致女性在职场上面临更多挑战，如职业天花板等问题。未来随着社会思想的进步，男女角色将趋于平等，男性与女性将在教育和工作资源上享有更多权利。</p></div>
+    </details>
+    <details class="qa">
+      <summary>现在交通出行方式越来越多，这是基于什么原因的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这是由于科技的发展，使得越来越多的交通工具可供人们选择。</p></div>
+    </details>
+    <details class="qa">
+      <summary>为什么现在人们出行的范围逐渐变远了？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这主要归因于城市化的发展，人们不再局限于短距离出行，而是跨区甚至跨城行动。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何鼓励更多人选择骑行？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>政府可以通过宣传、提供共享单车等基础设施来鼓励人们骑行。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于报告类题型的写作结构及注意事项是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>开头段需要进行题目改写并预告主体段内容；原因部分采用“一个原因+解释论证”的形式，例如城市化发展导致人们出行距离增加，进而影响骑车习惯。解决方案部分应指出骑自行车的好处，并提出具体措施，如修建自行车道和财政奖励机制，以鼓励人们更积极地选择骑行。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于报告类题型，如何撰写原因段和解决方案段？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>原因段要明确指出导致现象的各个原因，并进行详细解释论证；解决方案段则要承认问题的严重性，提出切实可行的方法，如提供安全便捷的骑行设施和经济激励，以引导更多人回归骑行这一传统且有益于环保的出行方式。结尾段需对整个论述进行总结，重申原因和提出的解决方案。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-16.html">精讲逐字稿</a></li>
+      <li><a href="qa-16.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-15.html">上一讲 15</a></li>
+      <li><a href="lesson-17.html">下一讲 17</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

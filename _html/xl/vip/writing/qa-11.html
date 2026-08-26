@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第11讲 · 论述题型（优缺点/利弊讨论） · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 11 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a class="active" href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第11讲 · 论述题型（优缺点/利弊讨论）</h1>
+    <div class="abstract"><b>本讲概要：</b>在准备雅思写作考试时，掌握论述题型（如优缺点或利弊讨论）的写作技巧至关重要。这类题目要求评估特定行动的利弊，并通常遵循两正一反或两反一正的结构。审题是第一步，需准确识别关键词，避免偏离主题。构建逻辑链，确保论证连贯深人。开头段应重述题目并清晰表达个人立场，避免使用模板。主体段提出分论点，使用逻辑衔接词，结合例子和对比论证增强论点。结尾段重申立场，勿引入新信息。整体策略旨在提升文章结构和论证质量，助考生有效表达观点。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>问：今天我们要学习的雅思写作题型是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：今天我们主要关注的是优缺点类题型，也称为利弊讨论。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：这种题型的题目特征是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：这类题型的特点是题目中会出现关键词，要求我们对一个动作（如“机器取代人工”）进行优缺点分析，并确定其是否为积极或消极的发展。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：针对这种题型，我们应该采取什么样的写作结构？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：我们通常采用两正一反或两反一正的结构。如果认为优点大于缺点，则用两个主体段讨论优点，一个主体段讨论缺点；反之亦然。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如果考场上没有想出足够的论点怎么办？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：即使如此，也可以选择一正一反或一反一正的结构，关键在于主体段的论证必须充分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在审题时应该注意哪些方面来避免陷阱？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：审题时需从九个思路、九个方面甄别题目是否存在陷阱，例如题目限定的工作范围、形容词等，并确保所选论点与题目要求相符。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何展开关于“机器取代人工”的逻辑链？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：逻辑链可以从促进经济发展（提高企业产出）、减轻工人劳动强度、破坏社会稳定（造成失业和下岗风险）等方面进行构建。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：为什么逻辑链要满足“不宽不窄”的条件？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：逻辑链既不能过于宽泛导致论证无力，也不能过于狭窄以至于无法充分展开论述。选择能够有效论证且自己能够充分展开论述的论点至关重要。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：开头段写作时，如何进行题目改写以适应个人表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：开头段应将原题目用自己的话简洁准确地改写，并开门见山地表明个人观点。对于题目关键词，可以通过同义词替换或改变句式结构等方式进行改写。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于题目“越来越多的工作被机器完成”，如何进行改写并保持原意？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：可以将该部分改写为“a growing number of jobs are done by machines”，或者使用“an impressive number of”。同时，将“完成”用同义词如“finish”、“complete”或“accomplish”替换。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在题目改写中，如果遇到抽象名词，应如何进行具体化处理？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在改写过程中，如果碰到抽象名词，可以将其替换为具体的名词来解释。例如，将“提升道路安全”这一抽象概念替换为“减少交通事故”，因为道路安全意味着交通事故率的降低。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于追求高分的同学，有哪些改写方法可以采用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：高分追求者可以使用“换表达”的方法，即在保持原句意思不变的前提下，用不同的词语替换句中的某个成分。比如将“提升道路安全”改为“reduce road accidents”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何替换“由机器完成”这一表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：基础表达可以使用“完成”、“finish”或“accomplish”的同义词替换。若追求高分，则可以使用“mechanized”或“automated”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于原题中的“体力活”（mental work）应如何改写？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：“体力活”可替换为“physically demanding work”，或者使用从句来具体化表达，如“which traditionally is done by human workers”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何保持个人观点段与主体段的一致性？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在开头段（个人观点段）表达个人观点时，应通过使用转折词如“although”、“but”或“while”引导让步状语从句，明确展示尽管存在缺点，但依然认为是积极的发展。确保开头段与主体段在逻辑结构上保持一致。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：开头段如何写才能避免模板化，吸引考官注意力？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：开头段避免使用网络上的模板句式，如“with the development of economy and society”等。考官往往反映中国学生作文过于雷同，开头句式相似性高。真正的加分项是提升critical thinking能力，学会如何论证观点，而非简单背诵句型以增加分数。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：开头段应如何控制字数和内容以符合要求？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：开头段不需要花费太多时间和精力，只需满足三点要求：一是不要直接抄题（因为抄题不计入字数）；二是尽量避免使用模板句；三是字数不要过多，重点在于简洁明了，一般两句话即可，不需要凑字数，因为决定作文分数的是主体段的质量。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：主体段写作时如何进行拓展并确保其质量？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：主体段写作的核心是设置一个topic sentence（话题句），即呈现分论点并进行解释论证。论述时可以采用背景句的方式增加深度和说服力，背景句有三种形式：首先，阐述A导致B的前提条件；其次，从B的重要性角度出发，说明其在特定背景下的合理性；最后，在报告类题目中探讨A产生的深层次原因。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何有效地解释逻辑链中的因果关系或B的发生原因？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：解释观点时，可以从两个维度进行阐述。第一种情况是当逻辑链存在跳跃时，解释A导致B，再解释B导致C之间的因果关系或逻辑联系。第二种情况是在逻辑链直接因果关系不明显时，重点解释B为何会发生，包括YB happens（为什么B会发生）以及how B happens（B是如何发生的），以此来具体展现B的表现形式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：为什么举例论证不能脱离论述而单独存在？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：举例论证（论据）必须基于论述充分的基础上，作为论述的补充和例证。如果观点解释不充分，就直接举例，这样的例子往往是无效的，因为它无法有力地支撑论点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在论证过程中，如何确保论述充分并有效使用论据？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：论述充分是指论点与论据之间存在紧密联系，需要一个桥梁来连接二者。在进行举例论证前，应先有充分的论述部分，论据是为了进一步阐述论述内容而产生的。如果观点解释不充分，则不应使用论据，因为论据必须建立在论述充分的前提之上。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何有效拓展论述内容以充实主题段落？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：拓展论述内容时，可以对已论证过的观点进行结果拓展，如举例说明优点或缺点的重要性和严重性；也可以进行对比论证，特别是当题目涉及比较级、最高级或对比对象时，通过对比不同情况来增强论述的充分性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：对于优缺点类型的题型，其拓展方式是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：拓展方式主要是论证一个动作的好处或坏处，并明确提出一个明确的影响点。首先进行原因分析，解释为何该动作会导致某种结果，然后在解释论证的基础上，可以采用举例对比、反向假设等方式进一步阐述。反向假设即讨论如果不采取某个行动会有何严重后果，以此来强调动作的重要性或好处。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：如何具体解释机器代替人工产出高有利于经济发展这一观点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：解释时需详细说明机器产出高的原因（如24小时不间断工作），并进一步解释高产出如何降低成本、提高产品质量、增强市场竞争力，从而促进经济发展。同时，也可以从速度优势（如更快完成订单）和减少工作量（让人们有更多休闲时间，生活更轻松）等方面进行拓展解释。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：机器代替人工这一现象有哪些缺点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：机器代替人工的缺点主要包括导致大量员工失业，引发社会不稳定。具体来说，当公司为了应对经济压力而裁员时，就业岗位减少，许多人会因此失去收入来源，无法保障生活，进而产生不满情绪。此外，失业率上升还可能导致犯罪率提高，因为人们在无法通过正当途径获取收入时可能转向犯罪。另外，从社会资源合理配置的角度看，若某一行业被机器取代，相关专业人才被迫转行或面临失业，也会造成社会不稳定。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：主体段拓展时需要注意哪些要素？如何将个人思路转化为符合雅思写作要求的段落？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：主体段拓展需要做到以下几点：首先，每个主体段应有一个明确的topic sentence，它必须扣题，紧密围绕题目问题并包含关键词或其同义替换；其次，topic sentence需要清晰明确地给出一个总观点（mean ideas），并确保整个主体部分的立场一致；最后，解释论证部分必须围绕topic sentence展开，不能涉及无关内容，保持逻辑链条的连贯性和一致性。将个人思路转化为雅思作文段落时，首先要确保每个段落都有一个topic sentence，并且满足扣题、清晰表达观点和立场的要求。其次，运用ACB或ABC等逻辑结构来组织论点，将分论点融合在一个简洁有力的句子中。例如，“mechanization can improve productivity，thereby benefiting the economy”，以此来展示观点。同时，确保段落内的句子与句子之间有直接的因果关系，层层推进，避免逻辑跳跃，并适当使用逻辑衔接词以增强段落间的连贯性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>问：在写作主体段时如何处理因果关系和抽象名词？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>答：在处理因果关系时，要确保每一段论述中都有明确的因果链条，如果缺少直接联系，需要进行降层解释，直至每个段落都能清楚地展示因果逻辑。对于抽象名词，需将其具体化以增强说服力，如通过举例说明价格下降带来的市场竞争优势和税收增加等实际影响。同时，通过并列结构、逻辑衔接词等方式连接不同维度的解释，保证段落内部的逻辑严密性和一致性。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-11.html">精讲逐字稿</a></li>
+      <li><a href="qa-11.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-10.html">上一讲 10</a></li>
+      <li><a href="lesson-12.html">下一讲 12</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第01讲 · 动态图表（小作文）总览 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 01 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a class="active" href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第01讲 · 动态图表（小作文）总览</h1>
+    <div class="abstract"><b>本讲概要：</b>本文介绍了雅思写作课程中动态图表讲解部分的核心内容。课程分为四部分，旨在教授学生动态图表的考察形式、写作结构、步骤及技巧。动态图表包括两个或更多时间点的数据，而静态图表则只有一个时间点或无时间属性。无论图表类型如何，写作结构相似，包括开头介绍段、概述段及主体段描述。特别强调了概述段的重要性，指导如何概括图表中的主要特征。课程还涵盖图表审题、信息选取、动态变化识别、关键数据点选择、逻辑分组方式确定以及写作时态和语言精准度的确认。最后，鼓励学生通过实践练习提高写作技巧，以有效准备雅思考试。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>小作文图表的整体写作结构是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>小作文图表的整体写作结构包括开头段（paragraph one）用于图表介绍或改写题目，概述段（paragraph two）用于概述图表中最显著的2-3个宏观特征，主体段则详细描述主要数据特征，通常分为三到五个段落来完成。</p></div>
+    </details>
+    <details class="qa">
+      <summary>动态图和静态图的定义是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>动态图是指图表中包含两个或两个以上时间点的数据，并且描绘这些时间点之间的变化趋势。相反，静态图指的是图表仅在一个时间点或没有明确时间变化的情况下展示数据对比。</p></div>
+    </details>
+    <details class="qa">
+      <summary>为什么将概述段放在第二段而非最后一段？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>将概述段放在第二段可以确保考官在阅读文章时能尽早看到关键信息，避免因主体段内容不佳导致考官无法继续阅读而影响整体评分。按照先写大作文再写小作文的顺序，将概述段放在第二段更有利于获得更好的分数。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何进行看图审题以获取写作所需信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在看图审题阶段，需要区分动态图和静态图，并确认图表所用时态（通过标题、副标题和横轴坐标获取线索）；确定图表的主题和描述对象数量；筛选出写作主体段的重要信息，并根据这些信息有序分组，构建文章的整体结构。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何根据图表信息选择写作时态？在主体段中应选取哪些信息进行写作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>写作时态的选择主要依据图表中提到的时间跨度。对于过去的时间跨度，使用一般过去式；当图表涵盖过去和将来的时间节点时，需要分别使用一般过去式和将来式进行描述。主体段应重点关注四个趋势特征（上升、下降、持平、波动）、五个关键点（起点值、终点值、最高点、最低点和转折点）以及对象间的排名和差值比较。通过这些筛选出的重要信息来呈现图表的主要特征。</p></div>
+    </details>
+    <details class="qa">
+      <summary>是否只学习动态图写作就能应对所有图表题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>完全可以，因为考试中所有动态图之间是可以相互转换的，关键在于掌握图表类型以及描述数据在不同时间节点的变化，而不拘泥于具体图表形式。无论是柱图还是折线图等，写作方法和步骤都是一致的。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述一个具体的描述对象时，哪些信息是重要的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在描述一个具体的描述对象时，重要的信息包括：最高值（最有特点的数据）、最后一年的数据（决定整体趋势变化走向）、起点值（第一年的数据）以及整个对象是否存在反转或变化趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何描述趋势变化时考虑哪些要点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>描述趋势变化时，只需关注对象整体的趋势走向。若中点值大于起点值，则视为上升趋势；若中点值小于起点值，则视为下降趋势。例如，UK呈现下降趋势，而Sweden和Portugal则表现为整体上升趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在主体段中应选择哪些关键要点来写？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>主体段中可以选取描述对象的关键数据点，如骑电池到充电池的变化、特殊点如最高点（如Sweden的最高点）和其他具有代表性的比较点（如Italy与Sweden的焦点比较）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何进行文章的整体结构规划？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在小作文中，分段至关重要，以便展示逻辑结构。根据图表情况，可按趋势、趋势平稳性、高低或时间段进行分组，并确保各段内容有理有据，避免将所有对象堆砌在一段中。</p></div>
+    </details>
+    <details class="qa">
+      <summary>动态图分组方式有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>动态图常见的分组方式有按趋势分段、按趋势平稳性分段（根据涨幅大小）、按高低分组（依据终点值排序）、按时间段分组以及按照具体描述对象性质分组。</p></div>
+    </details>
+    <details class="qa">
+      <summary>举例说明如何灵活运用分组方式进行文章结构设计？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>举例来说，在分析英国三种不同通话方式（固定电话、national and international decline、移动电话）的通话时长变化图表时，可按趋势变化分组，将固定电话的下降趋势与另外两种通话方式的上升趋势分开讨论，也可根据涨幅大小进行分组。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在看图审题阶段，如何根据图表数据选择合适的分组方式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在看图审题阶段，可以选择多种方式来分组图表数据。首先，可以根据数据的上升或下降趋势进行分组，例如将local fit line和national and international decline归为一组，因为它们涨幅缓慢；其次，可以按照终点值的高低进行分组，简单直接地将对象按其终点值排名从高到低进行分组；最后，也可以按照重要时间节点如1999年将数据分为前后两个时间段，观察各对象在此时间节点前后的变化情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于这幅描述林业产品产量变化的图表，主要信息应如何提取和呈现？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于描述林业产品产量变化的图表，主要信息提取和呈现需要确保信息充分且有选择性。由于图表对象较少，数据简单，需关注每个对象的起点值、终点值以及关键转折点（如最高值或最低值）。此外，还需关注对象之间的趋势对比，比如timber和paper产量的增长趋势相似但涨幅不同，pump则呈现下降趋势。在主体段写作时，应采用总分结构，开门见山地说明分段逻辑，并按时间线详细描述各个对象的产量变化及其相互间的对比。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何为这幅图表设计一个合适的主体段落结构？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在设计主体段落结构时，首先要基于图表数据的特点进行分组，如将具有相似上升趋势的timber和paper放在一组，而pump因其下降趋势单独分组。然后，在描述每个对象随时间的变化时，确保详细记录其起点、终点以及关键的高低点，并强调对象之间的对比关系。例如，在描述timber和paper时指出前者增长速度更快且整体产值更高，而在描述pump时则说明其产值下降及与前两者拉开差距的情况。通过这样的方式，使主体段内容有条理、主次分明，避免堆砌无用数据。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在雅思小作文中，关于图表类型和英文称呼的改写需要注意什么？如何对图表标题进行改写以符合小作文的要求？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在雅思小作文中，对于图表类型的英文称呼，不需要进行额外改写，只需准确记录其固定的英文名称，例如柱图、饼图、流程图称为chart，线图则称为line graph。对于表格和地图，无需添加任何图表类型前缀，直接照抄即可。标题改写可通过改变名词词性，如名词变为名词加分词形式做后置定语；另外，可以积累并替换题干中的高频词汇，如percentage替换成proportion，men and women改为male and female等。同时，也可通过构建主语+谓语+宾语从句的结构来丰富标题内容。</p></div>
+    </details>
+    <details class="qa">
+      <summary>谓语动词部分在小作文中的改写要求是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>谓语动词部分的改写主要围绕“展示”这一常见词汇进行有效替换，推荐使用show、illustrate或compare as。特别强调，整篇文章中唯一变化的时态应为一般现在时。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何高效地进行小作文开头段的宾语部分改写？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>小作文开头段的改写质量体现在宾语部分，可采用六种不同的改写方式。对于具体与抽象信息的改写，如果是具体信息可自行概括，笼统抽象信息则结合图表进行具体化处理。</p></div>
+    </details>
+    <details class="qa">
+      <summary>图表中涉及的时间、地点和人物等基本信息应如何改写？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>时间信息可通过更换介词、转换为时间段等方式改写，如从“从...到...”改为“between and”。地点信息可直接陈述地点、描述数量或针对特定地区的人群。对于人物，则需根据具体情况灵活改写。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何针对图表描述进行改写，以具体化和量化信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在改写图表描述时，首先应抓住核心内容，如消耗量、成分等，并尝试将抽象信息具体化。例如，可以将“the amount of beef, lamb, chicken and fish consumed in a European country”改写为更具体的表达，如“the weekly level of consumption of different types of milk and butter in the U.K.”。同时，要注意使用定量的、精确的表述，如用“how many”或“how much”引导的宾语从句来代替难以直接改写的部分。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何根据图表内容调整标题或开头段的表述，使其更准确且具有针对性？在进行改写练习时，需要注意哪些关键点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在处理题目时，要关注标题和开头段中与图表信息直接相关的内容。例如，若标题提及“the changing of ireland”，则可以改写为“how an island changed”。对于开头段，需注意使用一般现在时态，避免倒装，并尽可能减少对年代和国家的罗列，转而使用更为通用的表述，如“in many different countries”。此外，应通过改变词性、增加修饰语等方式，使内容更加丰富和精准。在进行改写练习时，重点在于有效改写图表中的核心信息——宾语部分，而不是逐词修改。同时，要遵循一些基本原则：图表类型不需改动；使用一般现在时态进行show的改写；尽量避免使用倒装句型；对于抽象信息可适当具体化，但应避免罗列过多的年代和国家信息。通过不断练习，可以提高开头段改写质量和写作速度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在小作文中使用过于复杂或不准确的词汇会带来什么问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在小作文中使用如&quot;statistics&quot;等生僻且不准确的词汇可能造成表达不够严谨，因为它们无法精确反映所需表达的概念。例如，“statistics”应改为“depict”、“describe”或“portrait”，这些词在语言精准度上不足够，特别是“portray”通常是指描绘图像，而非文字信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>为什么在写作小作文时需要尽量避免直接照抄题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>直接照抄题目会导致开头段不计入字数，且无法展示个人理解和改写能力。此外，考试评分时，若文章存在主观表达或拖鞋等现象，将导致扣分，因此务必努力进行内容改写。</p></div>
+    </details>
+    <details class="qa">
+      <summary>小作文中应该如何处理主观表达和预测？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在小作文中，必须采用客观而非主观的表达方式，不得进行数据原因分析或未来走向预测，确保内容如实客观地描述图表信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>小作文中的概述段（overview段）有多重要，以及如何撰写？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>概述段对于小作文至关重要，通常占5-7分，需写出最显著的特征，避免描述图表中的细节和具体数据。撰写概述段时，可使用引导词如“overall”，“in summary”或“to sum up”，并针对动态图进行高低排名描述，如使用“rank”，“remain higher than”等表达。对于趋势部分，需总结上升、下降及对比信息，如果图表复杂，可以适当省略，集中展现关键趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何通过示例说明概述段的写作方法？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>示例中，对于二氧化碳排放量图表，概述段应指出UK的排放量保持高位，同时分析其他国家的排放趋势，并进行高低对比。而对于饼图，若趋势混乱，可只选取最明显的高低对比作为概述内容，强调教师工资占比最大，保险占比最小的绝对数值差异。通过这样的方式，有效地完成对图表主要特征的概述。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-01.html">精讲逐字稿</a></li>
+      <li><a href="qa-01.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-02.html">下一讲 02</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

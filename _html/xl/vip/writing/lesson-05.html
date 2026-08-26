@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第05讲 · 双动态图题目 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 05 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a class="active" href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第05讲 · 双动态图题目</h1>
+    <div class="abstract"><b>本讲概要：</b>在完成自定义图表学习后，学习如何处理和写作涉及两幅动态图表的题目成为焦点。讨论强调了对图表标题的分析、内容描述、两图间的比较，以及如何组织文章结构，确保文章逻辑清晰，读者易于理解图表信息及趋势。特别注意到了处理包含不同时态图表的方法，特别是正确运用未来时态表达未来趋势。通过运用多样的句型和连接词，提升了文章的流畅性和逻辑性，全面指导学生有效应对动态双图题，确保信息呈现的准确性和深度。</div>
+    <div class="tip">本讲含 17 组问答精要，可到<a href="qa-05.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在完成自定义图表学习后，学习如何处理和写作涉及两幅动态图表的题目成为焦点。讨论强调了对图表标题的分析、内容描述、两图间的比较，以及如何组织文章结构，确保文章逻辑清晰，读者易于理解图表信息及趋势。特别注意到了处理包含不同时态图表的方法，特别是正确运用未来时态表达未来趋势。通过运用多样的句型和连接词，提升了文章的流畅性和逻辑性，全面指导学生有效应对动态双图题，确保信息呈现的准确性和深度。</p>
+    <p>好的，在完成了自动自定义图的学习之后，我们继续来学习动态双图题的一个写作。关于这部分会带大家来练习两幅图，再来看一下第一幅图，双图体长什么样子，无非就是两个图表，它分别都是各自的一个动态图。我们先来观察一下这幅图它的标题描述了一个什么样的信息。关于第一幅图我们可以看到它是一个table，一个表格图。它展示了这次visitor游客是一个叫做edge down museum，去了一个博物馆。然后during the year before and year after，也就是在它之后，它应该进行了一个refurbished，就是一个重新装修或者是翻修。那它主要讲的是什么？它的topic主要要讲的是这种装修前后区的一个人数。</p>
+    <p>第二幅图它的topic是什么？他说带这些去的人当中进行了一个调查问卷，这asking visitor when就是一些游客how flipped他们，是否对于他们的这个参观是满意的？所以说在这里就对于这个满意度进行了一个调研。比如说原来非常满意是15%，那么在装修之后，它就上升到了35%，对于游客们的满意度来进行了一个调查。</p>
+    <p>所以我们来看一下这几个问题，这两幅图它的topic是否一致呢？那一定是不一致的。一个是与visitor相关，描述的是人数，另外一个是描述的satisfaction，关于马满意度的一个百分比。然后接下来两幅图表的单位是否一致，这个明显就是不一致的了。上面这幅图它应该是number，讲的是去的人数。而第二幅图描述的是啊去的这个游客的一个百分比，所以是percentage。第三，两幅图表涉及到的就是主体段的一个时态是否一致？我们可以看到时态应该是一致的，它在这里直接体现的时间状语是the year before and the year after，所以他们的时间状语应该是一致的那这是关于这幅图表一个基本的信息。</p>
+    <p>针对对这幅图表我们要怎么去写呢？我们说针对双突击，其实它的分段就是非常的简单，我们选择的方式就是一幅图一段。那每一幅图表我们只要概括出来动态彩图的一个特征就可以了。</p>
+    <p>我们先来看一下开头段可以怎么去写。开头段的一个改写也非常简单，我们只需要把这两个题目分别进行改写就可以了。你像正常的一个单图题，我们只需要改写一个原题目，而这个双图题它应该是有两个标题的，所以说我们需要改写两个题目。那这个改写就非常简单，我把这个table就直接保持不变，然后去掉below，把show变成了illustrated表示展示。</p>
+    <p>然后接下来原题目是the numbers of visitors to act on museum。那我就改成how many people visit咱们，变成了how many引导的一个宾语从句的一个形式。然后during the year before and the year after，我变成了over a year before and after its refurbishment就在这里，我变成变换了一下refurbish它的一个磁性，把它从这个动词变成了一个名词的一个。然后接下来关于这个拍chart我也要进行一个改写。Charles我把它改成了具体的这个图表的类型，变成了the two pie chart。好，然后show变成了compare这个词，compare这个词的拼写，这个地方纠正一下，compare the result of the result，改变了调查的一个结果，就是how satisfied they were。那我变成了它的名词形式，就是compare their satisfaction变成了它的名词形式with your visit。然后over the two different years，在这两个不同的年份，就是关于introduction的部分。</p>
+    <p>接下来我们来看一下这种双动图的一个概述段。其实单个的概述相信大家已经练起来是游刃有余的了。因为动态图的要点无非就是我们总结出来整体趋势变化，我们还要再做一件什么事情呢？要体现出来两幅图表之间的一个联系，这样的话大家才能够彩在这个双动图的一个踩分点上。因为既然这两幅图表表放在一块儿给我们出题进行考核。也就是说这两个图表必然之间他们有一个内在的联系，或者有一个因果的关系，或者有一个整体到局部的一个关系。我们需要在会有概述段当中体现出来这样的一个关系。所以在这里我给大家准备了两个不同的版本。</p>
+    <p>首先我们先来看一下第一个版本，我说来通过对比一下这个table和pie chart，那么it's clear that显而易见的是什么呢？无论是人数还是说满意度的百分比都进行了一个增长，这个应该大家显而易见的。比如像第一幅图，去参观这个博物馆的人数它是上升的。满意的这个满意度也是上升的，所以我把这个总结出来就ok了。</p>
+    <p>那我如何体现出来这两幅图表的关系呢？接下来是装修前和装修后人数有一个不同的变化。并且对于同一拨人我进行了一个调查问卷。那是不是就说明对于这个博物馆的装修是一个相对来说非常成功的？所以说他们之间的一个关系就是this is indicated。因为这两者之间的一个关联预示着什么呢？对于这个博物馆的重庆装修叫refurbishment was successful，是非常成功的。</p>
+    <p>或者我也可以这样去写，我先来写一下第一幅图，它的要点over on，通过进行一个对比，more people pat visit to the museum, 就是更多的人愿意去参观这个博物馆。在重新装修之后，在这些去博物馆当中的人们更加的满意了。所以是the majority of them在这里我依然使用了一个代词，这个them指代的就是这些更多的人。在这些人群当中大部分的人都是were satisfied，都是满意，或者是very satisfied。</p>
+    <p>也是突出了这个点，就在重新装修之后，大家的一个满意度往往是直线的up up，可以说这个是概述段的一个写作，我们一定要体现出来两幅图表的一个联系，尽量不要就是各写各的。我就一个写table的要点，一个写A拍chart的一个要点，而没有进行一个联系。好的，然后接下来我们来进行单图题的写作。刚才我已经强调了分段是一个意图一段，那么意图一段写动态图就再简单不过了。之前在讲动态图的时候，给大家进行了一个非常细致的一个讲解，也提供了关于动态图写作等一些必备的句型。所以我觉得而且这个单图对于大家应该没有什么太大的一个难度。</p>
+    <p>我们先来看一下关于这个动态图的一个要点。动态的一个表格图，我们就只需要写出来，它整体是一个上升的一个趋势，也就是参加参观这个博物馆的人数得到了一个创伤。我要写它的起点值、终点值。大家可能觉得，那我这一段就直接这些信息吗？那老师说过，我们再去写这个主体段的时候，分组尽量兼顾到这个段落与段落之间的一个平均。这幅图我觉得就是没有办法了，因为这幅图表给我们的信息就是这样的，我们只能够如实的去描述，我们又不可能进行这个数据进行任何的一个猜测或者任何的一个点评，那这都是不行的那没有办法评选就没有办法了。</p>
+    <p>然后接下来第二幅图，也就是动态的一个pie chart。我们要写出这应该是123455个不同的具体的描述对象。他们的趋势变化就是他们分别从多少变成了多少，我可以把它逐一写出来，也可以有挑一些要点的写，中间进行合并分类，这个都是可以的。我们下面来看一下，主体段具体要怎么去写。这个body one就是我的写作其实尽量的已经在大家应该能看出来在凑字数了，就是说尽量能够兼顾到两个主体段次数的一个平均了。</p>
+    <p>我今天写成了一个总分的一个形式，总体的来写说这个重新装修之后的一个博物馆，attracted considerably more visitor，吸引了更多的一个游客，就很显然，装修之后来的人更多了。然后接下来during the year before refurbished，在重庆装修之前有这么多的人，有希望自身的一个游客，pad a visit to add down museum，有这么多的人来参观博物馆。然后接下来and并且during the year after refurbishment，在重新装修之后，再重新装修过的这一年之后witnessed a market encrypt目击了一个明显的一个增长，那在这里必备句式当中的第二个目击了一个明显的一个增长，然后接下来用了一个独立主格的一个结构。With the video这rising to 92000，就是说这个数值具体的上升多少呢？从74000到92000，那么这个就是一个终点值的部分。</p>
+    <p>这个八阶段的一个写作，我认为非常的一个简单。然后接下来我们来看一下body two的部分，也就是这个表格图的一个写作，我们的这个段落依然要写成一个总分的一个关系。所以说我总体我是这样写的，from the second chart在这儿体现出来了我的什么分段的一个方式，或者是分段的一个逻辑。通过第二幅图我们可以看到就是他们满意度的一个改变这样。We can see the changes in how satisfied they were.</p>
+    <p>在满意的这个人群当中，也有一个非常显著的增长。所以是there were noticeable riding有一个非常紧。住的上升in the percentage of people，在人口的一个百分比上面有一个显著的上升。什么样的人who were generally happy with their visit。在这里对于这个satisfying and very satisfied，我进行了一个同义词的一个改写，都变成了happy with their visit，就是说对于他们的一个参观整体来讲还是非常满意的。</p>
+    <p>然后接下来我就要具体的去写每一个对象，在这个时间节点上他们发生了一个趋势变化了，那我可以怎么写呢？我说这个游客的一个百分比，非常满意的是增长到了35%，这个部分从15%增长到了35。那我就可以说the proportion of visitors就是游客的一个百分比。什么样的游客呢？Who were quite content.</p>
+    <p>在这里又出现了一个同义词计划，也就是我用quite content，content就表示的是对什么什么满意，就等于的是啊very satisfied。Uh you'll dramatically to thirty five percent. 然后是非常的满意的是增长了35%。</p>
+    <p>接下来满意的满意的人数是从30%增长到了40%。我就是他们是一个顺承的关系，所以用and来进行连接。那the percentage of beautiful expressed satisfaction，满意的一个人数saw a ten percent rise，目击到了一个10%的一个上升，上升到了多少呢？To forty percent. 那这个是关于满意的一个人数，是上升的。</p>
+    <p>然后接下来我会发现另外的几个对象，就是有下降的，有不变的。比如说decided by不满意的和very difficult by就非常不满意的人，他们是下降了的。然后还有5%的人从始至终就是no response，我要把他们都写出来，所以说我要进行一个对比。</p>
+    <p>In contract the bigger for the five five plunge to uh fifteen percent on非常不满意的人，就是不满意的人是下降到了15%，不满意的人下降到了15%。非常不满意的人也有了一个5%的下降。我们发现非常不满意的人从10%下降到了5%。</p>
+    <p>所以是but percent job can be found in very big benefit by然后另外我要补充最后一个信息了，也就是有哪些人他是没有回应到，所以我要剪。In addition, there were two, five percent who gave no clear refund. 也有5%的游客，他们并没有给出一个非常清晰的一个意见，这是关于双动共同的一个写法。</p>
+    <p>我们会观察到非常好写的一个部分，就是什么意图一段。意图一段的部分，我们如何能够看起来这个段与段之间更加的丝滑呢？我们需要掌握一些在断手部分的一些表达，也就是主体段之间衔接的一些常用表达。我在这里给大家准备了五个不同的一个句型，我们一起来看一下。我们首先可以这样来说，when account to the, 然后后面加上这个图表的一个名称，there were或there are blah blah，或者我们可以说according to，比如说我们刚才那幅图according to the pie chart，然后后面具体写这个拍叉的一个情况。然后第二幅图我也可以写according to the table love。然后接下来第三个，我可以in terms of我在写静态图的时候给大家强调过它表示什么意思，叫june什么什么而言。比如说就这个满意度而言，或者是in turn of the number of visitors，就这个游客的人数而言，我可以后面加上图表的主题。</p>
+    <p>接下来第四个我可以直接用looking first at后面加上图表名称。比如说我们来先来看一下图表当中的表格，我们再来看一下图表当中的这个饼图。我们可以说looking fur at the table，然后looking second at the pie chart，然后it added that，这个叫显而易见的是拉布拉拉。接下来最后的一个表达叫moving on to加上图表的名称，然后后面可以写这幅图表当中最显著的特点。We can see that blue blue, 这个是关于双动图之间主体段之间的一个衔接的常用表达。这个是给大家介绍的关于动态双图的第一幅图。除此之外我们再来看一组双动态的混合图。</p>
+    <p>为什么要给大家讲两幅图表呢？因为我们在去做双动图的时候，经常会看到一些比较有难度的一些图。比如说有一个图表它包含了多种不同的时态。像大部分我们再去写这个小作文的时候，都是一些过去式，对吧？那比如说有些图表它既包含了过去时，又包含了将来时，我们要怎么去写呢？我们一起来看一下，我们来看一下这幅图分别讲了什么，先读一下它的标题。The chart and table show the population size and life expectancy in the uh in three nations.</p>
+    <p>应该是three，在三个不同的国家。我们来看一下the population size是什么？人口的一个数量，这幅图表应该是讲的是三个不同的国家分配的是china in like a day and bank西班牙三个不同的国家，他们的一个人口的一个变化。然后接下来life battlefield叫做人均寿命，或者说这个寿命的一个也是三个国家它们的一个变化。</p>
+    <p>那我们来看一下，两幅图表描述对象是否一致呢？很显然是不一致的。那幅图表讲的是人均的一个寿命，就是预期自己会活到9岁。而另外一幅图表讲的是国家人口的一个数量，所以是不一致的那第二个问题，两幅图表它的单位是否一致？我认为像第一幅图表，它应该是描述的是具体的age，应该年纪。而第二幅图表，他应该是描述的是这个人口数量，所以应该是in millions，他们的单位也是不一致的。</p>
+    <p>第三个问题就是这两幅图表分别涉及到了一个什么样的时态变化呢？我认为像这两幅图表他们就比较的特殊了，他们既会用到一般过去式，一般过去式又会用到什么呢？一般将来时。因为在这里面我们会发现将来的一个时间，也就是2050年。那么两幅图表都展示出了对于未来的信息的一个预测和预期。所以我们对于这种图表要学习一个截然不同的写作方式，以及来补充对于将来时态图表的一些表达。</p>
+    <p>我们先来看一下这幅图表到底要怎么去写，我们知道怎么分段了对吧？现在肯定是一幅图表一个段落，相对来说是比较简单的。我们先来看搞定一下这个introduction，开头开头段的部分进行一个题目的改写。无非就是把这个原题目进行一个具体化。因为原题目它非常的抽象，我说这个bar chart，这个触图和这个table，然后show我变成了illustrate。Change in展示出了一个什么的变化？In population size and life expectancy, 就展示出了人口数量和人均寿命的一个预期。</p>
+    <p>在如下三个国家我做到的是什么？抽象的信息我把它进行了一个具体化，也就是in three nation三个不同的国家，我在我的改写当中把它进行具体化了。就在哪三个不同的国家，并且在三个不同的一个年份分别是哪三个不同的年份，分别是1950年、2000年以及2050年。这个是一个很简单的intro段的一个改写。</p>
+    <p>然后接下来我们来观察一下overview概述段的一个写作。那么我们要去写什么呢？要去写出来两幅图表，它的ranking加上train的那我们先来看一下，像第一幅图表，我们会观察到的是什么呢？他们的人均寿命的一个预期，他们都是一个上升的一个趋势，都是一个增长。然后第二幅图表他们是一个两个上升，然后这个span是下降。</p>
+    <p>我们要思考一下这两幅图表之间它们存在着一个什么内在的一个联系呢？我们来看看一下，他们的一个单位分别是人均寿命的预期以及人口的一个数量。那么这两个单位之间是否存在着一个正相关的一个关系。比如说我们是不是当我们对于未来非常的有自信，或者是对于这个医疗医疗发展水平，科技发展很有自信的时候，也就是life expectancy率高的一个国家。那么这个国家它才会有更高的生育率，就有更高的一个新生儿的出生。所以人口的数量才会高，所以我可以把它写出来。</p>
+    <p>但是我们会发现什么呢？并不是这个国家它的人均寿命越高，它的人口就越多。比如说像整个西班牙，它的人均寿命它也是上升的。但是它的值这个人口的数量却得到了一个缓慢的一个下降。但是我觉得这也无可厚非，为什么？我们会发现在第二幅图表当中，西班牙这个国家它整体的人口基数就是始终是很小的，所以你即使它的这个寿命预期增长了，但因为它的这个基础始终就很小，所以人口数量，它规模就是始终它就是比较小的。所以说我们要在这个overview概述段当中体现出来这样的一个信息。那我可以这样去写，就当了来进行一个总体的一个标志性的一个总结。</p>
+    <p>我说left its battlefield in china and US。Will rise. 人均的一个寿命在中国和美国将那jaw and the probably explains，这也许就能解释为什么their population five will increase，也就是他们两者之间呈现了一个正相关的一个关系。正因为他们以为就认为自己的一个寿命将会活得久，所以他们的人口数量将会大幅的上升。然而然而说although that expenditure in ben is also expected to grow。虽然说西班牙的人均寿命也是预计会增长，但是as population science is expected to drop，它的人均的一个人口的数量反而会下降。我就在这个overview概述段分别体现出来了两幅图表式的一个变化，以及两幅图表之间内在的一个联系，这个是overview概述段的一个写作。</p>
+    <p>接下来我们来看一下主体段的部分。主体段我们无非是要写出两幅图表的一个要点了。我们下面来看一下，比如说像第一幅图表无非就写出来了，中国人均寿命的预期上升，然后美国人均寿命预期上升，然后西班牙埃人均寿命它是上升的那我们在这里就要注意一下，我在内部我要如何进行描述。虽然说我是一幅图一个段落，但我内部段落内部的一个结构也要非常的条理清晰。有一个分段的逻辑或者是一个总分的一个写作方式。所以我要有一个具体的一个判断方式。我们在第一节课讲动态图的时候，给大家介绍了4种不同的分段方式。比如说我们可以按照春蚓的，或者按照这个涨幅的一个大小，也就是按照这个差值，也可以按照高低来进行一个分段，也可以按照时间来进行一个分段。</p>
+    <p>我们来看一下这样的第一幅图，首先按照趋势来解，我好像解不出来一个总分的一个形式，为什么？因为他们都是一个上升的一个情况。那按照大他们的一个涨幅来讲，丙图我们就不适合来进行这个涨幅。不是饼图，是表格图，我们就不太适合用这个涨幅的一个城市。比如说你要算一下，哪一个国家它的在哪一年增长的最大，或哪一个国家在哪一年增长的最小，那这个其实就是又在南纬考官应该在让他们做一个他们最不擅长的算术了。</p>
+    <p>所以这个按照大小来划分，我觉得就是按照这个涨幅分也不太适合。那能能不能按照高低来分呢？我觉得也不是很适合。因为比如说在美国，他可能2000年的时候，他是人均寿命是最高的。但是在这个2050年，人机寿命最高的就变成了西班牙。没有哪一个国家始终在每一个时间点，它始终都保持着最高的一个排名，所以按照高低也不适合。</p>
+    <p>那这幅图我们就可以就按照时间来分。我们先整体的来写1950年到200000年三个国家他们的一个趋势变化是怎么样的。然后接下来再来写2000 00年到2050年他们的一个时间变化。</p>
+    <p>为什么当这个图表当中出现了将来时态的时候，我们就没有办法一块儿来写了。比如说你写19，就这个人均寿命预期从1950年到2050年，它呈现出来一个上升的一个趋势，那这是不可以的，我们一定要分时间段来写，过去的时间写在一起，把将来的时间贴在一起。所以说这是我们在段落内部分段的一个方式。那我们再去写这个body two的时候，写这个图表的时候，也是可以按照这样的一个方式来进行一个写作。</p>
+    <p>那既然涉及到了对于未来时间的一个预测或者是一个描述，我们可以怎么写呢？我们需要掌握一些关于将来时态的表达。比如说我可以用这个function，就这个对象词will write会上升，或者这个对象词it focus to write。Focus这个词在阅读里面大家应该有掌握，它就叫做预测。比如说weather forecast就天气预报，或者我们也可以用be predicted to，就是预测它会增长，或者是arrive is predicted in，后面加上具体的对象词。Ok这个就是关于这部双动图我们的一个分段的方式，我们来看一下具体我们可以怎么去写。</p>
+    <p>像这幅图表，我是先写了这个bar chart的一个部分，我说looking further at the bar chart，这一句话怎么样体现了我的一个分段的逻辑。我说这是bar chart部分当中的一个信息。显而易见的是啊，我们发现中国最高的人口增长率叫china has the high at the population growth rate。因为我就是按照他们的一个高低来写的那我了解它的一个变化了，具体来解中国的一个人口，它是怎么样增长的。There was a dramatic increase from four million.</p>
+    <p>从400增长涨到了1200，就是从50年到00年的一个变化。接下来对于将来的一个时间，我要单独来写了。And live right, 这个百分比it's focused to continue这个增长的一个形式，将会继续延续下去in 20与0。When the population will reach thirteen hundred million，张慧峰涨了1600。接下来similarly，因为后面的美国它也是一个上升的一个趋势，就是人口的一个数量。所以我要用的连接词就是similarly the united day，美国saw a ride in its population，可以看到一个缓慢的一个上升，在他的人口上面从100万增长到了200万。然后again因为在未来他的这个人口数量仍然会上升，所以我在这里用的是again further growth，it predicted to about a three hundred million, 未来将这一次会增长了300万的一个人口，到2050年。</p>
+    <p>然后接下来关于最后一个国家西班牙，它是怎么样的？它因为它最终它是会下降，所以说呈现了一个不一样的趋势。所以我的逻辑词用了一个词叫做on the other hand表示从另一个方面来看，西班牙experience only very modest growth，他经历了一个非常小幅度的一个增长，从9 1950年到2000年，并且他未来就是2000年到2050年它会下降。所以我用的是and the number will fall to lower than one hundred million by 2050。就是我可以按照他们的一个高低来进行一个排布，然后分别写这三个对象在时间节点上的一个变化。需要注意的一点就是我需要将过去的时间以及将来的时间进行一个区分。这个是body one部分的一个信息。</p>
+    <p>接下来我们来看一下body two的部分，我要体现出来我的分段逻辑衔接的部分用的是这样的一句话。Moving on to the table, 来看一下这个表格图，我们可以看到是we can see that left expectancy in place in all three countries in the second half the last century。我们可以看到，在这个世纪的50年，生物人均寿命的一个预期，在三个国家都会发生一个比较显著的一个增长。好，接下来again我们需要注意的是the life expectancy in china，我要写的是在中国的这个人均的寿命。Showed the melt dramatic impact.</p>
+    <p>在中国的人均寿命有着一个最显著的一个增长。那它它是从多少增长了多少呢？从大约40 10增长到63。在这里大家注意一下，我对于数据进行了一个估值的处理。因为在这里有很多的小数点或者是一个非常具体的数值，那么我要就对于这个数值来进行一个整体的估值。所以我用的是over和欧盟，就几乎是多少。</p>
+    <p>然后接下来我还要单独的写人均寿命在未来的一个变化。我说这个人均寿命它在美国也是增长的，就在这一段它也是增长的，叫also rose significant way。然后分别从多少呢？从63增长到了79。然后接下来不要紧，although ben虽然西班牙有着最高的人均的一个寿命，但是它的一个涨幅却是最小的。我说虽然说它整体是最高的，但是西班牙的从业务1950年到2000年的一个涨幅相对来说是最低的，叫做grew by three，between 1950N2000。就在这个部分，我写的是西班牙的这个数值，它的一个涨幅也就是三这个是关于人身寿命在三个国家过去时间他们的一个趋势变化。对于未来他们呈现的是一个什么样的变化，我要用一个将来的一个时态单独来写了。</p>
+    <p>我说life expectancy，这个人均寿命。In all three countries, eight book at the two containing writing. 预计会持续的一个增长，直到2050年，然后分别到达了79、82和82.8 reflectively。那这个词它是什么意思？它指的叫做分别地或者是对应地，就说明这三个数值分别对应的是上面的三个国家，中国、美国以及西班牙。这个是关于动态双图题，并且双图题当中有一些时间，包含了对于未来时间我们的一个写作处理，那就是关于动态双图题的部分。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-05.html">精讲逐字稿</a></li>
+      <li><a href="qa-05.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-04.html">上一讲 04</a></li>
+      <li><a href="lesson-06.html">下一讲 06</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

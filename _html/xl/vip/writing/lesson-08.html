@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第08讲 · 地图题：选址比较与历史变迁 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 08 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a class="active" href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第08讲 · 地图题：选址比较与历史变迁</h1>
+    <div class="abstract"><b>本讲概要：</b>本次课程专注于教授地图题的写作技巧，特别针对考试中的选址比较和历史变迁两类题型。强调了此类题目虽然对不熟悉路径的考生构成挑战，但因其结构固定，掌握方法后可转化为优势。课程内容涵盖了解读地图题指令的策略，如概述、特征选择与比较，以及注意时态的重要性。此外，提供了实用的写作句型、词汇，和方位、时间状语的描述方法。课程鼓励学生通过积累词汇、句型，及实践课后练习，以提升地图题写作能力。</div>
+    <div class="tip">本讲含 19 组问答精要，可到<a href="qa-08.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本次课程专注于教授地图题的写作技巧，特别针对考试中的选址比较和历史变迁两类题型。强调了此类题目虽然对不熟悉路径的考生构成挑战，但因其结构固定，掌握方法后可转化为优势。课程内容涵盖了解读地图题指令的策略，如概述、特征选择与比较，以及注意时态的重要性。此外，提供了实用的写作句型、词汇，和方位、时间状语的描述方法。课程鼓励学生通过积累词汇、句型，及实践课后练习，以提升地图题写作能力。</p>
+    <p>Hello, 各位同学大家好，我是lexi。欢迎大家来到雅姿小作文系列课程。今天我们即将迎来小作文部分的收官制作，也就是地图题的学习。地图题也是让大家非常头痛的一个题型，甚至我有些同学跟我说，是我在听力里面就饱受地图提的折磨，然后到写作的部分，我还得去完成地图的一个写作，所以这真是对于路痴全书来说非常的不友好。但就像我上一节课提到的那样，地图题和流程图一样，他们其实并不是那么的富裕变化。所以只要掌握了这种题型的一个写作方法，我认为在考试当中遇到这种题型还是非常的幸运的那我们下面先来看一下地图体养分别都长什么样子，主要是以两种形式为主，第一个叫做选址比较，我们来观察一下左边这幅图。</p>
+    <p>这是一个城镇，这个城镇要建一个超市，一个新的supermarket，那么我们需要做一件什么事情呢？超市的一个选址，我们需要在F1和F2这两个地点当中做出一个最终的一个选择，就比较他们两个地点的位置，选择你想要建造的这个超市的一个地址。右边这个叫做历史变迁。</p>
+    <p>在第历史变迁当中，我们会遇到一些大地图，以及一些小地图。大地图比如说城镇整体的规划，它的一个layout布局。小地图可能是某一个图书馆内部的一个构造，或者医院内部的一个构造。</p>
+    <p>我们要描述出来，这个建筑在不同的时间节点，它们分别发生了哪些变化？我们来看一下，因为现在的考试其实以右边这种题型为主，所以我们今天的课程只会带大家进行历史变迁的一个学习。全职比较其实就很多年都没有考到过了。所以我们学习和复习的重点就放在历史变迁的部分。我们先来解读一下，地图题都要求我们写什么呢？先来看一下题目给出的一个指令，他给出了三个不同的指令。</p>
+    <p>第一个summarize information，也就是什么？写一个概述。看来在这个地图题里面一个完美的概述也是必不可少的。接下来selecting and reporting the main features，来选择主要的信息。然后最后一个点叫做make comparison来进行一个比较。这个无疑就是一个精细的构造的一个那总结起来我们主要的特点都有哪些，地图题我们需要写出来，图表当中多的少的有的没的。同样每一个元素的变化，每一个建筑的变化，我们都是不可以省略的。我们要把它所见即所得，一五一十的呈现在我们的作文里面。</p>
+    <p>接下来我们来看一下地图题部分的写作结构。宇宙之前我们学数据类的图表一样，我们也是要写成字段到5段式。开头段我们进行原题目的改写，完成一个introduction的部分。然后paragraph two我们来概括出这个地图当中，就是宏观的概括一下它的一个主要内容。然后主体段的部分会用两段到三段来进行主要的变化的描述。为什么是有的时候是三段呢？我们的课程后面会去给大家进行一个揭秘。</p>
+    <p>Ok那关于地图题我们需要注意哪些要点呢？在看图的部分如何读懂这个题？第一个要点就是涉及到关于地图题的一个时态。既然是解历史变迁，必然会涉及到两个不同的时间点。那在地图题当中都会涉及到哪些不同的时间点呢？我们一起来看一下。</p>
+    <p>第一种情况就是两幅图表它都是过去式，都是过去的一个时间，那我们会用到的时态就都是一般过去式。第二种情况就是第一幅图我们可以用到过去式，第二幅图是now现在式。所以我们会用到两个不同的时态，分别是一般过去式，也就一般现在是。然后还有第三种情况，一幅图是现在的这个城镇的一个布局。然后第二种情况是对于未来的一个规划，那我们会用到什么？将来时的一个时态。所以总结一下关于这个地图题的写作会涉及到如下这种时态，分别是一般过去时、一般现在时、现在完成时以及一般将来时。这个是关于第一个要点，我们在写作的时候一定要注意写哪幅图，要注意对应的一个时态，注意时态的准确。</p>
+    <p>第二个要点就是我们如何确定这个地图题的起点，我们从哪开始写？这从哪开始写非常的灵活，只要你的这个整体段落的一个描述，内部的建筑之间他们是有一个顺序去的，在这里给大家总结了一些方法，一些大地图，我们可以第一种可以以主要的建筑为中心，顺时针的来进行描述。那什么叫主要建筑呢？肯定是我们在看一个地图题的时候，有一些建筑它占地面积比较大，或者从它的政治意义上来讲，某一个建筑很显然它是比较重要的，那么我们就可以把它称之为主要建筑，以它为中心，以它为轴，顺时针的来进行描述。第二种形式就是自驱向东，说白了也就是从左到右的一个顺序，对吧？依次的来去写每一个建筑的变化。一些小地图也给大家准备了一个新的思路，就是我们可以从入口来进行描述，这个叫做什么路人视角的一个形式来进行一个描述。这是第二步，确认起点。</p>
+    <p>第三我们就是来看一下地图题，我们要如何分段。在这里我也给大家总结了不同的分段方法。第一个方法，既然是一个历史的变迁，涉及到不同的时间节点。所以最简单的方式我认为是什么？按照时间来进行分段，所以我们就可以一个时间写一段。</p>
+    <p>第二种情况下，我们可以按照区域它的变化来进行分段。那一幅图因为它的元素过于的多，我们可以把它从中间一分为二。我的body one body one我就写两幅图表，左边这幅图就是可以说西边的变化，在body two我就写在这个东边，两幅图表它们有一个什么样的一个差异？这个就叫做按照区域来进行分段。</p>
+    <p>第三，我们可以按照变化的程度来进行分段，什么意思呢？我刚才说了一个地图题当中这么多的元素，会有一些核心的建筑，也会有一些辅助的设施。比如说一些路或者是一些不是那么起眼的一些小的建筑，所以我们可以分为一组，什么核心建筑的变化为第一段，然后主要不是辅助设施的一个变化为第二段。这个就是关于地图题的分段问题，然后我们下面来拿一幅图来给大家举例，然后我们来练习一下地图题的看图。这是一个很显然是一个小岛，然后它涉及到的时态是before and after，所以会用到什么一般过去式和一般现代式的一个时代。这幅图表我们要如何进行分组？我采取两种方式来分，我们可以怎么样？一幅图一段就一个时间写一段，或者我们也可以按照这个合核心设施一段，然后辅助设置一段来进行一个分段。</p>
+    <p>这幅图表我们来看一下都包含哪些建筑。在中间它有一个restaurant restaurant一个餐厅。用这个路，就用这个vehicle track来进行连接。那么会看到一个reception叫做招待所招待所。然后比较显眼的是这两堆儿，这个叫accommodation。显然它是一个住宿，它们是一个帐篷，可以让人来居住的。然后还有在重建之后，我们可以看到它加了一些设施，比如说这个peer peer这个叫做低和堤坝，或者叫做一个码头。这边bitch这个沙滩也被启用了，它可以让游客来进行一个游泳。</p>
+    <p>我们先来看一下第一种方式，我们的看图也就是按照时间分段，涉及到的是如下的3种时态。我们可以随便选择中间的一个占地面积比较大的，比如说这个帐篷作为一个取点来解决。然后分段的方式就是第一幅图一段，第二幅图两段。为什么两段？我说过我们再去写周地段的时候，还是要尽量的去兼顾段落与段落之间最初的一个均衡。所以在这里我选择的是第二幅图写两段。</p>
+    <p>既然我们不可能把这所有的元素都在一段里全都写完，然后总结，这个小岛整体发生了什么变化呢？它增加了很多的一些娱乐设施来满足游客的需求。这个是按照时间分段我的一个思路。</p>
+    <p>同时我也给大家提供另外的一个思路，也就是按照变化来进行分段。我以这个酒店作为一个起点，我可以怎么样来写呢？把主要设施分为一段，辅助设施分为一段。那什么是我的主要设施呢？比如说这里面的restaurant reception ten，他们叫主要的首饰，然后包括这里面的一些路，然后什么叫做辅助设施呢？我在这里标注一下。比如说我认为是这个bitch and peer，他们作为一段我来写他的一个变化，这个是我的第二种看图的一个思路。然后我就接下来我就可以来写这幅图了。</p>
+    <p>那怎么写呢？我就可以按照起点，从起点开始按照顺序描述他们的变化。我们描述每一个建筑的变化的时候，要具体怎么写？也在这里我也给大家准备了一个公式。我们无非就要描述出来这是哪一个建筑，哪一个元素它发生了一个什么样的变化，这个建筑它处于一个什么样的地理位置。然后它是一个在什么样的一个时间，是现在还是utter，还是说这个before，我们要注意一下它时间的一个变化。然后下面我要给大家进行了关于地图题部分语言点的一个补充了，帮助大家进行地图题的一个写作。</p>
+    <p>我们先来看第一部分，描述对象我们就不说了，就是从图表当中我们就可以获得就是看到什么就写什么，对吧？第二个关于动词的部分，我们需要掌握哪些动词，或者说这个建筑它会有哪些动作上的变化呢？最常见的一个表达，我们要表示的什么？某一个建筑位于哪里？那位于这个概念我们可以怎么表达呢？我们可以用的是located，something located in或者是situated in the sighted in等等等等，可以来用这些表达，或者我们可以用lie这个词就坐落于哪里。在这里注意lie这个词它是并没有被动形式的。</p>
+    <p>接下来如果说我描述完建筑，我又不想另起一句去写，我就想直接说这个A跟B，有个B的建筑跟A挨着。那我可以写完这个A建筑坐落于哪里之后，我可以用这个linkedin表示连接。Link it will be可以连接这个词或者说这个概念我们要怎么去表达呢？我可以用link connect或者是john这个词来进行表达。</p>
+    <p>接下来我们来看一下变大。比如说在这个图表当中，某一个元素它被进行了一个扩建。比如说一个花园或者说一个学校，一个居民的地区，它往往可能会被扩大，说明了这个原作它其实比较重要。那扩大怎么说呢？我们可以用直接说become larger或者extended。Extended什么意思？它叫做这种扩展，就是一个扩张这样的含义。</p>
+    <p>第三叫enlarge的那这个词很好记的，就是它的词根就是large这个字。然后在前面就是一个EN，EN就是一个词的使动的一个前缀，使变大，所以它就是扩大的意思。然后最后expand，expand就是什么呢？扩张或者是扩展的一个意思。</p>
+    <p>Ok然后接下来有变大，有些区域可能会被相应的缩小它的面积。那缩小我们可以怎么表达呢？你可以用如下的这个表达叫reduced in size，这叫搓脚。</p>
+    <p>然后接下来关于就比如说某一个建筑从这个时间随着时间的变化它被拆掉了，就是我们看不到了。那我们可以用哪些图呢？第一个就是disappear，disappear就做阅读，对于这个词一定不陌生，它指的是消失对吧？Disappear或者说某一个建筑它被replay的，它被代替了，或者它被demolish的。Demolished什么意思呢？它就叫做废除或者是被拆除。这个词在大作文当中也很常见了。比如说我们经常在大本文当中会考到一些题目是啊你觉得这个old buildings应不应该被拆除建成新的建筑，那这个词大家一定要认识。</p>
+    <p>然后接下来如果说一个建筑它被转移了，它仅仅是被转移了位置，那我们可以怎么说呢？可以用relocated，就是located，就是位于，对吧？Relocated在前面加一个RE表示再一次被转移，说明它的位置发生了变化。然后接下来如果说某一个建筑它被重新建立了一个就之前一个图表当中没有的一个建筑，然后它会重新建立了，那我可以怎么说？可以用的是be built，be constructed, be developed, be created, 或者proposed or added，这都是叫做什么被添加，被增加。</p>
+    <p>或者我们也可以概括的来讲，某一个建筑它其实就是发生了一点点的改变。那么这个被改变我们可以怎么说？我们可以用change的，或者turn的，或者是converted。Converted这个子弹在流程图里也讲过，它叫做什么bay转化，被转化会被改变。然后同样我们竟然写了哪些建筑发生了改变。</p>
+    <p>如果说我们关注到了两幅图之间的一个对比，有一些建筑它没有发生任何的变化，保持不变。那保持不变我们可以怎么说呢？我们可以用remain，这叫保持保留或者是cat and changed就保持不变，那就是关于动词的部分。</p>
+    <p>接下来第三个要素，第三个要点我们要学会描述方位，这个对于一些同学来说真的就是异常痛苦了。因为其实不太有这个方向感，也不知道每个方位到底应该怎么去描述。我在这里给大家进行了一个简单的补充，这些词大家进行挑选就可以，就不需要大家完全的百分之百的掌握。最简单的就是说上北下南，左西右东，这个肯定是要贵的。比如说noise is，然后包括sound what，这几个表达是必须要归档的。然后除此之外45度讲了，就比如说大致是45度的这些位置大家也会。比如说西北什么东南角这些表达大家也要会。</p>
+    <p>然后另外如果说是一个小地图，就比如说一个内部的一个构造，那我们可以怎么去说？我们也可以说就是说这个上面下面左边右边就是会用到什么top upper或者是bottom，就下面lower。然后左边我们可以直接说left，右边是right。同理关于这个左上右下，大家也要会左上是top left，右下角是bottom right，直接表达大家一定要会。如果说某一个建筑它是位于这个图表，或者位于整个地图的一个中心的一个区域，我们可以说什么？可以说in the center或者是in the central part of the area，在这个区域的政务中心，这个是方位，描述方位的一些名词或者形容词。</p>
+    <p>接下来我认为地图题的一个难点是什么？介词。因为很多同学对于这个信任词的使用拿捏的不是非常的一个准确。那我在这里把所有会涉及到我的接介词也给大家进行了一个总结。当然了不需要大家选择贵，就是用这几个常用的就可以。那么在这里我只是为了让大家做一个戒指之间的一个甄别和分辨。</p>
+    <p>第一个句子就是in。如果说我们想描述一个建筑，A在B的里面，比如说这个岛这个岛是BA在B的里面，我们可以用in这个表达方法。比如说我们来看例句说这个餐厅在这个岛上脱落于这个岛的最南面，那我们可以直接用阴影，this right around is located或者is in the southeast of the island，在这个岛的南面。然后接下来如果说A在B的边上，并且它是接涨的，比如这是A建筑，然后这是B然后A与B之间他们两个是紧挨着的，他们接壤我们要用的姿势，比如说这个餐厅在岛的南面接壤的关系，那么就是on the south side of the island。那如果说A在B的外面，他们不接壤，就是这样的一个关系。不接壤我们要用的介词是to，那同理就这个地方就是a new restaurant，have been built to the south of the of the city。那这是不接让如果说我们想要描述两个建筑，它们是附近靠近挨着的一个关系，我们可以怎么说呢？可以用nature close to，还有adjacent to，这个词也是阅读里面会考的，叫做郡的或者是靠近的。</p>
+    <p>接下来想表示A在B的里面，其实这个within和in大家就没有必要去抓牛角尖，他都表示在什么什么的里面，并且他们的意义就是他们的差别不是那么的大。OK然后接下来at我们后面要加一个具体的地点，而且这个一定是一个小地点，一定是一个非常小的位置。比如说the diet are located at the back of the hotel uh楼梯在酒店的背面，在酒店的后面，这个地方我们要用的是at最后如果A在B的那里面，那么我们用的是outside。然后最后一个词叫做炎热。</p>
+    <p>我们经常会看到这样的一个图，就是这可能是一个main road，这是一个路，或者一个什么什么way，或者一个什么步行街。两边儿就会有一些的building，比如说它会建很多的商场，那么我说路的两边研究路的两边有一排商场，那我们可以用什么词叫做alongside，来看一下它的应用。我们可以说there are some shop along that the main joke在这个主路的两边，有一排的商场，这个是关于戒指的部分。</p>
+    <p>接下来最后的一个要素也就是时间状语的部分。时间状语我们无非就涉及到过去、将来以及现在不同的一个概念。动词我们就是需要记得是be动词的不同的形式。过去和现在我就不说了，我们来说一下未来，就未来即将要被建什么？</p>
+    <p>我们如果用be动词来表示的话，我们可以怎么说呢？我们可以用eggs are，或者是planning to，就是计划建什么，或者expected to，或者是that too，或者是proposed to，接下来如果是有形容词，我们要形容说过去的一个建筑，一个老建筑，或者之前的这个地图。那我们可以怎么说呢？Old path或者original the old buildings，或者是are the original building，之前的这个建筑。然后接下来如果是现在的建筑，我们可以用current existing、present表示现在的现存的这个建筑。然后对于未来的一个建造，我们可以用的是future planning proposed这些词来进行一个代替。</p>
+    <p>最后关于时间状语的部分。时间状语的部分就比较的简单了，过去我们就可以说in the past，现在我们可以用currently now at present，表示未来的有。时间我们可以用in the future，你就直接说在未来或者according to the plan，根据这个计划来看，然后以及f planet就表示什么呢？像计划的那样，就是状语的部分。</p>
+    <p>好的，以上是关于地图题必备的一些词汇表达。我分别给大家总结了地图体必备的一些动词、一些介词、一些时间状语的部分。然后下面我们进入下一个章节，也就是句式的一个补充。</p>
+    <p>说实话地图题并不需要大家的剧情多么的复杂。所以在这里就是给大家总结的句型，大家只要能够掌握其中的几个就可以。无非就表示有某处有某物这样的一个概念。</p>
+    <p>我们可以用什么样的句型来表示？第一个我们就可以直接说一个建筑然后被建立在哪里。那么会用到的是be situated，be cited, be built or be constructed, 加上具体的地点。我们来看一下例句，一个师弟在乎的清单面，那么就是a White line is located to the southwest of the lake。这是第一个句型，就是直接说第二个。</p>
+    <p>如果说我们想一个句子表达两个地点，那我可以怎么说呢？我可以一个地点说完之后，就是一个建筑在一个地方，然后再加上with用蔚来连接方位OK我们比如说来看一下这个例子，这个地区有一个很大的树林，在南面有一个农场。那前面这句话我就正常说，这个地区有很大的树林，一个简单句我就直接翻译。Uh this region have large woodwind, 然后接下来它有一个农场，就是with a form to the，就后面加上这个建筑2，然后后面再加上它的一个方位，这是第二步句型。</p>
+    <p>接下来第三个剧情，已经非常简单的一个剧情了，我们从小就学过。如果说想要表达某处有某物的概念，我们可以用的是there be就行，所以我们可以直接翻译，东南角有两个学校，我们可以这样去说。There are two schools on the thought turn, uh, thought it turned corner.</p>
+    <p>这个是DRB句型的一个应用，然后第四个句型就如果说我们想表达的两个建筑，他们在地理位置上有着一个挨着，或者是在这个方位上相反的一个关系。那我们中间可以加上不同的连接词。比如说我们可以用while或者是and来进行连接。我们来看一下这个句子，城市的北面有一座山，而它的南面却有一个湖。南和北他们形成了这种地理位置的一个对立。所以我们可以用well来进行连接，来写这句话。A mountain is located to the north of the city, while there is a lake to the thoughts. 这个叫做连接词的一个使用。</p>
+    <p>然后接下来第五个句型，我们可以用的是倒装句。因为我们从小就学过，如果说用一个地点或者一个介词做主语，那整个句型要进行一个倒装。什么叫倒装呢？一个正常语序的句子应该是一个主谓宾的一个结构。如果说介词放在句首要进行倒桩的话，也就是我们的谓语动词要放在主语的前面，然后前面加上这个宾语的部分或者是介词短语。我们可以说河的南面有一个图书馆，我们可以把这个地理位置放在前面to the south of the river小河的南面。然后where is a library？我们发现这个句子里面就把be动词放在了library的前面，这个叫做河的难免有一个图书馆。</p>
+    <p>然后最后一个句型就是名词性的从句。其实名词性的从句我们在写数据类图表的时候已经就学过了。我们经常会说，我们可以看到我值得注意的是，给大家准备了一些名词性的从句，比如说it should be no that，值得注意的是it's worth noting that或者it is noticeable that we can see that as clear。That或者是one significant change is that其中一个最大的变化是什么什么？我们来看一下这个句型的一个应用。比如说我们要翻译这样的一个句子，值得注意的是啊这个图书馆它在东侧有一个长列的会议室，那我们可以怎么说呢？It is noticeable that the library has a role of meeting room on the eastern side. 这个就是这个名词性从句的一个使用OK掌握了这些词和这些句式，我们接下来就可以来进行地图题的一个写作练习了。</p>
+    <p>开头段就是进行语言题目的改写，这个改写真的就非常简单，我把原题目给大家写成了这两个图表show the change to the island，展现出来了一个岛的改变。然后接下来我们要进行概述段。那地理图题的概述段，无非就是从两个方面来写。一你要写两幅图之间发生了什么整体的变化，那无非它的整体变化就是它进行了一个改造，或者加了很多不同的facility。另外你也可以从功能上来进行描述，功能分别有三个，居住、交通、休闲。针对这个岛而言，很显然它是更利于人们的一个休闲，从娱乐的一个角度给人们提供了更多的一个方便。所以我可以从这两方面来进行总结。</p>
+    <p>Overall, after the construction再见到之后，the island has become an amazing play to write。在改造之后，这个岛就变成了一个非常棒的地方，可以让人们来进行休息。这个就是overview的部分。</p>
+    <p>然后我们先来看一下第一种写法，也就是按照时间来进行分段。按时间分段的话，我们就是有一个段落专门写before，就是这个道理有什么？这个就非常简单了。我们会发现在第一幅图里，这个岛几乎没有任何的建筑，就是我们可以直接描述一个岛上面有什么呢？有一些树，这个岛被大海包围着，并且这边有一个bitch，有一个沙滩。那我们来把它写在我们的主体段里。Turning to the first night before construction.</p>
+    <p>这个就是什么，我们的分组逻辑，it can be seen that可以被看到的是这个是名词性从句的一个使用。一个岛有一些椰子树，这就是一个简单句了。一个岛head upon AA few palm tree。接下来定语从句的补充说明which surrounding应该是which is surrounded by sea，被一个大海包围and a bitch in the White，并且在西边有一个沙滩。这个就是第一幅图表有什么？接下来我们来看一下，body two我们要写的是utter，就在经过改造之后，这个岛上都有哪些变化？那我们在这里就要进行一个处理。</p>
+    <p>因为这个第二幅图它的元素，它的建筑太多了，所以我要进行一个拆分。比如说我可以先选它的一些占地面积较大的或者主要的建筑来进行描述。Result rate, subject accommodation这三个部分来进行一个描述，那我们要进行一个转折。Moving to the other map, 我们来看一下另一幅图，这就是分组逻辑了。One can see that, 我们可以看到的是there are some facilities have been built on the island。有一些设施在这个岛上被建立了，这个就是一个总体写它的一个变化。其中一个变化就one of the first thing to note is that其中的一个变化上，there are fifteen tens for torrent to living.</p>
+    <p>这个岛上很明显的就是它多了15个帐篷，可以让人们去居住。然后他们具体都在哪里呢？The first six of them, 其中的六个have been built around three palm tree，在这个椰子树旁边，on the water of the island，对吧？在椰子树旁边，并且在这个岛的西面。好，另外while the other一个在西面，一个在东面，所以他们肯定是一个这种对比的一个关系，所以我们来进行连接。Well, the others have been constructed on the central part of it.</p>
+    <p>另外的一些被建立在了这个岛的中间的一个部分，叫central part of it，然后接下来between detect，在这两堆帐篷中间有一些什么呢？你用DRB进行来写，there is a right for round down, 就有一个painting in the north。在北面，and a reception一个招待所。然后这个招待所，他们跟这个restaurant中间，which is surrounded by a vehicle check.</p>
+    <p>备用这个小路来进行连接。这个就是在改造之后，主要设施的一些变化。接下来我们还要再另起一段来写一些辅助设施的变化。我们来看下一段。Another thing which stands out from the map of that, 那another thing说明跟上一段是一个什么，他们是一个并列的关系。Anyone who want to go selling should follow the vehicle jacket，which bring to the pier.</p>
+    <p>任何人想要出海都要来到这个堤坝，或者说来到这个码头。码头在哪里呢？In the south southern side of the island. 接下来also另外在这个岛的这边，there is a bitch有一个沙滩for swimming，which can be found on the washington quarter of the island.</p>
+    <p>那么这个沙滩的内战是在这个岛的西面。这个就是关于如果说时间分段，那我就完成了这幅图它所有的建筑的一个变化。这是我们的第一个版本。接下来我给大家进行另外一个版本写作的一个补充。另外一幅就是我们刚才已经进行分析过了，按照变化来进行一个分段，也就是主要测试一段，辅助测试一段。然后总结依然是这个交道分享了很多的设施来满足游客的需求。</p>
+    <p>开头端我们依然对于这个原题目要进行一个改写，那我们的改写就做了一点小小的改动。如果这两个地图represents代表了how an island constructed for tourism with a few facilities，那这个岛是如何被建立的？为了旅游业，接下来overview概述段我们就是给了一个更详细的一个版本，总之well，originally and touched.</p>
+    <p>但是之前之前这个岛是人迹罕至的，就是没有什么人，没有什么东西。The island now have a variety of fertility. 这个岛现在有了很多的一个设施，这些设施用来做什么呢？Which have been built to cater for the needs of territory.</p>
+    <p>这里面有一个表达叫做category，叫做银河或者是满足需求。大家可以记一下这个词，火，在大作文可以去使用。这些寿司被用来迎合人们的一个需求，迎合游客的一个需求。什么需求呢？再去打印、吃饭、lodging，你Jordan and women。比如说人们去用摊，人们去居住，这个就是一个住宿的一个需求。然后这个叫做游艇，就是说这种娱乐然后和闺蜜游泳的一个需求。这个岛现在真的是非常的适合人们游客来进行观光和度假。</p>
+    <p>接下来我们来看一下body one，body one我按变化分，我就不需要去写这个before它到底有什么呢？我直接就写阿尔比一多了什么，我先写辅助主要设施的一个变化，注意我的段落成分结构是一个部分的结构。我说这个岛我previously empty，这个岛之前几乎是空的，without any nominate structure, 没有任何的一个人造的一个设施。But now since I know a number of case facilities have been made available for visitors, 那这个岛有很多的一个设施被游客而建造，那都有什么呢？我们先来看一下，首先there is reduction in the middle。在中间有一个招大夫，应该这个部分有个招待所。用到了连接的这个词，它挨着一个什么呢？Linkedin with a to the north by a vehicle, china.</p>
+    <p>他连接了北面的这个餐厅，通过一个这种小璐来连接。另外还有哪些主要的变化呢？Took和a accommodation hub。</p>
+    <p>Cluster这个词之前在讲句子态图的时候也有给大家进行一个补充。它表示动词它指的是这种聚集。如果说它当名词是什么含义？当名词的话就是不是，它当一个量子量就表示两吨或者是两团两边的帐篷。Have been built in the eighth and White上，分别在这个岛的东边以及西边建立了帐篷，然后connected with each other。他们这些帐篷之间彼此之间如何连接的呢？有这个by footpad，通过这些步行的一个小路来进行连接，这个是主要设施的部分。接下来我们来看一下补助设施，并且在辅助的设施，我给大家选了一件可以加分的采分点。</p>
+    <p>Big foot packed out full link to two other new features of the island. 这个脚印，这个小鹿也把人们引向了这个岛上一些新的特色，有哪些特色呢？Footpath, the first is the pier on the southern side.</p>
+    <p>And第一个就是说在南边的这个码头，那这个码头怎么样的？With a lot bird，a boat to bird, 这个码头是让这个船来休息停歇的，停歇靠岸的。然后接下来我进行了一个补充说明，就是在增加了这样的一个建筑之后，对于人们有什么样的一个好处，或者这样做的一个目的是什么呢？They can make the island more accessible to toronto, 那就可以让这个岛更加的让游客更方便来这个岛。另外the other is a swimming area next to the beach on the western tape。在最西边的一个角落有一个游泳的一个区域。</p>
+    <p>然后接下来依然我们使用了一个这种分子结构来进行功能的一个补充。就是这个swimming area是来做什么的呢？Attracting those holiday makers not who are keen to take a dip, 可以吸引到这次度假的人。Holiday makers就叫做度假的人，建议这些人去来去玩水。</p>
+    <p>然后除了我写出来了这些哪些发生变化之外，我在这一段我还进行了一个细节的补充，我还写了哪些东西是没有发生改变的，我说in contract对比，the eastern part of the island，我们会发现这个岛它东边它没有任何的一个改造，没有增加任何的一个建筑。所以我说the eastern part of the island remains basically undeveloped，没有任何的一个变化，with nothing, 什么都没有，apart from tree. 就是这个东边从始至终从除了一些椰子树之外，它什么都没有。这个就是按照变化来进行分段。</p>
+    <p>我们来总结一下加分的要点，就是我们不光要写出来到底要进行了哪些改造，我们也可以进行内容的补充。也就是经过了这些改造之后，到底给人们提供了一个什么样的方便，或者是满足了什么样的一个需求。以上就是关于我们今天定义图题部分的一个讲解。希望大家能够观看完本学科的视频之后，来进行词汇和句型的一个积累，并且完成我们课后地图题的练习。以上就是我们本节课的内容了，我们下节课再见了，拜拜。</p>
+    <p># 大作文（9）</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-08.html">精讲逐字稿</a></li>
+      <li><a href="qa-08.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-07.html">上一讲 07</a></li>
+      <li><a href="lesson-09.html">下一讲 09</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

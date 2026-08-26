@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第03讲 · 静态图表 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 03 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a class="active" href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第03讲 · 静态图表</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次课程中，主讲人介绍了写作小作文系列课程中关于静态图表学习的部分。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>静态图有哪些常见的类型，以及它们的特点是什么？静态图写作时的整体结构是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>静态图主要有三种类型，分别是表格（table）、柱状图（bar chart）和饼图（high chart）。静态图没有时间维度或只有一个时间点，无法展示对象随时间的变化情况，但可以用来进行不同对象之间的高低比较。例如，表格通过多个维度对比数据，柱状图则以柱子的高度代表不同类别下的数值大小，饼图则展示各个部分占整体的比例。静态图写作的整体结构采用四段式，包括介绍图表内容的开头段、概述整个图表特点的第二段、主体段（对每个组别内部进行详细比较）和总结段。在看图和审题阶段，需要找到图表中的标题、对象以及对比对象，并按照这些分组进行数据分析和写作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>静态图写作时如何识别和处理对比对象？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对比对象是指在静态图表中，通过不同维度进行比较的组别。例如，在一个生活质量评价图表中，可能通过国家和评价标准两个维度形成对比对象；而在澳洲不同性别获得不同学历文凭百分比的图表中，学历层次和性别可以构成对比对象。识别对比对象有助于正确理解图表信息并进行正确的数据分析和写作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>静态图的主要信息包含哪些内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>针对每个组别，静态图的主要信息应包括最高值、最低值以及第二高值。此外，还需要关注是否有数值之间的倍数关系或其他显著差异，并敢于合并相似数据以简化表达，强调数据之间的差异性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>静态图写作时如何灵活选择分组方式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>静态图的分组方式非常灵活，可以根据图表的显著特征选择合适的分组方式。例如，可以按照数值的高低进行分组，也可以按照数列（如经济学中的恩格尔系数所代表的不同支出占比）或其他逻辑关系进行分组。关键在于确保分组能够直观反映图表的核心信息和多维度对比特点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在对数列进行分组时，如何决定横行和数列的划分依据？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>横行的划分依据是包含在所有图表中的维度，例如时间、地点和年龄组，这些作为第一对比对象的维度可以优先作为横行。数列则是基于某一主题的不同表现维度，比如本例中的三门课程，按照各个维度评价的高低进行分组。</p></div>
+    </details>
+    <details class="qa">
+      <summary>概述段应如何撰写并体现整体信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>概述段需概括整体信息，指出如图表所示，各门课程评价最好的是business，其次是math数学，而评价最差的是computing计算机。同时，强调无论哪一门课，学生对teaching和tutor support的评价较好，但在资源方面的评价得分最低。这些内容均可以写入概述段。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于男女比例对比的图表，如何选择合适的分组方式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于涉及男女两两对比的图表，可以采用X（男性）和Y（女性）来指代，并根据X小于Y或X大于Y将数据分为两组，形成独特的分组方式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何根据类别对支出占比图表进行分组并在概述段表述？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在关于消费者支出占比的图表中，按照类别进行分组，概述段可表述如“清晰表明，在最大比例的消费者中，根据国家的不同，食品、饮料和烟草的消费占据首位，而休闲和教育类别则拥有最低的百分比”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对生活质量比较图表，如何得出并表达横向结论？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在生活质量比较图表中，通过两两分组的方式比较五个国家的生活质量，概述段可以得出并写到“美国公民享受着最高的生活质量，而孟加拉国则享有最低的生活质量”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何用词汇和句型描述静态图表中的最大值和最小值？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在静态图表中描述最大值时，可以使用&quot;dominate&quot;、&quot;top the list&quot;或&quot;do more than others&quot;等表达；描述最小值时，可以用&quot;insignificant&quot;或&quot;the latest popular&quot;等表述。此外，还可以借助人称代词（如&quot;大家&quot;）或直接描述图表现象，如&quot;图表显示...&quot;，来呈现数据间的对比关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述区间范围时，有哪些表达方式？倍数的表达方式有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在表达区间范围时，可以使用&quot;range from a to b&quot;，表示从起点值到终点值的区间。此外，&quot;collector between a and b&quot;不仅是一个句型，还具有聚集的意义，它可作为量词表示一定数量或一堆儿、一团儿的含义。倍数的表达在之前讲解动态图句型时已强调过，例如可以说“A是B的几倍”，即A与B的倍数关系。此外，还可以使用be the same as、be equal to表示两者数值相同，be next door或be similar to表达类比或相似值的概念。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何用英语描述静态图中的占比概念？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在静态图中，占比通常可以用诸如constitute、account for、represent或make up等词汇来表达。这些词汇都可用于描述部分与整体之间的比例关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何使用状语从句描述静态图中的数据对比？如何使用比较级和最高级来描述静态图中的数据？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以使用while或whereas引导状语从句进行转折比较，如&quot;在美国开车的人比例最高，骑车的人比例最低&quot;，其中&quot;while&quot;用于连接两个并列的比较项，表明最大的和最小的值。对于比较级，可以直接写出如&quot;In the US, the proportion of car users was higher than in China.&quot;这样的句子。而最高级的表达除了直接描述最高值外，还可以通过弱化数字信息，增加文学性和文字性色彩，例如&quot;Car ownership represents the most popular means of transportation in the US.&quot;</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何体现数列间的倍数关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当观察到数列间明显的倍数关系时，比如中国使用公共交通工具的人数是美国的三倍，可以直接写出&quot;In China, the proportion of people using public transport was three times higher than in the US.&quot;，强调倍数值时需确保比较对象的一致性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何用介词短语compare with或compare to进行静态图数据对比？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以通过使用&quot;compared with&quot;或&quot;compared to&quot;来对比不同国家的数据，例如&quot;The percentage of Americans who travel by car is 53%, compared with 7% of the population in China.&quot;这种表达方式可以清晰地展示分子分母法转换后的比较结果。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在第一列到第二列的衔接中，您使用了哪个词来表示这种关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我使用了&quot;as for&quot;这个词，意为在某一方面而言，比如在daily calorie supply方面，我们可以看到相似的模式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于第三列和第四列的数据（人均寿命和新生婴儿死亡率），您如何处理？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在处理第三列和第四列数据时，我们会发现它们大同小异，但可以对资料信息进行筛选，只保留要点值进行分析和比较。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述图表主体段落时，如何选择和处理数据？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在描述图表主体段落时，首先要确保段与段之间的衔接，并学会筛选和排序信息。例如，在讨论人均寿命部分时，美国排名第一，接着是埃及；而在讨论新生婴儿死亡率时，则呈现出孟加拉国数值远高于美国的截然不同情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于男性和女性取得不同学历文凭百分比的图表，您如何确定写作顺序和选取要点值？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先从最大的百分比组别开始写作，即90%的男性取得了某种职业文凭，相对应的女性占比为10%。对于后续组别，则选择那些与前一组有显著差异或对比关系的数值，如第二组中男性取得某项文凭的数量是女性的1.5到2倍。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在写作主体段时，如何处理转折关系以及描述数值关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当从男大于女的组别转向女大于男的组别时，主体段采用转折逻辑，使用however或on the other hand等表达对比的逻辑词。描述数值关系时，关注最大值、最小值以及具有代表性的中间值，并采用合并分类的方式简化表述，同时通过定语从句等方式具体说明倍数关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于静态图表中的数据，如何转化并进行写作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>静态图表中的数据可以转化为表格形式，对比不同对象之间的上升或下降趋势。以美国每餐摄入不同成分的百分比为例，由于饼图单位不一致，应逐个派内比较，不能横向比较不同类别数据。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在第一幅图表中，各餐次摄入比例是如何分布的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在第一幅图表中，早餐的摄入比例为14%，午餐为29%，晚餐最高达到43%，而网上的摄入比例同样是14%。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对第一幅图表，我们如何进行数据分析和写作练习？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我们可以通过分析图表数据，比如以不同的分组方式来比较各个餐次的摄入比例，并尝试将图表信息转化为表格以方便比较。虽然在实际考试中可能没有足够时间做这样的转化，但这是初步练习时对图表类型反应的一种方式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这幅图表的概述段应该如何写？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>概述段需要突出两组比较对象的不同，可以指出meal和newtonian以及三种营养元素的摄入情况各异。描述时可以笼统概括，强调三种营养元素在不同餐次间的摄入变化，并提及每顿饭中某种营养元素摄入量也会有所变化。</p></div>
+    </details>
+    <details class="qa">
+      <summary>主体段分组写作时有哪些策略可选？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于主体段的分组写作，由于有三列比较（pi charge），可以选择1加2或者2加1的方式进行分组，因为不可能平均分配。在写作时，要根据饼图中各部分的比例差异进行详细描述。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何利用不同分组方式来写作第二组图（脂肪摄入）的内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于第二组图（脂肪摄入），可以采用以“人”为主语的方式写作，列出各项活动在不同年龄组中的占比，并用区间表达最大值、中间值和最小值，如“Americans are most likely to consume saturated fat in dinner，占每日总摄入量的37%”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>高分作文在表达方式上有何特点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>高分作文在表达上会采用多种句型和语言风格，例如使用定语从句来丰富描述，避免单一列举百分比。比如，在描述钠元素摄入时，会说&quot;dinner at the meal&quot;（晚餐）摄入了43克钠元素，而非直接写&quot;the proportion of sodium taken in dinner was forty three percent&quot;。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对bar chart（澳大利亚儿童参与不同活动的百分比）的写作思路是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于bar chart，首先确定年龄组为第一对比对象，活动为第二对比对象。可以选择突出最高和最低百分比的对比，如&quot;Watching TV&quot;是最受欢迎的活动，&quot;Art&quot;是最不受欢迎的活动。在概述段中，应强调三个年龄组在各项活动中的多样性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>“riding a bike”这一活动在不同年龄组中的表现如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在“riding a bike”这一活动中，并没有一个特定年龄组展现出显著的高低差异，其活跃度或受欢迎程度在一个较大的区间内波动，范围在60%到82%之间，无法通过一个特定值来突出其特点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在9到11岁年龄组中，阅读这一活动与其他活动相比有何特点？澳大利亚不同年龄段人群对于阅读和骑自行车活动的参与度有何异同？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在9到11岁的年龄组中，阅读这一活动与70%的澳大利亚孩子选择看书这一事实紧密相关，并且与12到16岁年龄组有相同的阅读比例。同时，5到8岁年龄组的阅读活跃度较低，符合该年龄段儿童的阅读能力发展规律。在澳大利亚，9到11岁的孩子和12到16岁的孩子对于阅读和骑自行车活动的参与度相等。然而，骑自行车活动在各个年龄段的参与度并不一致，活跃度区间广泛，在60%到82%之间波动，而阅读活动则表现出明显的年龄层偏好，尤其在5到8岁儿童中，阅读活跃度较低。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-03.html">精讲逐字稿</a></li>
+      <li><a href="qa-03.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-02.html">上一讲 02</a></li>
+      <li><a href="lesson-04.html">下一讲 04</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

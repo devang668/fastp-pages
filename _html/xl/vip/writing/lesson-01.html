@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第01讲 · 动态图表（小作文）总览 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 01 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a class="active" href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第01讲 · 动态图表（小作文）总览</h1>
+    <div class="abstract"><b>本讲概要：</b>本文介绍了雅思写作课程中动态图表讲解部分的核心内容。课程分为四部分，旨在教授学生动态图表的考察形式、写作结构、步骤及技巧。动态图表包括两个或更多时间点的数据，而静态图表则只有一个时间点或无时间属性。无论图表类型如何，写作结构相似，包括开头介绍段、概述段及主体段描述。特别强调了概述段的重要性，指导如何概括图表中的主要特征。课程还涵盖图表审题、信息选取、动态变化识别、关键数据点选择、逻辑分组方式确定以及写作时态和语言精准度的确认。最后，鼓励学生通过实践练习提高写作技巧，以有效准备雅思考试。</div>
+    <div class="tip">本讲含 26 组问答精要，可到<a href="qa-01.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本文介绍了雅思写作课程中动态图表讲解部分的核心内容。课程分为四部分，旨在教授学生动态图表的考察形式、写作结构、步骤及技巧。动态图表包括两个或更多时间点的数据，而静态图表则只有一个时间点或无时间属性。无论图表类型如何，写作结构相似，包括开头介绍段、概述段及主体段描述。特别强调了概述段的重要性，指导如何概括图表中的主要特征。课程还涵盖图表审题、信息选取、动态变化识别、关键数据点选择、逻辑分组方式确定以及写作时态和语言精准度的确认。最后，鼓励学生通过实践练习提高写作技巧，以有效准备雅思考试。</p>
+    <p>各位同学大家好，我是lexi。欢迎大家正式进入到雅思写作部分的第一节课。今天我们将完成雅思写作小作文动态图上半部分的一个讲解。本节课主要会分为四大部本案，帮助大家明确动态图主要的考察形式，以及小作文整体的写作结构，具体的写作步骤，以及开头和概述段的一个写作。</p>
+    <p>我们下面先来回顾一下之前导学课的一些内容。我们在导学课的时候有提到，小作文图表一共有如下六个不同的一个类型。那什么样的图表我们称之为动态图呢？也就是我们可以按照它的时间属性来进行一个分类。动态图也就是图表当中有两个或者是两个以上的时间，我们就把它称之为叫做动态图。那什么叫做静态图呢？就是图表当中没有时间或者是只有一个时间变化的，那么就叫做静态图。我们整个的课程就会按照动态图和静态图的这种区分来进行一个讲解。</p>
+    <p>无论是动态图还是静态图，其实他们的写作结构都是一致的。我们先来明确一下整体的段落划分。首先开头段paragraph one我们需要来进行一个图表的一个介绍，或者也可以叫做改写题目。你上来要开门见山的去写明白你的这幅图表主要表达了什么样的内容。接下来paragraph two，我们需要写一个overview概述段，来概述这个图表最显著度的2到3个宏观的特征。</p>
+    <p>在这里有些同学会有一些小小的争议。比如说我之前看过一些范文了，这个概述段明明是写在最后一段的那其实在这里给大家纠正一下，无论是选在第二段还是选在最后一段，其实都是可以的那因为之前我有给大家讲过，要求大家先写大作文，再写小作文。小作文当中因为它的在数段比较的重要，我们放在第二段来写，其实更有助于我们最终的一个整体的分数。因为很有可能有些同学他的主体段写的不好，然后他的概述段明明写的很出彩，但是考官看到这个文章最后已经看不下去了。或者他到最后代收段你就没有写完。所以为了避免这种情况，我们把它放在第二段来写，特别合适。</p>
+    <p>然后接下来主体段的部分就是三段四段个别的图表可能需要这个五段的部分，我们来描述这个主要的一些数据的特征。这个是整体的写作结构，具体我们要怎么写呢？大体会分为这四步。</p>
+    <p>第一步也就是最重要的一步，我们要进行看图选题。所以说关于小作文我要教给大家的是如何来读图，图表当中哪些信息我们要把它写在作文里。第二步就是按部就班的写开头段，写总结段以及写主体段。</p>
+    <p>我们先来看一下最重要的一部，看图审题。我们到底要从图表当中获得什么样的一个信息呢？我在这里把主要的信息分为五大类，第一件事儿我们要区分动态图还是静态图。因为动态图我们更加侧重于写的是趋势变化，趋势变化加上对比。静态图我们只能解的是单纯的每行与每列的数据的一个对比，侧重点是不同的。第二你要确定一下整个图表主体段要用什么样的一个时态。第三，这个图表它主要讲了什么，以及它的标题，以及图表当中具体展现了多少个描述对象。这个也是我们要在读图的时候进行确认的。</p>
+    <p>然后接下来图表当中有哪些信息，我们把它选择写在这个主题段里面。并且根据这期选择筛选出来的信息，我们要确定一下最终的整体的文章结构，也就是将这些信息进行一个有序的分组。这些都是我们看图的时候需要完成的一些任务，我们下面逐一来看。</p>
+    <p>首先确定图表类型，我之前已经给大家讲了，如果说图表当中有两个或两个时间，我们就把它称之为动态图。然后有些同学可能会去纠结，就是觉得说我们只学动态图的写作，是否能够应对考试当中所有的这个图表。那我认为是完全可以的。因为在考试当中所有的动态图之间，它们其实都是interchangeable，可以相互转换的。</p>
+    <p>无论是他们以什么样的形式呈现，核心都是表达的是一个数据在不同的时间节点的变化。比如说你像这幅图，它明明是一个bar chart，bar chart是一个咒图，但是我们把它的这个顶点连上顶点连上，那我们会发现它其实就变成了一个折线图。我们依然要描述出来数据在不同的时间点内发生的一个变化。所以我们只需要掌握图表的类型即可。至于它到底是柱图还是柄图什么的，写法都是一致的。</p>
+    <p>然后包括要看图的这个步骤也都是一致的这是第一步要确定图表的类型。第二就是确定写作的一个时态。那我们可以从三个地方去找到这个主体段到底要用什么样的一个时态。比如说拿左边这幅图为例，我们可以在它的标题的部分看到它的时态以及它的副标题，就是小标题的部分，我们可以看到它的时态以及它的横轴、横坐标。这三个地方我们都可以清楚的掌握主体锻炼用什么样的时态。</p>
+    <p>你像这幅图，它的时间跨度是1967到2007，我们会发现都是处于过去的一个时间点，所以我们要用的是过去式的一个时态。然后我们来看一下第二幅图，第二幅图我们会发现它的一个时间跨度是2008年到2025年。也就是说在这个图表当中，既出现了发生在过去的时间，也出现了在将来的一个时间节点。那这个时候我们就要拆分开两部分来写了。我们既会用到一般过去式，然后对于数据在将来的一些特征，我们也会用到将来式的那个时态，这个是需要我们注意的，这是写作时态的一个确认。</p>
+    <p>然后接下来主要信息，有些同学就比较纠结了。比如说这个图表它呈现了如此多的一个数据的信息，我将才去哪些信息写在我的主体段里呢？我在这里给大家也进行了一个总结，大体上就是说full train 4个不同的趋势，然后five points 5个不同的点以及two differences。那么呃我们先来看一下for trains分别是什么呢？也就是每一个对象它可能会发生的一个趋势变化特征，分别是上升、下降、持平以及波动，就是每一个对象的趋势变化。</p>
+    <p>除此之外，图表当中有哪一些点我们可以去选举的呢？在这里有五个点，这个是每一个对象起点值和终点值，就是它从多少增长到了多少，我们可以去写。以及样如果说一个对象它抽象了一个这种转折点，那么它也有最高点和最低点。然后另外对象与对象之间是否出现了一个焦点，或者说出现了一个转折点，这个是重要的要点信息。然后最后我们不光要自己跟自己比，我们同时也要进行一个比较，就是说要将自己跟别人比，所以我们要比一下这个排名以及他们之间中间的一个差值。比如说他们的终点值谁最高谁最低，我们要进行一个排名的这种筛选。</p>
+    <p>所以我们来总结一下，针对一个具体的描述对象来说，哪些信息是相对来说比较重要的呢？首先我们一定要挑选最有特点的数据，也就是它的最高值，我们一定要写出来。另外它最后一年的数据也是比较重要的，因为是最后一年的数据决定了整个的对象的趋势变化的一个走向。第三我们也可以写它的起点值，也就是第一年的数据。最后就是说整个的这个对象中间是否出现了一个反转，出现了一个变化的趋势，也是我们可以去写的那我们下面就来做一个小小的练习，拿这幅图表来看，我们会选取哪些主要的信息呢？依据这个full trains，five points and two different.</p>
+    <p>咱们可以把它进行补充。四个对账分别的一个趋势。我们会发现这个UK它的一个趋势变化是下降了。有些同学可能会纠结，像这个sweden它是先上升后下降，那它到底是一个怎么样的趋势变化呢？</p>
+    <p>在这里也统一给大家进行一个解答。就是我们在去描述趋势变化的时候，只需要去写这个对象整体的趋势变化。也就是只要它的中点值大于它的起点值，我们就可以说它是一个上升的趋势。只要它的中点值小于它的起点值，我们就说它是一个整体下降的一个趋势，所以我们只写这个总体就可以。像这个swimming它就是一个总体下降。然后另外这个eight week portugal，这两个国家它是一个总体上升的一个趋势，我们可以把它解出来。</p>
+    <p>那有哪些要点我们可以去写呢？每一个对象他们的骑电池到充电池，这个是我们可以写的。然后相对特殊一点是sweden这个国家，我们会发现它除了起点值和终点值之外，它还有一个最高点。这个最高点也是我们可以去选择写在主体段里面的。然后像italy这个国家，它的每一个点的排名都不是那么有特点，那我可以去写什么？它与这个sweden出现的一个焦点。</p>
+    <p>然后最后对象与对象之间我们要进行一个整体的比较。比如说在这幅图表里面，我会发现最高的值是UK它的终点值是最高的。Sweden和portugal它的一个终点值整体来讲是最低的。然后中间这个italy我就以一个比较的形式写出来，我就可以写它怎么样比P大即可。这个就是对于一个图表当中主要信息的一个选取。第四步我们做完了之后，我们接下来要做什么呢？就是将这些信息进行有序的一个分组，确定文章整体的结构。</p>
+    <p>在小作文当中，我不得不说分段是一个非常重要的事儿。因为考官会直观的通过你的分段，了解到你整个作文的一个逻辑，所以你不能把所有的对象都堆到一段去写，你至少要把这个对象分成两段。所以我们需要学习一些不同的分组方式。我们来看一下，如果是单图，我们可以将这个具体描述对象进行一个有趣的分组。如果是多图，我们可以进行采取一图一段的形式。这种多图的题我们后续也会具体的去讲。</p>
+    <p>我们先来看一下单图分图的依据。既然是一个动态图，那么最常见的一个分组的方式就是什么？按照他们的一个趋势来进行分段。比如说我可以将上升的值分为一组，将下降的值分为一组，这个叫按趋势分段。那什么叫做按趋势平稳性来分段呢？比如说一个图表当中所有的具体的对象它都是上升的那我还是按趋势来分，我可以怎么分呢？我可以按照他们趋势的一个平稳性，按照他们的涨幅大小。比如说虽然说都上升，有两个对象可能它的涨幅比较的大，然后有两个对象涨幅非常的小我可以按照他们的涨幅大小来进行一个整体的分组。</p>
+    <p>第二种形式就是如果说我将这个按趋势分分的不是很平均，比如说都上升或者怎么样的那我可以选取按照高低的方式来进行分组。这个高低一般来说我们选取的是一个终点值的高低，也就是我把比如说有四个对象，我把排名第一名和第二名的分在了一组，将排名第三名和第四名的喷在了一组，这个叫做按照高低来进行一个分组。第三种形式叫做按时间段来分。比如说我会发现某一个对象它在时一个时间节点之前十上升的，就给大家画一个图，把它简单画一下。比如说今年是23年，在23年之前，这三个对象它都是一个下降的趋势。但是在23年之后，这些对象就呈现出了一个决战不同的一个走向。那么我就可以选择二三年之前的这个时间段我分为一段。然后二三年之后的这个时间段，我另外再下面一段，这个项目按照时间段来进行分组。</p>
+    <p>然后最后一种形式叫做按照这个具体描述对象的性质来进行分组。所以我认为这个分组它没有一个固定的方式，只要研制有理即可。而且比如说有些同学，我拿一道题来举例，比如说有个企业，它涉及到了五个不同的城市，那这五个城市分别是哪里呢？分别是广州，写一下广州，深圳，还有厦门，然后还有北京和大连。这个图表展现的是五个不同的城市人均工资的收入水平。我选取的分组方式就是上面的这三个城市我分大的一组，下面的这两个城市分散了一组。</p>
+    <p>那我的分组依据是什么呢？我肯定是按照这个location？按照地理位置来进行一个划分，也就是将这个南方的一个城市分为了一组，然后将这个北方的城市分为了一组，或者也是一个图表当中体现出了不同的一个国家。相同属性的国家，它一定就是它的数值或者说它的一个趋势变化有着类似的一个走向。比如说我可以按照这个国家之间的发达程度来分，我可以将发达国家分为一组，然后将发展中国家分为一组，这些都是可以的。</p>
+    <p>我刚才说过了，就是说这个分组没有一个具体的标准，只要你的逻辑能够自圆其说即可。下面我们来拿一幅图来进行举例。我们先来看一下这幅图。这幅图它主要讲的是在英国在英国三种不同的通话方式，它的通话时长的一个变化。具体的描述对象分别是这个固定电话，然后national and international decline，以及这个mobile移动电话它的一个通话时长的一个变化。</p>
+    <p>那么我就可以采取不同的分组方式来处理这幅图表。比如说按照动态图最常见的一个分组方式，我可以按照趋势变化来进行一个分组。那么我会发现在这幅图表里面最高的local fake wine它是一个下降的一个趋势。另外的两个具体对象就是national and international deadline以及mobile，它们呈现出来的是一个上升的一个趋势变化。所以我在分组的时候，我可以将这个固定变化单独分为一组，然后将这个national and international deadline以及mobile他们两个分为一组，那就是按照train的来进行分组。另外我能不能够按照他们的涨幅，就是说上升的幅度变化来进行分组呢？当然这个是ok的。</p>
+    <p>我们来看一下这幅图，我会发现这个local fit line它怎么样，它上升。但是无论说它是上升也好，下降也好，就是它们它的一个涨幅是非常的缓慢的。然后同理这个national and international decline，同样它的一个上涨的幅度也是非常的慢，那么我就可以选择将它们两个分在一组来写。Mobile我就单独分为一组，因为我会发现它就是上升的一个趋势。虽然说它的数值处在一个较低的水平，但是它的上升的幅度非常的大，所以我可以将它单独一组。</p>
+    <p>然后第三，我也可以按照他们终点值的高低来进行分组。这个分组我选取的是啊最简单的一种，就偷了一个懒，刚好有三个对象。这个作文最多主体段可以写三段，我就可以按照他们的高低排名，从高到低来写，一个对象写一段这样的一个分组的方式。</p>
+    <p>最后我也可以选择按照时间段。我们观察一下这个横轴的坐标有没有哪一个时间节点，它是比较重要的？我们看一下会发现1999年的这个时间节点非常的重要。为什么？因为这三个对象在1999年之前，他们都是一个什么样的？都是一个缓慢上升的一个状态。</p>
+    <p>但是在1999年之后，我会发现它的数值发生了一个变化。比如说曾经最高的这个local fit line，它开始走下过路了，开始下降了。这个mobile移动电话它开始得到了一个迅速的一个增长。也就是它们两者之间我可以认为是一个来紫霄彼涨的这样的关系，所以我可以按照时间段来进行一个整体分段。这个就是关于整个的文章结构的部分。</p>
+    <p>以上就是看图审题的部分，我们需要完成的一些步骤。然后下面我们来整体的来进行一个练习。我们先拿一幅非常简单的图表作为一个热身，这个入门阶段我们来看一下这幅图。第一步我们可以确认的是它是一个动态图，因为它有时间的一个变化，然后它的一个时态应该就是用的是一般过去式的一个时态，过去的十个时态。然后接下来这幅图标题它在讲的是什么呢？它讲的是三种林业产品的量，对吧？欧洲国家三种林业产品的产量具体的描述对象就是到底有多少个具体对象呢？分别是三个，分别是pump、timber and paper，这样的具体的描述对象。</p>
+    <p>给大家一点点时间，大家可以将这个屏幕暂停，你可以看一下，如果说你写这幅图，你会选取哪些要点放在主体段，同时你会采取一个什么样的分组方式来进行分组呢？我们下面一起来看一下，关于主要信息的部分。由于时间的关系，我将这幅图表所有的主要的信息都呈现在了这个表格里面。比如说什么，因为这幅图表它的对象很少，然后数据相对来说也比较少，所以我们尽可能的要保证信息的一个充分。那这三个对象我都选取什么？每一个对象它的起点值以及它的终点值，然后将这个timer和paper的极值。</p>
+    <p>为什么是无需描述呢？因为他们的春尹荡他们的趋势是上升的那针对上升的值来说，它的极值，它的最高值也就是它的终点值，所以就是无需描述的。然后另外对象与对象之间的一些焦点，我也可以放在这里进行一个筛选。如果说到后面我会发现内容信息不够的充实，我可以作为最后的一个补值的部分。这是这幅图表的一个主要信息。</p>
+    <p>那我要将如何来进行分组呢？这幅图表比如说我来分组的话，我会选择按照它的趋势变化来进行一个分组，也就是将chAmber和paper的一个产量分为一组。因为他们都是一个上升的一个趋势，并且他们上升的一个形式非常的类似。然后同时我会选择将这个pump单独作为一组，因为它是一个下降的趋势，并且这幅图表当中pump它的一个产值有降。</p>
+    <p>更多的点我要去描述。比如说我不光要描述它的起点到终点，同时它也包含了一个最高值和最低值。那我希望在这个主体段当中，详细的按照这个时间线写出来它的一个趋势变化。所以综上所述，我把我所有药学的点成现在了这张思维导图里面，非常的清晰。我的主体段一定是以一个总分的一个形式来写的。就是开头段的第一句话，你一定体现出了我的什么分段逻辑开门见山，就是说让考官明确我到底是通过什么样的方式来分组的那我现在整体的去写timber和paper的一个产量都是增长的。</p>
+    <p>然后接下来就是具体的按照这个时间线来描述他们的变化。Timber他是从多少增长到多少，然后相似的是paper从多少增长到多少。然后在这里我要强调一点，我们再去看这个题目的要求的时候，题目有一个指令是什么？叫要求我们进行对比。所以我们不能够光写每一个对象的实时变化，我们也要将对象之间的高低来进行一个对比。所以在这里我在这一段就进行了一个对比。我说timber grow faster than paper，虽然他们两个都增长，但是timber它的一个涨幅比paper要更大，并且它的整体的产量产值比paper要高。这个是比较的一个信息。</p>
+    <p>然后接下来body two我要写出一个截然不同的趋势变化，也就是胖它的一个产值。我依然要进行一个转折，跟上一段的部分有一个衔接。我说punk它的一个趋势变化与这个timber和paper是不同的。它具体是怎么样来进行变化的，它从多少下降到了多少，这个是我要具体写出来的。同时我也可以去补充一下，随着它的下降，pump的产值与timber和paper逐渐的拉开了差距。</p>
+    <p>这个都是我可以写在我的主体段里面的一个内容。大家看一下，就是我在动笔开始写之前，这些都是啊我要去做的一个看图的工作。其实我先确认好了我的主体段到底一个什么样的段落结构进行展开。那么我在写的时候才会更加的流畅，不会有那种堆砌很多数据或者主次不够分明的一个情况。这个是我们小作文，这是看图审题的第一步，也是最重要的一步。如何来进行读图，以及进行整体写作结构的一个架构。接下来我们就要来进行具体的写作了。</p>
+    <p>具体写作我们先来看一下开头段，我在之前已经铺垫过。我们的开头段就是上来了开门见山的进行一个自我介绍，说我今天上来做什么的，就是将这个题目进行一个改写。那么小作文的改写，我认为非常的简单。大家只要掌握非常有限的改写方式，能够高效的进行改写就ok了。我们可以将原题目按照成分进行划分，那我是这样来进行划分的，也就是把原题目按照主谓宾的一个形式进行一个区分。我们再来看一下主语的部分和宾语的改写。因为分日常的固定在主语的部分，我们只需要这是主语的部分，我们只需要体现出来的是图表的类型。</p>
+    <p>在这里我先提醒大家一句，小作文我们要求的是语言的精准，而不是这种语言的高级。所以准确非常的重要。每一种图表它的英文的这种称呼，它的类型是固定的，我们不需要进行再额外的去改写。所以我们只需要把这些他们的固定的图表类型备在哪里即可。比如说有一些图表它叫做chart，像这个柱图、丙图还有流程图，它可以称之为叫做chart。那么线图它叫做line rock。有些同学在改写的时候，比如说把这个ground改成chart，那其实就是一个不准确的改写了。然后另外table和map后面是不需要加任何的图表类型的，我们直接照抄就可以了。</p>
+    <p>这是主语的部分。那接下来来看一下谓语动词的部分。谓语动词部分的题干当中比较常见的就是受这个词叫展示。其实谓语部分我们就是要把展示这个词进行一个有效改写就行了。在这里大家不需要掌握特别多的一个词汇，我给大家提供了三个，分别是show、illustrate, 还有就是compare nor。这三个词我们只要能够做到准确愤怒的切换即可。然后在这里我要强调一下，我们全篇唯一的时态不同的地方，就是这个谓语动词的时态一定要用的是一般现在时。</p>
+    <p>在这里我也给大家总结了几个主语跟谓语部分变化的一些句型。同学们可以将我们本页进行截图，然后再就是进行题目改写练习的时候，可以从这里面的句式来进行一个挑选，就主谓部分到底可以用什么样的一个变化句型。然后接下来我认为雅思小作文的开头段改写最核心的或者体现我们改写质量的，其实就是宾语部分的一个改写。所以宾语的部分需要我们花一些心思，掌握一些方法，然后才能更高效的改写。在这里给大家总结了六个不同的改写方式。我们先来看一下456，为什么是456不是123呢？因为这个456它更基础也更简单，在这里可以给大家先介绍一下。</p>
+    <p>如果说大家接触了多幅不同的小痘纹之后，你会发现图表当中一定会包含哪些信息？比如说关于这个地点或者是时间，或者人物等等等。那么这三个信息的改写就非常的一致简单一了。我们主要是秉承着一个什么样的思想呢？如果说图表当中的一个信息是一个具体的信息，我们可以自行的来进行概括。相反，如果说图表当中的信息非常的笼统，非常的抽象，我们可以结合这个图表来进行具体化。</p>
+    <p>我们来举个例子，举个简单的例子，比如说图表当中一定出现了一些数字，比如说这个图展现了四个国家的产值。那题干当中如果给出了四个国家，我们可以将这个four进行用different或者是varieties进行一个改写。同理我们也可以把这个几个国家来进行具体化，根据这个图表就是具体到底是哪三个国家，这个是具体和抽象的一个改写。然后接下来第五个就是对于时间的改写，一我们可以选的方式就是换介词。比如说题干里面有from from to，从几几年到几年，那我们可以选择把这个介词换成between and换成这样的一个改写方式。</p>
+    <p>然后接下来我们也可以怎么样把这个时间点换成时间段。举个例子，像左边的这幅图，从1980到2000年，我们可以看出来，它是一个20年，正好20年，我们可以把它改为over a twenty year period。然后在这里我也给大家纠正一下，如果从一整年份的，你可以用这个时间点换成时间段。但如果是用不整的，比如说什么1974到2006类似这样的一个时间，我认为大家直接照抄就可以，就没有必要再去进行这个时间段的一个计算。因为大家也知道，像外国人要去考官，他们的数学就很差的。尽量不要在这个开头的部分去刁难他们，让他们去做这种加减法的一个练习。然后另外有些图表它可能就会提到几个不同的年份，那我们可以把那个具体的年份进行一个概括。</p>
+    <p>然后最后一个方法就是对于地点的改写。一我们可以直接说就在哪里哪里。第二我们可以说一下数量，就可以说在三个不同的地区或者是国家改成in three different regions。第三我们可以把这个地点改成针对某一个地区的人。就用一些形容词，比如说for american或者说for australian，对于这个形容词的一个改写。这个是对于开头段的部分一些基本信息的改写。</p>
+    <p>接下来我们来看一下，稍微有难度的部分，也就是对于这个核心信息，也就是标题的改写。第一种方法我们可以采取的是改变题干当中某一个词的词性。最常见的其实就是名词改成一个名词，加上分词做后置定语的一个形式。我在这里给大家进行一个举例，所以大家注意，比如说这里面这个consume的它不是名词变动词，它其实是变成了一个分词做后置定语的结构。</p>
+    <p>给大家举个例子，比如说我在这里我想题干当中表达的是鸡肉的消耗量，那是怎么说？叫做the consumption。A chicken这个叫做肌肉的消耗量，那我可以怎么去改呢？我可以选择把off后面的名词提神，就把这个chicken提前变成肌肉，被消耗的。这样前面我要加一个d amount of chicken，consume就是鸡肉等数量被消耗的那这个就是名词与名词变成分词做后置定语的一个改写，这个改写也是在小作文的改写当中最常见的一种。</p>
+    <p>第二个我们就可以通过我们对于这个题干当中铜镜子的一个积累，就应该是在这里面，我也把在小作文当中经常出现的比较高频的，以及需要大家有一个初步的掌握的一些词汇，在这里给大家进行了一个总结。比如说题干当中一定会出现百分比，这个percentage我们可以把它改成proportion，然后men and women，就是男人女人，我们可以把它改为male and female。第三个就是这个projection，我们可以改成prediction。然后最后花费支出，这个bending我们可以改成expenditure。然后接下来region地区我们可以改成的是area，然后nation我们改成cancer，就是不同的国家。最后time我们可以改成的是category，就是说这个不同类别。这个是对于同性词的改写，最后就是一个进行叙事的改写。</p>
+    <p>我们语言题目它只常是一个主谓宾的一个结构，对吧？那我们可以把它改成一个主语加上谓语，然后再加上一个什么宾语从句的一个结构。比如说原题目里，他一定会说这个图表展示了什么样的数量，这幅图表展示了什么什么的变化。那我们可以怎么改呢？我们可以把the number of可以改成how many或者是how much引导的宾语从句，比如说肌肉被消耗的数量，那叫做the amount of chicken consumed，对吧？我们可以怎么改呢？如果按照第三种形式的改版，我们可以改成how much chicken and。Words consumed，大家注意，因为宾语从句它毕竟也是一个从句，也就是后面的部分需要有完整的主谓宾结构，所以需要加一个谓语动词。</p>
+    <p>比如说原题目还是changing的，是一个名词展现了一个变化。那这个改写其实大家地图提到部分会比较多，马上擦一下给大家进行一个失败。不然大家可能对于这个改写的具体运用就不太了解。</p>
+    <p>比如说这个图表展现了一个岛的变化。Shows the changing of ireland。这个图标展示了一个导的变化，那我们可以怎么去改呢？我们就可以改成how an island。What changed？这个岛到底是如何发生改变的，或者这个岛到底是发生了一个怎样的改变，这个是第二个改法。然后包括题干里如果说有这个different，我们可以改成how blah blah varied。</p>
+    <p>这个就是关于开头段的部分的一个改写，非常的一个简单。虽然很简单，我们也是需要一个定量的练习。我们下面就来小小的练习一下这个改写。大家可以把这个视频暂停3到5分钟，练习一下这个题目的一个改写。后面我会继续讲这个图表到底要如何来进行一个改写。我采取的方式就是通过改变词性，像这个原标题，我会发现它的核心部分，就标题的部分应该是宾语，就这个鱼和其他肉的消耗的一个数量，所以我会选择将它作为改选的重点。</p>
+    <p>那我可以怎么样把of后面的roll提前，然后前面加上the amount of。因为一定是他们被消耗的数量，所以是the amount of，然后加上这些肉，把这个consumption变成了confirmed。它相当于是做一个分词，做后置定语来修饰前面的这些肉。整体我就可以按照前面改的一些方法，比如说这个graph，可以改成直接照抄或者补充一个line run。Below我要去掉，把这个show改成illustrate，然后illustrate changes in the amount of beef。</p>
+    <p>然后接下来这个肉在这个原题目里面，我认为它算是一个比较抽象的信息。那么我就可以根据这个图表来进行具体的补充。比如说根据这个图表，我可以看到如下的这种肉，那我可以把这几个肉给具体化，可以把它改为beef，lamb, chicken and fish, 然后consumed。然后in a european country我可以是一个照抄，between and我可以把它改成from，或者这个不修改，都是无伤大牙膏，这是第一个练习。接下来我们再来练习一个稍微有难度的题目。同理大家可以将这个视频进行一个暂停，给大家留出3到5分钟的时间练习自己进行改写。</p>
+    <p>好的，我们来看一下这幅图表，我们先来看一下这幅图表改写的重点应该是在这里讲the weekly level of consumption，讲每周的消耗量。那什么东西的消耗量呢？在这里他把这个食品的成分写在了后面，就后面这一大串儿什么普通的牛奶和黄油，以及这种healthy健康的这种转基因的牛奶和黄油的一个量。那么我依然可以选择的是雌性的一个改写。首先weekly level of consumption，我们可以把后面的一大串这个实物给它提前，前面加一个the amount of，把食物提前，把这个consumption改成什么呢？Consumed in a week.</p>
+    <p>我们再去改后面的这个食品的时候，我们可以观察一下，我认为它是一个非常具体的信息非常具体的信息。我们可以把它进行一个概括，我就可以把它概括成two different milk and butter，不同的牛奶和黄油，或者我可以直接概括为milk and mark butter就可以。所以我们可以说这个table，然后show gives information about，give the information up，可以改成compare。然后把后面的这个宾语题材变成the amount of milk and butter，然后consumption我可以改成consume的，然后weekly level我改成in a week。然后后面by different age groups，那different在这里，它是一个比较抽象的信息。根据这个图表我认为我可以补充，这里一共有12三四个不同的年龄段。所以就是把the parents catch on four by four age groups，然后in a european country这个部分我们可以选择直接的照抄。这是第二道题的一个练习。</p>
+    <p>然后接下来我们来看一下最后一个题目的练习。这幅图我就直接来给大家讲，我们应该不难看出它的改写重点依然在宾语的部分，就是的the pontiffs of goods transported叫做什么呢？货运量，货物运输的一个数量。</p>
+    <p>如果说这个题目我按照我们的第一个方法就是改磁性，能不能我们来试一下？也就是我要把这个transported分子结构改成名词形式transportation，那可不可以呢？但这道题里面是不可以的，为什么不行呢？因为它的标题它表示的含义是货运量。但是如果说我们变成了transportation，它的名词就有一个截然不同的一个含义，叫做什么交通系统。</p>
+    <p>交通运输系统放在这里明显是不合理的。我明明想要表达它也是过于量。过于量怎么说呢？叫做freight value这个表达。有些同学肯定会纠结了，这个词我不会，那我在考试的时候要怎么改呢？这个时候我们就说条条大路通罗马。</p>
+    <p>当第一个改写方法行不通的时候，我们就可以用第三个改写方法，也就是how many或者是how much引导的宾语从句来进行一个改写。那么我们就可以把这个来看一下，把the graph改成the line graph，一定是去掉，然后show，擀成的是illustrate。然后the quantities of goods transported，我改成的是how many goods were transported，然后in the U。K. 你可以直接照抄，然后buy four different mode of transport，我就可以改成抽象的情况下by four different modes of transport。</p>
+    <p>这个最后时间的部分，我可以进行一个介词的改动。比如说把这个between and我可以选择把它改成front two。这个是对于第三种形式的一个改写。大家在进行胎头段的一个改写的时候，不一定我一定要逐个词一个一个去改，只要把这个最核心的部分宾语部分进行一个有效的改写即可。这一个开头段的改写需要大家进行一个练习，只有练习之后，才能熟练的掌握这些方法。并且在实际的小作文写作当中，提高开头段的一个改写的一个质量以及写作的一个速度OK那对于开头段我们说改写非常的一个简单，同时会有一些注意事项，就是left it more。我们不一定说要改写的东的高大上，但是一些基本的原则性的错误不能犯。那在这里给大家总结了一下注意事项。</p>
+    <p>第一点就是我刚才说过的，图表的类型不需要去改写啊不要就是说把这个graph chart改成什么picture或者image，那这些表答案就并不准确。第二，关于show这个词的改写，一定要用一般现在时。有些同学可能这个地方忘记加了单3，或者还用一般过去时，这个地方一定要注意。</p>
+    <p>第三，整个开头段的部分尽量不要用倒装。大家再去看一些这个新闻的时候，比较经济的一些日报就会发现对于数据的描述都是一件很基本的一些词汇。没有用到一些什么什么文言文，或者是一些倒装的一个句型。</p>
+    <p>第四，不要在开头段罗列很多年代或国家。因为刚才我给大家讲了一个概念，叫做什么呢？对于一些抽象的信息我们可以具体化。比如说图标里面他提到了different country，但实际的这个表格我们可以看到，它在里面出现了可能五个以上的国家。那这个时候我们需不需要把所有的国家一罗列出来呢？答案是不需要的，你就可以直接不用改，就写的是in many different countries即可。</p>
+    <p>然后另外小作文当中啊不要用一些非常生僻的奇怪的表达，你看似高大上其实并不准确。举个例子，比如说这个statistics，你把这个show改成depict、describe或portrait，就是都不够的严谨，为什么呢？如果说从这个语言的精准度来讲，你像对配这个字，它后面其实加的是一个文字，会通常的指对于文字信息的一个描述。那像这个portray它指的是什么呢？它其实翻译过来的话，它是描绘的玉色，所以它后面应该加的是什么？图画。比如说你画了一幅画，你可以用portrait这个词来进行一个改写，所以这些词我们都不要用。</p>
+    <p>然后接下来我们无论说有没有这个时间，一定要尽我们最大的努力去进行改写，不要直接就原封不动的照抄这个题目。为什么？因为如果说直接抄题的话，我们会发现什么呢？无计入字数，这个开头段是不计入字数的。</p>
+    <p>另外我们在小作文当中，不能够出现任何的主观的表达方式，以及不能出现拖鞋。我们要做的就是说如实且客观的描述出来整个图表不需要进行任何的主观的预测。比如说对于这个数据进行的原因的分析，然后对于未来的一个走向做出一个预测。不需要，那一定不能出现任何的主观的表达方式，这个是抬头段的一个注意事项。同学们课下也要对于开头段的改写来进行一个系统的练习。</p>
+    <p>接下来我们来看一下第二个段落，也就是我们所说的overview概述段。我之前在导学课的时候，其实已经就做了一个铺垫了。我说在小作文当中，能不能够概括出来红色观特征，这个是非常重要的一个得分点。如果说你的这个概述段没有写完，那么你这个TA的分数一定是五分以下。但是如果说你写了写的并不好，你的这个TA不会大于七分。所以你的这个概述段，你一定要写出来最显著的特征，而且不要去写出图表当中的一些细节，或者是一些具体的数据。</p>
+    <p>那到底要怎么写呢？我们分为两步。第一步你要告诉考官，你写完了就是你要告诉他，这是你的概概述段，所以你要有一些引导词。那么在这里给大家总结了三个概述端的引导词，分别是overall，然后to sunrise以及in summary。在这里你像我自己，我最常用的其实就最前面的这个over on，就用这个字就可以了。</p>
+    <p>针对于动态图来讲，到底什么是最主要的一个信息呢？我总结出来就是ranking加上train的，就是你要进行一个高低的一个排名，谁最高谁最低。那我们可以用哪些表达来写呢？比如说我想表达谁排在第一，那么我可以说他谁是谁的数值，rank the fourth, 或者rank the play，或者可以用remain加比较级，比如说remain higher than other，或者remain直接加最高级，比如说保持了最高的消耗量。那我可以怎么说呢？Remain high is the consumption.</p>
+    <p>然后接下来那谁最后我们也要写，那谁最后这个概念我们可以怎么写呢？谁是谁的数值？Let the lots或者is located the lots one，这个是表示最后的一个数值，这个是对于高低的一个表达。</p>
+    <p>接下来我们来看一下，对于趋势的部分，我们要进行一个整体的总结。比如说哪一些对象在这个图表当中是上升的，哪一些图表在哪一些对象在图表当中是下降的。如果说出现了对比，我们还要用这个表示对比或者转折的逻辑词。</p>
+    <p>在这里大家注意，比如说像一些丙图或者是一些表格，就是他对象很多，然后趋势变化非常的复杂。那我们在这个overview的段落没有办法进行一个非常简单的概述，那么这个信息我们也可以不写，这个是概数段的一个写法。下面我来给大家进行一个具体的示范。</p>
+    <p>比如说像这幅图，这幅图之前我们有讲过，就是讲的是二氧化碳的一个排放量。那么我就要写成哪一些趋势是上升的，哪一些是下降的，以及谁最高。所以我在这里了解overall，总而言之the level in the UK，UK的这个值remained higher than those UK的一个数值，比其他的值要高。这个写的是谁？第一，这是最值。趋势的一个变化，在后半部分就however，carbon dioxide emissions in the UK and sweden decreed, 也就是我会发现在这个UK这个规定当中，这两个国家二氧化碳的一个排放量的值是下降的。然后while those in italy and portugal infrastructure，我会发现另外的两个国家是上升的。</p>
+    <p>了解出来它的一个趋势变化，同时趋势变化出现了一个对比。所以我在这里用了一个表示对比的一个词，用的是well，这个是第一个overview概述段的一个示范然后接下来我们来看一下第二幅图，第二幅图它是一个饼图，我们会发现它的趋势是比较混乱的，也比较多的。那么我可以就代写这个东处断的时候，选择不写它的趋势，只进行一个高低的对比。</p>
+    <p>那么大家来观察一下这幅图，就是你离远了看你会发现这幅图最显著的特征是什么？是不是就是白色的部分，也就是teacher gallery，老师的工资他无论在哪一个拍当中，它的占比都是最大的。我会发现insurance也是保险的部分，无论在哪一个图表当中它的占比都是最低的。那么我就可以选取它作为我做概数段的一个数值。我是这样解答，说overall across the two decade，在这20年当中，it was，depending on the gallery, reject the first leg.</p>
+    <p>也就是向老师的这个工资排在第一位。在这里什么叫做at what that呢？这个语法就是用了一个强调，所以我把要强调的部分放到it worth加上that当中。像我们这个工资的一个支出占比是最大的。它怎么样？Forming a shop contract形成了一个心灵的对比，跟谁呢？跟这个insurance与保险的占比形成了森林的对比。然后。Which was all with the liquid in the school budget. 在所有的学校支出当中，它始终是最低的那这个就是对于overview概述段的一个写作。</p>
+    <p>好的，以上就是我们本节课的一个内容，带大家进行一个复习。我们主要是讲了小作文的动态图，如何进行看图审题，以及如何进行开头段题目的改写以及分数段的一个写作。那么在下节课将会手把手的教大家如何进行主体段的一个写作，以及要完成主体段我们需要掌握哪一些词汇以及哪一些句式。好的，我们下节课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-01.html">精讲逐字稿</a></li>
+      <li><a href="qa-01.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-02.html">下一讲 02</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

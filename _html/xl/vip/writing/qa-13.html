@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第13讲 · 双边论述题型 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 13 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a class="active" href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第13讲 · 双边论述题型</h1>
+    <div class="abstract"><b>本讲概要：</b>在论述类题型中，考生面对的是包含对立观点的题目，需双边论述并提出个人意见。这类题型特征明显，要求讨论至少两个对立的观点，并在最后明确个人立场。写作时应遵循四段式结构，先分别论述两个观点，最后总结个人立场，保持立场一致，避免直接评论，使用第三人称论述。采分点在于明确展示两个观点之间的关系，并通过逻辑论证强化个人立场。此外，根据题目结构，采用共存性或分类讨论等策略进行写作，以深度讨论不同的观点。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>论述类题型的主要特征是什么？论述类题型中个人观点段的采分点在哪里？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>论述类题型的主要特征是在题目中会出现“the boat views and give your own opinion”的表达，即存在两个不同的观点。我们需要根据题目指令分别讨论这两个观点，并给出自己的个人观点。在主体段部分要注意的是，我们要论述的是题目中两个观点的合理性，立场需与题目观点保持一致且不能反驳，而在结尾段给出自己的个人观点。该题型的采分点在于个人观点段必须体现两个观点之间的关系，通过深度讨论展示自己对A观点和B观点之间关系的理解，而不是简单地列出各自的理由后草率地给出支持某一方的结论。例如，可以将A观点与B观点分为弱强行、共存性和取决于一个标准的三种类型，并在个人观点段中分类讨论和展示其逻辑关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>论述类题型的标准写作结构是什么样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>论述类题型的标准写作结构是四段式。第一主体段论证A观点的合理性，第二主体段论证B观点的合理性，最后在结尾段给出自己的观点。同时，要注意各主体段字数尽量均衡，使用第三人称进行论述，并在分析别人看法时使用情态动词如“could”、“might”、“be likely to”等来体现语气的精准和委婉。</p></div>
+    </details>
+    <details class="qa">
+      <summary>论述类题型中如何避免重复使用“people”这个词？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>为了避免重复使用“people”这个词，可以将它具体化为某一类人群，比如科学家、研究员、天文学家或者对天文学感兴趣的人群等，根据题目涉及的背景和topic来对题目中的“people”进行具体化处理。</p></div>
+    </details>
+    <details class="qa">
+      <summary>什么是强化强、弱化弱，以及如何在文章中运用这种写作技巧？为什么说这类题型（即强化强、弱化弱）相对简单？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>强化强、弱化弱是指在论述过程中，根据个人观点倾向，对支持的观点进行强化论证，对不支持的观点进行弱化处理，以证明自己支持的观点更为合理。在文章结构上，开头段引出争论并预告个人观点，Body one部分用&quot;one hand&quot;引出弱观点，Body two部分通过&quot;on the other hand&quot;引入强观点，结尾段则运用强化强、弱化弱的方法突出个人偏向。这类题型之所以被认为简单，是因为题目中已经给出明确的观点立场，考生无需自己构建观点，而只需要围绕题目给出的观点进行论证即可。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何使用强化强、弱化弱的方法来论证某个事物的优点或缺点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>论证方式有三种：1. 短期长远角度分析优缺点，如某事短期有缺点，但从长远看利大于弊；2. 少数多数群体分析，说明虽然一小部分群体可能受限，但大多数群体受益，如通讯技术对大部分人的益处大于少数人的局限；3. 讨论某事发生的频率，即使存在缺点，但其积极事件高频发生，也可证明整体上利大于弊。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如果通过上述方法仍无法对论述类题目进行深度讨论，应该如何补充论证？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当以上三种方法无法深入讨论时，可以讨论如何解决某个事物的缺点，即&quot;这个缺点 could be easily solved by doing something&quot;，表明尽管存在缺点，但可通过某些手段轻易解决。</p></div>
+    </details>
+    <details class="qa">
+      <summary>名人做慈善是否容易转移公众注意力，但长期来看能否对慈善问题产生实质影响？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>确实，名人做慈善初期可能会吸引短期关注，但人们对于热点新闻的关注通常具有短暂性。然而，如果明星能够持续参与慈善活动，长期来看，他们对解决慈善问题会带来显著的帮助。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何在文章开头段引入关于名人参与慈善活动的观点并构建争论点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在开头段可以设置一个名词性从句，例如“Many celebrities participate in various charity activities organized by international organizations”，然后通过一个具体的名词将抽象概念具体化。接着，可以引出关于名人参与慈善活动引发的不同观点的争论，如“Opinions are divided on the impact of celebrities' support on charity activities.”</p></div>
+    </details>
+    <details class="qa">
+      <summary>名人如何转移公众注意力，以及这种转移注意力的效果是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>名人通过自身的魅力、出席活动的场合地位以及绯闻八卦等方式转移公众注意力。当大众关注明星的穿着、言行和八卦新闻时，对于他们所参与的慈善活动的关注度就会降低，导致慈善活动的重要性被削弱。</p></div>
+    </details>
+    <details class="qa">
+      <summary>名人支持慈善活动是正面还是负面效应？如何有效举例说明名人做慈善如何有效引起公众对慈善问题的关注？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>一方面，名人支持慈善活动是有用的，他们的影响力可以吸引更多的关注和资源投入到慈善问题上。另一方面，也有人担忧名人可能转移公众注意力，使慈善活动的重要性相对减弱，尤其是在名人频繁出现在八卦杂志和社交媒体上时，公众更关注名人的私人生活而非慈善贡献。有效的例子应展示名人参与了哪些慈善活动，并通过这些活动成功引起了公众对特定慈善问题的关注。例如，15年时的冰桶挑战活动中，许多名人参与其中，不仅提升了公众对渐冻症的认识，还鼓励了人们向相关组织捐款，这是一个有力的证明。而那些仅列举出名人参与慈善活动的例子，则缺乏足够的说服力，无法有效支持文章的观点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如果意识到自己举例不够有力来支持观点，应该如何进行充分解释论证？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当发现举例不够充分时，可以通过深度阐述个人观点来进行有效论证。例如，我的观点是公众注意力往往从事件本身转移到他们感兴趣的明星身上，这种短期关注通常较弱，而名人的长期支持对于提高公众意识至关重要。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何在论述文中表达个人观点，并区分强观点和弱观点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在论述文中，个人观点段应明确表达并对比两个观点，对弱观点进行弱化处理，强化支持的观点。比如，在讨论名人对公众意识的影响时，强调长远来看，名人的支持比短期的事件关注度更为重要。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于“共存型”解法，如何运用在文章中？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在“共存型”解法中，需要给出A和B两种观点并说明它们可以同时存在且都重要。主体段分别展开解释论证A和B为何合理，结尾重复个人观点，强调A和B共存的重要性。例如，在青少年发展话题中，规则和自由都同等重要，应共存；在环境保护问题上，政府和个人共同努力是解决的关键。</p></div>
+    </details>
+    <details class="qa">
+      <summary>“其他”（或其他方式）在共存论述中的表达是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“其他”（或其他方式）在共存论述中的表达为“a combination of a and b”，意指结合多种策略或要素共同发挥作用。例如，在城市规划中，高层建筑和低层建筑的合理搭配是理想策略。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对如何确保道路安全，是否应采用惩罚或其他方法，应该如何论述？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在确保道路安全的问题上，应采用多管齐下的方式，既包括传统的惩罚手段，也包括其他创新方法。个人的观点是，惩罚和其他方法应一并使用来解决这一问题。文章开头引出争论点，然后阐述自己的观点，即两种方法结合使用对提升道路安全非常关键，接着分别论证了严格惩罚的作用及其具体实现方式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在Body Two部分，文章提出了哪些方法来提高道路安全？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>Body Two部分提出了三种不同的方法来提升道路安全。首先，强调在人们开车前进行良好的教育，比如通过学校或加大理论课程及驾照考试的力度。其次，关注道路设计与路况的改善，例如使用路标警示、减速带和弯路设计等物理设施，以及运用测速照相等技术手段减少超速驾驶。最后，政府和当地议会可以通过投资更好的公共交通系统，如发展地铁、公交等，鼓励更多人选择乘坐公共交通而不是开车，从而降低车祸风险。</p></div>
+    </details>
+    <details class="qa">
+      <summary>结尾段是如何进行整体论证的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>结尾段通过&quot;In conclusion&quot;引导对整个论证进行总结，指出虽然惩罚制度有助于预防不良驾驶行为，但同时也提出应引入更多共存型解决方案，即结合多种方法共同改善道路安全问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于最后一种情况，即分类讨论或取决于的题型，应该如何进行作文构思？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于这种题型，在开头段明确给出自己的观点标准，在主体段分别展开论述题目中的两种观点，并在结尾段再次明确这个标准。如果认为结尾段能充分论述清楚，可直接在结尾段提出；若需更多空间，则可以另起一段进行主体段论述，然后在结尾段只给出这一标准。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对“上大学的重要性”这一议题，应该如何进行分类讨论？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在讨论上大学的重要性时，可以根据个人未来职业规划分为两派观点。对于追求学术性职业（如律师、医生或教师）的人来说，高学历是获得工作的必要条件；而对于希望从事传统行业（如厨师、美容美发或挖掘机操作）的人来说，丰富的从业经验和相关技能可能比学历更重要。文章在开头段引出争论和双方观点，然后分别论证大学教育在学术领域竞争中的优势以及软技能在市场需求中的价值，并在个人观点段提出结论，即是否需要高学历或软技能取决于所申请职位的具体要求。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-13.html">精讲逐字稿</a></li>
+      <li><a href="qa-13.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-12.html">上一讲 12</a></li>
+      <li><a href="lesson-14.html">下一讲 14</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

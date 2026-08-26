@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10讲 · 大作文的"正确审美"与常见错误 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 10 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a class="active" href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第10讲 · 大作文的"正确审美"与常见错误</h1>
+    <div class="abstract"><b>本讲概要：</b>讲师祝贺学生完成小作文阶段的学习，标志着大作文学习的开始，并强调“正确的审美”在大作文中的重要性，包括准确回应题目、保持内容完整性、逻辑连贯性以及运用高级词汇和语法。大作文评分关注逻辑、词汇、语法和内容回应度，指出许多学生因未能正确应用评分标准而成绩不佳。讲师通过详细解读题型和强调审题技巧，教导学生如何通过逻辑链和关键词回应来提升文章分数。建议学生充分准备，重点练习审题和积累话题素材，鼓励每日练习以提高写作能力和理解力，为追求更高分数做准备。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在备考雅思大作文时，为何考生即使积累了大量优美词句和论据，作文依然无法突破6.5分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这主要是因为没有正确理解和应用评分标准中的“内容回应”（Task Response, TR）这一项。即使词汇丰富、语法准确，但如果未能全面回应题干中的所有关键词，导致内容不完整，或者立场不明确、论据不充分，都会影响到最终的TR分数。</p></div>
+    </details>
+    <details class="qa">
+      <summary>大作文评分标准中关于“内容回应”的具体要求有哪些？大作文评分标准中的其他三项内容是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>内容回应要求考生做到三点：首先，要回应题目中所有的关键词，确保任务完成度；其次，立场必须明确且保持一致，从头至尾不应改变观点；最后，需要提供充分的论据来支撑主要观点，进行拓展和论述。除了内容回应外，大作文还有三项评分标准：逻辑（Logic）、词汇（Vocabulary）和语法（Grammar）。其中，逻辑主要考察文章的整体结构和论述逻辑；词汇则关注使用词汇的丰富度和适当性；而语法则是对语法准确性的评估。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在内容回应中如何规避题目陷阱并确保论点充实？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>考生需要仔细分析题目并针对每个关键词给出相应的回应，同时避免论点与主体段论述内容的一致性问题。论据应是拓展和支撑主要观点的，而非简单罗列论点或过度举例解释观点。此外，还需注意避免过度概括（over generalization），在论述时应具体化人物或条件，确保论点合理和有依据。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在大作文中，coherence and cohesion（逻辑衔接）的要求是什么？“清晰的中心论点”这一要求的具体含义是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在大作文中，coherence and cohesion要求文章逻辑清晰，句子与句子之间有明确的直接因果关系。这涉及到论点的层层推进，比如A导致B，B导致C，不能逻辑跳跃直接说A导致C。同时，文章需使用一系列顺畅自然的衔接手段，而非生硬地套用模板。“清晰的中心论点”要求每一段围绕一个分论点展开论述，主题明确且单一，不可在一个段落内讨论多个主题或维度的好处。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于词汇部分，应该如何准备并使用词汇来达到高级的要求？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在词汇部分，首先强调准确（precession），确保词汇运用得当，避免不地道的表达。其次追求高级（flexibility），学会灵活使用词汇，如通过同义词替换展现语言多样性。建议结合大作文常考的话题进行积累，重质不重量，积累相关资料以提高语言表达的丰富度和灵活性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>关于语法（grammatical range and accuracy）的要求有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在语法维度上，要求考生能熟练运用一系列复杂的句子结构，包括简单句、长句、短句、定语从句、状语从句等，并尽可能减少语法错误，以体现语法使用维度的准确性和广泛性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在四项评分标准中，最重要的部分是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>四项评分标准中，最重要的部分是切题（topic development），即审题和构建与题目紧密相关的文章内容。切题不足往往是导致低分的主要原因，因此掌握正确的审题方法和建立基本的审题能力至关重要。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这两道题目的主要区别是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这两道题目主要的区别在于，一道题要求分析结果（积极或消极），而另一道题则需要提供客观存在的事实背景作为原因。</p></div>
+    </details>
+    <details class="qa">
+      <summary>可以如何阐述客观存在的事实背景来回答问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以基于当前的社会现状、经济发展水平或全球化影响等客观事实来解释现象，例如国内激烈的竞争导致人们选择出国留学，或全球化增加了国家间的交流与合作机会，为留学生提供了交流访问的机会。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何正确回答需要客观因素的题目？在大作文中如何构建逻辑链并体现因果关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于需要回答客观因素的题目，不能给出个人意见或好处等主观内容，而应该提供一个已经发生的、无法改变的事实作为答案。大作文本质上探讨的是因果关系，无论题目给出原因还是结果，都需要构建一个逻辑链（如A发生导致B，B发生导致C）。可以通过代号或破折号清晰地表达因果关系，确保论点符合逻辑链。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于题目“政府应要求人们过健康生活方式”，应该如何回应？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>同意与否取决于论证该要求能带来哪些好处，如提高社会生产力、减少医疗支出等。同时，可以从政府角度论述健康生活带来的社会利益。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于难度较高的题目“立法是推广健康生活方式的唯一方法”，如何进行论述？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先要判断立法能否达到推广健康生活方式的目的（同意或不同意），然后补充完整逻辑链，即立法作为一种强制手段可以有效推广健康生活方式，比如疫情期间通过立法规范公众行为，保障社会正常运转和提高整体健康水平。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在大作文中，对于极端程度词“the only way”这类题目，应该如何回应？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于含有极端程度词的题目，除了给出立法这一方式外，可以提出其他方法，如增加宣传。宣传能够提升健康意识并推广健康生活方式。这种题目只需提供一个合理的替代方案即可。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对最后一道题目“现在很多国家已经通过法律来要求人们健康”，为何会发生这种情况？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这是因为国家认识到当前健康问题非常严重，人们普遍不健康，而造成不健康的因素众多，例如忙碌的工作导致忽视健康、饮食不规律等。因此，国家决定立法来推广健康生活方式，以应对严峻的健康现状。</p></div>
+    </details>
+    <details class="qa">
+      <summary>审题时如何判断题型与因果之间的关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>优缺点题和报告类题型较易判断，它们通常会明确要求讨论积极或消极结果；观点类和论述类题型则可能涉及动作和结果中的任意一个或两个，需要构建逻辑链进行论证。</p></div>
+    </details>
+    <details class="qa">
+      <summary>审题阶段如何规避陷阱并明确审题方向？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>审题时首先要明确题目要求，比如题目限定讨论对象是谁，然后写出完整的逻辑链。同时要注意题目中是否有对讨论范围的限定，避免跑题，确保所写的逻辑链符合题目要求。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在家上班对员工和老板的影响是什么？为何题目可能存在陷阱？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>题目可能存在的陷阱在于没有区分清楚“employee”（员工）和“employer”（雇主）。若立场是不同意在家上班对员工有好处，那么B到C的逻辑链应针对老板来建立，指出在家上班对老板可能存在的不利影响。</p></div>
+    </details>
+    <details class="qa">
+      <summary>随着国家发展，越来越多的人购买和使用私家车，这会带来哪些问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这道题目的问题在于讨论范围超出限定，题目要求讨论的是私家车对个人的好处以及对环境的坏处，而非简单讨论私家车带来的所有影响。审题时必须关注题目明确规定的讨论范围，避免跑题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>第三道题目的逻辑链为什么是跑题的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第三道题目的逻辑链跑题是因为题目限定为讨论remote places in community对当地人和环境的影响，而选项A中的“remote”实际上是指一些七八线的小城市或小镇，并非国外大城市。这与题目设定的讨论内容不符，所以逻辑链是跑题的。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在构建逻辑链时，为何不需要提及题目中未明确列出的内容，如shopping center？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在构建逻辑链时，虽然讨论的是修公园和体育设施对人们生活的影响，但并不需要在逻辑链中明确提及shopping center，因为这在逻辑链中并不是关键讨论的部分。只需在段落内部进行对比论证时才需要考虑它。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于包含状语从句的题目，如何确保逻辑链符合题目限定？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在审题时要注意状语从句所描述的情况是否符合题目设定。例如，当题目提到“new towns are constructed”，需要关注这些新城镇的特点，即生活节奏慢，没有快节奏压力。如果逻辑链中的快节奏压力没有回应到这个限定条件，则逻辑链就跑题了。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何避免在讨论优缺点问题时遗漏关键词，确保逻辑链完整回应题目要求？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在分析优缺点题目时，应从论点是否充分回应到题目中的所有关键词来判断逻辑链是否合适。例如，对于“consumer goods”这一主题，可以关注其不断消耗的属性可能导致的超前消费和债务危机等经济问题，以及家用电器带来的便利性和可能的依赖性问题，从而全面回应题目要求。</p></div>
+    </details>
+    <details class="qa">
+      <summary>科学家和游客去偏远自然环境的优点是否大于缺点，如何构建逻辑链进行讨论？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>虽然科学家去北极做研究可以促进科学的发展，但逻辑链需要注意的是，题目中提到了科学家和游客具有共同特点——都是人。因此，无论从哪个主体出发，都需要结合他们的共同特点来讨论对当地环境的影响，即打破生态平衡这一共同缺点，从而形成逻辑链。</p></div>
+    </details>
+    <details class="qa">
+      <summary>那么对于这道题，您认为是积极还是消极的发展？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这个问题其实跑题了，因为题目要求我们关注的是“在电视上观看体育”这一行为，而不是参加体育本身。正确的讨论焦点应该是围绕“watching on television”这一动作展开。</p></div>
+    </details>
+    <details class="qa">
+      <summary>您能否举个例子说明如何正确理解和回应题目中的比较级？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>当题目出现比较级时，我们需要围绕前面提到的动作进行主题讨论。例如，如果题目讨论的是电子支付取代现金支付的发展，我们应关注“电子支付”这个动作，并结合这一主题来论述其影响和意义。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在大作文审题阶段，我们需要特别注意哪些步骤？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在审题时首先判断题目类型；其次确定题目要求讨论的动作还是结果；接着看题目是否指定了针对的对象和鉴定范围；然后留意题目中的形容词、状语或例子以把握名词的主要特点；最后，如果出现a and b两个并列名词，应结合它们的共同特点进行讨论，且重点应围绕前面的这个动作来构建主题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于大作文写作，您有什么练习建议吗？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>建议大家平时就养成良好的习惯，提前准备大作文，可整理一些不同topic的话题例题，每天练习写出逻辑链，按照ABC形式记录中文思路，不必写出完整的主体段。这样不仅可以提高审题能力，也能熟悉常考话题，积累正反观点，以便考试时能迅速构思并撰写作文。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-10.html">精讲逐字稿</a></li>
+      <li><a href="qa-10.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-09.html">上一讲 09</a></li>
+      <li><a href="lesson-11.html">下一讲 11</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

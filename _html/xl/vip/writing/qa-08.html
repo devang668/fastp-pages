@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第08讲 · 地图题：选址比较与历史变迁 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 08 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a class="active" href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第08讲 · 地图题：选址比较与历史变迁</h1>
+    <div class="abstract"><b>本讲概要：</b>本次课程专注于教授地图题的写作技巧，特别针对考试中的选址比较和历史变迁两类题型。强调了此类题目虽然对不熟悉路径的考生构成挑战，但因其结构固定，掌握方法后可转化为优势。课程内容涵盖了解读地图题指令的策略，如概述、特征选择与比较，以及注意时态的重要性。此外，提供了实用的写作句型、词汇，和方位、时间状语的描述方法。课程鼓励学生通过积累词汇、句型，及实践课后练习，以提升地图题写作能力。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>地图题在考试中的常见形式有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>地图题主要以两种形式呈现，一种是选址比较，例如一个城镇需要在F1和F2两个地点中选择建造超市的地址；另一种是历史变迁，涉及城镇整体规划或建筑内部构造在不同时间节点上的变化。</p></div>
+    </details>
+    <details class="qa">
+      <summary>历史变迁类地图题中会涉及哪些时间点？如何分段撰写地图题的内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>历史变迁类地图题会涉及到两种主要时间点情况：一是两幅图表都是描述过去某个时间点，使用一般过去时；二是第一幅图用一般过去时，第二幅图用一般现在时；三是当一幅图描述当前城镇布局，另一幅图展示未来规划时，会用到将来时。分段方法可以根据时间节点、区域变化或变化程度来划分。按时间节点分段是最直接的方式，一个时间点一段；按区域变化分段，则根据地图元素分布将区域划分为几部分分别描述；按变化程度分段，则将核心建筑与辅助设施等进行分组讨论。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何确定地图题写作的起点和顺序？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>确定起点和顺序的方法灵活多样，对于大地图，可以以主要建筑为中心顺时针描述；也可以从左到右按区域进行描述；对于小地图，可以从入口开始，采用“路人视角”描述。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述图表时，如何按照时间分段进行描述，并选择怎样的分段方式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在描述图表时，可以根据时间分段来组织内容。例如，可以选择一张图作为起点，然后依据其中的建筑面积大小进行划分，如本例中选择第二幅图分两段进行描述，以确保段落间内容均衡。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何总结图表中小岛整体的变化情况？除了时间分段，还有哪些其他的观察思路？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>小岛整体发生了变化，通过增加各种娱乐设施以满足游客需求，这是按照时间分段观察得出的结论。另一种观察思路是按照变化进行分段，以酒店为起点，将主要设施和辅助设施分开描述其变化情况。例如，把餐厅、接待所、帐篷等视为主要设施，而沙滩和码头等视为辅助设施。</p></div>
+    </details>
+    <details class="qa">
+      <summary>描述地图题时，如何描述建筑的位置变化及动词表达？如何描述方位变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>描述建筑位置变化时，可以使用“位于”（located in, situated in）或“坐落在”（lie）等动词表达建筑的位置。若描述建筑间的连接关系，可使用“连接”、“link”、“join”等动词。对于建筑的扩建，可以使用&quot;become larger&quot;或&quot;extended&quot;表达面积增大；若建筑缩小，则用&quot;reduced in size&quot;表达面积减少。描述方位变化时，基础方位词汇如“上北下南，左西右东”是必须掌握的。此外，还需了解45度方向的描述，以及西北角、东南角等方向表达方式。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何描述建筑的消失、重建和转移？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>建筑消失或被拆除可以用&quot;disappear&quot;、&quot;be demolished&quot;；建筑被转移位置则使用&quot;relocated&quot;；若建筑被新建或重建，则使用&quot;be built&quot;、&quot;be constructed&quot;、&quot;be developed&quot;、&quot;be created&quot; 或 &quot;proposed or added&quot;。同时，若建筑有所改变但不涉及整体消失或重建，可以用&quot;change&quot;、&quot;turn&quot; 或 &quot;converted&quot; 来描述。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述地图上建筑的位置关系时，如何使用方位词？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在地图上描述建筑的位置关系时，我们可以使用诸如“top”（顶部）、“upper”（上方）、“bottom”（底部）、“lower”（下方）、“left”（左侧）、“right”（右侧）等方位词。对于左上右下，应说“top left”（左上角）和“bottom right”（右下角）。如果某个建筑位于整个区域的中心，可以表达为“in the center”或“in the central part of the area”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>地图题中关于介词的难点是什么？能否总结一些常用的介词用法？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>地图题的一个难点在于介词的使用。常用的介词包括“in”，表示A在B内部；“on the south side of”，表示A在B的边上且紧邻；“to”，表示A在B的外部不接壤；“within”和“in”都表示在某个范围内的位置，它们的意义差别不大；“at”，用于表示具体的小地点，如“the dining area is at the back of the hotel”（餐厅位于酒店背面）；“outside”，表示A在B之外；以及“alongside”，表示A与B并行或靠近的关系。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何使用时间状语来描述地图上的建筑变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>关于时间状语部分，过去事件可以用“in the past”表示，现状用“currently”或“now”或“at present”，未来计划用“in the future”，“according to the plan”或“proposed to”。对于过去的建筑，用“old”或“original”形容；现在的建筑用“current”或“existing”或“present”描述；未来的建筑则用“future”，“planning”，“proposed”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>有哪些基本句型可用于地图题的表述？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于地图题，基本句型有：1) 使用“be situated”、“be cited”、“be built”或“be constructed”表达某建筑在何处被建立，例如，“A white line is located to the southwest of the lake”；2) 使用“with”连接两个地点描述，如“this region has a large forest with a farm to the south”；3) 直接使用“there be”句型表示某处有某物，如“there are two schools on the southeast corner”；4) 使用连接词如“while”或“and”来表达两个建筑在地理位置上的相对关系，例如，“A mountain is located to the north of the city, while there is a lake to the south”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>倒装句在特定情况下的应用是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在句子中，如果主语是一个地点或介词，为了强调或平衡句子结构，需要进行倒装。正常语序应为主谓宾结构，但当介词置于句首时，谓语动词会放在主语前面，前面加上宾语部分或介词短语。例如，“河的南面有一个图书馆”可倒装为“to the south of the river, there is a library”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>名词性从句如何在数据类图表写作中使用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>名词性从句在写图表题时非常常见，例如使用诸如&quot;it should be noted that&quot;、&quot;it is noticeable that&quot; 或 &quot;one significant change is that&quot; 等句型来引出关键信息。例如，描述图书馆在东侧新增了一个长列的会议室，可以表述为 &quot;It is noticeable that the library has a row of meeting rooms on the eastern side.&quot;</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何进行地理图表题目的概述段写作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>概述段通常涵盖两部分内容：一是描述两幅图之间发生的整体变化，如改造后增加了各种设施；二是从功能角度描述变化，如居住、交通和休闲等方面。对于岛屿改造案例，整体变化主要是岛上新建了众多设施，功能上变得更利于休闲娱乐。</p></div>
+    </details>
+    <details class="qa">
+      <summary>按照时间分段写作地图题时，如何处理不同阶段的内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>按时间分段写作时，每个段落分别描述改造前后的情况。在before construction部分，简单描述岛上的原始状态，如椰子树、沙滩和大海环绕等自然景观。在after construction部分，则详细描述新增建筑和设施，如帐篷、接待所、餐厅等，并按照它们在地图上的分布进行有序叙述。同时，也需关注辅助设施如码头、车辆检查点以及游泳沙滩的变化。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在大作文中如何运用“category”这个词？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以使用&quot;category&quot;一词来表达满足不同需求的主题，例如，“满足游客的需求”。例如，寿司店被用来满足游客的餐饮需求，而游艇则为娱乐和休闲提供了一个新的选择。</p></div>
+    </details>
+    <details class="qa">
+      <summary>Body部分如何描述岛屿的变化？Body部分提到了哪些具体的新增设施？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在Body部分描述岛屿的变化时，首先提到该岛从previously empty（过去几乎是空无一物）转变为有多个辅助设施供游客使用。这些变化包括建设了接待设施，并通过连接北面餐厅的车辆通道来提供服务。此外，还建立了住宿区，在岛屿东西两侧搭建了帐篷，并通过步行路径相连。新增设施主要包括一个位于岛屿中心的招待所，以及在岛屿东侧和西侧建立的帐篷住宿区。另外，还新增了两个特色景点：南边的码头（pier）供船只停靠，并且增加了步行道引导游客前往；西边海滩附近设置了游泳区域，吸引喜欢游泳的度假者。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述岛屿变化时，如何处理与之前未变化部分的关系？如何通过细节补充说明这些变化带来的好处或目的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在描述岛屿变化时，对比了变化前后的情况，指出尽管岛上东部区域没有任何改造和新增建筑，仍然保持了原始的自然状态，只有椰子树等自然景观，以此来强调此次改造对岛屿整体功能和体验的提升。通过细节补充说明，南边的码头方便了船只停靠，从而使得岛屿更加容易到达，增强了游客的便利性。而新增的游泳区则直接目的是为了吸引喜欢水上活动的度假者，增加岛屿的娱乐吸引力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何总结加分的写作要点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>总结加分的写作要点在于不仅要列举出具体改造项目，还要深入探讨这些改造如何提供便利或满足特定需求。同时，在写作时可以采用分段方式，对比不同区域的变化，以展现改造的整体效果和价值。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-08.html">精讲逐字稿</a></li>
+      <li><a href="qa-08.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-07.html">上一讲 07</a></li>
+      <li><a href="lesson-09.html">下一讲 09</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

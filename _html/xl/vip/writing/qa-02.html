@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第02讲 · 动态图主体段构建与趋势词汇 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 02 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a class="active" href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第02讲 · 动态图主体段构建与趋势词汇</h1>
+    <div class="abstract"><b>本讲概要：</b>本次课程深入讲解了雅思写作中动态图表描述的技巧，特别是小作文中主体段的构建。强调了识别和描述数据趋势的重要性，提供了丰富的词汇如“上升”、“下降”和“持平”，以及比较词汇如“顶点”和“波动”。课程还介绍了六大必备句型，帮助考生准确描述数据变化，强调了合理运用衔接手段以保持文章逻辑清晰和过渡自然。最后，课程讨论了数据表述的细节技巧，确保文章的可读性和深度。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>在学习雅思写作小作文动态图时，主体段部分需要重点掌握哪些内容？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在小作文主体段部分，需要重点掌握描述对象在不同时间点发生趋势变化的词汇、趋势表达以及必备的剧情。此外，还应学习如何自然流畅地进行段落之间的衔接，包括了解并掌握一些衔接手段。</p></div>
+    </details>
+    <details class="qa">
+      <summary>动态图中，如何用语言描述上升趋势的变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以使用诸如“上升”、“增长”、“增加”、“攀升”等动词，如“rise”，“increase”，“grow”和“climb”。对于较大上升幅度，可以使用“suddenly rise”，“rocket”，“shoot up”，“go up”等表达。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于表示下降趋势的词汇有哪些？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>表示下降趋势的词汇包括“下降”、“减少”、“缩减”等动词，如“decline”，“drop”，“diminish”，“decrease”。如果下降幅度特别大，可以使用“plunge”，“fall”或“decrease”。同时也可以用名词形式，如“liquidation”，“job loss”，“decline”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何描述持平和波动的趋势？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>持平趋势可以用“remain stable”，“maintain”，“stay the same”等表达。而波动趋势则可用“fluctuate”描述，也可以用“up and down”或“oscillate”来形象地表达数据在一定范围内上下浮动。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述主体段时，如何准确表达顶点和稳定值？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>描述一个对象达到顶点时，可使用“peak”，“attain”，“amount to”，或“attain a high level”。若对象稳定在某个值，则使用“level of”后跟稳定数值的方式表达。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在主体段写作中，有哪些必备句型可以帮助我们多样化地表达趋势变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>提供了一些句型模板，例如直接描述对象的变化趋势（上升、下降、持平、波动），并结合变化幅度（大幅度、平稳上升、微弱上升）和时间范围。同时还有以时间段为主语的句型，如&quot;目击&quot;某时间段内发生的增长或变化情况，并补充具体的变化幅度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在动态图的分析中，如何通过不同的句式来描述房价的增长情况？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在21世纪初，中国的房价大幅上升这一现象，可以通过多种句式来表达。例如，可以以&quot;中国&quot;作为主语，表达为&quot;中国目击房价的增长&quot;，即&quot;China saw a dramatic increase in housing prices in the twenty-first century&quot;。此外，时间短语也可以调整位置，如先提到时间范围，后描述主语，形成&quot;the twenty-first century saw a dramatic increase in housing prices in China&quot;这样的结构。</p></div>
+    </details>
+    <details class="qa">
+      <summary>什么是&quot;there be&quot;句型，并如何应用在图表描述中？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>&quot;There be&quot;句型是一种简单且直接的表达方式，用于描述图表中某个对象存在上升或下降的趋势。例如，在讨论人口增长时，可以说&quot;There was a market increase in the population in China from 200 million to 400 million between 2005 and 2012&quot;，表明人口从200万增长到400万，且有上升趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何利用分词结构来丰富描述动态图中的变化趋势？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>分词结构可用于描述对象在起点与终点之间发生的倍数关系，以及多阶段变化情况。例如，若要描述人口从200万增长到400万的倍数变化，可以使用主句描述总体倍数变化，然后用分词结构详细说明具体数值变化。对于多阶段变化，如先上升后下降，可在主句描述其中一个阶段的变化，接着用分词结构描述另一个阶段的变化，如&quot;The population grew to 15 million before declining to 10 million in 2015&quot;。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述数据图表时，如何运用比较级和最高级句型？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在描述数据图表中，当对象具有最高点或最低点时，应使用比较级和最高级句型来体现这些关键数值。例如，可以说&quot;The number of MCD was highest in 2010&quot;，表示2010年的数值是最高的。同时，也强调了比较对象的一致性，即前后对比的对象必须相同。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何使用倍数表达法来描述对象之间的增长或变化关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>为了描述对象间（如终点与起点或对象A与对象B）的倍数关系，可以掌握三种倍数表达方式，包括&quot;A is N times as much/bigger as B&quot;，&quot;A is N times more than B&quot;，以及&quot;A is N times higher than B&quot;。例如，在描述人口增长时，可以表达为&quot;The number of population was three times as much as the figure in 2000&quot;，&quot;The number of population grew threefold from 2000 to 2010&quot;，或&quot;The number of population increased by a factor of three from 2000 to 2010&quot;。</p></div>
+    </details>
+    <details class="qa">
+      <summary>定语从句和状语从句在分析图表时如何有效使用？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>定语从句通常用于描述多阶段变化，例如在某个时间节点之后发生了何种变化，可以使用&quot;after which&quot;引导的定语从句。状语从句则可以用来概述整体趋势，比如在主体段开头总结各组数据的大致变化趋势，或者用&quot;whereas&quot;等引导的状语从句来对比不同对象的变化情况。通过合理运用定语从句和状语从句，能使文章结构更清晰，内容阐述更丰富。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在写作关于产量趋势变化的概数段时，如何组织内容并选择合适的句式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在概数段，首先强调段落内部应采用总分结构。例如，在20年的产量变化中，提到timber和paper产量都有所增长（doubled），且两者增长趋势高度相似（highly similar），尽管数值上有差异，但使用“pattern”这个词可以表达两者共同的增长模式。接着，按照时间线描述每个对象的主要特点，从最高值开始减述，并使用衔接手段如时间状语来连接不同时间段的信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于主体段的写作，如何处理不同对象之间的对比和转折关系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在主体段中，对于不同对象（如timber和paper）之间的对比，通过衔接手段明确转折关系，比如pump与timber和paper不同，产值起点相同但后续走势各异。在描述pump趋势时，要注意与之前对象的对比，例如pump在下降过程中其产值低于timber和paper，并逐渐拉开差距。同时，确保段与段之间有适当的衔接，尤其是涉及转折时，要清晰表达两者的变化差异和动态对比。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何根据图表数据撰写动态图的各个部分，特别是开头段和主体段？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>开头段需进行题目的改写，转换关键词，如将&quot;below&quot;改为&quot;compare&quot;，&quot;transport&quot;改为&quot;deliver&quot;，同时调整时间点描述为“from to”。在概述段中，总结主要趋势变化和排名情况，比如每种货物运输方式的趋势（upward trend），以及例外情况（如railway）。主体段部分，则根据图表数据省略细节，把握整体趋势，如缓慢上升、先升后降等，并着重描述各个时间段内货物运输方式的变化情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述数据变化趋势时，如何选择合适的句式和逻辑分段方式？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在描述数据变化趋势时，首先根据数据特点选择合适的句式，如使用&quot;rising at a faster pace&quot;来表示更快的增长速度。逻辑分段可以按照高低变化或分组方式来划分，例如按交通运输方式的高低进行分段，强调陆运是目前最重要的交通方式，并用具体数字体现其增长趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>雅姿考试中对于数据精确性的要求是怎样的？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>雅姿考试并不严格要求数据精确性，而是注重用不同句式准确描述数据的主要特点，即使数值存在微小差异，也不会影响得分。关键在于要能够清晰、有效地传达数据变化的核心信息。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何避免作文公式化并使其更具流畅性？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>避免作文公式化并提升流畅性的方法之一是多合并句子和段落，注重句子间的逻辑关系，比如类比或对比关系，并借助合适的过渡词或短语进行衔接。此外，通过变换主语、使用时间点、对象词或数据作为主语，可以使句子表达更加丰富多样，避免单一主语带来的刻板印象。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在对比不同对象的变化趋势时，如何进行衔接和逻辑构建？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在对比不同对象（如道路运输、水路运输、铁路运输和管道运输）的变化趋势时，可以使用转折词&quot;by comparison&quot;引出下一个对象的变化描述。通过运用多种衔接手段，如介词短语、副词（如in contrast, On the other hand）、代词以及形容词加名词短语等，来展示各对象间的关系和对比。同时，注意段落内部和段落之间的逻辑联系，使文章行云流水，具有整体性和推荐性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在数据表达中，如何通过改变主语来增加内容的多样性和丰富性？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>通过使用不同的对象词或国家等概念作为句子的主语来展示多样性和丰富性。例如，可以以产品种类、国家生产量等不同角度作为句子主语，这样会使句子内容更加多变且富有剧情感。</p></div>
+    </details>
+    <details class="qa">
+      <summary>图表分析中如何进行段落间的衔接，尤其是针对多图题的情况？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>对于多图题，采取“一图一段”的分段方式，通过诸如&quot;as shown in the second chart&quot;、&quot;clear from the second chart&quot; 或 &quot;the second chart showed that&quot; 等表达方式来连接不同图表之间的内容，并描述对象的变化趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何利用转折词和连词进行段落间的逻辑衔接？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>根据段落间的关系（如转折、对比、顺承等），选择合适的连接词如&quot;by comparison&quot;、&quot;on the other hand&quot; 等进行过渡。例如，在描述汽车拥有量变化时，根据各个时间段的数据增减情况使用相应的转折或顺承连词，确保文章逻辑流畅。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对给定的人均汽车拥有量图表，如何撰写段落内容并体现衔接手段？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先分析拥有一辆车的家庭比例变化，采用顺承关系（如使用“and”）连接前后信息；然后描述拥有两辆车或更多车辆的家庭比例上升趋势，同样采用顺承关系（如使用“similar to”）；最后分析没有车的家庭和拥有两辆车以下的家庭比例下降趋势，通过转折关系（如使用“however”、“on the contrary”）来展现两者间的对比和差异。同时，在描述下降趋势时，用具体数据和时间点强调变化情况，使段落信息展开更加连贯和具有说服力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何用数字和百分比描述班级中男生的比例？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以使用四个不同的公式来描述。首先，40% of the students in the class are boys，表示男生占全部学生的40%。其次，可以说男生的百分比是the proportion or the percentage of boys，且强调这是一个相对较低的比例，例如“Forty percent of students are boys”。第三个公式是使用“构成”概念，即“Boys account for/make up forty percent of the students”。最后，可以简述为“Forty percent of the figure for boys”。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何在作文中变化表述同一个百分比数据的方式？在小作文中如何进行估值和描述对象之间的差异？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在保持准确性的基础上，为了丰富文章表达，可以通过调整修饰成分的位置来变换句型。例如，对于“the percentage of people aged eighteen to twenty four who emphasize regularly”这一表述，可以将“exercising”放在“people”的前面，形成“the exercising percentage of people aged eighteen to twenty four”。另外，也可以将修饰部分放在百分比之前，如“the high at the percentage of people who exercise regularly”，或者使用介词“among”指出特定年龄组，如“the highest percentage of exercising among people aged 18 to 24”。在小作文中，我们常使用“about”、“around”、“ultimately”等词表示大致数值或区间。对于对象之间的差值，可以使用“gap”，“different”，“disparity”等词扩大这种差异；描述差值逐渐变大或变小，则可选用“wider”，“growing”，“becoming larger”等形容词；若要形容差值变小，则用“narrow”，“decrease”，“reduce”，“becoming smaller”等词。这些语言点有助于更生动准确地描述动态图中的数据变化和对比情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何正确使用介词“by”和“to”来描述数据的变化幅度或终点值？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>介词“by”通常用来表示变化的幅度，而“to”则表示某数据增长到或下降到的具体终点值。例如，若要说明增长到多少，可以使用“at”之后跟具体数字，但需注意，只有当主语是表示数据的对象时才能使用“at”。如果主语不是数据，而是整体描述，则应在句尾加括号注明具体数字，如“Europe has the highest percentage of land degradation at 23%.”</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-02.html">精讲逐字稿</a></li>
+      <li><a href="qa-02.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-01.html">上一讲 01</a></li>
+      <li><a href="lesson-03.html">下一讲 03</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

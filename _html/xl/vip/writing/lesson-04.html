@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第04讲 · 复杂静态图表：澳大利亚男女运动参与率 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 04 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a class="active" href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第04讲 · 复杂静态图表：澳大利亚男女运动参与率</h1>
+    <div class="abstract"><b>本讲概要：</b>本次讨论专注于如何撰写描述复杂图表的文章，以澳大利亚男女参与运动百分比的静态图表为例。首先澄清了此类图表尽管含有年龄变化的动态元素，但因其仅反映单一时间点的数据，故被归类为静态图表。接着，分析了图表中男性和女性参与运动百分比趋势（男性先降后升，女性先升后降）及其数据随年龄变化的特征，强调图表的静态分类。讨论还涵盖了为什么男女参与度百分比之和会超过100%，解释了男女统计数据独立性，提醒写作时需区分男女数据。此外，课程强调了图表写作结构，包括开头段介绍图表、概述段概括图表特征、主体段详细描述图表要点，并特别针对混合图表，指导如何分别描述其动态与静态特征。最后，总结了自动自定义图表写作的要点，包括识别并分别描述图表中的动态与静态特征，以及如何进行有条理的分段描述。</div>
+    <div class="tip">本讲含 9 组问答精要，可到<a href="qa-04.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本次讨论专注于如何撰写描述复杂图表的文章，以澳大利亚男女参与运动百分比的静态图表为例。首先澄清了此类图表尽管含有年龄变化的动态元素，但因其仅反映单一时间点的数据，故被归类为静态图表。接着，分析了图表中男性和女性参与运动百分比趋势（男性先降后升，女性先升后降）及其数据随年龄变化的特征，强调图表的静态分类。讨论还涵盖了为什么男女参与度百分比之和会超过100%，解释了男女统计数据独立性，提醒写作时需区分男女数据。此外，课程强调了图表写作结构，包括开头段介绍图表、概述段概括图表特征、主体段详细描述图表要点，并特别针对混合图表，指导如何分别描述其动态与静态特征。最后，总结了自动自定义图表写作的要点，包括识别并分别描述图表中的动态与静态特征，以及如何进行有条理的分段描述。</p>
+    <p>各位同学大家好，我是lucky。今天我们将继续进入小作文部分的一个学习。在之前的课程，我们已经完成了关于小作文当中最为常见的动态图以及静态图的写作。今天开始我们将进入一些比较复杂的图形的一个写作。今天也是给大家准备了四部完全不同的混合图表。</p>
+    <p>我们先来看一下第一组图表，自动自定义图。那为什么叫自动自净？它长什么样子？我们一起来观察一下。先来看一下这幅图，我们先了解一下它的标题。它主要是介绍了在澳洲男人和女人做这个运动的一个百分的比那观察一下它属于动态图还是静态图？如果说单单从概念上来讲，那这幅图它一定属于一个静态图。因为图表当中只有一个时间。</p>
+    <p>那我们再来看一下，我可不可以这样来描述这个图表？在这幅图表当中，男性喜欢做运动的一个人数，它呈现着是一个先下降，然后随着年纪的增长又有缓慢的上升。然后女性的一个做运动的百分比的人数开始先进行上升，然后随着年纪的增长又逐渐的下降。</p>
+    <p>我可不可以这样来描述？当然也是可以的，为什么？因为我们来观察一下这幅图表的横坐标之间，它们是否呈现了一个年龄的七度的关系。就是他的年龄是连续的时间续上了。也就是说这个图表它也有动态图的一个特征。Ok所以说这幅图表我们就把它称之为叫做自动自定图。</p>
+    <p>然后接下来第二个问题，就是有没有同学会疑惑，说为什么在这幅图里图表里面它的males和female参加运动的这个百分比数值相加并不是100？有同学可能会觉得说，这是因为统计的人数并没有统计完全。大家记得如果说人数没有统计完全的话，那说明他们两个这两个值相加起来会不超过100%。</p>
+    <p>那我们来看一下这两个数值就是52.8和47.7%，它们相加明显超过100了。这就说明一个什么？说明他们的一个统计，就男女的统计一定是分别来统计的，并不是说就是将这个男性的女性作为一个整体的一个单位。一所以这就说明什么呢？我们再去写作文的时候，一定要注意这个语言。如果说它有一个整体的单位一，我们可能会写了男性占了整体的多少。比如说这个man叫做accounted for the accounted for或者是configure的，比如说90%，那么我们可以这样去写，但是在这幅图表里我们就不能用这样的语言来进行表达了，我们只能单独的去表达。我说52.8%的男性会愿意去进行一个每日常规的一个运动，这是回答的。</p>
+    <p>第二有一个问题，针对这幅图我们要如何去写呢？我们下面一起来学习它的写作结构整体与我们之前所讲过的这个小作文的结构保持一致。分别开头段来介绍图表，然后接下来paragraph two来进行一个文章的概述。接下来主体段分别描述这个图表的一些要点。开头段的部分很简单，我们依然要进行一个原屏幕的改写。这幅图表的改写我认为也是比较简单的，主语的部分我们需要修改的是图表的类型，那八叉儿的我们就不需要做任何的改动了。</p>
+    <p>接下来去掉below，然后接下来把这个show咱们这个谓语动词变成其他的词。比如说我可以换成compared，或者换成illustrate这样的一个表达。然后接下来the percentage换成了the proportion，compared the proportion，然后australian men and women我把它换成了males and females。接下来in different age groups，然后who they regular physical activity，我在这里可以把它变成who exercise regularly，作为一个雌性的一个改动。最后这个时间我可以不参加改任何的一个改动，当然了在这里我们可以再进行一个信息的补充。比如说在这里有六个不同的一个年龄组，123456。所以我们可以选择把这个抽象的信息进行具体化。你也可以说insect age group，可以在这儿进行一个补充。</p>
+    <p>这是对于这幅图表开头段的一个改写introduction的部分，就非常的一个简单。接下来我们来看一下这样的数字段的一个写作。这幅图表它既然是一个自动自定图，那我的overview概述端到底要写什么呢？没错，我们既要写出来关于动态图的要点，又要写出来关于静态图的一个要点。我们下面先来观察一下，什么叫做动态图的要点。</p>
+    <p>动态图我有之前强调过，我们要写什么？写趋势的变化，去train的再加上一个排名。所以说我要解出来男女，他们分别整体进行什么样的一个变化。不难看出来，男性它是一个嫌疑下降后上升这样的一个趋势变化。那么女性它呈现出来的是一个先上升后下降这样的一个变化，这个是趋势的一个变化。然后接下来ranking的一个排名的部分，我会发现好像并没有男性和女请呈现出来一个始终哪一组较高，或者始终哪一步较低这样的一个信息。所以我就可以选择先不用写在概述段里。</p>
+    <p>接下来我们来看一下心理态图部分的一个要点。我们这幅图如果说写在主体段，我们要怎么样进行分组呢？之前我有说过，凡是长成这样的两两相比较的一个图表，我们要如何去写它的概述段呢？比如说一幅图表它有AABCD4个组别，每个组别它都是两两的相比较，对吧？那我们当时介绍的一个分组方式是怎么分的？将X小于Y分为一组将X大于Y分为一组。这幅图我们就可以按照这样的一个方式来进行概述段的描述。</p>
+    <p>我就会发现在这里面男伴女女就是男性比女性做运动更积极的一个。左边是这一组，然后接下来女性大于男性的组别是其余的一个主编。我可以把这一个信息成现在我的overview概述段里面。</p>
+    <p>那我们的概述段要写什么呢？我们一起来看一下，我说overall，这个是对于概述段的一个标志。我说除了第一个年龄组之外，demand was more likely to do exercise。女性更加愿意去做这个运动。The now我说除了地图之外，就都是啊Y大于X，都是女性大于男性的。然后接下来我要写出这是关于静态的一个要点。</p>
+    <p>接下来我要解除动态的一个要点。我说well female percentage，女性的一个百分比，generally in print that when they get older until fifty four years old, 也就是他们逐渐增长，女性它是一个先上升的一个趋势变化，直到他们54岁，就在50岁之前，它都是一个上升的一个趋势变化。然后接下来男性它是一个先上升先下降后上升的一个状态。所以the mouth intrigued，男性对于运动的一个兴趣dropped first，它是先下降。我们可以很明显的看到它整体是先下降，before rising in later late。在晚年的那个时期，男性他去做运动的一个兴趣会有一个逐渐的一个上升。这个就是我们概述端的一个写作。总结一下，就是我们既要解除静态图的一个要点，又要解出动态图的一个要点。分别按照这两种图表且概述段的一个写法来写就可以了。</p>
+    <p>接下来我们来看一下主体段的一个写作。主体段的话我们要先看一下如何进行一个分段。我之前我说过，如果说这是一个动态的一个静态的一个图表，我们要如何进行分段呢？我们就可以将X小于Y作为一组，X大于Y作为一组。那如果说我放在这幅图表里可不可行呢？我们来观察一下，我会觉得从篇幅上那两个段的字数会不太平均，为什么？因为我们会发现男性大于女性的只有第一组，只有第一组，然后女性就是大于男性的是其余的所有的一个组别。所以如果说按照这样的分组方式，我们的主体段字数会不是那么的平均。</p>
+    <p>所以在这幅图里面我们可以采取一个比较特殊的分组方式，也就是什么呢？我可以选择将动态图的要点分为一个段落，然后静态图的要点分为一个段落，然后我来各自看一下每隔段分别写什么。那动态的图的要点有哪些呢？我们一起来做一个review，来进行一个复习。无非就是for train by points and to differences，那我在这个图标里进行一个标记，首先男女他们分别的趋势变化都有哪些？刚才我们在前面有提到过，男性它是先下降后上升的一个趋势变化，女性则是相伴，它是先上升后下降的一个趋势变化。</p>
+    <p>那有哪些点我们可以去写呢？比如说male，我们可以去写它的起点值，在这里有它的缺点值，它的值。还有我们会发现它有一个最低点，也就是在35岁到44岁的这个区间有一个最低点。然后接下来女性的部分有哪些点我们可以去写呢？那它当然它也有一个起点值，然后中点值它会发现有一个最高点，也就是在54岁，就是53.3有一个最高点。那么这些点我是可以选择写在主体段里面的那这个部分是关于动态图的一些要点。</p>
+    <p>然后下面我们来看一下静态图我们要写什么。静态图我说了，我们要进行一个两组之间的一个对比。我们要比比的是什么最高值、最低值，然后中间的类字数值我们要合并，同时我们要突出最大差以及最小差。我在这里用一个不同的颜色来进行一个标记。</p>
+    <p>比如说静态图当中，我们会发现最高的是这一组，就是男性最高的是最这一个图片。然后接下来女性最高的是这一个组别。除此之外，男性与女性的一个肺大差是发生在这样一个主编，这是最大的一个差值。然后男性与女性之间发生的最小差是在这一个左边。也就是我这个黄色的部分是我带一些静态图的这一段落的时候要写的一个信息。当然了我们可以看到我标注的不同的颜色，它们会有重合的一部分，也就意味着有一些点我们可以进行一个省略，进行最受伤的一个省略。</p>
+    <p>下面我们就来看一下具体的这个段落，我们可以如何去进行一个写作。我们先来看一下value one，也就是关于写动态图的部分，我要写出他们的一个趋势变化。一起回顾一下，我要写的是男女的变化。分别各自的骑电池中电池以及分别各自的最高点或者是最低点，我就要写了。</p>
+    <p>Across all age group, but a people of those sexy presented opposite trains。我要先写成一个什么总分的一个结构，我说在所有的年龄组别当中，男女的趋势呈现出来了一个截然不同的趋势变化。然后接下来我要坚决的是女性的一个变化，the proportion of female working out。这里面我用了一个什么词汇的部分，就是同义词替换，在这里用了一个同义词替换，也就说明什么呢？来替换这个doing regular physical activity，来做一个日常的一个运动。女性做运动的这个百分比。Rose graduate to a pig，然后写了它的这个最高值，最高值是在哪里？在这个53.3%。</p>
+    <p>然后接下来在这个组别当中，然后before gradually dropping to，也就是学了它的一个终点的一个数值，终点的一个数值下降到了47.1 in elderly women。在这里我依然也用了一个同义词替换，我用了一个什么样的替换呢？大家来看一下，也就是我用elderly women来替换65或者是65岁以上的女性的一个人数。</p>
+    <p>接下来这个是关于女性有哪些值我要去写，接下来我要写的是男性的部分，接下来他们呈现出了一个截然不同的趋势变化，所以两个对象之间的逻辑词我要用的是by contract。通过这个对比接下来我要选男性的变化了。After a fall in the figure for mouth, 就在随着一个一段的一个下降之后，in the age of 35到44，也就是先下降，男性是一个先下降。下降到这样的一组之后，there was a continued growth in the later adulthood。就是在随后的这个阶段当中，它有一个缓慢的上升。在这里我还用了一个DRB的一个句型，就突出了男性的一个趋势变化。同时我也写出了女男性的一个座椅低值涨39.5，39.5%这样的一个数值。</p>
+    <p>那么大家来看一下这一段的内容，应该相对来说很充实了。既写出了男女他们在随着年纪变大，随着年纪的增长逐渐各自的一个趋势。除此之外我也写出了男性他的最低点以及女性他的最高点。这一段我就写完了，接下来我们来看一下body two的部分，我了解的是male and female，它整体的主大小对比，也就是不同的一个组别。</p>
+    <p>我要在这个段落开头的部分体现出来我的分段逻辑。我说there were considerable gap between the two generals in note a group。也就是在大部分的组别当中，男女之间都是有很大的差值，他们是非常的不同的。然后我要挑的是最有特点的剧组，比如说在15到24岁的这个年龄组当中我over half of male workout，超过一半的男性都会去运动。About five per cent higher than that of female，比拟性相对来说是比较高的。说明在这一组别当中，它是男性大于女性的。然后接下来在其他的那个组别当中都是女性大于男性的那我要把它解出来，in contract women overtook men.</p>
+    <p>Overtook这个词之前我们在进行静态图的词汇补充的时候有给大家讲过，它表示什么呢？超过超过也就是女性大于男性。In the remaining group在剩余的组别当中是女性大于男性的。所以也就是我突出了男男大于女是哪一组，男小女女是哪一组，拿来记住。</p>
+    <p>接下来我要挑的是最大差以及最小差的一个数值，那我们要解出来the men market differing最大的一个差值，最显著的差值我们会发现是在这样的一个组别里面，是在35到44岁的这个组别。在这个组别当中，我会发现52.5%的女性会去做运动，compared with only 39.5的男性去做运动。突出了这个是最大的一个最大差的一个组别。同理我还要写出最小差的一个组别。在最后的一个民族，也就是65岁，就随着男女他们的年纪逐渐的增长，那么选择去做运动的这个百分比逐渐的持平，所以我要解出来noticeably。值得注意的是啊在年年年长的这个年龄组当中，我用了the elderly来替换这个65。And over the gap was the smallest.</p>
+    <p>他们之间的这个差值，男女之间的一个差异是最小的。然后with both figures bending at about forty seven percent，也就是各自当然这个数值的一个组别在47%左右。在这里大家看到我用了advantage，就是我进行了一个数据的一个估值。我跟大家说过，其实小论文一个比较高分的点就是我们不要非常机械化的写出每一个数值它具体是多少。我们要进行一个勇敢的估值，我在这里就写他们大概都在47%左右，这个是最小差。这个图表就写完了，给大家总结一下。</p>
+    <p>首先针对于这种它的横坐标有时间变化的一些图表，我们把它就称之为叫自动自定图。我们先要写出它动态图的一些特征，我们也要解出它静态图的一个特征。甚至我们也可以将这个动静来进行一个分段，一段来写动态特征，一段来写静态特征。这个是关于自动自进图的一个写作。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-04.html">精讲逐字稿</a></li>
+      <li><a href="qa-04.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-03.html">上一讲 03</a></li>
+      <li><a href="lesson-05.html">下一讲 05</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

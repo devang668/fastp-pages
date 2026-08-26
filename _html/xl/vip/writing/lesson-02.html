@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第02讲 · 动态图主体段构建与趋势词汇 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 02 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a class="active" href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第02讲 · 动态图主体段构建与趋势词汇</h1>
+    <div class="abstract"><b>本讲概要：</b>本次课程深入讲解了雅思写作中动态图表描述的技巧，特别是小作文中主体段的构建。强调了识别和描述数据趋势的重要性，提供了丰富的词汇如“上升”、“下降”和“持平”，以及比较词汇如“顶点”和“波动”。课程还介绍了六大必备句型，帮助考生准确描述数据变化，强调了合理运用衔接手段以保持文章逻辑清晰和过渡自然。最后，课程讨论了数据表述的细节技巧，确保文章的可读性和深度。</div>
+    <div class="tip">本讲含 26 组问答精要，可到<a href="qa-02.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本次课程深入讲解了雅思写作中动态图表描述的技巧，特别是小作文中主体段的构建。强调了识别和描述数据趋势的重要性，提供了丰富的词汇如“上升”、“下降”和“持平”，以及比较词汇如“顶点”和“波动”。课程还介绍了六大必备句型，帮助考生准确描述数据变化，强调了合理运用衔接手段以保持文章逻辑清晰和过渡自然。最后，课程讨论了数据表述的细节技巧，确保文章的可读性和深度。</p>
+    <p>各位同学大家好，我是lexi。欢迎继续回到雅思写作系列课程。本节课我们将继续进行雅思写作小作文动态图的学习。您先回顾一下上一节课的内容，上一节课我们已经完成了小作文整体的段落结构，然后开头段以及概述段的一个写作。本节课我们将继续进行小作文主体段部分写作我的学习。主体是分为三大模块，关于主体段的部分，我们需要积累哪些词汇，一些趋势表达，包括一些必备的剧情，以及段落与段落之间我们如何能够自然流畅的进行衔接，必须要掌握的衔接手段。然后除此之外也给大家准备了专题演练的部分以及要点的补充。</p>
+    <p>我们先来看今天最重要的部分，就是关于语言点的一些学习。我们知道一些动态图，动态图最核心的一个要素是什么呢？也就是每一个对象它在不同的时间点发生趋势变化，所以我们需要掌握一些词汇来描述这个阶趋势的变化。</p>
+    <p>我们将来看一下，第一个就比如说表示上升的趋势，我们需要掌握哪些词？在这里其实给大家准备了比较丰富的丰富的词汇，大家可以在这些词汇的列表里面进行筛选，不要求大家能够掌握全部，只要能够准确使用即可。这样跌列的这些词就是我们比较常见的一些词。比如说increase，ride, grow还有climb，他们表示上升的一个趋势。然后除此之外，第二列他们主要表示的是比较大一些的上升幅度。比如说像这个座儿，它是什么意思呢？它是激增，就比如说一个陡峭的一个上升，然后包括这个rocket，大家想象一下，就是像火箭一样的一个攀升。然后包括这个search也是激增，然后go up也是上升的一个趋势。</p>
+    <p>除了用动词之外，我们也可以使用这些动词的名词形式。比如说我们可以用rise，increase或者是close就直接表达。这一部分是关于上升的词汇，除了上升之外，我们可以怎么样来表示下降呢？我们来看一下下降哪些动词。当然了第一行也是比较常见的，decree decline还有drop。除此之外我们也可以用diminish design或者是day。然后除此之外，如果说下降的幅度特别的大，那我们可以用哪些词？我们可以用plunge fall或者是go down这些词。同理既然我们可以使用他们的动词，我们也可以掌握一些名词的一个形式。比如说liquid job，decline或者是for这些词。</p>
+    <p>除了上升下降之外，还有什么持平和波动？我们先来看一下持平的趋势怎么表达，一般来说只要一个对象，它在这个时间点上没有发生任何的变化，起点值跟终点值保持不同不变，那么我们就可以说它是一个持平的趋势。那我们可以用哪些词汇来表达这些词呢？比如说我们可以用的是remain stable保持不变，那除了用remain这个动词之外，我们可以把这个remain外面to maintain这个词。Maintain这个词大家应该不陌生，它指的什么意思呢？叫做图维持，就是维持不变。然后我们也可以用stay the same保持不变。</p>
+    <p>另外还有两个短语，一个是level of，另外叫arrange a plateau。Ok这个是保持持平不变的一个趋势表。然后最后我们来看一下，表示波动。波动的话其实就像一个心电图一样，就描述这个数值在某一个某一个范围左右，就上架了一个浮动。那我们可以怎么来形容它呢？最常见的一个词叫做fluctuate，叫做波动。然后除此之外，我们也可以用very和一个短语bearing right and for就是说上上下下这样的一个变化来描述波动的一个趋势。以上是关于四个不同的缺失变化的一些词汇的掌握。</p>
+    <p>我们再去写这个主体段的部分，我们还需要掌握一些关于比较，比如说关于顶点，关于这个稳定值的一些表达。我们来看一下都有哪些。比如说我们讲描述一个对象它到达了一个顶点，想要描述顶点值，我们可以说这个数据picked at picked，我们知道它就表示一个顶点点或者是顶峰的一个印章。然后除此之外，我们也可以说amounted to the pig，就是到达了顶点，或者可以用这个rate the all time high，就是到达了一个最高值这样的一个表达。如果说我们想描述一个对象，它稳定在了某一个值，我们就可以直接用的是level of后面加上at加上这个稳定的数值。除此之外，我们如果讲描述就对象与对象之间有一个交点，或者A超过了B或者是A就是交与B我们可以用如下三个表达，分别是overtake at number或者是be at the same level would be ok。</p>
+    <p>这个是关于主体段的一些语言点的表达。除了这些词汇之外，接下来还要给大家提供关于这个主体段写作的六个必备的句型。我认为只要大家掌握了这些剧情，并且能够运用得当，其实可以大大的降低大家备考这个动态图的一个难度。我们知道在去写这个动态图的时候，我们无非就是要写出每一个对象值的变化。那我们如何多样的体现出这些变化呢？也就是说你要有一些丰富的描述这个趋势变化的一些表达。我们来看一下都有哪些。</p>
+    <p>我们先来看第一个必备的一个去形容。就像直接说就是我们直接说某一个对象它发生了上升的趋势，或者是某一个对象发生了一个下降趋势。大家可以记一下这个公式，并且把这个公式套用在大家的小作文的写作里面。这个公式就是描述对象，然后它发生了一个什么样的变化，这个变化幅度是怎么样呢？是大幅度的还是小幅度的，然后变化的范围以及它发生变化的时间。</p>
+    <p>举个简单的例子，比如说我们的描述对象一定是某一个对象的数值。大家在这里一定要记得这个句型，在使用的时候注意这个描述对象的准确。举个简单的例子，我经常在批改同学们的作文的时候，就发现一些很低级的语法错误，比如说这个肌肉的数量上升了，他不说肌肉的数量，他就直接说说这个chicken increased。那这个表达是不是就在这个语境下是不准确的？那就指的是鸡飞起来了对吧？</p>
+    <p>所以说描述对象一定是什么什么的数值，我们可以用哪些词来表示呢？比如说这个the figure of或者figure four，然后the amount of the quantity of the number of。如果是百分比，那我们也可以用the percentage或者是the proportion of，这些都可以。这些对象他们发生了一个什么样的趋势变化？上升、下降、持平、波动。在前面已经给大家进行了一个补充，然后描述变化范围的一个副词。在这里按照他们的变化程度也给大家准备了三组的词汇，分别是大幅上升、平稳上升以及非常小幅度的非常微弱的一个上升熊。然后接下来他们从哪里变化到哪里，那我们可以用from to，然后最后加上他们变化的时间范围。Ok我来给大家举一个例子，这幅图就是我随便制作的一幅图，讲的是MCT的一个人口变化。接下来我将用六个不同的表达来描述出同一个阶段的这个对象的变化。</p>
+    <p>比如说我想描述的是MCD的人口，它在2000年到2010年，它发生了上升的一个变化。那代步到给大家准备的这个公式里面，我们可以怎么说呢？描述对象一定是这个MCD的人口，也就是the number of population，它发生的变化是上升。那么大家在上升的那一组里面挑选一个表示上升的一个动词，也就是in pray。当我用的是最简单的increase的，然后变化的幅度，那我认为它整体变化的幅度还是一个比较大的一个幅度。所以我可以用considerably，或者可以用什么multiply都可以。然后变化幅度我在这里用的是用的是to为什么to后面可以直接加的是它的一个终点值，就到达了一个什么样的一个值。然后接下来最后就是时间，在这个2000年到2010年的时间节点，这个句型我们就写完了。</p>
+    <p>在这里给大家强调一个小小的语言点，就是刚才我说的介词的一个准确使用。我们在去描述对象的时候，经常会用到一些介词来描述这个数值的时候。记得如果说你用的是by，那么它描述的是一个长幅，就表示增加了多少。那那如果是in her two，那么表示的是增加到多少，这个叫做第一个就行了。</p>
+    <p>然后接下来我们来看一下第二个句型，这个句型我把它称之为叫做目击举世，也就是趋势变化在这里变成了一个名词，我们主语的对象可以变成什么？变成时间段。比如说我选择用第二个句型，用时间段，就是这个时间节点一个什么样的时期，目击浪一个增长，然后后面再补充上具体的并变化幅度。</p>
+    <p>我来举一个简单的例子，还是拿这幅图，这幅图它对象是时间，对吧？就是一个2000年到2010年的这个时间，所以我把时间带入进去，the period from 2000 to 2010。整个句子的谓语动词用一个感官动词用的是so作为谓语动词，就是目击乐，就是witness或者saw a significant employee目击了一个大幅度的一个增长。然后接下来它是一个怎么样的增长呢？我们要补充上它的一个变化幅度，也就是with the bigger rising from five to fifteen million。在这里我其实用了一个with加上独立主。格的一个结构。如果说不太熟悉这个语法的同学，就可以把这一部分给省略，就直接后面加上from five to fifteen即可。</p>
+    <p>然后在这里这个句型是我自己在去写作文的时候比较爱用的，为什么？因为它非常的多变，我稍微的给它做一点改变，它好像就衍生出了很多的一个变化的一个句式。比如说这个动词我可以用saw，我也可以用witness表示目击。除此之外你也可以换成一些其他的词，你可以换成这个词，experience，可以变成经历了，就在这样的一个时间段经历了一个上升。或者你也可以用哪一个词呢？Record表示记录的这个词，就在这样的一个时间段记录了一个增长。那这个句型是不是非常的好用？</p>
+    <p>那在这个句型的基础之上，它依然也有很多变化的句式。大家看一下，这个句子里面我的主语选择的是用时间段，用时间来做主语。其实它的主语也可以来进行一个变化。</p>
+    <p>举个简单的例子，我拿这句话给大家举例。比如说我想表达的是这样的一个含义，21世纪初中国的房价大幅度的上升。那么在这里我们可以找一下这句话里面包含哪些名词。比如说这句话的名词有中国，然后有这个房价，然后也有一个时间短语21世纪初。大家记得这三个成分都可以，来做这个句型的一个主语。比如说这句话我要用中国来做主语，那也就是中国目击了一个房价的增长，那么就是china saw a dramatic increase in health Prices are in the twenty first century。我把时间放在后面了，那我把时间放在前面，我把这个点放在最后行不行呢？</p>
+    <p>当然也是可行的。我说the twenty first century saw a dramatic increase in health present in china。那你看一下这个就行，我可以找到它里面的一个主名词做主语，然后来变换它的主语形式，所以说非常的好用。这个就是关于动态图的第二个句式。</p>
+    <p>接下来我们来看一下第三个句式，叫做there be句型。Dear be句型非常简单了，也就是我用dear be做主语。我想描述的是在这个图表当中存在一个上升或者是存在一个下降这样的一个概念，那我就可以直接的套用到这个句型，还是拿这幅图去御洋，我就可以说there be there was a market increase。依然是这一段有一个上升的趋势。然后in the population在人口方面，最后再加上这个时间的一个范围。这个是第三个句型，是不是非常的一个简单？</p>
+    <p>前面的三个句型给大家介绍的都算是一个单阶段的。单阶段的就是我想描述某一个对象上升，某一个对象下降。如果说我们想在这个动态图里面的表达的一个高分，那么我们一定要怎么样呢？还要掌握一些多阶段的句型。什么叫多阶段呢？就是你能不能够合并一下你的剧情呢？让你一句话里面包含两个信息，对吧？</p>
+    <p>我们看前面的句型都是只包含一个信息的那我讲一句话包含两个信息，我就要再掌握一些其他的复杂一些的句式了。比如说我们可以用分词结构，这个叫分词结构的一个句式，那我们可以怎么去运用呢？我在这里给大家举了两个例子。第一个就是我们发现第一个信息也就是一个对象，它的终点跟它的起点，大家发生了一定的倍数关系，那么我可以用主句来描述这样的倍数，用分词来描述它的具体数值。</p>
+    <p>举个简单的例子，这个剧情我就说人口笙倍的增长，我体现了是倍数的一个变化。然后接下来它到底是怎么样的一个倍数变化呢？就是rising from two minute to four million，从200万到400万的一个增长，我用的是rising的分子结构，这是第一种用法。</p>
+    <p>第二种用法就是我们刚才在看那个人口变化图的时候，我们会发现它在整个的时间节点上，它是一个多阶段的一个变化。它是一个先上升后下降的一个变化。那我可不可以用分词结构来选呢？可以，我用主句来写它的第一段的变化，我用分词结构来写它第二段的变化，这个是可以的那比如说我可以说它的人口在10年增长到了400万，然后用一个before或者utter加上分词的结构。Before declining to three million in 2012。我就一下子用一个句型体现出了这个多阶段的句式。</p>
+    <p>然后我们来看一下在给大家展示的这幅图里面，我们怎么去应用这个句型，如何丰富的进行写作。比如说我就想描述这一段他的一个信息，我们会发现他们有一个什么样的倍数的关系，对吧？这应该是5万增长到了15万，它有一个倍数关系我要体现出来。我就先说人口的数量是triple 3倍，那具体它是从多少增长了多少呢？它是从five million to fifteen million，所以后面我用分子结构来进行一个补充说明，这是第一种用法。</p>
+    <p>第二种用法我想描述它在整个时间节点的变化，也是先增长到了15，然后又下降到了10。那用这个before加分子结构能不能写呢？当然也是可以的，我可以费用说的population人口增长到了15万，然后before declining to ten million in 2015。这个就是我关于这个分子结构的一个应用，这是第四个句型。</p>
+    <p>然后接下来第五个句型，我们再去描述某一个对象的时候，如果说这个对象它有最高点或者有最低点，我们肯定也要把这个值给描述出来。那么我们肯定会用到比较级和最高级的一个句型。然后在这里因为这个语言点是语法点比较简单，我不过多的给大家进行详细的一个讲解理解。</p>
+    <p>但是我在这里小小的强调一下，比较集聚型当中一个很重要的一八点就是什么？注意比较对象的一致性。一致性什么意思呢？什么跟什么比一定要注意。比如说在这个例子当中，同芬兰的老龄化人口相比，日本的老龄化人口高出很多，那它比的是什么人口？所以前面的比较的对象是the number of aging population，后面就不能够是国家比较。不能说japan was higher，我们要说that of japan words higher，这个大家能理解，这个叫做比较对象的一个一致性。而比较级和最高级的一个使用。</p>
+    <p>那我们比较级和最高级如何应用到我们的这个图表里面呢？我们就可以直接的去使用，体现出来这个最高级的一个值。我们说the number of MC was highest in 2010年，他在2010年的这个数值是最高的，这个是第五个句型。除此之外我们来看了一下，第六个句型，也是倍数的一个句式。</p>
+    <p>我们再去描述这个对象与对象之间，比如说终点与起点之间，或者是对象A跟对象B之间，他们如果说有一个倍数的关系，我们要如何体现出来呢？我们现在需要掌握的是倍数的三种表达，分别就是AAAN times on，add much at the bigger for b第二个是AAN time，the bigger for b第三个叫a is in times higher than the figure for me。大家一定要记得第三个，第三个不是说他是他他比他多几倍，就直接的他体现出来的是一个倍数的关系。然后在下面针对这三个表达，我也给大家配有了例句来描述这个信息。娱乐的花费是出的花费的三倍，我们可以用这三个不同的表达来描述这样的一句话。</p>
+    <p>OK然后我们来看一下关于这个倍数据是在这个图表当中的使用。我们可以说the number of population were three times as much as the figure in 2000。我们会发现10年的数值是00年的三倍，所以就是three times as much as the figure in 2000。然后除此之外，我也可以说这个人口他得到了三倍的一个增长。我可以用for的这个表达这个forward是什么意思呢？它其实就指的那个纸被折成了几个部分几倍，所以这里three four的就是三倍的一个含义。那我可以说MCD人口的一个数值得到了一个三倍的增长。</p>
+    <p>以上就是六个基本的一个剧情。然后除此之外，在这里也给大家准备了两个高分的句型，高分句型的话也就是定语从句，涉及到了定语从句以及状语从句的一个使用。那定语从句往往会用在什么样的一个地方呢？比如说你想描述的这个对象，它是一个多阶段的一个句型，那么你可以用这个after which。然后像状语从句的话，它的使用比较灵活了。一般我可能会用在哪里，用在overview，就是概述段的一个写作。我想描述什么值最高，然而什么值最小，或者哪些对象上升，然而哪些对象下降，我都可以用到well although或者是whereas in。</p>
+    <p>引导的一个状语从句。在这里给大家也进行一个举例，比如说我的这幅图，这个人口变化图如何用到定语从句呢？我可以先用一个简单的句子来描述它的单阶段的句型。就是说这个人口在10年的时候风险涨到了十五命令。然后after which大家注意一下，这里面这个which引导的定语从句，它指的是什么呢？他指的就是这个时间点在2010年，在这个时间节点之后，它下降到了ten million in 2015，这个没有问题，就是MCD的一个部分。</p>
+    <p>然后接下来我们来看一下状语从句的一个使用，状语从句的话我们来描述这幅图。我们可以先说他在10年的时候到达了一个顶峰。那看这里到达顶峰，我用的表达就是amounted to the pig到达了一个峰值。Whereas然而它又下降了，declined to ten million in 2015，接下来他又进行了一个下降，这是关于剧情的一个掌握。然后下面我们就来拿一幅图图来进行一个练习。</p>
+    <p>这幅图大家上一节课应该见过，因为我们就拿着这幅图来进行了一个看图的练习，就是我们主体段到底要写哪些元素，然后我们还用了一张思维导图来体现出来了。所以我们先一起回顾一下，这幅图它主要讲的是在欧洲三种林业产品的产量。然后我们当时选择的分组方式，是按照它的一个train的趋势来进行一个分组，也就是将timber和pong分在了一组，然后将timber和paper分在了一组，然后将pump单独分为了一组，这个叫做按照趋势来进行分段。我们主体段要解的信息已经完整的体现在了这张思维导图里面。</p>
+    <p>我们一起来看一下，首先我们要总体的来一些timber和paper的产量都增长，然后接下来他们分别的一个数值变化是怎么样的。比如说听paper它从多少增长到多少，paper从多少增长到多少，同时在这个段落里面我们要进行一个比较的部分，也就是我们要进行比较，就timber group farther than paper，同时timber的产量比paper要高。然后在body two的部分，我们要进行一个转折了。因为它的趋势是截然不同的，所以我要说pump的趋势变化与timber和paper是不一样的。那它是从多少下降到多少，我要按照时间轴来描述出来。</p>
+    <p>这幅图表的一个主要的特点。然后我们下面给大家准备了一篇范文来进行参考和学习。具体的句型的使用。这个范围给大家准备的一个版本，相对来说还是很简单的。</p>
+    <p>语言包括一些句式的时候是比较基础的，然后适合我们小白进行一个初步的一个练手开头段的部分我们是进行题目的一个改写，overview在概述段的部分，我们要总结的是他们的一个趋势变化，以及他们的最终的一个排名。行，我用的是overall，我说在这20年当中，我用到了这个句式。二就是在这20年里目击到了various tendencies of production，也就是在产量方面，我可以看到不同的一个趋势变化。在这里我并没有具体写，timber and paper上升，这个pump下降。我的考虑就一点，就是因为我是按趋势进行分段，所以主体段的部分已经描述了这两个信息。如果我说我的概述端再写的话会有一定的重复，所以我就比较概括的来介绍了一下，在这20年里，目击到了不同的趋势变化。我还写了最值，就是你的level。And the level in timber remained higher than those, 也就是timber它的一个数值比其他的值要高一些，叫remain higher than the。</p>
+    <p>这一部分就是关于我们概数段的一个节奏，有讲过，接下来我们来看一下主体段的部分。主体段的部分给大家强调几个要点，也就是如果说你的这个小作文的分数加上一个七分，那你一定要记得你段落内部的组织架构一定是有一个总分结构的。所以说我在这儿写了timber和paper的一个产量都doubled，就在这个时间段里面，他们都是双倍的一个增长。并且他们增长的这个情况were highly similar高度的相似，它们增长的情况高度相似，虽然说数值上会有一些差异的一个大小，这里有一个表达叫做widening gap，也就是timber和这个paper他们两者之间的一个差值。虽然说他们之间有一些差值，但是他们上升的一个形势，上升的这个情况是非常的相似的那pattern这个词，大家可以去设计一下，当我们来总体的来写两个对象他们趋势情况很像的时候，都可以用到pattern这个词。</p>
+    <p>然后接下来我们要做的是什么呢？按照时间线按照时间线来描述每一个对象的主要特点，那我肯定要从最高值开始起，记得就从这个点从最高值开始减，那我从起点开始减，我说。五吨的chAmber were produced在起点的部分，有五吨的配timber它被生产了。那么接下来随着一个缓慢的增长随着一个缓慢的增长，然后which accelerated in the last five year，在最后的五年，它进行了一个加速的增长。加速的增长之后，这个数值到达了ten，ten数值到达了十吨。这个是关于timber它整个对象的一个描述。这是多用的都是一些简单句。</p>
+    <p>然后接下来我们要解的是这里paper它在这个时间点上的一个主要特点了。大家记得对象与对象之间一定要有衔接，所以我在这里用的是一个时间状语来进行衔接，这样during the part of time在同样的一个时间段里，这个国家生产了四吨的paper 1980选择的是用国家来作为主语，国家生产自尊的一个paper。然后after a statutory所以这一段时间的持平之后所以这一段时间的持平之后，the production产量grew quickly to eighteen。这个产值快速的增长到了八吨，也就是选了它的终点值。</p>
+    <p>大家来看一下，因为整个的这幅图表，它的对象信息都比较的少，所以我在去写作文的时候，这些信息我都尽可能的把它们都写在主体段里面。然后接下来我们要写的是pump的趋势变化。大家注意段与段之间是不是一定要有衔接手段呢？那所以他们两者之间一定是一个转折的关系。所以我在这个body two的部分，我想总体的来写pump were different from timber or paper。他们他与这个听本和paper他们两者之间是不同的。它的产值started at the original level。我还交代了一下，他与这个清倍的一个焦点值，就daddy他与这个timber有一个相同的一个交点起点。</p>
+    <p>然后as soon search的third就是激增，因为它上升幅度比较大，third to the autumn high上升到了八吨。接下来它就上升到了一个八吨，然后接下来它有迅速的下降了负吨找plan to fourteen，这个是表示下降的一个词。并且这个点也是一个比较重要的点，叫a major point of the period。</p>
+    <p>然后接下来我依然是要按照这个时间线描述pump的一个变化。接下来它是有继续的一个下降了，所以它持续的下降as continue decreasing，然后yet in a luggage way。大家注意一下这个表达，luggage是什么意思呢？他表示就是按缓慢的。虽然说它下降了，但是它下降的形势非常的缓慢。然后到达了reach the all tongue达了最低值。Ok然后接下来随后的几年我们又看到它又上升了，随后几年我用的是这个句式句式2，句式2 the subsequent years用时间段来做，注意随后的几年目击到了一个缓慢的一个爬升。</p>
+    <p>关于这个胖的趋势我就写完了，然后我还要来做一件什么事儿，就是进行一个对比，将pump与timber and paper来做一个具体的对比。我要怎么说呢？值得注意的是啊随着它的下降，这个国家生产的pump就比这个timber越来越少了。像less than timber and paper one after one，他们之间逐渐的拉开了差距。在这里我进行了一个数值的对比，这个就是我们关于动态图主体段的部分具体的一个写作。</p>
+    <p>那么针对基础一般的同学可以先参考一下像这幅图的语言模板，大体上是一个什么样的思路，就是先类比再对比。针对类比带对比这样的一幅语言模板。如果说大家已经掌握了这幅图里面的一些语言表达，那么想要追求一些更高级一些的剧情，更复杂一切的句式，那我们我们下面一起来进入下一幅图的练习，另外一幅动态图。我们会发现，当你去分析过或者是你练习写过越来越多的动态图，你会发现动态图它就是讲分文当中的一个纸老虎。只要你的句型掌握的到位，那你无非就是套用了不同的描述对象，带入了不同的数据本身。这个动态图的部分还是非常的简单的。</p>
+    <p>Ok然后我们来看一下这一幅图，这幅图讲的是在英国，四种不同的货物运输方式，就货运量的一个趋势变化。我们先来看一下这幅图我们可以怎么去写。当然了想要自己练习的同学，也可以暂停一下本视频，然后把这幅图进行一个基本的构思，当然也可以进行一个小小的一个写作。再来看一下我后面的讲解部分。</p>
+    <p>针对这幅图，我们第一步肯定也是要进行看图审批，对吧？那相信课程已经进行到这里，我们的这个看图的部分大家已经是比较的有刃有余的了，就不需要我们再一步一步的去讲解了。所以说我们来看看图当中第四步和第五步，分别是确认主要军区以及来进行一个分组。这幅图分组方式非常的灵活，我们可以按照高低来进行分组，也就是给他们的4种不同用户运输量的方式进行一个排名。按照121组、341组的一个方式。</p>
+    <p>那我可不可以按照train的趋势来进行分组呢？可以，但这幅图我可能从篇幅上来讲不是那么的推荐，为什么呢？我们来观察一下四个对象的趋势变化，在这里我们会发现肉的是上升的一个趋势，然后接下来water上升的一个趋势，这个real它叫raining table就保持不变，然后pipeline也是上升。一共四个对象，三个上升三个上升一个持平，那我们适不适合用趋势来进行分组呢？我觉得相对就不那么的适合了，我会选择按照高低的方式来进行一个分组。</p>
+    <p>然后我们来看一下具体的这幅图我会怎么去写。首先开头段的部分，我来进行一个题目的改写，比如说把这个below要给去掉，然后把show变成了compare，然后接下来the quantity of good transported，我把它改成了the value of goods，就进行了同义词的改写，transported改成了delivered。然后接下来by poor means of transport，就是它原题目是by four different of transport都改成了by four means of transport。然后in the UK然后再加上这个时间点between and我变成了from two。这个部分都是我们在上一节课给大家讲的开头段的部分的这样一些方法，就是最基本的一个同义词的改写。</p>
+    <p>然后接下来我们来看一下下一个时段的节奏。回顾一下概述端的内容，我们写的主要两方面，一个是ranking，一个是加强train的一个总结。所以我在这里我了解了基本上每一种货物运输的一个方式基本上每一种货物运输的方式都for an upward trend。</p>
+    <p>黄色的部分就是我之前在给大家讲过的语言点。比如说在这儿，它就是我们在讲的六个必备句式当中的第二个的一个使用，目击到了一个上升的一个趋势变化。V with the rail at the only exception，这个real是唯一的一个不同的趋势变化，也就是它是唯一的一个例外。</p>
+    <p>然后接下来另外的一个点，我要写在这幅图表当中，谁的值是最高的那显而易见是肉的，所以是road road transportation delivered more good than any other means of transport，就是road它的一个货物运输的量是最大的那这是关于开头段与这个overview概述段的写作。然后接下来我把这个地方擦一下，接下来我们进行一下主体段的部分。我的body one我要写的是一和2。大家在这个时候你可以先去思考一下，对账一和对账二我分别要用什么样的一个剧情，他们两个的趋势肯定要不一样的。</p>
+    <p>像这幅图，就是他的时间点上的变化非常的多且复杂。这个时候我们就不需要逐一的解除他们每一个点的变化，我们需要进行一个大幅度的省略。比如说像这幅图，我就可以先写它整体是上升的。然后另外我需要写出来，它先上升又下降，先上升又下降又上升，然后又缓慢上升。这样的话就是会被认为是过于到专注于这些细节信息，所以我们要进行一个省略。比如说我今天整体来记，1974年到1994年，它是一个缓慢的上升。</p>
+    <p>虽然中间有一些波动，但它整体是个缓慢来上升。随后就是rising at a faster pace，一个更快的速度增长，到达了将近100吨，100万吨，应该是这样的一个表达。然后接下来针对另外的对象water，我就要写的是什么？它整体是上升的，并且在它上升的过程当中，我需要注意的是中间有相当大的一个长度它是保持不变的那这个叫做word的一个变化。好的，接下来我就要用我们刚才所学到的一些句式，把它们给表达出来。</p>
+    <p>那这一段我要怎么去写？首先在开头段我要写roads by far by far就是说目前它是the most important mode of transport。陆就是这个陆运的一个运输，是最重要的一种交通方式。这个语言点它体现的或者说为什么要这样去写，它体现的其实就是我的分组方式或者是分段的一个逻辑，就是按高低来进行分段肉的是最重要的一个交通运输的一个方式。它是用了一个wave加上独立主格。With the figure in freezing modestly from就是从起点应该是到这里，从其实到了uh approximately eighty million将近80。</p>
+    <p>在1999年只写的是这一段的一个趋势，然后接下来and这个就是表这个是外长的关系。And and then rising at an even faster pace, 一个更快的一个速度上升了。During the rights of the period，在剩下的这个阶段他就上升的会更加的快速，上升到了值终点值是nearly a one hundred million chinese in 2002。这个是关于肉的它的一个变化。</p>
+    <p>然后接下来我要写对焦二了，那我能直接的就去写water吗？不可以，我的对象与对象之间一定要有一个连接。所以在这里我就要写了，the amount of goods transported by water.</p>
+    <p>也就是水路运输的一个方式worth lower，相对来讲是比较低的。然后它是怎么样的一个变化呢？我要具体的来写它的变化了。It did record a significant growth of它有一个缓慢的一个增长，从40到70，其他的变化从起点值到终点值的一个变化。</p>
+    <p>在这个整体上升的过程当中，我可以注意到的是figure这个数值remained basically unchanged。这个数值基本上是有一段时间保持不变的，在55到60这样的一个区间。其实基本上解的就是这一段，因为确实在整个的整体的变化当中，保持不变的一个趋势，占了相当大的一个比例。所以它是remained basically unchanged在这样的一个区间。然后from 1982 to 1998，我就在这样的一个时间段。但是关于这个时间段，大家不要过于的纠结或者钻牛角尖。因为有些学生他们真的是再去写这个数值或进行估值的时候，他就怕自己数字写错了，然后可能会扣分，拿那个尺子去量，这到底是几年，这到底这个值是多少？没有必要。</p>
+    <p>大家一定要记得雅姿它是一个语言的考试，它并不是一个统计学这样的一个考试。所以只要能够用不同您的表达，把这个数据的特点描述出来即可。即使这个数值有点点差异，这个也是无伤大雅。</p>
+    <p>好的，这个是body one。然后接下来我们来看一下body two。Body two我们肯定要写的是另外的两个对象，也就是分别是a real and pipeline是有两个对象，那也就很简单了。</p>
+    <p>比如说这个real它的是一个整体的整体保持不变，我们可以挑里面一些重点值来解。比如说它是下降的，它整体上应该是下降的。从这个起点到94年是从40下降到了应该有30。然后之后它又有一个缓慢的回升，那这部分关于real的一个变化。然后pipeline就更简单了，它整体上升。但它是怎么样的上升呢？我会先写这一段，它先从这个切割到94年，它是一个缓慢的一个上升。然后94年到2002年之间，他也是一个几乎保持不变的一个状态，我可以选择这样的方式来去写。</p>
+    <p>我们继续来看一下body two。首先段与段之间我认为他们是一个转折的关系，所以我用了一个转折词叫做by comparison。然后接下来我要写的是real它的一个趋势变化，我在这里用的是一个derby的句型，there was a dramatic fall in the figure for rail transportation.</p>
+    <p>然后它是一个怎么样的变化呢？整体来讲，它是一个从40到30的一个变化。Zhao zhu from around forty million tennis，然后to thirty million tennis。然后接下来我要说怕到终点，它有一个缓慢的回升，所以说我用的是although I climbed back to over forty million tenants。Two thousand and two. 到这儿我就写完了，这个real它的一个趋势变化。</p>
+    <p>然后接下来我要写的是最后的一个对象了，就是pipeline它的一个变化。它是怎么样的一个变化呢？首先我要写的是，the amount of goods delivered by pipeline recorded a dedicated route from approximately thirty million to over twenty million dollars。接起来它是从五增长到了20百万吨。在这样的一个时间点接下来，and then作为一个承接接下来remained at this level，它停留在了这个阶段for the rest of the period。在剩余的这个时期，也就是这一段我要写的两个对象的趋势变化，我都写完了。那我还要记得最后一件事情，就是来进行一个比较好。我们说虽然它增长了，就虽然这个pipeline它增长了，it would delete popular means of transport.</p>
+    <p>他仍然是这四种不同的货物运输工具当中最不受欢迎的，或者说最不普遍的一种。这个就是body two的一个写作。通过通过这两篇范文的一个学习，我们可以学到什么呢？就是一关于我们之前所讲的一些词汇以及必备的句式，我们要如何的应用。</p>
+    <p>第二件事儿就是什么呢？如何让我们的作文写起来那么的不是那么的公式化，看起来更加的流畅，更加行云流水呢？你要采取的一个原则就是多合并，要注意句子与句子之间，段落与段落之间的一个衔接。那到底我们可以怎么样的更好的进行小作文的一个衔接，然后让它看起来更加的整个作文是有推荐性的呢？我们来看一下，有哪些不同的衔接手段，在这里给大家可以介绍一下。</p>
+    <p>首先在段落内部，两个不同的对象之间，我们一定要往前接，那其实就不只是两个对象之间了。我们每在写两句话的时候，我们都要去思考这样的一个问题。我写的这一句话跟前一句话，他们两个之间是什么样的关系？所谓的逻辑关系无非两种，要么就是类比，就这两个信息它是相似的一个关系。要么就是他们是一个对比的关系，他们有一个转折。所以第一个方法我们就可以直接的用这针介词短语或者是副词来进行一个衔接。</p>
+    <p>如果说我们想表的是对象之间语言点的一个对比，我们可以用哪些词呢？我们可以用的是in contrast。On the other hand, meanwhile in the meantime, 可以用的是这些词。</p>
+    <p>然后接下来除此之外，如果说我们想讲的是啊这个类比的一个关系，我们可以用哪些词呢？比如说我们可以用的是also similarly或者是like White这个词是什么意思？它表示的叫做同样D同样D大家注意这些词的一个准确的使用。</p>
+    <p>第二个方法，我们可以用代词来进行一个连接。比如说我们在写一个对象，它是一个上升的一个趋势，我们从对象一切换到这个对焦二的时候，我们如何引出这个对象二呢？我们可以用到这样的一个表达，叫the train was also in blah blah。就这个趋势我们也可以在某一个对焦当中看到，可以用代词的来进行一个连接。</p>
+    <p>然后第三种方法，就是我们之前也介绍过，我们可以用一些这种while where I but although这样的帘子来进行连接。这一部分的词汇主要来表达的是对象与对象之间它的一个对比转折关系。比如说哪些值上升了，but哪些值下降了，或者哪些值它是比较高的数值，然后哪些值相对来讲又是一些比较低的数值。OK这是第三个方法。</p>
+    <p>第四我们可以用的是形容词加名词的一个短语来进行连接。在这里我就需要给大家介绍一下这个词了，就是这个train或者pattern这个词。比如说我选完对象一，然后我要解对象2。那么他们如果是一个相同的一个情况，比如都是上升的那我可以说他们是一个a similar或者the same pattern can be seen in对账B如果说他们两者之间两个对象之间是不同的有很大差异的对象，那我可以怎么说呢？我可以用的是a different或者是the off the train compared with blah blah。</p>
+    <p>Ok这个是第四个方法，第五个方法就是我们再去写。我想作文的时候也可以来思考一下数字之间内在的一些联系。比如说对象与对象之间，他们是否有一些倍数的关系或者高低关系？我在写完这个对象A的值的时候，对象A的一个值我如何引出对象B呢？我是不是可以用这样的一个表达，higher than the figure。For b就比B的值要低，不是要高一些。我接下来就可以从这个起点开始描述一下这个B的对象，B的数值了，这个叫做数字之间内在的连接，然后最后我们可以怎么样通过变换每一个句子的主语。</p>
+    <p>举个简单的例子，我会发现在掌握了一些基本句型的同学们的作文当中有什么特点呢？就是主语非常的单一。所以你看一下你的作文每一计划，开头基本上就是这样的一个表达。什么the number of或者是什么呢？The proportion of ah都是这样的一个表达。</p>
+    <p>那如何可以让我们的句子看起来更加多样呢？你可以通过变换这个句子的主语。比如说我的这一句话用的是一个时间点来做主语，下一句话我可以用对象词来做做主语。然后下一句话我可以用这个数据来做主语。</p>
+    <p>我拿一幅图给大家举个简单的例子比如说像这一幅图，我们它其实就可以看到这个对象的一个多样。比如说像这句话，它是一个数据来做主语，对吧？这个叫做用对象词来做主语。然后包括也可以用国家来做主语，就是我们可以用国家说国家生产了多少吨的这个paper。你看每一个句子它的主语不一样，那看起来好像剧情就更加的赋予多变了。Ok我们再去看这个图表的时候，我们也可以去多去发掘一下可以做主语的部分。比如有些图表我们是不是可以用人来做主语，比如人们愿意去做运动，男人愿意取得什么什么学历的一个比例等等等，可以用人来做主语。</p>
+    <p>这个是段落内部的一些衔接手段，那段落与段落之间我们可以怎么衔接呢？那那我们断流之间的一个衔接，九分情况来进行讨论了，就看你是根据什么来进行分段的那我们后面其实会讲到一些多图题，比如说双动图或者说一些双镜图。针对于多图提案，我们的分段的方式就是很简单，叫做一图一段。那一图一段的话，我们的分段方式肯定就是在上一幅图我们可以看到，然后在这幅图我们可以看到的是，所以我们可以用如下的三个表达。比如说第一幅图写完了，我们在解第二个段的时候，我们可以用as shown in the second chart，可以在第二幅图当中看到的是，然后接下来a clear from the second chart，或者是the second chart showed that讲多图的一个变化。</p>
+    <p>另外我们也可以突出描述对象的一个变化，我们可以用如下的三个表达，分别是with regard to concerning blah blah或者是at four。这三个表达它们分别是什么例子？叫就什么什么来说，就什么什么而言，这样的一个含义。比如说就这个paper的产值来说，for the population of MCT，就MCD的人口来说等等等等。后面我们可以直接加的是对象，第33个方向我们可以突出趋势的改变或者是高低的变化。那我们可以用什么词？可以用的是如下的几个表达，比如说different trains or patterns are seen in blue，blue, 或者是啊the bigger for other transportation were lower。这个一个角度按照train的来进行分段，一个是按照这个高低的排名来进行分段。</p>
+    <p>那我们每一段的第一句话可以怎么去说？然后最简单一种一一种方法就是什么呢？我们可以按照连接词，不同的连接词来连接那段与段之间。比如说它是一个转折的关系，我们可以用的是by comparison或者是on the other hand这样的一些表达。那这些衔接方法就是有提供给大家，如何来加强对于这些衔接手段的掌握呢？下面我们就来进行一个小小的一个练习一样，就是说启发一下大家再去写小作文的时候，一定要多思考，培养自己的这种很好的语言习惯，就是与前面一句话之间的一个关系的思考。</p>
+    <p>这幅图我给大家交代一下背景，它主要讲的是在英国在英国四种不同的人均汽车拥有量的一个百分比的一个趋势变化。在这里面具体的描述对象一共有四个，分别是拥有一辆车的家庭，然后no car没有车的家庭，two car咱们拥有两辆车的家庭，以及more than two cars拥有两辆车或者两辆车以上的家庭。它的一个百分比。那么在这幅图当中，我的分组方式也是按照趋势变化来进行分组。也就是在这里我会观察到蓝色的以及黄色的这两条线，分别是一辆车和more than two cars上升的一个趋势。No card and two cars它是一个下降的一个趋势变化。</p>
+    <p>那我可以怎么来去写呢？我们先来看一下body one，我要先说owning only one car was always the most common play。当然是最常见的，体现出来它的一个地位，它是一个最值最然后接下来this type of ownership这种汽车的拥有情况，我要从几点开始起了。Zhang already accounted for thirty percent of forty percent are in nineteen seventy five.</p>
+    <p>在起点值的时候，它是占了40%。然后接下来大家思考一下，下面这个空应该填一个什么词。我们只需要思考两个一个问题，它们之间是一个类比的关系还是一个对比。我认为它先写的起点，后面这句话它是说什么？More than half of the U。K.</p>
+    <p>Hotel owned a one card thirty years later. 他其实在描述的是什么呢？在描述的是终点值的数值，也就是它从起点写到终点，然后中间没有发现这个巴西生这任何的转折。所以我认为他们是一个顺承的或者是一个类比的关系。</p>
+    <p>另外后面的部分是一个词还是一个句子呢？我会发现它是一个完整的句子，所以在这里我要我要用的是一个表示顺承的连词，所以在这儿我可以用的是and这个词。然后接下来这个对象，因为它其实没有什么过于多的一个信息，我写到这里就可以了。然后接下来我要写的是modern two cars，黄色的这条件。再来思考一个问题，这一句话跟前一句话之间他们是个什么样的关系呢？前面而且它的上升趋势，写这个蓝色的上升的趋势，然后后面的这个分析是什么呢？什么？This a time of ownership, owning more than two cards, had an upward trend.</p>
+    <p>他也上升，那前面对象A上升，后面对象B也上升，必然它在这儿肯定是一个顺承的关系。所以我在这里我可以用的是一个短语，就不能similarly了。我可以用similar to the time of ownership owning more than two cars。然后应该是although同样也有一个上升的一个趋势。你看这一段趋势变化我就写完了，我完成了第一步什么呢？</p>
+    <p>先类比，我刚才给大家的一个小口诀是什么呢？先类比，就是二后对比。我先其实他俩的趋势都一样，然后还得都得比他们两个的高低，对吧？所以对比的话他俩高低肯定是一个转折的关系了。所以这个地方我们要写的是转折的一个词，就是很多转折的词都可以，比如说however，或者是啊by contrast on the contrary，都可以。那应该是这应该是一个名词对吧？名词什么东西做主语，我们先来看一下后面说的是什么。</p>
+    <p>好，the proportion of household拥有两辆车以上的这个百分比，它grew slowly。它描述了第一个特点，增长的很慢。然后接下来第二个特点，day at low level, 这两个点它俩应该是一个并列的关系，我就先写上，一它增长的很慢，二它就是值停留在比较低的一个数值。所以这个整体来讲，应该是黄线跟蓝线之间的一个差异。那差异这个词怎么说呢？所以这个地方我可以用的是the difference。我可以用的是the different，然而区别的是两者之间就是拥有两辆车以上的人，它增长的很慢。另外停留在比较低的一个数值，这个是body one的部分，我们来看一下整体的逻辑词，是不是加上这些词之后，我整个段落的一个信息的展开看起来就更加的流畅了？</p>
+    <p>然后接下来我们来看一下body two的部分，那段与段之间一定要有一个衔接，我认为他们两者之间也是一个转折的关系。我在这儿我可以用的是啊however，或者是on the contrary，或者by contract都可以。然后the two car ownership，也就先写的是灰色的这个线，灰色它的一个拥有的情况是下降的。然后接下来用了一个with加上独立主格的结构来具体的写它是一个怎么样的下降。这个百分比dropping by half of the arrangement level，下降到了起点的一个一半。</p>
+    <p>在整个的对象当中我会发现的是什么呢？它整体是下降的，并且在这一个阶段它有一个更为明显的一个下降。所以我在这儿我就可以一个顺承的关系来写。并且从1985年到1995年的这个时间段，在这个时间节点内我们会发现，它目击了一个最显著的一个下降，叫做就是一个目击的那个句式了。目击到了play the most market decrease，这个对象我们就讲完了。然后接下来having no car的橙色的这个它整体也是下降的那这个对象跟灰色的这个对象，我认为它们是一个类比的一个关系，所以在这儿我可以用的是similarly或者就是另外in addition就这些顺承的关系都可以。Having no card became even like common.</p>
+    <p>没有车的人也是变得let common不那么的普遍了。它有了整体的一个10%的一个下降，叫overall by ten percent。The great它整体有了10%的一个下降。然后在整体的下降当中，我们不难看到，它有一段的一个上升。整体下降中间有段上升，上升跟下降什么样的关系？我认为他们是一个转折的关系，所以在这儿我要填的是一个转折词。</p>
+    <p>另外我们还要关注一下后面的这句话，它是一个句子，还是一个短语呢？我们会发现它没有一个谓语动词，所以说它是一个短语。我不能用什么although，这些连词我可以用哪一个词表示转折呢？叫做despite叫despite，虽然说它有一个flight in during nineteen eighty five and nineteen ninety five，okay, 这个部分就是关于body two的一个写作。我相信通过了这一幅图的练习，大家对于小作文的衔接手段能够更好的进行掌握，然后有了更加充分的一个认识，后续也要进行继续进一步的一个练习。</p>
+    <p>那一以上的部分就是我们关于这个小作文，就是说内部的句型如何去写，句子与句子之间如何衔接，后面的这个部分也是给大家进行了一个总结。就是在小作文写作的过程当中，有哪些其他的比较细节性的要点或者语言点，需要大家掌握才能更好的进行小作文写作的。第一部分就是我们百分比的一个使用，我们经常在一些图表当中看到一些百分比，那么我们如何能够多样的体现出来就结百分比呢？我们一定要掌握多个不同的一个方式。第一个方法就叫做分子分母法。分子分母法在这里我给大家准备了四个公式，我们现在用如下的四个不同的方式来描述这个句型，叫40%的学生是男生，那你能用几个句型把这句话表达出来呢？</p>
+    <p>我们先来看一下，第一个公式就叫数字up分母，我们就可以直接进行一个套用，那数字就是40%。然后up分母是什么呢？分母就是全部的一个学生，forty percent of students in the class，然后是男生叫做are boys，这个叫第一个百分比的一个用法。第二个我们可以直接说对象词，这个就这样子多直接说对丧词。比如说我可以说男生的百分比，那就叫做the proportion或者the percentage of boys and a relatively low。男生的这个百分比是很低的，带多少呢？At forty percent.</p>
+    <p>然后第三个我可以说什么？男生构成了学生40%的一个百分比。我用了构成的这个概念，那么我就要用到什么呢？Account for或者是make up这个词。那么我可以怎么用呢？分子，然后account for or makeup，boys attempt forty percent of students，男生占了学生的40%，或者男生构成了40%的一个学生，这是第三个公式。最后一个我就可以直接说the bigger for，加上这个分子，the figure for boy at forty percent。</p>
+    <p>如上的四个方法都是对于这个百分比百分比的一个描述。那么大家可以把这四个公式牢牢的记下来。然后再去写小作文的时候，对于这个题目当中图表当中出现的百分比进行一个非常准确的描述。这是我们今天要讲的第一个要点。</p>
+    <p>然后接下来第二个要点就是百分比我会了，但是我的用法很单一，非常的单一。我的整篇作文，我感觉我都是一个句型来完成的那我们在这里要注意准确的基础上，我们也要怎么样迫于变化，在这里我依然拿一句话来给大家进行一个举例。比如说我现在需要大家表达这一句话。不同年龄层经常锻炼人的百分比，对吧？那大家的一个语言习惯，我觉得可能是第一个，就第一个句型叫the percentage of table。不同年龄层，这个年龄层就是比如18到24，然后经常锻炼的就是who emphasized regularly。</p>
+    <p>它的这个比如说它是最高，那叫was generally the high exam是最高的那这个句型我们如何给它进行一个变化呢？也就是第一步我们要找到这个修饰或者找到定语。第一步找就是第二步你要做什么呢？就是调换位置。调换位置也就是我们以这个百分比为一个基础，准点为一个核心。我们可以把修饰成分放到这个百分比的一前一后，或者都放到前面，或者都放到后面都可以。</p>
+    <p>像第一个句型我们就会发现the percentage of people是它的描述对象词，就是人的百分比。它的修饰部分就两个修饰，修饰一、修饰二都在这个百分比后面对吧？那我们下面找到就是部分了，我用不同颜色标记出来了，我可以调换一下它的位置。比如说我可以说什么，我可以把这个锻炼的百分比，这个锻炼这个概念放到这个人的前面。我可以说锻炼的就人们锻炼的这个百分比，在什么样的一个年龄层是最高的，也就把这个黄色的部分放到百分比的前面。这句话变成了the exercising percentage of people aged eighteen to twenty four，with generally the high end.</p>
+    <p>答案是最高的。然后最后我们也可以怎么样，也可以再进行一个位置的一个调换。比如说我说这个最高的一个百分比是发生在这个年龄组。我可以这样去说，那也就是把这个最高的放在了percentage的一个前面。The high at the percentage on exercising regularly people把这个修饰的部分放到这个人的一个前面，是用了一个among这个字，在哪一个年龄组当中？是在18到24这个年龄组。也就是我可以第一步非常灵活的调换这个句子里面修饰成分的一个位置。这个是我们关于对象词的一个变化。</p>
+    <p>然后接下来第三个要点就是关于介词的一个使用，或者是我们可以用什么样的方式来表达这个数据。关于借此使用的话，我在去世的时候给大家强调过这两个点，也就是by和to的一个区别。By它指的是变化的幅度，而to指的是某一个数据它增长到或者下降到多少加的这个终点值。然后接下来我们如果说想描述，就是说这个对象他增长到了多少，我想给你加一个数字，我可以怎么说呢？我可以用艾特这个介词来描述出去，但是at的使用是有限定的，什么时候我可以用at加15度呢？有如下两种情况，一我这一句话的主语就是对象子，我就可以用at比如说这句话，the figure for reinforces，那它的主语是什么？就是这个具体描述对象叫资源的一个数值，然后它是最高的，我就可以用at加百分比，加上具体的数字来进行一个补充说明。</p>
+    <p>然后接下来艾特也可以怎么样呢？跟在指代的数据后面，at也可以跟在指代的数据后面。比如说这个北美有着最低的土地退化的一个百分比。那么在这里土地退化的百分比，他就跟在只在这个数据后面，具体是多长呢？At five percent, 我们就这样的话也可以直接用这个数值数值指代就是这个lower proportion of degraded land。然后最后当主语不是对这样子的时候，我们就不能够使用at了。</p>
+    <p>那这个时候我们可以用直接一句话结束之后加一个括号。比如说在这句话里面会这么说，欧洲有着最高的土地的一个百分比。那你看这句话它的主语是欧洲，我就不能够at后面加一个23%了，为什么？因为23%指的是这个百分比或者是欧洲的一个数值，并不是欧洲这个国家。所以我就在这句话的最后面我加了一个括号，就指的是这一个句子里面的数字的概念，它是23%，这个就是关于数据的一个表达。</p>
+    <p>Ok最后我们来补充一下小格纹除了这个趋势变化、顶点值，什么稳定值之外，我们还需要掌握哪一些词汇？在小作文当中我们经常会做的一件事情就是估值。因为我们说了它并不是一个数理统计的一个考试。关于这个百分比，什么具体的数值，我们不需要写的特别的精确。我们要做的是什么？大胆的去进行一个估值。</p>
+    <p>我们经常会说某一个数据大约是多少，或者是近次是多少。近字大约我们可以怎么说呢？最常见的我们可以用的是about这个词，然后around就在什么样的一个区间。Ultimately叫做表示的是大约。另外如果说我们想描述一个数据，它是稍微低于多少，比如低于40或者稍微高于40，我们可以怎么表达呢？我们可以用的是over，这个叫做超过或者高于多少。然后below叫做在什么什么之下，叫做低于什么什么。</p>
+    <p>然后接下来我们还可以用什么用表示这个对象之间的一个差值。比如说A与B他们有一个很大的差值，A与B之间有很大的一个这种差异。我们可以怎么说呢？可以用的是你用gap这个词，或者就是a different以及disparity表示这种差值的一个扩大。然后另外如果说我们想描述A与B他们的一个差值逐渐的变大或者逐渐的变小，那这种差异变大变小我们可以怎么说呢？变大我们可以用的是无外电，就是A与B，他们两个肯定肉眼可见的变宽了。所以就是wider，或者是in pray grow，或者是他们的一个gap become become larger。</p>
+    <p>如果说我们想形容A与B对象之间它们的一个差值变小了，那我们可以怎么说呢？我们可以用的是narrow，就是脚变得更窄了，然后用decrease reduce或者是become smaller。Ok这个就是关于小作文的，所以我们可能会用到的一些语言点的补充。</p>
+    <p>经过上面的一个学习，将近大家对于动态图已经有了一个非常充分的非常宏观的一个认识，我们来进行一个review。关于动态图的学习，我们需要积累一些语言的基本的词汇，就是必备的词汇，以及关于多样性的写作这个动态图的一些必备的句式。会了单据之后，我们如何让段落当中的这个句型写的富有逻辑，我们要多合并，掌握更多的衔接的一个手段。段落与段落之间要有衔接，段落内部同样要有衔接的手段。另外为了更加准确的写好这个小作文的动态图，也给大家进行了一些细节的语言点的补充。</p>
+    <p>以上就是我们本节课的关于动态图部分的内容，希望同学们都能够学有所得。利用本节课的这个知识点完成如下的动态图的练习。Ok我们本节课就到这里，我们下次课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-02.html">精讲逐字稿</a></li>
+      <li><a href="qa-02.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-01.html">上一讲 01</a></li>
+      <li><a href="lesson-03.html">下一讲 03</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第09讲 · 大作文先导：考试概述与评分标准 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 09 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a class="active" href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第09讲 · 大作文先导：考试概述与评分标准</h1>
+    <div class="abstract"><b>本讲概要：</b>本次雅思写作课程先导课由讲师介绍，涵盖了考试概述、评分标准解读以及针对不同分数段的常见错误分析。雅思写作分为Task One（小作文）和Task Two（大作文），分别要求20分钟和40分钟完成，小作文侧重图表描述，大作文为议论文，后者在总成绩中占比较大，强调了大作文的重要性。课程详细解析了各分数段的特点，包括内容、逻辑、词汇和语法的要求，旨在帮助学生识别薄弱环节，进行精准备考。同时，课程对比了雅思写作的纸笔考试与机考形式，并指导学生如何选择适合自己的考试方式，为考生提供了全面的备考指导。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>雅思写作部分的整体考试概述是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>雅思写作部分包含两个任务，分别是text one（图表写作）和text two（议论文写作）。其中，text one要求在20分钟内完成150字以上的图表写作，而text two即议论文写作，则需要在40分钟内完成250字以上的文章。实际上，考生被给予1小时的时间自由分配大小作文的写作顺序。</p></div>
+    </details>
+    <details class="qa">
+      <summary>大小作文的具体分值及比重是怎样的？大小作文在整体评分中各自的重要性如何？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>小作文占总成绩的三分之一，大作文占三分之二。因此，最终写作分数主要由大作文的分值和写作质量决定。以例子说明，尽管小作文评分占比相对较小，但如果大作文得分较高，将对整体成绩影响较大。所以，建议考生优先关注并投入更多时间备考大作文。</p></div>
+    </details>
+    <details class="qa">
+      <summary>小作文主要涉及哪些图表类型？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>小作文主要考察六类图表，包括折线图（描述数据趋势变化）、条形统计图/柱状图（展示数据占比变化）、饼图（表示数据占比情况）、表格（展示数据信息）、流程图（描述生产工序或步骤）以及地图（展示地理位置变迁）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>动态图和静态图的区别是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>动态图是指在标题中有两个或两个以上时间点的图表，用于描述随时间变化的数据；静态图则是只在一个时间点或没有明确时间变化的图表。</p></div>
+    </details>
+    <details class="qa">
+      <summary>大作文主要涵盖哪些题型？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>大作文主要分为四类题型：观点类（包括优缺点类和同意不同意类）、论述类（要求讨论双方观点并给出个人观点）、报告类（针对现象分析原因并提供解决方案）以及混合类（结合了观点类和报告类的特点）。针对每种题型，后续课程将提供详细的写作步骤、思路及采分点讲解。</p></div>
+    </details>
+    <details class="qa">
+      <summary>雅思写作有哪两种考试形式？机考在写作过程中有哪些特点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>雅思写作有两种不同的考试形式，分别是纸笔考试和机考。机考在电脑上进行打字，提供字数统计和时间显示，方便考生把控时间。但需要注意的是，机考没有自动纠错功能，需提前关闭平时使用的文档软件中的自动纠错功能以真实了解自身单词拼写情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>纸笔考试的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>纸笔考试不显示字数统计和时间，仅在考试过程中有两次时间提示，要求考生注意书写工整并掌握正确的答题纸使用方法。同时，考生需自行处理写错的部分，保持卷面整洁。</p></div>
+    </details>
+    <details class="qa">
+      <summary>对于有条件有时间适应机考的同学，您有何建议？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>如果有机会适应机考的同学，我更推荐报名参加机考，因为它是全球考试的趋势，出成绩速度较快，只需三天即可出成绩。</p></div>
+    </details>
+    <details class="qa">
+      <summary>大小作文的评分标准可以如何解读？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>大小作文的评分标准基于四个维度进行打分：内容、逻辑、词汇和语法。其中，内容部分考察是否符合题目要求并完成任务；逻辑部分关注整体篇章连接和段落间的逻辑关系；词汇要求用词丰富且语法多样准确；六分以下的同学常见错误包括文不对题（跑题）、言之无物（内容空洞）、结构混乱（缺乏连贯性）以及词汇匮乏和语法错误。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在小作文评分标准中，关于内容方面的“文本成就与任务完成度”，具体涉及哪些要求？大作文内容评分标准“文本回应或题目的相关性”中，五分、六分和七分分别对应什么样的特征？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>小作文的内容评分标准主要包括“文本成就与任务完成度”，它要求考生完成三个题目指令：总结主要信息（sunlight information）、报告主要特征（report the main features）和进行比较（make comparison）。如果这三个指令都得到妥善完成，小作文的分数会相对较高。对于大作文，五分表示文章部分跑题或缺少结论；六分的文章虽然收集了题目所有问题，但解释论证不够充分，显得泛泛而谈；七分的文章则观点明确且切题，论证充分合理，甚至可能采用两种以上的论证手段来支持观点，这标志着国内写作能力的一个较高水平。</p></div>
+    </details>
+    <details class="qa">
+      <summary>五分和七分的小作文在内容全面性和细节处理上有什么不同之处？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在五分的小作文中，内容基本全面但缺乏清晰的概述，可能只是机械地描述图表数据而缺少整体把握。而在七分的小作文中，内容不仅全面，而且有清晰的概述，能准确描述图表中的宏观特征，并对核心要素进行更全面的阐述，显示出主次分明的数据统筹规划能力。</p></div>
+    </details>
+    <details class="qa">
+      <summary>大作文评分标准中，“一概而论”是什么意思，如何避免这一问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>“一概而论”是指文章没有对特定对象或条件进行具体化，例如在讨论政府投资健康食品话题时，不能泛泛地指出健康食品价格高，而应明确指出针对特定人群（如生活在极度贫困地区的人民），并给出具体理由。后续课程将对这一问题进行细致讲解，以帮助追求高分的同学避免此类问题。</p></div>
+    </details>
+    <details class="qa">
+      <summary>CC逻辑（连贯度与一致性）评分标准中，五分和六分作文有何差异？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>五分作文在篇章推进上显得非常缺乏连贯性，衔接手段缺失或使用不准确，导致文章衔接生硬。而六分作文已经有了一定的语言基础，开始追求高分，虽然可能使用网上高分句型或模板进行文章构建，但逻辑衔接手段相对机械，不够自然。而六分作文的衔接手段更为恰当和多样，句子间的过渡更为无痕，展现出较高的逻辑性和连贯性。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在写作评分中，五分作文在指代和替换方面存在什么问题？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在五分作文中，普遍存在指代不明的情况，即一个指代可能无法准确地对应到之前出现的名词上，导致理解上的混淆。</p></div>
+    </details>
+    <details class="qa">
+      <summary>五分作文在分段部分有何特征？七分作文在分段部分有哪些标准？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>五分作文在分段方面通常表现为字数分布不均，一段过长而另一段过短，可能需要合并或拆分段落以达到逻辑清晰和结构合理的要求。七分作文每段都有一个明确的中心话题，并且围绕这个分论点展开论述，不存在一段内多个分论点的情况，体现了清晰的主题和逻辑结构。</p></div>
+    </details>
+    <details class="qa">
+      <summary>六分作文在分段上的特点是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>六分作文虽有合理的分段，但逻辑上可能存在分论点重合的问题，即两个段落虽然阐述的是同一维度的论点，却被错误地分成了两段。</p></div>
+    </details>
+    <details class="qa">
+      <summary>5-7分作文在词汇丰富度上有哪些不同表现？如何理解词汇的灵活性和准确性？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>五分作文词汇量匮乏，反复使用基本词汇；六分作文尝试使用高端词汇但使用不准确，例如用“美轮美奂”来形容人很漂亮；而七分作文则展现出词汇的灵活性和准确性，能够恰当使用高级词汇及多样化的表达方式。灵活性体现在能根据不同词性选用相应词语进行表达，例如safe的不同词性变化；准确性则是避免使用审美的词汇和过于笼统的表达，提倡使用veto、invention、crucial、significant等更精确的词汇。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何有效积累词汇以提升写作水平？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>可以通过阅读精读来积累常用且地道的表达方式，比如关注阅读材料中的同义词替换；另外，针对大作文常考的话题进行专项词汇积累，如教育类、犯罪类等主题，每次围绕topic积累8-10个核心词汇，并进行日常打卡练习以确保准确性和熟练度。</p></div>
+    </details>
+    <details class="qa">
+      <summary>各分数段作文在语法结构上的差异是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>五分作文语法结构单一，大量使用简单句；六分作文能综合运用简单句和复杂句，如定语从句、状语从句等；七分作文则以复杂语法结构为主，能熟练运用各种复杂的语法结构，且极少出现语法错误，保证了整篇文章的阅读流畅性。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-09.html">精讲逐字稿</a></li>
+      <li><a href="qa-09.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-08.html">上一讲 08</a></li>
+      <li><a href="lesson-10.html">下一讲 10</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

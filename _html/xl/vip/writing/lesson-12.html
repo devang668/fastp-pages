@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第12讲 · 同意与否题型 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 12 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a class="active" href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第12讲 · 同意与否题型</h1>
+    <div class="abstract"><b>本讲概要：</b>在雅思写作考试中，同意与否题型因其复杂性而成为难点，要求考生明确表达个人观点。然而，不少考生在理解题意和确立立场上遇到挑战。讲师指出，常见的错误写法包括对题目信息的误读和立场不明确。为了有效应对，讲师建议采取三种策略：完全同意、完全不同意或持一分为二的立场。通过实例，展示了不同立场下的文章结构如何构建，强调了灵活运用这些策略的重要性。讲师强调，无论采取何种立场，清晰地表达观点都是关键，这有助于考生在考试中取得优异成绩。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在雅思写作考试中，同意与否题型因其复杂性而成为难点，要求考生明确表达个人观点。然而，不少考生在理解题意和确立立场上遇到挑战。讲师指出，常见的错误写法包括对题目信息的误读和立场不明确。为了有效应对，讲师建议采取三种策略：完全同意、完全不同意或持一分为二的立场。通过实例，展示了不同立场下的文章结构如何构建，强调了灵活运用这些策略的重要性。讲师强调，无论采取何种立场，清晰地表达观点都是关键，这有助于考生在考试中取得优异成绩。</p>
+    <p>**00:00 雅思写作同意与否题型详解**对话深入探讨了雅思写作中同意与否题型的解题策略，指出该题型的重要性及常见误区。强调在写作时需明确个人立场，避免引用他人观点，提倡灵活运用让步结构，尤其对含有极端限定词的题目，应先承认再反驳，以展现全面思考。**04:43 观点类作文结构解析与写作技巧**对话探讨了观点类作文的写作结构，重点讲解了两正一反或两反一正的结构，以及如何根据题目的立场选择合适的写作方法。同时，介绍了完全同意、完全不同意和一分为二的立场写作策略，强调了掌握不同题型结构对于备考的重要性。**07:36 现代通讯技术的双面影响：受益与未受益群体分析**讨论了现代通讯技术对不同群体的影响，一部分人如学生、企业家和家庭成员通过通讯技术提高了学习效率、降低了运营成本和增强了情感联系。同时，也指出老年人和极度贫困地区的人群因无法跟上技术发展或缺乏设备而未能从中受益。**14:07 通讯技术对不同群体的影响分析**对话深入探讨了通讯技术如何为学生、家庭和企业家带来显著好处，包括学习效率提升、家庭关系加强和企业成本降低。同时，指出老年人和贫困人群由于技术适应性差或设备昂贵，难以从中获益。通过分析，强化了通讯技术发展虽惠及多数但存在局限的观点。**22:04 批判性思维：完全不同意的论述技巧**对话探讨了在考试中面对不合理题目时，如何灵活运用批判性思维，通过指出负面影响、不公平性和不现实性三条逻辑，有效反驳题目观点，以完全不同意的立场进行论述。**27:02 野生动物保护争议与反驳策略**讨论了野生动物在21世纪生存空间的争议，指出野生动物并非无处可栖，保护它们并非资源浪费。通过分析不现实性和负面影响，强调了野生动物保护的重要性，建议从生态平衡角度论证保护必要性，提供考官范文分析，学习反驳逻辑与表达技巧。**31:35 辩论野生动物保护与栖息地重要性**讨论了野生动物在21世纪生存空间的荒谬观点，强调地球并非仅为人类存在，质疑人类有权利导致物种灭绝。指出保护野生动物栖息地的重要性，不仅对野生动物生存至关重要，也对人类生存环境有重大影响，如热带雨林产生氧气、吸收二氧化碳等。通过保护野生动物及其栖息地，维持地球生态平衡，反对认为保护野生动物是浪费资源的观点，强调人类应尽全力保护野生动物。**37:02 辩论技巧：部分同意与部分反对的运用**对话讨论了在辩论中面对涉及多个方面的议题时，如何采用部分同意部分反对的策略。以‘老师与家长对孩子影响’为例，提出在学习方面老师影响更大，而在社交方面家长影响更显著的观点，展示了如何根据不同方面进行论证。**40:36 分类讨论法在作文中的应用：以老建筑为例**通过一个关于老建筑是否应保留的例子，阐述了在作文写作中采用分类讨论法的思路和方法，即根据建筑的历史文化价值来决定其保留与否，从而展开讨论其利弊，提供了一种不同于传统两正一反或两反一正的解题策略。**45:41 雅思写作技巧：如何用‘取决于’策略解答同意与否题型**课程讲解了针对同意与否题型的写作方法，重点介绍了‘取决于’策略，通过具体例子说明如何根据城市经济发展水平和人群年龄分类讨论，以构建清晰的论证结构，帮助学生掌握不同题目的写作思路，提升写作能力。</p>
+    <p>Hello, 各位同学大家好，我是lexi。欢迎大家来到雅思写作大爱作文系列课程。今天我们将进入到下一个题型的讲解，也就是同意与否，或者是同意不同一类题型的一个讲解。这类题型我认为是大作文当中最为重要的一个题型了，为什么呢？因为它考试的概率很大，就是我们在考试的时候，它可以是占据了半壁江山。另一类就是针对这种题型，它有多种不同的一个写法，也容易会碰到各种各样的一个难题。在思路上面我们需要多多的进行准备，才能更加充分的进行一个备考。</p>
+    <p>我们先来看一下这种题型它的题目特征。无非就是在问题上面他会问我们这样的一句话，你多大程度同意或者是不同意某一个观点？那么我们需要给出自己的一个立场。针对这种题型，首先就是让我非常的一个痛苦。我相信大部分同学拿到这个题目的时候，可能有些同学在看题的部分就已经崩溃了，就不知道这个题目到底在说什么，为什么会问我这种问题，或者我们就是硬着头皮去写，但是写到一半写不下去了。然后同时之中也没有给出来一个非常清晰的或者非常明确的一个立场，因此就不管三七二十一就往下去写。但选完之后会发现自己没有给出一个立场，也没有满足这个大作文的一个要求，就是一致性。</p>
+    <p>针对这种题，我先给大家两个错误的一个版本，大家看自己有没有躺枪。那先我们先来看自杀式解法一，也就是写成了四段式。然后开头段进行一个题目改写，并且一段写赞同者，就有的人可能认为不拉不。下一个段落进行反对者怎么认为的一个讨论。最后给出了一个自己的一个观点，我认为第二种自杀制的一个写法，我相信有更多的同学躺枪了。我们写了一个让步段，让步段的让步了别人的观点，这尤其在这一段的开头我们说了fun people may think或者fun people may believe bb，并且在这个立论段给出自己的一个观点，我相信肯定很多同学会按照这样的结构去写。</p>
+    <p>我先纠正一下大家错误的思维，就是如果说你在考试的时候抽到了一个同意不同意的题，那无论你是同意还是不同意，你都要给出的是自己的观点，自己的观点或者是自己的一个立场。就是你同意，你给出你同意的一个理由，你不同意你讨论一下，这样做到底有什么缺点。总而言之，言而总之啊不要在你的整篇作文的论述当中出现别人的一个立场。在这里给大家进行一个强调，只要大家不犯这个错误，我相信已经赢了80%的人了。因为我确实在网上看到各种各样的模板，这类题型真的就是尤其按照这种方式来进行一个错误的结构来进行写作OK。</p>
+    <p>那我们来看一下，这种题型它的一个题目特征，它会有如下两种问法。第一个我刚才跟大家说过了，叫做你多大程度上同意或者是不同意。或者第二种问法就是会问到我们what's your opinion？你的观点你怎么看？这类题型难点，在选题上它有可能确定了一个动作，有可能也是确定了一个结果，有可能AC都确定，让我们讨论这个动作是否能够达到这样的一个结果，这个是它与优缺点类题型的一个区别。针对这种题的我们的立场也可以是非常的灵活的。我不一定非要一边导致的我完全的同意或者是完全的不同意。那我也可以替对方说几句好话，我写一个让步的一个结构，就是对外出设定的一个条件或者是对象我部分的支持或者是部分的反对，这些都是可以的。</p>
+    <p>第三点就是这类题型容易会遇到一些极端限定词，什么呢？The only或者是the best way。针对这种题型，它具体的解法我在后面也会给大再去讲。</p>
+    <p>那大致的思路是什么呢？如果说题目里面有极端限定词，我们要优先回应的是题目当中的动作，它是可以达到这个结果的。先写一个让步段，同时我们要对题目当中出现的极端限定词来进行一个反驳，就是我否认它是唯一的，或者我否认它是最好的，这个是折中的一个写法。OK这是关于同意与否类题型它的基本题目特征。</p>
+    <p>针对这样的一个题型，我们可以采取什么样的一个写作结构呢？我们先来看一下观点类的第一种结构。如果缺锌的同学应该发现这是一个什么样的结构，很显然它是一个两正一反或者是啊两反一正的一个结构。跟我们上一节课所讲的优缺点的一个题型，很显然它是一种写法，为什么呢？因为大部分的题，可能70%左右的这个观点类的题，它确实可以和这个优缺点的一个题型当做一种题型。因为你想如果说你同意一个观点，那是不是意味着你认为题目当中的一个动作能带来好处你才同意。那你不同意一个观点，是不是你认为这样做会带来不好的一个结果呢？所以你当然可以结合题目当中某一个动作它的优缺点来进行一个讨论了。</p>
+    <p>那这种题型从开头段到结尾段怎么去写？我在上一节课优缺点类型的时候，已经给大家非常充分的一个讲过了。所以这节课对针对这种结构或者题型的一个写法，我们就不过多的进行一个赘述了。我认为大作文的备考，大家一定要给自己做减法，要去思考题型与题型之间有哪些相似性，以及有哪些差异化。在学习相似性的基础之上，我们在去写作文的时候也要注意这些提成之间的一个差异OK。</p>
+    <p>这是观点类第一种结构。我们这节课主要讲的是什么呢？讲的是一些我们没有涉及到过的这种大作文的题型，或者我们什么样的题不能够用两正一反或两反一正的一的写法来给大家进行一个思路上的一个补充。所以大家这节课最重要的一件事情就是掌握不同题型不同立场的一个结构的写法。</p>
+    <p>OK先把思路这件事情来搞定。那既然按照观点类的题，我们可以给出三个不同的一个观点，分别是完全同意、完全不同意和一分为二。我们先来看一下完全同意，其实完全同意的题，我说实话在考试当中出现的概率是比较低的。因为题干当中往往会有一些极端的限定词，那是不是我就不能用呢？其实也不是，因为我们会遇到一些题，他在题干当中会提到对立的两个观点。举个简单的例子，比如说人每个人都是既有优点又有缺点的，你同意不同意？那我们来看一下他在题干，他的这个题目本身就是一个比较中立的立场了，提到了双方对立的一个观点。那么这个时候再问你同意还是不同意的时候，我们是不是就是可以采用完全同意的一个学法，那具体怎么写呢？</p>
+    <p>我们来看一道例题，这道题是这样的。So some people have benefit from modern communication technology。Some Young group of people have not benefited at all to what extend to agree or disagree.</p>
+    <p>有一些人通过现代的通讯技术获得了好处就受益了。然后有一些人没有受益，你多大程度上同意还是不同意？我们会发现这道题已知的题干当中出现了对立的一个立场。讨论的是啊现代的一个通讯技术有人获得了好处，有人没有获得好处。很显然他题目本身给出来的这个立场，我们没有办法予以去反驳。那这个时候我们可以怎么样采取的是完全同意这样的一个立场来写。</p>
+    <p>我们确认好立场之后，我们的写作结构可以是怎么样的呢？我们就可以做一点小小的变化，也就是分成两段来写。既然他对于现代通信技术这件事情给出了双方不同的一个立场，那我就可以怎么样，一段我写就同意前半句的观点，一段同意后半句的观点。</p>
+    <p>第一段我要写的是有哪些人通过，我同意前半句，有些人通过现代通讯技术获得的好处。第二段我要同意的是后半句，有些人也没有获得好处。我们先逐一来看，先来看一下前面这个观点。我扣题的关键词就有哪些呢？我认为是people，还有就是这个benefit。一你既然要去同意这个观点，你要去论证这个观点，那是不是要把这里面的一些关键词进行具体化的论证，有些人获得了好处，那你要给出具体是哪些人，以及具体他获得的好处是什么。</p>
+    <p>那这个时候就需要大家一点小小的构思了，到底哪些人通过通讯技术获得好处？我们先理解一下什么叫通讯技术。那无非就是现在的一些这种网络交流的一些设备，比如说我们现在我们面对面交流的一个方式，或者说我们使用一些什么手机、电脑，一些electronic devices，一些电子设备彼此交流的一些途径。那有哪些人通过这些获得好处呢？那可就太多了，我们可以挑两道三个people的一个这种群体来写，就可以做到一个充分的论证。</p>
+    <p>我们来看一下，比如说有哪些人获得好处呢？我觉得在座的各位各位同学应该也是得益于网络，我们才能够有这样的一个first to fifth的一个交流的一个机会。所以我觉得我给出来的第一个群体就是学生。那学生获得的好处是什么呢？我还要把这个好处写出来。比如说学生可以通过这种online course网络的一个课程，去怎么样学到一些知识。比如说search for information，去查阅一些资料，或者ask for help from their teachers，可以随时随地的向老师来进行求助，老师来进行一个答疑。</p>
+    <p>所以说给学生带来的一个好处是怎么样呢？我觉得学习提高了学习效率，提高了学习会变得好。提高了学习的一个效率以及要有效性，这是一方面。</p>
+    <p>然后除此之外我仅仅给出一个点论证，肯定还是不充分的，那我还要给出另外的一个选题，还有哪些人获得了好处，我觉得我可以讨论的是给这种家人之间，家人家人朋友之间，比如说这种远隔千里的人。我们可以通过这些通讯的技术或者是设备，保持一个keeping daily context，保持一个每日的联系。那这样做的一个好处就是什么呢？I increase the close name between each other.</p>
+    <p>增加了这种感情的一个亲密度，也就是维持感情，就是有利于这个relationship OK。然后接下来还有没有其他的群体，就写到这里就可以了。或者如果说你能够想到另外的一个群体，可以再就是进行一个补充。</p>
+    <p>那对于一些employer，对于一些企业家来说有没有好处呢？我认为是有的。就对于一些老板，尤其疫情的时候，我们可以怎么样？叫做home by the office，可以在家线上办公，或者可以让这些老板可以在线上band business扩张，进行这种生意的一个洽谈和扩张？那降低了企业的一个运营的一个成本，这个也是最终所带来的一个好处。这个就是我的body one，我要写出来的逻辑量。</p>
+    <p>接下来我的body two，我要解有人没有获得好处，我要同意这个点，说有人没获得好处我要做什么？给出这个人人群以及给出这些人没有获得好处的一个原因。那就需要大家思考一下这个问题了。就是说在如此发达的一个时代，几乎人人都获得了好处。有哪些人没有获得好处呢？那一定是有的。比如说第一个群体，我可以讨论的是一些老年人人群体，当然不是所有的老年人，那肯定会有一些老年人他没有办法使用这些设备，对吧？你像有些人老人，他还是比较传统的，要去银行存钱，对吧？</p>
+    <p>我可以说给出这个DO的这样的一个群体，为什么呢？原因就是因为什么？他们不会they cannot keep paid with the technology。没有办法跟上这个时代的一个发展，那自然而然就享受不到这些好处。</p>
+    <p>除此之外还有哪些群体呢？我们要再给出来一个相应的人群。比如说对于一些极度贫困地区的人，穷人？你想能够享受到通讯设备的一个好处的前提是他要拥有这些设备，那一定有些人他没有办法拥有这些设备，可能难以想象，但世界上确实是有的。比如说对于一些还没有就极其不发达，可能连手机信号都没有的一些地方极度贫困的一些人，他们因为贫穷，他们也享受不到通讯技术给他们带来的任何的便利。所以说给出的第二个群体就是穷人的这个群体，因为他们为什么呢？因为他们买不起。</p>
+    <p>好的，那么我的主体段的思路我已经都架构完成了。我们来看一下这篇文章的一个范文，来学习一下它的写法。针对这道题我们的立场肯定是a completely agree，完全同意。所以我们要来看一下这个主体段的部分。我要先说通讯技术可以使很多人获得了好处，那我并且我要给出这个人群，因为虽然说我在这段要讨论三个不同的群体，那我也要组成一个什么总分的一个结构，把三个不同的群体在topic sentence的部分来进行一个预告。</p>
+    <p>我说通讯设备和通讯技术可以是很多人，哪些人呢？A student、学生、family、家人以及entrepreneurs，企业家to read the maximum benefit。这里有一些比较好的表达什么呢？比如说关于这个通就是获得好处，那么我们可以用的是read the maximum benefit，讲可以获得最大程度的一个好处。</p>
+    <p>然后接下来我要做的是什么？像我们之前所讲的这样的论证一条逻辑链，分别来论证这三个群体他们到底是如何获得好处的。按照这个ABC的一个形式来论证它。首先对于学生来讲，我要有一个衔接from an educational perspective，从教育的一个角度来看，learning can be incredibly if efficient and effective。学习可以变得更加的有效率、有效果。很显然这个是最终的一个结果，也就是非那么学生到底是如何获得这个好处的呢？我要具体的解释IS，就是因为有了这些网络连接的学生，可以随时的all their puzzles解决他们所有的一个难题。</p>
+    <p>通过什么browsing teaching website这些动宾的短语，我们再去进行范文分析的时候，都可以进行一个及时的一个积累。那这个短语叫做什么呢？Brother teaching website, 浏览教学的网站或者及时的向老师求助，ask for help from teacher mute OK. 这个部分就是我讨论的事儿，通讯技术如何给学生带来了一个好处。</p>
+    <p>接下来我要讨论的是第二条了，就是给这种家人之间到底带来了一个什么样的一个好处。我们来看这两层之间，他们应该有一个并列的关系，所以要有一个连接词，就是also这个词。那我说这种网络基于网络的一个交流，also contribute positively to threatning family relationship and increase between down the number。在这里大家就要积累的是A对B有好处。我可以怎么说呢？用的是这个短语country，contribute positively to指的是A对B有一个什么样的好处。一方面就是加强了家庭成员之间的一个关系，另外以及让成员之间更加的亲密。</p>
+    <p>然后我要具体的进行一个论证。在这里我可以用一个举例的举举例论证的一个方式。我就for example，比如说有学生出国留学了，那么可以怎么样keep in daily contact easily，在这里依然有个词谱需要大家掌握，叫做什么保持每日的一个交流，去进行日常的一个交流。With parent通过什么？By sending breaking messaging or camera chatting，通过去发送这些问候的一个短信，或者通过视频的一个通话。这个是给家人之间到底带来了一个什么样的好处？</p>
+    <p>最后我们要讨论的是，通讯技术要给企业家带来了一个什么样的好处？这是一个并列的关系。所以连接词是what more，除此之外，公司可以就企业可以降低运营成本。因为通讯技术可以让员工就可以expand business trip，更低成本的扩张生意。并且通信技术可以让员工work at home，可以在家上班，那这对于老板来说无非节约了一大笔房租的开支，所以是they move of the rain for all of base，可以节房租的一个成本。这个是对于哪三个群体获得好处，以及这三方面的好处具体是什么，进行了一个充分的论证。</p>
+    <p>接下来我们要来看一下第二段body to。我要讨论的是不可厚非，有些人肯定也是享受不到这些好处的那段落与段落之间肯定要有一个转折。However, 然而我也会说the benefit of information and communication，china logy are we are restricted to, 这是什么意思呢？受限制，对于哪些群体来说是受限制是的，或者是哪些群体是享受不到这些好处的呢？在这里给出我的群体the old and the per一个尤其是老年人和穷人are not beneficial，对吧？那这个词什么意思？它叫做受益者或者是受益人，他就不是这些现代的交通交流方式的一个受益者。</p>
+    <p>接下来我们要去解释了，为什么这两个人群他并不是通讯技术的受益者呢？With regard to the former, 这个叫就前者而言，with regard to我们之前再去讲小作文的时候，大家应该是会就某一方面而言。前者而言原因是a large percentage of elderly people are enable，他们不会以及are reluctant to adapt a new technology。这里有个短语，也是教大家认识到be reluctant to叫做什么呢？联想就是勉强做某事。他老年人对于学习或者吸收接受一些新鲜的事物，他们是非常抗拒的，所以是are reluctant to adapt to new technology，很难适应。既然他们适应不了，那这就意味着什么？</p>
+    <p>The barely就几乎不，就是它是一个相当于是一个否定。他们就享受不到这个设备所带来的convenient and fan brought by the devices，他们就享受不到这些设备所带来的一些便利以及好处了。这是老年人的一个理由。</p>
+    <p>接下来我要进行一个衔接，也就是对于穷人来讲，f four来进行一个衔接。对于people living in extreme poverty，对于住在一些极度贫困地区的人来说，mobile phone computers in any other electronic devices，任何的这些设备他们都是什么？奢侈品，对于这些去住在什么偏远地区的人来讲，奢侈品所有网络相关的活动，这个如果大家就要掌握，就是网络基于网络的一些活动，像one base activity，所以网络相关的活动对于他们来说什么都不是。这不能够neither making them reelected nor providing them with career of unity。既不能够让他们进行任何的放松，也不能够给他们提供任何的这种职业的一个机会。所以这就是完全不同意的一个写法OK。</p>
+    <p>然后最后结尾段我们需要做什么？再一次的reset our attention on，我们要用in conclusion来进行一个总结。总而言之，我同意这个观点，我同意这个观点，什么呢？</p>
+    <p>通信技术通信技术的一个发展。只给一些人带来了好处。虽然说这是很大的一部分的一个群体，这个就叫做完全同意的一个写法。我们一段同意前半句，一段同意后半句，分别的对这两个观点进行一个论证。这是第一种解法。</p>
+    <p>接下来我们来看一下第二种解法，就是完全不同意。完全不同意有些同学可能他不太敢写，甚至有一些同学就跟我说，我之前在上课的时候，老师跟我说了，为了体现出来我的批判性的思维，那我不能够写完全不同意。其实我认为在考试当中是没有绝对的，大家要做到的是什么呢？灵活，不要去死记任何的一个结构，一定要以这个题目为准。如果真的这个题它真的很扯了，然后你就是讲不出来好处了，那你可以是完全不同意的。</p>
+    <p>所以在考试当中的时候，针对一些丧心病狂情的一个题目，我们是可以直接开怼的那难度是什么呢？就是有些题我知道我明显我就很明确的，我知道它是不对的，我必须要完全的否定它。但是我给不出来一个非常supposition的理由，理由我想不到，我倒是知道他的立场。所以针对这种题，我来给大家进行一个思路上的一个补充。</p>
+    <p>针对一些比较丧心病狂情的一个提议，我们可以直接开怼。那么我们反驳的常见的逻辑主要有三条。第一条就是这么做会带来负面影响，以及这么做不公平，最后就是这么做不现实。</p>
+    <p>我们先从最熟悉的第一条负面影响来说，这个就很简单了对吧？因为负面影响无非就是在讨论它的坏处，再讲这么做会带来什么样的不好的一个结果。不公平我们就从讨论这个动作本身，它涉及到了哪些群体之间的一个这种不公平的一个事情。然后最后就这么做不现实。我们要从现实的讨论，像现实的一个角度来讨论现实的一个情况是怎么样的，具体的来进行一个论述。</p>
+    <p>下面我先给大家来出一道题，当然这也是一道真题，大家来练习一下，就是什么样的题适合写完全不统一，以及这三条反驳的逻辑我们可以怎么样的去运用。这个题是这样的，some people think有人认为大学的每个专业。应该。招收同等数量的。男生和女生。对，就是这道题，大学的每个专业应该招收同等数量的男生和女生。然后后面的问题就是to what I can do，a great or just great.</p>
+    <p>你多大程度上同意或者是不同意？这道题我们仔细思考一下就知道，我们能用什么两正一反、两反一正或者一正一反之类的吗？就不太能了。因为这道题确实它的好处，我觉得从现实的一个角度乏善可陈。那既然乏善可陈，我们不如就一边倒直接的去反对他。那我们可以怎么样来反驳他呢？大家可以先自己进行一个思考，就可以暂停这个视频，自己思考一下刚才所讲的负面影响不公平不现实，怎么样来去回应这道题，或者可以从里面挑选哪些思路来进行回应。</p>
+    <p>这道题我们的立场先确认了，就是完全的一个disagree，对吧？我们先来思考一下，这么做有没有负面影响呢？很显然是有的，为什么？但是想一想，如果说你去选择了一个你不擅长以及你不就是不喜欢的一个专业，那对你会有什么样的一个负面影响呢？我觉得你不会取得一个非常很高的一个academi c performance，就不利于未来的升学和就业，对吧？</p>
+    <p>然后接下来这么做是否公平呢？我觉得也是不公平的。因为学校应该就是按照学生的一个personal preference，尊重学生的一个个人意愿？来进行专业的选择和划分，或者可以制定更公平的一个标准。比如说根据这个成绩的排名来进行专业的划分，而不应该单纯从这个gender从性别的一个角度来进行划分。所以这样做也是不公平的那这么做现实不现实呢？我觉得这个大家应该都有话说，肯定是不现实的。</p>
+    <p>为什么？那你就解释一下现实的角度是怎样的。因为从现实当中来看，有些专业就是会吸引到很多男生。比如说一些计算机、computer science这些专业，或者说一些engineering工科的专业，有很多男生会更加愿意去选。而女生往往会愿意去选择一些文科类的专业，或者是一些语言类的专业。那如果说想要做到这个人数的平等，那很难很很难做到的，这样做就是不现实的那以上就是这三条反驳逻辑的一个应用，然后我们下面依然来看一道例题，我们看一下就具体要怎么去写。</p>
+    <p>这道题是这样的，说有人认为ware animals have no plate in the twenty century，so protecting them is a wait of. 然后你多大程度上同意还是不同意？我们先来认真的解读一下这个题目。这个题它很显然是一个非常难的一个题。题目说什么？野生动物在21世纪没有地方了，have no play, 所以保护它们就是一种浪费资源。然后你多大程度上同意或者是不同意？</p>
+    <p>在经过审题的同学们一定知道，这是属于同意不同意当中的一个难题。难点在于他给出了一个背景句。然后我在讲审题的时候我也有讲过，针对同意不同意的一些题目，就同意与否的一些题。如果说这个背景句它描述的是一个客观的事实，那么我们怎么样无需回应。但是如果说这个背景句它并不是客观事实，那我们这个背景句也是需要去回应以及进行反驳的。</p>
+    <p>那么在这道题里面，背景句是哪一句？说野生动物在21世纪没有地方了，那这是不是一个客观事实呢？很显然，不是的。因为现在就是21世纪，就我们生活的这个年代，他说野生动物no place，我觉得还不至于有点夸张了。所以这一道题我的立场肯定是完全的不同意。</p>
+    <p>这道题其实就是有点像政治立场的那种感觉了。雅思虽然说它是让你表达你自己的一个观点，但是我觉得他也是有所谓的一个政治正确吧？就是大家答口语应该深有感触？我们要提高自己的一个情商。</p>
+    <p>针对这道题，你如果说你再去写一个两生一反，你去讨论一下保护野生动物有什么样的一个好处，那我觉得你这个考试也就凉了。就像我之前有一个学生，他答口语的时候答那part one，他就是被问到这个动物有什么好的，他就觉得动物很好吃，很美味。然后导致他其实口语非常高的一个同学，但是他那场考试就只拿了五分，非常的不可思议。所以我认为这个考试也是有所谓的政治正确的。这道题我们就不太能够讨论不保护野生动物会有什么样的好处，所以我们就一边倒，这是我们的立场完全的不统一。</p>
+    <p>值得注意的是，既然这道题我们还要回应它的背景，那么我们可以怎么样这个主体段的一个架构，可以通过两段来去进行回应，也就是我一个段落来回应前半句，前半句说野生动物没有地方了。那大家思考一下，刚才我们给了三条反驳的逻辑，不现实、不公平以及负面影响。那前面这个观点更适合用哪一个逻辑来进行反驳呢？我觉得比较适合的应该是不现实，对吧？我们就讨论一下为什么不现实。然后再陈述一下现在我们所所生存的一个现实环境是怎么样的就可以了。</p>
+    <p>然后第二条说保护野生动物是浪费资源，那这个我们适合用哪一个反驳逻辑呢？我认为是啊负面的一个影响。我们讨论一下如果不保护野生动物，会给人类带来哪些影响呢？这个我觉得相对来说就比较的好论证。比如说野生动物也是这个biological train当中非常重要的一环。如果说某一个物种任何一个special的一个消失，那么都会导致natural baLance被打破。一旦生态平衡被打破，其实影响的不仅仅是动物，给人类也会带来一些不什么不可挽回的一些后果。我可以从这样的一个角度来进行讨论，讨论一下负面影响。</p>
+    <p>这个题因为它很难，所以我给大家一个范文的版本，是考官的一个版本，就考官的一个范文。然后大家会觉得什么呢？考官写的范文，他们就没有那么强的一个路，就是怎么说没有那么强的一个框架感。人家写的非常的freeze，就不像我们所写的，你要先写一个topic sentence，你第二句写什么，第三句写什么。他们写的就是什么高手写作文，我们说是不需要去结构的，不需要去有任何的一个结构的。然后我们可以学到的是什么呢？他的一些好的表达，以及他如何来进行反驳，逻辑是怎么用的。</p>
+    <p>OK我们先来看一下body one，他说野生动物没有地方了，它的body one它是这么写的，is absurd。他用了这样的一个词，这个词我不知道有没有同学知道它是什么意思，它叫做荒唐或者是荒谬。就在我看来，说野生动物在21世纪没有地方住了，这件事儿很荒谬。所以这是哪一个角呢？我认为是不现实的一个角度。然后他后面说。I don't believe that planet earth exists only for the benefit of human, 就是地球并不是为了人类的利益而存在的，就不仅仅是为了人类的一个利益而存在的。And there is nothing special about the particular century.</p>
+    <p>这也不意味着我们突然有权利，要让这个动物去灭绝。他说这个时代是21世纪，并没有什么特殊的，我们突然就有这个权利，要让任何的物种就灭绝了。另外further moor他描述了一下现状，他怎么描述的呢？他说你没有一个强制性的理由，我们突然就要让动物灭绝，对吧？现在的一个情况是怎么样的呢？We don't need to exploit开发or the dry。我们不需要开发或者破坏every love square meter of mind in order to stay，or a the word population.</p>
+    <p>他说现在这个人口还没有拥挤到那个份儿上，还没有挤到那个程度。说我们已经要去到什么深山老林里跟野生动物去抢地方了，就完全没必要说。There is plenty of for us to exit with wood animal.</p>
+    <p>事实上是怎么样的？还有很多的地方可以让我们跟野生动物和谐共存，这样也应该是我们的一个发展目标。所以我们来看一下这一段，它其实通篇它传达出来的一个理论就是什么？这么说简直太荒唐了。你说野生动物没有地方吗？在21世纪，首先这个世界就没有什么特殊的。另外现在的一个生存现状是啊，人类其实还有很多的地方去修建这个高楼之类的那还不至于要去跟动物去contact for reverse，这个就是完全不现实的一个角度。</p>
+    <p>接下来我们来看一下第二段，他就来反驳后半感觉。I also disagree, 我也不同意这个观点。Protecting animals is the wave of resources, 保护野生动物是一个浪费资源。它在这里其实就上升了一个角度。因为正常我们再去讨论这个题的时候，我们可能会讨论的是不保护的是wild animals的一个后果。如果说不保护野生动物会有什么样的一个后果？但是因为他更加的确奇，因为他在这里说的是题干里他有一个词叫no play。他说野生动物有地方，它上升到了野生动物有地方，然后这些野生动物生存的环境对于人类也很重要，它上升到了这个野生动物生存环境，就野生动物栖息地的一个好处了。</p>
+    <p>他说保护野生动物的栖息地，能够ensure the bible of wide wild anal野生动物的栖息地，才能保证野生动物的一个存活。Miles finit a great test研究表明，these habitat are also crucial for human survival。野生动物的栖息地对于人类的存亡来讲也是非常重要的。</p>
+    <p>如何重要呢？他来进行了一个举例。他举了一个他拿这个热带雨林来进行举例了。比如说rain for pure oxygen，野生动物这个雨林会产生氧性a top carbon dioxide，and step like the earth climate, 野生动物会产生氧气，吸收二氧化碳，缓解地球的一个气候。</p>
+    <p>然后接下来就是一个反向假设了，对吧？就是如果不保护，那会有什么样的负面影响呢？如果说我们破坏了this area，the cause of managing the resulting change to our planning with far outside the cost of conservation。他说改变这个结果的成本，会远远的超出我们保护他的一个成本。所以他在论证的是什么？负面影响，然后最后一句话扣个。By protecting wild animals and their habits, we maintain the natural baLance of all life on earth.</p>
+    <p>通过保护野生动物以及它们的栖息地，我们其实在做什么？维持地球上的一个生态平衡。那么这个就是完全不同意的一个解法，就是负面影响。</p>
+    <p>然后最终一个结尾段就来再一次的重申我们的一个观点，你脑子依然是in conclusion，总而言之，we have no right to design whether or not where the animals should exit，and I believe that we should do everything we can to protect them. 我们没有权利去决定野生动物是否应该存活，我们应该用最大的努力，就尽我们最大的力量去保护它们。这个就是完全不同意的一个写法。OK以上给大家分别示范了什么样的题我们适合完全同意的立场，什么样的提议适合完全不同意的立场，以及他们各自的范围。如果碰到了这样的题，我们应该怎么去写？</p>
+    <p>然后接下来我们来看一下第三个观点，就是一分为二。在这里给大家进行一个思路的补充。因为之前我们大致都是这样的一个立场，两正一反两反一正，或者一正一反一反一正，就是说部分同意，但是有自己明确的个人观点，虽然但是的一个写法。那我想说除了就当我们部分同意的时候，除了这两种立场之外，我们还有没有其他的一些写法呢？答案当然是还有的。</p>
+    <p>第一种情况，我们先来看一下3.1，就是不分对不分错。也就是当题目的C里面它涉及到了两个不同的方面。那么我们可以用一个什么样的立场呢？部分对部分错，我拿一道题来给大家举例。比如说some people think有人认为老师对孩子的影响大于家长对孩子的一个影响，就是老师对孩子的一个影响大于家长。然后重点在后面在C的上面，在学习和社交方面。然后问你多大程度上同意或者是不同意这个观点。</p>
+    <p>那我们来看一下这道题，这道题是什么呢？他说老师的立场大于家长，在学习和社交方面，老师的影响要大于家长。在学习和社交方面，这道题适合什么样的一个立场？我认为他既然提到了不同的方面，我们就可以不分对不分错，就是部分同意。我认为在学习上面，大部分同学应该都能想到老师对于孩子的影响，在学习上他是比家长要大的。</p>
+    <p>为什么？我们可以从老师的一个职责，老师的一个任务的一个角度来进行讨论。因为老师的一个职责就是the main responsibility of teacher is to import knowledge to student，向学生传授知识？而相比家长他们更加的专业。我们还可以进行一个对比论证，对比家如何不专业。比如说现在有一些家长他是很芒的非常的busy。</p>
+    <p>他没有inner energy，没有sufficient energy to the their children，没有办法去在学习上帮助到他们的孩子。并且有些家长他是有时间，但是他没有足够的能力。他们不专业，没有这个能力去辅导孩子一个功课。所以在学习上面很显然老师的一个影响是大于家长的。但是对于社交方面，就像我刚才所说的，我认为老师他的一个主要的精力，都放在对孩子学习成绩的一个提高上面了。那他们往往会ignored the moral behavior of the student，他们往往会忽视学生的一个道德行为的一个管理和约束。</p>
+    <p>这一部分反而是家长影响比较大。因为孩子的一个charter character或者personality会受什么影响比较大呢？他们原生家庭的一影响，因为从小他们是跟父母生活在一块儿的，所以他们会去imitate the behavior of your parents，会影响去模仿他们父母的一些行为，比如说how to go，how to get along with other people and how to trade their friends, 他们如何去待人，就是待人接物。这个就是为什么家长在社交方面，他对于孩子的影响是大于老师的。我们可以从这样的一个角度分别来进行讨论，就是不分对不分错那这种题型它出现的一个几率比较少，所以在这里我只是进行一个思路的一个补充。</p>
+    <p>然后接下来我们来看一下第二种情况，也就是分人分情况讨论，也就是叫也可以叫做分类讨论。那这个是什么呢？它跟我们之前所学的两正一反，两反一正的题型，我认为是一个二选一的一个解法。就是学有余力的同学们，或者说想取得一个高分，或者说能找到这个准确分类标准，那么可以学习另外的一种解法，就是分情况来讨论。那这种情况适合什么样的大作文题目呢？也就题目当中它的有一个非常笼统的，非常抽象的一个名词。我们来进行一个分情况讨论，给这个名词一个非常明确的标准。</p>
+    <p>我来进行一个举例，比如说这道题。Too much money I spent looking utter and repairing a building。We should knock them down and be modern one in that.</p>
+    <p>太多的钱花在照看和维修老建筑上面，我们应该把它们推倒，建新的建筑取代。如果说按照传统的一个写法，我们知道这道题它确定的是一个动作，对吧？我们要讨论的是唯维修老建筑的一个优缺点。我们当然可以讨论了维修老建筑的优缺点，或者是建新建筑的优缺点，我们挑一个动作来解就可以。除了这种解法之外，在这里给大家进行一个补充。因为我认为在这道题目里面，它有一个非常抽象的名词，什么呢？A building.</p>
+    <p>也就是这道题无非讨论的是老建筑应不应该保留。但是在这个题里面，我认为它给出来的一个词，它的这个名字非常的抽象，非常的笼统。我们可以怎么样给这个名字一个具体的鉴定，除了两正一反两反一正的解法之外，我们可以来去分类讨论一下题目当中的l building，也就是来具体讨论一下old building，取决于我们可以给出来一个明确的标准。比如说我们来定义一下old building，什么样的old building可以保留，什么样的就不应该保留了，应该去建一些modern building房，现代化的一些建筑。你要给出来这个标准，那前提是什么呢？你的这个标准一定是和谐的可以展开的。比如说你给了一个标准，但这个标准它不合理或者没有办法进行深入的讨论。那么你就按部就班的按照之前我们所学的一个结构来写就可以了。</p>
+    <p>那这道题我给出来的一个标准是什么呢？Old building的老建筑应不应该保留，取决于老建筑的历史和文化价值。那具体我要怎么去写呢？开头段题目改写，并且加上个人观点，在个人观点的部分我就给出来。我的立场是depend，也就是whether the air Lance should be repaired，depending of how history value. 老建筑是否应该保留，取决于它的历史和文化价值。然后我的主体段我就分成两段来进行讨论。</p>
+    <p>一段我就说针对有历史和文化价值的老建筑，不要讨论的是啊保留它的一个好处。比如说我可以讨论，既然它有历史文化价值，那肯定很好讨论了，对吧？保留它的话，我可以把它当做一个historical site，一个历史经典。那么它就可以作为一个这种旅游景点，可以怎么样？促进当地旅游业的发展，叫the local terrorism OK。那是body one，我可以讨论一条它的好处。针对body two没有历史和文化价值的建筑，我要讨论的是why为什么不保留？</p>
+    <p>在这个段落当中给出不保留的一个原因。比如说我可以讨论既然都没有任何的一个价值了，那保留它at the ways of money对吧？浪费很浪费钱。并且这种the potato of maintaining the kind of a billion is very danger。</p>
+    <p>保留这些没有价值的老建筑，这个维修的过程非常危险的对吧？最近新闻就会出现这些一些危楼，有一些建筑隐患的一些建筑，会给人带来一些危险，带来生命的一个危害。或者针对这些建筑我们我们就不保留了，或者你可以再讨论一下，这些建筑怎么样呢？他们阻碍了城市化的一个发展，不如把他们就推倒重建，建成新的建筑，才能够容纳更多的城市人口。这是body two的部分。</p>
+    <p>然后在结尾段的部分，我们in conclusion进行一个总结。我认为是否应该保留，就取决于它的历史和一文化的这个价值。我在结尾段再一次的给出这个标准就可以了。这个就是我们取决于具体的一个思路，给同学们进行一个思路的补充。</p>
+    <p>有些同学可能对于这个题型写法觉得很有兴趣，我们再来练一道。比如说这道题政府应该花钱购买艺术品，让城市变成更好的生活的地方，然后问你同意还是不同意。很显然，按照传统的一个学法，这道题是确定了AC的那确定AC的题其实往往就不太好，讲问A能否导致Z对吧？</p>
+    <p>那我们要讨论的是花钱可以或者是花钱不可以。如果说按照我们取决于的解法，大家思考一下，我们可以去定义哪一个名词呢？有些同学可能想定义这个艺术品，但我想说这个标准它就不可写。比如说就取决于这个艺术品它的价钱，那你会发现你给不出来一个最终的一个标准。什么样的艺术品你可以说是可以买的，什么样的不可以买，对吧？如果就是没有必要买的，那我们就压根不买就可以了。</p>
+    <p>可以注意一下，这个定义的名词一定是可展开的那我们还可以定义什么？我们可以定义一下这里面的这个city城市。比如说你像现在有一些城市，比如伊拉克的政府，你觉得他应不应该花钱购买艺术品？我觉得就不应该。因为我们都知道经济基础决定上层建筑。如果一个城市它不是那么的发达，它可能它的一个基础设施都不是非常的完善，那么政府应该花钱去投资这个基础设施。所以我就可以在这个开头段里面给出我的标准。</p>
+    <p>什么？我认为一个城市应不应该购买艺术品取决于什么呢？取决于这个城市的经济发展水平。那么在主体段的结构，我就可以分两方面来进行讨论了。</p>
+    <p>一段我就给出来，我说针对一些发达的城市对吧？经济发达的一些一线城市，比如说北京、上海这些城市，那当然是有必要的了。因为如果说买了这些艺术品，那么给当地的人们或者说给当地的游客们提供了一些观赏的价值。那么很显然，它是可以提高人们的生活质量的。但是对于一些非常落后的一个城市，也就是说它的基础设施is basic service都不非常完善的一个城市。我认为政府应该把钱花在刀刃上，也就是加强education或者是transport方面的一些投资，而不是应该放在这些虚无缥缈的艺术品上。这是我的一个观点OK这是第二道题。</p>
+    <p>第三道题比如说可以再给大家出一道说政府应不应该限制电视电影里面的一个暴力内容来减少犯罪。我可以给大家补充一下，应不应该限制电视电影里面的暴力内容来减少犯罪。无非要讨论的是这点。原题目肯定是政府应该建设为电视电影或者游戏里面的暴力内容来减少犯罪。你多大程度上同意不同意？那无非也是确定AC的我们要讨论限制可以减少犯罪或者限制不可以减少犯罪。</p>
+    <p>这道题如果说我们要找出这样的一个标准，就取决于分类讨论。那这个讨论的标准可以是什？大家可以思考一下，你像这道题我们就可以什么按照人群来进行分类。</p>
+    <p>怎么分类呢？因为其实每个雅思的题目，它都是一个什么社会现象？其实现在的社会现象是怎么来处理这个问题的呢？只要大家留心观察，我觉得一定是知道的。比如说现在有一些游戏，虽然我我我不打游戏，但是我知道很多这种游戏的APP，它会出一个什么青少版或者是一个防沉迷模式，对吧？为什么有青少版呢？就是说限制未成年人每天玩游戏，或者是看一些什么软件的一个时间，其实就是对于未成年人的一些保护。因为他们没有一个基本的分辨能力，所以这个题我可以按人群来分类。</p>
+    <p>我说政府应不应该限制这些暴力内容，取决于什么呢？取决于这些电视电影观众或者是这些游戏玩家，player的一个年0，那我的主体段就可以分成两段来进行讨论了。一段我就可以给出来针对未成年人，因为他们没有基本的分辨能力，他们会imitate the violent behavior from the，会去模仿这些内容里面的暴力内容来造成犯罪。所以对于他们的限制可以说是非常有必要的。但是after the adult，对于成年人来说because they can tell the difference between the reality and fancy，他们其实有一个基本的分辨能力，所以is an unnecessary to find the kind of limitation的去限制这些，我认为是不是那么的有必要的那这个就是按照取决于的一个解法。</p>
+    <p>这节课其实给大家进行了一个非常的充分的就关于同意不同意的题型整体的一个汇总。针对大部分的题，80%的一个题目，我们都可以什么两正一反或者是两反一正的一个结构。针对不能够用这种结构的题，我们也写了三个不同的观点给大家补充了，完全同意和完全不同意的一个写法。然后除此之外，还有不分对不分错，部分对部分错，以及我们最终除了两正一反、两反一正之外，我们还可以按照这个取决于分类讨论的一个写法。希望大家能够认真观看本节课的视频，掌握关于所有的这种同意与否的一个题型写作的思路。这样的话在考场上就找到最适合他的一的写作结构和方法，这样的话才能够妙笔生花，OK。以上就是本节课的内容，我们下节课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-12.html">精讲逐字稿</a></li>
+      <li><a href="qa-12.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-11.html">上一讲 11</a></li>
+      <li><a href="lesson-13.html">下一讲 13</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

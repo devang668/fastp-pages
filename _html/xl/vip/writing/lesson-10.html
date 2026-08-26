@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10讲 · 大作文的"正确审美"与常见错误 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 10 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a class="active" href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第10讲 · 大作文的"正确审美"与常见错误</h1>
+    <div class="abstract"><b>本讲概要：</b>讲师祝贺学生完成小作文阶段的学习，标志着大作文学习的开始，并强调“正确的审美”在大作文中的重要性，包括准确回应题目、保持内容完整性、逻辑连贯性以及运用高级词汇和语法。大作文评分关注逻辑、词汇、语法和内容回应度，指出许多学生因未能正确应用评分标准而成绩不佳。讲师通过详细解读题型和强调审题技巧，教导学生如何通过逻辑链和关键词回应来提升文章分数。建议学生充分准备，重点练习审题和积累话题素材，鼓励每日练习以提高写作能力和理解力，为追求更高分数做准备。</div>
+    <div class="tip">本讲含 27 组问答精要，可到<a href="qa-10.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>讲师祝贺学生完成小作文阶段的学习，标志着大作文学习的开始，并强调“正确的审美”在大作文中的重要性，包括准确回应题目、保持内容完整性、逻辑连贯性以及运用高级词汇和语法。大作文评分关注逻辑、词汇、语法和内容回应度，指出许多学生因未能正确应用评分标准而成绩不佳。讲师通过详细解读题型和强调审题技巧，教导学生如何通过逻辑链和关键词回应来提升文章分数。建议学生充分准备，重点练习审题和积累话题素材，鼓励每日练习以提高写作能力和理解力，为追求更高分数做准备。</p>
+    <p>欢迎大家来到雅思写作系列课程，恭喜大家已经完成了小作文阶段的学习。今天开始让我们一起解锁新的任务，我们一起来进行大作文的学习。今天的课程依然是一节导学课，帮助大家对于大作文的学习建立一个非常正确的审美。什么叫正确的审美？相信很多同学都会有这样的疑惑，就是我在备考大作文的过程当中，我背了很多优美的好词好句，包括我也准备了很充分的一些论据，然后网上的很多模板，我也看到了有八分的、九分的，我可以说是倒背如流。但是我的作文却迟迟就在一个六分到6.5这样的一个分数段，就是得不到7分。那么这到底是因为什么呢？我今天会给大家再具体的解读一下评分标准以及关于大作文备考的方法。</p>
+    <p>我们来看一下大作文的四项评分标准，之前有给大家讲过，无非是四项内容，逻辑、词汇以及语法。那么很多同学会把过多的时间和精力放在词汇以及语法上面。我不可否认，你像语法的这个准确当然很重要了。但是它是不是最重要的一项呢？我认为很显然不是的那最重要的一项我们叫做内容的一个回应，或者说叫做切题。以积分的评分标准来看，它会对我们提出了三点要求。</p>
+    <p>第一点就是要求我们回应到题干当中所有的关键词，也就是任务的完成度。那我们来看一下，比如说一个题它对我们提出了两个要求或者两个问题，比如说第一个原因，第一个问题问了why，第二个问题问了how。那这个时候我们只回答了一个，很显然我们TR的分数是不是会很高的。因为内容并不完整，或者他要求他发出的指令是they got build builds，and I gave your own opinion.</p>
+    <p>那你只讨论了双方的观点，却并没有给出自己的一个立场。这也是会影响到最终TR的一个分数。这个叫做回应题目当中所有的关键词。除了这些题目指令之外，在大作文当中也会有一些题目陷阱，然后叫我们去规避。你的论点是否有充分的回应到这些鉴定词，这是TR的第一项要求。</p>
+    <p>第二项叫做立场明确，叫clear position，什么意思呢？我的大作文从头到尾必须立场是一致的。比如说我是完全同意，那我的主体段也就要去写某一个动作它所带来的一些好处。如果说我是一个让步的结构，我认为这件事情利大于弊，那也就是我的主体段利碧一定都要进行一个讨论。有些同学可能着急要写作文，上来就直接先给出了一个立场。但是他写着写着发现自己又能抢到另一个论点加在主体段里。但这就导致了他主体段与开头段的个人观点是不一致的，也会影响到TR的一个分数。</p>
+    <p>然后第三叫论据的一个充分，就是充实的一个论证。我们来看一下，他是这样说的，要求我们呈现拓展，并且support main ideas，也就是说要论证充分。这一点我不得不说，我认为它是大作文当中最有难度的一项。因为我们很多中国的一个考生，往往比较擅长的是给出一些论点，但是并不擅长如何去进行论证。</p>
+    <p>大家回想一下，自己从小学习议写这个议论文的一个经历。比如说像我们自己，我认为从小没有人教我怎么去写一个议论文。然后像我上学的时候，可能我的语文还是比较不错的，尤其这个作文的部分，经常会被老师拿起来全班去朗读。然后老师怎么告诉我的，说你就是开头段你要好好写，就是多去背一些这种名人名言，然后要有引入，让这个考官引人眼前一亮。然后结尾段你要写的非常的这种真情流露，然后中间你的部分你随便写写就可以了。所以我用这种方式来准备雅思的考试可不可以呢？很显然是不行的。</p>
+    <p>我要培养出来大家的一个什么论证的思维。那什么叫做充分论证呢？大家需要区分几个概念，就是第一，我们上面说了你的立场要明确，下面你的论点要合理。什么叫做论点？我等一下给大家解释。你还要有这个论述的部分，论述来去支持你的论点。</p>
+    <p>然后在此基础之上，你也可以进行论据的一个补充，那这几个概念什么意思呢？比如说我来问大家一个问题，小明是一个好的同学还是一个不好的同学？比如说我的立场是小明是一个好学生，那么我的论点给出的一个论点就是小明同学非常的乐于助人。乐于助人。</p>
+    <p>然后我要进行具体的论述了。就是说每当小明看到需要帮助的同学的时候，他都不会坐视不理，而是选择伸出援手。然后再补充一个论据，比如说上个周五我看到小明在扶一个老奶奶过马路，说明他是一个非常非常乐于助人的人，那这个就叫做什么有理有据。</p>
+    <p>有些同学就是说他走向了一个极端，我一直在去在我的主体段里面堆积了很多的道理，但是论点却并没有进行很充分的一个展开。有些同学走向了另一个极端，就是我的论点给出来了之后，我没有任何的论证，我就喜欢用例子来去解释观点。这些都是非常不正确的，论证的习惯就是关于TR的部分。当然了，七分的评分标准，如果说想要追求一个更高的一个分数，七分或者七分以上，那你TR的分数很显然要更高的一个分数。那你在这里需要注意一下积分的一点问题。这里它有一个描述叫做over general，叫叫过度的概括，或者说叫做什么呢一概而论。什么叫做一概而论呢？就是没有限定你的这个论点的人物或者是条件，就是没有限定人物或者是条件。</p>
+    <p>我来举个例子，比如说有一道题是这样的，政府应不应该花钱？就是government政府应不应该花钱去投资健康。然后我的作文里面我是这样写的这句话我是这么说的，我说因为健康的食品很贵，给大家写一下因为健康的食品很贵。</p>
+    <p>人们买不起。所以。政府。需要花钱。投资。</p>
+    <p>好的，我们来看一下，我的这样的一句话，大家觉得有没有什么问题呢？其实这句话它就存在着一个一概而论的问题。比如说我有没有鉴定对象呢？并没有。</p>
+    <p>我说健康的食品很贵，人们都买不起。那大家思考一个问题是所有人都买不起吗？很显然不是的。所以从逻辑严谨性的一个角度，我应该在这里再具体化这个人群。我可以说i especially for the good living，extreme poverty, 尤其是住在一些贫困地区的人，他们是买不起的。</p>
+    <p>另外健康的食品很贵，那是所有的健康食品都很贵吗？很显然也不是的。你比如说鸡蛋，我认为它很健康，但它并不是那么的昂贵。那到底是什么健康的食品很贵呢？我可以在后面进行具体的补充说明。比如说一些organic food，一些有机的食物，或者说一些低脂的饮食，像low diet low diet这样的一个表达，他们是很贵的。这样的话就是说具体化了这个人物或者是条件，让我的论点看起来是更加的合理。这个是TR的一个要求。</p>
+    <p>接下来我们来看一下，第二项要求就是coherence and cohesion逻辑的一个衔接。那么他发出来的一个要求是一有逻辑的去组织信息与观点，就是说结构清晰。结构清晰的这部分，同学们就无需担心了。因为在我们后续的大作文的这种题型课当中，会逐一的给大家讲解各种题型它应该对应的方法，以及每一种题型它是到的百分点。就是每一种题型结构怎么展开，这个大家是一定会有能够学到的。</p>
+    <p>然后另外要clear progression层层推进。这一点又是一个非常难的一个要求了。它是什么意思？就是层层推进，也就是句子与句子之间要有非常明确的一个直接因果关系。直接因果。相信学阅读的同学，如果说做判断题应该知道有这样的一个考点，就是因果关系的一个考点。</p>
+    <p>我们怎么样呢？比如说A一件事儿，A导致了BB又导致了C但是我们能不能说A它可以导致C呢？很显然是不可以的，这个叫做什么逻辑跳跃。</p>
+    <p>然后我拿一个论点来给大家举例子。比如说一对一学习可以提高孩子的学习成绩。那这个论点其实就是有一些逻辑跳跃，跳在哪里？因为不是说我孩子一对一学习之后，我的成绩立马就会提高。它中间显然有些过程，有些步骤被我们省略掉到了，所以我们要进行一个补充。</p>
+    <p>比如说一对一学习，可以让老师及时发现孩子的问题。发现孩子的问题之后，可以有的放矢，有针对性的解决。解决了这些问题之后，孩子的成绩才能得到一个大幅的提高，这个就叫做层层推进。OK第二项就是要求我们使用一系列的衔接手段。如果是区分的话，我们的衔接手段一定要非常的流畅自然啊不要过于的机械化。这个时候其实跟我们背的那个模板就是冲突的。所以从一开始我就告诉大家，我并不建议大家去背模板，一定要建立起一个属于自己的语言思维的逻辑框架。</p>
+    <p>第三个present a clear central topic，这是什么？叫做每一段围绕着一个分论点来进行展开，那就什么主题分明，我不可以一个段落多分论点，然后我也不可什么？我再去写作文的时候发现，我的两个段落，其实他们两个在讨论的是一个方面或者一个维度的好处，这是不可以的，这个叫做叫clear general topic，这是CC的一个要求。</p>
+    <p>接下来我们来看一下，就是关于词汇的部分。词汇的部分其实我之前有给大家设计过，就是词汇它并不是一个特别重要的一个维度。给大家就总结下来，无非就是先要求的是准确precession，再要求的是高级。有些同学一味的追求高级，却把一些词用在了不地道的一个表达当中，那反而就是弄巧成拙，反而会导致扣分，所以一定要先保证会一个准确。</p>
+    <p>之前给大家举过一个例子，对吧？比如说我们要形容一个姑娘很漂亮，那我们用一些比如说她是个美女，她很漂亮，那可能是一个五分的词汇。但是你要说这个女生长得非常的光彩照人，明艳夺目，那这可能就是一个相对高级一点的词汇。但是如果说你就看到一个词瞎用，你形容这个姑娘长得美轮美奂，那这个是不是就不太合理了？因为美轮美奂是用来形容风景，或者是用来形容建筑的那用在这里显然是并不合适的。所以一定要先注意的是procession，再注意的是flexibility，就是灵活度。</p>
+    <p>什么叫灵活度？就是一个词你要可以用它的什么不同的一个磁性。关于比如说这个safe这个词，你可以用形容词，你可以在下面一个表达里用到它的名词形式safety对吧？这个叫体现出来你的一个灵活度，一定要出现同义词替换。另外你要有意识的使用词汇。那关于词汇的部分，我已经把需要大作文需要背的这个词火附在我们的文件当中了。</p>
+    <p>我们的这个大作文，我的建议就是结合不同的话题，结合大作文常考的话题去积累。并且一定要重质不重量。你会发现其实你看那些高分的范围里面，真的有什么词儿是你不认识的吗？可能没有那么多，但是为什么你是想不起来用的呢？因为他不符合你自己的一个语言习惯，所以你针对大作文的话题，你要去积累一些相关的一些资料，但这个量不需要特别的多。像比如说教育类的话题，那么你肯定要学习一些关于什么网络教育，然后包括传授知识等等等等这些资料。</p>
+    <p>最后一项叫做对matic grammatical range and accurate词汇的使用维语法的使用维度以及准确性OK。最后的一项评分标准就叫grammatic range and accuracy，语法的使用维度以及准确。之前也给大家收集过积分的一个标准，就是我们要能够熟练的使用一系列的复杂的句子，综合的运用各种复杂的一个句式。不光有简单句，有长句、有短句、有定语从句、有状语从句，然后还有各种分子结构，甚至用了一些强调句的一个解法，然后尽可能的减少语法错误。这个是词汇语法的一个要求。</p>
+    <p>这四项评分标准我们要知道备考当中最重要的是哪一项？最重要的无非一定是切题。大家千万不要小瞧这个切题的问题。大家知道大陆考生写作的这个分数是5.5到6分。如果说你处于这个分数段，那么说明你的审题一定是存在问题的。你的问题不在于你的词汇过于的低级，语法使用过于简单，你连最基本的TR的分数都没有拿到。所以今天我们这节课第一节课将会花一些时间来教给大家如何审题，就是说帮助大家建立雅思写作大作文最基本的审题能力。</p>
+    <p>好的，既然讲审题，我们先来回顾一下大作文当中都会涉及到哪些题型，无非就是这四大类。当然有些老师可能或者同学们看的是不同的版本，不同的分类。我认为怎么分都是合理的，只要能够cover到所有的题型即可。分别是观点类、论述类、报告类和混合类。在正式学习审题之前，我想我想先带大家做一个小小的审题练习。屏幕上应该有两个题目，我们来看一下右边的这道题。</p>
+    <p>右边这道题说in the future many people will choose to study abroad，why will IT happen? 说在未来很多人会选择出国留学，那为什么这件事情会发生？如果说让大家来思考一下这道题的思路或者说他的论点，我相信很多同学给出来的一个答案都是跑题的。大家会觉得说，我像我之前上班课听过我很多学生的一些思路。就是因为出国留学我可以开拓视野，可以增长我的见识。或者说我出国留学我可以学到一门不同的语言，或者说我出国留学就是可以让我的文凭更有含金量等等等等。这些论点我认为在这个题目里面它都不合适，为什么？因为给出来的是左边这道题的论点。</p>
+    <p>那我们先来看一下左边这道题，这两道题有什么区别呢？左边这道题问的是在未来很多人会选择出国留学，那这是一个积极的还是一个消极的发展？很显然左边这道题问我们的是结果，出国留学会有什么好的结果或者是坏的结果。而右边这道题需要我们回答的是客观因素，我们需要给出来的是客观存在的一个事实，也就是一个问你的是opinion，一个问的是that。那右边这道题我就不能写好处了，而要给出来的是原因。</p>
+    <p>如果有些同学不能区分，我给大家举一个简单的例子。比如说我问你我说你今天为什么迟到？那你想一下你的答案肯定是说因为我今天路上堵车了，或者说因为我起来晚了。这些都是发生在你迟到之前的一些客观的已经无法改变的事实了，对吧？那你不可能说因为我迟到了，我可以多睡一会儿，有精力听课。这个其实就叫答非所问，所以我们要注意区分。</p>
+    <p>那我可以怎么来回答右边这个问题呢？我给我要给出一个客观存在的一个事实背景。比如说因为现在国内非常的卷，就众所周知，现在国内就是非常的卷。社会竞争非常的一个激烈，叫fear confusion in the workplace。好的工作就往往要求更有含金量的文凭，因此很多人会选择出国留学。而左边这道题就是大家给出来那些论点都OK，那我们还可以怎么去讲呢？比如说还有哪些客观事实，我可以说随着经济的发展，people become richer than人们逐渐变得越来越的富有，那么可以afford the trade，可以承担再起出国留学的费用呢？那也是可以的。</p>
+    <p>或者我可以从哪一个维度来讨论呢？比如说因为这个lobby zone全球化的一个影响，全球化的影响导致什么呢？国家与国家之间增加了彼此交流，或者是开放了这种彼此合作的一个窗口。那么给一些留学生提供了这种可以彼此交流访问的机会。可以从这三个维度来进行讨论。</p>
+    <p>OK区分完这两道题，我们下面来看一下，我们再去拿到一个大作文题目的时候，我们如何来写出这个逻辑链？保证自己是准确的那我们知道雅思的大作文，无论是什么类型的一个题目，它本质上像我们讨论的都是一个因果关系。有的题目给了因让我们讨论的是结果，有些题目给了最终的一个结果，需要我们往前推，是什么样的客观事实导致了这件事情的一个发生。所以我们的论点无非就是要体现出来这样的一个逻辑链。</p>
+    <p>我们可以把这个逻辑链按照ABC的形式体现出来。那A是什么呢？A就是这个音，就比如说题目确定了一个动作，那B是A的结果，C是B的结果，就是A的发生导致了B而B的发生又导致了CA它们本质上就是一个什么因果果的逻辑链。如果有些同学理解不了什么是ABC，它其实就是一个代号。你理解不了你就把它用这个破折号来表示因果果。</p>
+    <p>比如说吃饭吃饱了，然后有力气干活，这是一条完整的路系列。那它与大作文的题目有什么关系呢？有些题目它确定了最终的因，确定了一个动作，我要讨论的是这样做会有什么样的结果。有些题确定了最终的一个结果，然后它题目问的是什么？why? 需要我们去讨论的是原因。</p>
+    <p>我们下面来做一个小小的练习，来熟悉一下这个审题的方法。光听到理论的部分，大家现在可能就是比较一头雾水。当然了，审题的能力并不是一蹴而就的，所以需要我们长期的练习。</p>
+    <p>我们先来看一下这道题，题目说很多国家正在require people to label healthy life，要求人们过一个健康的生活方式。那你认为这是积极的还是一个消极的发展？那问的是你认为这是积极的还是消极的这很显然是一个结果，对吧？说明题目这是一个动作，你要讨论让人们这样做会有什么样的好处。我们只要根据这个动作写出来它的结果就可以了。</p>
+    <p>比如说我给出来的一条要求，人们这样做之后，人们就会有些表现了，对吧？比如说早睡早起，清淡饮食或者积极运动等等等等。那人们这样做之后会怎么样？会身体好对吧？那有些同学的一些论点可能就有点太远了。比如说要求人们这样做人们会长寿，这个其实就中间有很多的一个变量，就是你像外国人，他是理解不了好好学习走向人生巅峰这么回事的。然后把中间的每一层逻辑环都给他解释清楚，那就是这道题。</p>
+    <p>然后来看下一道题，下一道题目是the government，政府应该要求人们过一个健康的生活方式，你同意还是不同意？这道题很显然跟上一道题是没有太大的区别的。因为大家思考一下，如果说我同意，是不是因为说这样做会带来一些好处？如果说我不同意，因为这样做会带来一些不好的一个结果，所以我同意的话，我依然写它的一个好处就可以了。</p>
+    <p>这道题为了更加的扣题，就是我可以扣到政府的头上，就是人们健康了，那对政府有什么样的好处呢？我可以写提高了社会的生产力，而且社会的产出就会更高。这个大家应该印象深刻。比如说疫情期间，整个社会停工停产的话，那其实整个社会它是不无法运转的，产出也是非常低的。或者我可以说什么？如果人们都运动，身体变得好了之后，减少了政府在医疗上面的一个财政支出，那这也是可以的这是第二道题。</p>
+    <p>然后第三道题，这道题稍微有点难度，我可以说它是这种大作文当中比较有难度的一个题型。它说the only way is to promote a healthy left dell IT to pass laws。唯一的推广健康生活方式的方法就是立法。然后你同意不同意？那这道题它的特殊在哪里？他问我们同意不不同意什么？</p>
+    <p>我们是不是要先回答第一个问题，什么呢？立法能不能够推广健康的生活方式？也就是说这个题既确定了动作又确定了结果。所以我们先来回答第一个问题，如果你同意，你就补充上这个逻辑链。你要回答A可以导致C或者你要回答你不同意A不能导致这个Z那很显然立法因为它是一个强制性的一个手段，所以它也是可以推广健康的生活方式的。</p>
+    <p>还是要拿疫情期间举例子，比如说很刚开始的时候，我们在出入这个公共场所可能没有配佩戴口罩的一个习惯。后来就颁布了一个法律，就是说如果说你出入公共场所不戴口罩，或者不做核酸的话，会被拘留。那大家其实纷纷因为惧怕这个后果，他就可以去遵守这样的一个规定了。所以立法之后，B就是什么会惩罚一系列的不健康的行为，从而推广健康的生活方式。</p>
+    <p>这道题我写出这样就可以了吗？很显然还是不充分的。因为在解读评分标准的时候，我说了我们要回应题干当中所有的关键词。</p>
+    <p>这道题除了AZ之外，还有一些其他的词需要我们去回应。比如说the only way它叫极端程度词，那在大作文当中会有两类极端程度词，一个是啊the only，一个是but如果是第三类，相对来说会简单一些。我们需要回应的是除了立法之外还有没有其他的方式？我们只需要给出其他的一个方法就OK了。很显然我除了立法之外还可以做什么？还可以增加宣传，那宣传会带来什么样的结果呢？可以提高健康的一个意识，然后最终也可以推广健康的生活方式，这是有极端限定词的一些题目OK。</p>
+    <p>然后我们来看最后一个题，最后一道题说，现在很多国家已经通过法律来要求人们健康了。Why do you think this happen? 为什么你认为这件事情会发生？这个题它问你的是原因，那说明需要你写的是一个原因题目，那是本身它是一个结果。那这个时候我们就懂了，我们不能再去写健康可以给人们带来哪些好处了。</p>
+    <p>我们要写的是为什么国家他现在要这样去做了，就是给了C我们要往前推，由C推到B那为什么要立法来规定一件事情了呢？那肯定是现状是什么样，这件事情已经很严重了，对吧？肯定是人们现在健康的这个问题非常的严重。OK那可以再往前推，为什么人们现在都是不健康的呢？造成人们不健康的因素有哪些？可能同学们的答案可能会是比如说人们这种吃外卖，或者是这种作息不规律等等等等的一个行为，这些我认为它都不够透彻，这些都算是不健康的表现，它不算是啊不健康的一个客观原因。</p>
+    <p>那原因我们可以说什么？因为这个还是我们可以推到之前的底层逻辑上面。因为现在就很卷，心理竞争激烈，所以人们往往会忙于工作，忽视了自己的健康。因此国家已经要立马来推广健康的生活方式了。</p>
+    <p>好的，我们下面来进行一个总结，就是题型与这个因果之间的一个关系。我们会发现最容易判断的是优缺点题和这个报告类的题。优缺点的题就题干里面出现了这些关键词，问你这是积极的还是消极的那说明这个题一定确定的是一个动作，需要你讨论的是会造成什么样的结果。如果说是一个报告类的题，那他问了Y说明这个题一定问的是最终的结问的是原因，题目确定的是一个结果，然后相对复杂一点，也就是观点类和论述类的题。它有可能确定动作，有可能确定结果，也有可能是动作结果都确定。</p>
+    <p>问你A能否导致这个非，比如说问你立法能不能够推广健康让你去论证这样的一条逻辑链，这个是AC的部分，至于具体的结构我们后面的方法课程会每逐个提醒的给大家讲解。然后这是关于审题的一个第一步，你先明确你的审题方向，写出一个完整的逻辑链，那就是到这儿就可以了吗？我刚才说关于大作文题目当中往往会有很多的一些陷阱需要我们去规避。那我们下面就来感受一下，在大作文当中审题这件事情到底有多么的重要。我下面通过一个小小的改错链接，让大家感受一下。</p>
+    <p>这是一个真题，并且我给出了我的一个立场。比如说这道题我的立场是不同意的，并且给出了一条逻辑链。那么大家先来观察一下。这条逻辑链它有没有问题？如果有问题的话，哪里有问题？当然了，因为我们现在只练审题，那么逻辑链我只给大家提供了一条，我们正常在写作文的时候，肯定要写2条到3条的逻辑链。所以大家不用说，他没有提到什么什么，只需要看写出来的这一条有没有问题即可。</p>
+    <p>那这条逻辑链它的问题是什么呢？说在家上班省去上下班的时间，工作少了压力。我相信很多同学就是理解不了，为什么省去上下班的时间就少了压力。因为通勤的时间也是能够决定我们工作幸福感或者是满意度其中一个很重要的一个因素。所以B到C之间它本身是没有问题的。</p>
+    <p>如果说要想想找到这道题的问题，我们需要来读一下这个题目。他说在家上班can only benefit employee eve rather than enquired，需要区分这两个词。Employ IT什么意思？叫员工或者是雇员。那这个employer是什么？</p>
+    <p>雇主他说只对员工有好处，而不是老板。既然我的立场是不同意的那我是不是我的B和C要针对老板来？我要解的是，我不同意在家上班对老板也是有好处的那我要解除对老板的好处是什么？所以这道题我们需要注意的是在题目当中我们要注意有没有限定的对象，就是人针对谁就要结合谁来写优缺点。这是第一道题，然后我们来看下面一道题，这个题目他说随着国家的一个发展，more and more people buy and use their own car.</p>
+    <p>越来越多的人们购买并且使用他们的汽车。后面是这个问题，还是大家可以将这个屏幕暂停，认真的来思考一下这个问题。因为我们不是说互动的一个课堂，我听不到大家的一个答案，但是希望大家也有一个思考的一个过程。这道题我给的逻辑链是拥有汽车，会造成道路的一个堵塞，会导致不好上班，效率低。这道题的问题在于什么呢？它依然是跑题的，为什么？因为并没有在这个题目限定的讨论范围里来进行讨论。</p>
+    <p>这道题限定的范围是什么呢？在这里他问的是undo advantage of the train for individual对于个人的好处on way，就是优缺点的题。我们经常会看到outside这个词超过它要超过超出有没有超过？对于谁的缺点呢？环境的一个缺点，也就这道题我们需要讨论的是什么？他已经跟我们明确了，我们要讨论的是拥有和使用汽车这件事情，对于个人的好处是什么，以及对于环境的坏处是什么。当然了，它有没有大于坏处，那是我们开头端的一个立场。那我们要给出来的分论点，就必须围绕着它这个范围来进行讨论。</p>
+    <p>所以这个题的问题是什么？它是跑题的OK，所以我们在审题的时候一定要注意题目的限定的范围。为什么要注意这些鉴定呢？或者说之前我告诉大家，不要用记忆或者去背诵任何东西的方式去准备这个写作。因为你背了很多的素材，哪怕你学了开车有什么样的一个好处，但是你没有一个审题的能力。那么你到考场上，就可能这个题稍微做一点小小的变动，你会发现你这个素材它就是跑题的了，就用不了了。所以这是第二个问题。</p>
+    <p>然后我们来看一下第三道题，第三道题我认为也是有点难度的。他说现在越来越多的人去这个remote places in community，变得越来越受他越来越受欢迎了。然后这是一个积极的还是消极的一个发展for local people and environment。那我的逻辑链是什么呢？去国外大城市，它肯定是一个确定动作了。去这个国外大城市可以开拓视野，然后对自己的人生有帮助。我们来看一下这道题，我相信第一个问题大部分的同学应该都能看出来，就是这个题它依然也是有一个什么题目限定的，它限定的是一个local，我们需要讨论的是啊旅游这件事情，对当地人以及当地环境是好还是不好，所以要回应到他。那很显然，这条逻辑链它是跑题的。</p>
+    <p>另外这道题除了local之外，它的A也是有问题的，为什么？因为它这里面有一个鉴定叫做real。那什么叫做remote呢？这个词它叫什么偏远的或者是偏僻的。很显然它一定不是国外的大城市，它肯定是指的一些七八线的这种小城，所以A也不对，肯定不是国外的大城市。这条逻辑链我们可以说它是一个彻彻底底的一个跑题。所以我们在选题当中一定要注意题目当中是否出现了现定，也就是定语或者是形容词。</p>
+    <p>接下来我们再来看一道题，这道题它这么长，必然肯定是有很多的一个陷阱。我们先来看一下，他说when new tom are constructive is important to build more public part of the than shopping center，so people can help a place that took bend your free time. 然后问题是你认为这是一个积极的还是消极的一个发展？还是给大家1到2分钟的时间先来自己思考。我给出来的逻辑电池，我说修公园和体育设施可以让人们有更多的场所去减少节奏快节奏的生活压力。这样的话人们生活就不是那么的压抑了。这套逻辑链看似好像并没有什么问题。</p>
+    <p>然后有些同学可能会纠结在这个shopping center上面，就是说嗯他只提到工业合体设施，没有提到shopping center。这是一个优缺点的题，我要讨论的确实是这个动作，修公园合体设施。Shopping center我们需不需要提及呢？我们可以在段落的内部进行一个对比论证的时候提shopping center。</p>
+    <p>那我们需不需要把它体现在逻辑链里面呢？很显然在写逻辑链的时候是不需要的，所以问题并不在这儿。我们可以观察一下这道题它都藏在了哪里，就增加了哪些信息。上一道题我让大家关注的是题目当中出现了一些定语的部分。那这道题是否出现了一个状语的部分呢？</p>
+    <p>比如说我会观察到这有一个状语从句，when new towns are constructed, 这里有个词，这是什么意思？新的城镇。城镇或者是小镇。那么大家可以来思考一下，城镇或者是小镇它有什么样的特点呢？很显然它就是生活节奏非常的慢。Anyway他总而言之没有这个所谓的快节奏的生活压力。所以B当中的这个快节奏压力并没有回应到题目当中的这个新的城镇这样的一个题目限定。因此它这个地方就跑题了。所以大家来看一下，如果说在考场上或者是看题的时候不注意，是不是防不胜防，就随随便便就得轻易就得到一个5.5，对吧？</p>
+    <p>那这道题我们是不是有些更好的观点呢？比如说我修公园和体育设施，那么我写可以让人们有更多的场所积极运动。然后最终的好处就是可以提升公众健康加improve public health。可以从这样的一个角度来写，是不是就能够充分的回应到题目当中所有的关键词呢？所以说同样是论点看似都合理，但是一定有那么一个论点，很显然它是回应了所有的这种key work关键词的那这个是状语限定的问题，然后我们来看一下下面一道题说。</p>
+    <p>Nowadays, more and more people help consumer goods. 现在很多人都有一些消费品，比如说冰箱或者是洗碗机。那你认为这个的发展它的好处有没有大于它的坏处？这道题它也是一个优缺点的题。</p>
+    <p>A就是人有这个consumer good，那给出来的逻辑链就是人有消费品，大家看到这个分论点可能有点理解不了，尤其是每次上课的时候，每次到这个题，我感觉这个班课就好像在参加一场奇葩说。我所以我需要给大家解读一下这个分论点什么意思。消费品它本身就是一个有一个不断消耗的一个属性。比如说大家买的这个纸，或者女生可能买的什么口红、面膜之类的那消费品你用完之后肯定要不断购买的对吧？如果说你这个产生习惯不断购买了，那么可能会有些人为了去购买这些商品，不断的超前消费，然后进入一些债务危机。所以这个就是所说的有经济的问题。</p>
+    <p>那这条逻辑链写在这个题目里面合适不合适呢？很显然它是不合适的。为什么它的问题就是在于还是跑题？因为逻辑链并没有回应到题目当中的例子。</p>
+    <p>那这里面的例子是什么？冰箱和洗碗机它们是什么东西？家用电器，或者我们可以把它称之为叫做durable gods，耐用品对吧？所以当题目里面有一个大范围的名词consumer goods，然后就应进行了一个举例，举了一个小范围名词。我们无论你学两段还是写三段，你的逻辑链一定要回应到的是小范围名词的特点，甚至你的A可以写人有冰箱或洗碗机这类的商品，那好处你就可以写了。比如说可以解放我们的双手，improve our life quality，提高了我们的生活质量，或者我也可以解人有了这类商品，我们会对于这些产品产生依赖，那么人们会变得越来越的懒惰。这个是啊栗子限定的问题。</p>
+    <p>接下来我们来看一下这道题。To note that both likely and tourists can go to remote natural environment, such as not poor. Do you think the advantage of the, of the other way, the big advantage.</p>
+    <p>说现在越来越多的科学家和游客去了一个偏远的这种自然环境，比如说北极熊，你认为优点是否有大于缺点？我给出来的一条逻辑链是科学家去北极做研究，可以促进科学的发展。相信细心的同学们一定发现了，他这里很显然就是没有提到游客。大家再来思考一个问题，我刚才其实在前面有铺垫过，我说这条逻辑链是我主体段当中其中的一条。那我可不可以分开来写呢？就是我一段我写科学家去北极的，好，一段我写游客去北极的好，这可以吗？大家注意一下，在A里面如果说他们在在这个题干的A里面出现了一个并列，这种并列名词我们不能够分开来写，我们要结合这两个名词的什么共同特点一起来讨论。</p>
+    <p>那科学家跟游客有什么共同特点呢？那很很简单，他们都是人，对吧？那我相信只要是人去了一个remote natural的一个环境，必然会对当地的环境造成破坏，必然会打破当地的生态平衡。所以我们可以从这样的一个角度来写，不能够拆分来看。</p>
+    <p>接下来我们来看一下最后一道题说。现在越来越多的人喜欢在电视上看体育，而不是参加。那你认为这是一个阶级的还是一个消极的发展？我今天给出来的第一条就是参加体育可以增强体质，减少疾病。很显然这道题它是跑题的，为什么？因为题目需要我们重点回应的动作是什么？在电视上观看体育这样的一个动作，这个才是真正的A。有些同学说他提纲也提了，我不能去讨论吗？或者我不能一段我说看电视有什么好，参加有什么好，很显然是不可以的那这个题可能不是让大家那么的好区分。</p>
+    <p>来举个简单的例子，比如说我问你我说现在越来越多的人们都喜欢电子支付了，都不用现金了，你认为这个发展是好的还是不好的那我指的这个发展肯定是什么？肯定是电子支付取代了现金这样的一个发展，对吧？我不可能让你讨论的是现金，现金支付有什么优点或者缺点，所以大家一定要注意这个比较级的问题。如果说出现了这个比较级，我们要回应的是通篇我们的A都要是watching on television，围绕前面的这个动作来进行讨论。</p>
+    <p>以上这几道经典的例题，就是帮大家概括总结了一部分。在大作文的题目当中，我们需要注意哪些，帮助大家对于这个审题建立一个初步的认识，了解题目当中会出现的一些具体限定。下面我们来进行一个总结，就是我们在审题的时候到底需要注意哪些步骤。第一步我们肯定要判断一下题目类型了，对吧？这是一个什么类型的题，确定类型我们才知道，这个题我要采取一个什么样的写作结构。</p>
+    <p>接下来题目让我们讨论的是动作还是结果呢？不是题目确定的是动作还是结果呢？然后题目当中是否有针对的对象，针对谁，要结合谁来一起，然后有没有鉴定的范围。比如说从不同的维度限定，这件事儿让我讨论的是对环境的好，还是对经济的好，还是对人们健康的好等等等。不同的一个角度是否有给出限定。</p>
+    <p>然后有没有形容词、状语或者是例子来进一步的解释说明一个名词。如果有啊，我们的逻辑链一定要回应到这些名词的主要特点。如果说出现了a and b两个并列的名词，那么我们必要结合两个并列名词的共同特点一起来讨论。最后如果说题干里出现了比较级，比如说in that rather than这样的一个表达，那么我们重点要围绕的是前面的这个动作来进行主题讨论。</p>
+    <p>OK好的，以上就是关于大作文审题部分的知识点。接下来我们如何来进行练习呢？我当然我希望大家能够对于这个大作文进行一个充分有充分的准备。我们不要每次把写作放在最后一科，我一开始我就养成一个很好的一个习惯，所以我把大作文会涉及到的不同的topic，不同的话题给大家进行了一个整理，整理了一些例题。</p>
+    <p>那么大家可以每天去练这些话题，写什么呢？写出它的一个逻辑链，可以按照这种ABC的形式来写出一下中文的思路。大家注意不需要把整个你主体段你是怎么想的，这个作文你怎么写都写进去。这是你的主体段，你的论点，你可以简单的来写一下关键词，或者你就直接写你这个中文的思路即可。这样做一方面可以提高你的审题能力，另外也是可以帮助你更快的熟悉大作文都会考到哪些话题。每个话题我希望大家都至少可以积累一正一反，而且下一正一反的一个观点。这样的话你在考场上肯定是更加的妙笔生花，思如泉涌。就不可能说到考场上我拿到这个题，我连中文的观点我都要想半天OK。</p>
+    <p>这个是一个练习，尤其是目标分7分或者是七分以上的同学，需要注意这个练习。有些同学说我现在就是写一个简单句的困难，那你应该把你的重心放在语法的学习上，就是夯实的一个基础。OK. 好的，以上就是我们第一节课全部的内容，我们下节课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-10.html">精讲逐字稿</a></li>
+      <li><a href="qa-10.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-09.html">上一讲 09</a></li>
+      <li><a href="lesson-11.html">下一讲 11</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

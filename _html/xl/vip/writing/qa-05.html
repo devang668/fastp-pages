@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第05讲 · 双动态图题目 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 05 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a class="active" href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第05讲 · 双动态图题目</h1>
+    <div class="abstract"><b>本讲概要：</b>在完成自定义图表学习后，学习如何处理和写作涉及两幅动态图表的题目成为焦点。讨论强调了对图表标题的分析、内容描述、两图间的比较，以及如何组织文章结构，确保文章逻辑清晰，读者易于理解图表信息及趋势。特别注意到了处理包含不同时态图表的方法，特别是正确运用未来时态表达未来趋势。通过运用多样的句型和连接词，提升了文章的流畅性和逻辑性，全面指导学生有效应对动态双图题，确保信息呈现的准确性和深度。</div>
+    <h2>问答精要</h2>
+    <details class="qa">
+      <summary>第一幅图描述了什么内容？第二幅图的主题是什么？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>第一幅图是一个表格图，展示了名为edge down museum的博物馆在装修前后一年内游客人数的变化情况。第二幅图通过调查问卷的形式，研究了游客在装修前后对参观体验的满意度变化，比较了满意度的百分比提升。</p></div>
+    </details>
+    <details class="qa">
+      <summary>针对双图题，应该如何进行分段写作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>针对双图题，应采用“一幅图一段”的分段方式，分别概括出每幅动态图表的特征。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这两幅图的topic是否一致？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这两幅图的topic不一致，一幅图关注的是游客人数，另一幅图关注的是游客满意度百分比。</p></div>
+    </details>
+    <details class="qa">
+      <summary>开头段应如何改写题目？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>开头段需分别改写两个题目，保持第一幅图表（table）的原题不变，第二幅图表（pie chart）则需要调整为展示比较结果的名词形式，并明确时间状语和比较内容。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何在概述段体现双动图之间的联系？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在概述段中，要总结出两幅图表整体趋势变化的同时，强调它们之间存在的因果关系或整体到局部的关系，例如装修前后人数和满意度的变化联系，以展示双图题目的踩分点。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在写作关于动态Pie Chart的内容时，如何描述数据的变化趋势？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在撰写主体段时，可以采用总分结构来描述动态Pie Chart中的数据变化。例如，首先指出在重新装修后，博物馆吸引了显著更多的游客（从X人数增长到Y人数）。然后，通过独立主格结构具体说明增长幅度，如“With the visitor numbers rising to 92,000 from 74,000”。对于表格图的写作，同样遵循总分原则，通过第二幅图表展示满意度改变的情况，并详细描述各个满意度等级的百分比变化。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何处理表格数据并将其融入到段落中？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在处理表格数据时，依然保持总分关系。首先总体介绍从第二幅图表中体现的分段方式或逻辑，即通过表格数据观察参与者满意度的变化。接着列举并对比满意度等级的人数变化，如“there was a noticeable rise in the percentage of people who were very satisfied with their visit”，并用同义词进行改写，如将“very satisfied”改为“happy with their visit”。然后逐一对各个时间节点上的趋势变化进行描述，如“the proportion of visitors who were quite content rose to 35% from 15%”。同时，也要提及其他类别如不满意和非常不满意的人数变化情况。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何在主体段之间使用衔接句型以使文章更加流畅？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在写作主体段落时，为了使文章过渡更为自然，可以使用一些常用的衔接句型。例如，可以使用&quot;when account to the...&quot;或&quot;there were / there are...&quot;与图表名称结合，或者使用&quot;according to the...&quot;直接引出图表信息。另外，还可以通过&quot;in terms of...&quot;、“it added that...”、“moving on to...”等方式来连接不同图表或主题，确保段落间的衔接更加丝滑。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这两幅图表描述的对象是否一致？这两幅图表的单位是否一致？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>不一致，第一幅图表描述的是人均寿命（预期活到9岁），第二幅图表描述的是国家人口数量（以百万为单位）。单位不一致，第一幅图表的单位是具体的age（年纪），第二幅图表的单位是人口数量（in millions）。</p></div>
+    </details>
+    <details class="qa">
+      <summary>这两幅图表涉及到了什么样的时态变化？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>这两幅图表涉及了一般过去式和一般将来时，因为它们不仅展示了过去的数据，还对未来（如2050年）的人口信息进行了预测和预期。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何撰写关于这两幅图表的introduction段落？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在introduction段落中，需将原题目具体化为“展示三个国家人口数量和人均寿命变化的图表”，并明确时间点为1950年、2000年和2050年。</p></div>
+    </details>
+    <details class="qa">
+      <summary>overview概述段应如何写作？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在overview段，应分别总结两幅图表的总体变化趋势，并指出两者之间的内在联系。例如，通过分析单位（人均寿命预期与人口数量）之间的关系，阐述哪些国家因寿命预期增长而导致人口数量上升，而西班牙虽寿命预期增长，但由于人口基数较小，人口数量反而可能下降。</p></div>
+    </details>
+    <details class="qa">
+      <summary>主体段如何描述图表要点？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在主体段，可以根据图表数据的走势、涨幅大小、高低变化或时间点进行分段描述。但鉴于这些图表的趋势均为上升，因此按照涨幅、高低或总分形式进行描述可能不太合适，建议按照时间点划分段落，分别描述1950年至2000年及2000年至2050年各个国家的趋势变化。同时，由于存在将来时态，必须将过去与未来分开写作。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在描述未来时间时，如何使用英语进行表达？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>我们可以通过多种方式表达对未来时间的预测或描述，例如使用will write（会上升）、it focus to write（会增长）或be predicted to（将增长）。此外，还可以使用arrive is predicted in这样的结构来表示预计会在某个时间点达到某个状态。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何按照逻辑顺序书写图表分析中的各个部分？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>首先，针对bar chart部分，可以先写出整体观察点，如&quot;Looking further at the bar chart...&quot;，然后逐个分析各个对象词（如China, the United States, Spain）的变化趋势，并具体说明其过去和将来的变化情况。例如，中国的人口增长率变化、美国缓慢上升的人口数量以及西班牙未来预计下降的人口趋势。</p></div>
+    </details>
+    <details class="qa">
+      <summary>在撰写关于人体寿命预期的段落时，如何组织信息和体现分段逻辑？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在body two部分，首先通过&quot;Moving on to the table...&quot;引出对表格数据的分析，指出三个国家在20世纪下半叶人均寿命预期显著增长。接着分别列举出各个国家过去和未来的人均寿命变化，并注意对数据进行估值处理，避免过于繁琐的数值。最后，总结出三个国家人均寿命预期将持续增长至2050年的预测，强调各个数值对应的国家名称。</p></div>
+    </details>
+    <details class="qa">
+      <summary>如何处理并展示动态双图题中关于过去与未来时间的信息？</summary>
+      <div class="qa-body"><p class="a"><b>答：</b>在处理动态双图题时，需注意区分过去和未来的时间点。对于过去时间，直接描述各个对象词的变化情况；而对于未来时间，采用将来时态单独写出各个对象预计的变化趋势，如人均寿命预期在中国、美国和西班牙的增长情况，直至2050年。</p></div>
+    </details>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-05.html">精讲逐字稿</a></li>
+      <li><a href="qa-05.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-04.html">上一讲 04</a></li>
+      <li><a href="lesson-06.html">下一讲 06</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

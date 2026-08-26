@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第03讲 · 静态图表 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 03 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a class="active" href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第03讲 · 静态图表</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次课程中，主讲人介绍了写作小作文系列课程中关于静态图表学习的部分。</div>
+    <div class="tip">本讲含 30 组问答精要，可到<a href="qa-03.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在这次课程中，主讲人介绍了写作小作文系列课程中关于静态图表学习的部分。</p>
+    <p>课程首先强调了静态图表学习的重要性，分为“写什么”和“怎么写”两大模块。在“写什么”的部分，讲解了静态图的看图方式、组织架构和写作步骤；“怎么写”则着重讲述了如何通过补充必备词汇、句式和语言点来提高写作能力。静态图表的特点是没有时间维度或只有一个时间点，无法显示对象的变化，只能进行高低比较。静态图表常见的三种类型包括表格、柱状图和饼图。主讲人强调了分组方式的灵活性，以及如何根据图表内容合理分组、组织语言等技巧。通过举例说明了如何进行信息筛选、数据对比和逻辑分析，进而提出写作时应关注的最大值、最小值和相似值，并介绍了如何用丰富的句型和表达来提升写作的多样性与文学性。最后，主讲人布置了课后练习，鼓励学员通过实际图表练习来巩固所学知识，以提高写作能力。</p>
+    <p>各位同学大家好，我是legacy。欢迎大家来到雅琪写作小作文系列课程。我们今天将继续进行小作文静态图的学习。熟悉我们以往的授课风格的同学们一定知道，我们的课程主要分为两大模块，分别是写什么以及怎么写。在写什么的部分，会带大家去讲解静态图的看图方式，具体的组织架构以及相应的写作步骤。那怎么写呢？就是依然会逐字逐句的给大家去补充，静态图需要掌握哪些必备的词汇以及句式，以及相应的语言点，才能更好的进行写作。好的，那我们正式开始。我相信在已经学过动态图的基础之上，静态图的学习和备考对于大家来说会相对简单很多。我们只需要去思考一下两者到底有什么样的一个去区别。</p>
+    <p>我们先来看一下静态图都有哪些长常见的类型。明确一下静态图它的一个概念。当图表里面没有时间就是没有时间或者只有一个时间的时候，那么这个图它就叫做静态图。静态图我们没有办法逐一写出对象的变化，我们要进行高低的一个比较。静态图最常见的有如下三类图表，分别是table表格，然后bar chart住图以及high chart饼图。然后我们来看一下，针对这些图表，我们具体的写作框架以及写作步骤应该是怎么样的那整体的写作结构与动态图保持不变，我们依然要写成四段式，也就是在手段要进行图表的一个介绍，然后在paragraph two来进行整个图表的概述，找出文章当中最显著的特点。然后接下来主体端的部分进行均匀整体的每一个组别内部进行区的一个比较。写作过程方面，我们依然分为如下字步、看图、审题，然后写开头段，写总结段以及写主体段。</p>
+    <p>那唯一的区别在哪里呢？在看图的部分，我们不光要能够找到每一幅图它的标题就是它描述对象，这幅图表到底在说什么，然后图表当中到底有几个对象。除此之外，我们还要注意的是有几组对比对象。</p>
+    <p>什么叫做对比对象呢？给大家来举一个简单的例子。比如说将这幅图表，它的数据是通过几个维度来进行比较的。我们来看一下，我们可以看到它其实是通过两个不同的维度，一个维度就是什么生活质量的这个方式，评价的维度。另外一个维度就是国家，另外一个就是从country的一个角度。所以这里面它只有两组比较对象。</p>
+    <p>我们既可以比较同样的一个评价标准，下面五个不同国家数值的大小，同样我们也可以横向的进行比较。比如说针对一个国家来说，它的不同的生活品质的这个方面分别都是有怎么样的一个数值。这个是有两组比较对象。</p>
+    <p>然后我们再来看一下这幅图，这幅图它的标题讲的是在澳洲，根据不同的性别，学生们取得不同的level的文凭的一个百分比。在这幅图里面它有几组对比对象，我们仔细来观察一下，它首先有一项横向的一个比较，也就是不同学历的文凭之间的一个比较。除此之外，他也可以可以从男女这个维度来进行比较。所以这一组依然是一组多维的，就是说从两组比较对象的一个静态图表，我们再来观察一幅图，这幅图它主要写的是中在澳洲孩子们参加四个不同的活动之间，三个年龄组之间的一个表现。那么我们会发现这幅图它有几组比较对象，依然是有两组。首先有三个不同的年龄组的组别可以来进行对比，然后除此之外还会有四个不同我们的活动也可以来进行对比。所以这幅图表依然是两组比较对象。</p>
+    <p>针对静态图的看图部分，我们一定要找到这幅图表里面有几组的比较对象。因为我们要按照这个分组向他们进行一个数据的一个对比。那接下来静态图的主要信息有哪些呢？针对每个组别来说，我们要找到每个组别内部的最高值、最低值以及第二高值，这个叫做它的主要信息。</p>
+    <p>然后静态图的一个特点，我们会发现图表当中它往往会有很多的这个对象。所以我们可以怎么样可以将类似的数据进行合并，就要敢于省略数据。比如说我可以把排名中间的类似的差不多的值进行一个合并，我只需要写出什么？写出他们的一个区间就可以了。同时我还要将数据进行一个比较，就是这个组别当中哪些数值之间它们存在着倍数关系，或者是否有一些知识相同的。然后哪两个对象之间他们存在这种最大差或者是最小差，这个是主要信息的部分。</p>
+    <p>然后接下来我们看完了主要的信息，最重要的一件事情就是我的这幅图表如何来写进行分组，也就是断一断，如何进行一个划分。静态图案它的分组方式非常的灵活，我认为只要你的分组方式能够比较直观的体现出来这个图表的显著特征即可。所以我今天会给大家多介绍几种不同的分组方式。大家再去看图的时候，自行的进行选择，你的这幅图表更适合用什么样的方式去进行一个分组。大家请你要记得，就是关于分组和分段的方式没有一个统一的标准，只要你能够言之有理即可。我们先来看一下第一种分组方式，就是按照数值的高低来进行分组。我们来看一下这幅图，它讲的是十个不同的国家煤的产量以及销量的一个数值的一个比较。</p>
+    <p>针对这幅图我们来看一下最宏观的最显著的特征，就比如说你把这个图拿的很远，能看到一个比较明显的特点是什么呢？我会发现排名第一和排名第二的两个国家，也就是china and the united date，他们这两个国家怎么样的呢？无论是它的产量还是它的销量，就是占据了很高的一个比例。然后接下来排名第三名到排名第十名的这几个国家，他们有个什么样的特点呢？他问就是数值我觉得都没有超过10，对吧？没有超过10，然后大致都是在相同的一个时间范围内。所以你像这幅图，我再去分土的时候，我就可以按照这个高低的方式来将图表进行一个分组。将排名第一和第二分在一组，然后将3到10名的这些国家分在一组，合并分类来写。</p>
+    <p>这是一组一种分组方式，接下来我们来看一下这一幅图。这幅图在静态图当中应该很常见的了，江西很多同学已经见过这幅图。2万，他主要讲的是在五个不同国家，然后人均消费的不同的支出的一个占比那比较对象有几组？分别是两组，一组是country国家，另外一组就是人们支出的三个不同的方面。那大家思考一下这一幅图我们可以怎么去进行分组。</p>
+    <p>我相信有一些同学他可能没有接触过静态图的写作。那么看到这幅图表的时候就觉得我可不可以按照国家来进行一个分组呢？比如说我就将前面三个国家分在一组，后面两个国家分在一组。可以，但是你思考一下，这样分组的话，它是不是就整个的这个小作文写起来会像一个流水账，就好像再去进行一个无情的信息的一个描述。好像就是说这个土耳其它在a food上面支出多少，然后在clothing方面支出多少，在leisure and education方面消费支持多少。</p>
+    <p>这个整体看起来不是特别的有逻辑，所以我认为这一幅图不太适合用国家来进行分组。因为从始至终没有哪一个国家在每一个维度上他都是排名第一的。比如说我们来看一下，在food方面我们会发现它最高，就土耳其这个国家是最高的。在第二列就clothing方面，我会发现它最高。然后在这个leader in education方面，我会发现它是最高的。</p>
+    <p>没有哪一个国家始终在一个标准下，它都是保持一致的排名的，所以横向的分组我们就不太理想，那这个时候我们可以怎么样？按照数列来进行一个分组。我们观察一下，它在这里一共有三列，那这个三类的之间它们之间有没有一个关联呢？我认为是有的，相信有一些同学在上高中学政治的时候，应该接触过一个经济学的概念，叫做什么呢？恩格尔技术。恩格尔技术是什么？</p>
+    <p>就是一个家庭他在吃喝，就在食品上面的一个支出，占他的这个家庭总支出的多少，对吧？那我认为这三列之间，他们就有这一个此消彼长的一个关系。你像比如说一个国家，它的恩格尔技术就一个一个不是一个国家，是一个家庭，它在食品上面花费比较高，那么可能相对的在其他方面就会比较少。所以它们之间是一个种此消彼长的一个关系。那我们就可以按照这个列，按照类别来进行分组，一共三列。我比如说我可以选择将food and drink分为一组，将loading and leisure education分为一组。因为这两列相对来说整体的数值都是比较的低的那就是另外一组分组方式。</p>
+    <p>然后在小作文当中最常见的一种分组方式，也就是最普遍的是什么呢？我们可以就是将这个数列进行分组。因为静态图的核心是什么呢？要体现出来一个多维度的对比。大家记得当你拿到一幅静态图的时候，这幅图表至少是一个二维的。有的时候可能是三维的，那么你要体现出来多个维度的对比。所以说我们最常见的分组方式也就是按这个数列来进行一个分组。</p>
+    <p>像这幅图，我们先来看一下这幅图它讲的是什么？他说这幅图标展示了学生们的一个opinion on different aspect of courses，就是学生对于他们参与的这个课程进行一个打分。然后这个打分是从五个不同的维度。我们就可以看到，这幅图它有两组比较对象，一组就是学生们所参与的这个课程，另外一组比较对象也就是他们对于这个课程评分的不同的五个维度。</p>
+    <p>那我们可以怎么样按照数列来进行一个分组，将数列按照高低的顺序进行分组。这里面一共有五列，我们可以看到最高的一列是哪一列呢？叫做teaching call，叫做teacher support，因为它出这样的一个最高值，这一列整体排名第一。然后接下来第二列teaching college，第二列整体排名第二。然后接下来core content，就整体是排名第三。然后接下来他排第四，他排第五，一共这样的五列。</p>
+    <p>我们可以将数列两两分组，大家记得将数列两两分组，我们可以选择的就是1231组，451组。我们也可以选择一二一补、3451补，这都是可以的。因为它本身它就不是一个偶数的一个数列的组数，所以不平均那也是理所应当的。</p>
+    <p>我们来比较的是什么？比较的是每一列当中三门课的表现。比如说像这个第一步我觉得我就要比了，我说在这个tutor support就叫支持的这个维度上面，学生评价最好的一门课是哪一门课？是business这门课。然后其次是math数学这门课，然后评价最差的是computing，是计算机。然后另外的举例，我依然也要将这样的按照这样的高低来进行一个分组。</p>
+    <p>然后有些时候就是我们再去看这个静态图的时候，我们可能分不清楚哪一个应该是横行，哪一个应该是数列呢？我应该以哪一个维度来作为我整个的分段的一个逻辑呢？我在这里给大家总结了一下，就是选择包含在所有图表的组，就是来进行分组。你看哪一个维度，它在每个图标里面都包含都体现了。所以一般来说，我们以这个时间地点和年龄组作为第一对比对象。就当比较对象里有这几组的时候，我们优先与他们作为第一对比对象，也就是他们作为什么作为横行。作为横行另外的一组作为数列OK然后将这个数列按照高低来进行分组。将这幅图我就可以按照这样的方式分为两组。</p>
+    <p>横行也就是三门课，数列就是五个不同的评价维度。我在每一列当中将三门课的评价的一个高低，也就是将他们的满意度来进行一个对比。这个就是我的主体段，大致我要去表达的一个内容OK然后接下来我们的在主体端端中比较了每一列当中哪一门课它的表现比较好。那我们的另外的一个维度如何进行横向的一个对比呢？在经过我们五列竖列的比较之后，我们其实就可以得出一个横向的比较整体的比较宏观的结论了。</p>
+    <p>就是我们会发现什么呢？整体来讲business这门课它的评价就是学生的一个评价是最好的。既然这个是概述端的内容，我当然就不用写的非常的细致了。可能business它不可能在每一个维度上它都是排名最好的，它也会有排名较低的。</p>
+    <p>大家注意概述段我们要写的是什么？整体，概述段的部分描写的是整体信息。同时我们也会观察到，无论是哪一门课，学生对于这个teaching college和tutor support它的评价是比较好的。然后无论是哪一门课，学生对于这个resources的评价，就对于这个维度的打分都是最低的。那么这些我们都是可以写在overview guide数段的部分，作为另外一个组别的对比。</p>
+    <p>OK然后我们接下来来看一下下一个分组方式，就是我们可以将这个XY的比较来进行分组。我们先来看一下这幅图，它主要讲的是在澳洲人们取得不同文凭的这种男女的百分比的一个对比。大家记得凡是涉及到这种男女两两对比的一个图表，我们可以选择一个稍微不一样的分组方式。我们可以怎么来分呢？我们可以将比如说male的男性，比如说把它用X来指代，然后把这个female、女性用这个Y来指代。那么我们可以怎么样将X小于Y的分为一组，然后将X大于Y的分为一组。这是长成这个样子的图表，我们的一种特殊的分组方式。</p>
+    <p>OK以上我们为什么要给大家讲这么多的分组方式呢？其实就是为了帮助大家更好的解除概述端的信息。因为如果有一个静态图，你没有能够将这个组别进行有序的一个分组。你会发现你看不出来或者体现不出来这个静态图最显著的一个特点。Ok所以我们下面就来看一下，就是概述段要到底怎么去写。</p>
+    <p>概述端的重要性，我之前已经跟大家强调过了。如果说你不写TA就是五分儿。如果说你写了，但是写的不好，什么时候写的不好呢？过于的关注细节，或者是与这个主体端的内容会很重复，那么你的这个TA一定是七分以下。所以在分组结束之后，我们就可以将这个概述段就有序的解出来了。</p>
+    <p>拿这幅图为例，这幅图讲的是人们在三个不同方面的一个支出的一个占比那我们选择的分组方式是按照类别来进行分组。那这幅图的概述段我们就可以怎么写呢？我说as clear that on the largest proportion of consumer，depending on its country, went on food, drink and tobacco.</p>
+    <p>就是消费者们在哪一方面的支出最高呢？在这一组。然后on the other hand，然而在另一方面，我会发现the leisure education category就是在最后一组当中has the lowest percentage in the table。也就是我将这个组别当中最高值和最低值写出来即可。</p>
+    <p>接下来我们来看一下这一幅图，这一幅图主要讲的是也是五个不同的国家，五个不同的国家，然后自个就是生活品质的不同方面的一个比较。那么我的分组方式就是将这个数列两两分组。经过每一列当中对于五个国家的一个比较，我的overview概述段是不是可以得出一个横向的结论呢？经过纵向的比较，我可以得出一个最终横向的排名了，也就是这五个国家当中哪一个国家它的生活质量是最高的呢？我可以得出一个概论了。从这个图表当中我可以看到的是american citizen，就是美国的公民enjoyed the high and the quality of life，美国的公民享受着最高的生活质量，whereas然而孟加拉with the country which has the low at the quality of life。孟加拉是哪一个国家？享受最低的生活质量的一个国家，分别的是这两个国家。</p>
+    <p>因为我们在经过纵向比较的时候，每一列会发现，他排名第一他排名第五他排名第一，他排名第五，依次是这样的一个关系。所以我的overview就可以进行这样的一个综述，横向的一个比较。Ok那那同理刚才给大家介绍的比较特殊的这幅图，也就是将这个XY比较的分为一组，那么我就可以把这个信息直接的呈现在我的概述段里面，我可以怎么写呢？总而言之，man dominated。</p>
+    <p>我们发现男大于女的是哪几个文凭呢？分别是在这里man dominated分别是他他和他分别是DA guild vocational diploma，然后post graduate diploma and master degree，在这三个组别当中是男大于女的。所以我用了dominated这个词，它表达的是主导地位的well women。然而女性他们更加的were more real，more likely to retrieve, 更加愿意获得的是这两个文凭，分别是a bachelor and undergraduate diploma，分别更加愿意获得的是这两个文凭。</p>
+    <p>那这个是关于长成这个样子的图表概述段到底要怎么去写。Ok因为开头段的知识点是完全一致的，所以在小作文的部分就没有再教大家如何去写这个开头段。我们直接进入到综述段的部分。</p>
+    <p>好的，在完成了概述段的写作之后，下面让我们开始进行主题段的一个学习。那么在开始学习主体段写作之前，还是老规矩，我需要给大家补充一下关于写作部分重要的饮料，也是必备的词汇以及句型，我们来看看都有哪些。不同于动态图我描写对象的趋势变化，静态图我们的表达相对来说是达尼的，我们需要写出的是不同对象之间或者数值与数值之间的一个对比。</p>
+    <p>那我们可以用哪些词呢？第一我们要积累的是关于最大值的一组表达，我们可以用的是dominate这个词，这个词它指的是占据或者说这个占主导的一个意思。然后除了dominate之外，我们可以用top the list，就是表示某一个数值在整个的这个列表当中，它是排名第一位的。</p>
+    <p>第三，我们可以用的是do more than others，也就是比其他的要更多。然后我们也可以选择直接说某一个对象的数值，be the luggage是最大的，前面直接加对象词它的数量是最大的那除了这个阶段就直接写之外，我们也可以相对能弱化它的数字性。比如说我们在整个概述段，或者是在这个主题剧当中去写的的时候，我们可以突出它的文学性。比如说我们可以采取人来做主语，就大家再去写这个精彩图的时候，可以尝试观察一下这个图表，那能不能够用人来做主语。比如说我说女性更愿意获得了什么样的一个学历，我可以直接说人，然后melt likely to更愿意做某事。或者我也可以直接说图表当中的某一个现象，它是not the popular，它是最为普遍的。然后我也可以说用换一个表达叫melt the commonplace，这些都可以。</p>
+    <p>那有第一我们就有第二，第二我们可以怎么说？我可以在说完第一之后，大家记住这个表达可以有follow by，后面直接跟着第二名的这个数值，或者跟着第二名的这个对象，或者我们可以说某一个对象come second，那这个对象是排在第二的，或者这一个对象它的具体的数值是be the second largest，这是关于第二的表达。那除此之外，我们还要掌握的是关于最小值。除了直接说某一个对象他可能是the late，我们还可以怎么去说呢？我们可以说某一个数值它是最不起眼的，或者是最不重要的那这个表达叫做insignificant，最不重要的一个也可以说某一个现象它是popular。比如说在美国，我们会发现骑自行车的这个现象是the latest popular。那我们可以用的是这样的一个表达，或者我们可以用人来做主语，就是人们最不愿意做某事，就比如美国人最不愿意american are live likely to travel by bicycle，最不愿意的是骑车出行。</p>
+    <p>然后除了最大最小之外，我们说了对于中间的数值我们要进行一个合并分类，我们需要掌握一些关于区间的一个表达，我们要把中间的这个值写出它们的一个范围。那关于范围的表达，我们来看看一下有哪些。在这里给大家补充了两个，一个是range from a to b，就是从这个气垫值到终点值，这个叫在一个什么样的区间。除此之外，还有一个叫做collector。Collector这个词是什么意思？它其实有很多的含义，它可以当动词，表示的是一个聚集，就是说聚集在一个什么样的范围内。那么collector between a and b这个词除了表示句型之外，它也可以指什么？它也可以指的是一个一个量词，然后表示一堆儿或者是一团同。这个词大家需要掌握一下，然后接下来关于倍数的表达。</p>
+    <p>倍数的表达我在这里就不过多的去赘述了。因为之前我们在讲动态图的句型的时候，已经给大家强调过了，关于A是B的几倍。这个表达我们可以怎么去说？然后接下来关于这个相似相同，我们有如下四个表达。我们可以说be the same as a的值与B的值是be the same as the bigger for b或者我们可以用be equal to就是A与B的值是相同的，接下来be next day，或者be similar to，同样他们可以指的是这种类字值或者是啊相似值的一个表达。</p>
+    <p>然后最后关于静态图，我们需要经常表达一个概念就是占比一样。因为这个态度往往涉及到很多的丙图，就是A这样的B的多少或A占了总量的多少，这个占比我们可以怎么说呢？第一个词我们可以用的是constitute，然后i can for，然后represent，还有makeup，这些都表示占比的部分。这就是关于养静态图大家必须要掌握的一些词汇的部分。关于这事的部分，我在这里也给大家进行了一个总结。</p>
+    <p>我们一起来看一下静态图大家需要掌握哪些句式才能更加丰富的，就是语法多样的来进行主体段的一个写作。在这里面我也是随便的给大家做了一张表格。这张图表它描述了说在美国以及在英国，人们使用不同的交通工具出行的一个百分比。</p>
+    <p>我们简单来看一下，第一个句型，我们可以用while或者whereas引导的状语从句，这个地方他俩是挨着的。举个例子，比如说我们想表达在美国开车的人的比例最高，而骑车的人的比例最低在哪里呢？应该是横行之间的一个比较，开车的人比例最高，然后骑车的人比例最低。那最大值最大最小值的一个比较，我们中间肯定要用一个a while来进行连接。</p>
+    <p>那我可以怎么去表达这句话呢？我说在美国开车人的比例，我就可以直接用这个描述对象来做主语了。我说the proportion of card user，然后one high extra是最高的多少呢？这个具体数值我就没有写。While来表示一个转折，你的good travel by bike。这些骑车的人accounted for the lowest proportion，取车的人他占了最低的一个占比那。这个是关于关于这个状语从句的一个句型。</p>
+    <p>接下来我们来看一下倍数的一个表达，如果说我们观察到某一个数列区之间的数值，它们存在这种倍数的关系，一般来说就是二倍、三倍，或者比较明显的就是一些极值，就是什么100倍，我们可以就是把这个倍数关系体现出来。当然了，如果你观察到他们可能是一个什么八倍倍，什么七倍，那这样你就没有必要去写倍数了。那我们来看一下这个就行，说在中国使用公共交通工具的数字是美国的三倍，那很显然我要描述的是这一列的数值。那我在这里我就可以这样去说。In china，public transport was built by a large proportion of people.</p>
+    <p>公共交通被很多人使用，然后后面艾特加上具体的数值。关于爱的用法，我们在动态图的部分已经给大家强调过了，就是关于介词的一个使用。然后three times the figure for the US，在这里要注意什么？这种比较对象的一个一致性，它不是美国的三倍，而是美国的数值或者是美国的百分比的单。所以在这个地方我要加的是什么？The bigger four, 这是倍数句型。</p>
+    <p>然后第三我们会用到的是比较级的一个剧情，还是我拿这一个数列来进行一个举例。比如说在美国开车的人比中国开车的人比例高，这是一个很简单的一个比较的一个句式了。我可以怎么去说呢？我说in the US the proportion of card user was higher than the bigger for china。这个句型就非常简单，还是同样的一个语法的点，就是比较对象的一致，这个地方就不过多的去强调了。然后接下来最高级的一个用法，那最高级的用法肯定在这个静态图里面非常的普遍了。为什么？因为基本上每一列或者每一个横行，我们都要解出来这个最值。</p>
+    <p>那么难点在于什么呢？我们能不能够用更丰富的句型把这个最高级给表达出来。除了单一的只描述对象它是when the highest之外，我们可不可以弱化它的数字信息，给它增强一些文学性、文字性的一个色彩呢？</p>
+    <p>举个简单的例子，比如说在这个横行，我了解的是汽车是美国人最常用的交通工具。可能大部分同学拿到这一句话，就是在掌握了一些基础进行的前期支架就开始写了。Uh the precaution of americans who travel by car, accounted the uh或者uh accounted for the highest proportion，占了最高，或者是what the high，就写的比较单调，那我们还可以怎么样来写呢？我们是不是可以写汽车，就是在美国所以普遍的一个现象，或者就开车是最普遍的一个现象，或者汽车在美国是最受欢迎的一个交通工具。</p>
+    <p>所以我也可以这样去讲，card represented它代表了the milk popular means of chen port for american oh。汽车代表了最受欢迎的交通工具，这个是最高级的一个用法。然后最后我们如果说单一的将数值与数值之间来进行一个比较。我们可以用整个介词短语compare with或者是compare to这样的一个词来去写。比如说我们来写这句话，美国开车的人的比例是53%，对比中国只有7%。</p>
+    <p>我们相当于看前面这句话，我们用这个分子分母法来写。大家回忆一下，分子分母法就是分子二分母，加上这句话的一个动词，那请问是什么样的？53% of american traveled by car，有53%的人开车，compared with seven percent of chinese people, 对吧？对比只有中国的7%。</p>
+    <p>这个是关于静态图望写作必备的一些句式。无非就是我们更加多样的体现出出来这个数字数值与数值之间它的一个对比。好的，下面我们来看一下，就是我们刚才练习的这几幅图具体的一个写作。</p>
+    <p>关于静态图，其实我给大家准备了较为丰富的一个练习，无非就是说帮助大家积累更多的语言点。因为图表它都是类似的，无非它是换了一个描述对象。具体描述对象换了，然后数字可能会有差异。但是我们核心的写作思路其实是不变的，所以给大家准备了不同的一个版本。这个版本就是说一个不是特别高，非常一个七分的一个版本，所以相对来说比较简单。大家记住这个写法，来就是说怎么样的准备一下或者积累一下关于静态图写作的一个语言框架，就是没有给大家写的特别的复杂。</p>
+    <p>我们先来看一下这幅图，回忆一下，这幅图讲的是在五个不同的国家，他们生活品质的不同的一个表现方面。然后我们分组的形式就是按照这个数列121组，341组。那我们具体来看可以怎么写呢？我要先写的是第一列，这个GM per head这一列就是人均的这个GDP的一个数额。这一列我要从最高值开始写，然后衔接词就这个词叫in terms of叫做什么呢？就什么什么而言，或者是哪一方面，那就这个GN perhaps方面，美国有着最高的数值是多少？用一个V上来表示一个数值的补充说明。</p>
+    <p>然后接下来第一说完了，我要说第二，第二是谁啊？第二是埃及，那我就用了说egypt occupied，occupied就是位于位于the second place，它位于只是第二位。We伴随它的具体的数值，然后将比较而言，我们会发现这两个值它其实是差不多的。所以我可以用一个比较的句型把它解出来。我说将比较而言，印度宁夏的一个数值我slightly higher，相对来说比这个玻利维亚要高一些。这个是比较级的一个趋势，一个趋势，然后分别是多少呢？我用括号来进行一个数值的补充，分别是580和570。</p>
+    <p>Reductively这个词什么意思呢？就是指的是分别D或者是对应，主要指的是数据的一个罗列。然后接下来最低值很显然显而易见就是这个孟加拉。那我要怎么去写呢？我会观察到美国与这个孟加拉之间，他们两者之间将几乎有着一个非常大的一个差异。最大的差并且有个倍数关系，我要把它解出来，我说与此同学孟加拉有着最低的值。然后接下来美国的数值，the number of USA was about one hundred times at MACHAT that孟加拉美国的数值几乎是孟加拉的一。这个是关于我第一列的一个写作。</p>
+    <p>第二列我依然按照同样的一个思路，但是我要对数据要进行一个大幅的陈列。我们来看一下第二个评价的维度，它主要讲的是每日卡路里的一个摄入量。大家思考一下，这个维度它的数字其实反而就不是那么的重要了，对吧？你想当一个京剧的一个文章，它里面调查哪一个国家的国民生活的最幸福的时候，那我们只需要知道它的排名即可。我们可能不需要列出来英国人每天他的收入有多少大卡，每个默认收入多少的卡路里。所以是没有必要的。我只要突出排名我。</p>
+    <p>然后我去从第一列写到第二列，我要进行一个衔接。所以在这用了一个词叫做as for，也是就某一方面而言，那就这个第二列daily calorie supply而言，we can see the similar pattern。那这个是什么？两组对象之间他们的一个衔接手段，他们是一个类似的关系。因为他们几乎有着相似的排名。我说美国有着最高的数值，孟加拉有着最低的数值。中间的这几楼也可以把它合并分类，用一个比较级的一个句式一并把它解出来。我说虽然印度尼西亚的数值比埃及要低一些，但是it was likely higher。它比玻利维亚相对来说要高。那么我用比较级的一个句型就写出了这三个国家他们之间各自的一个排名，这个就是关于body one的一个写作。</p>
+    <p>同学们也可以暂停本页，按照我们body one的一个写作来尝试练习写写一下。这个第三列和第四列，也就是这个人均寿命以及新生婴儿死亡率它的一个情况。这里会发现大同小异。但是后面两列的话，其实我们可以将这个数据进行一个筛选，对于资料信息进行一些省略。我们只需要挑要点值来解就可以了。</p>
+    <p>然后来看一下，我给大家提供了一个比较简单的一个版本，段与段之间我们首先要有一个衔接，所以是in the area of，在这个人均寿命方面，美国execute the first position，它是排名第一位的。然后接下来我就用到了，followed by这个表达，接下来是埃及，很显然这一列最高的依然是美国，然后第二是埃及，你可以写一个最小值，因为情况跟上一段一样，所以这一列我就没有写的特别的一个详细。然后最后一列是新生婴儿的一个死亡率，我们会看到呈现出来一个截然不同的一个情况。我们可以在这两个两组比较对象之间加一个转折，就we can see a different pattern，或者我们可以直接说at two。那就这个新生婴儿死亡率而言，孟加拉的数值是美国的十倍孟加拉的数值是美国的十倍。</p>
+    <p>这个是关于这一幅图表主题段的一个写作。希望大家借助给大家提供的这个范文，先来掌握一下学习与静态图主体段最简单的一个语言的模板。然后我们接下来来看一下第二幅图，这幅图也是之前我们已经带大家看图分析过了，就讲的是男性和女性取得不同学历文凭的一个百分比的一个对比。然后带大家回顾一下我们的一个分组方法。我们的分组就是按照男大女女一组，然后男小鱼女一组的一个方式。我们的overview其实已经给出了这样的一个呈现。然后那主体段我们要怎么来写呢？要选取哪些要点值来解呢？</p>
+    <p>这一幅图我们也会看到很多的百分比，我们不可能的能把他们每一组的值都一一的列出来。所以我们要学会这种信息的一个筛选。我们可以把这个图表里面的信息进行一个排序。</p>
+    <p>好的，在这一段我要写的是男大于女，男大于女。也就是哪一组呢？分别是这一组这一组别这一组别以及这一组别这三个组别。那这三个组别我要从哪一个开始写呢？很显然我要从九十这一组开始写。为什么在整幅图表当中我会发现最大值出现在这一步，并且男女的对比有着一个最大差。</p>
+    <p>接下来另外的两个组编，就是第一组和第二组，它仍然是男大于女。但是我有没有必要把它所有的数值解出来？那就不需要了。因为他们就是一个比较居中的一个百分比，那我只要写出它的区间，然后以及男女各自的一个关系就可以了。比如说我会发现在这个第第二组当中，在第二组当中男性是女性的就获得这个POSTGRADUALMAN于二倍的一个关系。在这个master degree当中，男性与女性之间大概是1.5倍的一个关系。所以我只要把这些倍数关系呈现出来就可以了。</p>
+    <p>我们具体来看一下写作的部分，我说in this year 90%的男性resistant vocational diploma，90%的男性取得了这一项的一个文凭。那么这应该是最大值的一个写作。Well, women only constitute ten percent.</p>
+    <p>最大值与最小值我想完了，然后接下来我要写的是第一组和第二组，他们有一个相似的一个情况，这一句话就体现了我的什么分段逻辑。分组逻辑或者我的分段方式，他们应该也是一个相似的情况，所以这个地方应该填的是similar。So there were similar situation in the higher level.</p>
+    <p>在更高等级的这个文凭当中，呈现出来了一个相似的一个情况，所以这儿我填的是similar。那具体的他们的数值是怎么样的呢？我说在这两个文凭当中，就是在这一项和这一项文凭当中，the figure for melt，明显我要写出他们一个整体的区间了。我在这聊天一个表示区间的词，后面搭配的是between and。很显然就是我在讲解必备词汇的部分给大家讲的那个词叫做什么壳laughter叫聚集在这样的一个区间，大概在60%到70%，然后分别是女性百分比的1.5到2倍的一个关系。那这个空格我们填什么呢？很显然我们要对于他们的倍数关系作为一个具体的补充说明。所以我可以用一个定语从句，所以这个地方我填的是which，which was about 1.5等于二倍。</p>
+    <p>As though for female, 那这个body one我就写完了，大家看一下是不是非常清晰。男大于女的一组，然后最大值、最小值以及中间的值，我采取了很多合并分类的一个方式来把它们解出来。然后根据这一组，就是这一段的一个写作，给大家布置一个小小的课堂练习里，大家依然也可以将这个本页进行一个暂停。</p>
+    <p>按照这一页的框架我们来练习写一下body two，也可以把这个图表作为一个课件的一个练习。还是我要给大家点播一点思路。在body two我们要写的是女大于男性，也就是写的是这一组和这一组。那么我们要总体的来写，他们是一个女大于男的关系。所以这两段之间他们的逻辑是一个什么样的关系呢？是一个转折的关系。所以我们肯定在断手，要用这个however或者是on the other hand，就这种表达对比的一些逻辑词。</p>
+    <p>我要体现出来我的分组逻辑。我说在这两个组别当中是一个女大于男的关系。那对于数值方面我要怎么去描述呢？我会发现像这一组bachelor这组，它们呈现的是一个最小值，就是一个近似相等的一个关系。在undergraduate diploma当中，它们呈现出来的是一个二倍的一个关系，我只要就写出来的它这个分组，它的一个倍数关系即可。</p>
+    <p>大家可以来练习写一下这个body two的部分，作为我们的课下练习。这个是关于主体段的一个写作。我已经带大家分析了对于静态图来讲最重要的最基本的一个表格，也就是table的一个图表，以及8 charge。</p>
+    <p>下面我们来进行一个真题的演练，我们通过这个图表来讲一下为什么静态图之间所有的图表它们都是可以内部转化的。大家回忆一下，我之前我在讲动态图的时候，我是不是说所有的图表其实你都可以把它转化为一个折线的一个统计图。因为无论这个图表它是以什么样的形式，什么样的类型呈现出来的那本质上我们需要用的表达都是不变的。无非就是要写哪些对象的上升了，或者哪些对象下降了。静态图我认为也是一样的，我们可以以一个表格为作为基准。如果说对于一些看图困难或读图困难的一些同学，那么你可以把所有的图表先转化成为一个table，写出每列之间的对象的一个对比。</p>
+    <p>我们来看一下这幅图，这幅图它主要讲的是什么呢？它讲的是啊在美国人们每一餐摄入不同的成分的一个百分比是多少。这幅图给大家进行一个语言上面的一个郡机，语言上的一个补充。</p>
+    <p>它是一个丙图，我们要优先来确认的是什么？他的本组方式对吧？那他肯定是有两组比较对象的，其中一组就是叫做没有哪一顿饭，另外一组就是nutrients 3种不同的营养元素。那这两个哪一个是横行，哪一个水数列呢？就这两组比较对象我们要怎么样来进行合理的比较呢？我说了我们再去选择分组的时候要去选什么，尽量包含更多的比较维度的对象作为第一组对比对象。所以这幅图我们要怎么去比呢？我们要逐个派内来进行比较。</p>
+    <p>有些同学可能会有些疑惑，就是可能会想问说我能不能这么去比？比如说这幅图我就这样去比，我说在美国在美国晚饭，这个是dinner，晚饭摄入的钠元素比晚饭摄入的saturday night脂肪要多。我能不能这样比呢？答案是不能的那这个就是丙图一个稍微特殊一点的地方，就是我们不能够这样的横向比较，为什么？因为这既然是一个pie chart，那么意味着什么呢？</p>
+    <p>他们的单位一是不一样的。我们小学学数学的时候，应该接触过单位一这个概念。什么叫单位一呢？就是他们的总量我们并不知道，我们只知道他们具体的百分比。</p>
+    <p>举个简单的例子，假设我的钠元素实际摄入的总量是50克，然后我的脂肪实际摄入的一共是200克。那我能不能够说我这个早晚餐收尾的43%的嗱要大于37%的脂肪？答案是不能的。</p>
+    <p>所以这个图就简单了，我就直接每个派内来进行比较就可以了。我们可以把它进行一个转化，有些看不明白的同学我就简单的来画一下，当然画的就是会比较的粗糙，所以但是我觉得可以更好的帮助大家理解这幅图表，就简单的画一下。这幅图它的数列很明显，三种元素sodium that和这个added sugar，我就写缩写了。然后接下来横行哀也就是四顿饭，分别是breakfast早餐，lunch dinner and lunch 0食。</p>
+    <p>针对第一幅图表，我们把这个信息来进行一个填充。我们来看一下，在早餐的部分摄入的是14%，然后午餐的时候是29%，dinner是最多43%。然后接下来最后的net上同样是next也是14%这样的一个百分比。</p>
+    <p>所以我们要做一件什么事情呢？我们就是要解出这一个数列之间他们的一个比较吧？然后分别三组。这么一看的话，这个丙图的看图是不是就是迎刃而解？非常的简单，可以与table进行一个转化。当然了，我们在考场上可能真的没有这个时间没有这个时间去做一个这样的转化。所以这只是我们初步练习的时候，我们看图不能够那么快一点，对于这个图表的类型做出一个反应，我们可以采取这样的一个方式，这个是我的分组方式。</p>
+    <p>然后我还有一个问题，就是这幅图表我的概述段要写什么呢？我们它的概述段也是采取一个不同的分组方式，什么呢？因为我们无法横向比较，所以我们的overview概述段只要写出两组比较对象他们的不同即可，解除两种比较对象不同即可。</p>
+    <p>然后我们一起来看一下，这幅图主体段的一个分段，因为它是三个pi charge，对吧？或者说有三列的一个比较，我们的分组肯定是不能他们平均了。那我们可以选择的是1加2或者是2加1，这其实都无所谓，因为必然它不可能分的平均。然后我们来看一下具体的一个写作开头段，我们要进行一个原题目的改写。那这个开头段的改写我就不说了。</p>
+    <p>接下来我们来看一下overview概述段的部分，我们要突出两组比较对象的一个不同。如何不同呢？我们可以说两组比较对象分别是这个meal and newtonian对吧？以及这个营养元素。我们可以说三种营养元素，它们的摄入情况都是不一样的。我们可以我们会发现三个饼图，它们各自百分比的分布是不一样的。然后另外就一种营养元素来说，就每一种营养元素内部每一顿饭，他们的摄入也是不一样的，也就是他们的每一顿饭售的这个百分比也是在变化的。所以我的概述段就可以相对来说比较笼统的去进行概括。</p>
+    <p>我说over，总而言之，the pattern of intake收入的一个情况vary是变化的。我跟你说三个营养元素，就是他们的一个收入情况是不一样的，叫vary from one nutrient to another。并且and the intake of one nutrient，一种营养元素的一个摄入量是怎么样的？Very from me to meal。就是每一餐他吃的也是不一样的。这个是关于概述段的一个写作，然后下面我们来进入主体段的一个部分。对于关于这个静态图或者说这小作文要冲击一个高分的一个同学，可以通过我给大家提供的这个范文来积累一些新的关于静态图的写作思路，以及新的语言的表达方式。</p>
+    <p>我们来看一下高分的一些表达。我的分组方式，我是选择了在body one写的是这两个组别他们的一个比较。所以我就是直接竖列之间按照我们的之前讲过的方式，最大值、最小值类似值，然后有备注值，我可以去写出来这样的方式来写。不同的是我没有单一的去写了，就是这个对象它的一个百分比分别是多少。而是每一个饼图我都变化了不同的句型和和这个语言的风格。</p>
+    <p>比如说我们来看一下第一幅图，4S店钠元素的一个摄入物是怎么写的？我说拿100克的纳维利拿100克的纳维利就没有直接来写。我说dinner at the meal，晚饭你是哪一餐呢？在这用了一个定语从句，in which那which在这里很显然它指的是前面的这个meal这个词。那在这一顿饭当中它是摄入了43克的，那一餐就并没有写说the proportion of uh of什么dinner，up of sodium taken in dinner，was forty three percent。没有这样就很单调的。</p>
+    <p>这些我就直接说了，dinner是哪一顿饭呢？摄入量43克的那一顿饭，然后接下来这是最大值，接下来第二大的值followed by lunch对吧？就是关于第二高的这个值的一个表达，叫做followed by。</p>
+    <p>那么在这一顿饭当中怎么样呢？在这一顿饭当中29克被摄入，接下来我会关注到一个相似的值，也就是在早餐和在零食当中输入的钠元素是相等的那我除了表示我们之前写的什么的equal to be similar to这些表达之外，我还可以怎么写呢？我说剩余的28课，像你的meaning twenty eight grand，剩余的28课，而even live Blake就被平均分了，被平均分了，这个就是那种切开分开的一个意思。Over breakfast and lunch被早餐和零食平均分了。这是关于第一组图的一个语言风格。</p>
+    <p>第二组图我就选择了采取这个人做主语的一个方式。他既然我要写出来，这些数值之间他们的一个比较，我们先来观察一下。最大值我肯定要写晚餐收入最多剩下的三个值，我认为我可以直接写出他们的一个区间。因为他们看16、21、26，他们在一个差就大差不差的一个范围，我可以写出来这样的一个区间。我说american找人做主语，take in saturated fact most likely最有可能就是美国人最有可能吃脂肪是在什么时候呢？是在dinner的时候。然后接下来补充具体的数值，我说the intake account for the uh thirty seven percent of the daily total，占了每日总摄入量的37%，这个是最大值的一个描述。</p>
+    <p>接下来中间区间我写的是they ate saturated bed。他们吃这个脂肪live likelihood likely就是说不那么可能会不那么的频繁。他们吃脂肪不那么频繁，是在他们的lantry connect，就在这两顿饭里面吃的相对较少。然后最少是在哪里呢？用的是lisbon likely，最不愿意做某事，live likely when they eat breakfast, 吃早餐的时候是最少的。然后在这里还补充了一个值，就最小值16% present。</p>
+    <p>好的，那这是关于body one的部分。Body two body two我要写的是added sugar。它的就是说在自顿饭当中占比的一个百分比的排名。我们先来看一下要解哪些值。最大值发生了一个变化，就是在这个临时当中摄入的这个添加糖分是最高的。然后接下来我们会发现另外的三个值，16、19、23，它们依然是一个相似的一个值。所以我们可以怎么样写出它的一个区间变化即可。</p>
+    <p>那么在这一幅图当中，我们又可以变换一下什么样的语言风格呢？来看一下我说最高级别的这个糖的摄入，叫the high at the level of daily intake，每日摄入最高的这个糖的一个level，发生在next，发生在这个临时当中。然后具体的数值是多少呢？在这里也给大家补充一个关于百分比的一个表达，就是42%。</p>
+    <p>我们还可以怎么说呢？就是分子out of分母还可以指的是42%。所以我说as much I were，the two out of my handwritten brands of added sugar. A taken in the uh, is taken in when american is next.</p>
+    <p>在这个吃零食的时候，就会摄入42%的体验家的一个。然后接下来是关于另外三餐当中，那个时间我说ranging from fifteen percent to twenty three percent，就是在一个这样的一个区间，我用的是range from的这个表达range from a to b好。Breakfast, lunch and dinner are the meals, 是哪一顿饭呢？During which定语从句在这一举动方法里面，americans are less likely taking added sugar。他们在这几轮饭里，美国人是不那么的愿意摄入添加糖的那这个是关于body two我的一个写作部分。好的，这是关于丙图的一个写作。</p>
+    <p>接下来我们再来看一幅图，这幅图是关于这个bar chart住途的一个写作。我们来看一下住途我们要如何去写。这幅图我们先来读一下它的标题，它展示了百分比，就是三个不同年龄组的一个百分比。那这个分别什么的年龄组呢？Australian children taking part in four kinds of activity.</p>
+    <p>Them也就是澳大利亚的孩子们参加各种不同的活动。它的一个百分比比较对降级出来了。哪两组呢？一组是这个年龄组，一共有三个，另外数列是什么呢？四个不同的一个活动。那我说说什么？当题目当中就是这个比较对象当中有这个年龄组的时候，我们要把年龄组作为第一对比对象，也就是他是横行那数列，也就是watching TV我们要比的是同样的一个活动下，三个不同的年龄组的一个表现，对吧？</p>
+    <p>我们先来看一下，这幅图它的一个内容我们就看完了。接下来我们要如何进行分组呢？既然是有四列，四项活动我们就可以选择两两分组，那怎么分还灵活？我们之前讲的按照高低来分的话，他们分别是啊1234，一共是自列。那么我们有两种方式，我们可以按高低分的话，就是一字一组、231组。因为一字的话它的百分比明显相对来说是比较高的，然后23的百分比是低一些的那这幅图我也给大家提供一个不同的分组的思路。</p>
+    <p>我们可以观察到这个咒图它整体的数据非常的平淡，好像就没有什么特别大的一个差异的变化。所以这个时候我们可以突出对比，有突出这个对象与对象之间的一个对比。那我们就可以选择131组，然后241组，也就是最高的和最低的一组来对比。我们会发现最受欢迎的活动是看电视，最不受欢迎的活动是art。每一列当中再具体的来解。</p>
+    <p>然后关于概述段的部分，我认为也是可以我们投一个篮儿，可以按照我们之前丙图的那个方式，怎么样呢？突出两组对比对齐这样的不同即可。好的，然后我们来看一下具体的题目，开头段是题目改写，我就不说了，这个部分应该就是大家已经手拿打瞎了。然后来看一下overview概述段，我会发现我说overall，florrie and john, there were diversity among the three age groups.</p>
+    <p>也就是说在这三个年龄组当中有不同，他们是不一样的三个年龄组他们爱干的事儿都不一样。然后在一个组别内部，就在一个年龄组内部within age group，在每个年龄组内部the attendant direct from activity to activity，每个左边内部就是同样的一个活动，它们的受欢迎程度都是不一样的，也就是突出两组比较对象的一个不同。我用的哪些词呢？大家来看一下，就是两句变化那个字diversity或者是direct就是变化，那就是概述段的部分。</p>
+    <p>接下来我们来看一下body one的部分，我要写的是第一组和第三组，他们各自之间高低的一个占比那我要从watching TV开始解，因为它是最高的，我要突出它的一个地位以及受欢迎度。所以我写watching TV was most popular，它是最受欢迎的。然后接下来我用这个with引导的独立主格结构来进行一个补充说明。我说超过90%的孩子都做这件事情，就很显然我们会发现这个活动它整体整体的百分比就在90%以上。所以我说with more than ninety percent of children or teenagers in age group doing this activity。然后最显著的是这一组当中我们要解除什么它的一个最大值，也就是12到16这个年龄组，它在这一数列当中它是最大值，所以我要把它解出来。我说it is melt notable that play。</p>
+    <p>值得注意的是什么呢？Nearly every individual, 几乎每一个人，在12到16这个年龄组都做这件事儿，叫DD activity。这个是什么？最大值最大值。接下来这一组的话，另外两个值相对来说比较低。我写了它整体的范围，并且写到最大其实就可以了，不需要一个的一个把它们都描述出来。</p>
+    <p>然后接下来我要说了，这个很高的百分比，这个活动如此的受欢迎，与另一个活动形成了鲜明的对比，与参加art就taking art classes，参加art这个code成形成签名的对比。怎么说呢？Those high percentages are those指的就是前面的这个活动。这些高的百分比与第一档一组形成了对比，叫contradict the low one in terms of taking art classes，与参加艺术的这个活动就形成了一个鲜明的对比。参加艺术的这一组，我就也是写出它的整体区间就可以了。</p>
+    <p>我说它的一个缺陷，arranging from forty to sixty percent, 然后在这一个组别当中，我也要挑一个最重要的值。这组最重要的值很显然是什么？12到16只。看年龄组为什么它是整个图表当中最小的就最低的一个值，所以我要把它解出来。我说12到16这个年龄组就是值得注意，叫egg noteworthy again就值得再提一下了。为什么？因为at the low at the bigger它是最低的一个值，所以它代表了一个最低的可能性，就是这些孩子当中最不愿意做这些事情。That representing a low level of likelihood was among the children and teenagers done.</p>
+    <p>在这个组别当中，92到16这个年龄组是最不愿意要去参加这个艺术这个课程这件事儿的那是个body one我就写完了。然后接下来我们来看一下body two的部分，也就是我要解reading and riding a bag。我在我开始写之前，大家可以先思考一下，如果说是你这两组，你会选择哪些数据来写呢？我们来看一下reading这一组，reading这一组很显然我要写一个一个相似值。也就是在9到11这个年龄组已经几12到16岁这个年龄组，他们两个的值是相等的，我要把它解出来，这是一定要解的。然后另外fine riding a bike，骑自行车的这一组，骑自行车的这个组，我会发现他们的值就有高有低，你没有什么太大的一个特色。我可以写一下它的区间，对我只写它的一个整体区间就可以了。因为它们当中每一个值都不是特别的有特点，比如说它最大或者它最小，或与某一个值相等。</p>
+    <p>没有好的，那我要接下来在下一段把这些信息来呈现出来，那段与段之间我肯定要有一个衔接，那我就说用时间来进行简介。我说during the same year，在同样的这个一年within uh within the age range from nine to eleven。我说在9到11的这个年龄组当中，那就先写的是reading，我用人来做主语。</p>
+    <p>我说70%的澳大利亚的孩子读书这样三分seventy percent of australian raid有这么多人去选择看书。并且因为是一个相自制，所以我要用and来进行连接。我说a saying proportion of australian，相同百分比的澳大利亚的人，在12到16岁的这个年龄组did the same thing做同样的一个事情。然后另外在这个组别当中，我会发现这个活动的一个流行度在5到8岁这个年龄组就像稍微的低一些，这很正常。因为按照我们的逻辑思维，常理来讲，5到8岁可能他认识的字还不够，就是这种阅读能力还没有。所以我说the popularity of the activity这个活动，它的受欢迎程度我slightly lower，相对来说还是较低的。在5到8这个年龄组，在这里用了一个比较级，突出他们的一个对比。</p>
+    <p>接下来最后一个组别，我要有一个逻辑衔接词，我用的是in terms of，在前面给大家讲过，它指的是就某一方面in china。Basically在这个骑车的这一个左边，我就可以用人来做处理了。我说这个australian，澳大利亚的人们were active at obviously different level than他们的一个活跃程度，或者说这个活动的受欢迎程度是不一样的。然后接下来我要写出它的一个区间，我说at the figure it was in a rather wide range of这个a wide range of叫做一个很大的一个范围。它的活跃度就不一样了，在60%到82%之间间。最后一组我解出了它的一个区间值OK以上我已经带大家分析了，就关于这个静态图的部分，表格图，关于这个丙图，还有关于柱图，逐个图表进行了分析。并且对于写这种图表进行了基础语言的补充，以及高分写作表达的一个补充。</p>
+    <p>经过本节课的学习，也给大家布置了一个小小的课后练习的一个作业。希望大家在能够观看本节课视频之后，完成下面的这个静态图表的一个练习。好的，以上就是本节课的内容，我们下节课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-03.html">精讲逐字稿</a></li>
+      <li><a href="qa-03.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-02.html">上一讲 02</a></li>
+      <li><a href="lesson-04.html">下一讲 04</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

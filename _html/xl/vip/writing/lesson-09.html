@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第09讲 · 大作文先导：考试概述与评分标准 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 09 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a class="active" href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第09讲 · 大作文先导：考试概述与评分标准</h1>
+    <div class="abstract"><b>本讲概要：</b>本次雅思写作课程先导课由讲师介绍，涵盖了考试概述、评分标准解读以及针对不同分数段的常见错误分析。雅思写作分为Task One（小作文）和Task Two（大作文），分别要求20分钟和40分钟完成，小作文侧重图表描述，大作文为议论文，后者在总成绩中占比较大，强调了大作文的重要性。课程详细解析了各分数段的特点，包括内容、逻辑、词汇和语法的要求，旨在帮助学生识别薄弱环节，进行精准备考。同时，课程对比了雅思写作的纸笔考试与机考形式，并指导学生如何选择适合自己的考试方式，为考生提供了全面的备考指导。</div>
+    <div class="tip">本讲含 19 组问答精要，可到<a href="qa-09.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>本次雅思写作课程先导课由讲师介绍，涵盖了考试概述、评分标准解读以及针对不同分数段的常见错误分析。雅思写作分为Task One（小作文）和Task Two（大作文），分别要求20分钟和40分钟完成，小作文侧重图表描述，大作文为议论文，后者在总成绩中占比较大，强调了大作文的重要性。课程详细解析了各分数段的特点，包括内容、逻辑、词汇和语法的要求，旨在帮助学生识别薄弱环节，进行精准备考。同时，课程对比了雅思写作的纸笔考试与机考形式，并指导学生如何选择适合自己的考试方式，为考生提供了全面的备考指导。</p>
+    <p>Hello, 各位同学大家好，我是lexi。欢迎大家来到雅思写作系列课程。本节课将作为一节先导课，我会带大家建立一个对于雅思写作初步的认识，以及了解写作相关基本的考务信息。今天这节课主要包含四大模块，分别是对雅思写作整体的考试概述，然后写作评分标准的一个具体解读，以及六分以下同学们常见的错误，最后是各分数段写作存在的一些特点。</p>
+    <p>我们下面先来看一下第一部分，关于整体的考试概述。相信大部分的同学对于这个考试一定有个基本了解。知道写作部分是有两个任务，分别是text one和text two。像text one的部分是一个图表写作，要求我们在20分钟之内完成一篇150字以上的图表写作。Test two我们称之为叫做议论文的写作。我们需要在40分钟之内的时间完成一篇250字以上的议论文。但是实际上在考试的时候，我们会被完整的给到1个小时的一个时间。</p>
+    <p>我们可以根据自己的实际情况来进行这个大小作文先后顺序的一个决定和分配。比如说像我可能更擅长的是大作文，因为对于各种题型话题比较的熟悉，那我可能会先写大作文。大概我会花30到35分钟左右的一个时间，完成大作文的一个写作，然后再去写小作文。</p>
+    <p>像我有些同学，尤其是学理工科的一些学生，他们可能更擅长的是看图、读图、分析图表。所以他们会先写自己比较擅长的小作文，然后再去进行大作文的构思。这个其实是可以结合实际的情况来进行一个分配的。</p>
+    <p>然后我们下面先来看一下大小作文的具体的分值。小作文占我们总成绩的3分之1，大作文占我们总成绩的3分之2。所以最终我们写作的分数，实际上是由我们大作文的这个分值和写作质量来决定的。所以我的个人建议是推荐大家可以先去完成大宗的解读。</p>
+    <p>那这个分值是一个什么样的概念呢？我给大家举一个例子，比如说一个学生他的小作文是九分，然后他的大作文得了六分。那么他最终的成绩就是3加4，最终是一个七分这样的分数。但是相反，如果说一个同学他的大作文得了九分，小作文得了六分，虽然大作文得九分不太可能，我们只是举一个例四，那么它最终大作文的分数是六分，然后小作文的分数是两分，最终他得到的是一个八分这样的一个分数。所以我会认为大作文它的含金量性价比会更高。我们需要花更多的一个时间来进行备考。</p>
+    <p>这个是关于雅思写作基本的一个考试。大小作文分别都考察什么样的一个内容呢？我们现在知道了小作文考图表，大作文考这个议论文。</p>
+    <p>我们先来看一下小作文都涉及到哪些图表类型。小作文无非就是以下六类图表的考察。我们可以看一下第一幅图，它叫做折线图，也被称之为叫做line ground。它主要描述的一个数据的一个趋势变化。第二个这个叫条形统计图，或者说叫做柱状图，然后它的英文名字就叫做bar chart。然后第三个我们可以看到这是三张饼图。平时这种图表用来表示一些数据的一个占比占比的一些变化，所以它的英文名字叫做拍照。然后第四幅图叫做table，叫做图表。</p>
+    <p>平时我们在考试当中，这四类图表它考察的其实会频率会比较的高，所以我们可以将这些图表来进行初步的分类。这四类图表他们叫做数据图。叫做数据图，因为这个图表当中都包含了大量的数据信息。后面这两个图表我们来看一下，一个叫做流程图，流程图可以叫做flow chart，或者叫做这个flow direction都可以。它主要是描述这个生产工序，比如说雅思写作经常会考到一些比如说巧克力的加工过程，小熏鱼的加工过程，或者是橄榄油的制作流程等等等等，让我们描述出来这样的一个步骤，所以这个叫做流程图。</p>
+    <p>最后的一幅图叫做net，叫地图。主要是考的是某一个建筑，可以是一个内部的建筑，也可以是一个外部的建筑。它在不同的时间节点发生的地理位置的变迁。比如说可以是现在的一个布局，然后以及将来的布局，或者是过去的布局跟现在布局的一个对比。这两幅图表叫做非数据类的一个图表，这是关于图表进行一个初步的分类。其实我们后面的课程还会对于这些数据图进行再进一步的划分。我们会把它分为动态图和静态图。</p>
+    <p>那什么叫做动态图呢？大家可以先了解一下这个概念，我们观察一下这些数据类的图表。不难发现，有一些图表它在标题当中出现了两个或者是两个以上的时间。那么这类图表我们就把它称之为叫做动态图。有些图表它可能没有时间变化，或者是只出现了一个时间，那这个图表我们就把它称之为叫做静态图。</p>
+    <p>动态图和静态图我们是两种截然不同的写作思路，也会用到不同的句式。所以我们会分为两节课，分别来给大家去讲，也就是关于小作文图表类型的这下面我们来看一下大作文都会涉及到哪些题型。我将大作文一共分为了如下四类。有些同学可能对此有些疑惑，可能在网上看的或者在书上看的有不同的一个分类。我认为只要能够包含到大作文考试当中所有的题型，言之有理即可。</p>
+    <p>我们来看一下最常见的一类叫做观点类。这种题型的一个考察，在考试当中占了70%以上的一个占比。这一类的题型我们又可以把它细分为两类，一类叫做优缺点类。优缺点类或者叫做利弊分析，利弊讨论都可以。它的标志就题干里会出现这些词。比如说它的优点是否大于缺点？或者是给出了一个动作，让我们去讨论这个动工作是一个积极的还是一个消极的发展。</p>
+    <p>第二类叫做同意不同意，这个是一个纯观类的一个讨论，需要我们给出一个自己的一个立场，这是最常见的一个观点类的题型。然后接下来我们来看第二类，第二类叫做论述类。论述类它的题目标志就是会有这样的一句话，叫做put on both bills and gave your own opinion。要求我们双边的来进行讨论，并且给出自己的一个观点。那他前面会什么样子呢？它前面会有双方对立的或者是两个不同的观点。他会说3 people think bb然后while other people think。不拉需要我们双边的来进行讨论，并且给出自己的一个立场。</p>
+    <p>然后第三类叫做报告类，报告类题干当中会给出一个现象，已经发生了的或者是而未来很有可能会发生的一个现象。要求我们针对这个现象给出客观原因的分析，来分析一下这件事情为什么会发生，以及给出相应的solution，这是报告类的题目指令。最后我们来看一下混合类，混合类其实它考察的频率并不是特别高，它主要是观念类和报告类的一个混合。就是题干当中，他又问了我们原因，问我们这为什么这件事儿会发生，并且让我们讨论一下影响。如果说这件事儿发生了，我认为它是一个积极的还是消极的一个发展。这个就是大作文的题目类型。我们后面的课程当中针对每一个类型都会有详细的写作步骤以及思路，以及采分点的一个讲解。</p>
+    <p>以上是大小作文的一个题型分布，我们下面再来看一下，关于这个写作的部分，两种不同的考试形式的对比。相信大部分同学都知道，雅思写作其实可以分为纸笔和机考两种不同的一个形式。下面我带大家分析一下这个机考和纸笔的各自的优缺点，帮助大家做好考试报名的一个选择。</p>
+    <p>我们先来看一下机考的一个形式，机考无非就是我们需要在电脑上进行一个打字。在考试的界面我们会发现有字数的统计以及要显示时间，可以帮助我们做好时间的把控。如果说想报名机考，我们需要提高的是打字的速度。然后我认为机考比较友好，比较放心的一点是什么呢？如果说有一个表达在我们的作文当中经常会出现，那么我们可以采取复制粘贴或者大批的这种删除，就非常的方便。</p>
+    <p>然后在这里我需要强调的是，机考的形式是没有自动纠错功能的。像平时我的学生在给我提交作业的时候，他们就比较喜欢用那个WPS或者是word文档，然后提交给我。这个软件它就有自动纠错的功能，然后考试时候就没有了。所以平时建议大家练习的时候把这个功能关掉，以便于更加真实的了解到自己实际的一个单词拼写情况。</p>
+    <p>纸笔考试它是没有字数的统计，也不显示时间，整个考试过程当中会有两次时间的一个提示。如果说报名纸笔，有些同学他可能就是比较更加适应这种传统的一个考试模式，然后觉得在纸笔上起会非常的有安全感，并且打字速度非常慢。所以他就可能会报名这个纸笔的一个考试。但是如果说你想报名纸笔，你一定要注意字迹的一个工整。并且如果写错了，我们需要用这个橡皮擦除。可能这个卷面的话不是特别的工整，所以同学们可以自行的做好这个选择。</p>
+    <p>我们先来下面看看一下这个纸笔的一个界面，纸笔的话我们会发到完整的这种两套的答题纸，然后在这上面去写作文。答题纸上会给我们标注tag for one和tax for two。大家一定要注意区分，在考试的时候不要由于过度的紧张，我把它万小作文写在了大作文的答题纸上，或者我把这个大作文的部分写在小作文答题纸上，这都会影响到我们考试的分数。然后同时在这里也给大家强调一下，我们写作的一个书写格式，一定是顶格空行来写，就顶着最左边来写。然后段落与段落之间一定要给出一行的空隙，这个是最标准的学术类写作的书写格式。这是纸笔的一个形式。</p>
+    <p>我们来看一下机考的一个界面，机考界面就是会给到一个像这样的一个网页，左边是作文，右边就是我们答题，就打字写作文的部分。我们可以看到在这个左下角我们会看到part one和part two，我们可以就自行的一个切换和选择，我要先写大作文还是先写小作文。并且在右边的部分我们会看到一个字数的统计，所以我会觉得如果说有有条件有时间来适应机考的同学，我会推荐是尽量来报名机考。</p>
+    <p>因为机考的话它其实也是这种全球考试的一个趋势了。并且它出成绩也非常快，只要三天就可以出成绩。所以我个人是更安利机考的这种模式，这个是关于两种不同的考试形式。</p>
+    <p>下面我们来看一下大小作文的各自的一个评分标准的解读。相信有些同学可能已经在外面上过课，或者对于这个写作已经有一个初步的认识了。但是从头到尾，对于这张大的表格，就从零分到9分的一个评分标准，就不知道他到底在讲什么。所以这个备考的思路，备考的方向非常的一个模糊。</p>
+    <p>这张表格看起来非常的一个复杂，但实际解读起来也不是那么的简单。整体来讲我们需要把它分为四个不同的维度，四个不同的维度，然后针对大家的一个写作来进行打分。这四项分别是内容、逻辑、词汇以及语法。我们下面先来看一下第一项，就是TR的部分。第二也就是你写的内容是否有窃题，或者说你的小作文是否能完成了这个题目发出的一个指令，满足了任务的要求。那逻辑就是你的整体行为连接是否有逻辑，段与段之间是否有分段逻辑段内的句子与句子之间是否有一个相应的因果的逻辑关系，就是逻辑与衔接的部分，然后用词是否丰富，语法是否多样以及准确。</p>
+    <p>然后在这里我也给大家总结了六分以下的同学常见的一个错误。为什么是六分呢？因为雅思写作在大陆的评分标准，其实平均分就5.5到6分，有些同学可能不相信，但是我有很多学生，他们在来报名之前，可能他们自己的听力的分数都有八分或者是九分了。但是他的写作可能只有一个六分，所以六分真的是一个比较常见的分数。</p>
+    <p>那六分以下的同学都有什么样的特点呢？在这里也给大家总结了一个小口诀。首先在内容上面是文不对题，言之无物。什么叫文不对题呢？其实就是跑题。有些同学可能理解不了，就觉得说这个题目我是完全能看懂的，并且我觉得我写的挺好的。为什么每次就达到一个这样的分数呢？为什么会跑题呢？后面我会给大家讲，在考试当中到底会有哪些题目陷阱，影响到我们这个TR的分数。</p>
+    <p>然后另外什么叫做言之无物呢？就是我们的作文非常的空洞，就可能擅长写国内的一些作文的同学，他在雅思写作里面反而不能得到一个很高的一个分数。因为我们中国的考生有个什么样的习惯呢？就是堆砌很多的论点，在作文当中堆积了很多的观点，但是却并没有对于这个论点进行充分的解释论证，就导致只有论点没有论据，这个就叫做言之无物，你的作文并没有很强的说服力。</p>
+    <p>接下来结构一定是逻辑混乱，缺乏连贯。比如说段与段之间没有一个基本的一个分段，句子与句子之间没有使用一系列的剪辑手段。比如说句子跟句子之间它可能有一个因果关系，但是你却并没有体现出来，或者体现了一个转折关系，你也没有用but however这样的一个逻辑词来进行转折，这个叫连贯性很差。然后六分以下的词汇问题就是用词匮乏且错误众多。我们会发现六分以下的作文的用词就一些比较简单的一些词汇，并且这些单词会有很多的语法错误。</p>
+    <p>最后就是语法的部分就是运用不当，缺少变化。比如说这个语法我只会使用一些简单的主谓宾的一个句子，没有任何的从句的使用。或者我只用主动，没有被动，也没有一些复杂的分结构，那么这个就叫做运用不当，缺少变化。甚至我在写作文的时候经常会有一些低级的语法错误。什么叫低级语法错误呢？比如说可数名词裸体使用，或者说一个句子成分是残缺的，没有主语或者是没有谓语动词，那这些都是六分以下的常见错误。</p>
+    <p>然后下面我们来看一下关于各分数段，就是结合每项评分标准，大家分析一下各分数段都存在着什么样的一个问题。第一项也就是评分标准当中，我认为最重要的一项就是内容方面。那么在大小作文的内容方面，它其实这个评分标准的称呼也是不一样的。我们先来看一下小作文叫做text achievement任务的完成度。也就是小作文其实会发出三个题目指令，分别是什么呢？要求我们sunlight information总结主要的信息。记录一下主要的特征叫report the main features。最后一个就是make comparison的来进行一个比像。如果说这三个指令都完成了的话，那这个TA的分数相对也会就会比较高。</p>
+    <p>来看一下，如果是五分，一定是内容基本全面。但是我机械性的去除了细节，我可能只是把图表当中的数据，像一个没有感情的机器人一样，把它给如实描述出来，这个肯定是不行的，并且叫缺乏清晰的一个概述。什么叫清晰的概述呢？这个是作为我们后面的课程当中讲课的一个重点。</p>
+    <p>我刚才有提到，就是有一个题目的指令是summer right information，就总结主要的特征，也就是一个图表它一定有最宏观的、最显著的2到3个特点。那我们的作文是否有把这个点给体现出来。然后接下来五分可能没有具体的数据支持，或者有些同学走向了另外的一个极端，就是我非常的偏重于季节，就把一个细节描说的非常的彻底。讲到这儿，有些同学可能已经有些蒙圈了，老师你到底是这个小作文让我去写概述，很概括，还是说要很侧重于这个细节？这个部分其实就是我们还没有开始对于雅思写作小作文部分正式的一个学习。所以对于这个整体还是细节没有一个初步的一个尺度的一个印象。我建议我们学完了后续的课程之后，可以让大家再去重复一遍，就今天的这个评分标准的部分，一定会有个更清晰的更明确的一个认识。</p>
+    <p>然后接下来六分一定是内容基本是全面的，有了清晰的一个概述，描述了主要的特征。但是会有一些细节的信息不太得体，或者一些信息描述的不太准确，这是六分的特征。那七分一定是概述更加的清晰了，描述出了数图表当中的宏观特征，并且核心要素的描述是更加全面的，就说明了这个作文它已经是主次分明的，对于数据有了一个很清晰的统筹规划，有主有次，这是七分的一个特点。</p>
+    <p>我们来看一下大作文内容上面各分数段的一个特点。大作文的话这一项评分标准叫做text rate fund，我们简称为叫TR叫任务的回应或者是泄题度。如果是五分的作文，一定是部分跑题，或者是缺少结论。如果说你的作文这一项评分标准是五分，那么毫无疑问，你一定是没有回答这个题目的问题。或者你是缺少了一个结论，说白了你没有一个清晰的明确的一个论点。你整篇作文就是看起来云里雾里的，像一篇散文，不知道你到底想要说什么，你到底要表达什么，这个是五分的一个特点。</p>
+    <p>那六分你的文章一定是收集到了题目当中所有的问题，但是你的解释论证不够的充分，就可能只是泛泛而谈，我们经常用的一个词就是泛泛而谈。但是解释论证的不够彻底，看起来说服力也会有点不够。那七分一定是观点更加的切题和明确的，并且论证更加的充分合理。甚至你可能用了一些两或者两种以上的这种论证的手段来支持你的观点。所以区分的话其实就是国内的写作的一个天花板了。</p>
+    <p>上七分真的非常难，当然了七分的话也会有一些小小的问题。你像有些同学可能想问，老师八分是个什么样的作文？八分一定要要求你这个论点的一个深刻，观念非常的深刻，语言非常的优美，并且你这个衔接看起来非常的无痕。那在这个评分标准的一个大表上，七分也会有些小小的问题。比如说在这里给大家小小的进行一个拓展细分，它可能有一个什么样的问题呢？叫做over generalize，那个词叫一概而论。什么叫做一概而论呢？就是你的作文没有特定化对象或者条件啊。</p>
+    <p>没有特定化对象或者是条件。我举一个简单的例子，比如说有个题目是政府应不应该花钱投资健康，就是说这个government应不应该花钱应不应该花钱投资这个健康？可能有的同学作文里面就写了，因为健康的食品很贵，人们买不起。我把这句话写一下，就是因为。健康的食品很贵。很贵，人们买不起。所以政府需要。</p>
+    <p>花钱投资健康这句话可能大家看上去没有什么问题。但是我们仔细分析一下，他其实是不是就有点过于的一概而论了呢？有点泛泛而谈。</p>
+    <p>比如说这句话人们买不起，那我想问的是，是所有人都买不起吗？一健康的食品都有哪些食品？我要把它进行一个具体的降层。比如说一些low fat低脂的一些食物，或者一些organic food吧？那这些是很贵的。然后另外人们买不起，我要在它的后面加一个限定，比如说especially for those people和living extreme poverty，住在极度频贫困地区的人们，他们是买不起的。</p>
+    <p>也就我有特定化这个论点的一个人群，让这个人群让这个论点看起来更加的合理，这个就叫做不一概而论，这个部分就是等到我们后续的课程给大家进行拔高的时候，会给大家进行一个更细致的讲解。然后适合和冲刺一些写作高分的同学。在这里面只是带大家充分的初步的了解一下OK，这个是加方面内容方面的一个要求。</p>
+    <p>我们下面来看下一个评分标准，也就是CC逻辑的部分。这项评分标准它的英文叫做coherence and cohesion。连贯度与一致性。</p>
+    <p>我们来看一下五分总体行为推进一定是非常缺乏的。六分和七分的作文，它一定是有明确的行为推进。另外五分的作文一定是没有衔接手段，或者用了衔接手段却不准确。有些同学他在去写作文的时候，他的逻辑词的运用就很口语化。比如说句子跟句子之间可能明明是一个因果的关系，那么你可能用一些皂，或者是consequently这些表示因果的词来连接是更为合理的。但是他却喜欢用什么？用and用那个。Meanwhile这些都是一些不好的表达习惯，就是不准确。</p>
+    <p>然后六分一定是有，但机械六分就像一些什么样的同学，他已经有了一定的语言基础，开始追求写作的高分。他追求的方式是选择背诵网上的一些高分的一个句型或者是模板。这些模板其实就是很多的语言框架，他的逻辑或者衔接手段相对来说就比较的机械的。和你自己写的文章嵌套在一块儿并不是那么的自然。所以就会比较的机械，或者就只是什么first yang secondly等等等等。细分的话，衔接手段一定是非常的一个恰当的，并且非常的多样。比如说句子跟句子它的衔接很无痕，他可能用了一些代词，或者甚至用and或者用这种分词结构，很自然的就体现出了这种逻辑关系的一个衔接。</p>
+    <p>然后接下来指代和替换的部分，五分的话，它一定是没有任何的指代或者替换的六分的有但不一致。比如说可能会出现了一个指代不明的一个情况，这个语法点大家注意，不是每一个指代都能够做到熟练的应用。比如说前面这个IT指代，对了，后面出现了一个Z但是这个Z我不知道你指代的是前面这句话里两个名词当中到底哪一个，这个是指代不明的一个情况，积分一定是有并且使用准确的。</p>
+    <p>然后我们来看一下各个分数段的一个分段部分，五分一定是缺少或者不足的。比如说我们看一些范文，五分的作文有一些同学是什么样的？可能他一段写了字数非常多，然后一段的字数非常少，那说明什么？你字数非常多的那一段，是不是有可能可以再细分为一段呢？</p>
+    <p>然后六分一定是有合理的分段，但逻辑不佳，比如说可能会有这种分论点重合的情况。什么叫做分论点重合呢？就是你的这个段落里，两个段落明明在阐述的都是一个维度的论点，但你却把它分成了两段，那这个就是逻辑不佳。那七分一定是每段的主题非常的清晰的。大家可以看一下那个评分标准，一张大表，它里面有说每一段一定有一个非常clear central topic，就每一段有一个中心思想，然后每一段都是围绕着一个分论点来进行展开的，不存在说一段出现多个分论点的一个情况。这个是分段的部分。</p>
+    <p>我们来看下一个评分标准，也就是LR像词汇的丰富程度。我们先来看一下5六七分的词汇量方面都有什么样的特点。比如说五分，那一定词汇量非常的匮乏，用的都是一些非常基本的词汇，并且这个词汇贯穿全文，反反复复的出现。那六分是什么？我们有在尝试使用一些高端的词汇，但是不准确。我在这里给大家举一个简单的例子，什么叫高端但不准确呢？比如说我们形容一个姑娘很漂亮，那五分我们可能用她这个姑娘很漂亮很美丽对吧？然后六分我们就说这个姑娘明艳夺目，光彩照人。</p>
+    <p>有些同学可能就用了一些不恰当的词，比如说美轮美奂。我们知道美轮美奂这个词是用来形容什么？用来形容的是一些风景，或者形容一些建筑。所以虽然这个词它很高级，但是用在这个语境里合不合理呢？一定是不合理的，所以这是六分的一个特点。七分一定是什么？有灵活性就体现出来了一个visibility以及准确性。</p>
+    <p>我先说一下什么叫灵活性，就是我能看出来你对于同样的一个表达，不同词性的一个应用。举个简单的例子，比如说我想描述道路安全，那我可能在上一段当中我是这么说的，我就说使道路安全叫make the road更安全，就是safer。然后我在下一段的时候，我依然想要用这个表达。但是我用了safe的另一个词性，用了它的名词形式，我可能会这样去说，叫improve the road city。这个就叫做体现了用词的一个灵活，就针对一个词，然后不同词性的一个使用。</p>
+    <p>另外就是用词的一个准确，同时要有高级的词汇以及高级的词汇以及词汇。我先来说什么高级词汇，它在评分标准里它是不能说的要使用一些light common word。举个简单的例子，拿一些大家写作文当中非常爱用的一个词，就是考官看着就非常审美疲劳的一些词。比如说important这个词表达是非常重要的对吧？相信大家都很爱用这个词。如果说你通篇只有important，那么它就并不是一个细分的一个词汇。</p>
+    <p>那我们可不可以用一些它的更高级一些替换呢？比如说我们可以用veto，比如说这个invention，然后crucial，甚至还有什么significant，用这些词来进行一个替换。或者比如说我们在去写作文的时候，经常需要表达因果的逻辑关系。那么我们可不可以不只单单用一些的或者是so这种单一的表达。我们可以用一些比如说gave right to，或者是啊归因于叫做attribute，就类似这样的一个表达来丰富我们的一个写作。这个叫做高级的词汇。</p>
+    <p>那什么叫做子火呢？其实子火的话就是一些动词与名词的一个搭配，更能够体现出来大家的语言功底或者用词是否的一个地道。在这里我给大家分享两个自己积累词汇的方法。第一个方法就是我通过阅读，再去做阅读文章精读的时候来去进行一个积累。举个简单的例子，因为我一贯认为阅读的话就是读写不分家，那我们一定是有一定的阅读量，我们的写作才会有一个真正的硬实力的提升。</p>
+    <p>比如说我再去做阅读配对题的时候，我会用到这样的一个词。我会在比如说题干里看到这样一个词，题高生活质量叫做improve the standard。Living这个叫做提高生活质量。在原文当中对于这个短语的同义词替换是什么呢？叫做a poverty。因为经常有同学问我，我再去查一些词，无论是我用有道还是欧陆，他给我翻译过来的，我觉得很充实，可能不是很能够表达我这句话里想表达的含义。那么我认为大家通过再去做阅读的时候，多去积累这样的一个同义词替换，可以帮助大家真正的积累到一些有用的并且非常常见的表达，这是第一个方法。</p>
+    <p>第二个方法就是我们可以围绕大作文常考的一些话题。你看大作文常考的话题其实并不是非常的多。关于这个教育类、然后犯罪类，然后历史文化景点等等等等。我们可以每一个topic积累，比如说8到10个左右的一个词活。因为大家不要去追求量，你追求量你背多了你也记不住。因为你会发现词儿你都认识，但你自己写作文的时候你想不起来用。所以你只要根据你的语言习惯，积累到你最常用的一些词就可以。这个词果就是在我们的文档当中附一个文件，大家可以自行领取来背诵这个词果。</p>
+    <p>这个词我非常的重要，希望大家能够做到一个每天的词汇的打卡。举个简单的例子，比如说学生传授老师传授知识，那可能大家第一印象想到的是哪一个词？可能teach knowledge或者learn knowledge等等等。但其实如果大家有背诵这个词汇的这话，就知道最地道的一个表达叫做in part knowledge in part knowledge。这个是积累词汇的重要性，关于词汇量的部分，关于词汇部分给大家纠正一个概念，一定是怎么样呢？我们要先追求的是准确，你要保证你的用词能够达到准确这个level了，你再去进阶去积累一些高级OK。</p>
+    <p>然后接下来我们来看一下构词的部分。如果是五分话，一定是错误明显，给考官造成了一定的阅读困难。六分的话是有错误，但是不影响你整篇行文的一个阅读。七分肯定是偶尔会有一些这种拼写的错误，但是是不影响你整体的一个写作的水平的这是词汇方面的一个特点。最后我们来看一下语法的部分，这个地方应该是语法。那语法的话也是我们来看一下5六七分各自的一个特点。</p>
+    <p>五分的话一定是语法结构非常的有限。可能通篇都会使用一些主谓宾、主系表，甚至主谓这样比较单一的语法结构，都是一些简单句。六分就说明我们一定能够使用一些综合的使用简单句和一些复杂句。比如说我一个段落里面都是简单句，但是我在尝试用一些定语从句，或者是用一些状语从句，或者是一些名词性的从句来扩充我的句子了。这是六分的特点。</p>
+    <p>那七分是什么样子？一定是我们的整个段落大部分都是一些复杂的一个语法结构，然后能够运用各种复杂的语法结构。比如说我的句子既有主动又有被动。除了这个从句之外，我还有一些强调句、强调句或者是一些分子结构伴随状语等等等等，能够熟练的用这些复杂结构，这是区分的一个特点。</p>
+    <p>然后接下来我们来看一下句子错误以及标点的部分。如果是五分，那么肯定是我们在尝试使用复杂句，但是错误特别多。并且基本上我在读你每一句话的时候，我都能够发现一些语法错误，给考官造成了一些严重的阅读障碍。这个肯定是五分的特点。</p>
+    <p>六分一定是有错误，但是不影响阅读。就是你会有一些错误，比如说这个动词没有加ING，或者没有加ED，但是没有一些原则上的错误。比如说成分残缺或者是可数名词的裸体使用等等等等。大部分是不影响阅读的那是一个六分的一个水平。那七分一个是什么？你能够频繁的写出没有语法错误的句子，大部分都是准确无误的。然后只有会只是偶尔会有少许的一个错误，这是七分的一个特点。</p>
+    <p>以上就带大家非常详细的解读了一下各分数段所做的一个特点。同学们也可以针对自己目前每一个维度下的薄弱之处，有有针对性的进行突击和备考。以上就是我们本节课导学课的内容，我们下次课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-09.html">精讲逐字稿</a></li>
+      <li><a href="qa-09.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-08.html">上一讲 08</a></li>
+      <li><a href="lesson-10.html">下一讲 10</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第17讲 · 混合类题型 · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 17 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a class="active" href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第17讲 · 混合类题型</h1>
+    <div class="abstract"><b>本讲概要：</b>讲师欢迎听众加入雅思写作系列课程，特别讲解了混合类题型的写作技巧，这类题目融合了报告和观点的元素。讨论了两种主要的题型组合：探讨现象发生的原因，以及分析该现象带来的积极或消极影响，并提出解决策略。以“人们从农村迁移到城市”为例，阐述了如何构建文章结构，包括原因分析和影响讨论，强调了识别题型和清晰表达个人观点的重要性。最后，鼓励听众通过大量练习提升写作能力，并预祝大家考试成功。</div>
+    <div class="tip">本讲含 7 组问答精要，可到<a href="qa-17.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>讲师欢迎听众加入雅思写作系列课程，特别讲解了混合类题型的写作技巧，这类题目融合了报告和观点的元素。讨论了两种主要的题型组合：探讨现象发生的原因，以及分析该现象带来的积极或消极影响，并提出解决策略。以“人们从农村迁移到城市”为例，阐述了如何构建文章结构，包括原因分析和影响讨论，强调了识别题型和清晰表达个人观点的重要性。最后，鼓励听众通过大量练习提升写作能力，并预祝大家考试成功。</p>
+    <p>Hello, 各位同学大家好，我是lexi。欢迎大家来到雅思写作系列课程。今天我们即将完成大作文最后一个进行的一个讲解，也就是混合类的一个题目。</p>
+    <p>我们先来看一下混合类的题型，它们长什么样子，题目特征有哪些？之前有给大家提到过，所谓混合类无非也就是报告类和观点类的一个混合。那么会有以下两种不同的组合。第一种也就是第一个原因，依然让我们讨论的是原因，我们需要讨论的是why is the case？为什么这件事情会发生？第二个问题，我们需要讨论的是题干当中的这个动作如果发生了之后，这是一个积极的还是消极的一个发展，会问我们positive or negative。而第二种第一个问题问我们的是影响，就是问的是what problem that is。Because这个问题需要我们特别注意，你单纯的报告类题型一定要做好一个甄别。</p>
+    <p>第二个问题问的是solution，what are the solution to this problem? 针对这个问题，我们需要怎么样来进行一个解决？我们先来看下第二种，上一节课我带大家进行一个甄别的练习，就是我们这两个题目你一定要注意区分，也就是第一个问题问的是什么？What do you think that cause IT，也就是你认为原因是什么？这个题需要我们讨论的是原因，而第二个问题问的是what problem does IT cause？</p>
+    <p>明显的cause在这里面是一个动词，它叫做什么呢？叫做导致，你认为这会导致什么样的问题？这个叫做混合类的题目OK。</p>
+    <p>然后针对这种题型，我们先来看一下它的写作结构。我们的主体段和报告类一样，我们可以写成两段式，也可以写成三段式。区别如果说你要写成两段，那就意味着你是一个问题一段，也就是原因一段，然后影响一段，这是一种方式。第二个结构就是其中一个问题一段，另外一个问题你可以写两段，这两种方式都是可以的那我们下面通过一篇例题来给大家具体解读一下这种混合类题型，它的一个写作结构应该是怎么样的。</p>
+    <p>我们先来看一下这道题说many people are moving from rural area to be sited。很多人从这个乡村地区，这个叫农村的地区搬到了大城市。Why has this happened? 根据题目的要求，我们可以看到第一个问题，我们需要分析的是原因，为什么这件事情会发生，以及你多大程度上认为这是一个good train的，你认不认为这是一个好的发展。</p>
+    <p>第一个问题，我们是确定了一个C我们需要去推一下，是什么样的客观因素导致了这个现象的一个发生。为什么现在越来越多的人从农村搬到了城市？第二个我们要说，如果说这些人搬来了，也就是a moving from rural area to big cities这样的一个动作，一旦发生了，那这是一个积极的还是一个消极的发展？</p>
+    <p>我们先来列一下逻辑链，在这里面我也给大家进行一些思路的参考或者是提供。第一个我们要给出来的是客观原因，对吧？比如说我可以讨论的是因为农村它的一个客观条件，他的一个就业选择非常的有限。人们渴望得到更高的一个收入。因此会导致这样的一个现象，也就是从农村搬到的城市。</p>
+    <p>而第二个我们可以讨论的是农村生活条件不好。比如说它的一些基础设施，一些editor，一些医疗，包括public transport等等的这是非常的落后，影响了人们的一个基本生活。人们为了追求更好的生活品质，因此从农村搬到了城市。在这里我给大家提供了两条思路。大家如果说能够想到其他的方面，只要能够言之有理，并且做到客观存在即可。这是关于原因的部分。</p>
+    <p>接下来我们来看一下第二个，第二个问题我们要讨论的是影响。我在这里从一个负面的一个角度来进行讨论。注意我之前给大家讲，如果说是一个混合类的题目，也就是第二个问题问的是好处是否大于坏处，或者你认为这是一个优点还是一个缺点。那这种题我们就只要讨论一个方面就可以了，不需要两边都讨论到。</p>
+    <p>那我们可以怎么说呢？我认为缺点第一部分就是如果说有大量的人从农村移居到城市，那么注定会城市无法容纳这些大量的人口，给城市的一些设施和住房带来压力。比如说现在一些大城市，像北京、上海都面临着这样的一个问题，就是人口过多。导致了住房无法提供这么多的一个住宿条件，然后最终导致的是什么？房价的一个飙升。OK.</p>
+    <p>第二个方面，我也讨论另外的一个方面，就是对于乡村地区来说。如果说大家都纷纷的离家，越来越多的年轻人纷纷离家，离开了自己的一个家乡，去了一个大城市。那么意味着什么？乡村地区的劳动力一定是不足的，并且是落后的。这样的话，就会加大了城市以及农村地区的一个贫富差距。OK.</p>
+    <p>接下来逻辑链列好了，我下面就可以来完成这篇文章了。开头段的部分依然是保持不变的，我要进行原题目的改写，并且预告一下主体部分的一个结构。关于改写部分，我们可以在这里进行一个改写。比如说many people are moving from rural areas，那我在这里我来进行一个改动。比如说我把moving移动这个词我改成一个migrate。</p>
+    <p>My free这个词在阅读里大家应该接触过，它可以指的是什么，斑，或者说指动物的一个迁徙。雅思阅读有文章就是讲到这个animal migration，讲到动物的一个迁徙。所以这个词如果说大家有认真的做好阅读的精读和复盘，我相信可以做出这样的一个替换。我替换这个词就可以了。就是说these days如今many people from rural areas have children，two就已经选择了to migrate to。</p>
+    <p>然后接下来认为什么呢？They can find employment and start a Better life. 他们可以在城市更好的就业，以及追求更好的一个生活质量，这个是对于原因的一个部分。</p>
+    <p>接下来我要预告一下主体段，我举了一个立场了。我不认为这种移动这种人口的一个迁移，这是一个很积极的这件事情。我只要直截了当的开门见山的体现出来我的立场就可以了。I don't agree with the idea, 我不同意这个观点。什么呢？The moment of the rural population to urban area is the positive change.</p>
+    <p>我不认为这种大规模的乡村到城市的一个迁移，这是一个积极的发展。所以我只要给出我的一个立场，给出我的个人观点就可以了。这个是对于开头段的部分。接下来我的段落结构是这样的，我从一个角度来写原因，我另外的两个段落我来进行写这个农村搬到城市到底会带来什么样的一个影响。</p>
+    <p>我们先来看一下第一段，这个body one我要讨论的是原因，我在这一段我要讨论。因为城市它毕竟更加的发达，更加的先进，所以他会有更多的工作机会，因此很多人就会从农村搬到城市。那么我在topic center的部分要直接的回应出来这一点。我说rural inhabitants have left their hometown for a simple reason。我说他们离开他们的家乡，就是一个很简单的原因。什么呢？IT is a more prosperous, 这什么意思？叫做富裕的，就是我们形容中国更快、更高和更强。这个更强就是proof OK。</p>
+    <p>然后接下来我要解释了为什么城市它更加的富裕，或者说它的就业机会会更多。我不能够单方面的去去讨论这个现象，我还要讨论一下它的原因，为什么？因为high population，the city of city in sure因为城市的这个人口，确保了公司in different industry，就确保了不同产业的公司derive，就是说这种繁荣的就非常繁华的去nate a他们就会满足游客，满足消费者们的一个需求。这些需求，这些公司会怎么样呢？Are sometimes under that是什么意思？有的时候会人手不足，因为确实城市它的机会比较多，经济更发达，所以需要更多的人来完成这些工作。</p>
+    <p>这些大公司有的时候会end dut，那就人手不足，为什么？因为robot demand for their goods and service。由于这种非常稳健的一个需求，对于他们的商品以及对于他们的服务，因此so they have to hear more workers。那为了满足消费者的需求，完成更多的订单，那大的公司就不得不去雇佣更多的worker。那雇佣的这一部分人，当然就包括load from rural community，当然就包括了这些从乡村地区转移过来的，会搬到大城市的一个人。</p>
+    <p>To keep Operations going, 让这个公司来正常的进行一个运行。With a fourth of income，在人们有了一个稳定的收入之后，因为在大公司容易获得一个更多的工作机会，有更高的一个收入。在人们有一个稳定收入之后，rural Marvin can purchase how to product they need。他们就可以满足他们想要的一些生，并且enjoy an improvement in the dad of living，可以做到一个什么生活标准，或生活水平的一个提升，生活质量的一个大幅的一个提升。在这里面这个短语大家一定要会，也就是improve the danger of living，表示生活水平的一个提升。</p>
+    <p>然后在这里我们也可以进行一个对比论证进行一个对比论证。既然是从农村搬到了一个城市，我要先给出来我的原因，为什么大城市会如此的看起来attractive，非常的有力。那在解释论证的基础之上，我要进行一个对比论证，也就是农村它如何的不发达。我可以写is IT unlikely to happen in rural community。那这个在乡村地区就不太可能可能了，为什么？因为在农村地区we're farming is generally the only likelihood，and many of them are jobless.</p>
+    <p>因为在农村的地区，农业是主要的一个人们维持生计的一个手段，那这个词likelihood就叫做生计，农业是唯一的他们可以获得收入的一个方式，可能是种田、种地。并且在农村很多人大家都是怎么样的jobling都是没有工作的那这个是关于原因的一个讨论。就是因为城市它有更发达的更多的工作机会，可以提高人们的生活质量。这是关于body one我的部分，接下来我就要接下来另取两段，来讨论这样的一种行为到底带来了什么样的缺点。</p>
+    <p>我们先来看一下body one，接下来的一个段落要讲的是随着这些人的到来，the arrival of a newcomer is not that thirty a welcome train。它并不是一个非常受欢迎的一个趋势，为什么？因为它给城市带来了极大的住房的压力，给城市的住房以及它的facility带来了很多的一个压力。带来压力这个表达我可以怎么说？叫做built held pressure on给healing and facility带来很多的一个压力。Some cities are unable to accommodate a large population，有些城市甚至它无法容纳这么多的一个人口。因为because of the shortage of line，有一些城市它虽然很发达，但是因为它本身城市面积比较小，或者城市规划的可用的这个地方非常的有限，那实在是无法容纳这么多的人口。</p>
+    <p>你的infant of rural workers can also feel the mind or for accommodation。那么这个涌入的，就来自于农村的工作者们，也会怎么样？Feel the demands，就是说加大这个需求，住房的一个需求。Driving a rain and property Prices, 这个大家应该深有感触。如果说大家在北上广深这样的一个城市，由于城市过于发达，很多来自乡村地区或者来自于其他较为落后一些城市的人们，会选择去那里进行找工作。那么会导致什么呢？过多的住房的市场是一个供不应求的一个状态，那会导致什么？最终房价的价格会飙升，所以会driving after rent房租会上，并且proper property Price房价也会上升。</p>
+    <p>然后接下来at the population growth of financial liya，那这个词什么意思呢？它叫做指数的就是说一个大幅度的一个上升，随着人口逐渐的增加，hospital, schools and public transportation will fail to captain with the demand. 那么一去医院、学校或者一些公共交通的一些系统，就会跟不上人口的一个需求。那这样就会怎么样呢？There can be a theories problem.</p>
+    <p>这就是会成为非常严重的一个问题。对于这个living condition，对于城市的住房条件以及这种over you的过度使用的一些设施来说，就会造成一些负面的影响。这个就是关于人们从农村来到城市的第一个负面讲。</p>
+    <p>接下来我们从另外的一个角度进行讨论。我说another problem is that，因为这两段它们是一个并列的关系，对吧？因为他们都在讨论的是缺点是什么，那另外的一个缺点是什么呢？Regional this variable will grow, 这种地域性的这个叫差异差异，或者就是说这种不平等。就是贫富的一个差距会扩大。他们不但不会diminishing，不会减少，反而会扩大。为什么？因为年轻的人，who are ambitious and jacket hard working and creating.</p>
+    <p>这些非常的有雄心壮志的，非常有精力充沛的，非常勤奋的、有创造力的年轻人就会block to city，会涌向这个城市in search of educational and employment opportunity ity in surge of在这里寻找这些非常的有为的年轻人，他们就会选择去大城市来去找一些educational教育的或者是工作的一些机会。就会导致一个什么样的问题呢？Living rural areas, 导致农村的地区and populated，也就是农村的地区会相应的人口不足。就是我们经常会看到这样的一个新闻，一个村可能除了一些留守的儿童，留守的老人，年轻人都纷纷去一些大城市务工了。那么对于这个村子来说，是很难去进行发展任何的经济的。然后。Without the Young livers and farming land in using Derek creativity to explore different business opportunity.</p>
+    <p>没有了这些年轻的劳动力，在这个农就是说农业上，或者用他们的一个创造力开发不同的这种商业的一个机会。The rural economy乡村地区的一个经济会变得怎么样，remain flag ish flag ish就是非常的缓慢，就是会停滞不前这样的一个状态。那那这是一个this is a vicious fight，这是一个恶性的，或者说这是一个不良的恶性的一个循环。And IT will accelerate the accident of working aging people to medicated and exotic vate.</p>
+    <p>The labor strategy. 在这里会怎么样呢？它会加剧了这种人口的一个外流，叫working age people，也就是在工作年龄的一些人口，他们会外流去一些大都市，这个词叫做大都市。这个叫家具，这个词exhibit叫加剧或者恶化了the labor strategy，叫劳动力的一个短缺。A note rural al community在大部分的乡村的地区，就会加剧了这种劳动力的一个短缺，或者是加剧了劳动力的是彼此之间的一个恶化。</p>
+    <p>这个是我body to的一个部分，然后接下来最后在结尾段的部分，我们只要做一件事情，就是总结一下我们在主体段都写了什么东西。我们来总结in conclusion，作为一个引导词，我说a weak rural economy has driven the population from countryside to，因为比较差的乡村的一个经济环境，因为农村经济比较落后，就导致了人口从乡村到了城市。And这是一个积极的还是消极的？That is by no means a positive change in model.</p>
+    <p>在我看来，这绝不是一个积极的发展。在这里面final in咱之前给大家讲过，它叫做什么？绝不是OK。</p>
+    <p>以上就是关于混合类题型，就是范文的一个解析。通过这篇文章，我相信大家对于一题两问，无论是报告类还是混合类的题型都有了一个更加充分的一个认识。我们接下来这个课程就告一段落了。希望大家能够在听完本阶段的课程之后，课下能够进行大量的写作练习OK。最终祝愿大家都能取得一个理想的分数，我们再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-17.html">精讲逐字稿</a></li>
+      <li><a href="qa-17.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-16.html">上一讲 16</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

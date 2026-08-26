@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第14讲 · 双边论述进阶（对立观点深入） · 写作VIP</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 14 讲</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作课程</h3>
+    <ul>
+      <li><a href="lesson-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="lesson-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="lesson-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="lesson-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="lesson-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="lesson-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a href="lesson-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="lesson-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="lesson-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="lesson-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="lesson-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="lesson-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="lesson-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a class="active" href="lesson-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="lesson-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="lesson-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="lesson-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
+      <li><a href="qa-17.html">第17讲 · 问答精要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第14讲 · 双边论述进阶（对立观点深入）</h1>
+    <div class="abstract"><b>本讲概要：</b>在论述类题型中，考生面对的是包含对立观点的题目，需双边论述并提出个人意见。这类题型特征明显，要求讨论至少两个对立的观点，并在最后明确个人立场。写作时应遵循四段式结构，先分别论述两个观点，最后总结个人立场，保持立场一致，避免直接评论，使用第三人称论述。采分点在于明确展示两个观点之间的关系，并通过逻辑论证强化个人立场。此外，根据题目结构，采用共存性或分类讨论等策略进行写作，以深度讨论不同的观点。</div>
+    <div class="tip">本讲含 19 组问答精要，可到<a href="qa-14.html">问答精要页</a>速查。</div>
+    <h2>精讲逐字稿</h2>
+    <p>在论述类题型中，考生面对的是包含对立观点的题目，需双边论述并提出个人意见。这类题型特征明显，要求讨论至少两个对立的观点，并在最后明确个人立场。写作时应遵循四段式结构，先分别论述两个观点，最后总结个人立场，保持立场一致，避免直接评论，使用第三人称论述。采分点在于明确展示两个观点之间的关系，并通过逻辑论证强化个人立场。此外，根据题目结构，采用共存性或分类讨论等策略进行写作，以深度讨论不同的观点。</p>
+    <p>Hello, 各位同学大家好，我是lexi。欢迎大家来到雅思写作大作文系列课程。今天我们即将进入到大作文的论述类题型的一个学习。我要先攻击大家了，因为这类题型是大作文当中我认为是最为简单的一个题型。</p>
+    <p>我们先来看一下，论述类题型它到底有哪些特征。首先它在题目当中会有几个这样的一个表达，叫做the boat views and give your own opinion。他前面会出现关于不同的人的观点，比如他前面会说some people think不拉不拉，然后while other people think拉不拉那肯定是啊有两拨不同的一个观点或者是意见。那我们需要做什么呢？根据题目的指令，我们需要双边的进行论述，也就是各自讨论题目当中的两个观点，并且给出自己的一个观点。那我们在这里要注意的是什么？在主体段的部分，我们要做的是论述题目当中两个观点的合理性，也就是我们的立场要与题目的观点保持一致，注意是不能够反驳的。并且在结尾端的部分，你要给出自己的个人观点。</p>
+    <p>那我们再来看一下关于论述类题目的一些要点。针对这种题型，它的写作结构也非常的一致。我们要采取的是四段式，也就是一个观点各一个主体段。Body one我们来论证其中的A观点为什么合理。在body two的部分我们要论证的是B观点为什么合理。并且在结尾段的部分给出自己的观点。</p>
+    <p>大家需要注意一点的是，我们在主体段的部分，这两个段落的字数要做到尽量的一个均衡。你不要考官觉得说你一段写了80字，一段写了150。虽然说我们往往对其中一方的观点有着明确的个人倾向，但是我们在论述的部分一定要兼顾到两个段落的这个篇幅OK然后第三主体段的语气不要太肯定。因为我们主体段就是在做一件事情，我们在分析别人的看法，就是分析别人为什么会让开。所以应该是some people think，because they may think, 所以我们要多使用一些情态动词，比如说could might be likely to这样的一个字样。体现出来我们用词的一个精准以及语气上的一个委婉。</p>
+    <p>然后最后注意一点，主体段只能使用第三人称，为什么？因为这一点就是跟这个观点类题型的一个区别了。我在讲同意与否题型的时候，我说了主体段你一定要给出的是自己的一个观点啊不要就是说别人怎么怎么看，别人怎么怎么想。那这类题型主体段的部分恰恰相反，我们一定是要使用第三人称，就是别人怎么怎么看。</p>
+    <p>有些同学可能会担心了，如果说我说别人怎么怎么看，那这个people就会被我重复很多次，那这个时候怎么办呢？很简单，我们可以根据这个题目的语境或者它涉及到的topic，我们可以把people具体到某一类的人群。我来拿一道题给大家进行举例。比如说有一道题是这样的，有人认为人类应该发出信号联系外星人，while other people think有人认为这样做非常的危险，要求我们discuss both views and give your own opinion。</p>
+    <p>针对这道题我们要如何的去具体化这个people呢？我们再思考一下这个题目它涉及到的一个topic的一个背景。比如说像我们肯定不会去就这样的一个问题。那会讨论这个问题或者是造成争议的一些人会是哪些人呢？有些同学肯定讲到了，可以是什么科学家、scientist, 或者一些researcher研究人员，或者一些jonny的一些天文学家，甚至是一些他可能不是一些专家，但是他是interested in astronomy，对于这个天文学比较感兴趣的一些人。我们可以用这些名词来代替题目当中的这个配方，来进行一个具体化。这是disgust部分的一个要点。</p>
+    <p>那这种题型它的采分点在哪里呢？我认为它的采分点也就是高光的地方在于个人观点段必须要体现出来两个观点的关系。我先给大家示范一个六分以下的一个写法，什么样的写法呢？就是我的body one我讨论A观点为什么合理，body two我们来讨论B观点为什么合理。</p>
+    <p>然后我在结尾段非常草率的就给出了我的立场。我说虽然A有道理，但我更支持B虽然A就是有道理。但我更支持B但我支持B大家思考一下，我可不可以这样去写呢？我认为如果你这样写的话，它只能满足一个最基本的分数的要求，一定拿不了高分。为什么？因为它的逻辑一定是不严谨的，为什么？你在主体段明明已经分别各自的论证了A观点和B观点他们都是合理的那你是如何抛出了自己的观点就证明了A大于B或者是B大于A呢？你要一定要进行一个display discussion深度的讨论，才能给出自己这样的一个结论。</p>
+    <p>OK. 所以我们就来看一下我们的个人观点段可以如何来进行讨论呢？首先我们可以把这个A观点与B观点两个观点之间的一个关系，分为如下三种不同的类型。</p>
+    <p>大部分的题目，也就是90%以上的一个题，我们都会遇到的是第一种情况，叫做弱强行。什么意思呢？题目当中的两个观点，我们在读题的时候，我们就会对其中的某一方有着明确的个人倾向，我会更加的支持一方的观点，那这个时候我就可以怎么样，叫做弱强型，然后也会有少部分的题是什么样的？题目当中的两个观点，就A和B观点，他们在解决一个事情上解决这件事情，我们没有办法做出一个选择，他们必须是同时存在的那这个叫做什么呢？叫做共存性。</p>
+    <p>最后一个就是1%的一个情况，就是我们上一节课在讲同意不同意的时候，给大家进行一个拓展。A观点与B观点哪一个更合理，我要做一个分类讨论，也就是取决于的一个写法，取决于一个标准。然后我要在开头段的时候给出这个标准，分别论证什么情况下A观点更合理，什么情况下B观点更合理。这个就是个人观点段会涉及到的不同的两观点之间的一个关系。我们这节课也会逐一的来给大家分类的进行讲解。</p>
+    <p>我们先来看一下第一种情况，第一种情况我们的段落结构是怎么写的。很简单，开头段我们就要引出这个争论，引出争论并且给出自己的个人立场。无论是什么类型的一个写法，我们所有的这种观点类的题型，我们肯定都是要这样的一个固定的开头段的一个结构。然后主体端的部分，我们可以按照弱强的顺序依次来进行展开。</p>
+    <p>什么意思呢？就是我们其实可以不必严格的按照题目当中的一个观点的顺序来进行写作。我们可以用欲扬先抑的一个手法，先去论证自己不那么支持的观点，然后再去论证自己更加支持的观点来展开。最后结合主体段的扩展内容来进行强化强弱化弱。那就是很好理解。</p>
+    <p>什么叫做强化强弱化弱呢？既然我对其中的一方的观点有着倾向，那我肯定要去强化我支持的那个观点，弱化我不支持那个观点，从而证明我自己支持的那个观点看起来是更加合理的那具体要怎么写呢？在这里也给大家提供一些方法，开头段我要引出这个争论，当然了在这里有些固定的表达是可以用在这类题型的节奏当中的，并且我要预告出来自己的个人观点。Body one的部分我们就only one hand加上弱观点。这个在开头的部分，我为什么说这类题型最简单呢？</p>
+    <p>因为我认为它不需要你自己去想观点，题目里面的观点是现成的，你要做的就一件事儿，论证它就可以了。所以topic senate是现成的。然后接下来body to就是on the other hand加上强关点，在这里面TS也是建成的。</p>
+    <p>结尾端的部分我要用强化强弱化弱的方法突出自己的一个个人偏向。然后在这里我也给大家进行了如何强化对方观点弱化不是强化自己的观点，弱化对方的观点？我们来看一下，我举个例子，比如说这一段我写的是某一个动作的缺点，不要two我写的是某一个动作的好处。那我的个人观点是怎么样的呢？我认为这件事情利大于弊，我的个人倾向认为这件事还是好处比较多的。我怎么论证呢？</p>
+    <p>第一种方式，我通过短期长远的方式，各自来论证这个动作的优缺点。举个例子，比如说我可以这样去说，虽然这件事儿有缺点，但是它的缺点只是一个短期的，只是暂时的。从长远来看，它的好处往往是更多的，所以从而证明这件事情利大于弊。这个大家能理解吗？好处是长期的，而坏处只是暂时的那是不是就能证明这件事情整体来看，权衡利弊之后还是利大于弊的呢？</p>
+    <p>第二种方式，少数多数我们可以通过讨论这个优缺点，各自针对的一个群体。给大家举个例子，我们在上一节课就是在讲通讯技术的时候，其实有给大家讲过。比如说那个题目我给大家做一个稍稍的改动。大家记得所有的观点类的题目，无论是优缺点同意不同意还是论述类，他们之间都是可以相互转化的。比如说那道题，我把它从同意不同意变成了论述类的题。那么我最终如何给出自己的个人观点呢？也就是通讯技术到底是积极的还是消极的呢？</p>
+    <p>那我就可以通过第二种方法，少数多数的形式回忆一下那道题。我给大家写的是对于大部分人来说有好处。比如说对于学生，对于家人之间，对于企业家之间都是有好处的。但是可能一些老人或者是一些穷人对于这个方法其实受限制的。对于这个通讯技术，所以我就可以用这样的方式来进行一个深度讨论。我说虽然老人穷人他可能享受不到一些通讯技的好处，但是这些人他们毕竟只占少数，对吧？只是一个小部分的一个群体。那大多大部分的人大多数的人，就像如你如我，我们都是可以享受到通讯技术的一个好处的那我就认为通信技术这几个发展这件事儿它还是好的。</p>
+    <p>然后第三个方法，我们就是讨论某一个动作它发生的一个频率，就是它的优缺点各自发生的一个frequency。比如说我可以这样去讨论，虽然它有缺点，但是它的这个缺点是小概率的一个事件。它的好处却是经常发生的，我们随时随地都可以去感受得到的那我们是不是也可以说明这件事情是利大于弊的呢？然后在这里给大家做一个小小的补充。</p>
+    <p>如果说一个论述类的题，你发现你的个人观点通过这三种方式都不能够进行一个这种深度的一个讨论，强化强弱化弱。那我给大家再进行一个补充，也就是怎么样的有缺点，我们可以讨论。虽然说这件事情有缺点，但是它好解决，什么意思呢？我们不否认它有缺点，但是我们说这个缺点could be easily solved by doing something。它可以很容易的用一个什么样的手段就可以把它进行一个解决。这个就是第四个，这种强化、强弱、化弱的方法。</p>
+    <p>以上就是关于这类题型全部的理论部分的一个知识点。下面我们来逐一的进行真题的练习，帮助大家感受一下这个三类题型到底应该如何去写。我们先来看一下第一道题，读一个题目说有人认为名人的一个支持，对于什么的支持呢？International aid organization job the attention to the problem, while other think celebrities make the problem seem that important.</p>
+    <p>我们先来看一下题目的两个观点各自是什么。第一个他说名人的支持，对于什么国际援助组织，我们的审计练习里面涉及到过这个topic，就名人做慈善这一类的话题。那它明显的处于这种名人效应的那个topic。名人做慈善可以怎么样？让人们关注到这些慈善问题。Well on the thing有人认为名人是这个问题less important，就大家不看逻辑量，不知道大家能不能够准确理解第二个观点。这个题型我认为它唯一的难度是，既然它给了你现成的观点需要去论证，那么你能不能够百分百的去理解题目当中的观点呢？这点很重要。</p>
+    <p>第二个观点很多人就理解不了，什么叫做名人使这些问题不那么重要呢？那这个时候我们需要有一些什么？有一个理解能力，或者你是对于这个大作文的话题要有一个了解，就是名人作词上有什么缺点呢？那无非就是会怎么样转移人们的一个注意力，让人们把更多的放在明星身上。也就是名人转移了人们对于慈善问题的或者需要关注的问题的一个关注，转移到了他们自己本身身上。所以根据这两个题目，我分别可以列出来如下的逻辑链。</p>
+    <p>一就是名人作词上名人因为他有着他很强大的一个influence，他的影响力，所以确实可以让更多的人关注到这些慈善的问题的。另一方面，名人为什么转移热门注意力呢？因为明星身上自带的一些明星效应，比如说他的明星光环，他的appearance、他的dressing等等等等，甚至是他的高级等等八卦，会转移人们对于这些慈善问题的一个关注，反而能让人们关注明星本身。OK.</p>
+    <p>我们下面来思考第二个问题，就是这两个观点我们的个人立场是怎样的呢？我们是更加的支持前一个，前者还是后者呢？像我个人而言，我可能会觉得名人做慈善其实不否认他有缺点，但是整体还是更加有用的。为什么？因为这件事情确实名利人去做慈善在现在的一个社会当中是一个非常普遍的一件事情。每当就出现任何的问题的时候，比如说一些疫情什么一些灾情的时候，名人确实他有在贡献出自己的一份力量。所以他们的这个力量，他们的影响力还是不可否认的那我们要用什么样的方式来强化强弱化弱呢？</p>
+    <p>我们先来看第一个，短期长期可以吗？我认为是可以的。为什么我们可以可不可以这样去讨论呢？确实名人做慈善会让你们关注到明星本身。但是你想想，每当有一些热点新闻，比如明星出现了一些什么暴滋的一个新闻的时候，其实我们的一个关注仅仅就仅是一个短期的一个关注。可能后面又有一个什么事情爆出来了，或者说时间一长我们便不再关注这件事情了，对吧？所以我们会认为确实会转移人们的注意力。但是人们对于这些什么花边新闻的一个关注，它是一个短期的事情。但是如果说这个明星他能够长期的去做慈善，那么长此以往下去，他确实可以能够对于解决这个慈善问题贡献出了很大的一个帮助。</p>
+    <p>你像就我个人而言的话，我印象深刻的可能是比较比比如说韩红对吧？我知道她一直在去做各种各样的这种慈善的一个项目来解决问题，那我们就来看一下这类题型我们可以怎么去写开头段我们就可以先给出一个背景说用一个名词性的一个从句，说现在很多明星原题目是明星去做慈善take part in。那我在这里改了一下，叫participate in activity held by international eight organization。现在很多的明星都去参与各种各样的慈善活动。在这个名词里面有一个抽象名词，所以这篇文章就把这个抽象名词具体化了。</p>
+    <p>什么样的名人呢？Movie start in famous athletes, 一些运动员。然后接下来这一句，我认为大家是可以背下来的，就是opinion are divided。</p>
+    <p>就是我们在引出争论的时候，我们可以积累到哪些句子。这个句子我们在后面也会讲，比如说people have different review about blood，人们就某一件事情有不同的看法，我们可以怎么样的去引出这个争论。观点是两边的，在于他们的支持是否影响了这些活动。我的观点是什么呢？我认为名人的支持是可以can definitely当然是可以。I have more attention and provide more help to the problem.</p>
+    <p>我认为名人的支持还是有用的，他们还是可以影响到这些慈善的问题的那我们先来弱化一下，先来写一下我不那么认为的观点，也就是名人会转移人们的注意力under one hand，然后注意这里面有一个很重要的部分，就是我们主体段不能出现自己的观点。也就是我们要尽可能的用的是有一个第三方的一个视角，第三方的一个口吻，写出来这个topic sense，有人认为there has been a concern就等于什么？相当于就是some people think或者是many people think，有人认为什么？我们把这个弱观点进行一个改写，就是the importance of charge to go activity maybe weakening，就是慈善活动的一个重要性会被弱化。这个其实也是一个题目的改写了，对吧？因为原题目是make the problem seem less important，让这个问题不重要，那么我们可以把它改为什么呢？这个问题的重要性被弱化了，然后被什么弱化呢？With the presence of many famous people.</p>
+    <p>被名人本身的一个存在而弱化。这一段我们要可以解释就是从哪一个角度解释？How big happens，就是名人到底是如何转移了人们的一个关注的，他们身上到底有哪些东西转移了人们的关注。一方面this is because我们来解释原因了，sense of the movie stars or the NBA legend, maybe paul may pay more attention to harder add drive themselves. 一方面我们会更加的关注明星都穿了什么，就他们的idol都穿了什么。Whether they are in the center of the date，我家哥哥有没有占了这个C位，这个番位之争非常的重要，就是转移注意力，这是一方面。</p>
+    <p>What world更糟糕的是什么？我们进行了一个递进。Tp lot这个词叫什么八卦杂志，那种八卦杂志会lead reader to the gossip organdy of the celebrity，会让我们更加关注的是名的一个绯闻，甚至是丑闻。Instead of how much they contribute to helping people in need, 我们的关注点都在明星的什么绯闻八卦上了。比如说谁跟谁同台了，那没有人去关注了，到底他们对于这些需要帮助的人贡献出了多少的一个力量。</p>
+    <p>然后最后一句话我们可以扣回它的这就解释了什么呢？Why many people worry that? 为什么很多人会担心每个人会对他们所参与的慈善活动有一个negative effect，会有一个消极的影响。这个是body one的部分。</p>
+    <p>Body two我们了解了名人做慈善当然还是有用的，因为他们有一些社交，社会上的一个影响力。对，我们的转折词就是on the other hand，然后支持这些名人作词上的人认为什么呢？认为they have such significant influence on millions of people following their account on social media。他们在这个社交媒体上面有着非常巨大的一个影响力。比如说他们在这个facebook或者是在这个推特上面有影响力，那接下来他们要如何发挥他们的影响力呢？也就是how we have具体名人要做什么才能让人关注到慈善的问题呢？比如说when the famous people deliver a beach，发表一个演讲，叫deliver at bach in a band rising gala。在一个这种集资的一个宴会或者晚宴上，或者make a donation叫做捐赠，抄一个什么抄一个organization toward edited people in the third word country。</p>
+    <p>成了一个第三世界国家需要帮助的人进行捐款的时候，那这个时候their followers，他们的粉丝也会contribute their own effort，也会献出自己的一份力量，to combating same problem也会贡献出来自己的一份力量。然后接下来进行了一个举例，之前我在给大家进行讲解的时候，我说了尽量不要用举例论证。我可以通过下面这个范围的例子来告大家，为什么？因为大家举的例子往往并没有有效的支持我们的topic。</p>
+    <p>三大家试想一下，大家可能在这个时候就想举一些例子，说很多明星去做慈善了，比如说韩红，比如说王菲等等等等。但是你的例子其实就是没有支持观点，为什么？因为我们的topic finance是什么？名人做慈善，然后让人关注到了一些慈善的一些问题。那么一个有效的例子，它会长成什么样子呢？就是哪些名人做了哪一场慈善活动，让人们关注到了什么问题。大家想一下，如果说你能够举出这样的例子，那说明你已经有了一个充分的对于大作文话题素材的一个储备了。我们考试之前往往是没有这些素材的一个储备的那仅仅凭自己的一些片面的一些例子，如果没有有效支持观点，反而就是得不偿失，弄巧成拙了。</p>
+    <p>我们来看一下下面的这个例子。他说15年的时候，很多诺贝尔的得主和一些运动员参加了一个活动，叫做什么呢？F bucket chAllenge.</p>
+    <p>这个叫做什么呢？冰桶挑战，我相信有些同学应该听说过，就全网很火的一个挑战，就是每个明星都拿那个水桶往自己的身上去交，为什么呢？因为这个活动主要是promote awareness of the disease，让人们关注到这个疾病。什么疾病呢？L这个叫做渐冻症。然后并且鼓励了人们朝这项组织来进行一个捐款。这个就是一个有效的例子，他进行举例了，说哪些名人做了哪一场活动，让人们关注到了什么样的一个问题。</p>
+    <p>如果说你意味到意识到你自己的一个例子并不是一个充分有效支持观点的话，那你就怎么样就来进行充分的解释论证，那也是可以的。OK。然后接下来我们来看一下最后的一个段落，也就是结尾段。我们要深度的给出自己的一个观点。Personally my view is that我的观点是什么呢？Well, the attention of the public, 虽然说公众的一个注意力，maybe john from the event itself会从事件的本身to the dirt they're interested in。虽然说人们的注意力会从事件的本身转移到他们感兴趣的明星身上。This usually love for a short period of time.</p>
+    <p>这个字很关键，就人们对于这些乱七八糟的事儿，明确了什么绯闻八卦的一个关注，都是一个暂时的或者说是一个短期的一个关注。Support from people, 这是名人的一个支持。In the long term, in the long term will play a and row in a people awareness。这些名人的支持从长远来看，才会起到一个至关重要的一个作用，在提高人们的意识上面OK。大家来看一下这个逻辑是不是非常的清晰了当我们再去写这种题型的时候，一定要注意个人观点段，要用这样的方式，对于观点，就是两个强观点和弱观点，对于弱观点要进行弱化，要强化自己支持的一些观点。这个是关于第一个第一种方案的一个解法。</p>
+    <p>我们下面再来看一下共存型的一个解法，就第二种情况，无非就是个人观点，我们要给出来A和B它们必须是同时存在的。主体段的部分不变，就是各自展开A观点解释，论证A为什么合理以及论证B为什么合理。然后最后结尾重复自己个人观点，强调A和B可以共存，他们各自非常的重要即可。既然是个这种题型的个人观点，A和B可以共存，在这里面我也给大家准备了一些句式，大家也看一下。</p>
+    <p>类似什么样的一个题目，比较适合用这种共存性的一个题，共存的一个解法。我们来看一下，第一个解法就是both，我认为both a and the b play equally important road要起到同等重要的一个作用。这道题还显示了什么？对于青少年的一个发展来说，制定规则更重要还是自由更重要？这个题确实它很难去进行一个这种强弱的一个讨论。我认为一定要风持有度，这两者都很重要。所以roof and freedom play equally important road，所以他们应该怎么样，他们should tell exit，他们应该是共存的。</p>
+    <p>共存这个写法叫做tell exit，大家要记一下。In the growth of every child。在孩子的成长历程当中严格的规则以及充分的自由都是非常重要的，因此他们是应该共存的。第二个就是我们要用到一个表达，叫做joined effort。</p>
+    <p>共同的努力，A和B共同的一个努力at the k two，solving problem是解决什么问题的一个关键。我们来看一下，很显然这道题就是什么，关于这个环境问题，到底应该是由政府来解决，还是个人来解决？那很显然，我们他肯定是一个共同双方的一个责任，所以这个题我们也要写成一个共存形，所以是政府和个人共同的一个努力。At the key to eradicating environmental problem, 他们是解决环境问题的一个关键。</p>
+    <p>接下来我们来看一下，other that我认为这个表达就是a combination of a and b，这是一个ideal strategy。这个题很显然通过这个句子，它应该考的是什么？你认为城市应该多建一些高层的建筑，比如说一些摩天大楼，还是说应该建一些低的建筑。那么对于一个更合理的城市规划和建议来说，很显然，既然既要有非常高的一个建筑，要有一些低的的建筑。所以是我认为a combination of gye，scrapers and low red building is an ideal strategy of city planning.</p>
+    <p>对于常见来说，这两者都非常的一个重要。然后最后这个题大家应该比较熟悉，因为我们在同意与否练习课的时候，我们讲过类似的一个题目，说如何让道路更安全，应该是用惩罚，还是有一些其他的方法。当然了，针对解决这个问题，一定要多管齐下，各种不同的方式来解决它。所以那一个写法就是both a and b可以should be together，to解决某一个问题，那这个题肯定是应该惩罚，还是应该用其他的方法。我的个人观点是都要用the punishment and other matter should be used together to make road sipper。这个就是我们共存观点，个人观点句几个不同的一个写法。接下来我们来看一篇范文，来感受一下这种题型到底应该去怎么写。当然了主体段的部分我们去讲过了，所以我们大致来看一下它共存的思路即可。</p>
+    <p>这个题就是我们刚才给大家看的这个题目。有人认为严格的规定是解决减少交通事故的一个关键，然而有人认为其他的方法应该是更有效的。In improving the party.</p>
+    <p>然后我们要做的是什么呢？双边讨论并且给出自己的观点。我认为这道题的难度没有我给大家布置的那个练习的任务难，为什么？因为这道题后面的这个相当于是在论证的一个第功力。我们只要给出其他方法，并且来讨论一下它怎么解决这个问题即可。我们不需要进行这个方法的一个对比，所以我们来看一下这种题型应该怎么去写。开头段我们要引出这个争论，people have the different view with regard to.</p>
+    <p>这个句式大家可以背下来，就是人们就某一个问题存在着不同的观点，那就哪一个问题呢？How to make our roof saver, 如何让我们的道路更安全，人们持有不同的观点或者是见解。然后in my view，在我看来，这两个方法应该是can be together都非常的重要。To promote Better driving habit, 去帮助人们建立更好的驾驶习惯，这两者都很重要。我们再来看一下body one，我们要论证为什么惩罚可以，以及具体如何惩罚，对吧？Only strict punishment can certainly help to encourage people to jump words that.</p>
+    <p>严格的惩罚当然是可以让人们更加安全的一个驾驶了。我们来看一下后面的一个解释论证。无非它也就是从why and how这样的一个角度来进行解释。先来看原因，因为penalty叫做惩罚，惩罚for danger driver can act as a determined，这个词叫做什么警示性的，起到一个警示的一个效果，meaning that people avoid repeating the same offensive, 那意味着人们就会避免去犯相同的一个罪行。</p>
+    <p>那有到底要如何去惩罚？有多少种惩罚的手段呢？我们来看一下，there are barrier type of driving penalty, 有很多种，针对于这种驾驶惩罚，比如说small finds a license suspension，这是什么？叫做电脑交易执照，它是关于电子交易执照的另外的一个表达。或者driver awareness course is even prison sentences。这些表达大家可以记一下，比如说license and present sense，这个叫送进监狱监狱的一个拘留。那么这么做可以怎么样，the end of the punishment。</p>
+    <p>这些惩罚的一个目的就是show dangerous driver的that their actions have negative consequences。Y就是要告诉司机，他们的这些行为，其实会有一个消极的或者是不好的一个后果。因此司机就会变得更加的displaying and alert，要更加的警醒，那么就会更加的遵守交通规则了。因此就follow the road more carefully。</p>
+    <p>这是这一段的解释论证，接下来body to我们要继续的进行论证了。那其他的方法到底如何让道路安全呢？你要先写出来都有哪些方法，以及这些方法为什么什么可以让道路更加的安全。</p>
+    <p>Body two, 有人认为the dreaming can be promoted in several different ways that don't part drivers。有人认为在不惩罚这些资金的基础之上，其实还有很多其他的方法可以来解决这个问题。那我们来看一下，在这段这篇范文是给出了三个不同的方法。First day首先is very added important。很重要的一件事儿是要干嘛呢？Educate properly. 在人们开车之前进行非常准确的一个教育，before they that to drive。比如说在这个学校，或者是在什么加大这个理论课程，加大这个驾照考试的一个课程，那就是在之前进行一个良好的一个教育。</p>
+    <p>Secondly, 另外more attention to to de to save road define，更多的一个注意力应该放在什么呢？设置更好的这种道路的一个设计，去设置更好的一个路况。比如说什么？用一些路标来去warn people警示什么，或者be bound and the band。就比如说这种减速带，或者一些弯路，那可以做什么呢？可以去缓解这个交通问题，或者也可以用一些bit camera，这个叫测速照相，can help to deter people from shopping to quick way.</p>
+    <p>测速照相可以延迟什么的一个车速，让人们不会再过于快速的驾驶。然后最后finally最终government and local council到当地的一个政府可以reduced，可以通过什么样的方式investing in Better public transport，投资更好的交通工具，比如说这样就意味着什么？越来越少的人们就需要出行开车。去创建更好的一个交通段，交通工具的一个环境。那这样人们出行的时候，更多的去乘坐，更加愿意乘坐出这种公交，或者是一些地铁，那人们就不会开车了。这样的话这种车祸就相应的会减少，那是body two。</p>
+    <p>然后最后我们来看一下结尾段，我们要进行一个整体的论证。In conclusion, 总而言之，虽然A可以就well，punishment can help to prevent bad, bad driving. I will love that.</p>
+    <p>我认为other roads of demeter should also be introduce。我认为其他的一些方法也应该被引进，这个就是共存型的一个解法。大家来看一下，主体端的论证是始终保持不变的，无非就针对某一类型的题目，我们更适合采取一个共存的立场。大家只要感受一下，这种共存性的立场开头以及结尾各自怎么写就可以了。因为毕竟主体段的部分我们的知识点理论的部分是通用不变的OK，这个是关于共存性的一个写法。</p>
+    <p>接下来我们来看一下最后一种情况，最后一种情况就是叫做分类讨论，或者叫做取决于。这种题型其实在论述类题型里面考的较少，所以只给大家一篇，也是考官的范文，作为一个参考即可。我们要在开头段的部分给出自己的观点，也就是给出明确的一个标准。在主体段的部分各自展开题目当中的两个观点。最后我们个人观点段，其实这个时候大家可以分情况讨论。如果说你这个标准你认为在结尾段能够充分的论述清楚，那么你在结尾段给出这个标准就是分情况讨论。即如果说你认为你这个标准需要在另一起一段就再写一个主体段，那也是可以的。然后并且在结尾段你只给出这个标准就OK了。</p>
+    <p>来看一道例题。他说去完成大学的一个教育，被人们认为是最好的获得好工作的一个方法。然而另一些人认为要获得一些经验和一些这种发展一些soft skill是更加重要的。然后我们需要做的是双边讨论，并且给出自己的一个观点。</p>
+    <p>针对这道题，我相信各位同学都有话希望。因为多年以来就是大家一直讨论的一个问题，或者我们一直在思考的一个问题。就是这种大学或应试的一个教育到底给我们带来了什么？是不是我获得了这个教育，我按部就班地完成了学业，那我一定就会。有一个光明的未来？那这道题无非就是在讨论这样的一件事儿。这道题我们的一个立场，我认为就可以给出一个什么呢？取决于的一个立场，就是上大学到底重不重要，那是不是我可以说取决于我自己未来的一个个人规划了，对吧？</p>
+    <p>你像比如说我要未来我要从事的就是一些非常体面的高精尖的一些工作。比如说律师、医生会或者是老师这些工作。那么这些工作有着较高的一个行业，就学历的一个准入门槛，对吧？你只有高学历你才能去完成。你像尤其是医生这个行业，你可能要读到博士对吧？那你当然要去什么去读大学了。</p>
+    <p>但有些同学他可能从小的一个理想是做什么？我想去当一个厨师，或者我要去学习美容美发，或者我要去学习一门技能，我要去开挖掘机。如果说你真的最终的一个人生的规划，是想从事这些传统的一个行业。那我认为这些传统就这样传统行业而言，比起学历的要求，更加看重的是什么呢？更加看重的其实是从业的一个经验。那么你可能读大学对你来说就不是那么的重要。</p>
+    <p>OK我们如何把我们的这个立场呈现在作文里面呢？我们来看一下开头段，我们依然是引出这个争论，然后引出双方不同的一个观点。然后接下来个人观点都要给出我们的一个立场。我认为有大学的一个教育，对于一些学术性的工作是很重要的。然而这些软技能在这种市场当中，在社会上也是更加的有用的。这是我的一个个人立场。</p>
+    <p>接下来我要分别的去论证了body one，它论证的是为什么去获得一些比如说academic jobs，这个学历非常的一个重要。我要去论证这件事情，因为有一个应试教育才能够让人们在一个什么获得好工作的时候，一个遥遥领先，叫to somebody one that ahead of other，就是让人脱颖而出，让一个人脱颖而出，这样getting a good job。那么他如何来进行论证的呢？他说进入大学的这个competition，我们应该深有感触。就比如说我们申请留学的时候，现在就是很卷，就是把这个均分，把这个捻雅思成绩拉的很高。就是大学的一个申请人数以及越来越多的graduate毕业生的一个人数，就证明了这件事情。也就是什么呢？一个教育的一个等级，对于人们未来工作的机会有多么的重要，就证明了这件事情。</p>
+    <p>然后接下来body 2我们要论证的是is a tough gills，对于找到工作而言也是很重要的。然后在这里我们的论证方式就是for manic position。对于很多的这个岗位而言，有过多的有非常多的一个申请者。因此在你有学历的一个基础之上，一些有相关的一些经验，叫。Heavy, relevant experience in that line of work, or having a quiet, useful thought skill can be available to the company.</p>
+    <p>如果说你已经针对这件事情，你可能没有那么高的一个文凭或者学历。但是针对这个行业你已经积累了丰富的经验，或者你会有一个什么相关的一些sof skill，能够立马的给公司创造出一个价值，叫can be available to the company。那么就能够让你在申请一份工作的时候脱颖而出，叫can put one ahead of the game，在竞争中当中脱颖而出。</p>
+    <p>When applying for a position, 这个就是body two的一个解法。然后接下来这篇范文，它其实个人观点段就另起了一段，因为它需要进行一个详细的解释说明。Finally in my opinion他说是否需要一个high level education，或者是还是说需要一个skill，and那取决于什么？Depend on the position，取决于你到底要申请一个什么样的职位being applied for。然后接下来他把这个position进行了一个具体的分化，这是我刚才开始举的一些例子。Taking for example举个例子，比如说这些行业，the law thing or teaching这几个行业。Is impossible to be considered for decision without required educational background.</p>
+    <p>如果说你没有相关的这种教育背景，那你是不会被纳入考虑的。但in contract，然而对比在市场当中，IT IT would more important for a candidate who have soft skill。And如果说在这个市场当中，会认为如果这个竞选者他有相关的一些技能或者经验，那是更容易获得这份工作的。这样的做这样的话，他们就可以step into the decision without for the training，对吧？就是不需要任何的一个训练对吧？因为我们知道一个公司去培养一个员工，去训练一个员工，那也是需要花费很大的人力资源的一个成本的那如果说你已经有了相关的一个经验了，那你就不需要过多的一个训练，就能够be of immediate benefit to the to the company。你可以立即的对于这个公司产生创造一个价值。可能这个soft skill和experience会更加的重要。</p>
+    <p>这是个人观点端的一个阐述。在文章的结尾段，他就是再一次的给出了这个标准，进行了一个说明。Income, dude. 总而言之，getting a good job requires a relevant background, either in a experience or education, depending on the type of work and field.</p>
+    <p>取决于什么？取决于工作的一个类型，工作的种类或者是行业，所以人们应该去保证他们已经得到了相关的技能或者穴位，在什么申请一份工作之前，对吧？People should make sure that they attain the necessary guilt or disagreed before applying for a job.</p>
+    <p>这样的话才能确保事业上的一个成功。就是你要先知道你自己要去应聘一个什么样的岗位，然后再看一下这个岗位到底是文凭更加重要，还是说经验和技能更加的重要，这个就是关于取决于的一个解法。这类题型因为它其实考到的概率并不是特别的大，所以就不过多的来给大家进行赘述和讲解了。以上就是关于这个部分，就论述类题型三种不同的情况，我们要怎么样的方式来进行一个写作。我们这节课的内容就先到这里了，我们下节课再见了，拜拜。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-14.html">精讲逐字稿</a></li>
+      <li><a href="qa-14.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-13.html">上一讲 13</a></li>
+      <li><a href="lesson-15.html">下一讲 15</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  if (!input) return;
+  var panel = document.getElementById('search-panel');
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>
