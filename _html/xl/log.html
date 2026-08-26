@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>最近在做 · 导航</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+    color: #f4f4f6;
+    background:
+      radial-gradient(circle at 50% 35%, rgba(0,0,0,0) 0%, rgba(0,0,0,.42) 100%),
+      url("assets/bg-nav.webp") center / cover no-repeat fixed;
+    background-color: #1b1b22;
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 40px 20px 64px;
+  }
+  @media (min-width: 1400px) {
+    body { background-image:
+      radial-gradient(circle at 50% 35%, rgba(0,0,0,0) 0%, rgba(0,0,0,.42) 100%),
+      url("assets/bg-nav-full.webp"); }
+  }
+
+  .logo { font-weight: 800; font-size: 22px; letter-spacing: -.5px; color: #fff;
+          text-shadow: 0 2px 12px rgba(0,0,0,.55); margin: 0 0 4px; }
+  .logo span { color: #f0a93b; }
+  .sub { font-size: 13px; color: rgba(244,244,246,.8); margin: 0 0 24px;
+         text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+
+  /* 搜索筛选 */
+  .filter {
+    width: 100%; max-width: 640px; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,.94); border-radius: 14px; padding: 6px 8px 6px 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  .filter svg { width: 18px; height: 18px; color: #8a8a8e; flex: 0 0 auto; }
+  .filter input {
+    flex: 1 1 auto; border: 0; outline: 0; background: transparent;
+    font-size: 15px; color: #1c1c1e; padding: 10px 4px; min-width: 0;
+  }
+  .filter input::placeholder { color: #9a9a9e; }
+  .filter .esc {
+    flex: 0 0 auto; border: 0; border-radius: 9px; cursor: pointer;
+    background: #e5e7eb; color: #4b5563; font-size: 13px; padding: 8px 12px;
+    display: none;
+  }
+  .filter .esc.show { display: block; }
+
+  /* 卡片区 */
+  .cards { width: 100%; max-width: 900px; }
+  .grp { margin-bottom: 26px; }
+  .grp-label {
+    font-size: 11px; color: rgba(244,244,246,.66); text-transform: uppercase;
+    letter-spacing: .8px; font-weight: 700; margin: 0 4px 10px;
+    text-shadow: 0 1px 6px rgba(0,0,0,.5);
+  }
+  .cards a {
+    display: block; text-decoration: none;
+    background: rgba(18,18,22,.42);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 16px; padding: 14px 18px; margin-bottom: 10px;
+    color: #f4f4f6;
+    -webkit-backdrop-filter: blur(14px) saturate(125%);
+    backdrop-filter: blur(14px) saturate(125%);
+    box-shadow: 0 8px 24px rgba(0,0,0,.28);
+    transition: transform .12s, background .15s, border-color .15s;
+  }
+  .cards a:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.3); transform: translateY(-1px); }
+  .cards a .t { font-size: 15px; font-weight: 700; }
+  .cards a .t b { color: #f0a93b; font-weight: 800; }
+  .cards a .d { display: block; font-size: 12.5px; color: rgba(244,244,246,.72); margin-top: 4px; line-height: 1.5; }
+  .cards a.hide { display: none; }
+
+  .empty { text-align: center; color: rgba(244,244,246,.7); font-size: 14px; padding: 40px 0;
+           text-shadow: 0 1px 8px rgba(0,0,0,.5); display: none; }
+  .empty.show { display: block; }
+
+  footer { margin-top: 36px; font-size: 12px; color: rgba(244,244,246,.55);
+           text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+  footer a { color: #f0a93b; text-decoration: none; }
+
+  @media (max-width: 560px) {
+    body { padding: 28px 14px 48px; }
+    .logo { font-size: 19px; }
+    .cards a { padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+  <h1 class="logo">最近<span>在做</span></h1>
+  <p class="sub">我为你做的雅思课程页面 · 点卡片直达</p>
+
+  <div class="filter">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input id="q" type="text" placeholder="筛选页面（输入关键词）" autocomplete="off" spellcheck="false">
+    <button class="esc" id="esc">清空</button>
+  </div>
+
+  <div class="cards" id="cards">
+    <div class="grp">
+      <div class="grp-label">VIP 付费精讲</div>
+      <a href="vip/tli/tli-index.html">
+        <span class="t">听力 VIP · <b>20 讲</b></span>
+        <span class="d">逐字稿 + 问答精要 · Part 1-4 推进 · 地图/配对/填空</span>
+      </a>
+      <a href="vip/speaking/speaking-index.html">
+        <span class="t">口语 VIP · <b>16 讲</b></span>
+        <span class="d">逐字稿 + 问答精要 · 素材与串题 · Part 1-3</span>
+      </a>
+      <a href="vip/index.html">
+        <span class="t">VIP 总目录</span>
+        <span class="d">口语 / 听力 / 写作 / 阅读 四板块入口</span>
+      </a>
+    </div>
+
+    <div class="grp">
+      <div class="grp-label">听力（免费课）</div>
+      <a href="tingli/tl-index.html">
+        <span class="t">听力课程 · <b>8 讲</b></span>
+        <span class="d">免费雅思听力精讲目录</span>
+      </a>
+      <a href="tingli/knowledge.html">
+        <span class="t">听力全面知识清单</span>
+        <span class="d">数字 / 日期 / 地图 / 填空 / 配对 全考点</span>
+      </a>
+      <a href="tingli/practice/index.html">
+        <span class="t">听力考点自测</span>
+        <span class="d">7 类题型练习 · 答案考点揭示</span>
+      </a>
+    </div>
+
+    <div class="grp">
+      <div class="grp-label">阅读（免费课）</div>
+      <a href="yue-du/qa-index.html">
+        <span class="t">阅读课程 · <b>14 讲</b></span>
+        <span class="d">免费雅思阅读精讲目录</span>
+      </a>
+      <a href="yue-du/practice/index.html">
+        <span class="t">阅读考点自测</span>
+        <span class="d">11 类题型练习 · 答案考点揭示</span>
+      </a>
+    </div>
+
+    <div class="grp">
+      <div class="grp-label">趣味</div>
+      <a href="index.html">
+        <span class="t">雅思口语闯关转盘</span>
+        <span class="d">随机抽题小游戏</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="empty" id="empty">没有匹配的页面</div>
+
+  <footer><a href="index.html">雅思站首页</a> · <a href="vip/index.html">VIP 总目录</a></footer>
+
+<script>
+(function(){
+  var input = document.getElementById('q');
+  var esc = document.getElementById('esc');
+  var cards = [].slice.call(document.querySelectorAll('#cards a'));
+  var grps = [].slice.call(document.querySelectorAll('#cards .grp'));
+  var empty = document.getElementById('empty');
+
+  function apply(){
+    var kw = input.value.trim().toLowerCase();
+    var total = 0;
+    cards.forEach(function(a){
+      var hit = !kw || a.textContent.toLowerCase().indexOf(kw) >= 0;
+      a.classList.toggle('hide', !hit);
+      if (hit) total++;
+    });
+    grps.forEach(function(g){
+      var visible = [].some.call(g.querySelectorAll('a'), function(a){ return !a.classList.contains('hide'); });
+      g.style.display = visible ? '' : 'none';
+    });
+    empty.classList.toggle('show', total === 0);
+    esc.classList.toggle('show', !!kw);
+  }
+
+  input.addEventListener('input', apply);
+  esc.addEventListener('click', function(){ input.value = ''; apply(); input.focus(); });
+})();
+</script>
+</body>
+</html>
