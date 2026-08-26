@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>听力全面知识清单 · 雅思听力8讲配套</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main h1 { font-size: 32px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.3; }
+  .col-main h2 { font-size: 23px; margin-top: 40px; padding-top: 16px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 18px; margin-top: 28px; color: #1f2937; }
+  .col-main p { line-height: 1.75; color: #374151; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
+  .col-main th { background: #f9fafb; font-weight: 600; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main code { background: #f3f4f6; border-radius: 4px; padding: 1px 5px; font-size: 13px; color: #111; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-main .tip b { color: #1d4ed8; }
+  .col-main .kv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px; margin: 12px 0; }
+  .col-main .kv div { font-size: 14px; line-height: 1.6; }
+  .col-main .kv .k { color: #6b7280; font-size: 12.5px; }
+  .col-main .kv .v { color: #111; font-weight: 600; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } .kv { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力知识清单<span> · 雅思听力8讲配套</span></div>
+  <div class="topbar-right">
+    <a href="../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="tl-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">课程目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>知识清单</h3>
+    <ul>
+      <li><a href="#sec1">考试框架与计分</a></li>
+      <li><a href="#sec2">必考一：数字</a></li>
+      <li><a href="#sec3">必考二：人名拼写</a></li>
+      <li><a href="#sec4">必考三：日期（12 月份 + 7 星期）</a></li>
+      <li><a href="#sec5">选考一：时间</a></li>
+      <li><a href="#sec6">选考二：地址</a></li>
+      <li><a href="#sec7">地图题词库</a></li>
+      <li><a href="#sec8">表格题信号词</a></li>
+      <li><a href="#sec9">单选题限定词 4 类</a></li>
+      <li><a href="#sec10">多选题排除法</a></li>
+      <li><a href="#sec11">填空题四步法 + 逻辑信号词</a></li>
+      <li><a href="#sec12">配对题考点</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="tl-index.html">返回课程目录</a></li>
+      <li><a class="back" href="practice/index.html">返回考点自测</a></li>
+      <li><a class="back" href="../../index.html">返回首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>雅思听力全面知识清单</h1>
+    <p style="color:#6b7280;">把老师 8 讲里讲过的每一个考点浓缩成词库清单。必考内容必须背熟，选考内容眼熟即可；配合每讲自测题检验掌握程度。</p>
+
+    <h2><a id="sec1"></a>一、考试框架与计分</h2>
+    <table>
+      <thead><tr><th>维度</th><th>Part</th><th>场景 / 内容</th></tr></thead>
+      <tbody>
+        <tr><td>生存英语 · 对话</td><td>Part 1</td><td>租房、超市、旅游问询（Form 个人信息表主战场）</td></tr>
+        <tr><td>生存英语 · 独白</td><td>Part 2</td><td>导游介绍景点 / 文化 / 规定（地图、表格、配对高发）</td></tr>
+        <tr><td>学术英语 · 对话</td><td>Part 3</td><td>同学讨论选课作业、师生答疑做 research（配合 both agree）</td></tr>
+        <tr><td>学术英语 · 独白</td><td>Part 4</td><td>学术讲座（天文、纳米、微生物、商业；填空主战场）</td></tr>
+      </tbody>
+    </table>
+    <div class="tip"><b>计分</b>：40 题。目标 7 分需做对 30+（约 75%）；8 分需 35+（87.5%）。总分四科平均，单项提分对总分贡献有限，四科雨露均沾。</div>
+    <p>三类 9 题型：<b>主观题</b>（写单词）Form / Table / Note / Sentence Completion；<b>客观题</b>（写字母）单选 / 多选 / 配对；<b>混合题</b>地图题（A-F 字母是配对、没字母是填空）。</p>
+
+    <h2><a id="sec2"></a>二、必考一：数字（至少 3 道，必须全对）</h2>
+    <h3>数字串（电话 / 账号）</h3>
+    <ul>
+      <li><code>o</code> 是 0 最常见的读法（别等 zero）；分组报：3-3-3 或 4-4-4。</li>
+      <li>相同数字连读：<code>double</code>=两个（double nine = 99）、<code>triple</code>=三个。</li>
+    </ul>
+    <table>
+      <thead><tr><th>写法</th><th>读法</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>zero / o</td><td>o 更常见，字符串里优先</td></tr>
+        <tr><td>99</td><td>double nine</td><td>两个相同数字连读</td></tr>
+        <tr><td>444</td><td>triple four</td><td>三个相同数字连读</td></tr>
+        <tr><td>0748 993 064</td><td>oh seven four eight, double nine three, oh six four</td><td>按 3-3-3 分组报</td></tr>
+      </tbody>
+    </table>
+    <h3>teen 与 ty（鼻音辨音）</h3>
+    <table>
+      <thead><tr><th>类型</th><th>结尾</th><th>例</th><th>辨别</th></tr></thead>
+      <tbody>
+        <tr><td>-teen 十几</td><td>13-19</td><td>fifteen / thirteen</td><td>有"过鼻子"的鼻音</td></tr>
+        <tr><td>-ty 几十</td><td>30-90</td><td>fifty / thirty</td><td>没有鼻音</td></tr>
+      </tbody>
+    </table>
+    <h3>价格、年份、大数</h3>
+    <ul>
+      <li>钱数：整数 + 单位（pounds），小数直接读数字：4.45 = <code>four pounds forty five</code>；penny 复数不规则 = pence。</li>
+      <li>年份：980 = <code>nine hundred and eighty</code>（eight 与 and 连读，常听成 990/919/918）；雅思最大考到 2020 = two thousand and twenty。</li>
+      <li>单位帽子法：三位一组，每组按百位读，扣单位帽子 hundred → thousand → million → billion。</li>
+    </ul>
+
+    <h2><a id="sec3"></a>三、必考二：人名拼写（送分 1 题）</h2>
+    <table>
+      <thead><tr><th>-</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>姓</td><td>last name / family name / surname；title（Professor）后面跟姓</td></tr>
+        <tr><td>名</td><td>first name（Professor + Amy 是错的）</td></tr>
+        <tr><td>易混字母</td><td>g/j、m/n、a/e、l/o（老外读 l 很"妖娆"，像 o）</td></tr>
+        <tr><td>做题铁律</td><td>不要盯单个字母，要看整个单词（Jay 不可能拼成 Gay）</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="sec4"></a>四、必考三：日期（12 月份 + 7 星期，老师点名要整理）</h2>
+    <div class="tip"><b>写法铁律</b>：日期写<b>基数词</b>（31 不是 31th），年放最后；月日顺序随意（Feb 22 或 22 Feb 都对）。简写 = 前 3 字母 + 点（Jan.），不能少点、不能多字母。</div>
+    <h3>12 个月份（全称 + 简写）</h3>
+    <table>
+      <thead><tr><th>月份</th><th>简写</th><th>月份</th><th>简写</th></tr></thead>
+      <tbody>
+        <tr><td>January</td><td>Jan.</td><td>July</td><td>Jul.</td></tr>
+        <tr><td>February</td><td>Feb.</td><td>August</td><td>Aug.</td></tr>
+        <tr><td>March</td><td>Mar.</td><td>September</td><td>Sep./Sept.</td></tr>
+        <tr><td>April</td><td>Apr.</td><td>October</td><td>Oct.</td></tr>
+        <tr><td>May</td><td>May（无简写）</td><td>November</td><td>Nov.</td></tr>
+        <tr><td>June</td><td>Jun.</td><td>December</td><td>Dec.</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#b45309;"><b>高频易错</b>：February（中间有 r 的音）、Tuesday / Wednesday / Thursday（长得像，考得多）。</p>
+    <h3>7 个星期（周一至周日全整理）</h3>
+    <table>
+      <thead><tr><th>中文</th><th>英文</th><th>注意</th></tr></thead>
+      <tbody>
+        <tr><td>星期一</td><td>Monday</td><td>day 结尾，周日外全带 day</td></tr>
+        <tr><td>星期二</td><td>Tuesday</td><td>Tuesday / Wednesday / Thursday 最易混</td></tr>
+        <tr><td>星期三</td><td>Wednesday</td><td>拼写吞音：Wen-s-day 按拼写记</td></tr>
+        <tr><td>星期四</td><td>Thursday</td><td>th 开头</td></tr>
+        <tr><td>星期五</td><td>Friday</td><td>-day</td></tr>
+        <tr><td>星期六</td><td>Saturday</td><td>ur 拼写</td></tr>
+        <tr><td>星期日</td><td>Sunday</td><td>一周之首其实是 Sunday</td></tr>
+      </tbody>
+    </table>
+    <h3>补充答案词</h3>
+    <ul>
+      <li><code>midday</code> 正午 12 点、<code>midnight</code> 午夜 12 点。</li>
+      <li>月份/星期读题时先默读一遍，定位时才能跟上。</li>
+    </ul>
+
+    <h2><a id="sec5"></a>五、选考一：时间</h2>
+    <table>
+      <thead><tr><th>规则</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>只有一种读法</td><td>六点半 = <code>six thirty</code>，没有 half past six / a quarter to</td></tr>
+        <tr><td>逢五逢十</td><td>30 / 15 这类，不会考 02:02 细碎时间</td></tr>
+        <tr><td>o 的读法</td><td>5:05 = <code>five o five</code></td></tr>
+        <tr><td>选考规则</td><td>考了数字题就不考时间题（两者选考其一）</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="sec6"></a>六、选考二：地址（复合考点）</h2>
+    <ul>
+      <li>小地址在前、大地址在后（和中文相反）：<code>Number 5 Zhongguancun South Street, Beijing, China</code>。</li>
+      <li>挖门牌号 = 数字考点；挖路名 = 人名拼写考点（会拼给你听）。</li>
+      <li>路名高频：street / road / avenue / lane；注意 North/South/East/West 方向词挂路名（South Street）。</li>
+    </ul>
+
+    <h2><a id="sec7"></a>七、地图题词库（考频高、方法性强）</h2>
+    <h3>三类图</h3>
+    <table>
+      <thead><tr><th>类型</th><th>特征</th><th>考频</th></tr></thead>
+      <tbody>
+        <tr><td>街道型</td><td>城市街道 + 沿街建筑</td><td>相对较少</td></tr>
+        <tr><td>区域型</td><td>公园/植物园/农场，常配罗盘</td><td>高</td></tr>
+        <tr><td>平面结构图</td><td>户型/地下室/船舱（双实线=墙、小斜杠=门）</td><td>高</td></tr>
+      </tbody>
+    </table>
+    <h3>路线词库</h3>
+    <table>
+      <thead><tr><th>动作</th><th>表达</th></tr></thead>
+      <tbody>
+        <tr><td>直走</td><td>go straight / go straight ahead / go along the road</td></tr>
+        <tr><td>转弯</td><td>turn；take the first/second turning on your left/right</td></tr>
+        <tr><td>经过/穿过</td><td>pass；go through（穿门/入口）；cross / across（从上面过桥）；through（桥下/管道）</td></tr>
+        <tr><td>朝某方向</td><td>go towards（towards the bridge and turn right just before it）</td></tr>
+      </tbody>
+    </table>
+    <h3>8 方位（必须会）</h3>
+    <div class="kv">
+      <div><span class="k">基本四向</span><br><span class="v">north / south / west / east</span></div>
+      <div><span class="k">四斜向</span><br><span class="v">northeast / southeast / northwest / southwest</span></div>
+      <div><span class="k">方位词</span><br><span class="v">opposite / in between / at the end of / facing you</span></div>
+      <div><span class="k">场景词</span><br><span class="v">gate / entrance / cafe / dormitory / office / playground / court / stairs / cloakroom / balcony</span></div>
+      <div><span class="k">交通词</span><br><span class="v">traffic light / roundabout / clockwise / anticlockwise</span></div>
+      <div><span class="k">入口出口</span><br><span class="v">way in / way out（英式）；entrance / exit（美式）</span></div>
+    </div>
+    <h3>辨音陷阱与铁律</h3>
+    <ul>
+      <li><code>corner</code>（转角）vs <code>corridor</code>（走廊）——高频辨音陷阱，听错直接选错房间。</li>
+      <li><b>远近相对、左右绝对</b>：比例尺让图上的远近失真，但以起点为参照，左/右是绝对的。</li>
+      <li>有没有罗盘决定描述方式：<b>有罗盘用东西南北、没罗盘一定用左右</b>。</li>
+      <li>找起始点（地下室图的入口必是楼梯）→ 默读定位词 → 按顺序听定位词后的描述。</li>
+    </ul>
+
+    <h2><a id="sec8"></a>八、表格题信号词（Table Completion）</h2>
+    <table>
+      <thead><tr><th>信号词</th><th>用途 / 场景</th></tr></thead>
+      <tbody>
+        <tr><td><code>it's called</code></td><td>后面接"名字"答案（the great migration）</td></tr>
+        <tr><td><code>it's on</code></td><td>上映 / 地点（it's on in theater C）</td></tr>
+        <tr><td><code>take place</code></td><td>发生地点（take place in the exhibition room）</td></tr>
+        <tr><td><code>display / 3:45 / on the lawn</code></td><td>同一活动的多个信息一句话连排</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>题目按顺序、信息点乱序</b>：表格同一行的 name / location / type / time，音频可能跨列跳着讲。</li>
+      <li>字母编号：单元楼不叫"1 单元"叫 <code>A 单元</code>；影院不叫"1 号厅"叫 <code>theater C</code>，别把 C 听成 Sea。</li>
+      <li>时间逢五逢十（3:45 不会考 3:03）。</li>
+    </ul>
+
+    <h2><a id="sec9"></a>九、单选题限定词 4 类（筛选正确选项）</h2>
+    <table>
+      <thead><tr><th>类型</th><th>标志词</th><th>例子</th></tr></thead>
+      <tbody>
+        <tr><td>时间限定</td><td>now / future / 时态（has been done）</td><td>currently（现在）</td></tr>
+        <tr><td>频率频度限定</td><td>most frequent / only / limited</td><td>approximately（大约）</td></tr>
+        <tr><td>地点限定</td><td>具体地点名词</td><td>in the restaurant</td></tr>
+        <tr><td>名词限定</td><td>形容词 + 名词（覆盖最广）</td><td>reduced price（降价）</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>定位词 = 句子主干（主谓宾），负责"报时"（题来了）；限定词负责"筛选"。</li>
+      <li>短选项有陷阱：短选项（627/628/629）三个都可能被提到，靠同义替换选（approximately ≈ about）。</li>
+      <li>长选项找不同：只抓核心差异点（government / family / former employer 三个主体）。</li>
+      <li>正确选项通常都有同义替换；听到原词的往往是干扰项。</li>
+      <li>读题两步走：先读完所有题干（划限定 + 定位），回头再看选项；定位成功后再读选项也来得及。</li>
+    </ul>
+
+    <h2><a id="sec10"></a>十、多选题排除法（5 选 2 或 7 选 3）</h2>
+    <p>多选题 5 个选项<b>全部都会出现</b>且乱序，唯一应对是排除法，划掉带下面三特征的选项：</p>
+    <table>
+      <thead><tr><th>错误特征</th><th>例子</th></tr></thead>
+      <tbody>
+        <tr><td>带否定词</td><td>it wasn't / I didn't / don't generally —— 明确否定，直接划掉</td></tr>
+        <tr><td>不符限定</td><td>题干限定（如时间/地点）对不上</td></tr>
+        <tr><td>张冠李戴</td><td>原文说"幸运的是没下雨"，选项写"在雨中等待"</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>正确项必有同义替换：stand outside and queue → wait to enter the exhibition。</li>
+      <li>多选 5 个选项全出现且乱序是常态——看到全出现别慌，直接排除。</li>
+      <li>选 2 个时 2 个答案可能在原文里是相连的两句话，听完才定。</li>
+    </ul>
+
+    <h2><a id="sec11"></a>十一、填空题四步法 + 逻辑信号词</h2>
+    <table>
+      <thead><tr><th>步骤</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>读字数要求（ONE WORD / NO MORE THAN TWO）</td></tr>
+        <tr><td>2</td><td>读标题定场景（Section 4 是学术独白）</td></tr>
+        <tr><td>3</td><td>空格前后各找一个定位词，"双定位词"夹住空格 + 常识预测词性词义</td></tr>
+        <tr><td>4</td><td>定位词出现才 focus，之前的不必全懂</td></tr>
+      </tbody>
+    </table>
+    <h3>逻辑信号词</h3>
+    <table>
+      <thead><tr><th>功能</th><th>信号词</th></tr></thead>
+      <tbody>
+        <tr><td>列举要点</td><td>for one / in addition</td></tr>
+        <tr><td>转折对比</td><td>however / whereas</td></tr>
+        <tr><td>除外</td><td>apart from</td></tr>
+        <tr><td>并列连接</td><td>and / also / both / or（等着听并列结构答案）</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>同义替换三大类：定语从句（先行词被挪位）、代词指代（this/that 代替定位词）、A of B 语序变化（原文 B A）。</li>
+      <li>生僻学术词永远不做考点——不懂的单词不慌。</li>
+    </ul>
+
+    <h2><a id="sec12"></a>十二、配对题考点（收官题型）</h2>
+    <table>
+      <thead><tr><th>Part</th><th>考法</th></tr></thead>
+      <tbody>
+        <tr><td>Part 2</td><td>单层汉堡：干扰信息 或 同义替换（考干扰就不考同替）</td></tr>
+        <tr><td>Part 3</td><td>双层汉堡：同义替换 + 干扰 + <b>both agree（双方都要同意）</b></td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>三步法：读题目要求 → 读题干（默读发音）→ 读选项（预判替换/划核心词），题干原词定位后抓干扰或同义替换。</li>
+      <li>错过一题后面可能连续错——节奏 > 纠结，漏题直接跳过。</li>
+      <li>常用同替：teacher ↔ tutor；building ↔ construction / construct；area ↔ location。</li>
+    </ul>
+
+    <div class="tip"><b>备考节奏</b>：先背熟必考三类（数字、人名、日期）词库，再做 7 大题型自测；错题回问答精要复习；精听两步法（第一遍做题、第二遍挖空听写）巩固核心词汇。</div>
+  </main>
+  <aside class="col-right">
+    <h4>本页小节</h4>
+    <ul>
+      <li><a href="#sec1">一、考试框架与计分</a></li>
+      <li><a href="#sec2">二、必考一：数字</a></li>
+      <li><a href="#sec3">三、必考二：人名拼写</a></li>
+      <li><a href="#sec4">四、必考三：日期（12 月份 + 7 星期）</a></li>
+      <li><a href="#sec5">五、选考一：时间</a></li>
+      <li><a href="#sec6">六、选考二：地址</a></li>
+      <li><a href="#sec7">七、地图题词库</a></li>
+      <li><a href="#sec8">八、表格题信号词</a></li>
+      <li><a href="#sec9">九、单选题限定词 4 类</a></li>
+      <li><a href="#sec10">十、多选题排除法</a></li>
+      <li><a href="#sec11">十一、填空题四步法 + 逻辑信号词</a></li>
+      <li><a href="#sec12">十二、配对题考点</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input=document.getElementById('search-input');
+  var panel=document.getElementById('search-panel');
+  if(!input||!panel)return;
+  var main=document.querySelector('.col-main');
+  var rightLinks=Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){return s.replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function escapeRegex(s){return s.replace(/[.*+?^${}()|[\]\\]/g,function(m){return '\\'+m;});}
+  function clearHighlights(){if(!main)return;var marks=main.querySelectorAll('mark.search-hl');for(var i=0;i<marks.length;i++){var m=marks[i];var t=document.createTextNode(m.textContent);m.parentNode.replaceChild(t,m);}main.normalize();}
+  function highlightInMain(kw){if(!main)return;clearHighlights();if(!kw)return;var re=new RegExp(escapeRegex(kw),'gi');var walker=document.createTreeWalker(main,NodeFilter.SHOW_TEXT,{acceptNode:function(n){if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;var p=n.parentElement;if(!p)return NodeFilter.FILTER_REJECT;var tag=p.tagName;if(tag==='SCRIPT'||tag==='STYLE'||tag==='CODE'||tag==='PRE')return NodeFilter.FILTER_REJECT;if(p.closest&&p.closest('mark.search-hl'))return NodeFilter.FILTER_REJECT;return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase())>=0?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});var nodes=[];var n;while((n=walker.nextNode()))nodes.push(n);for(var i=0;i<nodes.length;i++){var node=nodes[i];var src=node.nodeValue;var re2=new RegExp(escapeRegex(kw),'gi');var out='';var last=0;var m;while((m=re2.exec(src))!==null){out+=escHtml(src.slice(last,m.index));out+='<mark class="search-hl">'+escHtml(m[0])+'</mark>';last=m.index+m[0].length;if(m[0].length===0)re2.lastIndex++;}out+=escHtml(src.slice(last));var tmp=document.createElement('span');tmp.innerHTML=out;var parent=node.parentNode;while(tmp.firstChild)parent.insertBefore(tmp.firstChild,node);parent.removeChild(node);}}
+  function doSearch(q){
+    q=(q||'').trim();
+    if(!q){panel.className='';panel.innerHTML='';clearHighlights();return;}
+    var qLower=q.toLowerCase();
+    var hits=rightLinks.filter(function(a){return a.textContent.toLowerCase().indexOf(qLower)>=0;});
+    var parts=[];
+    if(hits.length){parts.push('<div class="sp-group">本页小节</div>');parts.push('<ul>'+hits.map(function(a){return '<li><a href="'+a.getAttribute('href')+'">'+escHtml(a.textContent)+'</a></li>';}).join('')+'</ul>');}
+    if(!parts.length)parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML=parts.join('');panel.className='show';highlightInMain(q);
+  }
+  var timer=null;
+  input.addEventListener('input',function(e){clearTimeout(timer);timer=setTimeout(function(){doSearch(input.value);},80);});
+  input.addEventListener('keydown',function(e){if(e.key==='Escape'){input.value='';doSearch('');input.blur();}});
+  document.addEventListener('click',function(e){if(panel.contains(e.target)||e.target===input)return;panel.className='';});
+  panel.addEventListener('click',function(e){var a=e.target.closest('a');if(a)panel.className='';});
+  document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&(e.key==='k'||e.key==='K')){e.preventDefault();input.focus();input.select();}});
+})();
+</script>
+</body>
+</html>
