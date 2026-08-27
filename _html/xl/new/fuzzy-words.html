@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模糊词汇发音学习卡 · 104 词 · 澳/爱双口音</title>
+<style>
+  :root{
+    --bg1:#eef2ff; --bg2:#f5f3ff;
+    --ink:#1e1b4b; --muted:#6b7280;
+    --card:#ffffff;
+    --au:#ea580c; --au-bg:#fff7ed; --au-border:#fdba74;
+    --ie:#059669; --ie-bg:#ecfdf5; --ie-border:#6ee7b7;
+    --accent:#4f46e5;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(79,70,229,.10);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:linear-gradient(160deg,var(--bg1),var(--bg2) 60%,#fdf4ff);
+    color:var(--ink);
+    min-height:100vh;
+    padding-bottom:80px;
+  }
+  header{text-align:center; padding:44px 20px 22px;}
+  header h1{
+    font-size:clamp(24px,4vw,38px);
+    letter-spacing:.5px;
+    background:linear-gradient(90deg,#4f46e5,#7c3aed,#db2777);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  header p.sub{margin-top:10px; color:var(--muted); font-size:15px;}
+  .back{
+    display:inline-flex; align-items:center; gap:6px;
+    margin-top:14px; padding:8px 16px; border-radius:999px;
+    font-size:13.5px; font-weight:700; color:#4f46e5;
+    background:#eef2ff; border:1.5px solid #c7d2fe;
+    text-decoration:none;
+  }
+  .back:hover{background:#e0e7ff;}
+  .badges{margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:7px 14px; border-radius:999px; font-size:13.5px; font-weight:600;
+    border:1.5px solid;
+  }
+  .badge.au{color:var(--au); background:var(--au-bg); border-color:var(--au-border);}
+  .badge.ie{color:var(--ie); background:var(--ie-bg); border-color:var(--ie-border);}
+  .controls{
+    position:sticky; top:0; z-index:50;
+    display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+    padding:12px 16px;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+  }
+  .search{
+    flex:0 1 260px; min-width:180px;
+    padding:10px 16px; border-radius:12px;
+    border:1.5px solid #d1d5db; font-family:inherit; font-size:13.5px;
+    outline:none; background:#fff;
+  }
+  .search:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,70,229,.12);}
+  .btn{
+    border:none; cursor:pointer; font-family:inherit;
+    padding:10px 15px; border-radius:12px; font-size:13.5px; font-weight:700;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+  }
+  .btn:hover{transform:translateY(-1px); filter:brightness(1.04);}
+  .btn:active{transform:translateY(0);}
+  .btn.au{background:var(--au); color:#fff;}
+  .btn.ie{background:var(--ie); color:#fff;}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid #e5e7eb; box-shadow:none;}
+  .counter{font-size:13px; color:var(--muted); align-self:center;}
+  .grid{
+    max-width:1180px; margin:26px auto 0; padding:0 20px;
+    display:grid; gap:16px;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  }
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:18px 18px 16px;
+    display:flex; flex-direction:column; gap:9px;
+    position:relative;
+    border:1px solid #f3f4f6;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:0 16px 36px rgba(79,70,229,.14);}
+  .card.hidden{display:none;}
+  .num{
+    position:absolute; top:12px; right:14px;
+    font-size:11.5px; font-weight:700; color:#c7d2fe;
+    background:#eef2ff; border-radius:8px; padding:3px 8px;
+  }
+  .word{font-size:24px; font-weight:800; letter-spacing:.4px; padding-right:44px;}
+  .word .note{font-size:12px; color:var(--muted); font-weight:600; margin-left:6px;}
+  .ipa{color:var(--muted); font-size:13.5px; line-height:1.5;}
+  .meaning{font-size:13.5px; color:#374151; line-height:1.55;}
+  .meaning b{color:var(--accent); font-weight:600; margin-right:4px;}
+  .example{
+    background:#f9fafb; border-radius:12px; padding:10px 12px;
+    font-size:13px; color:#374151; line-height:1.6;
+    border-left:3px solid #c7d2fe;
+  }
+  .example .zh{color:var(--muted); margin-top:4px; font-size:12px;}
+  .noex{
+    background:#fffbeb; border-radius:12px; padding:9px 12px;
+    font-size:12.5px; color:#b45309; border-left:3px solid #fcd34d;
+  }
+  .plays{display:flex; gap:6px; margin-top:auto; padding-top:6px;}
+  .play{
+    flex:1; border:none; cursor:pointer; font-family:inherit;
+    padding:6px 3px; border-radius:8px; font-size:12px; font-weight:700;
+    display:inline-flex; align-items:center; justify-content:center; gap:4px;
+    transition:transform .1s ease, filter .1s ease;
+  }
+  .play:hover{transform:translateY(-1px); filter:brightness(1.05);}
+  .play:active{transform:scale(.97);}
+  .play.au{background:var(--au-bg); color:var(--au); border:1.5px solid var(--au-border);}
+  .play.ie{background:var(--ie-bg); color:var(--ie); border:1.5px solid var(--ie-border);}
+  .play.playing{outline:3px solid rgba(79,70,229,.35);}
+  @media (max-width:520px){
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>模糊词汇发音学习卡</h1>
+  <p class="sub">104 个拿不准的单词 · 单词 + 例句真人级发音 · 支持搜索筛选</p>
+  <a class="back" href="index.html">返回 25 词主页</a>
+  <div class="badges">
+    <span class="badge au">澳洲男声 · William</span>
+    <span class="badge ie">爱尔兰女声 · Emily</span>
+    <span class="badge" style="color:#4f46e5;background:#eef2ff;border-color:#c7d2fe;">共 412 段音频</span>
+  </div>
+</header>
+
+<div class="controls">
+  <input class="search" id="search" type="search" placeholder="搜索单词 / 释义 / 例句…" autocomplete="off">
+  <button class="btn au" id="playAllAU">单词连播 · 澳</button>
+  <button class="btn ie" id="playAllIE">单词连播 · 爱</button>
+  <button class="btn au" id="playAllSentAU">例句连播 · 澳</button>
+  <button class="btn ie" id="playAllSentIE">例句连播 · 爱</button>
+  <button class="btn ghost" id="stopAll">停止</button>
+  <span class="counter" id="counter"></span>
+</div>
+
+<main class="grid" id="grid"></main>
+
+<audio id="player"></audio>
+
+<script>
+const WORDS = [
+{n:1, word:"Johna Smyth", ipa:"/ˈdʒəʊnə smaɪθ/", meaning:"专有名词（人名），无普通释义、无例句"},
+{n:2, word:"Jacobe", ipa:"/ˈdʒækəbi/", meaning:"专有名词（人名/姓氏），无普通释义、无例句"},
+{n:3, word:"mesum", nm:"（应为 museum）", ipa:"/mjuˈziːəm/", meaning:"n. 博物馆", en:"We visited the British Museum last week.", zh:"我们上周参观了大英博物馆。"},
+{n:4, word:"form", ipa:"/fɔːm/", meaning:"n. 形式；表格 / v. 形成", en:"Please fill in this application form.", zh:"请填写这张申请表。"},
+{n:5, word:"resource", ipa:"/rɪˈzɔːs/", meaning:"n. 资源；资料", en:"The library has many online resources.", zh:"图书馆有很多在线资源。"},
+{n:6, word:"minimum", ipa:"/ˈmɪnɪməm/", meaning:"n. 最小值 / adj. 最小的", en:"The minimum wage is £10 per hour.", zh:"最低工资是每小时 10 英镑。"},
+{n:7, word:"presentation", ipa:"/ˌprezənˈteɪʃn/", meaning:"n. 演示；报告；呈现", en:"She gave an excellent presentation on climate change.", zh:"她就气候变化做了一个出色的报告。"},
+{n:8, word:"concert", ipa:"/ˈkɒnsət/", meaning:"n. 音乐会；演奏会", en:"We went to a rock concert last night.", zh:"我们昨晚去了一场摇滚音乐会。"},
+{n:9, word:"seminar", ipa:"/ˈsemɪnɑːr/", meaning:"n. 研讨会；研讨课", en:"The professor will lead a seminar on Shakespeare.", zh:"教授将主持一场关于莎士比亚的研讨课。"},
+{n:10, word:"majority", ipa:"/məˈdʒɒrəti/", meaning:"n. 多数；大部分", en:"The majority of students passed the exam.", zh:"大多数学生通过了考试。"},
+{n:11, word:"construction", ipa:"/kənˈstrʌkʃn/", meaning:"n. 建造；建筑；结构", en:"The construction of the new bridge will take two years.", zh:"新桥的建造将耗时两年。"},
+{n:12, word:"literature", ipa:"/ˈlɪtrətʃər/", meaning:"n. 文学；文献", en:"She is studying English literature at university.", zh:"她在大学学习英国文学。"},
+{n:13, word:"same", ipa:"/seɪm/", meaning:"adj. 相同的 / pron. 同样的人/事", en:"We both ordered the same dish.", zh:"我们俩点了同样的菜。"},
+{n:14, word:"strategy", ipa:"/ˈstrætədʒi/", meaning:"n. 策略；战略", en:"The company needs a new marketing strategy.", zh:"公司需要新的营销策略。"},
+{n:15, word:"disposal", ipa:"/dɪˈspəʊzl/", meaning:"n. 处理；处置；丢弃", en:"The safe disposal of waste is important.", zh:"废物的安全处理很重要。"},
+{n:16, word:"skeleton", ipa:"/ˈskelɪtn/", meaning:"n. 骨骼；骨架；提纲", en:"The human skeleton has 206 bones.", zh:"人体骨骼有 206 块骨头。"},
+{n:17, word:"scheme", ipa:"/skiːm/", meaning:"n. 计划；方案；阴谋", en:"The government introduced a new pension scheme.", zh:"政府推出了一项新的养老金计划。"},
+{n:18, word:"suburb", ipa:"/ˈsʌbɜːb/", meaning:"n. 郊区；城郊", en:"They live in a quiet suburb of London.", zh:"他们住在伦敦一个安静的郊区。"},
+{n:19, word:"sculpture", ipa:"/ˈskʌlptʃər/", meaning:"n. 雕塑；雕刻品", en:"The museum has a famous sculpture by Rodin.", zh:"博物馆有一件罗丹的著名雕塑。"},
+{n:20, word:"garage", ipa:"/ˈɡærɑːʒ/（英式常见）", meaning:"n. 车库；汽车修理厂", en:"I parked my car in the garage.", zh:"我把车停在了车库里。"},
+{n:21, word:"reservation", ipa:"/ˌrezəˈveɪʃn/", meaning:"n. 预订；保留", en:"I have a reservation for two at 8 pm.", zh:"我晚上 8 点预订了两人位。"},
+{n:22, word:"module", ipa:"/ˈmɒdjuːl/", meaning:"n. 模块；单元；组件", en:"This course consists of six modules.", zh:"这门课程由六个单元组成。"},
+{n:23, word:"series", ipa:"/ˈsɪəriːz/", meaning:"n. 系列；连续（单复数同形）", en:"She is watching a TV series about detectives.", zh:"她正在看一部关于侦探的电视剧。"},
+{n:24, word:"architect", ipa:"/ˈɑːkɪtekt/", meaning:"n. 建筑师；设计师", en:"The architect designed a modern glass building.", zh:"那位建筑师设计了一座现代玻璃建筑。"},
+{n:25, word:"pattern", ipa:"/ˈpætn/", meaning:"n. 模式；图案；样板", en:"The curtains have a floral pattern.", zh:"窗帘上有花卉图案。"},
+{n:26, word:"semester", ipa:"/sɪˈmestər/", meaning:"n. 学期（尤指美国）", en:"The autumn semester starts in September.", zh:"秋季学期九月份开始。"},
+{n:27, word:"stone", ipa:"/stəʊn/", meaning:"n. 石头；宝石", en:"The wall was made of rough stone.", zh:"这堵墙是用粗糙的石头砌的。"},
+{n:28, word:"faculty", ipa:"/ˈfæklti/", meaning:"n. 才能；全体教职员；院系", en:"The faculty of science has new laboratories.", zh:"理学院有了新的实验室。"},
+{n:29, word:"geography", ipa:"/dʒiˈɒɡrəfi/", meaning:"n. 地理；地理学", en:"He is good at geography but weak at history.", zh:"他擅长地理，但不擅长历史。"},
+{n:30, word:"charity", ipa:"/ˈtʃærəti/", meaning:"n. 慈善；慈善机构", en:"The charity raises money for homeless people.", zh:"该慈善机构为无家可归者筹款。"},
+{n:31, word:"drama", ipa:"/ˈdrɑːmə/", meaning:"n. 戏剧；戏剧艺术", en:"She studies drama and theatre at college.", zh:"她在大学学习戏剧和表演。"},
+{n:32, word:"category", ipa:"/ˈkætəɡəri/", meaning:"n. 类别；种类", en:"These books belong to the same category.", zh:"这些书属于同一类别。"},
+{n:33, word:"applicant", ipa:"/ˈæplɪkənt/", meaning:"n. 申请人；求职者", en:"There were over 200 applicants for the job.", zh:"有 200 多人申请这份工作。"},
+{n:34, word:"curtain", ipa:"/ˈkɜːtn/", meaning:"n. 窗帘；幕布", en:"Please draw the curtains to let in some light.", zh:"请拉开窗帘让光线进来。"},
+{n:35, word:"erosion", ipa:"/ɪˈrəʊʒn/", meaning:"n. 侵蚀；腐蚀；削弱", en:"Soil erosion is a serious problem in this area.", zh:"土壤侵蚀在这个地区是个严重问题。"},
+{n:36, word:"ozone", ipa:"/ˈəʊzəʊn/", meaning:"n. 臭氧", en:"The ozone layer protects us from UV radiation.", zh:"臭氧层保护我们免受紫外线辐射。"},
+{n:37, word:"component", ipa:"/kəmˈpəʊnənt/", meaning:"n. 组成部分；部件", en:"The engine has many small components.", zh:"发动机有许多小部件。"},
+{n:38, word:"supervisor", ipa:"/ˈsuːpəvaɪzər/", meaning:"n. 监督人；导师；主管", en:"My supervisor helped me choose my research topic.", zh:"我的导师帮我选择了研究课题。"},
+{n:39, word:"handout", ipa:"/ˈhændaʊt/", meaning:"n. 讲义；救济品；传单", en:"The teacher gave us a handout with exercises.", zh:"老师发给我们一份带练习的讲义。"},
+{n:40, word:"junction", ipa:"/ˈdʒʌŋkʃn/", meaning:"n. 交叉路口；连接点", en:"Turn left at the next junction.", zh:"在下一个路口左转。"},
+{n:41, word:"ceramics", ipa:"/səˈræmɪks/", meaning:"n. 制陶术；陶瓷制品（常用复数）", en:"She enjoys making ceramics in her free time.", zh:"她闲暇时喜欢做陶艺。"},
+{n:42, word:"estate", ipa:"/ɪˈsteɪt/", meaning:"n. 房地产；庄园；遗产", en:"He owns a large estate in the countryside.", zh:"他在乡下拥有一座大庄园。"},
+{n:43, word:"allergy", ipa:"/ˈælədʒi/", meaning:"n. 过敏（反应）", en:"I have an allergy to peanuts.", zh:"我对花生过敏。"},
+{n:44, word:"excursion", ipa:"/ɪkˈskɜːʃn/", meaning:"n. 远足；短途旅行", en:"We went on an excursion to the seaside.", zh:"我们去海边做了一次短途旅行。"},
+{n:45, word:"helmet", ipa:"/ˈhelmɪt/", meaning:"n. 头盔；安全帽", en:"Always wear a helmet when cycling.", zh:"骑自行车时一定要戴头盔。"},
+{n:46, word:"executive", ipa:"/ɪɡˈzekjətɪv/", meaning:"n. 执行者 / adj. 行政的；高级的", en:"She works as an executive in a bank.", zh:"她在一家银行担任高管。"},
+{n:47, word:"hazard", ipa:"/ˈhæzəd/", meaning:"n. 危险；危害 / v. 冒险", en:"Smoking is a serious health hazard.", zh:"吸烟是严重的健康危害。"},
+{n:48, word:"cruise", ipa:"/kruːz/", meaning:"n./v. 巡航；乘船游览", en:"They took a cruise around the Mediterranean.", zh:"他们乘游轮环游了地中海。"},
+{n:49, word:"pioneer", ipa:"/ˌpaɪəˈnɪər/", meaning:"n. 先驱 / v. 开辟；倡导", en:"He was a pioneer in the field of robotics.", zh:"他是机器人领域的先驱。"},
+{n:50, word:"acoustics", ipa:"/əˈkuːstɪks/", meaning:"n. 声学；音响效果（复数）", en:"The acoustics in this hall are excellent.", zh:"这个大厅的音响效果极佳。"},
+{n:51, word:"refurbishment", ipa:"/ˌriːˈfɜːbɪʃmənt/", meaning:"n. 翻新；整修", en:"The hotel is closed for refurbishment.", zh:"这家酒店因翻新而关闭。"},
+{n:52, word:"distribution", ipa:"/ˌdɪstrɪˈbjuːʃn/", meaning:"n. 分配；分发；分布", en:"The distribution of food to the poor is ongoing.", zh:"向穷人分发食物的工作正在进行。"},
+{n:53, word:"territory", ipa:"/ˈterətri/", meaning:"n. 领土；领域；区域", en:"Wolves defend their territory from other animals.", zh:"狼保卫自己的领土不受其他动物侵犯。"},
+{n:54, word:"shark", ipa:"/ʃɑːk/", meaning:"n. 鲨鱼", en:"We saw a shark while diving in the ocean.", zh:"我们在海洋潜水时看到一条鲨鱼。"},
+{n:55, word:"puppet", ipa:"/ˈpʌpɪt/", meaning:"n. 木偶；傀儡", en:"The children enjoyed the puppet show.", zh:"孩子们喜欢木偶戏。"},
+{n:56, word:"concentration", ipa:"/ˌkɒnsənˈtreɪʃn/", meaning:"n. 集中；专注；浓度", en:"This work requires a lot of concentration.", zh:"这项工作需要高度集中注意力。"},
+{n:57, word:"hypothesis", ipa:"/haɪˈpɒθəsɪs/", meaning:"n. 假设；假说（复数 hypotheses）", en:"The experiment tested a new hypothesis.", zh:"该实验检验了一个新假说。"},
+{n:58, word:"trial", ipa:"/ˈtraɪəl/", meaning:"n. 试验；审讯；考验", en:"The new drug is undergoing clinical trials.", zh:"新药正在进行临床试验。"},
+{n:59, word:"foyer", ipa:"/ˈfɔɪeɪ/", meaning:"n. 门厅；休息室", en:"We waited for her in the hotel foyer.", zh:"我们在酒店门厅等她。"},
+{n:60, word:"male", ipa:"/meɪl/", meaning:"adj. 男性的；雄性的 / n. 男性", en:"The male of the species is usually larger.", zh:"该物种的雄性通常更大。"},
+{n:61, word:"pop", ipa:"/pɒp/", meaning:"n. 流行音乐 / v. 爆裂；突然出现 / adj. 流行的", en:"She listens to pop music all the time.", zh:"她一直听流行音乐。"},
+{n:62, word:"binoculars", ipa:"/bɪˈnɒkjələz/", meaning:"n. 双筒望远镜（复数）", en:"We used binoculars to watch the birds.", zh:"我们用双筒望远镜观鸟。"},
+{n:63, word:"symphony", ipa:"/ˈsɪmfəni/", meaning:"n. 交响乐；交响曲", en:"Beethoven's Ninth Symphony is famous.", zh:"贝多芬第九交响曲很有名。"},
+{n:64, word:"attempt", ipa:"/əˈtempt/", meaning:"n./v. 尝试；企图", en:"He made an attempt to climb the mountain.", zh:"他尝试爬那座山。"},
+{n:65, word:"sector", ipa:"/ˈsektər/", meaning:"n. 部门；领域；扇形", en:"The service sector has grown rapidly.", zh:"服务业增长迅速。"},
+{n:66, word:"psychological", ipa:"/ˌsaɪkəˈlɒdʒɪkl/", meaning:"adj. 心理的；心理学的", en:"The illness has both physical and psychological effects.", zh:"这种疾病既有生理影响也有心理影响。"},
+{n:67, word:"gadget", ipa:"/ˈɡædʒɪt/", meaning:"n. 小装置；小工具", en:"He loves buying new electronic gadgets.", zh:"他喜欢购买新的电子小玩意儿。"},
+{n:68, word:"enquiry", ipa:"/ɪnˈkwaɪəri/", meaning:"n. 询问；调查（英式）", en:"Please make an enquiry at the reception desk.", zh:"请在接待处询问。"},
+{n:69, word:"tenant", ipa:"/ˈtenənt/", meaning:"n. 租户；承租人", en:"The tenant pays rent every month.", zh:"租户每月付房租。"},
+{n:70, word:"modification", ipa:"/ˌmɒdɪfɪˈkeɪʃn/", meaning:"n. 修改；改进", en:"We made some modifications to the design.", zh:"我们对设计做了一些修改。"},
+{n:71, word:"insulation", ipa:"/ˌɪnsjuˈleɪʃn/", meaning:"n. 绝缘；隔热；隔离", en:"Good insulation keeps the house warm in winter.", zh:"好的隔热材料能让房子冬天保暖。"},
+{n:72, word:"brick", ipa:"/brɪk/", meaning:"n. 砖块", en:"The house is built of red brick.", zh:"这房子是用红砖建的。"},
+{n:73, word:"census", ipa:"/ˈsensəs/", meaning:"n. 人口普查；统计", en:"The national census is held every ten years.", zh:"全国人口普查每十年进行一次。"},
+{n:74, word:"swan", ipa:"/swɒn/", meaning:"n. 天鹅", en:"A swan swam gracefully across the lake.", zh:"一只天鹅优雅地游过湖面。"},
+{n:75, word:"extension", ipa:"/ɪkˈstenʃn/", meaning:"n. 延伸；扩展；电话分机", en:"We are building an extension to our kitchen.", zh:"我们正在扩建厨房。"},
+{n:76, word:"explosion", ipa:"/ɪkˈspləʊʒn/", meaning:"n. 爆炸；激增", en:"There was a loud explosion in the factory.", zh:"工厂里发生了一声巨大的爆炸。"},
+{n:77, word:"commercial", ipa:"/kəˈmɜːʃl/", meaning:"adj. 商业的 / n. 商业广告", en:"The film was a huge commercial success.", zh:"这部电影在商业上大获成功。"},
+{n:78, word:"flavour", ipa:"/ˈfleɪvər/", meaning:"n. 味道；风味 / v. 给…调味（英式）", en:"This ice cream has a delicious vanilla flavour.", zh:"这款冰淇淋有美味的香草味。"},
+{n:79, word:"kangaroo", ipa:"/ˌkæŋɡəˈruː/", meaning:"n. 袋鼠", en:"Kangaroos are native to Australia.", zh:"袋鼠原产于澳大利亚。"},
+{n:80, word:"crocodile", ipa:"/ˈkrɒkədaɪl/", meaning:"n. 鳄鱼", en:"The crocodile basked in the sun on the riverbank.", zh:"鳄鱼在河岸上晒太阳。"},
+{n:81, word:"poverty", ipa:"/ˈpɒvəti/", meaning:"n. 贫困；贫穷", en:"Many people live in extreme poverty.", zh:"许多人生活在极端贫困中。"},
+{n:82, word:"nursery", ipa:"/ˈnɜːsəri/", meaning:"n. 托儿所；苗圃", en:"She takes her child to the nursery every morning.", zh:"她每天早上送孩子去托儿所。"},
+{n:83, word:"desert", ipa:"/ˈdezət/（名词）", meaning:"n. 沙漠（动词 /dɪˈzɜːt/ 意为“抛弃”，此处只记名词义）", en:"The Sahara is the largest hot desert.", zh:"撒哈拉是最大的热带沙漠。"},
+{n:84, word:"norm", ipa:"/nɔːm/", meaning:"n. 规范；准则；常态", en:"This behaviour is not the social norm.", zh:"这种行为不是社会规范。"},
+{n:85, word:"loan", ipa:"/ləʊn/", meaning:"n. 贷款；借款；借出", en:"She took out a loan to buy a car.", zh:"她贷款买了一辆车。"},
+{n:86, word:"Antarctica", ipa:"/ænˈtɑːktɪkə/", meaning:"n. 南极洲", en:"Antarctica is the coldest continent on Earth.", zh:"南极洲是地球上最冷的大洲。"},
+{n:87, word:"timing", ipa:"/ˈtaɪmɪŋ/", meaning:"n. 时间安排；时机；计时", en:"Your timing couldn't be better – the bus is just arriving.", zh:"你的时机再好不过了——公交车刚好到站。"},
+{n:88, word:"provision", ipa:"/prəˈvɪʒn/", meaning:"n. 提供；供应；条款；预备", en:"The provision of clean water is essential.", zh:"清洁用水的供应是至关重要的。"},
+{n:89, word:"robbery", ipa:"/ˈrɒbəri/", meaning:"n. 抢劫；盗窃", en:"The bank was closed due to a robbery.", zh:"银行因抢劫案而关闭。"},
+{n:90, word:"instructor", ipa:"/ɪnˈstrʌktər/", meaning:"n. 指导者；教练；讲师", en:"The driving instructor taught me how to park.", zh:"驾校教练教我如何停车。"},
+{n:91, word:"vacancy", ipa:"/ˈveɪkənsi/", meaning:"n. 空缺；空房；空职", en:"There is a vacancy for a secretary in our office.", zh:"我们办公室有个秘书职位空缺。"},
+{n:92, word:"incentive", ipa:"/ɪnˈsentɪv/", meaning:"n. 激励；动机", en:"The bonus is a good incentive for staff.", zh:"奖金是对员工很好的激励。"},
+{n:93, word:"crisp", ipa:"/krɪsp/", meaning:"adj. 脆的 / n. 薯片（英式，常用复数 crisps）", en:"These apples are very crisp and juicy.", zh:"这些苹果非常脆甜多汁。"},
+{n:94, word:"enrolment", ipa:"/ɪnˈrəʊlmənt/", meaning:"n. 登记；注册（英式）", en:"The enrolment for courses starts next week.", zh:"课程注册下周开始。"},
+{n:95, word:"clay", ipa:"/kleɪ/", meaning:"n. 黏土；泥土", en:"She made a pot from wet clay.", zh:"她用湿黏土做了一个罐子。"},
+{n:96, word:"alley", ipa:"/ˈæli/", meaning:"n. 小巷；小径", en:"We walked down a narrow alley.", zh:"我们沿着一条狭窄的小巷走。"},
+{n:97, word:"corner", ipa:"/ˈkɔːnər/", meaning:"n. 角落；拐角 / v. 使入困境", en:"There is a café on the corner of the street.", zh:"街道拐角处有一家咖啡馆。"},
+{n:98, word:"souvenir", ipa:"/ˌsuːvəˈnɪər/", meaning:"n. 纪念品", en:"I bought a small souvenir from Paris.", zh:"我从巴黎买了一个小纪念品。"},
+{n:99, word:"cholesterol", ipa:"/kəˈlestərɒl/", meaning:"n. 胆固醇", en:"Eating too much fat can increase your cholesterol.", zh:"摄入过多脂肪会增加你的胆固醇。"},
+{n:100, word:"hunt", ipa:"/hʌnt/", meaning:"n./v. 打猎；搜寻", en:"They are hunting for a new apartment.", zh:"他们正在寻找新公寓。"},
+{n:101, word:"luxury", ipa:"/ˈlʌkʃəri/", meaning:"n. 奢侈；奢侈品", en:"She enjoys a life of luxury.", zh:"她享受奢侈的生活。"},
+{n:102, word:"singer", ipa:"/ˈsɪŋər/", meaning:"n. 歌手", en:"The singer performed a beautiful song.", zh:"这位歌手演唱了一首优美的歌曲。"},
+{n:103, word:"origin", ipa:"/ˈɒrɪdʒɪn/", meaning:"n. 起源；来源", en:"What is the origin of this word?", zh:"这个词的来源是什么？"},
+{n:104, word:"grain", ipa:"/ɡreɪn/", meaning:"n. 谷物；颗粒", en:"Bread is made from grain.", zh:"面包是用谷物制成的。"},
+];
+
+const grid = document.getElementById("grid");
+const player = document.getElementById("player");
+const counter = document.getElementById("counter");
+const player2 = new Audio();
+let queue = [];
+let qBtn = null;
+
+function slug(w){
+  return w.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+}
+function pad(n){ return String(n).padStart(2, "0"); }
+
+function render(){
+  grid.innerHTML = WORDS.map(w => `
+    <article class="card" data-w="${w.word.toLowerCase()}" data-all="${(w.word + " " + (w.meaning||"") + " " + (w.en||"")).toLowerCase()}">
+      <span class="num">${w.n}</span>
+      <div class="word">${w.word}${w.nm ? `<span class="note">${w.nm}</span>` : ""}</div>
+      <div class="ipa">${w.ipa}</div>
+      <div class="meaning"><b>${w.meaning.split(" ")[0]}</b>${w.meaning.split(" ").slice(1).join(" ") || ""}</div>
+      ${w.en ? `<div class="example">${w.en}<div class="zh">${w.zh}</div></div>` : `<div class="noex">专有名词，无例句</div>`}
+      <div class="plays">
+        <button class="play au" data-src="audio-fuzzy/${pad(w.n)}_${slug(w.word)}_AU.mp3">澳·单词</button>
+        <button class="play ie" data-src="audio-fuzzy/${pad(w.n)}_${slug(w.word)}_IE.mp3">爱·单词</button>
+        ${w.en ? `<button class="play au" data-src="audio-fuzzy/${pad(w.n)}_${slug(w.word)}_sentence_AU.mp3">澳·例句</button>
+        <button class="play ie" data-src="audio-fuzzy/${pad(w.n)}_${slug(w.word)}_sentence_IE.mp3">爱·例句</button>` : ""}
+      </div>
+    </article>`).join("");
+  updateCounter();
+}
+
+function updateCounter(){
+  const shown = document.querySelectorAll(".card:not(.hidden)").length;
+  counter.textContent = `显示 ${shown} / ${WORDS.length}`;
+}
+
+function playSrc(src, btn){
+  if (player.src.endsWith(src) && !player.paused){ player.pause(); player.currentTime = 0; btn?.classList.remove("playing"); return; }
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  player.src = src;
+  player.play();
+  btn?.classList.add("playing");
+}
+
+grid.addEventListener("click", e => {
+  const btn = e.target.closest(".play");
+  if (!btn) return;
+  const src = btn.dataset.src;
+  queue = [];
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  playSrc(src, btn);
+});
+
+document.getElementById("playAllAU").addEventListener("click", () => playAll("AU", false));
+document.getElementById("playAllIE").addEventListener("click", () => playAll("IE", false));
+document.getElementById("playAllSentAU").addEventListener("click", () => playAll("AU", true));
+document.getElementById("playAllSentIE").addEventListener("click", () => playAll("IE", true));
+
+function playAll(tag, sentence){
+  const words = [...WORDS].filter(w => !sentence || w.en);
+  queue = words.map(w => `audio-fuzzy/${pad(w.n)}_${slug(w.word)}${sentence ? "_sentence" : ""}_${tag}.mp3`);
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  playQueue();
+}
+
+function playQueue(){
+  if (!queue.length){ document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing")); return; }
+  const src = queue.shift();
+  const btn = document.querySelector(`.play[data-src="${src}"]`);
+  btn?.classList.add("playing");
+  player.src = src;
+  player.play();
+}
+
+player.addEventListener("ended", () => {
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  playQueue();
+});
+
+document.getElementById("stopAll").addEventListener("click", () => {
+  player.pause(); player.currentTime = 0;
+  queue = [];
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+});
+
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll(".card").forEach(card => {
+    card.classList.toggle("hidden", q !== "" && !card.dataset.all.includes(q));
+  });
+  updateCounter();
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生词发音学习卡 · 25 词 · 澳/爱双口音</title>
+<style>
+  :root{
+    --bg1:#eef2ff; --bg2:#f5f3ff;
+    --ink:#1e1b4b; --muted:#6b7280;
+    --card:#ffffff;
+    --au:#ea580c; --au-bg:#fff7ed; --au-border:#fdba74;
+    --ie:#059669; --ie-bg:#ecfdf5; --ie-border:#6ee7b7;
+    --accent:#4f46e5;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(79,70,229,.10);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:linear-gradient(160deg,var(--bg1),var(--bg2) 60%,#fdf4ff);
+    color:var(--ink);
+    min-height:100vh;
+    padding-bottom:80px;
+  }
+  header{
+    text-align:center;
+    padding:48px 20px 28px;
+  }
+  header h1{
+    font-size:clamp(26px,4vw,40px);
+    letter-spacing:.5px;
+    background:linear-gradient(90deg,#4f46e5,#7c3aed,#db2777);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  header p.sub{margin-top:10px; color:var(--muted); font-size:15px;}
+  .badges{margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:7px 14px; border-radius:999px; font-size:13.5px; font-weight:600;
+    border:1.5px solid;
+  }
+  .badge.au{color:var(--au); background:var(--au-bg); border-color:var(--au-border);}
+  .badge.ie{color:var(--ie); background:var(--ie-bg); border-color:var(--ie-border);}
+  .controls{
+    position:sticky; top:0; z-index:50;
+    display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+    padding:12px 16px;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #e5e7eb;
+  }
+  .btn{
+    border:none; cursor:pointer; font-family:inherit;
+    padding:10px 18px; border-radius:12px; font-size:14.5px; font-weight:600;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+  }
+  .btn:hover{transform:translateY(-1px); filter:brightness(1.04);}
+  .btn:active{transform:translateY(0);}
+  .btn.au{background:var(--au); color:#fff;}
+  .btn.ie{background:var(--ie); color:#fff;}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid #e5e7eb; box-shadow:none;}
+  .grid{
+    max-width:1080px; margin:32px auto 0; padding:0 20px;
+    display:grid; gap:18px;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  }
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px 20px 18px;
+    display:flex; flex-direction:column; gap:10px;
+    position:relative;
+    border:1px solid #f3f4f6;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:0 16px 36px rgba(79,70,229,.14);}
+  .num{
+    position:absolute; top:14px; right:16px;
+    font-size:12px; font-weight:700; color:#c7d2fe;
+    background:#eef2ff; border-radius:8px; padding:3px 9px;
+  }
+  .word{font-size:26px; font-weight:800; letter-spacing:.4px;}
+  .ipa{color:var(--muted); font-size:13.5px; line-height:1.5;}
+  .meaning{font-size:14px; color:#374151; line-height:1.55;}
+  .meaning b{color:var(--accent); font-weight:600; margin-right:4px;}
+  .example{
+    background:#f9fafb; border-radius:12px; padding:10px 12px;
+    font-size:13.5px; color:#374151; line-height:1.6;
+    border-left:3px solid #c7d2fe;
+  }
+  .example .zh{color:var(--muted); margin-top:4px; font-size:12.5px;}
+  .plays{display:flex; gap:6px; margin-top:auto; padding-top:6px;}
+  .play{
+    flex:1; border:none; cursor:pointer; font-family:inherit;
+    padding:6px 4px; border-radius:8px; font-size:12px; font-weight:700;
+    display:inline-flex; align-items:center; justify-content:center; gap:4px;
+    transition:transform .1s ease, filter .1s ease;
+  }
+  .play:hover{transform:translateY(-1px); filter:brightness(1.05);}
+  .play:active{transform:scale(.97);}
+  .play.au{background:var(--au-bg); color:var(--au); border:1.5px solid var(--au-border);}
+  .play.ie{background:var(--ie-bg); color:var(--ie); border:1.5px solid var(--ie-border);}
+  .play.playing{outline:3px solid rgba(79,70,229,.35);}
+  footer{text-align:center; margin-top:44px; color:var(--muted); font-size:13px;}
+  @media (max-width:520px){
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>生词发音学习卡</h1>
+  <p class="sub">25 个易错生词 · 点按钮即可听到真人级发音</p>
+  <div class="badges">
+    <span class="badge au">澳洲男声 · William</span>
+    <span class="badge ie">爱尔兰女声 · Emily</span>
+    <span class="badge" style="color:#4f46e5;background:#eef2ff;border-color:#c7d2fe;">共 100 段音频（单词 + 例句）</span>
+    <a class="badge" href="fuzzy-words.html" style="color:#7c3aed;background:#faf5ff;border-color:#d8b4fe;text-decoration:none;font-weight:700;">模糊词汇 104 词 子页面</a>
+  </div>
+</header>
+
+<div class="controls">
+  <button class="btn au" id="playAllAU">连播单词 · 澳洲男声</button>
+  <button class="btn ie" id="playAllIE">连播单词 · 爱尔兰女声</button>
+  <button class="btn au" id="playAllSentAU">连播例句 · 澳洲男声</button>
+  <button class="btn ie" id="playAllSentIE">连播例句 · 爱尔兰女声</button>
+  <button class="btn ghost" id="stopAll">停止</button>
+</div>
+
+<main class="grid" id="grid"></main>
+
+<audio id="player"></audio>
+
+<script>
+const WORDS = [
+  {n:1, word:"Mountain", ipa:["ˈmaʊntən", null], pos:"n.", meaning:"山，高山；大量",
+   en:"We spent the whole day hiking up the mountain.", zh:"我们花了一整天爬那座山。"},
+  {n:2, word:"Road", ipa:["rəʊd", "roʊd"], pos:"n.", meaning:"路，道路；途径",
+   en:"Turn left at the next road.", zh:"在下一条路左转。"},
+  {n:3, word:"Dissertation", ipa:["ˌdɪsəˈteɪʃn", "ˌdɪsərˈteɪʃn"], pos:"n.", meaning:"学位论文，专题论述（尤指博士论文）",
+   en:"She is currently writing her doctoral dissertation on climate change.", zh:"她目前正在写关于气候变化的博士论文。"},
+  {n:4, word:"Mineral", ipa:["ˈmɪnərəl", null], pos:"n. / adj.", meaning:"矿物，矿物质；矿物的",
+   en:"This water is rich in essential minerals.", zh:"这种水富含人体必需的矿物质。"},
+  {n:5, word:"Migration", ipa:["maɪˈɡreɪʃn", null], pos:"n.", meaning:"迁移，移居；（鸟类的）迁徙",
+   en:"The migration of birds takes place every spring and autumn.", zh:"鸟类迁徙每年春秋两季发生。"},
+  {n:6, word:"Individual", ipa:["ˌɪndɪˈvɪdʒuəl", null], pos:"n. / adj.", meaning:"个人，个体；单独的，独特的",
+   en:"Each individual has the right to express their own opinion.", zh:"每个人都有权表达自己的观点。"},
+  {n:7, word:"Auditorium", ipa:["ˌɔːdɪˈtɔːriəm", "ˌɔːdɪˈtɔːriəm"], pos:"n.", meaning:"礼堂，会堂；观众席，听众席",
+   en:"The graduation ceremony will be held in the school auditorium.", zh:"毕业典礼将在学校礼堂举行。"},
+  {n:8, word:"Corridor", ipa:["ˈkɒrɪdɔːr", "ˈkɔːrɪdɔːr"], pos:"n.", meaning:"走廊，通道；（地理）狭长地带",
+   en:"His office is at the end of the corridor.", zh:"他的办公室在走廊尽头。"},
+  {n:9, word:"Restriction", ipa:["rɪˈstrɪkʃn", null], pos:"n.", meaning:"限制，约束；管制规定",
+   en:"There is a speed restriction on this highway.", zh:"这条高速公路上有速度限制。"},
+  {n:10, word:"Illustration", ipa:["ˌɪləˈstreɪʃn", null], pos:"n.", meaning:"插图，图解；例证，说明",
+   en:"The book is full of beautiful color illustrations.", zh:"这本书充满了漂亮的彩色插图。"},
+  {n:11, word:"Consultation", ipa:["ˌkɒnslˈteɪʃn", "ˌkɑːnslˈteɪʃn"], pos:"n.", meaning:"咨询，磋商；就诊，会诊",
+   en:"You should make a consultation with your doctor before taking the medicine.", zh:"服药前你应该咨询医生。"},
+  {n:12, word:"Interpretation", ipa:["ɪnˌtɜːprəˈteɪʃn", "ɪnˌtɜːrprəˈteɪʃn"], pos:"n.", meaning:"解释，诠释；口译；艺术处理",
+   en:"His interpretation of the poem is quite different from mine.", zh:"他对这首诗的诠释与我的大相径庭。"},
+  {n:13, word:"Trek", ipa:["trek", null], pos:"n. / v.", meaning:"长途跋涉，徒步旅行（尤指艰苦的）",
+   en:"We plan to trek through the Himalayas next summer.", zh:"我们计划明年夏天徒步穿越喜马拉雅山脉。"},
+  {n:14, word:"Evaluation", ipa:["ɪˌvæljuˈeɪʃn", null], pos:"n.", meaning:"评估，评价，评审",
+   en:"The teacher gave us a positive evaluation of our project.", zh:"老师对我们的项目给出了积极的评价。"},
+  {n:15, word:"Comedy", ipa:["ˈkɒmədi", "ˈkɑːmədi"], pos:"n.", meaning:"喜剧，喜剧片；喜剧性",
+   en:"I prefer watching comedy to horror movies.", zh:"比起恐怖片，我更喜欢看喜剧。"},
+  {n:16, word:"Demolition", ipa:["ˌdeməˈlɪʃn", null], pos:"n.", meaning:"拆除，拆毁；破坏，推翻",
+   en:"The demolition of the old building will start next week.", zh:"旧楼的拆除工作将于下周开始。"},
+  {n:17, word:"Homestay", ipa:["ˈhəʊmsteɪ", "ˈhoʊmsteɪ"], pos:"n.", meaning:"寄宿家庭体验，民宿（在别人家中居住）",
+   en:"During my study abroad, I lived with a local homestay family.", zh:"在国外留学期间，我住在一个当地的寄宿家庭里。"},
+  {n:18, word:"Extinction", ipa:["ɪkˈstɪŋkʃn", null], pos:"n.", meaning:"灭绝，消亡；熄灭",
+   en:"Many species are now in danger of extinction.", zh:"许多物种目前面临灭绝的危险。"},
+  {n:19, word:"Intersection", ipa:["ˌɪntəˈsekʃn", "ˌɪntərˈsekʃn"], pos:"n.", meaning:"交叉路口，十字路口；交集，相交",
+   en:"Turn right at the next intersection.", zh:"在下一个十字路口右转。"},
+  {n:20, word:"Indication", ipa:["ˌɪndɪˈkeɪʃn", null], pos:"n.", meaning:"指示，标示；迹象，征兆",
+   en:"There is no indication that the economy will improve soon.", zh:"没有迹象表明经济会很快好转。"},
+  {n:21, word:"Correspond", ipa:["ˌkɒrəˈspɒnd", "ˌkɔːrəˈspɑːnd"], pos:"v.", meaning:"相符，对应；通信",
+   en:"Your actions should correspond with your words.", zh:"你的行动应当与你的言语一致。"},
+  {n:22, word:"Miniature", ipa:["ˈmɪnətʃər", null], pos:"n. / adj.", meaning:"微型画，微型模型；微型的，小型的",
+   en:"He collects miniature cars from all over the world.", zh:"他收集来自世界各地的微型汽车模型。"},
+  {n:23, word:"Counterpart", ipa:["ˈkaʊntəpɑːt", "ˈkaʊntərpɑːrt"], pos:"n.", meaning:"对应的人（或物），职位相当的人",
+   en:"The prime minister met with his French counterpart.", zh:"首相会见了他的法国同行（对应职务者）。"},
+  {n:24, word:"Heating", ipa:["ˈhiːtɪŋ", null], pos:"n.", meaning:"供暖，暖气系统；加热",
+   en:"The heating in this apartment doesn't work well in winter.", zh:"这套公寓的暖气在冬天效果不好。"},
+  {n:25, word:"Literacy", ipa:["ˈlɪtərəsi", null], pos:"n.", meaning:"读写能力，识字；文化素养，专业知识",
+   en:"The government is promoting financial literacy among young people.", zh:"政府正在年轻人中推广金融素养教育。"}
+];
+
+const grid = document.getElementById("grid");
+const player = document.getElementById("player");
+const slug = w => w.toLowerCase().replace(/[^a-z0-9]+/g, "_");
+const pad = n => String(n).padStart(2, "0");
+
+function ipaText(w){
+  const [uk, us] = w.ipa;
+  if (uk && us && uk !== us) return `英 /${uk}/　美 /${us}/`;
+  return `英 /${uk}/　美 /${us || uk}/`;
+}
+
+function render(){
+  grid.innerHTML = WORDS.map(w => `
+    <article class="card">
+      <span class="num">#${pad(w.n)}</span>
+      <div class="word">${w.word}</div>
+      <div class="ipa">${ipaText(w)}</div>
+      <div class="meaning"><b>${w.pos}</b>${w.meaning}</div>
+      <div class="example">${w.en}<div class="zh">${w.zh}</div></div>
+      <div class="plays">
+        <button class="play au" data-src="audio/${pad(w.n)}_${slug(w.word)}_AU.mp3">澳·单词</button>
+        <button class="play ie" data-src="audio/${pad(w.n)}_${slug(w.word)}_IE.mp3">爱·单词</button>
+        <button class="play au" data-src="audio/${pad(w.n)}_${slug(w.word)}_sentence_AU.mp3">澳·例句</button>
+        <button class="play ie" data-src="audio/${pad(w.n)}_${slug(w.word)}_sentence_IE.mp3">爱·例句</button>
+      </div>
+    </article>`).join("");
+}
+
+let queue = [];
+let playing = false;
+
+function playSrc(src, done){
+  player.src = src;
+  player.onended = done || null;
+  player.play().catch(() => {});
+}
+
+grid.addEventListener("click", e => {
+  const btn = e.target.closest(".play");
+  if (!btn) return;
+  queue = [];
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  btn.classList.add("playing");
+  playSrc(btn.dataset.src);
+});
+
+player.addEventListener("ended", () => {
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  if (queue.length){
+    const next = queue.shift();
+    document.querySelector(`.play[data-src="${next}"]`)?.classList.add("playing");
+    playSrc(next);
+  }
+});
+
+function playAll(tag, kind){
+  queue = WORDS.map(w => `audio/${pad(w.n)}_${slug(w.word)}${kind === "sentence" ? "_sentence" : ""}_${tag}.mp3`);
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+  const first = queue.shift();
+  document.querySelector(`.play[data-src="${first}"]`)?.classList.add("playing");
+  playSrc(first);
+}
+
+document.getElementById("playAllAU").addEventListener("click", () => playAll("AU", "word"));
+document.getElementById("playAllIE").addEventListener("click", () => playAll("IE", "word"));
+document.getElementById("playAllSentAU").addEventListener("click", () => playAll("AU", "sentence"));
+document.getElementById("playAllSentIE").addEventListener("click", () => playAll("IE", "sentence"));
+document.getElementById("stopAll").addEventListener("click", () => {
+  queue = [];
+  player.pause();
+  player.currentTime = 0;
+  document.querySelectorAll(".play.playing").forEach(b => b.classList.remove("playing"));
+});
+
+render();
+</script>
+</body>
+</html>
