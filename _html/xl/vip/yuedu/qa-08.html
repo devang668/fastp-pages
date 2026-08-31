@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第08讲 · 在这次教学对话中，一位老师深入浅出地 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 08 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a class="active" href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第08讲 · 在这次教学对话中，一位老师深入浅出地</h1>
+    <blockquote><p><b>本讲定位：</b>在这次教学对话中，一位老师深入浅出地讲解了如何应对判断题，特别是针对"yes/no/not given"这类题目。他强调了识别考点、准确定位信息以及如何清晰作答的重要性。通过分析不同文章中的实例，老师展示了识别考点的复杂性，并指导如何在文中找到相关信息来解答问题。此外，老师指出文章本身的难度会直接影响解题过程，尽管基本解题步骤相似，但阅读理解的难度不容忽视。为了让学生更好地掌握技巧，老师还提供了几个具体的题目实例，演示了从理解文章到应用技巧的完整解题过程，并鼓励学生通过实践来提升自己的解题能力。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>True false not given题型和yes no not given题型在判断上的主要区别是什么？为什么对于议论文中的yes no not given题型，需要更多的练习来验证解题方法的有效性？</td><td>True false not given题型与yes no not given题型的区别主要在于文章类型</td></tr>
+      <tr><td><b>Q2</b></td><td>yes no not given题型与科普文中的true false not given题型在解题上的主要区别是什么？</td><td>主要区别在于文章难度和背景知识的应用</td></tr>
+      <tr><td><b>Q3</b></td><td>yes no not given题型的解题步骤是怎样的？在yes no not given题型中，如何识别考点？</td><td>解题步骤包括从题干出发找到定位信息（或考点），将其转化为一个问题，并在文章中找到对应定位句子来回答这个问题</td></tr>
+      <tr><td><b>Q4</b></td><td>这个考点是什么类型的？25题关于控制登革热病的考点是什么？</td><td>这个考点是一个比较关系考点，通常会出现在题干中，关键词可能是“more”或者“-ER”，用来表示比较</td></tr>
+      <tr><td><b>Q5</b></td><td>在24题的case study中，“limited appeal”是什么意思？</td><td>“Limited appeal”是一个形容词，表示有限的吸引力或不怎么有吸引力</td></tr>
+      <tr><td><b>Q6</b></td><td>26题中提到的将微生物放入医院墙壁的考点是什么？</td><td>26题的考点同样是时间考点，讨论的是我们已在医院墙上放置了一些微生物以降低感染风险，这个问题的关键在于这个行为是否已经发生</td></tr>
+      <tr><td><b>Q7</b></td><td>对于21题中的anti bacteria product，其使用效果如何？</td><td>21题讨论的是anti bacteria product（抗菌产品）的实际效果</td></tr>
+      <tr><td><b>Q8</b></td><td>接触细菌越少是否意味着对小孩越好？</td><td>根据文章中提到的研究，接触细菌越少并不意味着对小孩越好</td></tr>
+      <tr><td><b>Q9</b></td><td>关于书中案例数量的问题，文章有提及吗？</td><td>在定位到的相关文章内容中，没有明确提到关于书中案例数量的问题，因此无法判断，答案为NG（没有提及）</td></tr>
+      <tr><td><b>Q10</b></td><td>这道题为什么稍微难一点？</td><td>这道题目的难点在于它没有直接考察具体的内容理解，而是着重于文章的结构理解</td></tr>
+      <tr><td><b>Q11</b></td><td>关于登革热的文章中，我们是否成功阻止了蚊子传播疾病？</td><td>文章中提到我们已经尝试通过让蚊子携带细菌来阻止登革热的传播，虽然有这个操作并且已经实施，但是否成功并未明确指出</td></tr>
+      <tr><td><b>Q12</b></td><td>对于未来要操纵什么并将其放入墙体抵抗感染的情况，这个事情已经发生了吗？</td><td>根据文章内容，这个事情是在未来想要实现的状态，所以不是已经发生，答案应为no</td></tr>
+      <tr><td><b>Q13</b></td><td>第二篇文章的判断题难点在哪里？</td><td>第二篇文章判断题的难点在于识别考点及句子理解难度的提升，虽然考点如动词考点、极限词考点、比较关系考点、形容词考点等仍是之前讲过的，但文章中的句子变得更长且包含复杂的逻辑…</td></tr>
+      <tr><td><b>Q14</b></td><td>学生参与的工作前景实验中，他们能否选择自己的角色？</td><td>在该实验中，学生并不是自由选择自己的角色，而是被指导或分配了特定角色，因此答案是no，学生不能选择自己的角色</td></tr>
+      <tr><td><b>Q15</b></td><td>在学生实验中，实验结论部分的核心内容是什么？</td><td>实验结论部分的核心内容是关于实验整体结构的说明，其中提到了实验结论应该出现在该部分，并且在后续讨论中会详细阐述</td></tr>
+      <tr><td><b>Q16</b></td><td>情侣实验的主要考点是什么？</td><td>情侣实验的主要考点在于考察情侣间解决未解决冲突时，从外部视角（outsider）或自身视角进行决策的情况</td></tr>
+      <tr><td><b>Q17</b></td><td>情侣实验的具体操作过程是怎样的？情侣实验的目标是探究什么因果关系？</td><td>在情侣实验中，参与者被要求讨论一个未解决的冲突事件，并从不同角色角度写下自己的想法，实验构建过程主要围绕这一环节展开</td></tr>
+      <tr><td><b>Q18</b></td><td>文章是否明确指出情侣是否知道自己参加的是实验？</td><td>文章没有明确说明情侣是否知道自己参加实验，因此根据文章信息无法判断，只能选择NG（不确定）作为答案</td></tr>
+      <tr><td><b>Q19</b></td><td>实验结论部分对于情侣实验的关键发现是什么？</td><td>实验结论指出，在长期浪漫关系中的情侣，相较于以自我为中心的决策方式，更可能采取智慧决策并尝试妥协</td></tr>
+      <tr><td><b>Q20</b></td><td>对于较为复杂的题目，如何应对？</td><td>面对复杂的题目，应实事求是，根据文章内容做出选择，而不是凭经验主义</td></tr>
+      <tr><td><b>Q21</b></td><td>智商与智慧之间的关系是什么？</td><td>文章表明智商与智慧之间存在有限的正相关关系，即智商对智慧的影响有限，不能过分认为智商就等同于智慧</td></tr>
+      <tr><td><b>Q22</b></td><td>文章标题“the case for mixed ability classes”是关于什么的？</td><td>文章标题“the case for mixed ability classes”是关于混合能力班级的教学理念，主要讨论了分班制度与混班制度在不同年代的演变和适用性</td></tr>
+      <tr><td><b>Q23</b></td><td>对于36题提到的模型与混班制度的关系是怎样的？39题中关于教师的主要职责是什么？</td><td>在36题中，文中提到的模型指出如果接受这个模型（即分班基于学生的ZPD），那么分班的学生会有相似的CPD，这可能是一个好的学习结果</td></tr>
+      <tr><td><b>Q24</b></td><td>文章中提到的1930年这个人和模型是什么意思？</td><td>1930年提到的这个人以及他的模型是指文章中用来支持混班制度的一个理论或观点，该模型强调根据学生的相似ZPD进行分组学习，认为将学生放在同一高度、忽略个体差异的做法可能…</td></tr>
+      <tr><td><b>Q25</b></td><td>MKO在教师不确定是否让学生承担这一角色的情况下，意味着什么？</td><td>在教师不确定是否让学生承担MKO（更有知识的同学）的角色时，该题目探讨的是教师可能存在的顾虑，即MKO的存在可能有助于更有效地关注学生的ZPD，但也可能低估同伴学习的重…</td></tr>
+      <tr><td><b>Q26</b></td><td>38题中为何教学新近掌握的知识对学生有价值？</td><td>在38题中，尽管讨论的是学生教授新近学习的知识给同伴，但该题目指出，教别人自己刚学会的知识对学生来说是有价值的，因为这能让他们从全新的视角理解和解释知识，这不仅有助于加…</td></tr>
+      <tr><td><b>Q27</b></td><td>通过阅读文章，对于不同难度级别的判断题有何心得？</td><td>通过本节课的分析，了解到对于不同难度级别的判断题，如passive to的难度、pacific two及pass three等，关键在于对文章的理解深度</td></tr>
+      <tr><td><b>Q28</b></td><td>参与户外活动是否能提升学生在教室内的表现？</td><td>在39题中，虽然提到了学生参与户外活动与教师、同学合作的情况，但文章并未明确表明这类活动能够改善学生在教室内的学业表现，因此该题目答案为NG（没有提及或不正确）</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. True false not given题型和yes no not given题型在判断上的主要区别是什么？为什么对于议论文中的yes no not given题型，需要更多的练习来验证解题方法的有效性？</h2>
+    <p class="qakey">True false not given题型与yes no not given题型的区别主要在于文章类型。True false not given题型通常出现在科普文中，而yes no not given题型则更多出现在议论文中。对于yes no not given题型，选择yes意味着题干陈述与文章作者的观点一致，选择no则表示相悖，若无法确定作者观点，则选not given。因为议论文中的题目可能出现在考试的第二篇文章或第三篇文章中，且由于话题和背景知识的复杂性，可能需要更多的练习去理解和掌握不同类型的考点，以确保解题方法的准确性和适用性。通过实际操作练习，可以验证老师讲解的考点识别方法是否正确，并加深记忆和理解。</p>
+    <h2><a id="q2"></a>Q2. yes no not given题型与科普文中的true false not given题型在解题上的主要区别是什么？</h2>
+    <p class="qakey">主要区别在于文章难度和背景知识的应用。虽然解题方法一致，但在科普文中的题目可能由于涉及专业知识或文化背景而显得更难理解。然而，只要带着自己的背景知识去阅读，还是可以读懂并完成这类题目，其难度实质上来自于文章内容的复杂性而非题目本身的逻辑结构。</p>
+    <h2><a id="q3"></a>Q3. yes no not given题型的解题步骤是怎样的？在yes no not given题型中，如何识别考点？</h2>
+    <p class="qakey">解题步骤包括从题干出发找到定位信息（或考点），将其转化为一个问题，并在文章中找到对应定位句子来回答这个问题。如果答案肯定，则选yes，否定则选no，无法判断时选not given。识别考点时，应关注题干中最核心的内容，即作者试图传达的最本质含义。例如，“it is possible that”这类表达可能性的句型，其考点可能是动词考点；而“as few bacteria as possible”这样的描述，则可能是极限词考点。总之，考点本质上是句子的灵魂，即作者最想表达的意思。</p>
+    <h2><a id="q4"></a>Q4. 这个考点是什么类型的？25题关于控制登革热病的考点是什么？</h2>
+    <p class="qakey">这个考点是一个比较关系考点，通常会出现在题干中，关键词可能是“more”或者“-ER”，用来表示比较。25题的考点是一个时间考点，讨论的是我们尝试去控制登革热病，并且已经取得了成功，使用了完成时态来表达这个事实。</p>
+    <h2><a id="q5"></a>Q5. 在24题的case study中，“limited appeal”是什么意思？</h2>
+    <p class="qakey">“Limited appeal”是一个形容词，表示有限的吸引力或不怎么有吸引力。在该句中，它描述了一个研究的案例，即关于某种细菌的研究，该研究结果并不吸引人或不具有显著价值。</p>
+    <h2><a id="q6"></a>Q6. 26题中提到的将微生物放入医院墙壁的考点是什么？</h2>
+    <p class="qakey">26题的考点同样是时间考点，讨论的是我们已在医院墙上放置了一些微生物以降低感染风险，这个问题的关键在于这个行为是否已经发生。</p>
+    <h2><a id="q7"></a>Q7. 对于21题中的anti bacteria product，其使用效果如何？</h2>
+    <p class="qakey">21题讨论的是anti bacteria product（抗菌产品）的实际效果。根据文章内容，过度使用这类产品可能会破坏有益微生物，从而导致预期效果未达到，即未能有效清除有害病菌的同时，可能释放出更多的病菌。</p>
+    <h2><a id="q8"></a>Q8. 接触细菌越少是否意味着对小孩越好？</h2>
+    <p class="qakey">根据文章中提到的研究，接触细菌越少并不意味着对小孩越好。实际上，让小孩从小接触多样化的细菌有助于增强他们的免疫系统，减少日后患过敏性疾病的风险，因此答案是否定的。</p>
+    <h2><a id="q9"></a>Q9. 关于书中案例数量的问题，文章有提及吗？</h2>
+    <p class="qakey">在定位到的相关文章内容中，没有明确提到关于书中案例数量的问题，因此无法判断，答案为NG（没有提及）。</p>
+    <h2><a id="q10"></a>Q10. 这道题为什么稍微难一点？</h2>
+    <p class="qakey">这道题目的难点在于它没有直接考察具体的内容理解，而是着重于文章的结构理解。即使不认识“appealing”这个词，也能通过上下文理解大意，但若对文章结构没有清晰把握，阅读时会感到有障碍。</p>
+    <h2><a id="q11"></a>Q11. 关于登革热的文章中，我们是否成功阻止了蚊子传播疾病？</h2>
+    <p class="qakey">文章中提到我们已经尝试通过让蚊子携带细菌来阻止登革热的传播，虽然有这个操作并且已经实施，但是否成功并未明确指出。</p>
+    <h2><a id="q12"></a>Q12. 对于未来要操纵什么并将其放入墙体抵抗感染的情况，这个事情已经发生了吗？</h2>
+    <p class="qakey">根据文章内容，这个事情是在未来想要实现的状态，所以不是已经发生，答案应为no。</p>
+    <h2><a id="q13"></a>Q13. 第二篇文章的判断题难点在哪里？</h2>
+    <p class="qakey">第二篇文章判断题的难点在于识别考点及句子理解难度的提升，虽然考点如动词考点、极限词考点、比较关系考点、形容词考点等仍是之前讲过的，但文章中的句子变得更长且包含复杂的逻辑关系，从而增加了理解难度。</p>
+    <h2><a id="q14"></a>Q14. 学生参与的工作前景实验中，他们能否选择自己的角色？</h2>
+    <p class="qakey">在该实验中，学生并不是自由选择自己的角色，而是被指导或分配了特定角色，因此答案是no，学生不能选择自己的角色。</p>
+    <h2><a id="q15"></a>Q15. 在学生实验中，实验结论部分的核心内容是什么？</h2>
+    <p class="qakey">实验结论部分的核心内容是关于实验整体结构的说明，其中提到了实验结论应该出现在该部分，并且在后续讨论中会详细阐述。</p>
+    <h2><a id="q16"></a>Q16. 情侣实验的主要考点是什么？</h2>
+    <p class="qakey">情侣实验的主要考点在于考察情侣间解决未解决冲突时，从外部视角（outsider）或自身视角进行决策的情况。</p>
+    <h2><a id="q17"></a>Q17. 情侣实验的具体操作过程是怎样的？情侣实验的目标是探究什么因果关系？</h2>
+    <p class="qakey">在情侣实验中，参与者被要求讨论一个未解决的冲突事件，并从不同角色角度写下自己的想法，实验构建过程主要围绕这一环节展开。情侣实验的目标是探究情侣间的时间长度是否影响他们在面对冲突时做出智慧决策的可能性以及是否更倾向于寻求妥协。</p>
+    <h2><a id="q18"></a>Q18. 文章是否明确指出情侣是否知道自己参加的是实验？</h2>
+    <p class="qakey">文章没有明确说明情侣是否知道自己参加实验，因此根据文章信息无法判断，只能选择NG（不确定）作为答案。</p>
+    <h2><a id="q19"></a>Q19. 实验结论部分对于情侣实验的关键发现是什么？</h2>
+    <p class="qakey">实验结论指出，在长期浪漫关系中的情侣，相较于以自我为中心的决策方式，更可能采取智慧决策并尝试妥协。</p>
+    <h2><a id="q20"></a>Q20. 对于较为复杂的题目，如何应对？</h2>
+    <p class="qakey">面对复杂的题目，应实事求是，根据文章内容做出选择，而不是凭经验主义。如果难以理解整篇文章的总结句，可以分别查看每个实验的结论部分来寻找答案线索。</p>
+    <h2><a id="q21"></a>Q21. 智商与智慧之间的关系是什么？</h2>
+    <p class="qakey">文章表明智商与智慧之间存在有限的正相关关系，即智商对智慧的影响有限，不能过分认为智商就等同于智慧。</p>
+    <h2><a id="q22"></a>Q22. 文章标题“the case for mixed ability classes”是关于什么的？</h2>
+    <p class="qakey">文章标题“the case for mixed ability classes”是关于混合能力班级的教学理念，主要讨论了分班制度与混班制度在不同年代的演变和适用性。</p>
+    <h2><a id="q23"></a>Q23. 对于36题提到的模型与混班制度的关系是怎样的？39题中关于教师的主要职责是什么？</h2>
+    <p class="qakey">在36题中，文中提到的模型指出如果接受这个模型（即分班基于学生的ZPD），那么分班的学生会有相似的CPD，这可能是一个好的学习结果。而与混班制度相对立的观点则批判混班，认为不应该强迫所有学生走同样的路，无论他们的能力如何。在39题中，文章强调教师的主要职责不是单纯追求少数尖子生的优异表现，而是确保所有学生都有绽放光彩的可能性，即让更多的学生能够繁荣发展，而不仅仅是关注那些学习明星。</p>
+    <h2><a id="q24"></a>Q24. 文章中提到的1930年这个人和模型是什么意思？</h2>
+    <p class="qakey">1930年提到的这个人以及他的模型是指文章中用来支持混班制度的一个理论或观点，该模型强调根据学生的相似ZPD进行分组学习，认为将学生放在同一高度、忽略个体差异的做法可能是疯狂的，并支持分班以适应不同学生的认知需求。</p>
+    <h2><a id="q25"></a>Q25. MKO在教师不确定是否让学生承担这一角色的情况下，意味着什么？</h2>
+    <p class="qakey">在教师不确定是否让学生承担MKO（更有知识的同学）的角色时，该题目探讨的是教师可能存在的顾虑，即MKO的存在可能有助于更有效地关注学生的ZPD，但也可能低估同伴学习的重要性。但题目并未明确指出教师是否决定让学生承担MKO角色，因此答案是不确定的。</p>
+    <h2><a id="q26"></a>Q26. 38题中为何教学新近掌握的知识对学生有价值？</h2>
+    <p class="qakey">在38题中，尽管讨论的是学生教授新近学习的知识给同伴，但该题目指出，教别人自己刚学会的知识对学生来说是有价值的，因为这能让他们从全新的视角理解和解释知识，这不仅有助于加深理解，还可能激发更多创新性的思考。</p>
+    <h2><a id="q27"></a>Q27. 通过阅读文章，对于不同难度级别的判断题有何心得？</h2>
+    <p class="qakey">通过本节课的分析，了解到对于不同难度级别的判断题，如passive to的难度、pacific two及pass three等，关键在于对文章的理解深度。第一篇文章可以较快定位，第二篇文章需要认真分析长难句，第三篇文章则需在读题干时分析考点，并对应文章中的相关句子，以准确理解题目意图。</p>
+    <h2><a id="q28"></a>Q28. 参与户外活动是否能提升学生在教室内的表现？</h2>
+    <p class="qakey">在39题中，虽然提到了学生参与户外活动与教师、同学合作的情况，但文章并未明确表明这类活动能够改善学生在教室内的学业表现，因此该题目答案为NG（没有提及或不正确）。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. True false not given题型和yes no not given题型在判断上的主要区别是什么？为什么对于议论文中的yes no not given题型，需要更多的练习来验证解题方法的有效性？</a></li>
+<li><a href="#q2">Q2. yes no not given题型与科普文中的true false not given题型在解题上的主要区别是什么？</a></li>
+<li><a href="#q3">Q3. yes no not given题型的解题步骤是怎样的？在yes no not given题型中，如何识别考点？</a></li>
+<li><a href="#q4">Q4. 这个考点是什么类型的？25题关于控制登革热病的考点是什么？</a></li>
+<li><a href="#q5">Q5. 在24题的case study中，“limited appeal”是什么意思？</a></li>
+<li><a href="#q6">Q6. 26题中提到的将微生物放入医院墙壁的考点是什么？</a></li>
+<li><a href="#q7">Q7. 对于21题中的anti bacteria product，其使用效果如何？</a></li>
+<li><a href="#q8">Q8. 接触细菌越少是否意味着对小孩越好？</a></li>
+<li><a href="#q9">Q9. 关于书中案例数量的问题，文章有提及吗？</a></li>
+<li><a href="#q10">Q10. 这道题为什么稍微难一点？</a></li>
+<li><a href="#q11">Q11. 关于登革热的文章中，我们是否成功阻止了蚊子传播疾病？</a></li>
+<li><a href="#q12">Q12. 对于未来要操纵什么并将其放入墙体抵抗感染的情况，这个事情已经发生了吗？</a></li>
+<li><a href="#q13">Q13. 第二篇文章的判断题难点在哪里？</a></li>
+<li><a href="#q14">Q14. 学生参与的工作前景实验中，他们能否选择自己的角色？</a></li>
+<li><a href="#q15">Q15. 在学生实验中，实验结论部分的核心内容是什么？</a></li>
+<li><a href="#q16">Q16. 情侣实验的主要考点是什么？</a></li>
+<li><a href="#q17">Q17. 情侣实验的具体操作过程是怎样的？情侣实验的目标是探究什么因果关系？</a></li>
+<li><a href="#q18">Q18. 文章是否明确指出情侣是否知道自己参加的是实验？</a></li>
+<li><a href="#q19">Q19. 实验结论部分对于情侣实验的关键发现是什么？</a></li>
+<li><a href="#q20">Q20. 对于较为复杂的题目，如何应对？</a></li>
+<li><a href="#q21">Q21. 智商与智慧之间的关系是什么？</a></li>
+<li><a href="#q22">Q22. 文章标题“the case for mixed ability classes”是关于什么的？</a></li>
+<li><a href="#q23">Q23. 对于36题提到的模型与混班制度的关系是怎样的？39题中关于教师的主要职责是什么？</a></li>
+<li><a href="#q24">Q24. 文章中提到的1930年这个人和模型是什么意思？</a></li>
+<li><a href="#q25">Q25. MKO在教师不确定是否让学生承担这一角色的情况下，意味着什么？</a></li>
+<li><a href="#q26">Q26. 38题中为何教学新近掌握的知识对学生有价值？</a></li>
+<li><a href="#q27">Q27. 通过阅读文章，对于不同难度级别的判断题有何心得？</a></li>
+<li><a href="#q28">Q28. 参与户外活动是否能提升学生在教室内的表现？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

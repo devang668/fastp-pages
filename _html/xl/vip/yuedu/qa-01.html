@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第01讲 · 主讲人首先强调了阅读部分的重要性 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 01 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a class="active" href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第01讲 · 主讲人首先强调了阅读部分的重要性</h1>
+    <blockquote><p><b>本讲定位：</b>在这次雅思阅读课程介绍中，主讲人首先强调了阅读部分的重要性，并为已熟悉雅思的学员提供了省略介绍的选项。课程内容涵盖了雅思阅读的三大文章类型及其题型分布，包括细节题、匹配题、总结填空、图形填空等，并对判断题和选择题进行了详尽的分类。强调了前两篇文章的高正确率对总成绩的显著影响。针对机考与纸笔考，推荐选择机考，因其提供更佳的阅读体验和便利性。最后，提出了快速阅读技巧，包括扫读和精读，旨在帮助学生在限定时间内高效完成答题，为深入学习打下坚实基础。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>雅思阅读部分共有几篇文章，以及第一篇文章的特点是什么？第三篇文章的主要特点和挑战是什么？</td><td>雅思阅读部分一共有三篇文章</td></tr>
+      <tr><td><b>Q2</b></td><td>第二篇文章的题型类别有哪些，以及对六分以上目标分数的考生有何要求？</td><td>第二篇文章可能为科普文或议论文，其中匹配题是主要题型，包括人物观点配对、句子结尾配对、信息配对和标题配对四大类别</td></tr>
+      <tr><td><b>Q3</b></td><td>三篇文章的整体时间分配和题型分布是怎样的？</td><td>无论是直笔考还是机考，考生都有60分钟时间来完成40道题目</td></tr>
+      <tr><td><b>Q4</b></td><td>能否举例说明几种具体的题目类型？</td><td>首先是一个笔记填空题，接着是表格填空题，然后是句子填空题，最后是总结填空题</td></tr>
+      <tr><td><b>Q5</b></td><td>图形填空题的特点是什么？</td><td>图形填空题是一种需要根据文章信息对罗马人发隧道的方式进行填充的题目，它具有小乱序的特点</td></tr>
+      <tr><td><b>Q6</b></td><td>判断题的选项有哪些类型？判断题的难度如何？</td><td>判断题的选项有两种类别，一种是true, false, not given</td></tr>
+      <tr><td><b>Q7</b></td><td>判断题与配对题的差异是什么？信息配对题的具体形式是什么？</td><td>判断题是针对单个句子进行对错判断，而配对题包括人物观点配对、信息配对和标题配对等不同形式，它们分别涉及人物观点对应、文章段落与句子的对应以及段落标题与内容的匹配</td></tr>
+      <tr><td><b>Q8</b></td><td>标题配对题的要求是什么？</td><td>标题配对题要求考生阅读并理解整个段落内容，然后从选项中选择最符合段落主旨的标题</td></tr>
+      <tr><td><b>Q9</b></td><td>单选题和多选题的答题规则有何不同？</td><td>单选题为四选一，正确选一个给分，错误不给分</td></tr>
+      <tr><td><b>Q10</b></td><td>雅思阅读中的多选题难度如何？</td><td>多选题相对来说简单，尤其与单选题相比</td></tr>
+      <tr><td><b>Q11</b></td><td>第三种难度较高的题目类型是什么？</td><td>第三种难度较高的题目类型是考察段落理解和篇章结构理解的题目，包括单选题和标题配对题，这类题目是高分选手必须掌握并争取得分的部分</td></tr>
+      <tr><td><b>Q12</b></td><td>七分以上的同学在阅读部分需要注意哪些题目？</td><td>七分以上的同学需要重点研究单选题和标题配对题，因为这是从七分提升到八分的关键，甚至对于追求九分的同学来说，正确处理这两种题目至关重要</td></tr>
+      <tr><td><b>Q13</b></td><td>雅思阅读评分标准是怎样的？</td><td>雅思阅读评分标准并非严格，即使错一道题也可能得到满分</td></tr>
+      <tr><td><b>Q14</b></td><td>对于学习初期阶段，应该如何追求？</td><td>在学习初期阶段，同学们应首先保证正确率，熟练掌握考点和解题方式后再追求速度，因为雅思阅读本质上是在正确率和时间之间寻求平衡</td></tr>
+      <tr><td><b>Q15</b></td><td>机考与纸笔考有何区别，为何推荐机考？机考阅读部分有何特殊功能？</td><td>机考在阅读部分体验更好，文章与题目左右对照，避免了纸笔考翻页导致的定位词遗忘等问题</td></tr>
+      <tr><td><b>Q16</b></td><td>雅思阅读对考生有哪些能力要求？</td><td>雅思阅读要求考生具备快速阅读能力，尤其是skimming（跳读）和scanning（扫读）两种方式的灵活运用，以便在有限时间内高效获取信息并解答问题</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="showcase"></a>本讲精析速表（题型 / 评分 / 方法）</h2>
+    <h3>三篇文章与题型分布</h3>
+    <table>
+      <thead><tr><th>文章</th><th>主题 / 类型</th><th>题量</th><th>主要题型</th><th>目标正确率</th></tr></thead>
+      <tbody>
+        <tr><td><b>第一篇</b></td><td>科普文（自然 / 人文，如灭绝海龟、巨石阵）</td><td>13</td><td>填空 + 判断（纯细节题）</td><td><b>≥10 题</b>（无论目标分）</td></tr>
+        <tr><td><b>第二篇</b></td><td>科普 or 议论文</td><td>13</td><td>匹配题：人物观点 / 句子结尾 / 信息 / 标题配对</td><td><b>≥10 题</b>（目标 6+ 必争）</td></tr>
+        <tr><td><b>第三篇</b></td><td>议论文（含作者观点与论证）</td><td>13–14</td><td>单选 + 标题配对（高分必争地）</td><td>拿一半以上</td></tr>
+      </tbody>
+    </table>
+    <h3>四大题型一览</h3>
+    <table>
+      <thead><tr><th>题型</th><th>特点与要点</th></tr></thead>
+      <tbody>
+        <tr><td><b>填空</b></td><td>细节题。含笔记 / 表格 / 句子 / 总结 / 图形填空；题干给的线索多少不同（图形填空有“小乱序”特点）。</td></tr>
+        <tr><td><b>判断</b></td><td>科普文用 <b>TRUE/FALSE/NOT GIVEN</b>，议论文用 <b>YES/NO/NOT GIVEN</b>；题材不同但考点完全一致。</td></tr>
+        <tr><td><b>选择</b></td><td>单选四选一；多选每选项正确即给 1 分（人性化，错一个选项不整题零分）。</td></tr>
+        <tr><td><b>配对</b></td><td>人物观点 / 信息 / 标题 / 句子结尾配对；或偏细节定位，或偏段落理解。</td></tr>
+      </tbody>
+    </table>
+    <h3>评分目标（60 分钟 / 40 题）</h3>
+    <table>
+      <thead><tr><th>目标分</th><th>第一篇</th><th>第二篇</th><th>第三篇</th><th>总容错</th></tr></thead>
+      <tbody>
+        <tr><td><b>7 分</b></td><td>11–12（错 1）</td><td>约 10（错 2–3）</td><td>8–9（对一半以上）</td><td>共错 ≤ 10</td></tr>
+        <tr><td><b>8 分</b></td><td>全对</td><td>至多错 1</td><td>至多错 4</td><td>共错 ≤ 5</td></tr>
+      </tbody>
+    </table>
+    <h3>快速阅读两招（灵活穿插）</h3>
+    <table>
+      <thead><tr><th>方法</th><th>含义</th><th>用法</th></tr></thead>
+      <tbody>
+        <tr><td><b>Scanning 扫读</b></td><td>像扫描仪一样找定位词</td><td>所有细节题先 scan 定位词，定位句就在附近</td></tr>
+        <tr><td><b>Skimming 跳读</b></td><td>定位到句后精读该句</td><td>只读定位句，其余不相干内容跳过</td></tr>
+      </tbody>
+    </table>
+    <p class="tip" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px 16px;color:#1e3a8a;font-size:14px;line-height:1.7;">机考强推：文章与题目左右对照，避免纸笔考翻页遗忘定位词；系统自带 highlight（多色）可标关键词。初期先保正确率，熟练后再追速度。</p>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 雅思阅读部分共有几篇文章，以及第一篇文章的特点是什么？第三篇文章的主要特点和挑战是什么？</h2>
+    <p class="qakey">雅思阅读部分一共有三篇文章。第一篇文章通常是科普文，内容涵盖自然科学或人文科学，比如介绍一种快要灭绝的海归或者英国的巨石阵等。这篇文章以科普为主题，题型主要是细节题，大概率包含13道填空和判断题。对于目标分数较低的考生，确保稳定拿到10个以上题目是重点。第三篇文章以议论文为主，讨论的主题较复杂，可能涉及经济发展与教育、混班制度与分班制度等问题，并可能包含作者的观点输入和论证过程。议论文相对较难把握，但无论目标分数如何，考生都应重视第三篇文章，争取拿到较多分数。</p>
+    <h2><a id="q2"></a>Q2. 第二篇文章的题型类别有哪些，以及对六分以上目标分数的考生有何要求？</h2>
+    <p class="qakey">第二篇文章可能为科普文或议论文，其中匹配题是主要题型，包括人物观点配对、句子结尾配对、信息配对和标题配对四大类别。对于目标分数在六分以上的考生，正确完成这13道匹配题至关重要，建议正确率至少达到10道题以上。</p>
+    <h2><a id="q3"></a>Q3. 三篇文章的整体时间分配和题型分布是怎样的？</h2>
+    <p class="qakey">无论是直笔考还是机考，考生都有60分钟时间来完成40道题目。这40道题目涉及四种题型：填空、判断、选择和配对。每篇文章会混合出现不同类型的题目，并且每种题型在整篇文章中都有可能出现。</p>
+    <h2><a id="q4"></a>Q4. 能否举例说明几种具体的题目类型？</h2>
+    <p class="qakey">首先是一个笔记填空题，接着是表格填空题，然后是句子填空题，最后是总结填空题。笔记填空题利用多余信息帮助定位答案；表格填空题需要根据表格信息填充空白；句子填空题可能出现在文章的某个段落中，需要根据段落内容总结填写；总结填空题则要求对文章某段或几段进行归纳总结后填空。</p>
+    <h2><a id="q5"></a>Q5. 图形填空题的特点是什么？</h2>
+    <p class="qakey">图形填空题是一种需要根据文章信息对罗马人发隧道的方式进行填充的题目，它具有小乱序的特点。</p>
+    <h2><a id="q6"></a>Q6. 判断题的选项有哪些类型？判断题的难度如何？</h2>
+    <p class="qakey">判断题的选项有两种类别，一种是true, false, not given；另一种是yes, no, not given。但理论上，这两种判断题类型的考点并无区别，主要区别在于文章题材——科普文使用true false, not given，而议论文则采用yes, no, not given。判断题难度较低，有三个类别：第一类只需找到单词的同义或反义词即可作答；第二类需要理解整句话的意思以准确判断。</p>
+    <h2><a id="q7"></a>Q7. 判断题与配对题的差异是什么？信息配对题的具体形式是什么？</h2>
+    <p class="qakey">判断题是针对单个句子进行对错判断，而配对题包括人物观点配对、信息配对和标题配对等不同形式，它们分别涉及人物观点对应、文章段落与句子的对应以及段落标题与内容的匹配。信息配对题是一个大表格形式，要求考生将14到18个句子与文章中的段落进行对应，侧重于细节理解和定位能力。</p>
+    <h2><a id="q8"></a>Q8. 标题配对题的要求是什么？</h2>
+    <p class="qakey">标题配对题要求考生阅读并理解整个段落内容，然后从选项中选择最符合段落主旨的标题。</p>
+    <h2><a id="q9"></a>Q9. 单选题和多选题的答题规则有何不同？</h2>
+    <p class="qakey">单选题为四选一，正确选一个给分，错误不给分；而多选题每个选项值一分，即使部分选项正确，只要有一个选项错误就不给分，但若全部正确则可得两分，体现了雅思阅读考试的公平性和人性化。</p>
+    <h2><a id="q10"></a>Q10. 雅思阅读中的多选题难度如何？</h2>
+    <p class="qakey">多选题相对来说简单，尤其与单选题相比。它们通常定位明确，只要读懂相关段落并对应选项找出正确答案即可。</p>
+    <h2><a id="q11"></a>Q11. 第三种难度较高的题目类型是什么？</h2>
+    <p class="qakey">第三种难度较高的题目类型是考察段落理解和篇章结构理解的题目，包括单选题和标题配对题，这类题目是高分选手必须掌握并争取得分的部分。</p>
+    <h2><a id="q12"></a>Q12. 七分以上的同学在阅读部分需要注意哪些题目？</h2>
+    <p class="qakey">七分以上的同学需要重点研究单选题和标题配对题，因为这是从七分提升到八分的关键，甚至对于追求九分的同学来说，正确处理这两种题目至关重要。</p>
+    <h2><a id="q13"></a>Q13. 雅思阅读评分标准是怎样的？</h2>
+    <p class="qakey">雅思阅读评分标准并非严格，即使错一道题也可能得到满分。通常情况下，阅读七分以上就算是高分段，但具体而言，七分的同学可能错10个题目以内，而八分则要求最多错5个题目。</p>
+    <h2><a id="q14"></a>Q14. 对于学习初期阶段，应该如何追求？</h2>
+    <p class="qakey">在学习初期阶段，同学们应首先保证正确率，熟练掌握考点和解题方式后再追求速度，因为雅思阅读本质上是在正确率和时间之间寻求平衡。</p>
+    <h2><a id="q15"></a>Q15. 机考与纸笔考有何区别，为何推荐机考？机考阅读部分有何特殊功能？</h2>
+    <p class="qakey">机考在阅读部分体验更好，文章与题目左右对照，避免了纸笔考翻页导致的定位词遗忘等问题。此外，机考出分快，考点多，建议考生选择机考。机考阅读部分提供highlight功能，即可以对问题对应的关键词进行高亮显示，有助于快速定位答案，且有多种颜色选择，大大提升了答题体验感。</p>
+    <h2><a id="q16"></a>Q16. 雅思阅读对考生有哪些能力要求？</h2>
+    <p class="qakey">雅思阅读要求考生具备快速阅读能力，尤其是skimming（跳读）和scanning（扫读）两种方式的灵活运用，以便在有限时间内高效获取信息并解答问题。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 雅思阅读部分共有几篇文章，以及第一篇文章的特点是什么？第三篇文章的主要特点和挑战是什么？</a></li>
+<li><a href="#q2">Q2. 第二篇文章的题型类别有哪些，以及对六分以上目标分数的考生有何要求？</a></li>
+<li><a href="#q3">Q3. 三篇文章的整体时间分配和题型分布是怎样的？</a></li>
+<li><a href="#q4">Q4. 能否举例说明几种具体的题目类型？</a></li>
+<li><a href="#q5">Q5. 图形填空题的特点是什么？</a></li>
+<li><a href="#q6">Q6. 判断题的选项有哪些类型？判断题的难度如何？</a></li>
+<li><a href="#q7">Q7. 判断题与配对题的差异是什么？信息配对题的具体形式是什么？</a></li>
+<li><a href="#q8">Q8. 标题配对题的要求是什么？</a></li>
+<li><a href="#q9">Q9. 单选题和多选题的答题规则有何不同？</a></li>
+<li><a href="#q10">Q10. 雅思阅读中的多选题难度如何？</a></li>
+<li><a href="#q11">Q11. 第三种难度较高的题目类型是什么？</a></li>
+<li><a href="#q12">Q12. 七分以上的同学在阅读部分需要注意哪些题目？</a></li>
+<li><a href="#q13">Q13. 雅思阅读评分标准是怎样的？</a></li>
+<li><a href="#q14">Q14. 对于学习初期阶段，应该如何追求？</a></li>
+<li><a href="#q15">Q15. 机考与纸笔考有何区别，为何推荐机考？机考阅读部分有何特殊功能？</a></li>
+<li><a href="#q16">Q16. 雅思阅读对考生有哪些能力要求？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

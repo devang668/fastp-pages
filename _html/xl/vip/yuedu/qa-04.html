@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第04讲 · 雅思阅读填空题的解题策略 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 04 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a class="active" href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第04讲 · 雅思阅读填空题的解题策略</h1>
+    <blockquote><p><b>本讲定位：</b>本次课程重点讲解了雅思阅读填空题的解题策略，涵盖笔记填空、表格填空和图形填空三种类型。桑老师强调了做题时需遵循题目要求原则、顺序原则以及原文原词原则，并详细介绍了寻找定位词、识别考点和预测答案等步骤。特别地，针对图形填空题，强调了对图形信息的准确解读、动词的灵活替换以及处理小乱序问题的重要性。通过一系列例题解析，深入讲解了结构类、替换类和指向性信息类考点的解题方法，旨在帮助学生有效提高填空题解答能力，高效应对雅思阅读部分。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>00:00 雅思阅读课程：填空题方法论详解</td><td>课程介绍了雅思阅读中常见的三种填空题型：笔记填空、表格填空和图形填空，其中前两者为重点题型，占据了文章中的重要比例</td></tr>
+      <tr><td><b>Q2</b></td><td>00:42 雅思填空题解题技巧</td><td>对话围绕雅思考试填空题的解题策略展开，强调遵循题目要求的字数限制，理解题目顺序性和原文原词原则的重要性</td></tr>
+      <tr><td><b>Q3</b></td><td>03:29 填空题解题策略：定位词与考点识别</td><td>讲解了填空题解题步骤，强调通过定位词快速找到答案，而非理解全文</td></tr>
+      <tr><td><b>Q4</b></td><td>05:25 英语作业填空技巧：预测词性与定位替换</td><td>讨论了在英语作业填空时，如何通过预测词性（如形容词后可能是名词，动词后可能是副词或名词）和利用文章定位词进行scanning与skipping技巧，找到正确答案</td></tr>
+      <tr><td><b>Q5</b></td><td>07:32 雅思阅读填空题结构考点解析</td><td>对话详细讲解了雅思阅读填空题中的并列结构考点，包括如何定位关键词及其替换形式，以及如何识别并列连词的替换词</td></tr>
+      <tr><td><b>Q6</b></td><td>10:41 并列结构解析与长难句理解技巧</td><td>对话围绕并列结构的解析展开，详细说明了如何在阅读中识别并列关系，特别是通过寻找并列连词的替换词来定位正确信息</td></tr>
+      <tr><td><b>Q7</b></td><td>15:45 英语后置定语结构解析与解题技巧</td><td>对话详细讲解了英语中a off b结构的应用，包括基础用法及复杂情况下的处理策略，如多重所属关系和待修饰结构的分析</td></tr>
+      <tr><td><b>Q8</b></td><td>22:01 雅思阅读与听力中的替换类考点解析</td><td>对话深入探讨了雅思阅读和听力考试中的替换类考点，强调了在动词、形容词及名词前寻找替换词的重要性</td></tr>
+      <tr><td><b>Q9</b></td><td>24:53 雅思阅读填空题三大考点解析</td><td>对话详细讲解了雅思阅读填空题中的三大考点：结构类考点、替换类考点及指向性信息考点，通过具体例子说明如何利用指向性信息提高解题效率，强调了在填空题中识别专有名词、大写单词…</td></tr>
+      <tr><td><b>Q10</b></td><td>27:54 图形信息解读与动词替换技巧</td><td>对话强调了在面对复杂图形时，应关注图形上的文字信息，以正确完成题目</td></tr>
+      <tr><td><b>Q11</b></td><td>29:26 解析阅读理解中的词汇替换与题目顺序问题</td><td>对话讨论了阅读理解题目中词汇替换的重要性，例如'direct'与'ensure keep to its root'的对应，以及题目可能存在的小乱序现象，影响解题节奏</td></tr>
+      <tr><td><b>Q12</b></td><td>32:52 雅思阅读技巧与解题策略</td><td>对话围绕雅思阅读技巧展开，详细解析了如何通过定位关键词、识别考点和运用技巧解答题目，包括动词替换、并列结构识别及乱序问题处理，旨在提升解题效率和准确性</td></tr>
+      <tr><td><b>Q13</b></td><td>36:09 图形填空题解析与技巧分享</td><td>通过实例讲解了图形填空题的解题方法，包括识别a off b结构、利用图形信息定位答案以及处理乱序问题的技巧，强调了单独定位的重要性</td></tr>
+      <tr><td><b>Q14</b></td><td>39:42 雅思考试笔记与表格填空技巧</td><td>通过实例讲解了雅思考试中笔记填空和表格填空题型的解题步骤，包括如何利用定位词快速锁定答案，识别动词替换、冠词不变及并列结构等线索，强调了高效利用多余信息的重要性，以节省…</td></tr>
+      <tr><td><b>Q15</b></td><td>46:39 英语阅读理解技巧分享：定位与解题策略</td><td>本次分享重点讨论了英语阅读理解中填空题的解答技巧，包括利用关键词定位信息、分析并列结构以及识别同义替换等方法</td></tr>
+      <tr><td><b>Q16</b></td><td>52:08 雅思阅读填空题解题技巧</td><td>通过实例讲解了表格、笔记和图形填空题的解题策略，强调了定位词的重要性及考点对标技巧，指出在第一篇文章中应避免逐字阅读，节省时间以应对后续更难的文章</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 00:00 雅思阅读课程：填空题方法论详解</h2>
+    <p class="qakey">课程介绍了雅思阅读中常见的三种填空题型：笔记填空、表格填空和图形填空，其中前两者为重点题型，占据了文章中的重要比例。学习目标包括掌握填空题的几大原则，以提升解题效率。</p>
+    <h2><a id="q2"></a>Q2. 00:42 雅思填空题解题技巧</h2>
+    <p class="qakey">对话围绕雅思考试填空题的解题策略展开，强调遵循题目要求的字数限制，理解题目顺序性和原文原词原则的重要性。指出填空题一般遵循顺序原则，但图形填空题可能有小乱序，不过影响不大。强调答案必须严格按照题目要求填写，不可擅自更改词性或时态，确保与原文一致。</p>
+    <h2><a id="q3"></a>Q3. 03:29 填空题解题策略：定位词与考点识别</h2>
+    <p class="qakey">讲解了填空题解题步骤，强调通过定位词快速找到答案，而非理解全文。指出定位词选择的重要性，如专有名词、数字、名词、形容词或动词，并提醒注意词形变化。课程重点在于识别填空题的考点，以提高解题效率。</p>
+    <h2><a id="q4"></a>Q4. 05:25 英语作业填空技巧：预测词性与定位替换</h2>
+    <p class="qakey">讨论了在英语作业填空时，如何通过预测词性（如形容词后可能是名词，动词后可能是副词或名词）和利用文章定位词进行scanning与skipping技巧，找到正确答案。强调了通过检查语言含义一致性来验证答案的正确性，以确保文章与题目意思相符。</p>
+    <h2><a id="q5"></a>Q5. 07:32 雅思阅读填空题结构考点解析</h2>
+    <p class="qakey">对话详细讲解了雅思阅读填空题中的并列结构考点，包括如何定位关键词及其替换形式，以及如何识别并列连词的替换词。通过具体例题展示了快速解题的步骤，同时提醒注意题目的干扰因素，确保答案的准确性。</p>
+    <h2><a id="q6"></a>Q6. 10:41 并列结构解析与长难句理解技巧</h2>
+    <p class="qakey">对话围绕并列结构的解析展开，详细说明了如何在阅读中识别并列关系，特别是通过寻找并列连词的替换词来定位正确信息。同时，强调了在处理长难句时，忽略插入语的重要性，以及抓取句子主干对于理解复杂句式的必要性。通过具体例题分析，展示了并列结构题目的解题策略，以及如何避免因结构复杂而产生的理解误区。</p>
+    <h2><a id="q7"></a>Q7. 15:45 英语后置定语结构解析与解题技巧</h2>
+    <p class="qakey">对话详细讲解了英语中a off b结构的应用，包括基础用法及复杂情况下的处理策略，如多重所属关系和待修饰结构的分析。通过具体例题，阐述了如何准确识别修饰对象，从而高效解答相关题目。</p>
+    <h2><a id="q8"></a>Q8. 22:01 雅思阅读与听力中的替换类考点解析</h2>
+    <p class="qakey">对话深入探讨了雅思阅读和听力考试中的替换类考点，强调了在动词、形容词及名词前寻找替换词的重要性。通过具体例题，阐述了如何识别move与relocate、Better housing与newly constructed suburb等词汇的替换关系。此外，还介绍了否定词替换、复数名词替换及冠词介词不变的技巧，旨在提升考生的解题能力。</p>
+    <h2><a id="q9"></a>Q9. 24:53 雅思阅读填空题三大考点解析</h2>
+    <p class="qakey">对话详细讲解了雅思阅读填空题中的三大考点：结构类考点、替换类考点及指向性信息考点，通过具体例子说明如何利用指向性信息提高解题效率，强调了在填空题中识别专有名词、大写单词等线索的重要性，帮助考生降低解题难度。</p>
+    <h2><a id="q10"></a>Q10. 27:54 图形信息解读与动词替换技巧</h2>
+    <p class="qakey">对话强调了在面对复杂图形时，应关注图形上的文字信息，以正确完成题目。通过具体例子，指出图中箭头指向的多个小棍子暗示需填入复数名词，强调读图的重要性。此外，对话还提到此类题目主要考察动词替换，类比宜家抽屉安装说明书的无主语直接指令，说明多数题目侧重于动词的正确使用。</p>
+    <h2><a id="q11"></a>Q11. 29:26 解析阅读理解中的词汇替换与题目顺序问题</h2>
+    <p class="qakey">对话讨论了阅读理解题目中词汇替换的重要性，例如'direct'与'ensure keep to its root'的对应，以及题目可能存在的小乱序现象，影响解题节奏。通过实例分析，强调了理解题目要求和文章定位技巧的必要性，帮助解答者有效应对题目中的挑战。</p>
+    <h2><a id="q12"></a>Q12. 32:52 雅思阅读技巧与解题策略</h2>
+    <p class="qakey">对话围绕雅思阅读技巧展开，详细解析了如何通过定位关键词、识别考点和运用技巧解答题目，包括动词替换、并列结构识别及乱序问题处理，旨在提升解题效率和准确性。</p>
+    <h2><a id="q13"></a>Q13. 36:09 图形填空题解析与技巧分享</h2>
+    <p class="qakey">通过实例讲解了图形填空题的解题方法，包括识别a off b结构、利用图形信息定位答案以及处理乱序问题的技巧，强调了单独定位的重要性。</p>
+    <h2><a id="q14"></a>Q14. 39:42 雅思考试笔记与表格填空技巧</h2>
+    <p class="qakey">通过实例讲解了雅思考试中笔记填空和表格填空题型的解题步骤，包括如何利用定位词快速锁定答案，识别动词替换、冠词不变及并列结构等线索，强调了高效利用多余信息的重要性，以节省时间提高正确率。</p>
+    <h2><a id="q15"></a>Q15. 46:39 英语阅读理解技巧分享：定位与解题策略</h2>
+    <p class="qakey">本次分享重点讨论了英语阅读理解中填空题的解答技巧，包括利用关键词定位信息、分析并列结构以及识别同义替换等方法。通过具体例题演示了如何快速定位到文章中的关键信息，如DNA分析、sugar can、black fly、bat habitats及local culture角色等，从而高效准确地填写答案。此外，还强调了在保证理解的前提下，避免无谓阅读以节省时间的重要性。</p>
+    <h2><a id="q16"></a>Q16. 52:08 雅思阅读填空题解题技巧</h2>
+    <p class="qakey">通过实例讲解了表格、笔记和图形填空题的解题策略，强调了定位词的重要性及考点对标技巧，指出在第一篇文章中应避免逐字阅读，节省时间以应对后续更难的文章。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 00:00 雅思阅读课程：填空题方法论详解</a></li>
+<li><a href="#q2">Q2. 00:42 雅思填空题解题技巧</a></li>
+<li><a href="#q3">Q3. 03:29 填空题解题策略：定位词与考点识别</a></li>
+<li><a href="#q4">Q4. 05:25 英语作业填空技巧：预测词性与定位替换</a></li>
+<li><a href="#q5">Q5. 07:32 雅思阅读填空题结构考点解析</a></li>
+<li><a href="#q6">Q6. 10:41 并列结构解析与长难句理解技巧</a></li>
+<li><a href="#q7">Q7. 15:45 英语后置定语结构解析与解题技巧</a></li>
+<li><a href="#q8">Q8. 22:01 雅思阅读与听力中的替换类考点解析</a></li>
+<li><a href="#q9">Q9. 24:53 雅思阅读填空题三大考点解析</a></li>
+<li><a href="#q10">Q10. 27:54 图形信息解读与动词替换技巧</a></li>
+<li><a href="#q11">Q11. 29:26 解析阅读理解中的词汇替换与题目顺序问题</a></li>
+<li><a href="#q12">Q12. 32:52 雅思阅读技巧与解题策略</a></li>
+<li><a href="#q13">Q13. 36:09 图形填空题解析与技巧分享</a></li>
+<li><a href="#q14">Q14. 39:42 雅思考试笔记与表格填空技巧</a></li>
+<li><a href="#q15">Q15. 46:39 英语阅读理解技巧分享：定位与解题策略</a></li>
+<li><a href="#q16">Q16. 52:08 雅思阅读填空题解题技巧</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

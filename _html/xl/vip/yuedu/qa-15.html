@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第15讲 · 平行阅读法的练习重点 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 15 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a class="active" href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第15讲 · 平行阅读法的练习重点</h1>
+    <blockquote><p><b>本讲定位：</b>范老师介绍了平行阅读法的练习重点，强调了在缺乏引导下运用该方法的难度，尤其是对词汇量较少的学生。通过三节课，分别选取三篇文章，范老师将指导学生练习平行阅读法，旨在帮助学生熟练掌握。文章后通常附有三种题型，多数学生未经训练难以应对。范老师建议学生先从第一篇文章开始，专注于填空判断两种题型，强调实际考试中可能遇到的意外题型。他详细讲解了简化题目、分析信息匹配及人物观点匹配题型的方法，并强调了仅需关注关键词汇替换、忽略深层意思的理解，以提高效率。在第一篇文章的练习中，重点在于培养替换能力，不需过分关注文章深层内容，为后续练习打下基础。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>今天我们为何要针对平行阅读法进行重点练习？</td><td>因为平行阅读法如果无人指导，对于词汇量匮乏的学生来说上手较难，且需要同时处理2至3种题型，没有训练的话可能不容易掌握和运用</td></tr>
+      <tr><td><b>Q2</b></td><td>第一篇文章的题型主要有哪些？面对第一篇文章，学生们通常对哪些题型有误解？</td><td>第一篇文章中主要涉及信息匹配、填空判断以及one word only（填一个单词）等多种题型</td></tr>
+      <tr><td><b>Q3</b></td><td>如何根据题干信息去筛选和定位文章中的段落？</td><td>读完文章后，根据题干信息逐段分析，当发现一段内容与题目高度相关时，即可锁定该段并进行细致解读，同时注意避免冗余阅读</td></tr>
+      <tr><td><b>Q4</b></td><td>在解答第一篇文章中的题目时，如何简化题干并定位答案？</td><td>首先简化题干，明确题目要求，然后定位文章中对应信息所在的段落，通过阅读和分析确定答案位置</td></tr>
+      <tr><td><b>Q5</b></td><td>B段内容中关于舞蹈与城市规划有何见解？在对比过去和现在城市规划方法时，C段提到了什么关键点？</td><td>B段提到，舞蹈可以提供工程领域的新思路，帮助城市规划师从舞蹈中借鉴理念和技术，以刺激创新想法，解决城市设计中的问题</td></tr>
+      <tr><td><b>Q6</b></td><td>在城市设计和建设中，设计与实际执行之间可能存在哪些差异，导致设计失败？</td><td>设计中的某些要素可能没有充分考虑到气候、人的心理因素以及具体操作的细节，例如一个案例中提到的城市设计项目失败，是因为设计者过于关注于用电脑设计具体的运作方式，而忽略了建…</td></tr>
+      <tr><td><b>Q7</b></td><td>英国是如何通过设计来解决行人安全问题，并保证交通流畅性的？针对不同人群，如身体有障碍的人，在过马路时存在哪些问题，以及对此的设计改进？</td><td>在英国，设计者提出了一个解决方案以提升行人安全，同时确保交通不受影响</td></tr>
+      <tr><td><b>Q8</b></td><td>F段内容中讨论了什么目标，以及这段内容是否直接相关于舞蹈和工程的结合？</td><td>F段内容中提到了一个目标——将舞蹈与工程相结合，实现某种目的（aim）</td></tr>
+      <tr><td><b>Q9</b></td><td>在阅读理解文章时，首先应该做什么？如何通过阅读文章找到对应题目的信息并进行解答？</td><td>在阅读理解文章时，首先要对题目进行简化处理，并确定文章中的不同题型，如信息匹配、判断题和人物观点配对题</td></tr>
+      <tr><td><b>Q10</b></td><td>对于第一道题，关于“非科学家对智力的假设如何影响其行为”，文章中提到的核心观点是什么？</td><td>文章指出，非科学家关于智力的假设可能会影响他们对其他人的行为评价，其中提到了lack of clarity over the definition of intelli…</td></tr>
+      <tr><td><b>Q11</b></td><td>对于第二题，为何选择B段作为答案依据？</td><td>B段内容对应了"非科学家"的视角，即家长和雇主对孩子语言发展和教育期待的理论，这与题目的非科学视角相符合，因此选B段为正确答案</td></tr>
+      <tr><td><b>Q12</b></td><td>针对第三题，"隐性理论"与"显性理论"有何不同？</td><td>文章中提到"隐性理论"和"显性理论"在研究中可能非常不同，但具体内容并未在该段落详细展开讨论</td></tr>
+      <tr><td><b>Q13</b></td><td>在寻找答案的过程中，如何处理未直接出现的人物观点（expert theory）？</td><td>在阅读过程中，若人物观点尚未出现，应继续往后阅读，同时关注那些可能提供线索的段落，直到找到相关的人物观点或论断</td></tr>
+      <tr><td><b>Q14</b></td><td>在不同文化背景下，人们对教育的期待有何差异？</td><td>人们的教育期待在不同文化中确实存在差异</td></tr>
+      <tr><td><b>Q15</b></td><td>对于“生而不同”和“智力水平”的观点，H人的看法是什么？H人的观点中是否主张根据智力差异进行不同待遇？</td><td>H人认为人们出生时智力水平有差异，有些人较为聪明，有些人则不太聪明，并且他支持通过IQ测试来识别这一点</td></tr>
+      <tr><td><b>Q16</b></td><td>在讨论关于社会各阶层应否享有特权时，H人的观点是什么？</td><td>H人并不主张社会某些阶层享有特权，即使是最优秀的人也不应该在没有付出的情况下得到更多的好处</td></tr>
+      <tr><td><b>Q17</b></td><td>在所有题目做完后，第六题为何还未解决？</td><td>第六题涉及到了学者在讨论理论时由于理解不全面而可能出现的问题</td></tr>
+      <tr><td><b>Q18</b></td><td>学校讨论理论时是否存在理解不足的现象？</td><td>是的，学校中可能存在学者在没有充分理解各个理论的情况下就进行讨论的情况</td></tr>
+      <tr><td><b>Q19</b></td><td>对于阅读这类文章，应该如何有效进行答题？</td><td>建议采用平行阅读的方式，同时关注所有题目，尤其是人物观点配对题</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 今天我们为何要针对平行阅读法进行重点练习？</h2>
+    <p class="qakey">因为平行阅读法如果无人指导，对于词汇量匮乏的学生来说上手较难，且需要同时处理2至3种题型，没有训练的话可能不容易掌握和运用。</p>
+    <h2><a id="q2"></a>Q2. 第一篇文章的题型主要有哪些？面对第一篇文章，学生们通常对哪些题型有误解？</h2>
+    <p class="qakey">第一篇文章中主要涉及信息匹配、填空判断以及one word only（填一个单词）等多种题型。许多学生可能认为第一篇文章只有填空和判断题，但实际上还会有其他意想不到的题目类型。</p>
+    <h2><a id="q3"></a>Q3. 如何根据题干信息去筛选和定位文章中的段落？</h2>
+    <p class="qakey">读完文章后，根据题干信息逐段分析，当发现一段内容与题目高度相关时，即可锁定该段并进行细致解读，同时注意避免冗余阅读。</p>
+    <h2><a id="q4"></a>Q4. 在解答第一篇文章中的题目时，如何简化题干并定位答案？</h2>
+    <p class="qakey">首先简化题干，明确题目要求，然后定位文章中对应信息所在的段落，通过阅读和分析确定答案位置。</p>
+    <h2><a id="q5"></a>Q5. B段内容中关于舞蹈与城市规划有何见解？在对比过去和现在城市规划方法时，C段提到了什么关键点？</h2>
+    <p class="qakey">B段提到，舞蹈可以提供工程领域的新思路，帮助城市规划师从舞蹈中借鉴理念和技术，以刺激创新想法，解决城市设计中的问题。C段通过对比指出，现代城市设计虽然依赖于新技术简化复杂性，但可能导致与物理和社会属性的分离，而中世纪的建筑方法则更注重结合个人经验和材料知识，形成了一种对比和反思。</p>
+    <h2><a id="q6"></a>Q6. 在城市设计和建设中，设计与实际执行之间可能存在哪些差异，导致设计失败？</h2>
+    <p class="qakey">设计中的某些要素可能没有充分考虑到气候、人的心理因素以及具体操作的细节，例如一个案例中提到的城市设计项目失败，是因为设计者过于关注于用电脑设计具体的运作方式，而忽略了建筑物在没有保护措施如遮阳网或空调的情况下无法正常使用的实际情况。此外，设计过于复杂或与人的心理预期不符也可能导致设计被人们排斥，比如设计巨大的停车场会让人感到不受欢迎。</p>
+    <h2><a id="q7"></a>Q7. 英国是如何通过设计来解决行人安全问题，并保证交通流畅性的？针对不同人群，如身体有障碍的人，在过马路时存在哪些问题，以及对此的设计改进？</h2>
+    <p class="qakey">在英国，设计者提出了一个解决方案以提升行人安全，同时确保交通不受影响。他们优先考虑了行人过马路的安全，并通过设置安全岛等设施，鼓励行人分阶段安全地穿越马路，从而实现了在保障行人安全的同时，维持交通的顺畅流动。文章指出，某些设计可能增加了弱势群体过马路的难度，特别是那些行动不便的人。为了改善这一状况，设计中出现了分离社区和阻碍健康交通的做法，比如设置障碍或引导行人以特定方式穿越马路，这可能会促使部分人采取危险的过马路方式。为解决此问题，设计者正在考虑改进过马路设施，使之对所有人群都更加友好和安全。</p>
+    <h2><a id="q8"></a>Q8. F段内容中讨论了什么目标，以及这段内容是否直接相关于舞蹈和工程的结合？</h2>
+    <p class="qakey">F段内容中提到了一个目标——将舞蹈与工程相结合，实现某种目的（aim）。尽管文章没有直接阐述这个目标的具体内容，但找到了这一目标后，便完成了对该段题目的解答。这一目标表明，文章虽然没有直接讨论舞蹈与工程结合的主题，但在不同段落间存在着这一潜在的连接点。</p>
+    <h2><a id="q9"></a>Q9. 在阅读理解文章时，首先应该做什么？如何通过阅读文章找到对应题目的信息并进行解答？</h2>
+    <p class="qakey">在阅读理解文章时，首先要对题目进行简化处理，并确定文章中的不同题型，如信息匹配、判断题和人物观点配对题。需要逐段阅读文章，关注与题目相关的关键词和信息，如"intelligence"、"parents"、"children"、"language development"等，并根据段落内容判断题目的答案。同时要注意，某些段落可能需要回溯阅读以获取完整信息。</p>
+    <h2><a id="q10"></a>Q10. 对于第一道题，关于“非科学家对智力的假设如何影响其行为”，文章中提到的核心观点是什么？</h2>
+    <p class="qakey">文章指出，非科学家关于智力的假设可能会影响他们对其他人的行为评价，其中提到了lack of clarity over the definition of intelligence（缺乏对智力明确的定义）这一问题。</p>
+    <h2><a id="q11"></a>Q11. 对于第二题，为何选择B段作为答案依据？</h2>
+    <p class="qakey">B段内容对应了"非科学家"的视角，即家长和雇主对孩子语言发展和教育期待的理论，这与题目的非科学视角相符合，因此选B段为正确答案。</p>
+    <h2><a id="q12"></a>Q12. 针对第三题，"隐性理论"与"显性理论"有何不同？</h2>
+    <p class="qakey">文章中提到"隐性理论"和"显性理论"在研究中可能非常不同，但具体内容并未在该段落详细展开讨论。</p>
+    <h2><a id="q13"></a>Q13. 在寻找答案的过程中，如何处理未直接出现的人物观点（expert theory）？</h2>
+    <p class="qakey">在阅读过程中，若人物观点尚未出现，应继续往后阅读，同时关注那些可能提供线索的段落，直到找到相关的人物观点或论断。</p>
+    <h2><a id="q14"></a>Q14. 在不同文化背景下，人们对教育的期待有何差异？</h2>
+    <p class="qakey">人们的教育期待在不同文化中确实存在差异。例如，对于参与西方style学校的小孩，他们的期待可能与那些没参加学校的孩子不同。这种差异部分源于文化功能的不同。</p>
+    <h2><a id="q15"></a>Q15. 对于“生而不同”和“智力水平”的观点，H人的看法是什么？H人的观点中是否主张根据智力差异进行不同待遇？</h2>
+    <p class="qakey">H人认为人们出生时智力水平有差异，有些人较为聪明，有些人则不太聪明，并且他支持通过IQ测试来识别这一点。他还提到，低智商的人往往难以照顾自己，容易造成混乱。是的，H人的观点倾向于承认智力差异，并认为应该根据智力水平给予不同待遇，比如政府官员等职位更适合较为聪明的人。同时，他主张人们在平等机会下应获得与自身成就相匹配的奖励。</p>
+    <h2><a id="q16"></a>Q16. 在讨论关于社会各阶层应否享有特权时，H人的观点是什么？</h2>
+    <p class="qakey">H人并不主张社会某些阶层享有特权，即使是最优秀的人也不应该在没有付出的情况下得到更多的好处。他认为每个人都应该基于自己的实际成就来获取利益，而不是基于社会地位或出生背景。</p>
+    <h2><a id="q17"></a>Q17. 在所有题目做完后，第六题为何还未解决？</h2>
+    <p class="qakey">第六题涉及到了学者在讨论理论时由于理解不全面而可能出现的问题。当学者们不能完全理解各个理论时，他们很可能错过理论的关键点。</p>
+    <h2><a id="q18"></a>Q18. 学校讨论理论时是否存在理解不足的现象？</h2>
+    <p class="qakey">是的，学校中可能存在学者在没有充分理解各个理论的情况下就进行讨论的情况。这种情况可能导致他们可能错过理论的关键点，即“without fully understanding likely miss the point”。</p>
+    <h2><a id="q19"></a>Q19. 对于阅读这类文章，应该如何有效进行答题？</h2>
+    <p class="qakey">建议采用平行阅读的方式，同时关注所有题目，尤其是人物观点配对题。因为这种文章往往需要读者快速定位关键词和观点，并进行词义替换，而非深入理解文章含义。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 今天我们为何要针对平行阅读法进行重点练习？</a></li>
+<li><a href="#q2">Q2. 第一篇文章的题型主要有哪些？面对第一篇文章，学生们通常对哪些题型有误解？</a></li>
+<li><a href="#q3">Q3. 如何根据题干信息去筛选和定位文章中的段落？</a></li>
+<li><a href="#q4">Q4. 在解答第一篇文章中的题目时，如何简化题干并定位答案？</a></li>
+<li><a href="#q5">Q5. B段内容中关于舞蹈与城市规划有何见解？在对比过去和现在城市规划方法时，C段提到了什么关键点？</a></li>
+<li><a href="#q6">Q6. 在城市设计和建设中，设计与实际执行之间可能存在哪些差异，导致设计失败？</a></li>
+<li><a href="#q7">Q7. 英国是如何通过设计来解决行人安全问题，并保证交通流畅性的？针对不同人群，如身体有障碍的人，在过马路时存在哪些问题，以及对此的设计改进？</a></li>
+<li><a href="#q8">Q8. F段内容中讨论了什么目标，以及这段内容是否直接相关于舞蹈和工程的结合？</a></li>
+<li><a href="#q9">Q9. 在阅读理解文章时，首先应该做什么？如何通过阅读文章找到对应题目的信息并进行解答？</a></li>
+<li><a href="#q10">Q10. 对于第一道题，关于“非科学家对智力的假设如何影响其行为”，文章中提到的核心观点是什么？</a></li>
+<li><a href="#q11">Q11. 对于第二题，为何选择B段作为答案依据？</a></li>
+<li><a href="#q12">Q12. 针对第三题，"隐性理论"与"显性理论"有何不同？</a></li>
+<li><a href="#q13">Q13. 在寻找答案的过程中，如何处理未直接出现的人物观点（expert theory）？</a></li>
+<li><a href="#q14">Q14. 在不同文化背景下，人们对教育的期待有何差异？</a></li>
+<li><a href="#q15">Q15. 对于“生而不同”和“智力水平”的观点，H人的看法是什么？H人的观点中是否主张根据智力差异进行不同待遇？</a></li>
+<li><a href="#q16">Q16. 在讨论关于社会各阶层应否享有特权时，H人的观点是什么？</a></li>
+<li><a href="#q17">Q17. 在所有题目做完后，第六题为何还未解决？</a></li>
+<li><a href="#q18">Q18. 学校讨论理论时是否存在理解不足的现象？</a></li>
+<li><a href="#q19">Q19. 对于阅读这类文章，应该如何有效进行答题？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

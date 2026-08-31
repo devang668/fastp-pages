@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第17讲 · 平行阅读法在处理复杂文章时的重要性 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 17 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a class="active" href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第17讲 · 平行阅读法在处理复杂文章时的重要性</h1>
+    <blockquote><p><b>本讲定位：</b>老师在本次课程中强调了平行阅读法在处理复杂文章时的重要性，通过分析两篇不同侧重的文章来示范这一方法的应用。一篇侧重于信息匹配、填空、选词填空和判断题，另一篇特别强调标题配对，难度较高。老师详细讲解了如何利用关键词、结构特点快速定位信息，以及在遇到难题时如何控制错误，以确保获得尽可能多的分数。此外，课程将转向选择题单元，重点是多选题，老师鼓励同学们课后练习平行阅读法，以提高分数。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>今天我们为何要使用平行阅读法来阅读这两篇文章？我们今天选择的两篇文章结构有何不同？</td><td>因为如果想要在阅读理解达到八分以上的水平时，对于高手来说，通常需要采用平行阅读法</td></tr>
+      <tr><td><b>Q2</b></td><td>在阅读理解文章时，如何有效地从上下文中提取信息并应用到题目解答中？如何利用关键词“UCLA”定位并理解文章中的科研内容？</td><td>在阅读过程中，可以先根据题目定位到相关段落，如提到所有参赛者都将蒙眼这一信息，这有助于确定判断题的正确答案</td></tr>
+      <tr><td><b>Q3</b></td><td>在处理第一篇文章时，如何快速识别并关注关键信息？</td><td>当遇到"NB"标记时，应意识到这是一个需要多花时间通读整个文章并全面理解的题目</td></tr>
+      <tr><td><b>Q4</b></td><td>对于文中提到的这个人参加的50人挑战和其他细节，如何分析并确定答案？</td><td>根据题干要求，可以快速识别出挑战并非所有人都蒙眼，只有特定一个人，所以第一个判断题答案为false</td></tr>
+      <tr><td><b>Q5</b></td><td>好的象棋手是否能在蒙眼的情况下进行正常的象棋比赛？</td><td>是的，好的象棋手即使在眼睛蒙上的情况下也能正常进行象棋比赛</td></tr>
+      <tr><td><b>Q6</b></td><td>C段主要讲述了什么内容？D段提到的“技能”是什么？</td><td>C段主要讲述了一个人从六岁开始学习下象棋，并在16岁时取得了亚洲最年轻的冠军，帮助赢得了世界排名第三的好成绩，但该段落没有明确提到象棋需要哪些能力和原因</td></tr>
+      <tr><td><b>Q7</b></td><td>下盲棋除了对记忆能力有挑战外，还有哪些难点？</td><td>下盲棋除了记忆量的挑战外，还包括首局移动时的规律性缺失以及比赛后期由于疲劳导致的记忆力下降</td></tr>
+      <tr><td><b>Q8</b></td><td>科学家如何测试这位象棋选手的记忆能力？</td><td>科学家通过让他回忆一串数字（按顺序和倒序）来进行记忆测试，尽管他的表现看似平常，并非异常优秀，但在大脑扫描结果中发现其记忆区域连接紧密，具有高效的信息处理和分配能力</td></tr>
+      <tr><td><b>Q9</b></td><td>大脑扫描结果显示了什么关于这位象棋选手的特殊之处？</td><td>扫描结果显示，这位象棋选手处理视觉输入信号时的网络更为高度连接，尤其在处理视觉图像方面表现出色</td></tr>
+      <tr><td><b>Q10</b></td><td>在阅读理解中，如果遇到找不到答案的情况，应该如何处理？如果文章中有几道题目难以解答，应该怎样解决？</td><td>当在阅读过程中发现无法确定某个问题的答案时，不要在已经排除的段落中纠结</td></tr>
+      <tr><td><b>Q11</b></td><td>对于平行阅读的理解和应用是怎样的？</td><td>平行阅读是一种高效的阅读策略，它要求读者同时关注多个段落或题目，因为它们之间可能存在信息配对或相互关联</td></tr>
+      <tr><td><b>Q12</b></td><td>阅读理解中如何处理议论文的文章标题？针对Test five part three的文章和题目，如何进行有效解答？</td><td>在阅读议论文时，标题通常对理解文章内容有指导作用，但建议先不看标题，以免影响对文章的整体理解</td></tr>
+      <tr><td><b>Q13</b></td><td>这个课程主要面向哪类学生群体？这个课程的主要目标是什么？</td><td>这个课程主要是为那些想要成为investigator，即调查人员的同学设计的</td></tr>
+      <tr><td><b>Q14</b></td><td>课程会教授什么内容？这个课程如何帮助学生在法庭上进行起诉？</td><td>课程会教授关于故意纵火的调查方法和相关法律知识，帮助调查人员识别火灾痕迹并有效收集证据</td></tr>
+      <tr><td><b>Q15</b></td><td>课程是否会吸引到不合适的学员？</td><td>是的，尽管课程很专业，但它也可能吸引那些有犯罪动机的人</td></tr>
+      <tr><td><b>Q16</b></td><td>是否适合所有类型的学员参加？</td><td>根据38题的分析，这个课程可能并不适合所有人，特别是那些希望该课程能帮助他们找到好工作的学生，因为课程内容较为学术，可能不太实用</td></tr>
+      <tr><td><b>Q17</b></td><td>对于课程名称与内容之间的关系，文章有何看法？</td><td>文章提到了关于课程名称与内容可能存在分歧的观点，以及对营销课程能否被编码为原理的讨论，这表明课程名称可能并不完全反映其实际内容</td></tr>
+      <tr><td><b>Q18</b></td><td>在第一段中，对于“marketing”的means和end，学生们是如何定义的？</td><td>第一段中，“marketing”的end被定义为“to make money”，即赚钱是其最终目的</td></tr>
+      <tr><td><b>Q19</b></td><td>为什么学生需要知道both the how to achieve x以及what is that？</td><td>学生不仅需要知道如何实现某个目标（how to achieve x），还需要明确了解这个目标本身（what is that）</td></tr>
+      <tr><td><b>Q20</b></td><td>对于“为了谋利”的判断题，其与“检测并起诉犯罪行为”之间的联系是什么？</td><td>这两者在职业道德层面可能存在关联，即“为了谋利”的行为可能在某些情况下涉及犯罪活动的检测与起诉</td></tr>
+      <tr><td><b>Q21</b></td><td>如何理解不同课程名称对应不同结果这一判断题？</td><td>这个判断题反映了课程名称与课程内容、培养目标之间的对应关系</td></tr>
+      <tr><td><b>Q22</b></td><td>面对阅读理解较难的文章，应该如何应对以确保拿到基本分数？</td><td>即使文章内容偏哲学和心理学，难以完全理解，也应通过控制错误、抓住明显能得分的题目来保证基本盘</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 今天我们为何要使用平行阅读法来阅读这两篇文章？我们今天选择的两篇文章结构有何不同？</h2>
+    <p class="qakey">因为如果想要在阅读理解达到八分以上的水平时，对于高手来说，通常需要采用平行阅读法。对于后两篇文章而言，仅依赖第一篇文章是不够的，需要对后续文章进行深入阅读和理解。第一篇文章包含了信息匹配、填空及选词填空、判断等多种题型；第二篇文章则是一个标题配对题，其中标题配对部分相对较为困难。</p>
+    <h2><a id="q2"></a>Q2. 在阅读理解文章时，如何有效地从上下文中提取信息并应用到题目解答中？如何利用关键词“UCLA”定位并理解文章中的科研内容？</h2>
+    <p class="qakey">在阅读过程中，可以先根据题目定位到相关段落，如提到所有参赛者都将蒙眼这一信息，这有助于确定判断题的正确答案。同时，要关注关键词语和实验内容，例如研究者做的一个实验，通过测量参与者的大脑活动来回忆特定情境。UCLA是文章中提到的第一个进行此类研究的大学，研究人员试图通过实验了解这类人（下盲棋者）在比赛中的表现及其背后的机制。尽管文中没有直接给出这个人是第一个被研究的对象的信息，但提到了UCLA的研究成果是第一个结论，即闭着眼睛下棋的能力对于大多数专业的棋手来说并不遥远。</p>
+    <h2><a id="q3"></a>Q3. 在处理第一篇文章时，如何快速识别并关注关键信息？</h2>
+    <p class="qakey">当遇到"NB"标记时，应意识到这是一个需要多花时间通读整个文章并全面理解的题目。文章中提到的一个实例是关于下盲棋的故事，涉及到了一个人的技能限制和优先级，以及为什么盲棋游戏的最后部分可能很难解释。</p>
+    <h2><a id="q4"></a>Q4. 对于文中提到的这个人参加的50人挑战和其他细节，如何分析并确定答案？</h2>
+    <p class="qakey">根据题干要求，可以快速识别出挑战并非所有人都蒙眼，只有特定一个人，所以第一个判断题答案为false。接着，通过阅读描述这个人打破世界纪录、喜欢奇装异服以及参与冒险运动等信息，虽然没有明确说明比赛结果，但可以推测其在比赛中表现出色。</p>
+    <h2><a id="q5"></a>Q5. 好的象棋手是否能在蒙眼的情况下进行正常的象棋比赛？</h2>
+    <p class="qakey">是的，好的象棋手即使在眼睛蒙上的情况下也能正常进行象棋比赛。</p>
+    <h2><a id="q6"></a>Q6. C段主要讲述了什么内容？D段提到的“技能”是什么？</h2>
+    <p class="qakey">C段主要讲述了一个人从六岁开始学习下象棋，并在16岁时取得了亚洲最年轻的冠军，帮助赢得了世界排名第三的好成绩，但该段落没有明确提到象棋需要哪些能力和原因。D段提到的技能是指象棋比赛中对记忆能力的挑战，尤其是需要同时记住多个棋子的位置。</p>
+    <h2><a id="q7"></a>Q7. 下盲棋除了对记忆能力有挑战外，还有哪些难点？</h2>
+    <p class="qakey">下盲棋除了记忆量的挑战外，还包括首局移动时的规律性缺失以及比赛后期由于疲劳导致的记忆力下降。</p>
+    <h2><a id="q8"></a>Q8. 科学家如何测试这位象棋选手的记忆能力？</h2>
+    <p class="qakey">科学家通过让他回忆一串数字（按顺序和倒序）来进行记忆测试，尽管他的表现看似平常，并非异常优秀，但在大脑扫描结果中发现其记忆区域连接紧密，具有高效的信息处理和分配能力。</p>
+    <h2><a id="q9"></a>Q9. 大脑扫描结果显示了什么关于这位象棋选手的特殊之处？</h2>
+    <p class="qakey">扫描结果显示，这位象棋选手处理视觉输入信号时的网络更为高度连接，尤其在处理视觉图像方面表现出色。</p>
+    <h2><a id="q10"></a>Q10. 在阅读理解中，如果遇到找不到答案的情况，应该如何处理？如果文章中有几道题目难以解答，应该怎样解决？</h2>
+    <p class="qakey">当在阅读过程中发现无法确定某个问题的答案时，不要在已经排除的段落中纠结。应关注未选择的段落，如本例中的F段和G段，因为答案可能隐藏在这些部分。通过分析剩余段落来找到答案。如果确实有几道题目难以解答，建议将这些题目暂时搁置，集中精力分析仅剩的段落，通过对该段落的深入理解来找到答案。</p>
+    <h2><a id="q11"></a>Q11. 对于平行阅读的理解和应用是怎样的？</h2>
+    <p class="qakey">平行阅读是一种高效的阅读策略，它要求读者同时关注多个段落或题目，因为它们之间可能存在信息配对或相互关联。对于判断题和填空题混合在一起的情况，需要运用平行阅读思路，快速定位关键信息并进行匹配。</p>
+    <h2><a id="q12"></a>Q12. 阅读理解中如何处理议论文的文章标题？针对Test five part three的文章和题目，如何进行有效解答？</h2>
+    <p class="qakey">在阅读议论文时，标题通常对理解文章内容有指导作用，但建议先不看标题，以免影响对文章的整体理解。阅读过程中，应特别留意首段和每一段的主题句，以便把握文章主旨和论点。首先，观察文章标题和题干要求，避免受标题影响。然后，逐段通读文章，注意寻找关键词和相关信息，尤其是与填空题相关的部分。对于难以直接定位的答案，可以通过分析上下文和段落间的联系来推测答案。</p>
+    <h2><a id="q13"></a>Q13. 这个课程主要面向哪类学生群体？这个课程的主要目标是什么？</h2>
+    <p class="qakey">这个课程主要是为那些想要成为investigator，即调查人员的同学设计的。这个课程的目标是帮助调查人员了解并学习故意纵火的相关知识，以便在法庭起诉时能够建立完整的证据链。</p>
+    <h2><a id="q14"></a>Q14. 课程会教授什么内容？这个课程如何帮助学生在法庭上进行起诉？</h2>
+    <p class="qakey">课程会教授关于故意纵火的调查方法和相关法律知识，帮助调查人员识别火灾痕迹并有效收集证据。通过课程学习，调查人员可以在法庭上成功且高效地起诉涉及故意纵火的案件。</p>
+    <h2><a id="q15"></a>Q15. 课程是否会吸引到不合适的学员？</h2>
+    <p class="qakey">是的，尽管课程很专业，但它也可能吸引那些有犯罪动机的人。</p>
+    <h2><a id="q16"></a>Q16. 是否适合所有类型的学员参加？</h2>
+    <p class="qakey">根据38题的分析，这个课程可能并不适合所有人，特别是那些希望该课程能帮助他们找到好工作的学生，因为课程内容较为学术，可能不太实用。</p>
+    <h2><a id="q17"></a>Q17. 对于课程名称与内容之间的关系，文章有何看法？</h2>
+    <p class="qakey">文章提到了关于课程名称与内容可能存在分歧的观点，以及对营销课程能否被编码为原理的讨论，这表明课程名称可能并不完全反映其实际内容。</p>
+    <h2><a id="q18"></a>Q18. 在第一段中，对于“marketing”的means和end，学生们是如何定义的？</h2>
+    <p class="qakey">第一段中，“marketing”的end被定义为“to make money”，即赚钱是其最终目的。而一些学生的描述不太相关，他们提到了课程的内容和计划等，并没有准确抓住“marketing”的核心目标。</p>
+    <h2><a id="q19"></a>Q19. 为什么学生需要知道both the how to achieve x以及what is that？</h2>
+    <p class="qakey">学生不仅需要知道如何实现某个目标（how to achieve x），还需要明确了解这个目标本身（what is that）。这意味着在学习过程中，学生应同时掌握方法论和目标设定的重要性。</p>
+    <h2><a id="q20"></a>Q20. 对于“为了谋利”的判断题，其与“检测并起诉犯罪行为”之间的联系是什么？</h2>
+    <p class="qakey">这两者在职业道德层面可能存在关联，即“为了谋利”的行为可能在某些情况下涉及犯罪活动的检测与起诉。然而，学生们对“end”的定义较为泛泛，提到了社会安全和福利，而非具体的职业道德行为。</p>
+    <h2><a id="q21"></a>Q21. 如何理解不同课程名称对应不同结果这一判断题？</h2>
+    <p class="qakey">这个判断题反映了课程名称与课程内容、培养目标之间的对应关系。例如，课程名“awesome for profit”可能与营销策略、营利手段相关，而“firefighting”则可能更侧重于如何检测和防范欺诈行为。不同的课程名称暗示了其可能产生的不同社会效果或学习结果。</p>
+    <h2><a id="q22"></a>Q22. 面对阅读理解较难的文章，应该如何应对以确保拿到基本分数？</h2>
+    <p class="qakey">即使文章内容偏哲学和心理学，难以完全理解，也应通过控制错误、抓住明显能得分的题目来保证基本盘。例如，选择题中的前三道判断题和四道填空题相对容易，要确保这些题目得分。同时，要运用诸如关联课程名、抓住文章明显倾向等技巧，尽量减少不必要的失分，从而提高整体成绩。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 今天我们为何要使用平行阅读法来阅读这两篇文章？我们今天选择的两篇文章结构有何不同？</a></li>
+<li><a href="#q2">Q2. 在阅读理解文章时，如何有效地从上下文中提取信息并应用到题目解答中？如何利用关键词“UCLA”定位并理解文章中的科研内容？</a></li>
+<li><a href="#q3">Q3. 在处理第一篇文章时，如何快速识别并关注关键信息？</a></li>
+<li><a href="#q4">Q4. 对于文中提到的这个人参加的50人挑战和其他细节，如何分析并确定答案？</a></li>
+<li><a href="#q5">Q5. 好的象棋手是否能在蒙眼的情况下进行正常的象棋比赛？</a></li>
+<li><a href="#q6">Q6. C段主要讲述了什么内容？D段提到的“技能”是什么？</a></li>
+<li><a href="#q7">Q7. 下盲棋除了对记忆能力有挑战外，还有哪些难点？</a></li>
+<li><a href="#q8">Q8. 科学家如何测试这位象棋选手的记忆能力？</a></li>
+<li><a href="#q9">Q9. 大脑扫描结果显示了什么关于这位象棋选手的特殊之处？</a></li>
+<li><a href="#q10">Q10. 在阅读理解中，如果遇到找不到答案的情况，应该如何处理？如果文章中有几道题目难以解答，应该怎样解决？</a></li>
+<li><a href="#q11">Q11. 对于平行阅读的理解和应用是怎样的？</a></li>
+<li><a href="#q12">Q12. 阅读理解中如何处理议论文的文章标题？针对Test five part three的文章和题目，如何进行有效解答？</a></li>
+<li><a href="#q13">Q13. 这个课程主要面向哪类学生群体？这个课程的主要目标是什么？</a></li>
+<li><a href="#q14">Q14. 课程会教授什么内容？这个课程如何帮助学生在法庭上进行起诉？</a></li>
+<li><a href="#q15">Q15. 课程是否会吸引到不合适的学员？</a></li>
+<li><a href="#q16">Q16. 是否适合所有类型的学员参加？</a></li>
+<li><a href="#q17">Q17. 对于课程名称与内容之间的关系，文章有何看法？</a></li>
+<li><a href="#q18">Q18. 在第一段中，对于“marketing”的means和end，学生们是如何定义的？</a></li>
+<li><a href="#q19">Q19. 为什么学生需要知道both the how to achieve x以及what is that？</a></li>
+<li><a href="#q20">Q20. 对于“为了谋利”的判断题，其与“检测并起诉犯罪行为”之间的联系是什么？</a></li>
+<li><a href="#q21">Q21. 如何理解不同课程名称对应不同结果这一判断题？</a></li>
+<li><a href="#q22">Q22. 面对阅读理解较难的文章，应该如何应对以确保拿到基本分数？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

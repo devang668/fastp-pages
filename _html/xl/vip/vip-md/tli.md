@@ -3,3 +3,6 @@
 
 
 包括听力
+
+{"_type":"newapi_channel_conn","key":"sk-oeVcWt9BjwInUM7TwJ9AsRmqirk1WM4UbRANdzEJXZl0pVy6","url":"https://a.api.devin-tec.cn"}
+

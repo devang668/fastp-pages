@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第22讲 · 有效的时间和资源分配至关重要 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 22 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a class="active" href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第22讲 · 有效的时间和资源分配至关重要</h1>
+    <blockquote><p><b>本讲定位：</b>在准备考试时，有效的时间和资源分配至关重要。对于阅读考试部分，理解能力固然重要，适时放弃难以得分的题目以确保在其他题目上取得更多分数是明智之举。建议具体时间分配，如第一篇文章应在15分钟内完成，留更多时间给第三篇文章。合理的时间管理和刷题策略，包括定期刷题保持正确率，遇到难题时不过分纠结，对提高整体成绩有益。临近考试时，应调整策略，确保正确率与题量兼备。
+老师强调，机考模式对许多学生是新挑战，需熟悉操作和界面事项。复习所有题型，有效利用机考界面和刷题网站是关键。推荐使用新东方网站练习，因其界面设计与实际考试相似，有助于熟悉考试环境。利用网站标注功能提高刷题效率，鼓励学生熟悉机考操作，以在实际考试中更加从容。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在机考模式下，如何启动计时并开始答题？</td><td>当点击start test后，倒计时开始，并且每道题都会单独判分</td></tr>
+      <tr><td><b>Q2</b></td><td>新东方的网站为何适合进行机考练习？</td><td>该网站模拟了真实的机考界面，题型多样，包括填空题、判断题、配对题和选择题，方便同学们通过刷题复习已学过的解题思路和方法</td></tr>
+      <tr><td><b>Q3</b></td><td>在机考界面中，如何进行阅读理解和答题操作？</td><td>在机考界面中，文章和题目均可上下滑动</td></tr>
+      <tr><td><b>Q4</b></td><td>如何处理机考中的判断题并给出例子说明？</td><td>在判断题部分，通过定位关键信息并在三句话内得出答案</td></tr>
+      <tr><td><b>Q5</b></td><td>在讲解过程中，如何处理填空题并强调答题技巧？</td><td>在讲解填空题时，要求同学们注意题目要求，只填入一个单词，并学会从文章中复制粘贴正确单词以避免输入错误</td></tr>
+      <tr><td><b>Q6</b></td><td>在定位词后置的情况下，如何找到正确的答案？</td><td>当定位词后置时，首先需要关注前面的总结性句子，例如描述北极熊使用树枝作为工具来敲打物体以获取食物</td></tr>
+      <tr><td><b>Q7</b></td><td>如何理解wild polar bear与之前动物园中的北极熊的区别？野生北极熊如何展示其智慧行为？</td><td>wild polar bear指的是野生的北极熊，与之前在动物园观察到的饲养北极熊不同，接下来的内容将介绍野生北极熊的行为和特点</td></tr>
+      <tr><td><b>Q8</b></td><td>如何解析polar bear are display behavior as conscious manipulation of objects and activity？</td><td>这段描述了北极熊表现出的类似人类操纵物体和活动的行为，仿佛它们在执行某种游戏或任务</td></tr>
+      <tr><td><b>Q9</b></td><td>对于段落标题和总结填空这类题目，解题策略是什么？</td><td>对于这类题目，首先快速定位关键信息并画出整体结构图，然后根据关键词和转折点选择合适的标题</td></tr>
+      <tr><td><b>Q10</b></td><td>埃及金字塔的历史背景和建造情况是怎样的？</td><td>埃及金字塔始于国王建造的step pyramid，尽管关于其建设过程存在争议，但公认的一点是金字塔是在国王统治期间开始建造的</td></tr>
+      <tr><td><b>Q11</b></td><td>上一段内容讲述的焦点是什么？</td><td>上一段内容主要讲述了在金字塔中发现的大量陪葬品以及这些陪葬品在古代贼进入国王墓穴后遭到偷盗的情况</td></tr>
+      <tr><td><b>Q12</b></td><td>关于note功能，在考场上应该如何使用它？</td><td>考场上不建议使用note功能，因为它反应慢且不好用，记完后会消失，需要再次点击才出现，容易耽误时间</td></tr>
+      <tr><td><b>Q13</b></td><td>最后一段内容的核心主题是什么？</td><td>最后一段的核心主题是赞美金字塔作为人类历史上的伟大壮举，并提到了后续的建筑风格受到了它的影响</td></tr>
+      <tr><td><b>Q14</b></td><td>针对多选题的解题策略是什么？B选项“Disagreement concerning the length of his reign”是否为正确选项？</td><td>对于多选题，建议采用排除法，先确定错误选项并将其排除，正确选项自然会显现</td></tr>
+      <tr><td><b>Q15</b></td><td>在文章中，第一个选项提到的是什么内容？C选项“Failed to appreciate the part played by his ministers in the design of the pyramid”是否符合文章内容？</td><td>第一个选项提到的是“the area of artifact within the pyramid”，即金字塔内的陪葬品区域</td></tr>
+      <tr><td><b>Q16</b></td><td>E选项“criticized the design and construction of other pyramids in Egypt”是否与文章主题相关？</td><td>E选项与文章主题无关，因为它涉及到的是其他金字塔而非讨论的这个金字塔</td></tr>
+      <tr><td><b>Q17</b></td><td>对于Passage Three，应该如何进行阅读和答题？</td><td>Passage Three要求读者进行博弈，即根据前面两篇文章的得分情况来决定如何投入时间和精力答题，旨在追求高分而不必强求满分</td></tr>
+      <tr><td><b>Q18</b></td><td>在第三篇文章中，面对难题应如何处理？</td><td>面对难题如第一道功能型选择题，可以先暂时放弃，优先解决其他题目，最后如果有余力再回过头来尝试解答</td></tr>
+      <tr><td><b>Q19</b></td><td>人物和人物观点匹配题型的解题顺序是什么？</td><td>解题时应按照人物出现的顺序依次进行匹配，先处理出现次数较少的人物，再处理出现次数较多的人物观点</td></tr>
+      <tr><td><b>Q20</b></td><td>在文本中如何识别直接引用和间接引用？</td><td>直接引用通常包含冒号和引号，而间接引用则是通过括号中的作者名字和年份来标识</td></tr>
+      <tr><td><b>Q21</b></td><td>这句话“一个传统的单词不认识，仿佛它没有出现在你眼前过”是什么意思？</td><td>这句话意味着当遇到不熟悉的词汇时，不要纠结于它是否出现过，而是要关注其在传统全日制教育体系中的作用以及与退休金（pension）和退休（retirement）的相关性</td></tr>
+      <tr><td><b>Q22</b></td><td>文中提到的“conventional”一词是什么意思？</td><td>“conventional”与“traditional”同意替换，均表示经典的或传统的概念</td></tr>
+      <tr><td><b>Q23</b></td><td>文中关于自动化对就业影响的观点是什么？</td><td>文章提到，随着自动化和AI的发展，虽然部分工作会被机器人取代，但整体而言，工作的数量会增加，因此机器人并不会导致失业</td></tr>
+      <tr><td><b>Q24</b></td><td>如何从文本中找到人物观点并进行匹配？对于伊万这一人物，他的观点是什么？</td><td>需要通过阅读冒号引号内的内容找到人物观点，并将其与题目中的选项进行统一替换，无需深入理解所有细节，关键在于识别核心观点</td></tr>
+      <tr><td><b>Q25</b></td><td>关于工业革命与自动化之间的联系是什么？</td><td>工业革命被用来表示过去的一个时期，其中提到了从抽象到具体的替换关系，暗示了过去的社会变革如何与当前AI引发的变革相比较</td></tr>
+      <tr><td><b>Q26</b></td><td>在蒙答雅思阅读题时，如何利用文章平衡性原则提高答题正确率？</td><td>雅思考试出题平衡，选项出现次数相近，因此可以通过分析题目和文章内容，将看似正确的选项与原文进行对比，从而提高答题正确率</td></tr>
+      <tr><td><b>Q27</b></td><td>针对选词填空题，应该如何快速找到答案？</td><td>在处理选词填空题时，应关注句中的关键词语及其同义替换词，并结合上下文来确定正确答案</td></tr>
+      <tr><td><b>Q28</b></td><td>worker给系统提供错误数据是为了达到什么目标？如何避免worker提供错误数据的情况发生？</td><td>worker会向系统提供错误的数据，目的是为了达到他们自己的目标</td></tr>
+      <tr><td><b>Q29</b></td><td>数据、信息以及依赖与信任在题目的四个选项中扮演了什么角色？</td><td>在题目中，data和information肯定是需要掌握的词汇，而reliance和dependent也必须理解</td></tr>
+      <tr><td><b>Q30</b></td><td>文章A段主要讨论了什么主题？</td><td>文章A段主要讲述了AI在未来10到15年内可能影响3%到14%的工作劳动力，并强调人们需要适应岗位引入自动化和AI技术</td></tr>
+      <tr><td><b>Q31</b></td><td>根据文章内容，AI最可能影响哪些类型的工作？</td><td>文章并未明确指出哪种类型的工作会被AI影响最多，因此选项中提到警察、医生等特定职业被AI影响的程度并非文章主旨，所以A选项是错误的</td></tr>
+      <tr><td><b>Q32</b></td><td>AI将如何改变人们工作的本质？</td><td>根据文章，AI将深度改变人们工作的本质，使其从依赖生产转向依赖数据，从而引发知识经济的变革，这一变化会影响大多数工作</td></tr>
+      <tr><td><b>Q33</b></td><td>在阅读理解的选择题中，如何处理难以抉择的题目？对于阅读理解中的难题，应该如何处理？</td><td>对于较为复杂的阅读理解选择题，如果考试时间允许，建议考生尽量作答，即使不能完全确定正确选项，也可以通过排除法减少选择范围</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在机考模式下，如何启动计时并开始答题？</h2>
+    <p class="qakey">当点击start test后，倒计时开始，并且每道题都会单独判分。整个考试有1个小时40道题的时长。</p>
+    <h2><a id="q2"></a>Q2. 新东方的网站为何适合进行机考练习？</h2>
+    <p class="qakey">该网站模拟了真实的机考界面，题型多样，包括填空题、判断题、配对题和选择题，方便同学们通过刷题复习已学过的解题思路和方法。</p>
+    <h2><a id="q3"></a>Q3. 在机考界面中，如何进行阅读理解和答题操作？</h2>
+    <p class="qakey">在机考界面中，文章和题目均可上下滑动。对于划线强调关键词，只需点击即可实现高亮显示。同时，文章部分可使用平行阅读法快速定位信息，例如在阅读关于北极熊健康问题的文章时，通过关键词“Polar bear”、“health problems”和“under the scheme”，结合上下文找到答案。</p>
+    <h2><a id="q4"></a>Q4. 如何处理机考中的判断题并给出例子说明？</h2>
+    <p class="qakey">在判断题部分，通过定位关键信息并在三句话内得出答案。例如，在讨论北极熊与人类脂肪组织厚度与疾病关系的题目中，通过阅读转折逻辑连接词“yet”，发现虽然北极熊皮下脂肪厚，但它们并不会因此得病，从而判断该题为false。</p>
+    <h2><a id="q5"></a>Q5. 在讲解过程中，如何处理填空题并强调答题技巧？</h2>
+    <p class="qakey">在讲解填空题时，要求同学们注意题目要求，只填入一个单词，并学会从文章中复制粘贴正确单词以避免输入错误。此外，还讲解了识别并列结构、理解形容词替换以及利用工具进行环境操纵等考点。</p>
+    <h2><a id="q6"></a>Q6. 在定位词后置的情况下，如何找到正确的答案？</h2>
+    <p class="qakey">当定位词后置时，首先需要关注前面的总结性句子，例如描述北极熊使用树枝作为工具来敲打物体以获取食物。在本题中，关键词是"branch"，它在句子中出现后置，通过定位到相关部分并理解其与答案的关系，从而找到正确答案。</p>
+    <h2><a id="q7"></a>Q7. 如何理解wild polar bear与之前动物园中的北极熊的区别？野生北极熊如何展示其智慧行为？</h2>
+    <p class="qakey">wild polar bear指的是野生的北极熊，与之前在动物园观察到的饲养北极熊不同，接下来的内容将介绍野生北极熊的行为和特点。野生北极熊展示了计算过的行为，如通过跑步和跳跃达到某个目标物，并且能够使用平台进行移动，这些都体现了其智慧和目的性动作。</p>
+    <h2><a id="q8"></a>Q8. 如何解析polar bear are display behavior as conscious manipulation of objects and activity？</h2>
+    <p class="qakey">这段描述了北极熊表现出的类似人类操纵物体和活动的行为，仿佛它们在执行某种游戏或任务。具体例子中提到，北极熊故意放置并推倒物品，这一行为显示了其主动性和目的性。</p>
+    <h2><a id="q9"></a>Q9. 对于段落标题和总结填空这类题目，解题策略是什么？</h2>
+    <p class="qakey">对于这类题目，首先快速定位关键信息并画出整体结构图，然后根据关键词和转折点选择合适的标题。对于总结填空，要在通读全文后，根据文本中的核心内容和逻辑关系填写适当的词汇或短语。</p>
+    <h2><a id="q10"></a>Q10. 埃及金字塔的历史背景和建造情况是怎样的？</h2>
+    <p class="qakey">埃及金字塔始于国王建造的step pyramid，尽管关于其建设过程存在争议，但公认的一点是金字塔是在国王统治期间开始建造的。金字塔不仅是古代墓葬的一种革新，也是建筑史上的壮举，其规模之大令人印象深刻。同时，金字塔的建设过程中使用了大量石块和砖块，对于当时的建造者来说是一项巨大的挑战。金字塔最终完成时高度达到62米，是当时最高的建筑物，且其外部设计包括宿舍、围墙以及防止非法入侵的诸多入口。</p>
+    <h2><a id="q11"></a>Q11. 上一段内容讲述的焦点是什么？</h2>
+    <p class="qakey">上一段内容主要讲述了在金字塔中发现的大量陪葬品以及这些陪葬品在古代贼进入国王墓穴后遭到偷盗的情况。</p>
+    <h2><a id="q12"></a>Q12. 关于note功能，在考场上应该如何使用它？</h2>
+    <p class="qakey">考场上不建议使用note功能，因为它反应慢且不好用，记完后会消失，需要再次点击才出现，容易耽误时间。如果需要记笔记，可以在屏幕上画下来。</p>
+    <h2><a id="q13"></a>Q13. 最后一段内容的核心主题是什么？</h2>
+    <p class="qakey">最后一段的核心主题是赞美金字塔作为人类历史上的伟大壮举，并提到了后续的建筑风格受到了它的影响。</p>
+    <h2><a id="q14"></a>Q14. 针对多选题的解题策略是什么？B选项“Disagreement concerning the length of his reign”是否为正确选项？</h2>
+    <p class="qakey">对于多选题，建议采用排除法，先确定错误选项并将其排除，正确选项自然会显现。B选项是正确的，因为它反映了文章中关于国王在位时间存在争议的内容。</p>
+    <h2><a id="q15"></a>Q15. 在文章中，第一个选项提到的是什么内容？C选项“Failed to appreciate the part played by his ministers in the design of the pyramid”是否符合文章内容？</h2>
+    <p class="qakey">第一个选项提到的是“the area of artifact within the pyramid”，即金字塔内的陪葬品区域。C选项不符合文章内容，因为如果国王没有欣赏大臣在金字塔设计中的贡献，那么这个大臣如何参与设计并建造了金字塔？</p>
+    <h2><a id="q16"></a>Q16. E选项“criticized the design and construction of other pyramids in Egypt”是否与文章主题相关？</h2>
+    <p class="qakey">E选项与文章主题无关，因为它涉及到的是其他金字塔而非讨论的这个金字塔。</p>
+    <h2><a id="q17"></a>Q17. 对于Passage Three，应该如何进行阅读和答题？</h2>
+    <p class="qakey">Passage Three要求读者进行博弈，即根据前面两篇文章的得分情况来决定如何投入时间和精力答题，旨在追求高分而不必强求满分。</p>
+    <h2><a id="q18"></a>Q18. 在第三篇文章中，面对难题应如何处理？</h2>
+    <p class="qakey">面对难题如第一道功能型选择题，可以先暂时放弃，优先解决其他题目，最后如果有余力再回过头来尝试解答。</p>
+    <h2><a id="q19"></a>Q19. 人物和人物观点匹配题型的解题顺序是什么？</h2>
+    <p class="qakey">解题时应按照人物出现的顺序依次进行匹配，先处理出现次数较少的人物，再处理出现次数较多的人物观点。</p>
+    <h2><a id="q20"></a>Q20. 在文本中如何识别直接引用和间接引用？</h2>
+    <p class="qakey">直接引用通常包含冒号和引号，而间接引用则是通过括号中的作者名字和年份来标识。</p>
+    <h2><a id="q21"></a>Q21. 这句话“一个传统的单词不认识，仿佛它没有出现在你眼前过”是什么意思？</h2>
+    <p class="qakey">这句话意味着当遇到不熟悉的词汇时，不要纠结于它是否出现过，而是要关注其在传统全日制教育体系中的作用以及与退休金（pension）和退休（retirement）的相关性。</p>
+    <h2><a id="q22"></a>Q22. 文中提到的“conventional”一词是什么意思？</h2>
+    <p class="qakey">“conventional”与“traditional”同意替换，均表示经典的或传统的概念。</p>
+    <h2><a id="q23"></a>Q23. 文中关于自动化对就业影响的观点是什么？</h2>
+    <p class="qakey">文章提到，随着自动化和AI的发展，虽然部分工作会被机器人取代，但整体而言，工作的数量会增加，因此机器人并不会导致失业。</p>
+    <h2><a id="q24"></a>Q24. 如何从文本中找到人物观点并进行匹配？对于伊万这一人物，他的观点是什么？</h2>
+    <p class="qakey">需要通过阅读冒号引号内的内容找到人物观点，并将其与题目中的选项进行统一替换，无需深入理解所有细节，关键在于识别核心观点。伊万作为剑桥大学的学者，同意前一个人的观点，他希望政府能够利用AI和机器人带来的改变来改进政策，增加工作安全感，并为公平的未来做好准备。</p>
+    <h2><a id="q25"></a>Q25. 关于工业革命与自动化之间的联系是什么？</h2>
+    <p class="qakey">工业革命被用来表示过去的一个时期，其中提到了从抽象到具体的替换关系，暗示了过去的社会变革如何与当前AI引发的变革相比较。</p>
+    <h2><a id="q26"></a>Q26. 在蒙答雅思阅读题时，如何利用文章平衡性原则提高答题正确率？</h2>
+    <p class="qakey">雅思考试出题平衡，选项出现次数相近，因此可以通过分析题目和文章内容，将看似正确的选项与原文进行对比，从而提高答题正确率。</p>
+    <h2><a id="q27"></a>Q27. 针对选词填空题，应该如何快速找到答案？</h2>
+    <p class="qakey">在处理选词填空题时，应关注句中的关键词语及其同义替换词，并结合上下文来确定正确答案。例如，在此段中，“rely on”一词的同义替换词“depend on”出现在选项中，从而找到了答案。</p>
+    <h2><a id="q28"></a>Q28. worker给系统提供错误数据是为了达到什么目标？如何避免worker提供错误数据的情况发生？</h2>
+    <p class="qakey">worker会向系统提供错误的数据，目的是为了达到他们自己的目标。为了避免这种情况，需要将系统设计得更加透明(easier to comprehend)和可信(trustworthy)，这样可以增加系统的易理解性和用户的信任度。</p>
+    <h2><a id="q29"></a>Q29. 数据、信息以及依赖与信任在题目的四个选项中扮演了什么角色？</h2>
+    <p class="qakey">在题目中，data和information肯定是需要掌握的词汇，而reliance和dependent也必须理解。confidence和intuition则可以视为随缘掌握，即使如此，通过抓住这些最容易理解的词汇，也能完成不少题目。</p>
+    <h2><a id="q30"></a>Q30. 文章A段主要讨论了什么主题？</h2>
+    <p class="qakey">文章A段主要讲述了AI在未来10到15年内可能影响3%到14%的工作劳动力，并强调人们需要适应岗位引入自动化和AI技术。</p>
+    <h2><a id="q31"></a>Q31. 根据文章内容，AI最可能影响哪些类型的工作？</h2>
+    <p class="qakey">文章并未明确指出哪种类型的工作会被AI影响最多，因此选项中提到警察、医生等特定职业被AI影响的程度并非文章主旨，所以A选项是错误的。</p>
+    <h2><a id="q32"></a>Q32. AI将如何改变人们工作的本质？</h2>
+    <p class="qakey">根据文章，AI将深度改变人们工作的本质，使其从依赖生产转向依赖数据，从而引发知识经济的变革，这一变化会影响大多数工作。</p>
+    <h2><a id="q33"></a>Q33. 在阅读理解的选择题中，如何处理难以抉择的题目？对于阅读理解中的难题，应该如何处理？</h2>
+    <p class="qakey">对于较为复杂的阅读理解选择题，如果考试时间允许，建议考生尽量作答，即使不能完全确定正确选项，也可以通过排除法减少选择范围。在给出的时间内，不要过于纠结，应尽可能利用好每分钟来提高答题数量，因为保证做题的数量往往比追求单个题目的绝对正确更为重要。在真实的考试环境下，面对难以得分的题目，考生应具备有舍有得的精神，适当放弃这些难题，以便集中精力解答其他更容易得分的问题。同时，合理分配答题时间，确保在有限的时间内完成尽可能多的题目。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 在机考模式下，如何启动计时并开始答题？</a></li>
+<li><a href="#q2">Q2. 新东方的网站为何适合进行机考练习？</a></li>
+<li><a href="#q3">Q3. 在机考界面中，如何进行阅读理解和答题操作？</a></li>
+<li><a href="#q4">Q4. 如何处理机考中的判断题并给出例子说明？</a></li>
+<li><a href="#q5">Q5. 在讲解过程中，如何处理填空题并强调答题技巧？</a></li>
+<li><a href="#q6">Q6. 在定位词后置的情况下，如何找到正确的答案？</a></li>
+<li><a href="#q7">Q7. 如何理解wild polar bear与之前动物园中的北极熊的区别？野生北极熊如何展示其智慧行为？</a></li>
+<li><a href="#q8">Q8. 如何解析polar bear are display behavior as conscious manipulation of objects and activity？</a></li>
+<li><a href="#q9">Q9. 对于段落标题和总结填空这类题目，解题策略是什么？</a></li>
+<li><a href="#q10">Q10. 埃及金字塔的历史背景和建造情况是怎样的？</a></li>
+<li><a href="#q11">Q11. 上一段内容讲述的焦点是什么？</a></li>
+<li><a href="#q12">Q12. 关于note功能，在考场上应该如何使用它？</a></li>
+<li><a href="#q13">Q13. 最后一段内容的核心主题是什么？</a></li>
+<li><a href="#q14">Q14. 针对多选题的解题策略是什么？B选项“Disagreement concerning the length of his reign”是否为正确选项？</a></li>
+<li><a href="#q15">Q15. 在文章中，第一个选项提到的是什么内容？C选项“Failed to appreciate the part played by his ministers in the design of the pyramid”是否符合文章内容？</a></li>
+<li><a href="#q16">Q16. E选项“criticized the design and construction of other pyramids in Egypt”是否与文章主题相关？</a></li>
+<li><a href="#q17">Q17. 对于Passage Three，应该如何进行阅读和答题？</a></li>
+<li><a href="#q18">Q18. 在第三篇文章中，面对难题应如何处理？</a></li>
+<li><a href="#q19">Q19. 人物和人物观点匹配题型的解题顺序是什么？</a></li>
+<li><a href="#q20">Q20. 在文本中如何识别直接引用和间接引用？</a></li>
+<li><a href="#q21">Q21. 这句话“一个传统的单词不认识，仿佛它没有出现在你眼前过”是什么意思？</a></li>
+<li><a href="#q22">Q22. 文中提到的“conventional”一词是什么意思？</a></li>
+<li><a href="#q23">Q23. 文中关于自动化对就业影响的观点是什么？</a></li>
+<li><a href="#q24">Q24. 如何从文本中找到人物观点并进行匹配？对于伊万这一人物，他的观点是什么？</a></li>
+<li><a href="#q25">Q25. 关于工业革命与自动化之间的联系是什么？</a></li>
+<li><a href="#q26">Q26. 在蒙答雅思阅读题时，如何利用文章平衡性原则提高答题正确率？</a></li>
+<li><a href="#q27">Q27. 针对选词填空题，应该如何快速找到答案？</a></li>
+<li><a href="#q28">Q28. worker给系统提供错误数据是为了达到什么目标？如何避免worker提供错误数据的情况发生？</a></li>
+<li><a href="#q29">Q29. 数据、信息以及依赖与信任在题目的四个选项中扮演了什么角色？</a></li>
+<li><a href="#q30">Q30. 文章A段主要讨论了什么主题？</a></li>
+<li><a href="#q31">Q31. 根据文章内容，AI最可能影响哪些类型的工作？</a></li>
+<li><a href="#q32">Q32. AI将如何改变人们工作的本质？</a></li>
+<li><a href="#q33">Q33. 在阅读理解的选择题中，如何处理难以抉择的题目？对于阅读理解中的难题，应该如何处理？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

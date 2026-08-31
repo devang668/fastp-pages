@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第19讲 · 参与者分析了一篇文章 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 19 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a class="active" href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第19讲 · 参与者分析了一篇文章</h1>
+    <blockquote><p><b>本讲定位：</b>在一段讨论中，参与者分析了一篇文章，该文探讨了AI与人类行为之间的观点冲突，原因在于人类作为“群落动物”的特性。讨论者确认了选项D的正确性，并分享了理解题目的步骤，包括分类、有效的阅读策略以及选项排除法。尽管当前话题较为易懂，但预告了未来文章将涉及更复杂的议题，鼓励听众保持关注。此外，另一篇文章由一位教师撰写，专注于雅思考试选择题的备考策略，特别区分了功能题、例子目的题和细节题三种类型，并提供了相应的解题策略和技巧，强调了整体理解与细节分析的重要性，旨在帮助考生提高解题效率和应变能力。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>单选题相比多选题在难度上有何不同？功能体类别的单选题如何识别？</td><td>单选题相对于多选题难度稍高，因为多选题主要考察对段落中具体细节的识别，而单选题则需要深入理解段落大意，并通过不同的解题方法来解决</td></tr>
+      <tr><td><b>Q2</b></td><td>例子目的题的特征是什么？对于例子目的题，在做题时应该如何处理？</td><td>例子目的题会围绕文章中的某个观点举出实例进行论证或反驳，例如在讨论一个论点时，作者会先提出一般看法，然后用一个例子来支持或反驳这个观点</td></tr>
+      <tr><td><b>Q3</b></td><td>细节题的特点是什么？</td><td>细节题定位到一句话，主要考察句子的理解，要求找到与题目相关的同义表达或核心信息，而非简单的替换词语</td></tr>
+      <tr><td><b>Q4</b></td><td>针对单选题，应该如何制定解题步骤？</td><td>首先，通过平行阅读法找到题目并标记出来</td></tr>
+      <tr><td><b>Q5</b></td><td>在做细节题时，如何避免过度理解？</td><td>在处理细节题时，要特别注意不要把句子意思过度解读</td></tr>
+      <tr><td><b>Q6</b></td><td>如何总结解答细节题的方法步骤？</td><td>解答细节题的步骤包括：首先定位到相关句子</td></tr>
+      <tr><td><b>Q7</b></td><td>如何正确对待选项与原文之间的关系？</td><td>在看选项时，可以采用排除法，首先排除与句子完全不相关的选项</td></tr>
+      <tr><td><b>Q8</b></td><td>如何解答第二段功能题并找出正确答案？</td><td>对于第二段功能题，需定位到该段落并理解其内容，而不是直接看选项</td></tr>
+      <tr><td><b>Q9</b></td><td>B选项是否正确？C选项描述了什么内容？</td><td>B选项没有进行科学家之间的理论对比，只是按照时间顺序叙述了科学家的工作，并未构成有效的对比面，因此不正确</td></tr>
+      <tr><td><b>Q10</b></td><td>D选项是否包含了荷兰人发现微生物的过程以及法国人对该理论的深化发展？A选项是否正确并为何正确？</td><td>D选项只描述了第二个事件（法国人的深化发展），而没有包括荷兰人发现微生物的过程，所以这个选项不全面，不合理</td></tr>
+      <tr><td><b>Q11</b></td><td>如何理解和应对功能型题目？</td><td>对于功能型题目，首先需要通读段落，关注事件的发展起承转合</td></tr>
+      <tr><td><b>Q12</b></td><td>对于例子目的题，如何进行分析？</td><td>例子目的题通常会涉及对某个人物观点的提炼，如15题提到的创新话题，需要找到该人物对应的观点并进行分析，同时注意其对创新过程中可能出现的问题的看法</td></tr>
+      <tr><td><b>Q13</b></td><td>文章中的功能题与细节题有何难度差异？</td><td>在讲解的文章中，功能题相较于细节题难度更大，要求读者全面理解整段内容并用自身语言总结，而细节题可能只需关注对应那句话的相关信息</td></tr>
+      <tr><td><b>Q14</b></td><td>在汽车技术不断更新迭代的过程中，是否会导致一些能力的消失？</td><td>是的，随着汽车技术的发展和创新，一些能力可能会消失，例如驾驶手动挡车辆的能力</td></tr>
+      <tr><td><b>Q15</b></td><td>科技创新是否会导致纸质阅读的减少？我们是否应该关注并了解创新过程中可能失去的东西？</td><td>根据文章中的观点，科技创新确实导致了纸质阅读的减少，这一结论并非基于人的主观看法，而是基于客观事实和社会现象</td></tr>
+      <tr><td><b>Q16</b></td><td>阅读方式的变化是否会影响人们的阅读理解能力？学生对阅读的态度有何变化，以及这种变化对他们的阅读选择有何影响？</td><td>是的，根据文章内容，不同的阅读方式如纸质阅读、屏幕阅读等会形成不同的脑回路，而使用某种特定方式（如手持笔阅读）可能会让人对内容理解得更深刻</td></tr>
+      <tr><td><b>Q17</b></td><td>第二篇文章的主题是什么？</td><td>第二篇文章的主题是“与人工智能共处”，并探讨了AI与人类大脑的差异，特别是AI不受物理尺寸限制，因此在许多方面可能比人类完成得更好</td></tr>
+      <tr><td><b>Q18</b></td><td>在第一篇文章中，关于AI的主要观点是什么？</td><td>作者在第一段中提出，过去十年AI发展迅速，已经能够完成一些专业化的任务，并且有专家认为这种限制是暂时的，预计到本世纪中叶，AI可能会实现通用智能（AGI），即达到人类水…</td></tr>
+      <tr><td><b>Q19</b></td><td>对于AI未来发展的看法，哪个选项与作者的观点一致？</td><td>与作者观点一致的是C选项，它表示未来AI的发展将没有限制，并且能够胜任人类能做的所有事情，甚至可能比人类做得更好</td></tr>
+      <tr><td><b>Q20</b></td><td>在第二篇文章中，关于AI发展的正确目标，作者提出了什么观点？</td><td>作者的观点是AI变得越强大，我们越需要为它树立正确的目标，因为AI的强大决定了我们必须确保其发展方向的恰当性，以避免单纯定义目标可能出现的问题</td></tr>
+      <tr><td><b>Q21</b></td><td>如何快速识别并找到例子目的题中的关键观点？</td><td>例子目的题通常观点在例子之前，尤其是带有转折词"but"的句子往往隐藏着关键观点</td></tr>
+      <tr><td><b>Q22</b></td><td>在第一段中，作者提到的挑战是什么？</td><td>作者提到的挑战是人类自身并不友好，并且做了许多糟糕的事情，包括对其他生物的伤害导致物种灭绝</td></tr>
+      <tr><td><b>Q23</b></td><td>对于AI与人类共享的价值观，哪个选项最符合作者的观点？</td><td>选项B“决定AI和我们分享什么样的价值观”不完全符合，因为挑战的核心在于确保AI比人类更加道德和友好</td></tr>
+      <tr><td><b>Q24</b></td><td>关于未来AI，作者在第五段中提出了什么观点？</td><td>作者希望未来的AI能够站在道德的制高点，追求更高层次的道德标准，而非像人类常做的那样追求短期利益或陷入道德困境</td></tr>
+      <tr><td><b>Q25</b></td><td>根据第六段的内容，作者面临的主要问题是什么？在第六段中，关于编程机器的困难，作者的观点是什么？</td><td>作者面临的主要问题是告诉机器我们要找什么，并且需要有足够的信心确认机器能找到它，尤其是在我们自身存在冲突和偏见的情况下</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 单选题相比多选题在难度上有何不同？功能体类别的单选题如何识别？</h2>
+    <p class="qakey">单选题相对于多选题难度稍高，因为多选题主要考察对段落中具体细节的识别，而单选题则需要深入理解段落大意，并通过不同的解题方法来解决。功能体类别的单选题通常会在题干中询问段落的功能或意图，如“第一段的功能是什么？”这类题目是对段落整体理解和总结能力的考察，难度相对较高。</p>
+    <h2><a id="q2"></a>Q2. 例子目的题的特征是什么？对于例子目的题，在做题时应该如何处理？</h2>
+    <p class="qakey">例子目的题会围绕文章中的某个观点举出实例进行论证或反驳，例如在讨论一个论点时，作者会先提出一般看法，然后用一个例子来支持或反驳这个观点。在处理例子目的题时，关键在于把握作者的观点而非例子本身。即使例子可能跨段，也应关注其服务于的观点，而不是细节描述。</p>
+    <h2><a id="q3"></a>Q3. 细节题的特点是什么？</h2>
+    <p class="qakey">细节题定位到一句话，主要考察句子的理解，要求找到与题目相关的同义表达或核心信息，而非简单的替换词语。</p>
+    <h2><a id="q4"></a>Q4. 针对单选题，应该如何制定解题步骤？</h2>
+    <p class="qakey">首先，通过平行阅读法找到题目并标记出来；然后，根据题目类别进行区分，如功能题需通读段落，例子目的题需找到观点，而细节题则需精确定位到可能的答案所在句子。</p>
+    <h2><a id="q5"></a>Q5. 在做细节题时，如何避免过度理解？</h2>
+    <p class="qakey">在处理细节题时，要特别注意不要把句子意思过度解读。例如，当看到一个选项提到“they adapt quickly to the environment”，即使联想到“来的早活得长是因为适应环境”，也不能选择该选项，因为这是基于个人想象而非原文信息。</p>
+    <h2><a id="q6"></a>Q6. 如何总结解答细节题的方法步骤？</h2>
+    <p class="qakey">解答细节题的步骤包括：首先定位到相关句子；其次，理解所定位的句子；接着，分析选项并使用排除法，保留有同义替换且不过度推理的选项；最后，确定正确答案，确保答案紧密贴合原文信息，不能过度解读或臆测。</p>
+    <h2><a id="q7"></a>Q7. 如何正确对待选项与原文之间的关系？</h2>
+    <p class="qakey">在看选项时，可以采用排除法，首先排除与句子完全不相关的选项。当剩下几个选项纠结时，应选择替换更明显、更能直接反映原文信息的那个选项。</p>
+    <h2><a id="q8"></a>Q8. 如何解答第二段功能题并找出正确答案？</h2>
+    <p class="qakey">对于第二段功能题，需定位到该段落并理解其内容，而不是直接看选项。根据文中信息，“The writer is impressed by the fact that...”，得知作者对某事感到惊讶。通过阅读下一句找到关键词“amazing”，进而确定作者惊讶于人体细胞数量与微生物细胞数量之间的关系，即人体细胞数量相对较少，而微生物细胞数量远多于人体细胞。最后，通过排除法，找到正确答案C选项，即“平均个体身上的微生物细胞数量比人类细胞多”。</p>
+    <h2><a id="q9"></a>Q9. B选项是否正确？C选项描述了什么内容？</h2>
+    <p class="qakey">B选项没有进行科学家之间的理论对比，只是按照时间顺序叙述了科学家的工作，并未构成有效的对比面，因此不正确。C选项描述了科学家之间的疑惑，但实际文章中并未找到科学家的具体疑惑点，因此这个选项也不正确。</p>
+    <h2><a id="q10"></a>Q10. D选项是否包含了荷兰人发现微生物的过程以及法国人对该理论的深化发展？A选项是否正确并为何正确？</h2>
+    <p class="qakey">D选项只描述了第二个事件（法国人的深化发展），而没有包括荷兰人发现微生物的过程，所以这个选项不全面，不合理。A选项包含了两个科学家的研究内容，即荷兰人发现微生物的过程和法国人进一步发展相关理论的过程，因此A选项是正确的。</p>
+    <h2><a id="q11"></a>Q11. 如何理解和应对功能型题目？</h2>
+    <p class="qakey">对于功能型题目，首先需要通读段落，关注事件的发展起承转合。对于琐碎细节（如人物介绍和工作单位）略看即可，重点总结段落的核心思想。答题时，选项必须全覆盖段落内容，不能只覆盖部分信息。此外，可采用排除法，删除过于细节或不覆盖核心思想的选项。</p>
+    <h2><a id="q12"></a>Q12. 对于例子目的题，如何进行分析？</h2>
+    <p class="qakey">例子目的题通常会涉及对某个人物观点的提炼，如15题提到的创新话题，需要找到该人物对应的观点并进行分析，同时注意其对创新过程中可能出现的问题的看法。</p>
+    <h2><a id="q13"></a>Q13. 文章中的功能题与细节题有何难度差异？</h2>
+    <p class="qakey">在讲解的文章中，功能题相较于细节题难度更大，要求读者全面理解整段内容并用自身语言总结，而细节题可能只需关注对应那句话的相关信息。</p>
+    <h2><a id="q14"></a>Q14. 在汽车技术不断更新迭代的过程中，是否会导致一些能力的消失？</h2>
+    <p class="qakey">是的，随着汽车技术的发展和创新，一些能力可能会消失，例如驾驶手动挡车辆的能力。由于汽车行业的变化，现在很少有人专门去学或者使用手动挡汽车。</p>
+    <h2><a id="q15"></a>Q15. 科技创新是否会导致纸质阅读的减少？我们是否应该关注并了解创新过程中可能失去的东西？</h2>
+    <p class="qakey">根据文章中的观点，科技创新确实导致了纸质阅读的减少，这一结论并非基于人的主观看法，而是基于客观事实和社会现象。是的，我们应当关注创新过程中可能消失或被削弱的能力，因为社会需要确认那些因创新而减少的文化现象，如印刷文化和数字文化之间的转变。</p>
+    <h2><a id="q16"></a>Q16. 阅读方式的变化是否会影响人们的阅读理解能力？学生对阅读的态度有何变化，以及这种变化对他们的阅读选择有何影响？</h2>
+    <p class="qakey">是的，根据文章内容，不同的阅读方式如纸质阅读、屏幕阅读等会形成不同的脑回路，而使用某种特定方式（如手持笔阅读）可能会让人对内容理解得更深刻。但屏幕阅读可能获取的信息最少，这可能是因为心理作用或者确实存在这种现象。文章提到，现代学生倾向于主动避免阅读19世纪和20世纪的复杂文学作品，而更喜欢简单易读的内容。这表明学生更倾向于选择简单而非复杂的阅读材料，这一倾向影响了他们的阅读决策。</p>
+    <h2><a id="q17"></a>Q17. 第二篇文章的主题是什么？</h2>
+    <p class="qakey">第二篇文章的主题是“与人工智能共处”，并探讨了AI与人类大脑的差异，特别是AI不受物理尺寸限制，因此在许多方面可能比人类完成得更好。</p>
+    <h2><a id="q18"></a>Q18. 在第一篇文章中，关于AI的主要观点是什么？</h2>
+    <p class="qakey">作者在第一段中提出，过去十年AI发展迅速，已经能够完成一些专业化的任务，并且有专家认为这种限制是暂时的，预计到本世纪中叶，AI可能会实现通用智能（AGI），即达到人类水平性能，在所有人类能完成的任务上都能应对。</p>
+    <h2><a id="q19"></a>Q19. 对于AI未来发展的看法，哪个选项与作者的观点一致？</h2>
+    <p class="qakey">与作者观点一致的是C选项，它表示未来AI的发展将没有限制，并且能够胜任人类能做的所有事情，甚至可能比人类做得更好。</p>
+    <h2><a id="q20"></a>Q20. 在第二篇文章中，关于AI发展的正确目标，作者提出了什么观点？</h2>
+    <p class="qakey">作者的观点是AI变得越强大，我们越需要为它树立正确的目标，因为AI的强大决定了我们必须确保其发展方向的恰当性，以避免单纯定义目标可能出现的问题。</p>
+    <h2><a id="q21"></a>Q21. 如何快速识别并找到例子目的题中的关键观点？</h2>
+    <p class="qakey">例子目的题通常观点在例子之前，尤其是带有转折词"but"的句子往往隐藏着关键观点。一旦找到观点句，就能轻松锁定正确答案，无需考虑无关选项。</p>
+    <h2><a id="q22"></a>Q22. 在第一段中，作者提到的挑战是什么？</h2>
+    <p class="qakey">作者提到的挑战是人类自身并不友好，并且做了许多糟糕的事情，包括对其他生物的伤害导致物种灭绝。</p>
+    <h2><a id="q23"></a>Q23. 对于AI与人类共享的价值观，哪个选项最符合作者的观点？</h2>
+    <p class="qakey">选项B“决定AI和我们分享什么样的价值观”不完全符合，因为挑战的核心在于确保AI比人类更加道德和友好。而选项D“确保AI比我们更道德、友好”更符合作者的意思。</p>
+    <h2><a id="q24"></a>Q24. 关于未来AI，作者在第五段中提出了什么观点？</h2>
+    <p class="qakey">作者希望未来的AI能够站在道德的制高点，追求更高层次的道德标准，而非像人类常做的那样追求短期利益或陷入道德困境。</p>
+    <h2><a id="q25"></a>Q25. 根据第六段的内容，作者面临的主要问题是什么？在第六段中，关于编程机器的困难，作者的观点是什么？</h2>
+    <p class="qakey">作者面临的主要问题是告诉机器我们要找什么，并且需要有足够的信心确认机器能找到它，尤其是在我们自身存在冲突和偏见的情况下。虽然文章中提到了一个关于编程机器的选项，但根据讨论内容，该选项并未准确反映作者的观点，实际上D选项“人类的局限性会使创造所需机器变得更困难”更符合文意。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 单选题相比多选题在难度上有何不同？功能体类别的单选题如何识别？</a></li>
+<li><a href="#q2">Q2. 例子目的题的特征是什么？对于例子目的题，在做题时应该如何处理？</a></li>
+<li><a href="#q3">Q3. 细节题的特点是什么？</a></li>
+<li><a href="#q4">Q4. 针对单选题，应该如何制定解题步骤？</a></li>
+<li><a href="#q5">Q5. 在做细节题时，如何避免过度理解？</a></li>
+<li><a href="#q6">Q6. 如何总结解答细节题的方法步骤？</a></li>
+<li><a href="#q7">Q7. 如何正确对待选项与原文之间的关系？</a></li>
+<li><a href="#q8">Q8. 如何解答第二段功能题并找出正确答案？</a></li>
+<li><a href="#q9">Q9. B选项是否正确？C选项描述了什么内容？</a></li>
+<li><a href="#q10">Q10. D选项是否包含了荷兰人发现微生物的过程以及法国人对该理论的深化发展？A选项是否正确并为何正确？</a></li>
+<li><a href="#q11">Q11. 如何理解和应对功能型题目？</a></li>
+<li><a href="#q12">Q12. 对于例子目的题，如何进行分析？</a></li>
+<li><a href="#q13">Q13. 文章中的功能题与细节题有何难度差异？</a></li>
+<li><a href="#q14">Q14. 在汽车技术不断更新迭代的过程中，是否会导致一些能力的消失？</a></li>
+<li><a href="#q15">Q15. 科技创新是否会导致纸质阅读的减少？我们是否应该关注并了解创新过程中可能失去的东西？</a></li>
+<li><a href="#q16">Q16. 阅读方式的变化是否会影响人们的阅读理解能力？学生对阅读的态度有何变化，以及这种变化对他们的阅读选择有何影响？</a></li>
+<li><a href="#q17">Q17. 第二篇文章的主题是什么？</a></li>
+<li><a href="#q18">Q18. 在第一篇文章中，关于AI的主要观点是什么？</a></li>
+<li><a href="#q19">Q19. 对于AI未来发展的看法，哪个选项与作者的观点一致？</a></li>
+<li><a href="#q20">Q20. 在第二篇文章中，关于AI发展的正确目标，作者提出了什么观点？</a></li>
+<li><a href="#q21">Q21. 如何快速识别并找到例子目的题中的关键观点？</a></li>
+<li><a href="#q22">Q22. 在第一段中，作者提到的挑战是什么？</a></li>
+<li><a href="#q23">Q23. 对于AI与人类共享的价值观，哪个选项最符合作者的观点？</a></li>
+<li><a href="#q24">Q24. 关于未来AI，作者在第五段中提出了什么观点？</a></li>
+<li><a href="#q25">Q25. 根据第六段的内容，作者面临的主要问题是什么？在第六段中，关于编程机器的困难，作者的观点是什么？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

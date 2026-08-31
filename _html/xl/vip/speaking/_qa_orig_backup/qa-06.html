@@ -5,7 +5,7 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>阅读 VIP · 问答精要 22 讲</title>
+<title>第06讲 · Part Two 素材与串题方法 · 问答精要</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
-  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
-  .col-main blockquote p { margin: 0; }
-  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
-  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
-  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
-  .col-main tr:nth-child(even) td { background: #fcfcfd; }
-  .col-main td b, .col-main td strong { color: #1d4ed8; }
-  .col-main .qakey b { color: #1d4ed8; }
-  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
+  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
+  .col-main .qa summary::-webkit-details-marker { display: none; }
+  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
+  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
+  .col-main .qa .qa-body .a { margin-top: 8px; }
+  .col-main .qa .qa-body .a b { color: #1d4ed8; }
+  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
+  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -59,40 +59,54 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="logo">阅读 VIP<span> · 22 讲问答</span></div>
+  <div class="logo">口语 VIP<span> · 第 06 讲问答</span></div>
   <div class="topbar-right">
     <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="speaking-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">口语目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>阅读问答（22 讲）</h3>
+    <h3>口语课程</h3>
     <ul>
-      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
-      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
-      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
-      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
-      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
-      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
-      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
-      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
-      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
-      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
-      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
-      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
-      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
-      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
-      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
-      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
-      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
-      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
-      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
-      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
-      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
-      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+      <li><a href="lesson-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
+      <li><a href="lesson-02.html">第02讲 · 口语三大基本能力与基础</a></li>
+      <li><a href="lesson-03.html">第03讲 · 句子结构与时态语态</a></li>
+      <li><a href="lesson-04.html">第04讲 · Part One 综合练习与拓展</a></li>
+      <li><a href="lesson-05.html">第05讲 · 发音练习与九大原因素材</a></li>
+      <li><a class="active" href="lesson-06.html">第06讲 · Part Two 素材与串题方法</a></li>
+      <li><a href="lesson-07.html">第07讲 · 喜欢的东西：串题素材</a></li>
+      <li><a href="lesson-08.html">第08讲 · 成功人物素材</a></li>
+      <li><a href="lesson-09.html">第09讲 · 活动描述与家庭聚会素材</a></li>
+      <li><a href="lesson-10.html">第10讲 · 地点类素材与旅游话题</a></li>
+      <li><a href="lesson-11.html">第11讲 · 物品类素材：礼物/家居/衣物</a></li>
+      <li><a href="lesson-12.html">第12讲 · 节日与有意义的一天</a></li>
+      <li><a href="lesson-13.html">第13讲 · 目标 6.5 以下备考策略</a></li>
+      <li><a href="lesson-14.html">第14讲 · Part Three 答题思路链</a></li>
+      <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
+      <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
+    </ul>
+    <h3>问答精要</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
+      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
+      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
+      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
+      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
+      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
+      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
+      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
+      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
+      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
+      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
+      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
+      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
+      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
+      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
+      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
     </ul>
     <h3>返回</h3>
     <ul>
@@ -101,36 +115,21 @@
     </ul>
   </aside>
   <main class="col-main">
-    <h1>雅思阅读 VIP · 问答精要（22 讲）</h1>
-    <p>付费阅读冲刺课程的问答精要。每讲把整讲考点压缩成可速查的 Q&amp;A，并附「本讲问答速览」表格让关键信息一眼可见。点击左侧任一一讲开始查重点。</p>
-    <div class="cards">
-      <a class="card" href="qa-01.html"><h3>第01讲</h3><p>主讲人首先强调了阅读部分的重要性</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-02.html"><h3>第02讲</h3><p>范老师在对话中强调了雅思阅读考试中几</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-03.html"><h3>第03讲</h3><p>提升阅读理解能力的关键策略在于深入复</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-04.html"><h3>第04讲</h3><p>雅思阅读填空题的解题策略</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-05.html"><h3>第05讲</h3><p>在这次教学对话中，一位老师详细介绍了</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-06.html"><h3>第06讲</h3><p>带有选项的总结填空题</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-07.html"><h3>第07讲</h3><p>教授深入探讨了雅思阅读考试中判断题的</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-08.html"><h3>第08讲</h3><p>在这次教学对话中，一位老师深入浅出地</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-09.html"><h3>第09讲</h3><p>讲解判断题的解题策略</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-10.html"><h3>第10讲</h3><p>老师详细介绍了雅思阅读考试中的四种配</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-11.html"><h3>第11讲</h3><p>在这次教学中</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-12.html"><h3>第12讲</h3><p>将要在剑桥真题中出现频率较低</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-13.html"><h3>第13讲</h3><p>标题配对题旨在测试考生对文章段落的综</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-14.html"><h3>第14讲</h3><p>平行阅读法</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-15.html"><h3>第15讲</h3><p>平行阅读法的练习重点</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-16.html"><h3>第16讲</h3><p>老师深入剖析了雅思听力考试Part </p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-17.html"><h3>第17讲</h3><p>平行阅读法在处理复杂文章时的重要性</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-18.html"><h3>第18讲</h3><p>教授介绍了雅思阅读考试中多选题的两大</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-19.html"><h3>第19讲</h3><p>参与者分析了一篇文章</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-20.html"><h3>第20讲</h3><p>老师详细介绍了雅思考试各个部分的复习</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-21.html"><h3>第21讲</h3><p>强调了有效策略和方法的重要性</p><span class="tag">问答精要</span></a>
-      <a class="card" href="qa-22.html"><h3>第22讲</h3><p>有效的时间和资源分配至关重要</p><span class="tag">问答精要</span></a>
-    </div>
+    <h1>第06讲 · Part Two 素材与串题方法</h1>
+    <div class="abstract"><b>本讲概要：</b>在这次教学中，强调了雅思口语考试Part Two部分的重要性，指出了流畅度和内容选择的平衡是关键。瑞老师回顾了基础语法知识，并分享了使回答生动自然的技巧。他分析了Part Two的难点和其对考试成绩的决定性作用，提出了包括快速决定话题、做并列笔记和使用简短符号的答题策略。特别介绍了“3加1”回答结构，强调利用准备时间做笔记，并提倡使用个人经历来丰富内容。最后，瑞老师鼓励考生进行自我测试，评估回答质量和发现问题的改进方法，旨在帮助考生在这一部分取得更好的成绩。</div>
+    <p>本讲没有独立的问答块，核心内容见<a href="lesson-06.html">精讲逐字稿页</a>。</p>
   </main>
   <aside class="col-right">
-    <h4>说明</h4>
-    <p class="empty">本区为付费课程内容，仅作个人学习笔记使用。每一讲由课程文稿生成「问答精要」页，配速览表与逐题详解。</p>
+    <h4>本讲导航</h4>
+    <ul>
+      <li><a href="lesson-06.html">精讲逐字稿</a></li>
+      <li><a href="qa-06.html">问答精要</a></li>
+    </ul>
+    <h4>上下讲</h4>
+    <ul>
+      <li><a href="lesson-05.html">上一讲 05</a></li>
+      <li><a href="lesson-07.html">下一讲 07</a></li>
+    </ul>
   </aside>
 </div>
 <script>
@@ -142,7 +141,7 @@
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
   function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
   function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
   function highlightInMain(kw){
     if (!main) return; clearHighlights(); if (!kw) return;
@@ -185,7 +184,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');
@@ -196,7 +196,7 @@
   input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
   document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
   document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
-  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
 })();
 </script>
 </body>

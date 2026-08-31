@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第12讲 · 将要在剑桥真题中出现频率较低 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 12 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a class="active" href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第12讲 · 将要在剑桥真题中出现频率较低</h1>
+    <blockquote><p><b>本讲定位：</b>老师在讲解将要在剑桥真题中出现频率较低，但难度逐渐提升的句子结尾配对题型时，强调了这种题型侧重考察局部理解和逻辑关联的能力。为了应对这种题型，老师介绍了按题目顺序进行、定位和理解原文含义的做题技巧。通过具体题目的分析，老师详细讲解了如何注意语法规则、寻找定位词、理解文章意思以及如何选择正确选项的步骤，特别强调了理解原文和逻辑关联的重要性。最后，老师指出尽管这类题型难度大且出现频率低，但掌握其解题方法能有效提升整体的理解能力。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>今天我们讨论的课堂主题是什么？针对天花板难度的句子结尾配对题，能否分享一个实际题目为例进行解析？</td><td>今天我们要学习的是句子结尾配对这种题型，虽然在当前的剑桥真题中出现频率较低，但随着难度增加，它越来越侧重考察局部理解能力</td></tr>
+      <tr><td><b>Q2</b></td><td>这种题型的主要特点是什么？</td><td>这种题型的特点在于考察两个或多个句子之间的理解与逻辑关联，而非单个句子的理解</td></tr>
+      <tr><td><b>Q3</b></td><td>做题技巧中提到的“顺序性”具体指的是什么？</td><td>顺序性指的是在进行句子结尾配对时，题目是按照一定顺序排列的，因为这种题型定位较难，所以利用顺序性可以帮助考生更好地定位</td></tr>
+      <tr><td><b>Q4</b></td><td>对于这种题型，如何理解和处理原文及选项？</td><td>在处理这种题型时，首先需定位原文中给出的半句信息，并理解整个句子的意思，甚至能解释出作者的观点</td></tr>
+      <tr><td><b>Q5</b></td><td>在做题过程中，如何确保语法规则的正确性？</td><td>在匹配句子结尾时，最重要的是确保所匹配的句子符合语法规则，避免出现搭配错误</td></tr>
+      <tr><td><b>Q6</b></td><td>在27题中，PLOT这个单词在文中具体是什么意思？</td><td>PLOT在文中表达的是“情节”的意思</td></tr>
+      <tr><td><b>Q7</b></td><td>文章以什么方式阐述了同一个故事在不同地方会有不同版本的现象？</td><td>文章通过举例小红帽这个童话故事的不同版本来说明这一现象，展示了在全球各地流传的小红帽故事存在情节细节上的变化</td></tr>
+      <tr><td><b>Q8</b></td><td>根据文章内容，情节的细节变化可以得出什么结论？</td><td>情节的细节可能会变来变去，呈现出全球范围内的显著差异</td></tr>
+      <tr><td><b>Q9</b></td><td>对于给出的选项，哪个最符合27题的题意？</td><td>选项C（show considerable global variation）与文章内容最为吻合，因为它表达了故事在不同地区有显著版本差异这一主题</td></tr>
+      <tr><td><b>Q10</b></td><td>28题中提到的“the useful lesson for life in the fairchild”是什么意思？</td><td>这句话是说故事中的重要一课，通常被认为包含了警示性的信息或人生哲理，比如“听妈妈的话，避免跟陌生讲话”等</td></tr>
+      <tr><td><b>Q11</b></td><td>在28题中，某个人为何会拒绝普遍认为故事蕴含生存相关信息的观点？</td><td>根据文章内容，这个人可能基于其研究结果，提出了与传统认知相反的观点，即故事中的重要信息并非与生存直接相关</td></tr>
+      <tr><td><b>Q12</b></td><td>在该段落中，survival relevant information指的是什么？根据该段落，故事流传的主要原因是什么？</td><td>survival relevant information指的是与人的生存相关的信息，这里的主语是人，探讨的是人能够活下来的原因</td></tr>
+      <tr><td><b>Q13</b></td><td>对于故事流传下来的原因，选项中哪个观点与文中的看法一致？</td><td>选项B“the reason for their survival”与文中的观点一致，指的是故事能流传下来的原因，并且特指该故事（fairy tales）的生存理由</td></tr>
+      <tr><td><b>Q14</b></td><td>关于童话故事在社会中的重要意义，文中提到了什么？</td><td>文中提到存在一个巨大的知识差距（huge gap），即关于历史的知识匮乏，尽管如此，人类仍在探索童话故事在社会中的重要作用</td></tr>
+      <tr><td><b>Q15</b></td><td>文中对于童话故事发展的研究方法是什么？</td><td>为了研究童话故事的发展，人们借鉴了生物学中的进化论理论，并用同样的方式对比分析不同故事版本间的传播关系</td></tr>
+      <tr><td><b>Q16</b></td><td>在研究童话故事时，是否运用了生物学的研究方法？文中提到的故事版本主要来源于何处？</td><td>是的，在研究童话故事时，研究者确实借鉴了生物学的研究方法，特别是借用进化论理论来探讨故事的起源和演变</td></tr>
+      <tr><td><b>Q17</b></td><td>在解答这类题目时，应该如何操作以提高正确率？</td><td>解答这类题目时，需要理解文章和题目之间的含义替换性，找准文章中与题目相关的情节或概念对应关系，这样才能有效降低答题错误率</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 今天我们讨论的课堂主题是什么？针对天花板难度的句子结尾配对题，能否分享一个实际题目为例进行解析？</h2>
+    <p class="qakey">今天我们要学习的是句子结尾配对这种题型，虽然在当前的剑桥真题中出现频率较低，但随着难度增加，它越来越侧重考察局部理解能力。当然可以，我们来看一道来自剑桥真题中的天花板难度题目，该题目要求根据文章内容对童话故事为何是恐怖故事进行探讨，并分析故事流传下来的主要原因，并非仅仅为了娱乐儿童。</p>
+    <h2><a id="q2"></a>Q2. 这种题型的主要特点是什么？</h2>
+    <p class="qakey">这种题型的特点在于考察两个或多个句子之间的理解与逻辑关联，而非单个句子的理解。做题时需注意其顺序性，并且由于定位难度较大，需要通过阅读题干部分给出的半句信息，在选项中找到另一半来完成匹配。</p>
+    <h2><a id="q3"></a>Q3. 做题技巧中提到的“顺序性”具体指的是什么？</h2>
+    <p class="qakey">顺序性指的是在进行句子结尾配对时，题目是按照一定顺序排列的，因为这种题型定位较难，所以利用顺序性可以帮助考生更好地定位。</p>
+    <h2><a id="q4"></a>Q4. 对于这种题型，如何理解和处理原文及选项？</h2>
+    <p class="qakey">在处理这种题型时，首先需定位原文中给出的半句信息，并理解整个句子的意思，甚至能解释出作者的观点。然后根据对原文整体逻辑的理解去匹配选项，而不是简单抓取关键词或单词层面的对应。</p>
+    <h2><a id="q5"></a>Q5. 在做题过程中，如何确保语法规则的正确性？</h2>
+    <p class="qakey">在匹配句子结尾时，最重要的是确保所匹配的句子符合语法规则，避免出现搭配错误。在检查答案时，除了意思通顺外，也要注意语法搭配是否准确，因为这是检验答案正确性的关键点。</p>
+    <h2><a id="q6"></a>Q6. 在27题中，PLOT这个单词在文中具体是什么意思？</h2>
+    <p class="qakey">PLOT在文中表达的是“情节”的意思。</p>
+    <h2><a id="q7"></a>Q7. 文章以什么方式阐述了同一个故事在不同地方会有不同版本的现象？</h2>
+    <p class="qakey">文章通过举例小红帽这个童话故事的不同版本来说明这一现象，展示了在全球各地流传的小红帽故事存在情节细节上的变化。</p>
+    <h2><a id="q8"></a>Q8. 根据文章内容，情节的细节变化可以得出什么结论？</h2>
+    <p class="qakey">情节的细节可能会变来变去，呈现出全球范围内的显著差异。</p>
+    <h2><a id="q9"></a>Q9. 对于给出的选项，哪个最符合27题的题意？</h2>
+    <p class="qakey">选项C（show considerable global variation）与文章内容最为吻合，因为它表达了故事在不同地区有显著版本差异这一主题。</p>
+    <h2><a id="q10"></a>Q10. 28题中提到的“the useful lesson for life in the fairchild”是什么意思？</h2>
+    <p class="qakey">这句话是说故事中的重要一课，通常被认为包含了警示性的信息或人生哲理，比如“听妈妈的话，避免跟陌生讲话”等。</p>
+    <h2><a id="q11"></a>Q11. 在28题中，某个人为何会拒绝普遍认为故事蕴含生存相关信息的观点？</h2>
+    <p class="qakey">根据文章内容，这个人可能基于其研究结果，提出了与传统认知相反的观点，即故事中的重要信息并非与生存直接相关。</p>
+    <h2><a id="q12"></a>Q12. 在该段落中，survival relevant information指的是什么？根据该段落，故事流传的主要原因是什么？</h2>
+    <p class="qakey">survival relevant information指的是与人的生存相关的信息，这里的主语是人，探讨的是人能够活下来的原因。故事流传的主要原因并非因为其中蕴含的人生哲理，而是在于其他因素，例如警示信息（cautionary messages）或其他尚未明确指出的原因。</p>
+    <h2><a id="q13"></a>Q13. 对于故事流传下来的原因，选项中哪个观点与文中的看法一致？</h2>
+    <p class="qakey">选项B“the reason for their survival”与文中的观点一致，指的是故事能流传下来的原因，并且特指该故事（fairy tales）的生存理由。</p>
+    <h2><a id="q14"></a>Q14. 关于童话故事在社会中的重要意义，文中提到了什么？</h2>
+    <p class="qakey">文中提到存在一个巨大的知识差距（huge gap），即关于历史的知识匮乏，尽管如此，人类仍在探索童话故事在社会中的重要作用。</p>
+    <h2><a id="q15"></a>Q15. 文中对于童话故事发展的研究方法是什么？</h2>
+    <p class="qakey">为了研究童话故事的发展，人们借鉴了生物学中的进化论理论，并用同样的方式对比分析不同故事版本间的传播关系。</p>
+    <h2><a id="q16"></a>Q16. 在研究童话故事时，是否运用了生物学的研究方法？文中提到的故事版本主要来源于何处？</h2>
+    <p class="qakey">是的，在研究童话故事时，研究者确实借鉴了生物学的研究方法，特别是借用进化论理论来探讨故事的起源和演变。文中提到的故事版本主要来源于口头传统（口头录制），而非书面记录，这一点在31题的选项E中有明确表述。</p>
+    <h2><a id="q17"></a>Q17. 在解答这类题目时，应该如何操作以提高正确率？</h2>
+    <p class="qakey">解答这类题目时，需要理解文章和题目之间的含义替换性，找准文章中与题目相关的情节或概念对应关系，这样才能有效降低答题错误率。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 今天我们讨论的课堂主题是什么？针对天花板难度的句子结尾配对题，能否分享一个实际题目为例进行解析？</a></li>
+<li><a href="#q2">Q2. 这种题型的主要特点是什么？</a></li>
+<li><a href="#q3">Q3. 做题技巧中提到的“顺序性”具体指的是什么？</a></li>
+<li><a href="#q4">Q4. 对于这种题型，如何理解和处理原文及选项？</a></li>
+<li><a href="#q5">Q5. 在做题过程中，如何确保语法规则的正确性？</a></li>
+<li><a href="#q6">Q6. 在27题中，PLOT这个单词在文中具体是什么意思？</a></li>
+<li><a href="#q7">Q7. 文章以什么方式阐述了同一个故事在不同地方会有不同版本的现象？</a></li>
+<li><a href="#q8">Q8. 根据文章内容，情节的细节变化可以得出什么结论？</a></li>
+<li><a href="#q9">Q9. 对于给出的选项，哪个最符合27题的题意？</a></li>
+<li><a href="#q10">Q10. 28题中提到的“the useful lesson for life in the fairchild”是什么意思？</a></li>
+<li><a href="#q11">Q11. 在28题中，某个人为何会拒绝普遍认为故事蕴含生存相关信息的观点？</a></li>
+<li><a href="#q12">Q12. 在该段落中，survival relevant information指的是什么？根据该段落，故事流传的主要原因是什么？</a></li>
+<li><a href="#q13">Q13. 对于故事流传下来的原因，选项中哪个观点与文中的看法一致？</a></li>
+<li><a href="#q14">Q14. 关于童话故事在社会中的重要意义，文中提到了什么？</a></li>
+<li><a href="#q15">Q15. 文中对于童话故事发展的研究方法是什么？</a></li>
+<li><a href="#q16">Q16. 在研究童话故事时，是否运用了生物学的研究方法？文中提到的故事版本主要来源于何处？</a></li>
+<li><a href="#q17">Q17. 在解答这类题目时，应该如何操作以提高正确率？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>

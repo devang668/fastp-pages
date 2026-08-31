@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第09讲 · 讲解判断题的解题策略 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">阅读 VIP<span> · 第 09 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="yuedu-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">阅读目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>阅读问答（22 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 主讲人首先强调了阅读部分的重要性</a></li>
+      <li><a href="qa-02.html">第02讲 · 范老师在对话中强调了雅思阅读考试中几</a></li>
+      <li><a href="qa-03.html">第03讲 · 提升阅读理解能力的关键策略在于深入复</a></li>
+      <li><a href="qa-04.html">第04讲 · 雅思阅读填空题的解题策略</a></li>
+      <li><a href="qa-05.html">第05讲 · 在这次教学对话中，一位老师详细介绍了</a></li>
+      <li><a href="qa-06.html">第06讲 · 带有选项的总结填空题</a></li>
+      <li><a href="qa-07.html">第07讲 · 教授深入探讨了雅思阅读考试中判断题的</a></li>
+      <li><a href="qa-08.html">第08讲 · 在这次教学对话中，一位老师深入浅出地</a></li>
+      <li><a class="active" href="qa-09.html">第09讲 · 讲解判断题的解题策略</a></li>
+      <li><a href="qa-10.html">第10讲 · 老师详细介绍了雅思阅读考试中的四种配</a></li>
+      <li><a href="qa-11.html">第11讲 · 在这次教学中</a></li>
+      <li><a href="qa-12.html">第12讲 · 将要在剑桥真题中出现频率较低</a></li>
+      <li><a href="qa-13.html">第13讲 · 标题配对题旨在测试考生对文章段落的综</a></li>
+      <li><a href="qa-14.html">第14讲 · 平行阅读法</a></li>
+      <li><a href="qa-15.html">第15讲 · 平行阅读法的练习重点</a></li>
+      <li><a href="qa-16.html">第16讲 · 老师深入剖析了雅思听力考试Part </a></li>
+      <li><a href="qa-17.html">第17讲 · 平行阅读法在处理复杂文章时的重要性</a></li>
+      <li><a href="qa-18.html">第18讲 · 教授介绍了雅思阅读考试中多选题的两大</a></li>
+      <li><a href="qa-19.html">第19讲 · 参与者分析了一篇文章</a></li>
+      <li><a href="qa-20.html">第20讲 · 老师详细介绍了雅思考试各个部分的复习</a></li>
+      <li><a href="qa-21.html">第21讲 · 强调了有效策略和方法的重要性</a></li>
+      <li><a href="qa-22.html">第22讲 · 有效的时间和资源分配至关重要</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>第09讲 · 讲解判断题的解题策略</h1>
+    <blockquote><p><b>本讲定位：</b>本次课程专注于讲解判断题的解题策略，强调无论文章如何变化，解题思路保持一致。老师通过实例详细分析了如何识别题目中的关键考点，包括动词和名词等，并教授学生如何依据文章内容来判断题目正误。特别指出，成功解题的关键在于对文章的深入理解和灵活运用解题技巧，同时针对长难句和虚拟考点提出了解决方案。老师鼓励学生通过课后练习提升理解能力和解题速度，并总结强调准确识别考点和深刻理解文章的重要性，以期在后续学习中进一步提高判断题的解答能力。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>今天我们讨论的判断题主要来自第三篇文章，为什么选择这道题目作为第一个例题？</td><td>我选择这道题目作为第一个例题是因为它是一篇科普文，而在第三篇文章中科普类内容出现的概率并不高</td></tr>
+      <tr><td><b>Q2</b></td><td>针对“建校大学的研究人员主要发现了这个thermometer分子，Cause surprised, among other scientists.”这道题目，结论是否正确？</td><td>根据文章内容，没有找到surprise相关的同义词或反义词，所以无法确定这个发现是否让科学家感到惊讶，这是一道莫棱两可、很疑惑的题目，答案为NG（Not Given）</td></tr>
+      <tr><td><b>Q3</b></td><td>这道题目的核心考点是什么？</td><td>核心考点是“惊讶”这一动词考点，即我们要判断这个发现是否让科学家感到惊讶</td></tr>
+      <tr><td><b>Q4</b></td><td>如何定位并理解第一道题的具体内容？</td><td>第一道题的定位在剑桥大学的研究部分</td></tr>
+      <tr><td><b>Q5</b></td><td>对于2050年农业产量是否会因气候变暖而未能达到目标的问题，应该如何解答？</td><td>根据题干中的虚拟考点，需要判断农业产量是否有可能在2050年因气候变暖而未能达到目标</td></tr>
+      <tr><td><b>Q6</b></td><td>关于水稻和小麦对温度变化敏感性的判断题，该如何理解？</td><td>这道题目的考点是识别句型和动词含义，关键词“suffer from”暗示水稻和小麦不太喜欢温度上升</td></tr>
+      <tr><td><b>Q7</b></td><td>对于“敏感”这个词的理解，它在中文和英文中的含义有何异同？</td><td>在中文和英文中，“敏感”都表示对某事有不好的态度倾向</td></tr>
+      <tr><td><b>Q8</b></td><td>如何通过中文思考逻辑来理解英文表达中的“sensitive to something”与“suffer from something”的同义关系？</td><td>当面对这类词汇理解疑问时，可以尝试将英文句子翻译回中文，并观察中文逻辑是否更容易理解</td></tr>
+      <tr><td><b>Q9</b></td><td>文章中提到是否有可能开发出需要更少水的作物？</td><td>文章提及可能存在通过分子技术使植物对温度更敏感，从而让一些作物在较高温度下也能正常生长，但并没有明确提到这些作物需要更少的水</td></tr>
+      <tr><td><b>Q10</b></td><td>perform grow faster in sunlight than in shade这一说法是否正确？</td><td>这个说法是错误的</td></tr>
+      <tr><td><b>Q11</b></td><td>最后一道题关于这个“变化速度”在日间和夜间是否一样快？</td><td>根据文章内容，这个现象对于阳光特别敏感，阳光会使它变化速度变快，而夜晚没有阳光，变化速度会变慢，所以日间和夜间的生长速度不一样，因此答案是false</td></tr>
+      <tr><td><b>Q12</b></td><td>科普文的解题逻辑与议论文有何不同？</td><td>科普文的解题逻辑与议论文虽有相似之处，但难度可能稍高</td></tr>
+      <tr><td><b>Q13</b></td><td>32题的考点是什么？32题中提到的“伟人”具体是指哪些人，他们创造新观点的过程是怎样的？</td><td>32题的考点在于识别“伟人”或天才如何帮助我们理解创造新思想的过程，即“天才们通过何种过程产生新的观点”</td></tr>
+      <tr><td><b>Q14</b></td><td>对于32题来说，为什么说它难点在于题干复杂和文章理解难度大？32题是否表明伟人的存在使事物变得模糊不清、充满疑惑？</td><td>32题的难点在于其复杂的题干和涉及的长难句理解，这可能导致在定位考点时出现偏差，使得题目看似容易但实际上有误导性，是双难题目</td></tr>
+      <tr><td><b>Q15</b></td><td>关于“effect”的发现时间点是否对应题目中所述的时间点？</td><td>根据题目描述，love effect应该是在心理学家试图寻找科学原因以解释创造现象的时候被发现的</td></tr>
+      <tr><td><b>Q16</b></td><td>如果文章中提到A是B，但题目问的是A是C，该如何判断这道题目的答案？对于“no planning is involved in the behavior of organism”这一理论的理解是什么？</td><td>在这种情况下，应判定为NG题，即文章并未直接给出题目所需的信息，不能仅凭文章内容断定A与C之间的关系</td></tr>
+      <tr><td><b>Q17</b></td><td>在题目的讨论中，关于“清晰的解释”和“love effect”，是否给出了清晰的解释？</td><td>没有给出清晰的解释</td></tr>
+      <tr><td><b>Q18</b></td><td>题目的关键点是什么？</td><td>关键点是识别时间考点，即判断现在人们是否正在远离某个研究领域</td></tr>
+      <tr><td><b>Q19</b></td><td>对于“the time seems right for abandon”的表述，意味着什么？</td><td>这个表达意味着该时间似乎是一个正确的时机，暗示人们应该转向或远离某方面研究，但实际是否正在这样做，则是一个虚拟情况，难以界定</td></tr>
+      <tr><td><b>Q20</b></td><td>虚拟考点在解题时应该如何处理？</td><td>虚拟考点要求考生思考现在人们是否真的在做该事情，尽管似乎应该如此，但实际行为无法确定，因此这类题目往往需要关注细节并提高正确率</td></tr>
+      <tr><td><b>Q21</b></td><td>为什么选择P作为查尔斯逃离任务的对象？34题中关于C和P规划逃跑时间的矛盾点是什么？</td><td>文章中提到查尔斯选择P是因为他认为P值得信赖，而在阅读过程中需要找到支持这一观点的具体信息</td></tr>
+      <tr><td><b>Q22</b></td><td>33题中关于回忆细节不足的问题，为何答案是false？</td><td>根据文章内容，查尔斯的回忆是事无巨细且包含大量细节的，因此“回忆缺乏足够细节”这一说法是错误的，所以答案为false</td></tr>
+      <tr><td><b>Q23</b></td><td>对于书中的内容，为何认为它是积极的方面？</td><td>书的内容包含了查尔斯自己的声音以及支持者的声音，这使得读者能更真实地接触到事实，是书的一个积极方面</td></tr>
+      </tbody>
+    </table>
+    
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 今天我们讨论的判断题主要来自第三篇文章，为什么选择这道题目作为第一个例题？</h2>
+    <p class="qakey">我选择这道题目作为第一个例题是因为它是一篇科普文，而在第三篇文章中科普类内容出现的概率并不高。这道题涉及的判断题与科普相关，题干较短，这有助于大家适应并理解这类题目。</p>
+    <h2><a id="q2"></a>Q2. 针对“建校大学的研究人员主要发现了这个thermometer分子，Cause surprised, among other scientists.”这道题目，结论是否正确？</h2>
+    <p class="qakey">根据文章内容，没有找到surprise相关的同义词或反义词，所以无法确定这个发现是否让科学家感到惊讶，这是一道莫棱两可、很疑惑的题目，答案为NG（Not Given）。</p>
+    <h2><a id="q3"></a>Q3. 这道题目的核心考点是什么？</h2>
+    <p class="qakey">核心考点是“惊讶”这一动词考点，即我们要判断这个发现是否让科学家感到惊讶。</p>
+    <h2><a id="q4"></a>Q4. 如何定位并理解第一道题的具体内容？</h2>
+    <p class="qakey">第一道题的定位在剑桥大学的研究部分。该团队发现了一个名为thermometer分子的物质，它能使植物在黑暗中根据季节温度变化来调节生长。尽管文章详细介绍了该分子的工作原理，但没有直接提及科学家是否感到惊讶，因此这是一道需要通过上下文判断的题目。</p>
+    <h2><a id="q5"></a>Q5. 对于2050年农业产量是否会因气候变暖而未能达到目标的问题，应该如何解答？</h2>
+    <p class="qakey">根据题干中的虚拟考点，需要判断农业产量是否有可能在2050年因气候变暖而未能达到目标。定位到文章中提到农业产量可能需要翻一番，但气候变暖是一个主要威胁，因此有可能错失目标，故此题答案为True。</p>
+    <h2><a id="q6"></a>Q6. 关于水稻和小麦对温度变化敏感性的判断题，该如何理解？</h2>
+    <p class="qakey">这道题目的考点是识别句型和动词含义，关键词“suffer from”暗示水稻和小麦不太喜欢温度上升。文章中提到水稻和小麦对高温敏感，确实存在不喜欢温度上升的情况，所以此题答案为True。</p>
+    <h2><a id="q7"></a>Q7. 对于“敏感”这个词的理解，它在中文和英文中的含义有何异同？</h2>
+    <p class="qakey">在中文和英文中，“敏感”都表示对某事有不好的态度倾向。例如，说某人对太阳光“敏感”，意味着他不喜欢太阳光照射；对花生豆“敏感”，则表示不喜欢吃花生豆。这种敏感性指的是存在一种负面情绪或偏好。</p>
+    <h2><a id="q8"></a>Q8. 如何通过中文思考逻辑来理解英文表达中的“sensitive to something”与“suffer from something”的同义关系？</h2>
+    <p class="qakey">当面对这类词汇理解疑问时，可以尝试将英文句子翻译回中文，并观察中文逻辑是否更容易理解。例如，“sensitive to something”在特定语境下可理解为“suffer from something”，即某种物质可能导致某种不适或反应。</p>
+    <h2><a id="q9"></a>Q9. 文章中提到是否有可能开发出需要更少水的作物？</h2>
+    <p class="qakey">文章提及可能存在通过分子技术使植物对温度更敏感，从而让一些作物在较高温度下也能正常生长，但并没有明确提到这些作物需要更少的水。因此，在该语境下，无法得出“有科学家正在研究开发需要更少水的作物”这一结论，这是一个典型的NG（Not Given）例子。</p>
+    <h2><a id="q10"></a>Q10. perform grow faster in sunlight than in shade这一说法是否正确？</h2>
+    <p class="qakey">这个说法是错误的。实际上，如果植物处于活跃状态，在阳光下其生长速度会变慢，而在阴影中不活跃，生长速度反而更快。因此，题目的答案应为false。</p>
+    <h2><a id="q11"></a>Q11. 最后一道题关于这个“变化速度”在日间和夜间是否一样快？</h2>
+    <p class="qakey">根据文章内容，这个现象对于阳光特别敏感，阳光会使它变化速度变快，而夜晚没有阳光，变化速度会变慢，所以日间和夜间的生长速度不一样，因此答案是false。</p>
+    <h2><a id="q12"></a>Q12. 科普文的解题逻辑与议论文有何不同？</h2>
+    <p class="qakey">科普文的解题逻辑与议论文虽有相似之处，但难度可能稍高。议论文会直接探讨某个主题，如科学家对待发现的态度（创新灵感还是长期积累），而科普文则可能涉及更复杂的科学原理和研究进展。</p>
+    <h2><a id="q13"></a>Q13. 32题的考点是什么？32题中提到的“伟人”具体是指哪些人，他们创造新观点的过程是怎样的？</h2>
+    <p class="qakey">32题的考点在于识别“伟人”或天才如何帮助我们理解创造新思想的过程，即“天才们通过何种过程产生新的观点”。“伟人”指的是诸如柏拉图、达芬奇、莎士比亚等具有多元且持久贡献的杰出人物。他们的过程是指这些天才们通过某种机制激发创造力和创新性，尽管这些过程在文章中表述得较为模糊和疑惑。</p>
+    <h2><a id="q14"></a>Q14. 对于32题来说，为什么说它难点在于题干复杂和文章理解难度大？32题是否表明伟人的存在使事物变得模糊不清、充满疑惑？</h2>
+    <p class="qakey">32题的难点在于其复杂的题干和涉及的长难句理解，这可能导致在定位考点时出现偏差，使得题目看似容易但实际上有误导性，是双难题目。是的，32题提出的问题正是围绕这个主题展开，即伟人的存在是否让一些事情变得模糊不清、充满疑惑，而非提供清晰的理解或指导。</p>
+    <h2><a id="q15"></a>Q15. 关于“effect”的发现时间点是否对应题目中所述的时间点？</h2>
+    <p class="qakey">根据题目描述，love effect应该是在心理学家试图寻找科学原因以解释创造现象的时候被发现的。然而，对于1898年是否为正确的时间点，由于文章中没有明确指出当时心理学家是否正在进行相关研究，因此无法确定。</p>
+    <h2><a id="q16"></a>Q16. 如果文章中提到A是B，但题目问的是A是C，该如何判断这道题目的答案？对于“no planning is involved in the behavior of organism”这一理论的理解是什么？</h2>
+    <p class="qakey">在这种情况下，应判定为NG题，即文章并未直接给出题目所需的信息，不能仅凭文章内容断定A与C之间的关系。该理论认为，在love effect描述的生物行为中，并没有涉及到计划这一概念，而是以结果为导向的目标，而非以计划为指导。</p>
+    <h2><a id="q17"></a>Q17. 在题目的讨论中，关于“清晰的解释”和“love effect”，是否给出了清晰的解释？</h2>
+    <p class="qakey">没有给出清晰的解释。</p>
+    <h2><a id="q18"></a>Q18. 题目的关键点是什么？</h2>
+    <p class="qakey">关键点是识别时间考点，即判断现在人们是否正在远离某个研究领域。</p>
+    <h2><a id="q19"></a>Q19. 对于“the time seems right for abandon”的表述，意味着什么？</h2>
+    <p class="qakey">这个表达意味着该时间似乎是一个正确的时机，暗示人们应该转向或远离某方面研究，但实际是否正在这样做，则是一个虚拟情况，难以界定。</p>
+    <h2><a id="q20"></a>Q20. 虚拟考点在解题时应该如何处理？</h2>
+    <p class="qakey">虚拟考点要求考生思考现在人们是否真的在做该事情，尽管似乎应该如此，但实际行为无法确定，因此这类题目往往需要关注细节并提高正确率。</p>
+    <h2><a id="q21"></a>Q21. 为什么选择P作为查尔斯逃离任务的对象？34题中关于C和P规划逃跑时间的矛盾点是什么？</h2>
+    <p class="qakey">文章中提到查尔斯选择P是因为他认为P值得信赖，而在阅读过程中需要找到支持这一观点的具体信息。文章提到C和P计划逃跑的时间点是在战争结束后，而题目中提到的是在战争开始前，时间上的不一致使得此题答案为false。</p>
+    <h2><a id="q22"></a>Q22. 33题中关于回忆细节不足的问题，为何答案是false？</h2>
+    <p class="qakey">根据文章内容，查尔斯的回忆是事无巨细且包含大量细节的，因此“回忆缺乏足够细节”这一说法是错误的，所以答案为false。</p>
+    <h2><a id="q23"></a>Q23. 对于书中的内容，为何认为它是积极的方面？</h2>
+    <p class="qakey">书的内容包含了查尔斯自己的声音以及支持者的声音，这使得读者能更真实地接触到事实，是书的一个积极方面。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 今天我们讨论的判断题主要来自第三篇文章，为什么选择这道题目作为第一个例题？</a></li>
+<li><a href="#q2">Q2. 针对“建校大学的研究人员主要发现了这个thermometer分子，Cause surprised, among other scientists.”这道题目，结论是否正确？</a></li>
+<li><a href="#q3">Q3. 这道题目的核心考点是什么？</a></li>
+<li><a href="#q4">Q4. 如何定位并理解第一道题的具体内容？</a></li>
+<li><a href="#q5">Q5. 对于2050年农业产量是否会因气候变暖而未能达到目标的问题，应该如何解答？</a></li>
+<li><a href="#q6">Q6. 关于水稻和小麦对温度变化敏感性的判断题，该如何理解？</a></li>
+<li><a href="#q7">Q7. 对于“敏感”这个词的理解，它在中文和英文中的含义有何异同？</a></li>
+<li><a href="#q8">Q8. 如何通过中文思考逻辑来理解英文表达中的“sensitive to something”与“suffer from something”的同义关系？</a></li>
+<li><a href="#q9">Q9. 文章中提到是否有可能开发出需要更少水的作物？</a></li>
+<li><a href="#q10">Q10. perform grow faster in sunlight than in shade这一说法是否正确？</a></li>
+<li><a href="#q11">Q11. 最后一道题关于这个“变化速度”在日间和夜间是否一样快？</a></li>
+<li><a href="#q12">Q12. 科普文的解题逻辑与议论文有何不同？</a></li>
+<li><a href="#q13">Q13. 32题的考点是什么？32题中提到的“伟人”具体是指哪些人，他们创造新观点的过程是怎样的？</a></li>
+<li><a href="#q14">Q14. 对于32题来说，为什么说它难点在于题干复杂和文章理解难度大？32题是否表明伟人的存在使事物变得模糊不清、充满疑惑？</a></li>
+<li><a href="#q15">Q15. 关于“effect”的发现时间点是否对应题目中所述的时间点？</a></li>
+<li><a href="#q16">Q16. 如果文章中提到A是B，但题目问的是A是C，该如何判断这道题目的答案？对于“no planning is involved in the behavior of organism”这一理论的理解是什么？</a></li>
+<li><a href="#q17">Q17. 在题目的讨论中，关于“清晰的解释”和“love effect”，是否给出了清晰的解释？</a></li>
+<li><a href="#q18">Q18. 题目的关键点是什么？</a></li>
+<li><a href="#q19">Q19. 对于“the time seems right for abandon”的表述，意味着什么？</a></li>
+<li><a href="#q20">Q20. 虚拟考点在解题时应该如何处理？</a></li>
+<li><a href="#q21">Q21. 为什么选择P作为查尔斯逃离任务的对象？34题中关于C和P规划逃跑时间的矛盾点是什么？</a></li>
+<li><a href="#q22">Q22. 33题中关于回忆细节不足的问题，为何答案是false？</a></li>
+<li><a href="#q23">Q23. 对于书中的内容，为何认为它是积极的方面？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+})();
+</script>
+</body>
+</html>
