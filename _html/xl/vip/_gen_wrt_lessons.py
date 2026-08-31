@@ -100,7 +100,7 @@ CSS = """  * { box-sizing: border-box; }
   @media (max-width: 1100px) { .col-right { display: none; } }
   @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }"""
 
-JS = """  var panel = document.getElementById('search-panel');
+JS = r"""  var panel = document.getElementById('search-panel');
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -160,7 +160,9 @@ JS = """  var panel = document.getElementById('search-panel');
   input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
   document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
   document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
-  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });"""
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+  var col = document.querySelector('.col-left');
+  if (col){ var act = col.querySelector('a.active'); if (act){ var cr = col.getBoundingClientRect(), ar = act.getBoundingClientRect(); if (ar.top < cr.top - 4 || ar.bottom > cr.bottom + 4){ col.scrollTop = Math.max(0, col.scrollTop + (ar.top - cr.top) - 40); } } }"""
 
 
 def page(title, logo, logo_sub, left_html, main_html, right_html):
@@ -211,20 +213,27 @@ def page(title, logo, logo_sub, left_html, main_html, right_html):
     return "\n".join(parts) + "\n"
 
 
-def left_html(active_num):
+def left_html(active_num, kind="lesson"):
+    """kind: "lesson" -> only the transcript list; "qa" -> only the QA list.
+    The left column must never show both, so the two page types cannot
+    cross-jump from the sidebar."""
     out = []
-    out.append('    <h3>写作课程</h3>')
-    out.append("    <ul>")
-    for num in range(1, 18):
-        key, title, _ = LESSON_META[num]
-        cls = ' class="active"' if num == active_num else ""
-        out.append('      <li><a%s href="lesson-%02d.html">%s</a></li>' % (cls, num, title))
-    out.append("    </ul>")
-    out.append('    <h3>问答精要</h3>')
-    out.append("    <ul>")
-    for num in range(1, 18):
-        out.append('      <li><a href="qa-%02d.html">第%02d讲 · 问答精要</a></li>' % (num, num))
-    out.append("    </ul>")
+    if kind == "qa":
+        out.append('    <h3>问答精要</h3>')
+        out.append("    <ul>")
+        for num in range(1, 18):
+            key, title, _ = LESSON_META[num]
+            cls = ' class="active"' if num == active_num else ""
+            out.append('      <li><a%s href="qa-%02d.html">%s</a></li>' % (cls, num, title))
+        out.append("    </ul>")
+    else:
+        out.append('    <h3>写作课程</h3>')
+        out.append("    <ul>")
+        for num in range(1, 18):
+            key, title, _ = LESSON_META[num]
+            cls = ' class="active"' if num == active_num else ""
+            out.append('      <li><a%s href="lesson-%02d.html">%s</a></li>' % (cls, num, title))
+        out.append("    </ul>")
     out.append('    <h3>返回</h3>')
     out.append("    <ul>")
     out.append('      <li><a class="back" href="../index.html">VIP 总目录</a></li>')
@@ -325,7 +334,7 @@ def render_transcript_page(num):
             main.append("    <p>" + esc(p) + "</p>")
     else:
         main.append('    <p>本讲以问答精要为主，逐字稿段落较少，请查看<a href="qa-%02d.html">问答精要页</a>。</p>' % num)
-    html = page(title + " · 写作VIP", "写作 VIP", "· 第 %02d 讲" % num, left_html(num), "\n".join(main), right_html(num))
+    html = page(title + " · 写作VIP", "写作 VIP", "· 第 %02d 讲" % num, left_html(num, "lesson"), "\n".join(main), right_html(num))
     with io.open(os.path.join(OUTDIR, "lesson-%02d.html" % num), "w", encoding="utf-8") as f:
         f.write(html)
     print("written lesson-%02d (%d chars)" % (num, len(html)))
@@ -351,7 +360,7 @@ def render_qa_page(num):
             main.append("    </details>")
     else:
         main.append('    <p>本讲没有独立的问答块，核心内容见<a href="lesson-%02d.html">精讲逐字稿页</a>。</p>' % num)
-    html = page(title + " · 问答精要", "写作 VIP", "· 第 %02d 讲问答" % num, left_html(num), "\n".join(main), right_html(num))
+    html = page(title + " · 问答精要", "写作 VIP", "· 第 %02d 讲问答" % num, left_html(num, "qa"), "\n".join(main), right_html(num))
     with io.open(os.path.join(OUTDIR, "qa-%02d.html" % num), "w", encoding="utf-8") as f:
         f.write(html)
     print("written qa-%02d (%d chars, %d Q pairs)" % (num, len(html), len(qa_pairs)))

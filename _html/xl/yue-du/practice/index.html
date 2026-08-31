@@ -115,7 +115,7 @@
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, function(m){ return '\' + m; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, function(m){ return '\\' + m; }); }
   function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i=0;i<marks.length;i++){ var m=marks[i]; var t=document.createTextNode(m.textContent); m.parentNode.replaceChild(t,m); } main.normalize(); }
   function highlightInMain(kw){
     if (!main) return; clearHighlights(); if (!kw) return;

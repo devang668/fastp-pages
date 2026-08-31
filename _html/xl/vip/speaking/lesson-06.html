@@ -89,25 +89,6 @@
       <li><a href="lesson-15.html">第15讲 · Part Three 解决类话题</a></li>
       <li><a href="lesson-16.html">第16讲 · 实践与题库串讲总结</a></li>
     </ul>
-    <h3>问答精要</h3>
-    <ul>
-      <li><a href="qa-01.html">第01讲 · 问答精要</a></li>
-      <li><a href="qa-02.html">第02讲 · 问答精要</a></li>
-      <li><a href="qa-03.html">第03讲 · 问答精要</a></li>
-      <li><a href="qa-04.html">第04讲 · 问答精要</a></li>
-      <li><a href="qa-05.html">第05讲 · 问答精要</a></li>
-      <li><a href="qa-06.html">第06讲 · 问答精要</a></li>
-      <li><a href="qa-07.html">第07讲 · 问答精要</a></li>
-      <li><a href="qa-08.html">第08讲 · 问答精要</a></li>
-      <li><a href="qa-09.html">第09讲 · 问答精要</a></li>
-      <li><a href="qa-10.html">第10讲 · 问答精要</a></li>
-      <li><a href="qa-11.html">第11讲 · 问答精要</a></li>
-      <li><a href="qa-12.html">第12讲 · 问答精要</a></li>
-      <li><a href="qa-13.html">第13讲 · 问答精要</a></li>
-      <li><a href="qa-14.html">第14讲 · 问答精要</a></li>
-      <li><a href="qa-15.html">第15讲 · 问答精要</a></li>
-      <li><a href="qa-16.html">第16讲 · 问答精要</a></li>
-    </ul>
     <h3>返回</h3>
     <ul>
       <li><a class="back" href="../index.html">VIP 总目录</a></li>
@@ -209,7 +190,7 @@
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
   function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\]/g, '\$&'); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
   function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
   function highlightInMain(kw){
     if (!main) return; clearHighlights(); if (!kw) return;
@@ -265,6 +246,8 @@
   document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
   document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
   panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+  var col = document.querySelector('.col-left');
+  if (col){ var act = col.querySelector('a.active'); if (act){ var cr = col.getBoundingClientRect(), ar = act.getBoundingClientRect(); if (ar.top < cr.top - 4 || ar.bottom > cr.bottom + 4){ col.scrollTop = Math.max(0, col.scrollTop + (ar.top - cr.top) - 40); } } }
 })();
 </script>
 </body>
