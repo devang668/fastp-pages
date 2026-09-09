@@ -27,6 +27,9 @@ cls
 echo.
 echo ================= Git Quick Actions Menu =================
 echo Current Git project path: %GIT_ROOT%
+set "MENU_BRANCH="
+for /f "delims=" %%B in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set "MENU_BRANCH=%%B"
+if defined MENU_BRANCH echo Current branch: %MENU_BRANCH%
 echo.
 echo 1. git pull
 echo 2. git add .
@@ -84,8 +87,25 @@ goto MainMenu
 
 :GitPush
 echo.
-echo Running: git push
-call :RunGitWithProxyFallback git push
+:: Resolve current branch name
+set "CUR_BRANCH="
+for /f "delims=" %%B in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set "CUR_BRANCH=%%B"
+if not defined CUR_BRANCH (
+    echo Cannot resolve current branch.
+    pause
+    goto MainMenu
+)
+
+:: Check whether an upstream is configured for the current branch
+git rev-parse --abbrev-ref --symbolic-full-name "@{u}" >nul 2>&1
+if errorlevel 1 (
+    echo [Info] Branch "!CUR_BRANCH!" has no upstream yet, using: git push -u origin !CUR_BRANCH!
+    echo Running: git push -u origin !CUR_BRANCH!
+    call :RunGitWithProxyFallback git push -u origin !CUR_BRANCH!
+) else (
+    echo Running: git push
+    call :RunGitWithProxyFallback git push
+)
 echo.
 pause
 goto MainMenu
