@@ -265,48 +265,36 @@ def split_section(body):
         break
     qa_pairs = []
     transcript = []
-    i = 0
-    while i < len(paras):
-        p = paras[i]
-        # Q&A in the SAME paragraph: **问...**发言人：答...  (or **问...**答：...)
-        if p.startswith("**") and ("问" in p[:40] or "？" in p[:40]):
-            # split at the closing ** then look for 发言人/答
-            m = re.match(r"^\*\*(.*?)\*\*\s*(.*)$", p, re.S)
-            if m:
-                q_text = m.group(1).strip()
-                rest = m.group(2).strip()
-                # answer may be right after: 发言人：... / 答：... / 发言人答：...
-                if rest and ("发言人" in rest[:40] or "答" in rest[:20] or "答：" in rest[:20]):
-                    a_text = rest
-                    qa_pairs.append((q_text, a_text))
-                    i += 1
-                    continue
-            # no inline answer: try next para(s)
-            j = i + 1
-            a_text = ""
-            while j < len(paras):
-                if paras[j].startswith("**") and ("答" in paras[j][:20] or "发言人" in paras[j][:20]):
-                    a_text = paras[j]
-                    break
-                if paras[j].startswith("**") and ("问" in paras[j][:40] or "？" in paras[j][:40]):
-                    break
-                j += 1
-            if a_text:
-                qa_pairs.append((p, a_text))
-                i = j + 1
-            else:
-                transcript.append(p)
-                i += 1
+    for p in paras:
+        if p.startswith("**"):
+            qa_pairs.extend(split_qa_text(p))
         else:
             transcript.append(p)
-            i += 1
     return abstract, qa_pairs, transcript
 
 
+def split_qa_text(text):
+    """Split **发言人 问：Q**发言人答：A**... chains into (q, a) pairs."""
+    pairs = []
+    marks = list(re.finditer(r"\*\*([^*]+?)\*\*", text))
+    for i, m in enumerate(marks):
+        q = m.group(1).strip()
+        a_start = m.end()
+        a_end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
+        a = text[a_start:a_end].strip()
+        pairs.append((q, a))
+    return pairs
+
+
 def clean_bold(s):
-    """Strip markdown bold markers and leading Q/A labels for display."""
-    s = s.replace("**", "")
+    """Strip bold markers and leading speaker/Q/A labels for display."""
+    s = s.replace("**", "").strip()
+    s = re.sub(r"^发言人\s*问[：:]?\s*", "", s)
+    s = re.sub(r"^发言人\s*答[：:]?\s*", "", s)
     s = re.sub(r"^发言人[：:]?\s*", "", s)
+    s = re.sub(r"^问[：:]\s*", "", s)
+    s = re.sub(r"^答[：:]\s*", "", s)
+    s = re.sub(r"^\d{1,2}:[0-5]\d\s*", "", s)
     return s.strip()
 
 
@@ -342,25 +330,41 @@ def render_qa_page(num):
     if not body:
         return
     abstract, qa_pairs, transcript = split_section(body)
+    chapters = []
+    rest = []
+    for q, a in qa_pairs:
+        m = re.match(r"^(\d{1,2}:\d{2})\s*(.*)$", q)
+        if m:
+            chapters.append((m.group(1), m.group(2), a))
+        else:
+            rest.append((q, a))
+    qa_pairs = rest
     main = []
     main.append("    <h1>" + title + "</h1>")
     main.append('    <div class="abstract"><b>本讲概要：</b>' + esc(abstract) + "</div>")
+    if chapters:
+        main.append("    <h2>章节导航</h2>")
+        main.append("    <ul>")
+        for t, ctitle, csum in chapters:
+            main.append("      <li><b>" + esc(t) + "</b> " + esc(ctitle) + "</li>")
+            if csum:
+                main.append('      <li style="list-style:none;margin:-4px 0 10px;"><span style="color:#6b7280;font-size:13px;">' + esc(csum) + "</span></li>")
+        main.append("    </ul>")
     if qa_pairs:
         main.append("    <h2>问答精要</h2>")
         for q, a in qa_pairs:
             qq = esc(clean_bold(q))
             aa = esc(clean_bold(a))
-            main.append("    <details class=\"qa\">")
+            main.append('    <details class="qa">')
             main.append("      <summary>" + qq + "</summary>")
             main.append('      <div class="qa-body"><p class="a"><b>答：</b>' + aa + "</p></div>")
             main.append("    </details>")
-    else:
+    if not chapters and not qa_pairs:
         main.append('    <p>本讲没有独立的问答块，核心内容见<a href="lesson-%02d.html">精讲逐字稿页</a>。</p>' % num)
     html = page(title + " · 问答精要", "口语 VIP", "· 第 %02d 讲问答" % num, left_html(num, "qa"), "\n".join(main), right_html(num, "qa"))
     with io.open(os.path.join(OUTDIR, "qa-%02d.html" % num), "w", encoding="utf-8") as f:
         f.write(html)
-    print("written qa-%02d (%d chars, %d Q pairs)" % (num, len(html), len(qa_pairs)))
-
+    print("written qa-%02d (%d chars, %d chapters, %d Q pairs)" % (num, len(html), len(chapters), len(qa_pairs)))
 
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
