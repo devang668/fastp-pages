@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -70,7 +70,7 @@
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>口语问答（16 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
       <li><a href="qa-02.html">第02讲 · 口语三大基本能力与基础</a></li>
@@ -95,125 +95,125 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第08讲 · 成功人物素材</h1>
-    <div class="abstract"><b>本讲概要：</b>瑞老师在雅思口语课程中介绍了利用成功人物素材的方法，以增强口语表达。通过一个在职业、慈善和个人生活均取得显著成就的人物为例，说明了如何将这些素材应用于不同题型，包括作为律师的出色表现、积极参与慈善活动以及维持工作与生活平衡等。强调了根据题目要求灵活运用人物故事，以提升语言多样性和表达准确性的重要性。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>大家在准备过程中对于这类物品类素材的运用情况还待进一步观察，看是否能够充分利用并将其融入到实际口语表达中。本节课将讨论人物类素材，包括人物的外貌特征、性格特点、经历背景等多个方面。</p></div>
-    </details>
-    <details class="qa">
-      <summary>人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>人物类素材可以从外貌特征、性格特点、兴趣爱好、学习能力、社交能力、领导力、经历背景、家庭背景、社会地位、价值观、目标梦想等多个角度进行描述。当提到成功人物时，可以举出如哈利波特的例子，描述其性格特点如loyal, optimistic, adventurous；而对于不同学院则可以描述为charming, smart, ambitious, creative等。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何使用人物类素材进行口语表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以通过讲述一个成功的朋友Sarah为例，描述她在个人和职业生活中取得的成就，如完成学业后在律师事务所表现出色，获得多次晋升和认可，最终成为该领域受尊重的律师。这一段描述中包含了多个生词和高级表达，展示了如何运用人物类素材进行丰富且完整的口语表达。</p></div>
-    </details>
-    <details class="qa">
-      <summary>外貌特征方面有哪些描述词汇？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>外貌特征可以描述为tall, short, slim, overweight, curvy, athletic, fit, pale, dark, wrinkled, pale, freckled, etc. 对不同年龄的人有不同的描述方式，如年轻者可以描述为pretty fair, tall and slim, 而老年人则可能有wrinkled, turned, dark skin等描述。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何描述个性特点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>个性特点可以使用outgoing, introverted, friendly, reserved, charismatic, humble, ambitious, creative, confident, reliable, independent, adventurous, easygoing, hardworking, optimistic, pessimistic, loyal, impulsive, determined等词汇来表达。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她从知名大学毕业后的第一份工作是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>她从知名大学毕业后的第一份工作是在一个知名的法律事务所工作。</p></div>
-    </details>
-    <details class="qa">
-      <summary>法律事务所是否可以替换为其他表述？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>法律事务所可以替换成“一家非常有名的律师事务所”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她在事务所的工作表现如何？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>她在事务所工作期间，持续不断地展现出卓越的法律技能和奉献精神，并因此获得了多次职位晋升和公司内的高度认可。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她目前的职业地位如何？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>目前她在一个高级职位上任职，并且被视作法律领域中受人尊敬和推崇的律师之一。</p></div>
-    </details>
-    <details class="qa">
-      <summary>除了法律职业上的成功，她在慈善方面做了哪些贡献？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>她积极参与各种慈善活动，如在社区中心提供免费法律咨询，参与为贫困地区儿童提供教育的募捐活动，以及支持帮助家暴受害者的组织。她的这些慈善行动体现了她的善良、慷慨和对公平正义的热情，不仅使她在职业上取得成功，也成为了他人的榜样。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她在个人生活方面是如何平衡工作的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>尽管工作繁忙，她非常重视保持健康的工作生活平衡，喜欢旅行以拓宽视野，热爱阅读并擅长烹饪，经常举办聚会，享受阅读和烹饪带来的乐趣。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以将“host some dinner parties for friends and family”简化为“经常举办朋友和家人的晚宴”。对于Sarah在慈善活动中的表现，可以替换为“积极参与慈善活动，展现出对社会的贡献”。此外，Sarah享受旅行并广泛阅读，以及她擅长烹饪并经常举办聚会，这些都体现了她的个人生活的成功。在结尾总结时，将“Sarah is an extraordinary individual”简化为“Sarah是一个非凡的人物”，并在列举她的成功要素时，对专业成就、慈善活动和工作与生活的平衡进行适当替换，以确保内容易于理解。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何描述一个能说中文很好的外国人在工作和生活中的表现？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以以Sarah为例，说明她不仅在学校担任教师，而且在个人生活中也积极参与中文的学习和实践。通过提供具体例子，如她毕业于知名大学并获得了多项学术成就，目前在学校担任教授一职。Sarah在教学工作中展现出卓越的技能和奉献精神，这使她在学校获得了多次晋升和认可。此外，她热衷于慈善事业，经常利用业余时间免费教授贫困儿童中文，同时她也热爱旅游，遍访中国各地，深入了解中国文化，这进一步提升了她的中文水平。在个人生活中，Sarah还是一个热爱阅读和烹饪的个体，她会阅读获得诺贝尔奖的作品，并尝试制作中餐，如宫爆鸡丁和烤鸭。最后，可以强调她的教师身份、慈善活动和工作与生活的平衡是她能够熟练掌握中文的关键因素，使她成为许多人的榜样。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>大家在准备过程中对于这类物品类素材的运用情况还待进一步观察，看是否能够充分利用并将其融入到实际口语表达中。本节课将讨论人物类素材，包括人物的外貌特征、性格特点、经历背景等多个方面。</p></div>
-    </details>
-    <details class="qa">
-      <summary>人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>人物类素材可以从外貌特征、性格特点、兴趣爱好、学习能力、社交能力、领导力、经历背景、家庭背景、社会地位、价值观、目标梦想等多个角度进行描述。当提到成功人物时，可以举出如哈利波特的例子，描述其性格特点如loyal, optimistic, adventurous；而对于不同学院则可以描述为charming, smart, ambitious, creative等。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何使用人物类素材进行口语表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以通过讲述一个成功的朋友Sarah为例，描述她在个人和职业生活中取得的成就，如完成学业后在律师事务所表现出色，获得多次晋升和认可，最终成为该领域受尊重的律师。这一段描述中包含了多个生词和高级表达，展示了如何运用人物类素材进行丰富且完整的口语表达。</p></div>
-    </details>
-    <details class="qa">
-      <summary>外貌特征方面有哪些描述词汇？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>外貌特征可以描述为tall, short, slim, overweight, curvy, athletic, fit, pale, dark, wrinkled, pale, freckled, etc. 对不同年龄的人有不同的描述方式，如年轻者可以描述为pretty fair, tall and slim, 而老年人则可能有wrinkled, turned, dark skin等描述。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何描述个性特点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>个性特点可以使用outgoing, introverted, friendly, reserved, charismatic, humble, ambitious, creative, confident, reliable, independent, adventurous, easygoing, hardworking, optimistic, pessimistic, loyal, impulsive, determined等词汇来表达。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她从知名大学毕业后的第一份工作是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>她从知名大学毕业后的第一份工作是在一个知名的法律事务所工作。</p></div>
-    </details>
-    <details class="qa">
-      <summary>法律事务所是否可以替换为其他表述？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>法律事务所可以替换成“一家非常有名的律师事务所”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她在事务所的工作表现如何？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>她在事务所工作期间，持续不断地展现出卓越的法律技能和奉献精神，并因此获得了多次职位晋升和公司内的高度认可。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她目前的职业地位如何？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>目前她在一个高级职位上任职，并且被视作法律领域中受人尊敬和推崇的律师之一。</p></div>
-    </details>
-    <details class="qa">
-      <summary>除了法律职业上的成功，她在慈善方面做了哪些贡献？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>她积极参与各种慈善活动，如在社区中心提供免费法律咨询，参与为贫困地区儿童提供教育的募捐活动，以及支持帮助家暴受害者的组织。她的这些慈善行动体现了她的善良、慷慨和对公平正义的热情，不仅使她在职业上取得成功，也成为了他人的榜样。</p></div>
-    </details>
-    <details class="qa">
-      <summary>她在个人生活方面是如何平衡工作的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>尽管工作繁忙，她非常重视保持健康的工作生活平衡，喜欢旅行以拓宽视野，热爱阅读并擅长烹饪，经常举办聚会，享受阅读和烹饪带来的乐趣。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以将“host some dinner parties for friends and family”简化为“经常举办朋友和家人的晚宴”。对于Sarah在慈善活动中的表现，可以替换为“积极参与慈善活动，展现出对社会的贡献”。此外，Sarah享受旅行并广泛阅读，以及她擅长烹饪并经常举办聚会，这些都体现了她的个人生活的成功。在结尾总结时，将“Sarah is an extraordinary individual”简化为“Sarah是一个非凡的人物”，并在列举她的成功要素时，对专业成就、慈善活动和工作与生活的平衡进行适当替换，以确保内容易于理解。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何描述一个能说中文很好的外国人在工作和生活中的表现？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以以Sarah为例，说明她不仅在学校担任教师，而且在个人生活中也积极参与中文的学习和实践。通过提供具体例子，如她毕业于知名大学并获得了多项学术成就，目前在学校担任教授一职。Sarah在教学工作中展现出卓越的技能和奉献精神，这使她在学校获得了多次晋升和认可。此外，她热衷于慈善事业，经常利用业余时间免费教授贫困儿童中文，同时她也热爱旅游，遍访中国各地，深入了解中国文化，这进一步提升了她的中文水平。在个人生活中，Sarah还是一个热爱阅读和烹饪的个体，她会阅读获得诺贝尔奖的作品，并尝试制作中餐，如宫爆鸡丁和烤鸭。最后，可以强调她的教师身份、慈善活动和工作与生活的平衡是她能够熟练掌握中文的关键因素，使她成为许多人的榜样。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>瑞老师在雅思口语课程中介绍了利用成功人物素材的方法，以增强口语表达。通过一个在职业、慈善和个人生活均取得显著成就的人物为例，说明了如何将这些素材应用于不同题型，包括作为律师的出色表现、积极参与慈善活动以及维持工作与生活平衡等。强调了根据题目要求灵活运用人物故事，以提升语言多样性和表达准确性的重要性。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</td><td>大家在准备过程中对于这类物品类素材的运用情况还待进一步观察，看是否能够充分利用并将其融入到实际口语表达中</td></tr>
+      <tr><td><b>Q2</b></td><td>人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</td><td>人物类素材可以从外貌特征、性格特点、兴趣爱好、学习能力、社交能力、领导力、经历背景、家庭背景、社会地位、价值观、目标梦想等多个角度进行描述</td></tr>
+      <tr><td><b>Q3</b></td><td>如何使用人物类素材进行口语表达？</td><td>可以通过讲述一个成功的朋友Sarah为例，描述她在个人和职业生活中取得的成就，如完成学业后在律师事务所表现出色，获得多次晋升和认可，最终成为该领域受尊重的律师</td></tr>
+      <tr><td><b>Q4</b></td><td>外貌特征方面有哪些描述词汇？</td><td>外貌特征可以描述为tall, short, slim, overweight, curvy, athletic, fit, pale, dark, wrinkled, …</td></tr>
+      <tr><td><b>Q5</b></td><td>如何描述个性特点？</td><td>个性特点可以使用outgoing, introverted, friendly, reserved, charismatic, humble, ambitious, c…</td></tr>
+      <tr><td><b>Q6</b></td><td>她从知名大学毕业后的第一份工作是什么？</td><td>她从知名大学毕业后的第一份工作是在一个知名的法律事务所工作</td></tr>
+      <tr><td><b>Q7</b></td><td>法律事务所是否可以替换为其他表述？</td><td>法律事务所可以替换成“一家非常有名的律师事务所”</td></tr>
+      <tr><td><b>Q8</b></td><td>她在事务所的工作表现如何？</td><td>她在事务所工作期间，持续不断地展现出卓越的法律技能和奉献精神，并因此获得了多次职位晋升和公司内的高度认可</td></tr>
+      <tr><td><b>Q9</b></td><td>她目前的职业地位如何？</td><td>目前她在一个高级职位上任职，并且被视作法律领域中受人尊敬和推崇的律师之一</td></tr>
+      <tr><td><b>Q10</b></td><td>除了法律职业上的成功，她在慈善方面做了哪些贡献？</td><td>她积极参与各种慈善活动，如在社区中心提供免费法律咨询，参与为贫困地区儿童提供教育的募捐活动，以及支持帮助家暴受害者的组织</td></tr>
+      <tr><td><b>Q11</b></td><td>她在个人生活方面是如何平衡工作的？</td><td>尽管工作繁忙，她非常重视保持健康的工作生活平衡，喜欢旅行以拓宽视野，热爱阅读并擅长烹饪，经常举办聚会，享受阅读和烹饪带来的乐趣</td></tr>
+      <tr><td><b>Q12</b></td><td>在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</td><td>可以将“host some dinner parties for friends and family”简化为“经常举办朋友和家人的晚宴”</td></tr>
+      <tr><td><b>Q13</b></td><td>如何描述一个能说中文很好的外国人在工作和生活中的表现？</td><td>可以以Sarah为例，说明她不仅在学校担任教师，而且在个人生活中也积极参与中文的学习和实践</td></tr>
+      <tr><td><b>Q14</b></td><td>在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</td><td>大家在准备过程中对于这类物品类素材的运用情况还待进一步观察，看是否能够充分利用并将其融入到实际口语表达中</td></tr>
+      <tr><td><b>Q15</b></td><td>人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</td><td>人物类素材可以从外貌特征、性格特点、兴趣爱好、学习能力、社交能力、领导力、经历背景、家庭背景、社会地位、价值观、目标梦想等多个角度进行描述</td></tr>
+      <tr><td><b>Q16</b></td><td>如何使用人物类素材进行口语表达？</td><td>可以通过讲述一个成功的朋友Sarah为例，描述她在个人和职业生活中取得的成就，如完成学业后在律师事务所表现出色，获得多次晋升和认可，最终成为该领域受尊重的律师</td></tr>
+      <tr><td><b>Q17</b></td><td>外貌特征方面有哪些描述词汇？</td><td>外貌特征可以描述为tall, short, slim, overweight, curvy, athletic, fit, pale, dark, wrinkled, …</td></tr>
+      <tr><td><b>Q18</b></td><td>如何描述个性特点？</td><td>个性特点可以使用outgoing, introverted, friendly, reserved, charismatic, humble, ambitious, c…</td></tr>
+      <tr><td><b>Q19</b></td><td>她从知名大学毕业后的第一份工作是什么？</td><td>她从知名大学毕业后的第一份工作是在一个知名的法律事务所工作</td></tr>
+      <tr><td><b>Q20</b></td><td>法律事务所是否可以替换为其他表述？</td><td>法律事务所可以替换成“一家非常有名的律师事务所”</td></tr>
+      <tr><td><b>Q21</b></td><td>她在事务所的工作表现如何？</td><td>她在事务所工作期间，持续不断地展现出卓越的法律技能和奉献精神，并因此获得了多次职位晋升和公司内的高度认可</td></tr>
+      <tr><td><b>Q22</b></td><td>她目前的职业地位如何？</td><td>目前她在一个高级职位上任职，并且被视作法律领域中受人尊敬和推崇的律师之一</td></tr>
+      <tr><td><b>Q23</b></td><td>除了法律职业上的成功，她在慈善方面做了哪些贡献？</td><td>她积极参与各种慈善活动，如在社区中心提供免费法律咨询，参与为贫困地区儿童提供教育的募捐活动，以及支持帮助家暴受害者的组织</td></tr>
+      <tr><td><b>Q24</b></td><td>她在个人生活方面是如何平衡工作的？</td><td>尽管工作繁忙，她非常重视保持健康的工作生活平衡，喜欢旅行以拓宽视野，热爱阅读并擅长烹饪，经常举办聚会，享受阅读和烹饪带来的乐趣</td></tr>
+      <tr><td><b>Q25</b></td><td>在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</td><td>可以将“host some dinner parties for friends and family”简化为“经常举办朋友和家人的晚宴”</td></tr>
+      <tr><td><b>Q26</b></td><td>如何描述一个能说中文很好的外国人在工作和生活中的表现？</td><td>可以以Sarah为例，说明她不仅在学校担任教师，而且在个人生活中也积极参与中文的学习和实践</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</h2>
+    <p class="qakey">大家在准备过程中对于这类物品类素材的运用情况还待进一步观察，看是否能够充分利用并将其融入到实际口语表达中。本节课将讨论人物类素材，包括人物的外貌特征、性格特点、经历背景等多个方面。</p>
+    <h2><a id="q2"></a>Q2. 人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</h2>
+    <p class="qakey">人物类素材可以从外貌特征、性格特点、兴趣爱好、学习能力、社交能力、领导力、经历背景、家庭背景、社会地位、价值观、目标梦想等多个角度进行描述。当提到成功人物时，可以举出如哈利波特的例子，描述其性格特点如loyal, optimistic, adventurous；而对于不同学院则可以描述为charming, smart, ambitious, creative等。</p>
+    <h2><a id="q3"></a>Q3. 如何使用人物类素材进行口语表达？</h2>
+    <p class="qakey">可以通过讲述一个成功的朋友Sarah为例，描述她在个人和职业生活中取得的成就，如完成学业后在律师事务所表现出色，获得多次晋升和认可，最终成为该领域受尊重的律师。这一段描述中包含了多个生词和高级表达，展示了如何运用人物类素材进行丰富且完整的口语表达。</p>
+    <h2><a id="q4"></a>Q4. 外貌特征方面有哪些描述词汇？</h2>
+    <p class="qakey">外貌特征可以描述为tall, short, slim, overweight, curvy, athletic, fit, pale, dark, wrinkled, pale, freckled, etc. 对不同年龄的人有不同的描述方式，如年轻者可以描述为pretty fair, tall and slim, 而老年人则可能有wrinkled, turned, dark skin等描述。</p>
+    <h2><a id="q5"></a>Q5. 如何描述个性特点？</h2>
+    <p class="qakey">个性特点可以使用outgoing, introverted, friendly, reserved, charismatic, humble, ambitious, creative, confident, reliable, independent, adventurous, easygoing, hardworking, optimistic, pessimistic, loyal, impulsive, determined等词汇来表达。</p>
+    <h2><a id="q6"></a>Q6. 她从知名大学毕业后的第一份工作是什么？</h2>
+    <p class="qakey">她从知名大学毕业后的第一份工作是在一个知名的法律事务所工作。</p>
+    <h2><a id="q7"></a>Q7. 法律事务所是否可以替换为其他表述？</h2>
+    <p class="qakey">法律事务所可以替换成“一家非常有名的律师事务所”。</p>
+    <h2><a id="q8"></a>Q8. 她在事务所的工作表现如何？</h2>
+    <p class="qakey">她在事务所工作期间，持续不断地展现出卓越的法律技能和奉献精神，并因此获得了多次职位晋升和公司内的高度认可。</p>
+    <h2><a id="q9"></a>Q9. 她目前的职业地位如何？</h2>
+    <p class="qakey">目前她在一个高级职位上任职，并且被视作法律领域中受人尊敬和推崇的律师之一。</p>
+    <h2><a id="q10"></a>Q10. 除了法律职业上的成功，她在慈善方面做了哪些贡献？</h2>
+    <p class="qakey">她积极参与各种慈善活动，如在社区中心提供免费法律咨询，参与为贫困地区儿童提供教育的募捐活动，以及支持帮助家暴受害者的组织。她的这些慈善行动体现了她的善良、慷慨和对公平正义的热情，不仅使她在职业上取得成功，也成为了他人的榜样。</p>
+    <h2><a id="q11"></a>Q11. 她在个人生活方面是如何平衡工作的？</h2>
+    <p class="qakey">尽管工作繁忙，她非常重视保持健康的工作生活平衡，喜欢旅行以拓宽视野，热爱阅读并擅长烹饪，经常举办聚会，享受阅读和烹饪带来的乐趣。</p>
+    <h2><a id="q12"></a>Q12. 在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</h2>
+    <p class="qakey">可以将“host some dinner parties for friends and family”简化为“经常举办朋友和家人的晚宴”。对于Sarah在慈善活动中的表现，可以替换为“积极参与慈善活动，展现出对社会的贡献”。此外，Sarah享受旅行并广泛阅读，以及她擅长烹饪并经常举办聚会，这些都体现了她的个人生活的成功。在结尾总结时，将“Sarah is an extraordinary individual”简化为“Sarah是一个非凡的人物”，并在列举她的成功要素时，对专业成就、慈善活动和工作与生活的平衡进行适当替换，以确保内容易于理解。</p>
+    <h2><a id="q13"></a>Q13. 如何描述一个能说中文很好的外国人在工作和生活中的表现？</h2>
+    <p class="qakey">可以以Sarah为例，说明她不仅在学校担任教师，而且在个人生活中也积极参与中文的学习和实践。通过提供具体例子，如她毕业于知名大学并获得了多项学术成就，目前在学校担任教授一职。Sarah在教学工作中展现出卓越的技能和奉献精神，这使她在学校获得了多次晋升和认可。此外，她热衷于慈善事业，经常利用业余时间免费教授贫困儿童中文，同时她也热爱旅游，遍访中国各地，深入了解中国文化，这进一步提升了她的中文水平。在个人生活中，Sarah还是一个热爱阅读和烹饪的个体，她会阅读获得诺贝尔奖的作品，并尝试制作中餐，如宫爆鸡丁和烤鸭。最后，可以强调她的教师身份、慈善活动和工作与生活的平衡是她能够熟练掌握中文的关键因素，使她成为许多人的榜样。</p>
+    <h2><a id="q14"></a>Q14. 在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</h2>
+    <p class="qakey">大家在准备过程中对于这类物品类素材的运用情况还待进一步观察，看是否能够充分利用并将其融入到实际口语表达中。本节课将讨论人物类素材，包括人物的外貌特征、性格特点、经历背景等多个方面。</p>
+    <h2><a id="q15"></a>Q15. 人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</h2>
+    <p class="qakey">人物类素材可以从外貌特征、性格特点、兴趣爱好、学习能力、社交能力、领导力、经历背景、家庭背景、社会地位、价值观、目标梦想等多个角度进行描述。当提到成功人物时，可以举出如哈利波特的例子，描述其性格特点如loyal, optimistic, adventurous；而对于不同学院则可以描述为charming, smart, ambitious, creative等。</p>
+    <h2><a id="q16"></a>Q16. 如何使用人物类素材进行口语表达？</h2>
+    <p class="qakey">可以通过讲述一个成功的朋友Sarah为例，描述她在个人和职业生活中取得的成就，如完成学业后在律师事务所表现出色，获得多次晋升和认可，最终成为该领域受尊重的律师。这一段描述中包含了多个生词和高级表达，展示了如何运用人物类素材进行丰富且完整的口语表达。</p>
+    <h2><a id="q17"></a>Q17. 外貌特征方面有哪些描述词汇？</h2>
+    <p class="qakey">外貌特征可以描述为tall, short, slim, overweight, curvy, athletic, fit, pale, dark, wrinkled, pale, freckled, etc. 对不同年龄的人有不同的描述方式，如年轻者可以描述为pretty fair, tall and slim, 而老年人则可能有wrinkled, turned, dark skin等描述。</p>
+    <h2><a id="q18"></a>Q18. 如何描述个性特点？</h2>
+    <p class="qakey">个性特点可以使用outgoing, introverted, friendly, reserved, charismatic, humble, ambitious, creative, confident, reliable, independent, adventurous, easygoing, hardworking, optimistic, pessimistic, loyal, impulsive, determined等词汇来表达。</p>
+    <h2><a id="q19"></a>Q19. 她从知名大学毕业后的第一份工作是什么？</h2>
+    <p class="qakey">她从知名大学毕业后的第一份工作是在一个知名的法律事务所工作。</p>
+    <h2><a id="q20"></a>Q20. 法律事务所是否可以替换为其他表述？</h2>
+    <p class="qakey">法律事务所可以替换成“一家非常有名的律师事务所”。</p>
+    <h2><a id="q21"></a>Q21. 她在事务所的工作表现如何？</h2>
+    <p class="qakey">她在事务所工作期间，持续不断地展现出卓越的法律技能和奉献精神，并因此获得了多次职位晋升和公司内的高度认可。</p>
+    <h2><a id="q22"></a>Q22. 她目前的职业地位如何？</h2>
+    <p class="qakey">目前她在一个高级职位上任职，并且被视作法律领域中受人尊敬和推崇的律师之一。</p>
+    <h2><a id="q23"></a>Q23. 除了法律职业上的成功，她在慈善方面做了哪些贡献？</h2>
+    <p class="qakey">她积极参与各种慈善活动，如在社区中心提供免费法律咨询，参与为贫困地区儿童提供教育的募捐活动，以及支持帮助家暴受害者的组织。她的这些慈善行动体现了她的善良、慷慨和对公平正义的热情，不仅使她在职业上取得成功，也成为了他人的榜样。</p>
+    <h2><a id="q24"></a>Q24. 她在个人生活方面是如何平衡工作的？</h2>
+    <p class="qakey">尽管工作繁忙，她非常重视保持健康的工作生活平衡，喜欢旅行以拓宽视野，热爱阅读并擅长烹饪，经常举办聚会，享受阅读和烹饪带来的乐趣。</p>
+    <h2><a id="q25"></a>Q25. 在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</h2>
+    <p class="qakey">可以将“host some dinner parties for friends and family”简化为“经常举办朋友和家人的晚宴”。对于Sarah在慈善活动中的表现，可以替换为“积极参与慈善活动，展现出对社会的贡献”。此外，Sarah享受旅行并广泛阅读，以及她擅长烹饪并经常举办聚会，这些都体现了她的个人生活的成功。在结尾总结时，将“Sarah is an extraordinary individual”简化为“Sarah是一个非凡的人物”，并在列举她的成功要素时，对专业成就、慈善活动和工作与生活的平衡进行适当替换，以确保内容易于理解。</p>
+    <h2><a id="q26"></a>Q26. 如何描述一个能说中文很好的外国人在工作和生活中的表现？</h2>
+    <p class="qakey">可以以Sarah为例，说明她不仅在学校担任教师，而且在个人生活中也积极参与中文的学习和实践。通过提供具体例子，如她毕业于知名大学并获得了多项学术成就，目前在学校担任教授一职。Sarah在教学工作中展现出卓越的技能和奉献精神，这使她在学校获得了多次晋升和认可。此外，她热衷于慈善事业，经常利用业余时间免费教授贫困儿童中文，同时她也热爱旅游，遍访中国各地，深入了解中国文化，这进一步提升了她的中文水平。在个人生活中，Sarah还是一个热爱阅读和烹饪的个体，她会阅读获得诺贝尔奖的作品，并尝试制作中餐，如宫爆鸡丁和烤鸭。最后，可以强调她的教师身份、慈善活动和工作与生活的平衡是她能够熟练掌握中文的关键因素，使她成为许多人的榜样。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-08.html">精讲逐字稿</a></li>
-      <li><a href="qa-08.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-07.html">上一讲 07</a></li>
-      <li><a href="lesson-09.html">下一讲 09</a></li>
+<li><a href="#q1">Q1. 在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</a></li>
+<li><a href="#q2">Q2. 人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</a></li>
+<li><a href="#q3">Q3. 如何使用人物类素材进行口语表达？</a></li>
+<li><a href="#q4">Q4. 外貌特征方面有哪些描述词汇？</a></li>
+<li><a href="#q5">Q5. 如何描述个性特点？</a></li>
+<li><a href="#q6">Q6. 她从知名大学毕业后的第一份工作是什么？</a></li>
+<li><a href="#q7">Q7. 法律事务所是否可以替换为其他表述？</a></li>
+<li><a href="#q8">Q8. 她在事务所的工作表现如何？</a></li>
+<li><a href="#q9">Q9. 她目前的职业地位如何？</a></li>
+<li><a href="#q10">Q10. 除了法律职业上的成功，她在慈善方面做了哪些贡献？</a></li>
+<li><a href="#q11">Q11. 她在个人生活方面是如何平衡工作的？</a></li>
+<li><a href="#q12">Q12. 在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</a></li>
+<li><a href="#q13">Q13. 如何描述一个能说中文很好的外国人在工作和生活中的表现？</a></li>
+<li><a href="#q14">Q14. 在准备雅思口语时，关于物品类素材如蓝牙耳机，大家能否有效地准备并将其应用于串题中？本节课将讨论哪一类素材？</a></li>
+<li><a href="#q15">Q15. 人物类素材可以从哪些角度进行描述？能否给出一个具体的人物描述例子？</a></li>
+<li><a href="#q16">Q16. 如何使用人物类素材进行口语表达？</a></li>
+<li><a href="#q17">Q17. 外貌特征方面有哪些描述词汇？</a></li>
+<li><a href="#q18">Q18. 如何描述个性特点？</a></li>
+<li><a href="#q19">Q19. 她从知名大学毕业后的第一份工作是什么？</a></li>
+<li><a href="#q20">Q20. 法律事务所是否可以替换为其他表述？</a></li>
+<li><a href="#q21">Q21. 她在事务所的工作表现如何？</a></li>
+<li><a href="#q22">Q22. 她目前的职业地位如何？</a></li>
+<li><a href="#q23">Q23. 除了法律职业上的成功，她在慈善方面做了哪些贡献？</a></li>
+<li><a href="#q24">Q24. 她在个人生活方面是如何平衡工作的？</a></li>
+<li><a href="#q25">Q25. 在描述Sarah的生活成就时，如何简化内容并替换复杂的词汇？</a></li>
+<li><a href="#q26">Q26. 如何描述一个能说中文很好的外国人在工作和生活中的表现？</a></li>
     </ul>
   </aside>
 </div>
@@ -269,8 +269,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');
@@ -281,7 +281,7 @@
   input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
   document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
   document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
-  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
   var col = document.querySelector('.col-left');
   if (col){ var act = col.querySelector('a.active'); if (act){ var cr = col.getBoundingClientRect(), ar = act.getBoundingClientRect(); if (ar.top < cr.top - 4 || ar.bottom > cr.bottom + 4){ col.scrollTop = Math.max(0, col.scrollTop + (ar.top - cr.top) - 40); } } }
 })();

@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -63,14 +63,14 @@
   <div class="topbar-right">
     <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
-    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <a href="writing-qa-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>写作问答（17 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 动态图表（小作文）总览</a></li>
       <li><a href="qa-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
@@ -96,53 +96,53 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第06讲 · 双镜图（双图）题目</h1>
-    <div class="abstract"><b>本讲概要：</b>讲师在对话中解释了分析和写作涉及两个图表，尤其是双镜图题目的方法。她首先指出双镜图的复杂性常让学生感到困惑，并通过具体例子展示了如何分析两幅图表的描述对象、单位和时态的一致性。讲师强调了分析图表时要关注单位、时态、描述对象及图表间的关系，并提供了分析和写作图表内容的步骤，包括明确标题、图表类型、概述整体情况和具体数值分析。她特别强调在主体段落中如何分段并分析每个图表的关键信息，包括百分比的表达方式和通过比较得出结论的方法。最后，讲师鼓励听众进行相关练习，并期待在下节课见到大家。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>在写作关于图表分析的文章时，如何处理题目部分？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在写作题目部分时，应将原题目进行改写，使其更具体和明确。例如，可以将图表类型具体化，并在intro部分使用“the pet chart”表示饼图，然后使用“illustrates”或“shows”等动词来描述图表内容，同时对图表中的“the various reasons”和“agricultural line degradation”等部分进行适当改写以简化表达。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何分析和总结图表中的主要数据和信息？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>分析图表时，对于饼图，如果数据较少则建议全部列出和计算每个因素对全球土地退化的影响百分比；对于表格，应充分利用其中的总值或平均值信息，先写出整体地区的百分比数值比较，再针对每个具体因素分析其在各个地区的影响情况，从而形成清晰、详尽的主体段内容。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于图表分析的概述段，应如何撰写？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>撰写概述段时，需分别概括出饼图和表格整体的情况，并思考两幅图表之间的内在联系，搭建起连接两个图表信息的桥梁。对于饼图，可以挑出最大影响因素并简述其对全球土地退化的影响；而对于表格，可按照特定标准（如国家）进行分组，尤其要注意利用表格中的“Total land graded”等整体百分比信息，分析和比较不同地区受土地退化影响的程度，并揭示局部与整体之间的逻辑关系。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在分析图表数据时，如何选择要比较的数值？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在分析图表时，针对每一列数据，我们需要挑选一些关键数值，例如最大值、最小值和特定百分比的数据。比如在提到的第一列中，可以选择9.8和0.2这两个极端数值；对于第二列，则可以选择7.7和接近零的数值（如oceanic 0），因为即使是零或接近零的数值，在某些情况下也是很重要的信息，比如犯罪率等。最后一列要求包含所有数值的最大值、最小值以及全部数值。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在撰写报告时，如何表述整体和局部的分析结果？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>首先，整体来看，65%的土地退化是由动物繁殖和贸易造成的，这里使用了同义词替换以避免重复。接着，指出排名第三的原因是全球30%的大气辐射由于过度耕种导致。然后描述最小值的情况，即其他因素共造成7%的土地退化。对于局部分析，以欧洲为例，其土地退化比例最高，达到23%，并且与北美之间存在倍数关系，通过非限定性定语从句进行补充说明。接下来比较了在不同地区，如欧洲、大洋洲和北美，各个导致土地退化的原因所占的百分比，并强调了某些地区与其他地区之间的显著差异。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在描述图表数据时，如何使用百分比和其他表达方式？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在描述图表数据时，可以采用多种方式来体现百分比，如使用“constitute”或“account for”等表达占比的词汇。同时，当数据之间存在倍数关系时，如23%与13%之间的关系，可以在文中用“which was nearly twelve at large at that in ocean”这样的非限定性定语从句来体现这种倍数联系。而在比较不同地区的土地退化原因时，需要针对每一列数据找出最大值和最小值，并根据实际情况选择合适的表达方式，例如对于大洋洲可能采用文字性表达，而对于其他地区则给出具体的百分比数值。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>讲师在对话中解释了分析和写作涉及两个图表，尤其是双镜图题目的方法。她首先指出双镜图的复杂性常让学生感到困惑，并通过具体例子展示了如何分析两幅图表的描述对象、单位和时态的一致性。讲师强调了分析图表时要关注单位、时态、描述对象及图表间的关系，并提供了分析和写作图表内容的步骤，包括明确标题、图表类型、概述整体情况和具体数值分析。她特别强调在主体段落中如何分段并分析每个图表的关键信息，包括百分比的表达方式和通过比较得出结论的方法。最后，讲师鼓励听众进行相关练习，并期待在下节课见到大家。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在写作关于图表分析的文章时，如何处理题目部分？</td><td>在写作题目部分时，应将原题目进行改写，使其更具体和明确</td></tr>
+      <tr><td><b>Q2</b></td><td>如何分析和总结图表中的主要数据和信息？</td><td>分析图表时，对于饼图，如果数据较少则建议全部列出和计算每个因素对全球土地退化的影响百分比</td></tr>
+      <tr><td><b>Q3</b></td><td>对于图表分析的概述段，应如何撰写？</td><td>撰写概述段时，需分别概括出饼图和表格整体的情况，并思考两幅图表之间的内在联系，搭建起连接两个图表信息的桥梁</td></tr>
+      <tr><td><b>Q4</b></td><td>在分析图表数据时，如何选择要比较的数值？</td><td>在分析图表时，针对每一列数据，我们需要挑选一些关键数值，例如最大值、最小值和特定百分比的数据</td></tr>
+      <tr><td><b>Q5</b></td><td>在撰写报告时，如何表述整体和局部的分析结果？</td><td>首先，整体来看，65%的土地退化是由动物繁殖和贸易造成的，这里使用了同义词替换以避免重复</td></tr>
+      <tr><td><b>Q6</b></td><td>在描述图表数据时，如何使用百分比和其他表达方式？</td><td>在描述图表数据时，可以采用多种方式来体现百分比，如使用“constitute”或“account for”等表达占比的词汇</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在写作关于图表分析的文章时，如何处理题目部分？</h2>
+    <p class="qakey">在写作题目部分时，应将原题目进行改写，使其更具体和明确。例如，可以将图表类型具体化，并在intro部分使用“the pet chart”表示饼图，然后使用“illustrates”或“shows”等动词来描述图表内容，同时对图表中的“the various reasons”和“agricultural line degradation”等部分进行适当改写以简化表达。</p>
+    <h2><a id="q2"></a>Q2. 如何分析和总结图表中的主要数据和信息？</h2>
+    <p class="qakey">分析图表时，对于饼图，如果数据较少则建议全部列出和计算每个因素对全球土地退化的影响百分比；对于表格，应充分利用其中的总值或平均值信息，先写出整体地区的百分比数值比较，再针对每个具体因素分析其在各个地区的影响情况，从而形成清晰、详尽的主体段内容。</p>
+    <h2><a id="q3"></a>Q3. 对于图表分析的概述段，应如何撰写？</h2>
+    <p class="qakey">撰写概述段时，需分别概括出饼图和表格整体的情况，并思考两幅图表之间的内在联系，搭建起连接两个图表信息的桥梁。对于饼图，可以挑出最大影响因素并简述其对全球土地退化的影响；而对于表格，可按照特定标准（如国家）进行分组，尤其要注意利用表格中的“Total land graded”等整体百分比信息，分析和比较不同地区受土地退化影响的程度，并揭示局部与整体之间的逻辑关系。</p>
+    <h2><a id="q4"></a>Q4. 在分析图表数据时，如何选择要比较的数值？</h2>
+    <p class="qakey">在分析图表时，针对每一列数据，我们需要挑选一些关键数值，例如最大值、最小值和特定百分比的数据。比如在提到的第一列中，可以选择9.8和0.2这两个极端数值；对于第二列，则可以选择7.7和接近零的数值（如oceanic 0），因为即使是零或接近零的数值，在某些情况下也是很重要的信息，比如犯罪率等。最后一列要求包含所有数值的最大值、最小值以及全部数值。</p>
+    <h2><a id="q5"></a>Q5. 在撰写报告时，如何表述整体和局部的分析结果？</h2>
+    <p class="qakey">首先，整体来看，65%的土地退化是由动物繁殖和贸易造成的，这里使用了同义词替换以避免重复。接着，指出排名第三的原因是全球30%的大气辐射由于过度耕种导致。然后描述最小值的情况，即其他因素共造成7%的土地退化。对于局部分析，以欧洲为例，其土地退化比例最高，达到23%，并且与北美之间存在倍数关系，通过非限定性定语从句进行补充说明。接下来比较了在不同地区，如欧洲、大洋洲和北美，各个导致土地退化的原因所占的百分比，并强调了某些地区与其他地区之间的显著差异。</p>
+    <h2><a id="q6"></a>Q6. 在描述图表数据时，如何使用百分比和其他表达方式？</h2>
+    <p class="qakey">在描述图表数据时，可以采用多种方式来体现百分比，如使用“constitute”或“account for”等表达占比的词汇。同时，当数据之间存在倍数关系时，如23%与13%之间的关系，可以在文中用“which was nearly twelve at large at that in ocean”这样的非限定性定语从句来体现这种倍数联系。而在比较不同地区的土地退化原因时，需要针对每一列数据找出最大值和最小值，并根据实际情况选择合适的表达方式，例如对于大洋洲可能采用文字性表达，而对于其他地区则给出具体的百分比数值。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-06.html">精讲逐字稿</a></li>
-      <li><a href="qa-06.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-05.html">上一讲 05</a></li>
-      <li><a href="lesson-07.html">下一讲 07</a></li>
+<li><a href="#q1">Q1. 在写作关于图表分析的文章时，如何处理题目部分？</a></li>
+<li><a href="#q2">Q2. 如何分析和总结图表中的主要数据和信息？</a></li>
+<li><a href="#q3">Q3. 对于图表分析的概述段，应如何撰写？</a></li>
+<li><a href="#q4">Q4. 在分析图表数据时，如何选择要比较的数值？</a></li>
+<li><a href="#q5">Q5. 在撰写报告时，如何表述整体和局部的分析结果？</a></li>
+<li><a href="#q6">Q6. 在描述图表数据时，如何使用百分比和其他表达方式？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -190,8 +190,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

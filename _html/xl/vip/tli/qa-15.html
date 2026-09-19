@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -70,7 +70,7 @@
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>听力问答（20 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
       <li><a href="qa-02.html">第02讲 · 听力三大核心能力</a></li>
@@ -99,145 +99,145 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第15讲 · 复盘技巧与重听方法</h1>
-    <div class="abstract"><b>本讲概要：</b>老师在讨论中首先教授了复盘技巧，指出高水平学生可利用重听和对标选项的方法，而需改进的学生则应通过朗读课文增强理解后，再实施对标策略以锁定答案。强调理解内容优于死记硬背，并推荐听力学习时应侧重于听记词汇而非单纯背诵拼写。此外，老师提醒关注信号词，因其能指引答案或暗示干扰信息。随后，老师通过分析剑桥18听力材料，探讨了职场场景的复杂性，引导学生如何提升应对这类场景的能力，覆盖了工作沟通、职业规划讲座、自动化对就业影响等话题，旨在帮助学生深化对职场文化的理解，并通过练习和学习场景中的替换词汇来提高考试表现。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>在本次讲座中，主要关注的是哪个场景？第一道题目描述了什么样的场景？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>本次讲座主要关注的是与就业和工作相关的场景，特别是在剑桥18听力考试中经常出现的工作相关话题。第一道题目描述了两个学生参加了一场职业生涯规划讲座，并针对讲座内容进行了讨论，主题是关于专业未来择业和就业的问题。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第二十二题的问题是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>第二十二题询问的是关于说话人对于工作市场有何感想，特别是对于讲座中提到的工作市场部分。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第一个问题“讲座开始时Shantell遇到了什么问题？”的选项有哪些？根据讲座内容，Shantell在讲座开始时具体遇到了什么问题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>选项包括：A.视线被阻挡；B.无法找到空椅子；C.旁边的人在讲话。Shantell在讲座开始时遇到的问题是视线被前面一个男性的高个子阻挡，因此选择了A选项。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于惊讶考点的理解以及该题目的选项有哪些？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>题目是一个惊讶考点，ABC三个选项都可能正确，但其中有些内容是预料之中的，只有部分选项是真正令人惊讶的。本题中，女生提到对职场竞争激烈和工作种类多样感到惊讶，而男生则表示对讲座中提到的一些未曾考虑过的就业领域感到惊讶。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在第一段对话中，男生对女生的选择持何种态度？女生对于男生提到的2B选项有何反应？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>男生对于女生有很多选择这一点感到惊讶，并且认为这符合2B选项（即男生同意女生的选择）。女生不仅确认了2B选项，还进一步修改了句子内容，表达为“我之前也从未预料到如此多的职业选择机会”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>关于讲座人的评价，哪个选项最准确地反映了他们的观点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>根据后续对话，讲座人可能过于从学生的视角阐述问题，而实际上学生的想法并非如此，因此“讲座人讲话难以跟上节奏”（2B选项）和“讲座人对行业理解至关重要”（C选项）都不准确。A选项虽然难以理解，但根据对讲座内容深入理解后，它可能最符合题意，即讲座人的某些言论让学生感到不公平。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于学校职业生涯发展办公室提供的职业建议，学生们持何种态度？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>学生们认为学校提供的职业建议不够激励人（not inspiring），并且讨论的次数足够多，但缺乏真正激发他们热情的讨论。因此，学生们对“何时”和“由谁”给出职业建议持有批评态度。</p></div>
-    </details>
-    <details class="qa">
-      <summary>So did today's talk influence your thoughts on what career you'd like to take up in the future?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Well, I promised myself that i'd go through this course and keep an open mind till the end, but I think it's Better to pick an area of the industry now and then aim to get Better and Better at IT.</p></div>
-    </details>
-    <details class="qa">
-      <summary>女生对于未来职业规划的看法是什么？男生对于未来职业规划的观点是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>女生表示她会保持对课程内容的开放心态直到课程结束，倾向于先全面了解再做决定。男生认为应该尽早选择行业方向，并为目标而努力提升。</p></div>
-    </details>
-    <details class="qa">
-      <summary>这道题的关键点是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>这道题的关键在于理解男女双方对于时间规划（when的问题）的不同看法。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于做不给钱的助理工作，男生持何种态度？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>男生表示可以接受这种做法，并认为这是行业内的常态。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在27题中，讲座中提到的错误是谁犯的？对于讲座中提到的“他”的第一份工作中的错误，选项中哪个是正确的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>讲座中提到的错误是speaker在第一份工作中犯下的。正确答案是B选项，即“pay too much attention to her appearance”，即过于关注自己的外表打扮。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在第一段中，SHE对她的老板有什么不满？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>SHE本应该隐藏她对老板的负面情绪，但她并没有这么做，这显示了她对老板的openly dislike。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第四题的正确答案及其解析是什么？第六题的正确答案及其解析是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>正确答案是C选项。解析：根据信号词&quot;However&quot;，转折后提到市场存在消费者需求与商家供应之间的缺口，即设计师需要了解消费者想要但找不到的商品类型。正确答案是A和C选项。解析：从信号词&quot;People don't give up searching&quot;和&quot;They also take things back to the store if they aren't right&quot;中可以推断出，退货商品的质量问题以及政府销售商品的退货情况，这是设计师需要了解的信息。</p></div>
-    </details>
-    <details class="qa">
-      <summary>根据上下文，为什么说“信号词”在理解对话内容中很重要？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>“信号词”在理解对话时非常重要，因为它们揭示了句子之间的比较关系、转折关系以及虚拟条件等逻辑联系，帮助我们准确把握对话中的因果、转折等关键信息，并能从信号句中找到对应答案。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于接下来要分析的练习，它的题型有何变化？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>接下来的练习都是配对题，而非选择题，虽然题型变为配对，但场景讨论的是未来工作趋势，可能涉及较多未知领域的内容，需要特别关注信号词以提高答题正确率。</p></div>
-    </details>
-    <details class="qa">
-      <summary>What are the perceived impacts of industrialization and IT on employment and job nature?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Industrialization created more jobs, while IT led to the destruction of jobs, though initially IT might not have seemed positive.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What were the predictions about the future of work and how have they evolved?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>The future of work was initially predicted to be optimistic, with fewer boring, repetitive tasks due to robots, but concerns remain about people having more leisure time and the potential for increased unemployment.</p></div>
-    </details>
-    <details class="qa">
-      <summary>How has the demand for accountants changed in the last century?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Despite technological innovations, there are more accountants than ever before, and they have become more efficient and in demand.</p></div>
-    </details>
-    <details class="qa">
-      <summary>How has the job market for hairdressers changed over time?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Hairdressing jobs have seen a massive increase in demand because people's earning power has allowed them to spend more on personal services like hairdressing.</p></div>
-    </details>
-    <details class="qa">
-      <summary>How has technology affected the job roles of administrative staff?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Technology has led to a significant change in administrative staff roles, making their work more interesting and giving them higher status and responsibility.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What were the actual changes in the agricultural workforce over time?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>The proportion of the population working on land has decreased significantly since the 19th century, from roughly 25% to less than 4.2%.</p></div>
-    </details>
-    <details class="qa">
-      <summary>How has the care sector's growth been affected by technological advances?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Care worker jobs have seen huge growth due to technological advances and people's increased lifespan, which was not the case in the 19th century.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What has been the trend for bank clerks and how is technology expected to affect their future?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Bank clerks have been in decline since the introduction of ATMs in the 1980s, and technology is likely to make many of their current jobs redundant.</p></div>
-    </details>
-    <details class="qa">
-      <summary>二十年前，秘书的工作内容主要是什么？现在秘书的工作与过去相比有何变化？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>二十年前，秘书主要负责打字和记录会议的口述内容（即会议纪要）。现在秘书的工作赋予了更多的责任和更高的地位，不再局限于打字和记录会议，变得更加有趣和具有挑战性。</p></div>
-    </details>
-    <details class="qa">
-      <summary>农业工作者的数量有何显著变化？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>农业工作者的数量大幅度降低，从原本占据较高比例减少到了几乎为零，这个数字的巨大跌幅表明该职业领域的工作机会明显减少。</p></div>
-    </details>
-    <details class="qa">
-      <summary>护理工作在近期内有何发展趋势？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>由于人们的寿命增长，护理行业的规模经历了巨大的增长，但同时也存在一些工作岗位由于技术进步而变得多余，如银行柜员工作，面临着被取消的风险。</p></div>
-    </details>
-    <details class="qa">
-      <summary>工业化对就业市场的影响是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>工业化虽然创造了更多的就业机会，但也摧毁了一些传统行业，例如纺织行业，当时有工人因担心失业而破坏自己的工作工具，但最终这些行动并未改变工业化带来的变革。</p></div>
-    </details>
-    <details class="qa">
-      <summary>关于未来工作的两个预测是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>学生们对于未来工作有两个不同的看法：有人认为随着机器人取代人力，人们将有更多闲暇时间；而另一些人则持怀疑态度，认为尽管长远来看工作时间可能会减少，但在可预见的未来，工作时长可能会增加，且失业率的降低并不像预测的那样确定。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>老师在讨论中首先教授了复盘技巧，指出高水平学生可利用重听和对标选项的方法，而需改进的学生则应通过朗读课文增强理解后，再实施对标策略以锁定答案。强调理解内容优于死记硬背，并推荐听力学习时应侧重于听记词汇而非单纯背诵拼写。此外，老师提醒关注信号词，因其能指引答案或暗示干扰信息。随后，老师通过分析剑桥18听力材料，探讨了职场场景的复杂性，引导学生如何提升应对这类场景的能力，覆盖了工作沟通、职业规划讲座、自动化对就业影响等话题，旨在帮助学生深化对职场文化的理解，并通过练习和学习场景中的替换词汇来提高考试表现。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在本次讲座中，主要关注的是哪个场景？第一道题目描述了什么样的场景？</td><td>本次讲座主要关注的是与就业和工作相关的场景，特别是在剑桥18听力考试中经常出现的工作相关话题</td></tr>
+      <tr><td><b>Q2</b></td><td>第二十二题的问题是什么？</td><td>第二十二题询问的是关于说话人对于工作市场有何感想，特别是对于讲座中提到的工作市场部分</td></tr>
+      <tr><td><b>Q3</b></td><td>第一个问题“讲座开始时Shantell遇到了什么问题？”的选项有哪些？根据讲座内容，Shantell在讲座开始时具体遇到了什么问题？</td><td>选项包括：A.视线被阻挡</td></tr>
+      <tr><td><b>Q4</b></td><td>对于惊讶考点的理解以及该题目的选项有哪些？</td><td>题目是一个惊讶考点，ABC三个选项都可能正确，但其中有些内容是预料之中的，只有部分选项是真正令人惊讶的</td></tr>
+      <tr><td><b>Q5</b></td><td>在第一段对话中，男生对女生的选择持何种态度？女生对于男生提到的2B选项有何反应？</td><td>男生对于女生有很多选择这一点感到惊讶，并且认为这符合2B选项（即男生同意女生的选择）</td></tr>
+      <tr><td><b>Q6</b></td><td>关于讲座人的评价，哪个选项最准确地反映了他们的观点？</td><td>根据后续对话，讲座人可能过于从学生的视角阐述问题，而实际上学生的想法并非如此，因此“讲座人讲话难以跟上节奏”（2B选项）和“讲座人对行业理解至关重要”（C选项）都不准确</td></tr>
+      <tr><td><b>Q7</b></td><td>对于学校职业生涯发展办公室提供的职业建议，学生们持何种态度？</td><td>学生们认为学校提供的职业建议不够激励人（not inspiring），并且讨论的次数足够多，但缺乏真正激发他们热情的讨论</td></tr>
+      <tr><td><b>Q8</b></td><td>So did today's talk influence your thoughts on what career you'd like to take up in the future?</td><td>Well, I promised myself that i'd go through this course and keep an open mind till t…</td></tr>
+      <tr><td><b>Q9</b></td><td>女生对于未来职业规划的看法是什么？男生对于未来职业规划的观点是什么？</td><td>女生表示她会保持对课程内容的开放心态直到课程结束，倾向于先全面了解再做决定</td></tr>
+      <tr><td><b>Q10</b></td><td>这道题的关键点是什么？</td><td>这道题的关键在于理解男女双方对于时间规划（when的问题）的不同看法</td></tr>
+      <tr><td><b>Q11</b></td><td>对于做不给钱的助理工作，男生持何种态度？</td><td>男生表示可以接受这种做法，并认为这是行业内的常态</td></tr>
+      <tr><td><b>Q12</b></td><td>在27题中，讲座中提到的错误是谁犯的？对于讲座中提到的“他”的第一份工作中的错误，选项中哪个是正确的？</td><td>讲座中提到的错误是speaker在第一份工作中犯下的</td></tr>
+      <tr><td><b>Q13</b></td><td>在第一段中，SHE对她的老板有什么不满？</td><td>SHE本应该隐藏她对老板的负面情绪，但她并没有这么做，这显示了她对老板的openly dislike</td></tr>
+      <tr><td><b>Q14</b></td><td>第四题的正确答案及其解析是什么？第六题的正确答案及其解析是什么？</td><td>正确答案是C选项</td></tr>
+      <tr><td><b>Q15</b></td><td>根据上下文，为什么说“信号词”在理解对话内容中很重要？</td><td>“信号词”在理解对话时非常重要，因为它们揭示了句子之间的比较关系、转折关系以及虚拟条件等逻辑联系，帮助我们准确把握对话中的因果、转折等关键信息，并能从信号句中找到对应答…</td></tr>
+      <tr><td><b>Q16</b></td><td>对于接下来要分析的练习，它的题型有何变化？</td><td>接下来的练习都是配对题，而非选择题，虽然题型变为配对，但场景讨论的是未来工作趋势，可能涉及较多未知领域的内容，需要特别关注信号词以提高答题正确率</td></tr>
+      <tr><td><b>Q17</b></td><td>What are the perceived impacts of industrialization and IT on employment and job nature?</td><td>Industrialization created more jobs, while IT led to the destruction of jobs, though…</td></tr>
+      <tr><td><b>Q18</b></td><td>What were the predictions about the future of work and how have they evolved?</td><td>The future of work was initially predicted to be optimistic, with fewer boring, repe…</td></tr>
+      <tr><td><b>Q19</b></td><td>How has the demand for accountants changed in the last century?</td><td>Despite technological innovations, there are more accountants than ever before, and …</td></tr>
+      <tr><td><b>Q20</b></td><td>How has the job market for hairdressers changed over time?</td><td>Hairdressing jobs have seen a massive increase in demand because people's earning po…</td></tr>
+      <tr><td><b>Q21</b></td><td>How has technology affected the job roles of administrative staff?</td><td>Technology has led to a significant change in administrative staff roles, making the…</td></tr>
+      <tr><td><b>Q22</b></td><td>What were the actual changes in the agricultural workforce over time?</td><td>The proportion of the population working on land has decreased significantly since t…</td></tr>
+      <tr><td><b>Q23</b></td><td>How has the care sector's growth been affected by technological advances?</td><td>Care worker jobs have seen huge growth due to technological advances and people's in…</td></tr>
+      <tr><td><b>Q24</b></td><td>What has been the trend for bank clerks and how is technology expected to affect their future?</td><td>Bank clerks have been in decline since the introduction of ATMs in the 1980s, and te…</td></tr>
+      <tr><td><b>Q25</b></td><td>二十年前，秘书的工作内容主要是什么？现在秘书的工作与过去相比有何变化？</td><td>二十年前，秘书主要负责打字和记录会议的口述内容（即会议纪要）</td></tr>
+      <tr><td><b>Q26</b></td><td>农业工作者的数量有何显著变化？</td><td>农业工作者的数量大幅度降低，从原本占据较高比例减少到了几乎为零，这个数字的巨大跌幅表明该职业领域的工作机会明显减少</td></tr>
+      <tr><td><b>Q27</b></td><td>护理工作在近期内有何发展趋势？</td><td>由于人们的寿命增长，护理行业的规模经历了巨大的增长，但同时也存在一些工作岗位由于技术进步而变得多余，如银行柜员工作，面临着被取消的风险</td></tr>
+      <tr><td><b>Q28</b></td><td>工业化对就业市场的影响是什么？</td><td>工业化虽然创造了更多的就业机会，但也摧毁了一些传统行业，例如纺织行业，当时有工人因担心失业而破坏自己的工作工具，但最终这些行动并未改变工业化带来的变革</td></tr>
+      <tr><td><b>Q29</b></td><td>关于未来工作的两个预测是什么？</td><td>学生们对于未来工作有两个不同的看法：有人认为随着机器人取代人力，人们将有更多闲暇时间</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在本次讲座中，主要关注的是哪个场景？第一道题目描述了什么样的场景？</h2>
+    <p class="qakey">本次讲座主要关注的是与就业和工作相关的场景，特别是在剑桥18听力考试中经常出现的工作相关话题。第一道题目描述了两个学生参加了一场职业生涯规划讲座，并针对讲座内容进行了讨论，主题是关于专业未来择业和就业的问题。</p>
+    <h2><a id="q2"></a>Q2. 第二十二题的问题是什么？</h2>
+    <p class="qakey">第二十二题询问的是关于说话人对于工作市场有何感想，特别是对于讲座中提到的工作市场部分。</p>
+    <h2><a id="q3"></a>Q3. 第一个问题“讲座开始时Shantell遇到了什么问题？”的选项有哪些？根据讲座内容，Shantell在讲座开始时具体遇到了什么问题？</h2>
+    <p class="qakey">选项包括：A.视线被阻挡；B.无法找到空椅子；C.旁边的人在讲话。Shantell在讲座开始时遇到的问题是视线被前面一个男性的高个子阻挡，因此选择了A选项。</p>
+    <h2><a id="q4"></a>Q4. 对于惊讶考点的理解以及该题目的选项有哪些？</h2>
+    <p class="qakey">题目是一个惊讶考点，ABC三个选项都可能正确，但其中有些内容是预料之中的，只有部分选项是真正令人惊讶的。本题中，女生提到对职场竞争激烈和工作种类多样感到惊讶，而男生则表示对讲座中提到的一些未曾考虑过的就业领域感到惊讶。</p>
+    <h2><a id="q5"></a>Q5. 在第一段对话中，男生对女生的选择持何种态度？女生对于男生提到的2B选项有何反应？</h2>
+    <p class="qakey">男生对于女生有很多选择这一点感到惊讶，并且认为这符合2B选项（即男生同意女生的选择）。女生不仅确认了2B选项，还进一步修改了句子内容，表达为“我之前也从未预料到如此多的职业选择机会”。</p>
+    <h2><a id="q6"></a>Q6. 关于讲座人的评价，哪个选项最准确地反映了他们的观点？</h2>
+    <p class="qakey">根据后续对话，讲座人可能过于从学生的视角阐述问题，而实际上学生的想法并非如此，因此“讲座人讲话难以跟上节奏”（2B选项）和“讲座人对行业理解至关重要”（C选项）都不准确。A选项虽然难以理解，但根据对讲座内容深入理解后，它可能最符合题意，即讲座人的某些言论让学生感到不公平。</p>
+    <h2><a id="q7"></a>Q7. 对于学校职业生涯发展办公室提供的职业建议，学生们持何种态度？</h2>
+    <p class="qakey">学生们认为学校提供的职业建议不够激励人（not inspiring），并且讨论的次数足够多，但缺乏真正激发他们热情的讨论。因此，学生们对“何时”和“由谁”给出职业建议持有批评态度。</p>
+    <h2><a id="q8"></a>Q8. So did today's talk influence your thoughts on what career you'd like to take up in the future?</h2>
+    <p class="qakey">Well, I promised myself that i'd go through this course and keep an open mind till the end, but I think it's Better to pick an area of the industry now and then aim to get Better and Better at IT.</p>
+    <h2><a id="q9"></a>Q9. 女生对于未来职业规划的看法是什么？男生对于未来职业规划的观点是什么？</h2>
+    <p class="qakey">女生表示她会保持对课程内容的开放心态直到课程结束，倾向于先全面了解再做决定。男生认为应该尽早选择行业方向，并为目标而努力提升。</p>
+    <h2><a id="q10"></a>Q10. 这道题的关键点是什么？</h2>
+    <p class="qakey">这道题的关键在于理解男女双方对于时间规划（when的问题）的不同看法。</p>
+    <h2><a id="q11"></a>Q11. 对于做不给钱的助理工作，男生持何种态度？</h2>
+    <p class="qakey">男生表示可以接受这种做法，并认为这是行业内的常态。</p>
+    <h2><a id="q12"></a>Q12. 在27题中，讲座中提到的错误是谁犯的？对于讲座中提到的“他”的第一份工作中的错误，选项中哪个是正确的？</h2>
+    <p class="qakey">讲座中提到的错误是speaker在第一份工作中犯下的。正确答案是B选项，即“pay too much attention to her appearance”，即过于关注自己的外表打扮。</p>
+    <h2><a id="q13"></a>Q13. 在第一段中，SHE对她的老板有什么不满？</h2>
+    <p class="qakey">SHE本应该隐藏她对老板的负面情绪，但她并没有这么做，这显示了她对老板的openly dislike。</p>
+    <h2><a id="q14"></a>Q14. 第四题的正确答案及其解析是什么？第六题的正确答案及其解析是什么？</h2>
+    <p class="qakey">正确答案是C选项。解析：根据信号词"However"，转折后提到市场存在消费者需求与商家供应之间的缺口，即设计师需要了解消费者想要但找不到的商品类型。正确答案是A和C选项。解析：从信号词"People don't give up searching"和"They also take things back to the store if they aren't right"中可以推断出，退货商品的质量问题以及政府销售商品的退货情况，这是设计师需要了解的信息。</p>
+    <h2><a id="q15"></a>Q15. 根据上下文，为什么说“信号词”在理解对话内容中很重要？</h2>
+    <p class="qakey">“信号词”在理解对话时非常重要，因为它们揭示了句子之间的比较关系、转折关系以及虚拟条件等逻辑联系，帮助我们准确把握对话中的因果、转折等关键信息，并能从信号句中找到对应答案。</p>
+    <h2><a id="q16"></a>Q16. 对于接下来要分析的练习，它的题型有何变化？</h2>
+    <p class="qakey">接下来的练习都是配对题，而非选择题，虽然题型变为配对，但场景讨论的是未来工作趋势，可能涉及较多未知领域的内容，需要特别关注信号词以提高答题正确率。</p>
+    <h2><a id="q17"></a>Q17. What are the perceived impacts of industrialization and IT on employment and job nature?</h2>
+    <p class="qakey">Industrialization created more jobs, while IT led to the destruction of jobs, though initially IT might not have seemed positive.</p>
+    <h2><a id="q18"></a>Q18. What were the predictions about the future of work and how have they evolved?</h2>
+    <p class="qakey">The future of work was initially predicted to be optimistic, with fewer boring, repetitive tasks due to robots, but concerns remain about people having more leisure time and the potential for increased unemployment.</p>
+    <h2><a id="q19"></a>Q19. How has the demand for accountants changed in the last century?</h2>
+    <p class="qakey">Despite technological innovations, there are more accountants than ever before, and they have become more efficient and in demand.</p>
+    <h2><a id="q20"></a>Q20. How has the job market for hairdressers changed over time?</h2>
+    <p class="qakey">Hairdressing jobs have seen a massive increase in demand because people's earning power has allowed them to spend more on personal services like hairdressing.</p>
+    <h2><a id="q21"></a>Q21. How has technology affected the job roles of administrative staff?</h2>
+    <p class="qakey">Technology has led to a significant change in administrative staff roles, making their work more interesting and giving them higher status and responsibility.</p>
+    <h2><a id="q22"></a>Q22. What were the actual changes in the agricultural workforce over time?</h2>
+    <p class="qakey">The proportion of the population working on land has decreased significantly since the 19th century, from roughly 25% to less than 4.2%.</p>
+    <h2><a id="q23"></a>Q23. How has the care sector's growth been affected by technological advances?</h2>
+    <p class="qakey">Care worker jobs have seen huge growth due to technological advances and people's increased lifespan, which was not the case in the 19th century.</p>
+    <h2><a id="q24"></a>Q24. What has been the trend for bank clerks and how is technology expected to affect their future?</h2>
+    <p class="qakey">Bank clerks have been in decline since the introduction of ATMs in the 1980s, and technology is likely to make many of their current jobs redundant.</p>
+    <h2><a id="q25"></a>Q25. 二十年前，秘书的工作内容主要是什么？现在秘书的工作与过去相比有何变化？</h2>
+    <p class="qakey">二十年前，秘书主要负责打字和记录会议的口述内容（即会议纪要）。现在秘书的工作赋予了更多的责任和更高的地位，不再局限于打字和记录会议，变得更加有趣和具有挑战性。</p>
+    <h2><a id="q26"></a>Q26. 农业工作者的数量有何显著变化？</h2>
+    <p class="qakey">农业工作者的数量大幅度降低，从原本占据较高比例减少到了几乎为零，这个数字的巨大跌幅表明该职业领域的工作机会明显减少。</p>
+    <h2><a id="q27"></a>Q27. 护理工作在近期内有何发展趋势？</h2>
+    <p class="qakey">由于人们的寿命增长，护理行业的规模经历了巨大的增长，但同时也存在一些工作岗位由于技术进步而变得多余，如银行柜员工作，面临着被取消的风险。</p>
+    <h2><a id="q28"></a>Q28. 工业化对就业市场的影响是什么？</h2>
+    <p class="qakey">工业化虽然创造了更多的就业机会，但也摧毁了一些传统行业，例如纺织行业，当时有工人因担心失业而破坏自己的工作工具，但最终这些行动并未改变工业化带来的变革。</p>
+    <h2><a id="q29"></a>Q29. 关于未来工作的两个预测是什么？</h2>
+    <p class="qakey">学生们对于未来工作有两个不同的看法：有人认为随着机器人取代人力，人们将有更多闲暇时间；而另一些人则持怀疑态度，认为尽管长远来看工作时间可能会减少，但在可预见的未来，工作时长可能会增加，且失业率的降低并不像预测的那样确定。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-15.html">精讲逐字稿</a></li>
-      <li><a href="qa-15.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-14.html">上一讲 14</a></li>
-      <li><a href="lesson-16.html">下一讲 16</a></li>
+<li><a href="#q1">Q1. 在本次讲座中，主要关注的是哪个场景？第一道题目描述了什么样的场景？</a></li>
+<li><a href="#q2">Q2. 第二十二题的问题是什么？</a></li>
+<li><a href="#q3">Q3. 第一个问题“讲座开始时Shantell遇到了什么问题？”的选项有哪些？根据讲座内容，Shantell在讲座开始时具体遇到了什么问题？</a></li>
+<li><a href="#q4">Q4. 对于惊讶考点的理解以及该题目的选项有哪些？</a></li>
+<li><a href="#q5">Q5. 在第一段对话中，男生对女生的选择持何种态度？女生对于男生提到的2B选项有何反应？</a></li>
+<li><a href="#q6">Q6. 关于讲座人的评价，哪个选项最准确地反映了他们的观点？</a></li>
+<li><a href="#q7">Q7. 对于学校职业生涯发展办公室提供的职业建议，学生们持何种态度？</a></li>
+<li><a href="#q8">Q8. So did today's talk influence your thoughts on what career you'd like to take up in the future?</a></li>
+<li><a href="#q9">Q9. 女生对于未来职业规划的看法是什么？男生对于未来职业规划的观点是什么？</a></li>
+<li><a href="#q10">Q10. 这道题的关键点是什么？</a></li>
+<li><a href="#q11">Q11. 对于做不给钱的助理工作，男生持何种态度？</a></li>
+<li><a href="#q12">Q12. 在27题中，讲座中提到的错误是谁犯的？对于讲座中提到的“他”的第一份工作中的错误，选项中哪个是正确的？</a></li>
+<li><a href="#q13">Q13. 在第一段中，SHE对她的老板有什么不满？</a></li>
+<li><a href="#q14">Q14. 第四题的正确答案及其解析是什么？第六题的正确答案及其解析是什么？</a></li>
+<li><a href="#q15">Q15. 根据上下文，为什么说“信号词”在理解对话内容中很重要？</a></li>
+<li><a href="#q16">Q16. 对于接下来要分析的练习，它的题型有何变化？</a></li>
+<li><a href="#q17">Q17. What are the perceived impacts of industrialization and IT on employment and job nature?</a></li>
+<li><a href="#q18">Q18. What were the predictions about the future of work and how have they evolved?</a></li>
+<li><a href="#q19">Q19. How has the demand for accountants changed in the last century?</a></li>
+<li><a href="#q20">Q20. How has the job market for hairdressers changed over time?</a></li>
+<li><a href="#q21">Q21. How has technology affected the job roles of administrative staff?</a></li>
+<li><a href="#q22">Q22. What were the actual changes in the agricultural workforce over time?</a></li>
+<li><a href="#q23">Q23. How has the care sector's growth been affected by technological advances?</a></li>
+<li><a href="#q24">Q24. What has been the trend for bank clerks and how is technology expected to affect their future?</a></li>
+<li><a href="#q25">Q25. 二十年前，秘书的工作内容主要是什么？现在秘书的工作与过去相比有何变化？</a></li>
+<li><a href="#q26">Q26. 农业工作者的数量有何显著变化？</a></li>
+<li><a href="#q27">Q27. 护理工作在近期内有何发展趋势？</a></li>
+<li><a href="#q28">Q28. 工业化对就业市场的影响是什么？</a></li>
+<li><a href="#q29">Q29. 关于未来工作的两个预测是什么？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -285,8 +285,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

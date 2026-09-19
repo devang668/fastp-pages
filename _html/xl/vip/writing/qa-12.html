@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -63,14 +63,14 @@
   <div class="topbar-right">
     <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
-    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <a href="writing-qa-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>写作问答（17 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 动态图表（小作文）总览</a></li>
       <li><a href="qa-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
@@ -96,29 +96,23 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第12讲 · 同意与否题型</h1>
-    <div class="abstract"><b>本讲概要：</b>在雅思写作考试中，同意与否题型因其复杂性而成为难点，要求考生明确表达个人观点。然而，不少考生在理解题意和确立立场上遇到挑战。讲师指出，常见的错误写法包括对题目信息的误读和立场不明确。为了有效应对，讲师建议采取三种策略：完全同意、完全不同意或持一分为二的立场。通过实例，展示了不同立场下的文章结构如何构建，强调了灵活运用这些策略的重要性。讲师强调，无论采取何种立场，清晰地表达观点都是关键，这有助于考生在考试中取得优异成绩。</div>
+    <blockquote><p><b>本讲定位：</b>在雅思写作考试中，同意与否题型因其复杂性而成为难点，要求考生明确表达个人观点。然而，不少考生在理解题意和确立立场上遇到挑战。讲师指出，常见的错误写法包括对题目信息的误读和立场不明确。为了有效应对，讲师建议采取三种策略：完全同意、完全不同意或持一分为二的立场。通过实例，展示了不同立场下的文章结构如何构建，强调了灵活运用这些策略的重要性。讲师强调，无论采取何种立场，清晰地表达观点都是关键，这有助于考生在考试中取得优异成绩。</p></blockquote>
     <p>本讲没有独立的问答块，核心内容见<a href="lesson-12.html">精讲逐字稿页</a>。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-12.html">精讲逐字稿</a></li>
-      <li><a href="qa-12.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-11.html">上一讲 11</a></li>
-      <li><a href="lesson-13.html">下一讲 13</a></li>
+
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -166,8 +160,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

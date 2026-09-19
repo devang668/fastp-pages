@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -70,7 +70,7 @@
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>听力问答（20 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
       <li><a href="qa-02.html">第02讲 · 听力三大核心能力</a></li>
@@ -99,129 +99,129 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第16讲 · Part Four 填空题要点</h1>
-    <div class="abstract"><b>本讲概要：</b>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们这个听力已经从最开始的part one，我们不断的梦到了今天即将学习到的part 4、part four. 其实这个题型大家已经非常的熟悉了，就是填空题。但是这个部分的填空题又不是特别好拿分为什么不好拿分。它的关键性因素其实在于part four，它的场景还是比较复杂的那它主要会涉及到一些科学类的场景，这些科学类的场景主要模仿的是我们上课这样的一个环境。所以你会听到的那一个在独白的人，他可能会有两种身份。第一种身份他是一个老师，第二种身份他是一个学生。如果他是一个老师的话，他正在给我们讲一个讲座，那这个叫做一个lecture场景，对吧？那如果是一个学生的话，他可能会针对他目前手头进行的一些研究，去跟我们进行一些汇报。这个汇报叫做present。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>在雅思听力考试中，part 4的填空题为何不好拿分？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>part 4的填空题之所以难，主要是因为其场景较为复杂，多涉及科学类场景，如讲座（lecture）或研究汇报（presentation），这些内容可能与日常生活中接触到的主题不符，导致主题词陌生。尽管如此，填空题仍有解题原则可循。</p></div>
-    </details>
-    <details class="qa">
-      <summary>填空题的基本原则有哪些？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>填空题有三大基本原则。首先，所填单词必须是原文中的原词，确保单复数、时态等一致；其次，拼写必须正确，英式和美式拼写均可接受；最后，答案需符合题目规定的字数要求，比如只允许一个单词或特定格式的数字。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如果在填空题中出现拼写错误会怎样？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>如果出现拼写错误，将会导致不得分。即使对单词意思有理解，但拼写不准确依然不能得分。因此，务必注意检查并确保拼写正确。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于part 4失分的主要原因是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>part 4失分的主要原因有两个方面：一是听力理解不足，没有捕捉到前后替换的信息，这需要提升听力能力；二是拼写错误，这部分错误是可以避免的，只要做好单词积累，就能有效规避拼写错误扣分。</p></div>
-    </details>
-    <details class="qa">
-      <summary>做题成功的关键因素是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>成功的关键在于读懂题干，进行预判（内容和词性），并能识别考点。尤其是对于60%以上的细节题，重点在于锁定题干中的替换词并正确拼写答案。同时，了解听力考试中的常见考点，如动词替换等，有助于提高答题成功率。</p></div>
-    </details>
-    <details class="qa">
-      <summary>power for篇章结构是什么样的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>power for是一个人的独白，没有互动环节。这个独白中的“我”可能是学生，也可能是老师，如果是老师则为lecture，如果是学生则为presentation。</p></div>
-    </details>
-    <details class="qa">
-      <summary>整体的lecture或presentation如何展开？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>通常会有一个引子部分，介绍主题。接着按照一定的顺序展开内容，例如四个部分：第一部分介绍主题，第二部分讲述方法，第三部分呈现实验结果，第四部分说明实验的应用。引子的长度不一，有的仅10秒，有的长达60秒。</p></div>
-    </details>
-    <details class="qa">
-      <summary>讲解的示例中，黑体字部分代表什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>示例中的黑体字部分对应于四个不同的讲解区域，分别对应于四个部分的内容，确保讲解时能正确划分和锁定题目。</p></div>
-    </details>
-    <details class="qa">
-      <summary>什么是“结构大于内容”？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在听力理解中，“结构大于内容”意味着即使听不懂每个单词或句子的具体含义，也要关注整体的句子结构，因为理解了结构就能推断出大致内容，从而做出正确选择。</p></div>
-    </details>
-    <details class="qa">
-      <summary>做题时应注意哪些易导致节奏混乱的听力问题点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>主要关注“看不见的冰山”现象，即听力中有一段没有明确出现在文字上的信息，可能会造成做题节奏混乱，比如通过听一段关于亚当斯密和斯多葛主义的内容来定位cognitive behavior therapy这个主题，实际等待原词出现的时间可能长达一分钟左右，这期间容易导致考生失去后续题目。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在听力考试中，part four部分的看题时间有何特点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>part four部分在做题时有且仅有一次看题机会，会把31到40题全部看完。其中会有一个长达3到5秒的暂停，这个暂停不是音频卡顿，而是为了提醒考生已经进行到听力的一半，如果前面内容没听懂，应尽快关注后半部分。</p></div>
-    </details>
-    <details class="qa">
-      <summary>听力考试中是否存在两个相邻题目使用相同定位词的情况？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>是的，听力考试中相邻题目可能会使用相同的定位词。例如，一道题提到“control emotion is essential”，而另一道题中的信息是“external events cannot be controlled”，虽然都含有“control”这个词，但实际含义不同，一个是指控制情绪，另一个则是在说无法控制外部事件。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于含有常见词汇如“control”的题目，考生应该如何应对？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>考生在听到频繁出现的“control”单词时，不要急于填写答案，而应保持跟随听力节奏，不要被某个熟词所迷惑，要理解其在不同语境下的具体含义。</p></div>
-    </details>
-    <details class="qa">
-      <summary>关于控制情绪的主题，在听力材料中有何具体表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在听力材料中，提到Stoic principles基于人们可以拥有不可动摇的幸福，关键在于美德。并进一步解释，像愤怒和嫉妒这类破坏性情绪，在我们的有意识控制下，不需要被它们控制我们，因为我们可以学会控制它们。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在题干中识别因果类替换关系的重要性是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在题干中识别因果类替换关系很重要，因为这可以帮助考生正确理解题目并找到答案。例如，题目“Stoicism is still relevant today because of its appeal”中，“relevant”表示意义重大，“appeal”在此处意为吸引力，通过识别这种关系，考生能更好地解答问题。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在该题目中，为什么说&quot;relevant&quot;与&quot;appealing&quot;可以互换使用？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在这个场景中，&quot;relevant&quot;和&quot;appealing&quot;在语境中都是形容词，都表示“有吸引力的”。上句提到这个东西意义重大，下句则指出它具有实际意义并且引人注目，因此有吸引力的东西往往意味着它是重要的。所以，这两个词在此处可以等同看待并进行替换。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于这道题，如何通过预判词性来快速找到答案？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>解决这类题目时，首先要预测词性。本题目的关键在于识别&quot;most&quot;之后的形容词&quot;practical&quot;和&quot;appealing&quot;。由于空格前为&quot;most practical of all philosophers&quot;，且根据逻辑，&quot;appealing&quot;不可能出现在该位置，所以答案只能是&quot;practical&quot;。</p></div>
-    </details>
-    <details class="qa">
-      <summary>听重读音节是否有助于识别答案？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>是的，通过听重读音节可以辅助识别答案。例如，在&quot;Stoicism, which, in my opinion, is the most practical of all philosophers, and therefore the most appealing.&quot;这句话中，&quot;practical&quot;和&quot;appealing&quot;被重读，这提示考生这两个词可能是正确答案。</p></div>
-    </details>
-    <details class="qa">
-      <summary>关于被动语态和定语从句的部分，有何考点值得注意？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在处理这部分内容时，虽然有涉及被动语态和定语从句的考点，但由于本题主要聚焦于熟词僻意，故不将其当作重点定语从句题目处理。同时，提到了对于被动语态的一些替换形式，以及在听懂文章大意后，如何关注名词、副词等词性，并积累一些基本的同义替换词汇，如different perspective（不同观点）和holy negative（消极的）。</p></div>
-    </details>
-    <details class="qa">
-      <summary>Cognitive behavior therapy主要用来治疗什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Cognitive behavior therapy主要用于治疗depression（抑郁症）。</p></div>
-    </details>
-    <details class="qa">
-      <summary>通过学习控制思想，人们可以用什么来挑战和改变不合理信念？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>人们可以利用logic（逻辑）来挑战和改变不合理信念，从而控制他们的思想、思维症状和行为。</p></div>
-    </details>
-    <details class="qa">
-      <summary>Stoic principles在商业领域中的应用是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Stoic principles可以帮助构建面对挫折所需的韧性和心态，教导人们将障碍转化为机会。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在听力理解中，什么是复数名词提示词的替换？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>复数名词提示词的替换是指在听力中听到的&quot;a lot of&quot;、&quot;许多&quot;等表达大量数量的词汇，在答案中可能被替换为&quot;a number of&quot;、&quot;large amount of&quot;或&quot;considerable numbers of&quot;等形式。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于part four的考点，有哪些需要特别注意的点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>part four的考点包括识别难度较高的被动语态、定语从句等替换情况，以及题干中可能出现的替换和复数名词提示词的替换。此外，还强调了做题步骤，如读题预测、听题找替换、书写答案并保证拼写正确，以及做完题目后的复盘过程，即听写答案句并分析题目考点。</p></div>
-    </details>
-    <details class="qa">
-      <summary>是否需要全文精听来完成part four的题目？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>不建议全文精听part four，因为大部分内容不需要完全理解，重点在于捕捉答案句中的替换信息。如果有额外时间，建议将精力放在提升其他部分的能力上，比如加强对于part three的理解和精听练习。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>Hello, 各位同学大家好，我是三老师，欢迎大家回来。我们这个听力已经从最开始的part one，我们不断的梦到了今天即将学习到的part 4、part four. 其实这个题型大家已经非常的熟悉了，就是填空题。但是这个部分的填空题又不是特别好拿分为什么不好拿分。它的关键性因素其实在于part four，它的场景还是比较复杂的那它主要会涉及到一些科学类的场景，这些科学类的场景主要模仿的是我们上课这样的一个环境。所以你会听到的那一个在独白的人，他可能会有两种身份。第一种身份他是一个老师，第二种身份他是一个学生。如果他是一个老师的话，他正在给我们讲一个讲座，那这个叫做一个lecture场景，对吧？那如果是一个学生的话，他可能会针对他目前手头进行的一些研究，去跟我们进行一些汇报。这个汇报叫做present。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在雅思听力考试中，part 4的填空题为何不好拿分？</td><td>part 4的填空题之所以难，主要是因为其场景较为复杂，多涉及科学类场景，如讲座（lecture）或研究汇报（presentation），这些内容可能与日常生活中接触到…</td></tr>
+      <tr><td><b>Q2</b></td><td>填空题的基本原则有哪些？</td><td>填空题有三大基本原则</td></tr>
+      <tr><td><b>Q3</b></td><td>如果在填空题中出现拼写错误会怎样？</td><td>如果出现拼写错误，将会导致不得分</td></tr>
+      <tr><td><b>Q4</b></td><td>对于part 4失分的主要原因是什么？</td><td>part 4失分的主要原因有两个方面：一是听力理解不足，没有捕捉到前后替换的信息，这需要提升听力能力</td></tr>
+      <tr><td><b>Q5</b></td><td>做题成功的关键因素是什么？</td><td>成功的关键在于读懂题干，进行预判（内容和词性），并能识别考点</td></tr>
+      <tr><td><b>Q6</b></td><td>power for篇章结构是什么样的？</td><td>power for是一个人的独白，没有互动环节</td></tr>
+      <tr><td><b>Q7</b></td><td>整体的lecture或presentation如何展开？</td><td>通常会有一个引子部分，介绍主题</td></tr>
+      <tr><td><b>Q8</b></td><td>讲解的示例中，黑体字部分代表什么？</td><td>示例中的黑体字部分对应于四个不同的讲解区域，分别对应于四个部分的内容，确保讲解时能正确划分和锁定题目</td></tr>
+      <tr><td><b>Q9</b></td><td>什么是“结构大于内容”？</td><td>在听力理解中，“结构大于内容”意味着即使听不懂每个单词或句子的具体含义，也要关注整体的句子结构，因为理解了结构就能推断出大致内容，从而做出正确选择</td></tr>
+      <tr><td><b>Q10</b></td><td>做题时应注意哪些易导致节奏混乱的听力问题点？</td><td>主要关注“看不见的冰山”现象，即听力中有一段没有明确出现在文字上的信息，可能会造成做题节奏混乱，比如通过听一段关于亚当斯密和斯多葛主义的内容来定位cognitive b…</td></tr>
+      <tr><td><b>Q11</b></td><td>在听力考试中，part four部分的看题时间有何特点？</td><td>part four部分在做题时有且仅有一次看题机会，会把31到40题全部看完</td></tr>
+      <tr><td><b>Q12</b></td><td>听力考试中是否存在两个相邻题目使用相同定位词的情况？</td><td>是的，听力考试中相邻题目可能会使用相同的定位词</td></tr>
+      <tr><td><b>Q13</b></td><td>对于含有常见词汇如“control”的题目，考生应该如何应对？</td><td>考生在听到频繁出现的“control”单词时，不要急于填写答案，而应保持跟随听力节奏，不要被某个熟词所迷惑，要理解其在不同语境下的具体含义</td></tr>
+      <tr><td><b>Q14</b></td><td>关于控制情绪的主题，在听力材料中有何具体表达？</td><td>在听力材料中，提到Stoic principles基于人们可以拥有不可动摇的幸福，关键在于美德</td></tr>
+      <tr><td><b>Q15</b></td><td>在题干中识别因果类替换关系的重要性是什么？</td><td>在题干中识别因果类替换关系很重要，因为这可以帮助考生正确理解题目并找到答案</td></tr>
+      <tr><td><b>Q16</b></td><td>在该题目中，为什么说"relevant"与"appealing"可以互换使用？</td><td>在这个场景中，"relevant"和"appealing"在语境中都是形容词，都表示“有吸引力的”</td></tr>
+      <tr><td><b>Q17</b></td><td>对于这道题，如何通过预判词性来快速找到答案？</td><td>解决这类题目时，首先要预测词性</td></tr>
+      <tr><td><b>Q18</b></td><td>听重读音节是否有助于识别答案？</td><td>是的，通过听重读音节可以辅助识别答案</td></tr>
+      <tr><td><b>Q19</b></td><td>关于被动语态和定语从句的部分，有何考点值得注意？</td><td>在处理这部分内容时，虽然有涉及被动语态和定语从句的考点，但由于本题主要聚焦于熟词僻意，故不将其当作重点定语从句题目处理</td></tr>
+      <tr><td><b>Q20</b></td><td>Cognitive behavior therapy主要用来治疗什么？</td><td>Cognitive behavior therapy主要用于治疗depression（抑郁症）</td></tr>
+      <tr><td><b>Q21</b></td><td>通过学习控制思想，人们可以用什么来挑战和改变不合理信念？</td><td>人们可以利用logic（逻辑）来挑战和改变不合理信念，从而控制他们的思想、思维症状和行为</td></tr>
+      <tr><td><b>Q22</b></td><td>Stoic principles在商业领域中的应用是什么？</td><td>Stoic principles可以帮助构建面对挫折所需的韧性和心态，教导人们将障碍转化为机会</td></tr>
+      <tr><td><b>Q23</b></td><td>在听力理解中，什么是复数名词提示词的替换？</td><td>复数名词提示词的替换是指在听力中听到的"a lot of"、"许多"等表达大量数量的词汇，在答案中可能被替换为"a number of"、"large amount o…</td></tr>
+      <tr><td><b>Q24</b></td><td>对于part four的考点，有哪些需要特别注意的点？</td><td>part four的考点包括识别难度较高的被动语态、定语从句等替换情况，以及题干中可能出现的替换和复数名词提示词的替换</td></tr>
+      <tr><td><b>Q25</b></td><td>是否需要全文精听来完成part four的题目？</td><td>不建议全文精听part four，因为大部分内容不需要完全理解，重点在于捕捉答案句中的替换信息</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在雅思听力考试中，part 4的填空题为何不好拿分？</h2>
+    <p class="qakey">part 4的填空题之所以难，主要是因为其场景较为复杂，多涉及科学类场景，如讲座（lecture）或研究汇报（presentation），这些内容可能与日常生活中接触到的主题不符，导致主题词陌生。尽管如此，填空题仍有解题原则可循。</p>
+    <h2><a id="q2"></a>Q2. 填空题的基本原则有哪些？</h2>
+    <p class="qakey">填空题有三大基本原则。首先，所填单词必须是原文中的原词，确保单复数、时态等一致；其次，拼写必须正确，英式和美式拼写均可接受；最后，答案需符合题目规定的字数要求，比如只允许一个单词或特定格式的数字。</p>
+    <h2><a id="q3"></a>Q3. 如果在填空题中出现拼写错误会怎样？</h2>
+    <p class="qakey">如果出现拼写错误，将会导致不得分。即使对单词意思有理解，但拼写不准确依然不能得分。因此，务必注意检查并确保拼写正确。</p>
+    <h2><a id="q4"></a>Q4. 对于part 4失分的主要原因是什么？</h2>
+    <p class="qakey">part 4失分的主要原因有两个方面：一是听力理解不足，没有捕捉到前后替换的信息，这需要提升听力能力；二是拼写错误，这部分错误是可以避免的，只要做好单词积累，就能有效规避拼写错误扣分。</p>
+    <h2><a id="q5"></a>Q5. 做题成功的关键因素是什么？</h2>
+    <p class="qakey">成功的关键在于读懂题干，进行预判（内容和词性），并能识别考点。尤其是对于60%以上的细节题，重点在于锁定题干中的替换词并正确拼写答案。同时，了解听力考试中的常见考点，如动词替换等，有助于提高答题成功率。</p>
+    <h2><a id="q6"></a>Q6. power for篇章结构是什么样的？</h2>
+    <p class="qakey">power for是一个人的独白，没有互动环节。这个独白中的“我”可能是学生，也可能是老师，如果是老师则为lecture，如果是学生则为presentation。</p>
+    <h2><a id="q7"></a>Q7. 整体的lecture或presentation如何展开？</h2>
+    <p class="qakey">通常会有一个引子部分，介绍主题。接着按照一定的顺序展开内容，例如四个部分：第一部分介绍主题，第二部分讲述方法，第三部分呈现实验结果，第四部分说明实验的应用。引子的长度不一，有的仅10秒，有的长达60秒。</p>
+    <h2><a id="q8"></a>Q8. 讲解的示例中，黑体字部分代表什么？</h2>
+    <p class="qakey">示例中的黑体字部分对应于四个不同的讲解区域，分别对应于四个部分的内容，确保讲解时能正确划分和锁定题目。</p>
+    <h2><a id="q9"></a>Q9. 什么是“结构大于内容”？</h2>
+    <p class="qakey">在听力理解中，“结构大于内容”意味着即使听不懂每个单词或句子的具体含义，也要关注整体的句子结构，因为理解了结构就能推断出大致内容，从而做出正确选择。</p>
+    <h2><a id="q10"></a>Q10. 做题时应注意哪些易导致节奏混乱的听力问题点？</h2>
+    <p class="qakey">主要关注“看不见的冰山”现象，即听力中有一段没有明确出现在文字上的信息，可能会造成做题节奏混乱，比如通过听一段关于亚当斯密和斯多葛主义的内容来定位cognitive behavior therapy这个主题，实际等待原词出现的时间可能长达一分钟左右，这期间容易导致考生失去后续题目。</p>
+    <h2><a id="q11"></a>Q11. 在听力考试中，part four部分的看题时间有何特点？</h2>
+    <p class="qakey">part four部分在做题时有且仅有一次看题机会，会把31到40题全部看完。其中会有一个长达3到5秒的暂停，这个暂停不是音频卡顿，而是为了提醒考生已经进行到听力的一半，如果前面内容没听懂，应尽快关注后半部分。</p>
+    <h2><a id="q12"></a>Q12. 听力考试中是否存在两个相邻题目使用相同定位词的情况？</h2>
+    <p class="qakey">是的，听力考试中相邻题目可能会使用相同的定位词。例如，一道题提到“control emotion is essential”，而另一道题中的信息是“external events cannot be controlled”，虽然都含有“control”这个词，但实际含义不同，一个是指控制情绪，另一个则是在说无法控制外部事件。</p>
+    <h2><a id="q13"></a>Q13. 对于含有常见词汇如“control”的题目，考生应该如何应对？</h2>
+    <p class="qakey">考生在听到频繁出现的“control”单词时，不要急于填写答案，而应保持跟随听力节奏，不要被某个熟词所迷惑，要理解其在不同语境下的具体含义。</p>
+    <h2><a id="q14"></a>Q14. 关于控制情绪的主题，在听力材料中有何具体表达？</h2>
+    <p class="qakey">在听力材料中，提到Stoic principles基于人们可以拥有不可动摇的幸福，关键在于美德。并进一步解释，像愤怒和嫉妒这类破坏性情绪，在我们的有意识控制下，不需要被它们控制我们，因为我们可以学会控制它们。</p>
+    <h2><a id="q15"></a>Q15. 在题干中识别因果类替换关系的重要性是什么？</h2>
+    <p class="qakey">在题干中识别因果类替换关系很重要，因为这可以帮助考生正确理解题目并找到答案。例如，题目“Stoicism is still relevant today because of its appeal”中，“relevant”表示意义重大，“appeal”在此处意为吸引力，通过识别这种关系，考生能更好地解答问题。</p>
+    <h2><a id="q16"></a>Q16. 在该题目中，为什么说"relevant"与"appealing"可以互换使用？</h2>
+    <p class="qakey">在这个场景中，"relevant"和"appealing"在语境中都是形容词，都表示“有吸引力的”。上句提到这个东西意义重大，下句则指出它具有实际意义并且引人注目，因此有吸引力的东西往往意味着它是重要的。所以，这两个词在此处可以等同看待并进行替换。</p>
+    <h2><a id="q17"></a>Q17. 对于这道题，如何通过预判词性来快速找到答案？</h2>
+    <p class="qakey">解决这类题目时，首先要预测词性。本题目的关键在于识别"most"之后的形容词"practical"和"appealing"。由于空格前为"most practical of all philosophers"，且根据逻辑，"appealing"不可能出现在该位置，所以答案只能是"practical"。</p>
+    <h2><a id="q18"></a>Q18. 听重读音节是否有助于识别答案？</h2>
+    <p class="qakey">是的，通过听重读音节可以辅助识别答案。例如，在"Stoicism, which, in my opinion, is the most practical of all philosophers, and therefore the most appealing."这句话中，"practical"和"appealing"被重读，这提示考生这两个词可能是正确答案。</p>
+    <h2><a id="q19"></a>Q19. 关于被动语态和定语从句的部分，有何考点值得注意？</h2>
+    <p class="qakey">在处理这部分内容时，虽然有涉及被动语态和定语从句的考点，但由于本题主要聚焦于熟词僻意，故不将其当作重点定语从句题目处理。同时，提到了对于被动语态的一些替换形式，以及在听懂文章大意后，如何关注名词、副词等词性，并积累一些基本的同义替换词汇，如different perspective（不同观点）和holy negative（消极的）。</p>
+    <h2><a id="q20"></a>Q20. Cognitive behavior therapy主要用来治疗什么？</h2>
+    <p class="qakey">Cognitive behavior therapy主要用于治疗depression（抑郁症）。</p>
+    <h2><a id="q21"></a>Q21. 通过学习控制思想，人们可以用什么来挑战和改变不合理信念？</h2>
+    <p class="qakey">人们可以利用logic（逻辑）来挑战和改变不合理信念，从而控制他们的思想、思维症状和行为。</p>
+    <h2><a id="q22"></a>Q22. Stoic principles在商业领域中的应用是什么？</h2>
+    <p class="qakey">Stoic principles可以帮助构建面对挫折所需的韧性和心态，教导人们将障碍转化为机会。</p>
+    <h2><a id="q23"></a>Q23. 在听力理解中，什么是复数名词提示词的替换？</h2>
+    <p class="qakey">复数名词提示词的替换是指在听力中听到的"a lot of"、"许多"等表达大量数量的词汇，在答案中可能被替换为"a number of"、"large amount of"或"considerable numbers of"等形式。</p>
+    <h2><a id="q24"></a>Q24. 对于part four的考点，有哪些需要特别注意的点？</h2>
+    <p class="qakey">part four的考点包括识别难度较高的被动语态、定语从句等替换情况，以及题干中可能出现的替换和复数名词提示词的替换。此外，还强调了做题步骤，如读题预测、听题找替换、书写答案并保证拼写正确，以及做完题目后的复盘过程，即听写答案句并分析题目考点。</p>
+    <h2><a id="q25"></a>Q25. 是否需要全文精听来完成part four的题目？</h2>
+    <p class="qakey">不建议全文精听part four，因为大部分内容不需要完全理解，重点在于捕捉答案句中的替换信息。如果有额外时间，建议将精力放在提升其他部分的能力上，比如加强对于part three的理解和精听练习。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-16.html">精讲逐字稿</a></li>
-      <li><a href="qa-16.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-15.html">上一讲 15</a></li>
-      <li><a href="lesson-17.html">下一讲 17</a></li>
+<li><a href="#q1">Q1. 在雅思听力考试中，part 4的填空题为何不好拿分？</a></li>
+<li><a href="#q2">Q2. 填空题的基本原则有哪些？</a></li>
+<li><a href="#q3">Q3. 如果在填空题中出现拼写错误会怎样？</a></li>
+<li><a href="#q4">Q4. 对于part 4失分的主要原因是什么？</a></li>
+<li><a href="#q5">Q5. 做题成功的关键因素是什么？</a></li>
+<li><a href="#q6">Q6. power for篇章结构是什么样的？</a></li>
+<li><a href="#q7">Q7. 整体的lecture或presentation如何展开？</a></li>
+<li><a href="#q8">Q8. 讲解的示例中，黑体字部分代表什么？</a></li>
+<li><a href="#q9">Q9. 什么是“结构大于内容”？</a></li>
+<li><a href="#q10">Q10. 做题时应注意哪些易导致节奏混乱的听力问题点？</a></li>
+<li><a href="#q11">Q11. 在听力考试中，part four部分的看题时间有何特点？</a></li>
+<li><a href="#q12">Q12. 听力考试中是否存在两个相邻题目使用相同定位词的情况？</a></li>
+<li><a href="#q13">Q13. 对于含有常见词汇如“control”的题目，考生应该如何应对？</a></li>
+<li><a href="#q14">Q14. 关于控制情绪的主题，在听力材料中有何具体表达？</a></li>
+<li><a href="#q15">Q15. 在题干中识别因果类替换关系的重要性是什么？</a></li>
+<li><a href="#q16">Q16. 在该题目中，为什么说"relevant"与"appealing"可以互换使用？</a></li>
+<li><a href="#q17">Q17. 对于这道题，如何通过预判词性来快速找到答案？</a></li>
+<li><a href="#q18">Q18. 听重读音节是否有助于识别答案？</a></li>
+<li><a href="#q19">Q19. 关于被动语态和定语从句的部分，有何考点值得注意？</a></li>
+<li><a href="#q20">Q20. Cognitive behavior therapy主要用来治疗什么？</a></li>
+<li><a href="#q21">Q21. 通过学习控制思想，人们可以用什么来挑战和改变不合理信念？</a></li>
+<li><a href="#q22">Q22. Stoic principles在商业领域中的应用是什么？</a></li>
+<li><a href="#q23">Q23. 在听力理解中，什么是复数名词提示词的替换？</a></li>
+<li><a href="#q24">Q24. 对于part four的考点，有哪些需要特别注意的点？</a></li>
+<li><a href="#q25">Q25. 是否需要全文精听来完成part four的题目？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -269,8 +269,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

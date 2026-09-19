@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -70,7 +70,7 @@
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>口语问答（16 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 导学课：口语考试流程与评分标准</a></li>
       <li><a href="qa-02.html">第02讲 · 口语三大基本能力与基础</a></li>
@@ -95,81 +95,81 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第04讲 · Part One 综合练习与拓展</h1>
-    <div class="abstract"><b>本讲概要：</b>在雅思口语课程的第四阶段，重点放在了Part One的综合练习与内容拓展上。课程强调在回答简单问题时应保持回答的简洁性，并提供了个人经历和个人见解两类问题的有效应对策略。学员被教导通过讲述具体细节，如时间、地点、人物、起因、经过、结果等要素，以及表达情绪的方法来丰富回答内容。对于遇到不知道的话题，建议通过猜测相关话题或巧妙转移讨论焦点来灵活应对，避免尴尬。此外，瑞老师还传授了如何通过调整语音语调、使用强调句式和调整语气等技巧，使回答更加自然流畅。最后，瑞老师提醒学员在练习时要注意回答的内容多样性与自然流畅性，以有效提升雅思口语考试的成绩。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>在雅思口语课程中，part one的综观及内容拓展是如何进行的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在瑞老师的雅思口语课程中，part one的内容拓展主要包括两个方面——内容和技巧。首先，课程会详细介绍part one的题型介绍以及回答规范，同时教授如何通过内容和技巧来拓展答案。例如，针对个人经历类问题，可以采用讲故事的方式，围绕时间、地点、人物、起因、经过和结果这六个关键点展开叙述，并给出一些常用的句式以帮助学生构建流畅且简单的回答。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于无法流畅回答问题的同学，应该如何运用技巧来提升表现？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>对于这类同学，课程提供了内容和技巧两方面的策略。在内容方面，通过个人经历和个人见解两个角度进行讲解，比如个人经历类问题可通过讲故事的方式阐述，而个人见解类问题则需要表达对某一话题的态度。此外，当遇到自己不熟悉或不愿意回答的问题时，要学会巧妙地转移话题或表达自己的不确定感。在技巧层面，则会教授如何利用时间、地点、人物等要素丰富故事内容，以及使用各种情感形容词和转折点表达来增加答题的吸引力和深度。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在part one中，如何处理关于个人经历和见解的问题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在part one中，个人经历类问题通常询问学生是否做过某事，例如跑步、看电影或喝咖啡等，这时可以通过讲故事的方式详细描述经历。个人见解类问题则要求学生分享对某个事物或事件的态度，如擅长选择礼物、如何减少空气污染、未来是否会有更多人开车等。对于这类问题，可以采用不同的态度和方式来回答，同时列举了一些针对个人经历和见解问题的回答范例和常用句式，帮助学生更好地组织答案。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在个人经历方面，有哪些常用的表达句式？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在个人经历中，我们经常使用一些特定句式来描述感受和经历，例如“on cloud nine”表示极度幸福；“a weight has been lifted off my shoulders”意味着重担已从肩上卸下；“I'm on the top of the world”表达一种矛盾的情感体验；“filled with gratitude”意为充满感激之情；“overwhelmed with excitement”则表示被兴奋情绪淹没。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何用英语谈论个人经历中的相关人物？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在谈论个人经历中的相关人物时，可以使用诸如“I admire him”或“I look up to him/her”，表示崇拜和尊重，还可以表达他们对自己产生的积极影响。例如，“He/She often encouraged me to explore something different，”意为“他/她经常鼓励我去探索不同的事物”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在个人见解类讨论中，有哪些句式和表达方式？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在个人见解类讨论中，可以采用“一方面，另一方面”的结构来阐述观点，并举例说明。例如，针对如何帮助周围的人（如邻居、家人和朋友），可以分别提出不同的帮助方式。同时，根据情况的不同，使用“depending on the situation”，并举例说明。对于不同意见，可以表达理解但持有不同看法，如“I can understand why some people agree with that, but I have a different perspective”。另外，针对复杂议题，强调需要全面考虑多种因素，如“it's a complex issue and it's important to take into account”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何用英语讨论选择礼物的话题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在讨论如何选择礼物时，可以给出具体例子来阐述观点，如“I would choose whatever our friends like”或“if our friends like reading, we may choose a book for them”。更进阶的表达方式包括“imagine”（想象）和“picture”（画面），以及结合具体情境提出真实生活例子，如“here's a real life example”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于“开车上班是否普遍”以及未来趋势的看法？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在讨论社会现象如开车上班的流行度及其未来趋势时，可以从政治、经济和文化等多个角度分析。从政治角度看，开车对个人和社会具有重要意义，可能使国家更加稳定并改善生活；从经济角度看，人们在未来更倾向于开车上班；而从个人支持的角度看，会给出具体理由以表明自己的观点。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在经济角度上，开车对经济增长有何影响？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>从经济角度看，开车对于促进经济增长是至关重要的，并且能够实现经济政策的影响。同时，文化方面，应庆祝和尊重文化多样性，并积极推动文化交流。</p></div>
-    </details>
-    <details class="qa">
-      <summary>从国家和社会层面来看，人们未来是否会更多地选择开车出行？企业决策会优先考虑什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>随着经济的发展，人们将拥有更多选择，包括选择他们擅长和喜欢的交通方式。此外，国家会越来越注重社会平等、正义以及市民参与决策过程，同时也会关注国民福祉、国家稳定和团结。企业会优先考虑客户满意度，通过创造更多汽车站来满足客户需求，并采取可持续发展实践，为社区做出贡献。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在雅思口语回答中遇到“不知道”该如何拓展内容？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在雅思口语考试中，如果遇到自己不熟悉的话题，可以使用语言技巧转移话题或做出免责声明，如表达自己对该话题了解有限，然后转移至自己熟悉的领域或展现个人态度。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于核武器这一话题，应该如何回答？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>不必给出专业见解，可以先用语言技巧规避问题，例如声明自己并非核武器专家，然后分享大众对核武器的关注和担忧，以此展现个人观点和态度。同时，也可以巧妙地转移话题至自己感兴趣的领域。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在回答“how are you”时，为何应避免使用过于刻板和固定的表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>因为“how are you”是一个非常常见的问候语，如果回答过于刻板（如“i am fine, thank you”），会让对话显得不自然且缺乏个性。在实际交流中，人们通常会根据自己的状态给出更灵活多样的回答，例如“还行”，“还不错”，“特别累”，“没啥好说的”，甚至直接表达情绪好坏。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何通过变换句式和增加语气词来使回答更生动有趣？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在回答“do you like go traveling？”这类问题时，可以将简单的yes或no替换为带有强烈语气的句式，如“absolutely”，“definitely”，“sure of course”，或者用反问的方式回应，如“I totally agree with you”，“I couldn't agree more”。这样可以使回答更具表现力和感染力。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何用IT表示模棱两可或强调的情况？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>对于可能两种情况都有或者难以确定的情况，可以使用“IT could go either way”，“I'm not sure”，或者“it's really hard to say”。当需要强调某事的重要性或可能性时，可以使用“IT is really essential that”，“IT is important that”，以及what引导的感叹句型，如&quot;what a beautiful girl&quot;或&quot;IT is absolutely necessary to take action&quot;。同时，还可以借助“do”来强调某事，如“I do like swimming”，“I do feel annoying”。另外，通过使用&quot;we&quot;或&quot;far&quot;来强调比较级，如&quot;姚明is way taller than me&quot;，&quot;马云is far richer than me&quot;。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>在雅思口语课程的第四阶段，重点放在了Part One的综合练习与内容拓展上。课程强调在回答简单问题时应保持回答的简洁性，并提供了个人经历和个人见解两类问题的有效应对策略。学员被教导通过讲述具体细节，如时间、地点、人物、起因、经过、结果等要素，以及表达情绪的方法来丰富回答内容。对于遇到不知道的话题，建议通过猜测相关话题或巧妙转移讨论焦点来灵活应对，避免尴尬。此外，瑞老师还传授了如何通过调整语音语调、使用强调句式和调整语气等技巧，使回答更加自然流畅。最后，瑞老师提醒学员在练习时要注意回答的内容多样性与自然流畅性，以有效提升雅思口语考试的成绩。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在雅思口语课程中，part one的综观及内容拓展是如何进行的？</td><td>在瑞老师的雅思口语课程中，part one的内容拓展主要包括两个方面——内容和技巧</td></tr>
+      <tr><td><b>Q2</b></td><td>对于无法流畅回答问题的同学，应该如何运用技巧来提升表现？</td><td>对于这类同学，课程提供了内容和技巧两方面的策略</td></tr>
+      <tr><td><b>Q3</b></td><td>在part one中，如何处理关于个人经历和见解的问题？</td><td>在part one中，个人经历类问题通常询问学生是否做过某事，例如跑步、看电影或喝咖啡等，这时可以通过讲故事的方式详细描述经历</td></tr>
+      <tr><td><b>Q4</b></td><td>在个人经历方面，有哪些常用的表达句式？</td><td>在个人经历中，我们经常使用一些特定句式来描述感受和经历，例如“on cloud nine”表示极度幸福</td></tr>
+      <tr><td><b>Q5</b></td><td>如何用英语谈论个人经历中的相关人物？</td><td>在谈论个人经历中的相关人物时，可以使用诸如“I admire him”或“I look up to him/her”，表示崇拜和尊重，还可以表达他们对自己产生的积极影响</td></tr>
+      <tr><td><b>Q6</b></td><td>在个人见解类讨论中，有哪些句式和表达方式？</td><td>在个人见解类讨论中，可以采用“一方面，另一方面”的结构来阐述观点，并举例说明</td></tr>
+      <tr><td><b>Q7</b></td><td>如何用英语讨论选择礼物的话题？</td><td>在讨论如何选择礼物时，可以给出具体例子来阐述观点，如“I would choose whatever our friends like”或“if our friends…</td></tr>
+      <tr><td><b>Q8</b></td><td>对于“开车上班是否普遍”以及未来趋势的看法？</td><td>在讨论社会现象如开车上班的流行度及其未来趋势时，可以从政治、经济和文化等多个角度分析</td></tr>
+      <tr><td><b>Q9</b></td><td>在经济角度上，开车对经济增长有何影响？</td><td>从经济角度看，开车对于促进经济增长是至关重要的，并且能够实现经济政策的影响</td></tr>
+      <tr><td><b>Q10</b></td><td>从国家和社会层面来看，人们未来是否会更多地选择开车出行？企业决策会优先考虑什么？</td><td>随着经济的发展，人们将拥有更多选择，包括选择他们擅长和喜欢的交通方式</td></tr>
+      <tr><td><b>Q11</b></td><td>在雅思口语回答中遇到“不知道”该如何拓展内容？</td><td>在雅思口语考试中，如果遇到自己不熟悉的话题，可以使用语言技巧转移话题或做出免责声明，如表达自己对该话题了解有限，然后转移至自己熟悉的领域或展现个人态度</td></tr>
+      <tr><td><b>Q12</b></td><td>对于核武器这一话题，应该如何回答？</td><td>不必给出专业见解，可以先用语言技巧规避问题，例如声明自己并非核武器专家，然后分享大众对核武器的关注和担忧，以此展现个人观点和态度</td></tr>
+      <tr><td><b>Q13</b></td><td>在回答“how are you”时，为何应避免使用过于刻板和固定的表达？</td><td>因为“how are you”是一个非常常见的问候语，如果回答过于刻板（如“i am fine, thank you”），会让对话显得不自然且缺乏个性</td></tr>
+      <tr><td><b>Q14</b></td><td>如何通过变换句式和增加语气词来使回答更生动有趣？</td><td>在回答“do you like go traveling</td></tr>
+      <tr><td><b>Q15</b></td><td>如何用IT表示模棱两可或强调的情况？</td><td>对于可能两种情况都有或者难以确定的情况，可以使用“IT could go either way”，“I'm not sure”，或者“it's really hard …</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在雅思口语课程中，part one的综观及内容拓展是如何进行的？</h2>
+    <p class="qakey">在瑞老师的雅思口语课程中，part one的内容拓展主要包括两个方面——内容和技巧。首先，课程会详细介绍part one的题型介绍以及回答规范，同时教授如何通过内容和技巧来拓展答案。例如，针对个人经历类问题，可以采用讲故事的方式，围绕时间、地点、人物、起因、经过和结果这六个关键点展开叙述，并给出一些常用的句式以帮助学生构建流畅且简单的回答。</p>
+    <h2><a id="q2"></a>Q2. 对于无法流畅回答问题的同学，应该如何运用技巧来提升表现？</h2>
+    <p class="qakey">对于这类同学，课程提供了内容和技巧两方面的策略。在内容方面，通过个人经历和个人见解两个角度进行讲解，比如个人经历类问题可通过讲故事的方式阐述，而个人见解类问题则需要表达对某一话题的态度。此外，当遇到自己不熟悉或不愿意回答的问题时，要学会巧妙地转移话题或表达自己的不确定感。在技巧层面，则会教授如何利用时间、地点、人物等要素丰富故事内容，以及使用各种情感形容词和转折点表达来增加答题的吸引力和深度。</p>
+    <h2><a id="q3"></a>Q3. 在part one中，如何处理关于个人经历和见解的问题？</h2>
+    <p class="qakey">在part one中，个人经历类问题通常询问学生是否做过某事，例如跑步、看电影或喝咖啡等，这时可以通过讲故事的方式详细描述经历。个人见解类问题则要求学生分享对某个事物或事件的态度，如擅长选择礼物、如何减少空气污染、未来是否会有更多人开车等。对于这类问题，可以采用不同的态度和方式来回答，同时列举了一些针对个人经历和见解问题的回答范例和常用句式，帮助学生更好地组织答案。</p>
+    <h2><a id="q4"></a>Q4. 在个人经历方面，有哪些常用的表达句式？</h2>
+    <p class="qakey">在个人经历中，我们经常使用一些特定句式来描述感受和经历，例如“on cloud nine”表示极度幸福；“a weight has been lifted off my shoulders”意味着重担已从肩上卸下；“I'm on the top of the world”表达一种矛盾的情感体验；“filled with gratitude”意为充满感激之情；“overwhelmed with excitement”则表示被兴奋情绪淹没。</p>
+    <h2><a id="q5"></a>Q5. 如何用英语谈论个人经历中的相关人物？</h2>
+    <p class="qakey">在谈论个人经历中的相关人物时，可以使用诸如“I admire him”或“I look up to him/her”，表示崇拜和尊重，还可以表达他们对自己产生的积极影响。例如，“He/She often encouraged me to explore something different，”意为“他/她经常鼓励我去探索不同的事物”。</p>
+    <h2><a id="q6"></a>Q6. 在个人见解类讨论中，有哪些句式和表达方式？</h2>
+    <p class="qakey">在个人见解类讨论中，可以采用“一方面，另一方面”的结构来阐述观点，并举例说明。例如，针对如何帮助周围的人（如邻居、家人和朋友），可以分别提出不同的帮助方式。同时，根据情况的不同，使用“depending on the situation”，并举例说明。对于不同意见，可以表达理解但持有不同看法，如“I can understand why some people agree with that, but I have a different perspective”。另外，针对复杂议题，强调需要全面考虑多种因素，如“it's a complex issue and it's important to take into account”。</p>
+    <h2><a id="q7"></a>Q7. 如何用英语讨论选择礼物的话题？</h2>
+    <p class="qakey">在讨论如何选择礼物时，可以给出具体例子来阐述观点，如“I would choose whatever our friends like”或“if our friends like reading, we may choose a book for them”。更进阶的表达方式包括“imagine”（想象）和“picture”（画面），以及结合具体情境提出真实生活例子，如“here's a real life example”。</p>
+    <h2><a id="q8"></a>Q8. 对于“开车上班是否普遍”以及未来趋势的看法？</h2>
+    <p class="qakey">在讨论社会现象如开车上班的流行度及其未来趋势时，可以从政治、经济和文化等多个角度分析。从政治角度看，开车对个人和社会具有重要意义，可能使国家更加稳定并改善生活；从经济角度看，人们在未来更倾向于开车上班；而从个人支持的角度看，会给出具体理由以表明自己的观点。</p>
+    <h2><a id="q9"></a>Q9. 在经济角度上，开车对经济增长有何影响？</h2>
+    <p class="qakey">从经济角度看，开车对于促进经济增长是至关重要的，并且能够实现经济政策的影响。同时，文化方面，应庆祝和尊重文化多样性，并积极推动文化交流。</p>
+    <h2><a id="q10"></a>Q10. 从国家和社会层面来看，人们未来是否会更多地选择开车出行？企业决策会优先考虑什么？</h2>
+    <p class="qakey">随着经济的发展，人们将拥有更多选择，包括选择他们擅长和喜欢的交通方式。此外，国家会越来越注重社会平等、正义以及市民参与决策过程，同时也会关注国民福祉、国家稳定和团结。企业会优先考虑客户满意度，通过创造更多汽车站来满足客户需求，并采取可持续发展实践，为社区做出贡献。</p>
+    <h2><a id="q11"></a>Q11. 在雅思口语回答中遇到“不知道”该如何拓展内容？</h2>
+    <p class="qakey">在雅思口语考试中，如果遇到自己不熟悉的话题，可以使用语言技巧转移话题或做出免责声明，如表达自己对该话题了解有限，然后转移至自己熟悉的领域或展现个人态度。</p>
+    <h2><a id="q12"></a>Q12. 对于核武器这一话题，应该如何回答？</h2>
+    <p class="qakey">不必给出专业见解，可以先用语言技巧规避问题，例如声明自己并非核武器专家，然后分享大众对核武器的关注和担忧，以此展现个人观点和态度。同时，也可以巧妙地转移话题至自己感兴趣的领域。</p>
+    <h2><a id="q13"></a>Q13. 在回答“how are you”时，为何应避免使用过于刻板和固定的表达？</h2>
+    <p class="qakey">因为“how are you”是一个非常常见的问候语，如果回答过于刻板（如“i am fine, thank you”），会让对话显得不自然且缺乏个性。在实际交流中，人们通常会根据自己的状态给出更灵活多样的回答，例如“还行”，“还不错”，“特别累”，“没啥好说的”，甚至直接表达情绪好坏。</p>
+    <h2><a id="q14"></a>Q14. 如何通过变换句式和增加语气词来使回答更生动有趣？</h2>
+    <p class="qakey">在回答“do you like go traveling？”这类问题时，可以将简单的yes或no替换为带有强烈语气的句式，如“absolutely”，“definitely”，“sure of course”，或者用反问的方式回应，如“I totally agree with you”，“I couldn't agree more”。这样可以使回答更具表现力和感染力。</p>
+    <h2><a id="q15"></a>Q15. 如何用IT表示模棱两可或强调的情况？</h2>
+    <p class="qakey">对于可能两种情况都有或者难以确定的情况，可以使用“IT could go either way”，“I'm not sure”，或者“it's really hard to say”。当需要强调某事的重要性或可能性时，可以使用“IT is really essential that”，“IT is important that”，以及what引导的感叹句型，如"what a beautiful girl"或"IT is absolutely necessary to take action"。同时，还可以借助“do”来强调某事，如“I do like swimming”，“I do feel annoying”。另外，通过使用"we"或"far"来强调比较级，如"姚明is way taller than me"，"马云is far richer than me"。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-04.html">精讲逐字稿</a></li>
-      <li><a href="qa-04.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-03.html">上一讲 03</a></li>
-      <li><a href="lesson-05.html">下一讲 05</a></li>
+<li><a href="#q1">Q1. 在雅思口语课程中，part one的综观及内容拓展是如何进行的？</a></li>
+<li><a href="#q2">Q2. 对于无法流畅回答问题的同学，应该如何运用技巧来提升表现？</a></li>
+<li><a href="#q3">Q3. 在part one中，如何处理关于个人经历和见解的问题？</a></li>
+<li><a href="#q4">Q4. 在个人经历方面，有哪些常用的表达句式？</a></li>
+<li><a href="#q5">Q5. 如何用英语谈论个人经历中的相关人物？</a></li>
+<li><a href="#q6">Q6. 在个人见解类讨论中，有哪些句式和表达方式？</a></li>
+<li><a href="#q7">Q7. 如何用英语讨论选择礼物的话题？</a></li>
+<li><a href="#q8">Q8. 对于“开车上班是否普遍”以及未来趋势的看法？</a></li>
+<li><a href="#q9">Q9. 在经济角度上，开车对经济增长有何影响？</a></li>
+<li><a href="#q10">Q10. 从国家和社会层面来看，人们未来是否会更多地选择开车出行？企业决策会优先考虑什么？</a></li>
+<li><a href="#q11">Q11. 在雅思口语回答中遇到“不知道”该如何拓展内容？</a></li>
+<li><a href="#q12">Q12. 对于核武器这一话题，应该如何回答？</a></li>
+<li><a href="#q13">Q13. 在回答“how are you”时，为何应避免使用过于刻板和固定的表达？</a></li>
+<li><a href="#q14">Q14. 如何通过变换句式和增加语气词来使回答更生动有趣？</a></li>
+<li><a href="#q15">Q15. 如何用IT表示模棱两可或强调的情况？</a></li>
     </ul>
   </aside>
 </div>
@@ -225,8 +225,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');
@@ -237,7 +237,7 @@
   input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
   document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
   document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
-  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.hidden = true; });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
   var col = document.querySelector('.col-left');
   if (col){ var act = col.querySelector('a.active'); if (act){ var cr = col.getBoundingClientRect(), ar = act.getBoundingClientRect(); if (ar.top < cr.top - 4 || ar.bottom > cr.bottom + 4){ col.scrollTop = Math.max(0, col.scrollTop + (ar.top - cr.top) - 40); } } }
 })();

@@ -3,3 +3,4 @@ _txt_cache/
 _backup_undated/
 
 __pycache__/
+_pre_visible_backup/

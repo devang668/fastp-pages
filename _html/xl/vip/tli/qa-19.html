@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -70,7 +70,7 @@
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>听力问答（20 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
       <li><a href="qa-02.html">第02讲 · 听力三大核心能力</a></li>
@@ -99,173 +99,173 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第19讲 · 研究项目对话精听</h1>
-    <div class="abstract"><b>本讲概要：</b>在这段讨论中，强调了在研究项目中，研究人员花费大量时间（约70-80%）于数据的分析、整理和转录，而非直接数据收集，他们通过分析笔记识别模式以获得洞察，这些洞察被反馈到设计过程。讨论还触及到听力测试中，正确解答题目不在于理解全文，而是识别文章中的语言技巧如替换、并列结构，特别在商业场景中，要求考生理解反常识内容，注意词汇的不同表达方式，从而提高预测难度。老师三建议考生在练习时注重总结和复盘，以及理解商业场景特点和反常识问题，通过具体例子解释商业理念的重要性，并提供策略以确保考试中的分数稳定性。此外，提醒考生尽管商业场景出现频率不高，但需通过特定题目练习准备。整体上，这段对话聚焦于提升听力技能，理解商业场景特点，以及策略应用，以帮助考生取得优异成绩。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>商业场景中的题目有什么特点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>商业场景题目有两大特点。首先，它们需要深入理解，因为并非所有人都对商业有深入的了解，商业场景有时会涉及反常识的问题，不能仅凭常识来解答。其次，商业场景中会有很多单词的不同表达方式，比如表示“顾客”的单词就有多种，这增加了预测的难度。</p></div>
-    </details>
-    <details class="qa">
-      <summary>关于“勤劳与勤奋”，为何说它需要正确目标化？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>虽然努力工作很重要，但如果盲目努力而忽视目标，就会浪费公司最宝贵的资源——时间和精力。最宝贵的人才是既聪明又懒的人，他们能识别不必要的任务并寻找更有效解决问题的方法，而非简单地投入更多时间。</p></div>
-    </details>
-    <details class="qa">
-      <summary>商业场景的练习材料来源是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>我找了一些来自剑桥雅思考试中的旧题作为练习材料，例如剑十二和剑十一的题目，这些题目出现的频率相对较低。</p></div>
-    </details>
-    <details class="qa">
-      <summary>这次讲解的文章主要关于什么内容？对于“合作”这种商业价值，能否举例说明其可能存在的问题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>文章主要讨论了四种商业价值理念，分别是合作（collaboration）、勤劳与勤奋（hard work）、创造力（creativity）以及卓越（excellence）。在实际商业操作中，合作并不总是意味着更好。例如，在一次团队建设活动中，看似鼓励团队合作的任务实际上更适合个体完成，导致团队合作并未达到预期效果。此外，在商业决策上，过分追求合作可能导致产品定位不准确，如某智能手机公司既想面向消费者又想面向企业，结果导致产品既不符合消费者需求也未能有效满足企业需求。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在商业领域，不断推出新产品是否一定是好事？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>不断推出新产品并不一定代表成功，追求卓越（excEllence）在商业上可能需要很长时间才能实现，并且从长远来看，拥有第一款产品的公司比拥有最优秀产品的公司更有盈利能力。</p></div>
-    </details>
-    <details class="qa">
-      <summary>这篇文章提供了哪些商业场景的例子？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>文章至少提到了四个例子，分别是：一个团队培训课程的任务是建造一座桥；选择不同目标市场的销售表现不佳，例如手机和巧克力市场的例子；一项关于企业市场先驱与跟随者的市场占有率研究；以及对“市场先驱”与“跟随者”在市场份额上的表现差异的讨论。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在产品创新方面，先发优势和跟随优势有何差异？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>根据一项主要研究，推出首款产品的公司（pioneers）平均占据了29%的市场份额，而跟随这些产品的公司（followers），尽管其产品可能更好，但市场份额只有13%，即使它们在质量上有所改进。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于听力理解策略，应该如何对待其中的复杂词汇和例子？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在听力理解过程中，不必深入理解所有细节，特别是生僻词汇，如“market share”（市场份额）和“side effects”（副作用）。关键是抓住文章结构而非内容细节，确保对大部分题目有大体理解即可。</p></div>
-    </details>
-    <details class="qa">
-      <summary>过分追求卓越在商业中会带来哪些问题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>过分追求卓越会导致时间和精力的浪费，并可能导致错失商机。有时，次优的解决方案比追求卓越更为实际和有价值。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在考试中如何制定听力答题策略以保证分数稳定？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在考试中，应确保容易和中等难度的题目正确率较高，即使错一两个较难题目，也能确保整体听力得分稳定。同时，要注意考试时的紧张感和节奏控制，避免因不适应整体考试环境而导致听力表现不佳。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在听力文章中，“understand and managing”具体是什么意思？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>understand and managing在听力中指的是理解并管理，这是针对那些领导者采纳价值观时可能出现的副作用而需要理解和管理的情况。</p></div>
-    </details>
-    <details class="qa">
-      <summary>为什么“potential”这个形容词没有在题目中出现？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>“Potential”是一个潜在的概念，在此处它隐含在了语言含义中，并没有直接作为替换词出现。尽管如此，之前的动词部分有替换，这道题整体来说是一道较难的题目，如果出错也是可以接受的。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第一种讨论的价值观是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>第一种讨论的价值观是合作（collaboration），并且通过一个管理培训课程中的实例来说明这一点。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在讨论合作的例子中，其他小组和其他团队在协作过程中遇到了什么问题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>其他小组在试图合作建造桥梁时陷入了混乱（confusion），而本小组由于避免了过多的合作，结果反而较好。他们遵循了一个规则，即每个团队成员必须移动至少一个建筑块，以鼓励团队协作，但实际操作中，一个团队成员单独完成了任务。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于智能手机销售业绩差的例子，导致问题的原因是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在智能手机销售业绩差的例子中，不一致的团队工作导致了产品未能同时满足商业和消费市场的需求，尽管公司试图兼顾两边，最终产品无法满足任何一方的需求。</p></div>
-    </details>
-    <details class="qa">
-      <summary>勤奋在某些情况下可能带来的负面影响是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>虽然勤奋通常被视为积极品质，但在某些情况下，如工业场合，过度的勤奋可能导致资源过度消耗，答案是&quot;资源&quot;，并且必须填负数。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在第一段中，“hard work is valuable, but only when properly targeted”这句话的含义是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>这句话的含义是，虽然努力工作很重要，但只有当它被正确地指向明确的目标时才具有价值。如果缺乏目标，努力工作可能会浪费公司宝贵的资源。</p></div>
-    </details>
-    <details class="qa">
-      <summary>“Otherwise, IT wastes the resources that companies value most”中的“IT”是指代什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>“IT”在这里指的是不恰当的努力工作或没有目标的努力，它会浪费公司最为重视和珍视的资源。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第五题中，创造力应该如何使用？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>创造力应当针对公司识别出的特定问题进行定位，以解决公司已确定的问题，而不是仅仅为了追求创新而创新。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第二题中，lazy在上下文中的具体含义是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在该管理模型中，lazy是指有理性决定避免执行不必要的任务，而不是完全避免工作。</p></div>
-    </details>
-    <details class="qa">
-      <summary>根据文章内容，最宝贵的人是什么样的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>最宝贵的人是既聪明又懒的人，他们拥有清晰的智力和决策能力，能寻找更有效的方法解决问题，而不是无休止地投入更多时间。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第四题中提到的广告创意没有促进销量的例子是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>几年前某个巧克力品牌的广告虽然被大量消费者记住，但并未提升销量，说明有些创意并不一定能够有效推动销售。</p></div>
-    </details>
-    <details class="qa">
-      <summary>What does the term 'market share' refer to?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Market share refers to the proportion of a company's sales or market's purchases that are attributable to a particular company or product. For example, a company might have a market share of 29%, as mentioned in the context of the study on company performance.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What were the findings of the study comparing the performance of pioneers versus followers in the market?Why might being first with a product be more profitable than having the best product?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>The study found that pioneers, or companies bringing out the first version of a product, commanded an average market share of 29%, while followers, which copied and improved on the product, achieved only 13% market share, despite potentially having a better product.Being first with a product can be more profitable than having the best product because it allows a company to capture a larger market share and potentially command higher prices or enjoy first-mover advantages, as seen in the study mentioned where pioneers achieved significantly higher market shares compared to followers.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What is the relevance of ethnography in the field of business research?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Ethnography is relevant in the field of business research because it offers companies deeper insights into customer needs and attitudes towards their products, and can help design new products or services that customers truly want.</p></div>
-    </details>
-    <details class="qa">
-      <summary>How did research on kitchen equipment lead to the development of a new measuring cup design?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Research on kitchen equipment observed that cooks had difficulty using existing measuring cups due to the numbers inside being hard to see. As a result, a new design of cup was developed that addressed this issue and became a top seller.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What was the feature that cell phones in Uganda were modified to include?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Cell phones in Uganda were modified to include a feature that allowed customers to see how much time they had left on their calls, as these customers were eager to know this information because they paid in advance for their calls.</p></div>
-    </details>
-    <details class="qa">
-      <summary>How did the observations in computer companies lead to the development of new software?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>Observations in computer companies showed that IT systems administrators often struggled with communicating with colleagues to solve problems, lacking a standard way of exchanging information. This led to the development of software that would facilitate better communication and problem-solving among colleagues.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What led to the development of the portable computer tablet for nurses?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>The development of the portable computer tablet for nurses was a result of observing and talking to nurses in hospitals. It was recognized that nurses needed to access the computer records of their patients regardless of their location. Consequently, the tablet was developed to allow nurses to check records throughout the hospital.</p></div>
-    </details>
-    <details class="qa">
-      <summary>What is the role of the researcher in ethnographic business research?</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>In ethnographic business research, the role of the researcher is to be completely open-minded, not to set up hypotheses to be tested, and to wait for participants to inform them. The researcher's approach is based on first-hand observations and interaction with participants, rather than solely sending questions to them.</p></div>
-    </details>
-    <details class="qa">
-      <summary>在传统研究中，谁通常决定访谈的方向？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在传统研究中，是研究人员决定访谈的方向。</p></div>
-    </details>
-    <details class="qa">
-      <summary>例子在文章中的推进作用是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>文章通过一系列例子推进，从厨房用品公司发现容器刻度不易见的问题，到电话公司需要知道使用时间，再到电脑公司开发软件解决员工沟通问题，最后到航空公司需要了解乘客在飞行中的感受。</p></div>
-    </details>
-    <details class="qa">
-      <summary>第33题中，电话公司需要了解什么信息？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>电话公司需要知道用户在使用电话时想要知道的时间信息。</p></div>
-    </details>
-    <details class="qa">
-      <summary>研究者在分析数据时主要关注什么内容？第36题中，航空公司需要获取什么信息？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>研究者关注的是寻找数据中的模式和背后的意义，而不是只关注引人注意或不寻常的事情。航空公司需要了解乘客在旅行中（during flight）的情绪感受。</p></div>
-    </details>
-    <details class="qa">
-      <summary>研究者在整理一手观察数据时关注的核心活动是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>研究者关注的是数据分析，尤其是对收集到的大量一手观察数据进行深入分析，以提炼出有洞察力的见解，并反馈到整个设计过程中。</p></div>
-    </details>
-    <details class="qa">
-      <summary>研究者在研究过程中花费最多时间的是什么环节？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>研究者在研究过程中花费70%到80%的时间在数据分析上，包括查看照片、听录音和转录等。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>在这段讨论中，强调了在研究项目中，研究人员花费大量时间（约70-80%）于数据的分析、整理和转录，而非直接数据收集，他们通过分析笔记识别模式以获得洞察，这些洞察被反馈到设计过程。讨论还触及到听力测试中，正确解答题目不在于理解全文，而是识别文章中的语言技巧如替换、并列结构，特别在商业场景中，要求考生理解反常识内容，注意词汇的不同表达方式，从而提高预测难度。老师三建议考生在练习时注重总结和复盘，以及理解商业场景特点和反常识问题，通过具体例子解释商业理念的重要性，并提供策略以确保考试中的分数稳定性。此外，提醒考生尽管商业场景出现频率不高，但需通过特定题目练习准备。整体上，这段对话聚焦于提升听力技能，理解商业场景特点，以及策略应用，以帮助考生取得优异成绩。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>商业场景中的题目有什么特点？</td><td>商业场景题目有两大特点</td></tr>
+      <tr><td><b>Q2</b></td><td>关于“勤劳与勤奋”，为何说它需要正确目标化？</td><td>虽然努力工作很重要，但如果盲目努力而忽视目标，就会浪费公司最宝贵的资源——时间和精力</td></tr>
+      <tr><td><b>Q3</b></td><td>商业场景的练习材料来源是什么？</td><td>我找了一些来自剑桥雅思考试中的旧题作为练习材料，例如剑十二和剑十一的题目，这些题目出现的频率相对较低</td></tr>
+      <tr><td><b>Q4</b></td><td>这次讲解的文章主要关于什么内容？对于“合作”这种商业价值，能否举例说明其可能存在的问题？</td><td>文章主要讨论了四种商业价值理念，分别是合作（collaboration）、勤劳与勤奋（hard work）、创造力（creativity）以及卓越（excellence…</td></tr>
+      <tr><td><b>Q5</b></td><td>在商业领域，不断推出新产品是否一定是好事？</td><td>不断推出新产品并不一定代表成功，追求卓越（excEllence）在商业上可能需要很长时间才能实现，并且从长远来看，拥有第一款产品的公司比拥有最优秀产品的公司更有盈利能力</td></tr>
+      <tr><td><b>Q6</b></td><td>这篇文章提供了哪些商业场景的例子？</td><td>文章至少提到了四个例子，分别是：一个团队培训课程的任务是建造一座桥</td></tr>
+      <tr><td><b>Q7</b></td><td>在产品创新方面，先发优势和跟随优势有何差异？</td><td>根据一项主要研究，推出首款产品的公司（pioneers）平均占据了29%的市场份额，而跟随这些产品的公司（followers），尽管其产品可能更好，但市场份额只有13%…</td></tr>
+      <tr><td><b>Q8</b></td><td>对于听力理解策略，应该如何对待其中的复杂词汇和例子？</td><td>在听力理解过程中，不必深入理解所有细节，特别是生僻词汇，如“market share”（市场份额）和“side effects”（副作用）</td></tr>
+      <tr><td><b>Q9</b></td><td>过分追求卓越在商业中会带来哪些问题？</td><td>过分追求卓越会导致时间和精力的浪费，并可能导致错失商机</td></tr>
+      <tr><td><b>Q10</b></td><td>在考试中如何制定听力答题策略以保证分数稳定？</td><td>在考试中，应确保容易和中等难度的题目正确率较高，即使错一两个较难题目，也能确保整体听力得分稳定</td></tr>
+      <tr><td><b>Q11</b></td><td>在听力文章中，“understand and managing”具体是什么意思？</td><td>understand and managing在听力中指的是理解并管理，这是针对那些领导者采纳价值观时可能出现的副作用而需要理解和管理的情况</td></tr>
+      <tr><td><b>Q12</b></td><td>为什么“potential”这个形容词没有在题目中出现？</td><td>“Potential”是一个潜在的概念，在此处它隐含在了语言含义中，并没有直接作为替换词出现</td></tr>
+      <tr><td><b>Q13</b></td><td>第一种讨论的价值观是什么？</td><td>第一种讨论的价值观是合作（collaboration），并且通过一个管理培训课程中的实例来说明这一点</td></tr>
+      <tr><td><b>Q14</b></td><td>在讨论合作的例子中，其他小组和其他团队在协作过程中遇到了什么问题？</td><td>其他小组在试图合作建造桥梁时陷入了混乱（confusion），而本小组由于避免了过多的合作，结果反而较好</td></tr>
+      <tr><td><b>Q15</b></td><td>对于智能手机销售业绩差的例子，导致问题的原因是什么？</td><td>在智能手机销售业绩差的例子中，不一致的团队工作导致了产品未能同时满足商业和消费市场的需求，尽管公司试图兼顾两边，最终产品无法满足任何一方的需求</td></tr>
+      <tr><td><b>Q16</b></td><td>勤奋在某些情况下可能带来的负面影响是什么？</td><td>虽然勤奋通常被视为积极品质，但在某些情况下，如工业场合，过度的勤奋可能导致资源过度消耗，答案是"资源"，并且必须填负数</td></tr>
+      <tr><td><b>Q17</b></td><td>在第一段中，“hard work is valuable, but only when properly targeted”这句话的含义是什么？</td><td>这句话的含义是，虽然努力工作很重要，但只有当它被正确地指向明确的目标时才具有价值</td></tr>
+      <tr><td><b>Q18</b></td><td>“Otherwise, IT wastes the resources that companies value most”中的“IT”是指代什么？</td><td>“IT”在这里指的是不恰当的努力工作或没有目标的努力，它会浪费公司最为重视和珍视的资源</td></tr>
+      <tr><td><b>Q19</b></td><td>第五题中，创造力应该如何使用？</td><td>创造力应当针对公司识别出的特定问题进行定位，以解决公司已确定的问题，而不是仅仅为了追求创新而创新</td></tr>
+      <tr><td><b>Q20</b></td><td>第二题中，lazy在上下文中的具体含义是什么？</td><td>在该管理模型中，lazy是指有理性决定避免执行不必要的任务，而不是完全避免工作</td></tr>
+      <tr><td><b>Q21</b></td><td>根据文章内容，最宝贵的人是什么样的？</td><td>最宝贵的人是既聪明又懒的人，他们拥有清晰的智力和决策能力，能寻找更有效的方法解决问题，而不是无休止地投入更多时间</td></tr>
+      <tr><td><b>Q22</b></td><td>第四题中提到的广告创意没有促进销量的例子是什么？</td><td>几年前某个巧克力品牌的广告虽然被大量消费者记住，但并未提升销量，说明有些创意并不一定能够有效推动销售</td></tr>
+      <tr><td><b>Q23</b></td><td>What does the term 'market share' refer to?</td><td>Market share refers to the proportion of a company's sales or market's purchases tha…</td></tr>
+      <tr><td><b>Q24</b></td><td>What were the findings of the study comparing the performance of pioneers versus followers in the market?Why might being first with a product be more profitable than having the best product?</td><td>The study found that pioneers, or companies bringing out the first version of a prod…</td></tr>
+      <tr><td><b>Q25</b></td><td>What is the relevance of ethnography in the field of business research?</td><td>Ethnography is relevant in the field of business research because it offers companie…</td></tr>
+      <tr><td><b>Q26</b></td><td>How did research on kitchen equipment lead to the development of a new measuring cup design?</td><td>Research on kitchen equipment observed that cooks had difficulty using existing meas…</td></tr>
+      <tr><td><b>Q27</b></td><td>What was the feature that cell phones in Uganda were modified to include?</td><td>Cell phones in Uganda were modified to include a feature that allowed customers to s…</td></tr>
+      <tr><td><b>Q28</b></td><td>How did the observations in computer companies lead to the development of new software?</td><td>Observations in computer companies showed that IT systems administrators often strug…</td></tr>
+      <tr><td><b>Q29</b></td><td>What led to the development of the portable computer tablet for nurses?</td><td>The development of the portable computer tablet for nurses was a result of observing…</td></tr>
+      <tr><td><b>Q30</b></td><td>What is the role of the researcher in ethnographic business research?</td><td>In ethnographic business research, the role of the researcher is to be completely op…</td></tr>
+      <tr><td><b>Q31</b></td><td>在传统研究中，谁通常决定访谈的方向？</td><td>在传统研究中，是研究人员决定访谈的方向</td></tr>
+      <tr><td><b>Q32</b></td><td>例子在文章中的推进作用是什么？</td><td>文章通过一系列例子推进，从厨房用品公司发现容器刻度不易见的问题，到电话公司需要知道使用时间，再到电脑公司开发软件解决员工沟通问题，最后到航空公司需要了解乘客在飞行中的感…</td></tr>
+      <tr><td><b>Q33</b></td><td>第33题中，电话公司需要了解什么信息？</td><td>电话公司需要知道用户在使用电话时想要知道的时间信息</td></tr>
+      <tr><td><b>Q34</b></td><td>研究者在分析数据时主要关注什么内容？第36题中，航空公司需要获取什么信息？</td><td>研究者关注的是寻找数据中的模式和背后的意义，而不是只关注引人注意或不寻常的事情</td></tr>
+      <tr><td><b>Q35</b></td><td>研究者在整理一手观察数据时关注的核心活动是什么？</td><td>研究者关注的是数据分析，尤其是对收集到的大量一手观察数据进行深入分析，以提炼出有洞察力的见解，并反馈到整个设计过程中</td></tr>
+      <tr><td><b>Q36</b></td><td>研究者在研究过程中花费最多时间的是什么环节？</td><td>研究者在研究过程中花费70%到80%的时间在数据分析上，包括查看照片、听录音和转录等</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 商业场景中的题目有什么特点？</h2>
+    <p class="qakey">商业场景题目有两大特点。首先，它们需要深入理解，因为并非所有人都对商业有深入的了解，商业场景有时会涉及反常识的问题，不能仅凭常识来解答。其次，商业场景中会有很多单词的不同表达方式，比如表示“顾客”的单词就有多种，这增加了预测的难度。</p>
+    <h2><a id="q2"></a>Q2. 关于“勤劳与勤奋”，为何说它需要正确目标化？</h2>
+    <p class="qakey">虽然努力工作很重要，但如果盲目努力而忽视目标，就会浪费公司最宝贵的资源——时间和精力。最宝贵的人才是既聪明又懒的人，他们能识别不必要的任务并寻找更有效解决问题的方法，而非简单地投入更多时间。</p>
+    <h2><a id="q3"></a>Q3. 商业场景的练习材料来源是什么？</h2>
+    <p class="qakey">我找了一些来自剑桥雅思考试中的旧题作为练习材料，例如剑十二和剑十一的题目，这些题目出现的频率相对较低。</p>
+    <h2><a id="q4"></a>Q4. 这次讲解的文章主要关于什么内容？对于“合作”这种商业价值，能否举例说明其可能存在的问题？</h2>
+    <p class="qakey">文章主要讨论了四种商业价值理念，分别是合作（collaboration）、勤劳与勤奋（hard work）、创造力（creativity）以及卓越（excellence）。在实际商业操作中，合作并不总是意味着更好。例如，在一次团队建设活动中，看似鼓励团队合作的任务实际上更适合个体完成，导致团队合作并未达到预期效果。此外，在商业决策上，过分追求合作可能导致产品定位不准确，如某智能手机公司既想面向消费者又想面向企业，结果导致产品既不符合消费者需求也未能有效满足企业需求。</p>
+    <h2><a id="q5"></a>Q5. 在商业领域，不断推出新产品是否一定是好事？</h2>
+    <p class="qakey">不断推出新产品并不一定代表成功，追求卓越（excEllence）在商业上可能需要很长时间才能实现，并且从长远来看，拥有第一款产品的公司比拥有最优秀产品的公司更有盈利能力。</p>
+    <h2><a id="q6"></a>Q6. 这篇文章提供了哪些商业场景的例子？</h2>
+    <p class="qakey">文章至少提到了四个例子，分别是：一个团队培训课程的任务是建造一座桥；选择不同目标市场的销售表现不佳，例如手机和巧克力市场的例子；一项关于企业市场先驱与跟随者的市场占有率研究；以及对“市场先驱”与“跟随者”在市场份额上的表现差异的讨论。</p>
+    <h2><a id="q7"></a>Q7. 在产品创新方面，先发优势和跟随优势有何差异？</h2>
+    <p class="qakey">根据一项主要研究，推出首款产品的公司（pioneers）平均占据了29%的市场份额，而跟随这些产品的公司（followers），尽管其产品可能更好，但市场份额只有13%，即使它们在质量上有所改进。</p>
+    <h2><a id="q8"></a>Q8. 对于听力理解策略，应该如何对待其中的复杂词汇和例子？</h2>
+    <p class="qakey">在听力理解过程中，不必深入理解所有细节，特别是生僻词汇，如“market share”（市场份额）和“side effects”（副作用）。关键是抓住文章结构而非内容细节，确保对大部分题目有大体理解即可。</p>
+    <h2><a id="q9"></a>Q9. 过分追求卓越在商业中会带来哪些问题？</h2>
+    <p class="qakey">过分追求卓越会导致时间和精力的浪费，并可能导致错失商机。有时，次优的解决方案比追求卓越更为实际和有价值。</p>
+    <h2><a id="q10"></a>Q10. 在考试中如何制定听力答题策略以保证分数稳定？</h2>
+    <p class="qakey">在考试中，应确保容易和中等难度的题目正确率较高，即使错一两个较难题目，也能确保整体听力得分稳定。同时，要注意考试时的紧张感和节奏控制，避免因不适应整体考试环境而导致听力表现不佳。</p>
+    <h2><a id="q11"></a>Q11. 在听力文章中，“understand and managing”具体是什么意思？</h2>
+    <p class="qakey">understand and managing在听力中指的是理解并管理，这是针对那些领导者采纳价值观时可能出现的副作用而需要理解和管理的情况。</p>
+    <h2><a id="q12"></a>Q12. 为什么“potential”这个形容词没有在题目中出现？</h2>
+    <p class="qakey">“Potential”是一个潜在的概念，在此处它隐含在了语言含义中，并没有直接作为替换词出现。尽管如此，之前的动词部分有替换，这道题整体来说是一道较难的题目，如果出错也是可以接受的。</p>
+    <h2><a id="q13"></a>Q13. 第一种讨论的价值观是什么？</h2>
+    <p class="qakey">第一种讨论的价值观是合作（collaboration），并且通过一个管理培训课程中的实例来说明这一点。</p>
+    <h2><a id="q14"></a>Q14. 在讨论合作的例子中，其他小组和其他团队在协作过程中遇到了什么问题？</h2>
+    <p class="qakey">其他小组在试图合作建造桥梁时陷入了混乱（confusion），而本小组由于避免了过多的合作，结果反而较好。他们遵循了一个规则，即每个团队成员必须移动至少一个建筑块，以鼓励团队协作，但实际操作中，一个团队成员单独完成了任务。</p>
+    <h2><a id="q15"></a>Q15. 对于智能手机销售业绩差的例子，导致问题的原因是什么？</h2>
+    <p class="qakey">在智能手机销售业绩差的例子中，不一致的团队工作导致了产品未能同时满足商业和消费市场的需求，尽管公司试图兼顾两边，最终产品无法满足任何一方的需求。</p>
+    <h2><a id="q16"></a>Q16. 勤奋在某些情况下可能带来的负面影响是什么？</h2>
+    <p class="qakey">虽然勤奋通常被视为积极品质，但在某些情况下，如工业场合，过度的勤奋可能导致资源过度消耗，答案是"资源"，并且必须填负数。</p>
+    <h2><a id="q17"></a>Q17. 在第一段中，“hard work is valuable, but only when properly targeted”这句话的含义是什么？</h2>
+    <p class="qakey">这句话的含义是，虽然努力工作很重要，但只有当它被正确地指向明确的目标时才具有价值。如果缺乏目标，努力工作可能会浪费公司宝贵的资源。</p>
+    <h2><a id="q18"></a>Q18. “Otherwise, IT wastes the resources that companies value most”中的“IT”是指代什么？</h2>
+    <p class="qakey">“IT”在这里指的是不恰当的努力工作或没有目标的努力，它会浪费公司最为重视和珍视的资源。</p>
+    <h2><a id="q19"></a>Q19. 第五题中，创造力应该如何使用？</h2>
+    <p class="qakey">创造力应当针对公司识别出的特定问题进行定位，以解决公司已确定的问题，而不是仅仅为了追求创新而创新。</p>
+    <h2><a id="q20"></a>Q20. 第二题中，lazy在上下文中的具体含义是什么？</h2>
+    <p class="qakey">在该管理模型中，lazy是指有理性决定避免执行不必要的任务，而不是完全避免工作。</p>
+    <h2><a id="q21"></a>Q21. 根据文章内容，最宝贵的人是什么样的？</h2>
+    <p class="qakey">最宝贵的人是既聪明又懒的人，他们拥有清晰的智力和决策能力，能寻找更有效的方法解决问题，而不是无休止地投入更多时间。</p>
+    <h2><a id="q22"></a>Q22. 第四题中提到的广告创意没有促进销量的例子是什么？</h2>
+    <p class="qakey">几年前某个巧克力品牌的广告虽然被大量消费者记住，但并未提升销量，说明有些创意并不一定能够有效推动销售。</p>
+    <h2><a id="q23"></a>Q23. What does the term 'market share' refer to?</h2>
+    <p class="qakey">Market share refers to the proportion of a company's sales or market's purchases that are attributable to a particular company or product. For example, a company might have a market share of 29%, as mentioned in the context of the study on company performance.</p>
+    <h2><a id="q24"></a>Q24. What were the findings of the study comparing the performance of pioneers versus followers in the market?Why might being first with a product be more profitable than having the best product?</h2>
+    <p class="qakey">The study found that pioneers, or companies bringing out the first version of a product, commanded an average market share of 29%, while followers, which copied and improved on the product, achieved only 13% market share, despite potentially having a better product.Being first with a product can be more profitable than having the best product because it allows a company to capture a larger market share and potentially command higher prices or enjoy first-mover advantages, as seen in the study mentioned where pioneers achieved significantly higher market shares compared to followers.</p>
+    <h2><a id="q25"></a>Q25. What is the relevance of ethnography in the field of business research?</h2>
+    <p class="qakey">Ethnography is relevant in the field of business research because it offers companies deeper insights into customer needs and attitudes towards their products, and can help design new products or services that customers truly want.</p>
+    <h2><a id="q26"></a>Q26. How did research on kitchen equipment lead to the development of a new measuring cup design?</h2>
+    <p class="qakey">Research on kitchen equipment observed that cooks had difficulty using existing measuring cups due to the numbers inside being hard to see. As a result, a new design of cup was developed that addressed this issue and became a top seller.</p>
+    <h2><a id="q27"></a>Q27. What was the feature that cell phones in Uganda were modified to include?</h2>
+    <p class="qakey">Cell phones in Uganda were modified to include a feature that allowed customers to see how much time they had left on their calls, as these customers were eager to know this information because they paid in advance for their calls.</p>
+    <h2><a id="q28"></a>Q28. How did the observations in computer companies lead to the development of new software?</h2>
+    <p class="qakey">Observations in computer companies showed that IT systems administrators often struggled with communicating with colleagues to solve problems, lacking a standard way of exchanging information. This led to the development of software that would facilitate better communication and problem-solving among colleagues.</p>
+    <h2><a id="q29"></a>Q29. What led to the development of the portable computer tablet for nurses?</h2>
+    <p class="qakey">The development of the portable computer tablet for nurses was a result of observing and talking to nurses in hospitals. It was recognized that nurses needed to access the computer records of their patients regardless of their location. Consequently, the tablet was developed to allow nurses to check records throughout the hospital.</p>
+    <h2><a id="q30"></a>Q30. What is the role of the researcher in ethnographic business research?</h2>
+    <p class="qakey">In ethnographic business research, the role of the researcher is to be completely open-minded, not to set up hypotheses to be tested, and to wait for participants to inform them. The researcher's approach is based on first-hand observations and interaction with participants, rather than solely sending questions to them.</p>
+    <h2><a id="q31"></a>Q31. 在传统研究中，谁通常决定访谈的方向？</h2>
+    <p class="qakey">在传统研究中，是研究人员决定访谈的方向。</p>
+    <h2><a id="q32"></a>Q32. 例子在文章中的推进作用是什么？</h2>
+    <p class="qakey">文章通过一系列例子推进，从厨房用品公司发现容器刻度不易见的问题，到电话公司需要知道使用时间，再到电脑公司开发软件解决员工沟通问题，最后到航空公司需要了解乘客在飞行中的感受。</p>
+    <h2><a id="q33"></a>Q33. 第33题中，电话公司需要了解什么信息？</h2>
+    <p class="qakey">电话公司需要知道用户在使用电话时想要知道的时间信息。</p>
+    <h2><a id="q34"></a>Q34. 研究者在分析数据时主要关注什么内容？第36题中，航空公司需要获取什么信息？</h2>
+    <p class="qakey">研究者关注的是寻找数据中的模式和背后的意义，而不是只关注引人注意或不寻常的事情。航空公司需要了解乘客在旅行中（during flight）的情绪感受。</p>
+    <h2><a id="q35"></a>Q35. 研究者在整理一手观察数据时关注的核心活动是什么？</h2>
+    <p class="qakey">研究者关注的是数据分析，尤其是对收集到的大量一手观察数据进行深入分析，以提炼出有洞察力的见解，并反馈到整个设计过程中。</p>
+    <h2><a id="q36"></a>Q36. 研究者在研究过程中花费最多时间的是什么环节？</h2>
+    <p class="qakey">研究者在研究过程中花费70%到80%的时间在数据分析上，包括查看照片、听录音和转录等。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-19.html">精讲逐字稿</a></li>
-      <li><a href="qa-19.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-18.html">上一讲 18</a></li>
-      <li><a href="lesson-20.html">下一讲 20</a></li>
+<li><a href="#q1">Q1. 商业场景中的题目有什么特点？</a></li>
+<li><a href="#q2">Q2. 关于“勤劳与勤奋”，为何说它需要正确目标化？</a></li>
+<li><a href="#q3">Q3. 商业场景的练习材料来源是什么？</a></li>
+<li><a href="#q4">Q4. 这次讲解的文章主要关于什么内容？对于“合作”这种商业价值，能否举例说明其可能存在的问题？</a></li>
+<li><a href="#q5">Q5. 在商业领域，不断推出新产品是否一定是好事？</a></li>
+<li><a href="#q6">Q6. 这篇文章提供了哪些商业场景的例子？</a></li>
+<li><a href="#q7">Q7. 在产品创新方面，先发优势和跟随优势有何差异？</a></li>
+<li><a href="#q8">Q8. 对于听力理解策略，应该如何对待其中的复杂词汇和例子？</a></li>
+<li><a href="#q9">Q9. 过分追求卓越在商业中会带来哪些问题？</a></li>
+<li><a href="#q10">Q10. 在考试中如何制定听力答题策略以保证分数稳定？</a></li>
+<li><a href="#q11">Q11. 在听力文章中，“understand and managing”具体是什么意思？</a></li>
+<li><a href="#q12">Q12. 为什么“potential”这个形容词没有在题目中出现？</a></li>
+<li><a href="#q13">Q13. 第一种讨论的价值观是什么？</a></li>
+<li><a href="#q14">Q14. 在讨论合作的例子中，其他小组和其他团队在协作过程中遇到了什么问题？</a></li>
+<li><a href="#q15">Q15. 对于智能手机销售业绩差的例子，导致问题的原因是什么？</a></li>
+<li><a href="#q16">Q16. 勤奋在某些情况下可能带来的负面影响是什么？</a></li>
+<li><a href="#q17">Q17. 在第一段中，“hard work is valuable, but only when properly targeted”这句话的含义是什么？</a></li>
+<li><a href="#q18">Q18. “Otherwise, IT wastes the resources that companies value most”中的“IT”是指代什么？</a></li>
+<li><a href="#q19">Q19. 第五题中，创造力应该如何使用？</a></li>
+<li><a href="#q20">Q20. 第二题中，lazy在上下文中的具体含义是什么？</a></li>
+<li><a href="#q21">Q21. 根据文章内容，最宝贵的人是什么样的？</a></li>
+<li><a href="#q22">Q22. 第四题中提到的广告创意没有促进销量的例子是什么？</a></li>
+<li><a href="#q23">Q23. What does the term 'market share' refer to?</a></li>
+<li><a href="#q24">Q24. What were the findings of the study comparing the performance of pioneers versus followers in the market?Why might being first with a product be more profitable than having the best product?</a></li>
+<li><a href="#q25">Q25. What is the relevance of ethnography in the field of business research?</a></li>
+<li><a href="#q26">Q26. How did research on kitchen equipment lead to the development of a new measuring cup design?</a></li>
+<li><a href="#q27">Q27. What was the feature that cell phones in Uganda were modified to include?</a></li>
+<li><a href="#q28">Q28. How did the observations in computer companies lead to the development of new software?</a></li>
+<li><a href="#q29">Q29. What led to the development of the portable computer tablet for nurses?</a></li>
+<li><a href="#q30">Q30. What is the role of the researcher in ethnographic business research?</a></li>
+<li><a href="#q31">Q31. 在传统研究中，谁通常决定访谈的方向？</a></li>
+<li><a href="#q32">Q32. 例子在文章中的推进作用是什么？</a></li>
+<li><a href="#q33">Q33. 第33题中，电话公司需要了解什么信息？</a></li>
+<li><a href="#q34">Q34. 研究者在分析数据时主要关注什么内容？第36题中，航空公司需要获取什么信息？</a></li>
+<li><a href="#q35">Q35. 研究者在整理一手观察数据时关注的核心活动是什么？</a></li>
+<li><a href="#q36">Q36. 研究者在研究过程中花费最多时间的是什么环节？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -313,8 +313,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -63,14 +63,14 @@
   <div class="topbar-right">
     <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
-    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <a href="writing-qa-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>写作问答（17 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 动态图表（小作文）总览</a></li>
       <li><a href="qa-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
@@ -96,133 +96,133 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第11讲 · 论述题型（优缺点/利弊讨论）</h1>
-    <div class="abstract"><b>本讲概要：</b>在准备雅思写作考试时，掌握论述题型（如优缺点或利弊讨论）的写作技巧至关重要。这类题目要求评估特定行动的利弊，并通常遵循两正一反或两反一正的结构。审题是第一步，需准确识别关键词，避免偏离主题。构建逻辑链，确保论证连贯深人。开头段应重述题目并清晰表达个人立场，避免使用模板。主体段提出分论点，使用逻辑衔接词，结合例子和对比论证增强论点。结尾段重申立场，勿引入新信息。整体策略旨在提升文章结构和论证质量，助考生有效表达观点。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>问：今天我们要学习的雅思写作题型是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：今天我们主要关注的是优缺点类题型，也称为利弊讨论。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：这种题型的题目特征是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：这类题型的特点是题目中会出现关键词，要求我们对一个动作（如“机器取代人工”）进行优缺点分析，并确定其是否为积极或消极的发展。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：针对这种题型，我们应该采取什么样的写作结构？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：我们通常采用两正一反或两反一正的结构。如果认为优点大于缺点，则用两个主体段讨论优点，一个主体段讨论缺点；反之亦然。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如果考场上没有想出足够的论点怎么办？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：即使如此，也可以选择一正一反或一反一正的结构，关键在于主体段的论证必须充分。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：在审题时应该注意哪些方面来避免陷阱？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：审题时需从九个思路、九个方面甄别题目是否存在陷阱，例如题目限定的工作范围、形容词等，并确保所选论点与题目要求相符。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如何展开关于“机器取代人工”的逻辑链？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：逻辑链可以从促进经济发展（提高企业产出）、减轻工人劳动强度、破坏社会稳定（造成失业和下岗风险）等方面进行构建。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：为什么逻辑链要满足“不宽不窄”的条件？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：逻辑链既不能过于宽泛导致论证无力，也不能过于狭窄以至于无法充分展开论述。选择能够有效论证且自己能够充分展开论述的论点至关重要。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：开头段写作时，如何进行题目改写以适应个人表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：开头段应将原题目用自己的话简洁准确地改写，并开门见山地表明个人观点。对于题目关键词，可以通过同义词替换或改变句式结构等方式进行改写。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：对于题目“越来越多的工作被机器完成”，如何进行改写并保持原意？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：可以将该部分改写为“a growing number of jobs are done by machines”，或者使用“an impressive number of”。同时，将“完成”用同义词如“finish”、“complete”或“accomplish”替换。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：在题目改写中，如果遇到抽象名词，应如何进行具体化处理？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：在改写过程中，如果碰到抽象名词，可以将其替换为具体的名词来解释。例如，将“提升道路安全”这一抽象概念替换为“减少交通事故”，因为道路安全意味着交通事故率的降低。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：对于追求高分的同学，有哪些改写方法可以采用？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：高分追求者可以使用“换表达”的方法，即在保持原句意思不变的前提下，用不同的词语替换句中的某个成分。比如将“提升道路安全”改为“reduce road accidents”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如何替换“由机器完成”这一表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：基础表达可以使用“完成”、“finish”或“accomplish”的同义词替换。若追求高分，则可以使用“mechanized”或“automated”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：对于原题中的“体力活”（mental work）应如何改写？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：“体力活”可替换为“physically demanding work”，或者使用从句来具体化表达，如“which traditionally is done by human workers”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如何保持个人观点段与主体段的一致性？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：在开头段（个人观点段）表达个人观点时，应通过使用转折词如“although”、“but”或“while”引导让步状语从句，明确展示尽管存在缺点，但依然认为是积极的发展。确保开头段与主体段在逻辑结构上保持一致。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：开头段如何写才能避免模板化，吸引考官注意力？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：开头段避免使用网络上的模板句式，如“with the development of economy and society”等。考官往往反映中国学生作文过于雷同，开头句式相似性高。真正的加分项是提升critical thinking能力，学会如何论证观点，而非简单背诵句型以增加分数。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：开头段应如何控制字数和内容以符合要求？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：开头段不需要花费太多时间和精力，只需满足三点要求：一是不要直接抄题（因为抄题不计入字数）；二是尽量避免使用模板句；三是字数不要过多，重点在于简洁明了，一般两句话即可，不需要凑字数，因为决定作文分数的是主体段的质量。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：主体段写作时如何进行拓展并确保其质量？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：主体段写作的核心是设置一个topic sentence（话题句），即呈现分论点并进行解释论证。论述时可以采用背景句的方式增加深度和说服力，背景句有三种形式：首先，阐述A导致B的前提条件；其次，从B的重要性角度出发，说明其在特定背景下的合理性；最后，在报告类题目中探讨A产生的深层次原因。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如何有效地解释逻辑链中的因果关系或B的发生原因？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：解释观点时，可以从两个维度进行阐述。第一种情况是当逻辑链存在跳跃时，解释A导致B，再解释B导致C之间的因果关系或逻辑联系。第二种情况是在逻辑链直接因果关系不明显时，重点解释B为何会发生，包括YB happens（为什么B会发生）以及how B happens（B是如何发生的），以此来具体展现B的表现形式。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：为什么举例论证不能脱离论述而单独存在？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：举例论证（论据）必须基于论述充分的基础上，作为论述的补充和例证。如果观点解释不充分，就直接举例，这样的例子往往是无效的，因为它无法有力地支撑论点。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：在论证过程中，如何确保论述充分并有效使用论据？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：论述充分是指论点与论据之间存在紧密联系，需要一个桥梁来连接二者。在进行举例论证前，应先有充分的论述部分，论据是为了进一步阐述论述内容而产生的。如果观点解释不充分，则不应使用论据，因为论据必须建立在论述充分的前提之上。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如何有效拓展论述内容以充实主题段落？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：拓展论述内容时，可以对已论证过的观点进行结果拓展，如举例说明优点或缺点的重要性和严重性；也可以进行对比论证，特别是当题目涉及比较级、最高级或对比对象时，通过对比不同情况来增强论述的充分性。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：对于优缺点类型的题型，其拓展方式是怎样的？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：拓展方式主要是论证一个动作的好处或坏处，并明确提出一个明确的影响点。首先进行原因分析，解释为何该动作会导致某种结果，然后在解释论证的基础上，可以采用举例对比、反向假设等方式进一步阐述。反向假设即讨论如果不采取某个行动会有何严重后果，以此来强调动作的重要性或好处。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：如何具体解释机器代替人工产出高有利于经济发展这一观点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：解释时需详细说明机器产出高的原因（如24小时不间断工作），并进一步解释高产出如何降低成本、提高产品质量、增强市场竞争力，从而促进经济发展。同时，也可以从速度优势（如更快完成订单）和减少工作量（让人们有更多休闲时间，生活更轻松）等方面进行拓展解释。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：机器代替人工这一现象有哪些缺点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：机器代替人工的缺点主要包括导致大量员工失业，引发社会不稳定。具体来说，当公司为了应对经济压力而裁员时，就业岗位减少，许多人会因此失去收入来源，无法保障生活，进而产生不满情绪。此外，失业率上升还可能导致犯罪率提高，因为人们在无法通过正当途径获取收入时可能转向犯罪。另外，从社会资源合理配置的角度看，若某一行业被机器取代，相关专业人才被迫转行或面临失业，也会造成社会不稳定。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：主体段拓展时需要注意哪些要素？如何将个人思路转化为符合雅思写作要求的段落？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：主体段拓展需要做到以下几点：首先，每个主体段应有一个明确的topic sentence，它必须扣题，紧密围绕题目问题并包含关键词或其同义替换；其次，topic sentence需要清晰明确地给出一个总观点（mean ideas），并确保整个主体部分的立场一致；最后，解释论证部分必须围绕topic sentence展开，不能涉及无关内容，保持逻辑链条的连贯性和一致性。将个人思路转化为雅思作文段落时，首先要确保每个段落都有一个topic sentence，并且满足扣题、清晰表达观点和立场的要求。其次，运用ACB或ABC等逻辑结构来组织论点，将分论点融合在一个简洁有力的句子中。例如，“mechanization can improve productivity，thereby benefiting the economy”，以此来展示观点。同时，确保段落内的句子与句子之间有直接的因果关系，层层推进，避免逻辑跳跃，并适当使用逻辑衔接词以增强段落间的连贯性。</p></div>
-    </details>
-    <details class="qa">
-      <summary>问：在写作主体段时如何处理因果关系和抽象名词？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>答：在处理因果关系时，要确保每一段论述中都有明确的因果链条，如果缺少直接联系，需要进行降层解释，直至每个段落都能清楚地展示因果逻辑。对于抽象名词，需将其具体化以增强说服力，如通过举例说明价格下降带来的市场竞争优势和税收增加等实际影响。同时，通过并列结构、逻辑衔接词等方式连接不同维度的解释，保证段落内部的逻辑严密性和一致性。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>在准备雅思写作考试时，掌握论述题型（如优缺点或利弊讨论）的写作技巧至关重要。这类题目要求评估特定行动的利弊，并通常遵循两正一反或两反一正的结构。审题是第一步，需准确识别关键词，避免偏离主题。构建逻辑链，确保论证连贯深人。开头段应重述题目并清晰表达个人立场，避免使用模板。主体段提出分论点，使用逻辑衔接词，结合例子和对比论证增强论点。结尾段重申立场，勿引入新信息。整体策略旨在提升文章结构和论证质量，助考生有效表达观点。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>问：今天我们要学习的雅思写作题型是什么？</td><td>答：今天我们主要关注的是优缺点类题型，也称为利弊讨论</td></tr>
+      <tr><td><b>Q2</b></td><td>问：这种题型的题目特征是什么？</td><td>答：这类题型的特点是题目中会出现关键词，要求我们对一个动作（如“机器取代人工”）进行优缺点分析，并确定其是否为积极或消极的发展</td></tr>
+      <tr><td><b>Q3</b></td><td>问：针对这种题型，我们应该采取什么样的写作结构？</td><td>答：我们通常采用两正一反或两反一正的结构</td></tr>
+      <tr><td><b>Q4</b></td><td>问：如果考场上没有想出足够的论点怎么办？</td><td>答：即使如此，也可以选择一正一反或一反一正的结构，关键在于主体段的论证必须充分</td></tr>
+      <tr><td><b>Q5</b></td><td>问：在审题时应该注意哪些方面来避免陷阱？</td><td>答：审题时需从九个思路、九个方面甄别题目是否存在陷阱，例如题目限定的工作范围、形容词等，并确保所选论点与题目要求相符</td></tr>
+      <tr><td><b>Q6</b></td><td>问：如何展开关于“机器取代人工”的逻辑链？</td><td>答：逻辑链可以从促进经济发展（提高企业产出）、减轻工人劳动强度、破坏社会稳定（造成失业和下岗风险）等方面进行构建</td></tr>
+      <tr><td><b>Q7</b></td><td>问：为什么逻辑链要满足“不宽不窄”的条件？</td><td>答：逻辑链既不能过于宽泛导致论证无力，也不能过于狭窄以至于无法充分展开论述</td></tr>
+      <tr><td><b>Q8</b></td><td>问：开头段写作时，如何进行题目改写以适应个人表达？</td><td>答：开头段应将原题目用自己的话简洁准确地改写，并开门见山地表明个人观点</td></tr>
+      <tr><td><b>Q9</b></td><td>问：对于题目“越来越多的工作被机器完成”，如何进行改写并保持原意？</td><td>答：可以将该部分改写为“a growing number of jobs are done by machines”，或者使用“an impressive number…</td></tr>
+      <tr><td><b>Q10</b></td><td>问：在题目改写中，如果遇到抽象名词，应如何进行具体化处理？</td><td>答：在改写过程中，如果碰到抽象名词，可以将其替换为具体的名词来解释</td></tr>
+      <tr><td><b>Q11</b></td><td>问：对于追求高分的同学，有哪些改写方法可以采用？</td><td>答：高分追求者可以使用“换表达”的方法，即在保持原句意思不变的前提下，用不同的词语替换句中的某个成分</td></tr>
+      <tr><td><b>Q12</b></td><td>问：如何替换“由机器完成”这一表达？</td><td>答：基础表达可以使用“完成”、“finish”或“accomplish”的同义词替换</td></tr>
+      <tr><td><b>Q13</b></td><td>问：对于原题中的“体力活”（mental work）应如何改写？</td><td>答：“体力活”可替换为“physically demanding work”，或者使用从句来具体化表达，如“which traditionally is done by…</td></tr>
+      <tr><td><b>Q14</b></td><td>问：如何保持个人观点段与主体段的一致性？</td><td>答：在开头段（个人观点段）表达个人观点时，应通过使用转折词如“although”、“but”或“while”引导让步状语从句，明确展示尽管存在缺点，但依然认为是积极的发…</td></tr>
+      <tr><td><b>Q15</b></td><td>问：开头段如何写才能避免模板化，吸引考官注意力？</td><td>答：开头段避免使用网络上的模板句式，如“with the development of economy and society”等</td></tr>
+      <tr><td><b>Q16</b></td><td>问：开头段应如何控制字数和内容以符合要求？</td><td>答：开头段不需要花费太多时间和精力，只需满足三点要求：一是不要直接抄题（因为抄题不计入字数）</td></tr>
+      <tr><td><b>Q17</b></td><td>问：主体段写作时如何进行拓展并确保其质量？</td><td>答：主体段写作的核心是设置一个topic sentence（话题句），即呈现分论点并进行解释论证</td></tr>
+      <tr><td><b>Q18</b></td><td>问：如何有效地解释逻辑链中的因果关系或B的发生原因？</td><td>答：解释观点时，可以从两个维度进行阐述</td></tr>
+      <tr><td><b>Q19</b></td><td>问：为什么举例论证不能脱离论述而单独存在？</td><td>答：举例论证（论据）必须基于论述充分的基础上，作为论述的补充和例证</td></tr>
+      <tr><td><b>Q20</b></td><td>问：在论证过程中，如何确保论述充分并有效使用论据？</td><td>答：论述充分是指论点与论据之间存在紧密联系，需要一个桥梁来连接二者</td></tr>
+      <tr><td><b>Q21</b></td><td>问：如何有效拓展论述内容以充实主题段落？</td><td>答：拓展论述内容时，可以对已论证过的观点进行结果拓展，如举例说明优点或缺点的重要性和严重性</td></tr>
+      <tr><td><b>Q22</b></td><td>问：对于优缺点类型的题型，其拓展方式是怎样的？</td><td>答：拓展方式主要是论证一个动作的好处或坏处，并明确提出一个明确的影响点</td></tr>
+      <tr><td><b>Q23</b></td><td>问：如何具体解释机器代替人工产出高有利于经济发展这一观点？</td><td>答：解释时需详细说明机器产出高的原因（如24小时不间断工作），并进一步解释高产出如何降低成本、提高产品质量、增强市场竞争力，从而促进经济发展</td></tr>
+      <tr><td><b>Q24</b></td><td>问：机器代替人工这一现象有哪些缺点？</td><td>答：机器代替人工的缺点主要包括导致大量员工失业，引发社会不稳定</td></tr>
+      <tr><td><b>Q25</b></td><td>问：主体段拓展时需要注意哪些要素？如何将个人思路转化为符合雅思写作要求的段落？</td><td>答：主体段拓展需要做到以下几点：首先，每个主体段应有一个明确的topic sentence，它必须扣题，紧密围绕题目问题并包含关键词或其同义替换</td></tr>
+      <tr><td><b>Q26</b></td><td>问：在写作主体段时如何处理因果关系和抽象名词？</td><td>答：在处理因果关系时，要确保每一段论述中都有明确的因果链条，如果缺少直接联系，需要进行降层解释，直至每个段落都能清楚地展示因果逻辑</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 问：今天我们要学习的雅思写作题型是什么？</h2>
+    <p class="qakey">答：今天我们主要关注的是优缺点类题型，也称为利弊讨论。</p>
+    <h2><a id="q2"></a>Q2. 问：这种题型的题目特征是什么？</h2>
+    <p class="qakey">答：这类题型的特点是题目中会出现关键词，要求我们对一个动作（如“机器取代人工”）进行优缺点分析，并确定其是否为积极或消极的发展。</p>
+    <h2><a id="q3"></a>Q3. 问：针对这种题型，我们应该采取什么样的写作结构？</h2>
+    <p class="qakey">答：我们通常采用两正一反或两反一正的结构。如果认为优点大于缺点，则用两个主体段讨论优点，一个主体段讨论缺点；反之亦然。</p>
+    <h2><a id="q4"></a>Q4. 问：如果考场上没有想出足够的论点怎么办？</h2>
+    <p class="qakey">答：即使如此，也可以选择一正一反或一反一正的结构，关键在于主体段的论证必须充分。</p>
+    <h2><a id="q5"></a>Q5. 问：在审题时应该注意哪些方面来避免陷阱？</h2>
+    <p class="qakey">答：审题时需从九个思路、九个方面甄别题目是否存在陷阱，例如题目限定的工作范围、形容词等，并确保所选论点与题目要求相符。</p>
+    <h2><a id="q6"></a>Q6. 问：如何展开关于“机器取代人工”的逻辑链？</h2>
+    <p class="qakey">答：逻辑链可以从促进经济发展（提高企业产出）、减轻工人劳动强度、破坏社会稳定（造成失业和下岗风险）等方面进行构建。</p>
+    <h2><a id="q7"></a>Q7. 问：为什么逻辑链要满足“不宽不窄”的条件？</h2>
+    <p class="qakey">答：逻辑链既不能过于宽泛导致论证无力，也不能过于狭窄以至于无法充分展开论述。选择能够有效论证且自己能够充分展开论述的论点至关重要。</p>
+    <h2><a id="q8"></a>Q8. 问：开头段写作时，如何进行题目改写以适应个人表达？</h2>
+    <p class="qakey">答：开头段应将原题目用自己的话简洁准确地改写，并开门见山地表明个人观点。对于题目关键词，可以通过同义词替换或改变句式结构等方式进行改写。</p>
+    <h2><a id="q9"></a>Q9. 问：对于题目“越来越多的工作被机器完成”，如何进行改写并保持原意？</h2>
+    <p class="qakey">答：可以将该部分改写为“a growing number of jobs are done by machines”，或者使用“an impressive number of”。同时，将“完成”用同义词如“finish”、“complete”或“accomplish”替换。</p>
+    <h2><a id="q10"></a>Q10. 问：在题目改写中，如果遇到抽象名词，应如何进行具体化处理？</h2>
+    <p class="qakey">答：在改写过程中，如果碰到抽象名词，可以将其替换为具体的名词来解释。例如，将“提升道路安全”这一抽象概念替换为“减少交通事故”，因为道路安全意味着交通事故率的降低。</p>
+    <h2><a id="q11"></a>Q11. 问：对于追求高分的同学，有哪些改写方法可以采用？</h2>
+    <p class="qakey">答：高分追求者可以使用“换表达”的方法，即在保持原句意思不变的前提下，用不同的词语替换句中的某个成分。比如将“提升道路安全”改为“reduce road accidents”。</p>
+    <h2><a id="q12"></a>Q12. 问：如何替换“由机器完成”这一表达？</h2>
+    <p class="qakey">答：基础表达可以使用“完成”、“finish”或“accomplish”的同义词替换。若追求高分，则可以使用“mechanized”或“automated”。</p>
+    <h2><a id="q13"></a>Q13. 问：对于原题中的“体力活”（mental work）应如何改写？</h2>
+    <p class="qakey">答：“体力活”可替换为“physically demanding work”，或者使用从句来具体化表达，如“which traditionally is done by human workers”。</p>
+    <h2><a id="q14"></a>Q14. 问：如何保持个人观点段与主体段的一致性？</h2>
+    <p class="qakey">答：在开头段（个人观点段）表达个人观点时，应通过使用转折词如“although”、“but”或“while”引导让步状语从句，明确展示尽管存在缺点，但依然认为是积极的发展。确保开头段与主体段在逻辑结构上保持一致。</p>
+    <h2><a id="q15"></a>Q15. 问：开头段如何写才能避免模板化，吸引考官注意力？</h2>
+    <p class="qakey">答：开头段避免使用网络上的模板句式，如“with the development of economy and society”等。考官往往反映中国学生作文过于雷同，开头句式相似性高。真正的加分项是提升critical thinking能力，学会如何论证观点，而非简单背诵句型以增加分数。</p>
+    <h2><a id="q16"></a>Q16. 问：开头段应如何控制字数和内容以符合要求？</h2>
+    <p class="qakey">答：开头段不需要花费太多时间和精力，只需满足三点要求：一是不要直接抄题（因为抄题不计入字数）；二是尽量避免使用模板句；三是字数不要过多，重点在于简洁明了，一般两句话即可，不需要凑字数，因为决定作文分数的是主体段的质量。</p>
+    <h2><a id="q17"></a>Q17. 问：主体段写作时如何进行拓展并确保其质量？</h2>
+    <p class="qakey">答：主体段写作的核心是设置一个topic sentence（话题句），即呈现分论点并进行解释论证。论述时可以采用背景句的方式增加深度和说服力，背景句有三种形式：首先，阐述A导致B的前提条件；其次，从B的重要性角度出发，说明其在特定背景下的合理性；最后，在报告类题目中探讨A产生的深层次原因。</p>
+    <h2><a id="q18"></a>Q18. 问：如何有效地解释逻辑链中的因果关系或B的发生原因？</h2>
+    <p class="qakey">答：解释观点时，可以从两个维度进行阐述。第一种情况是当逻辑链存在跳跃时，解释A导致B，再解释B导致C之间的因果关系或逻辑联系。第二种情况是在逻辑链直接因果关系不明显时，重点解释B为何会发生，包括YB happens（为什么B会发生）以及how B happens（B是如何发生的），以此来具体展现B的表现形式。</p>
+    <h2><a id="q19"></a>Q19. 问：为什么举例论证不能脱离论述而单独存在？</h2>
+    <p class="qakey">答：举例论证（论据）必须基于论述充分的基础上，作为论述的补充和例证。如果观点解释不充分，就直接举例，这样的例子往往是无效的，因为它无法有力地支撑论点。</p>
+    <h2><a id="q20"></a>Q20. 问：在论证过程中，如何确保论述充分并有效使用论据？</h2>
+    <p class="qakey">答：论述充分是指论点与论据之间存在紧密联系，需要一个桥梁来连接二者。在进行举例论证前，应先有充分的论述部分，论据是为了进一步阐述论述内容而产生的。如果观点解释不充分，则不应使用论据，因为论据必须建立在论述充分的前提之上。</p>
+    <h2><a id="q21"></a>Q21. 问：如何有效拓展论述内容以充实主题段落？</h2>
+    <p class="qakey">答：拓展论述内容时，可以对已论证过的观点进行结果拓展，如举例说明优点或缺点的重要性和严重性；也可以进行对比论证，特别是当题目涉及比较级、最高级或对比对象时，通过对比不同情况来增强论述的充分性。</p>
+    <h2><a id="q22"></a>Q22. 问：对于优缺点类型的题型，其拓展方式是怎样的？</h2>
+    <p class="qakey">答：拓展方式主要是论证一个动作的好处或坏处，并明确提出一个明确的影响点。首先进行原因分析，解释为何该动作会导致某种结果，然后在解释论证的基础上，可以采用举例对比、反向假设等方式进一步阐述。反向假设即讨论如果不采取某个行动会有何严重后果，以此来强调动作的重要性或好处。</p>
+    <h2><a id="q23"></a>Q23. 问：如何具体解释机器代替人工产出高有利于经济发展这一观点？</h2>
+    <p class="qakey">答：解释时需详细说明机器产出高的原因（如24小时不间断工作），并进一步解释高产出如何降低成本、提高产品质量、增强市场竞争力，从而促进经济发展。同时，也可以从速度优势（如更快完成订单）和减少工作量（让人们有更多休闲时间，生活更轻松）等方面进行拓展解释。</p>
+    <h2><a id="q24"></a>Q24. 问：机器代替人工这一现象有哪些缺点？</h2>
+    <p class="qakey">答：机器代替人工的缺点主要包括导致大量员工失业，引发社会不稳定。具体来说，当公司为了应对经济压力而裁员时，就业岗位减少，许多人会因此失去收入来源，无法保障生活，进而产生不满情绪。此外，失业率上升还可能导致犯罪率提高，因为人们在无法通过正当途径获取收入时可能转向犯罪。另外，从社会资源合理配置的角度看，若某一行业被机器取代，相关专业人才被迫转行或面临失业，也会造成社会不稳定。</p>
+    <h2><a id="q25"></a>Q25. 问：主体段拓展时需要注意哪些要素？如何将个人思路转化为符合雅思写作要求的段落？</h2>
+    <p class="qakey">答：主体段拓展需要做到以下几点：首先，每个主体段应有一个明确的topic sentence，它必须扣题，紧密围绕题目问题并包含关键词或其同义替换；其次，topic sentence需要清晰明确地给出一个总观点（mean ideas），并确保整个主体部分的立场一致；最后，解释论证部分必须围绕topic sentence展开，不能涉及无关内容，保持逻辑链条的连贯性和一致性。将个人思路转化为雅思作文段落时，首先要确保每个段落都有一个topic sentence，并且满足扣题、清晰表达观点和立场的要求。其次，运用ACB或ABC等逻辑结构来组织论点，将分论点融合在一个简洁有力的句子中。例如，“mechanization can improve productivity，thereby benefiting the economy”，以此来展示观点。同时，确保段落内的句子与句子之间有直接的因果关系，层层推进，避免逻辑跳跃，并适当使用逻辑衔接词以增强段落间的连贯性。</p>
+    <h2><a id="q26"></a>Q26. 问：在写作主体段时如何处理因果关系和抽象名词？</h2>
+    <p class="qakey">答：在处理因果关系时，要确保每一段论述中都有明确的因果链条，如果缺少直接联系，需要进行降层解释，直至每个段落都能清楚地展示因果逻辑。对于抽象名词，需将其具体化以增强说服力，如通过举例说明价格下降带来的市场竞争优势和税收增加等实际影响。同时，通过并列结构、逻辑衔接词等方式连接不同维度的解释，保证段落内部的逻辑严密性和一致性。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-11.html">精讲逐字稿</a></li>
-      <li><a href="qa-11.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-10.html">上一讲 10</a></li>
-      <li><a href="lesson-12.html">下一讲 12</a></li>
+<li><a href="#q1">Q1. 问：今天我们要学习的雅思写作题型是什么？</a></li>
+<li><a href="#q2">Q2. 问：这种题型的题目特征是什么？</a></li>
+<li><a href="#q3">Q3. 问：针对这种题型，我们应该采取什么样的写作结构？</a></li>
+<li><a href="#q4">Q4. 问：如果考场上没有想出足够的论点怎么办？</a></li>
+<li><a href="#q5">Q5. 问：在审题时应该注意哪些方面来避免陷阱？</a></li>
+<li><a href="#q6">Q6. 问：如何展开关于“机器取代人工”的逻辑链？</a></li>
+<li><a href="#q7">Q7. 问：为什么逻辑链要满足“不宽不窄”的条件？</a></li>
+<li><a href="#q8">Q8. 问：开头段写作时，如何进行题目改写以适应个人表达？</a></li>
+<li><a href="#q9">Q9. 问：对于题目“越来越多的工作被机器完成”，如何进行改写并保持原意？</a></li>
+<li><a href="#q10">Q10. 问：在题目改写中，如果遇到抽象名词，应如何进行具体化处理？</a></li>
+<li><a href="#q11">Q11. 问：对于追求高分的同学，有哪些改写方法可以采用？</a></li>
+<li><a href="#q12">Q12. 问：如何替换“由机器完成”这一表达？</a></li>
+<li><a href="#q13">Q13. 问：对于原题中的“体力活”（mental work）应如何改写？</a></li>
+<li><a href="#q14">Q14. 问：如何保持个人观点段与主体段的一致性？</a></li>
+<li><a href="#q15">Q15. 问：开头段如何写才能避免模板化，吸引考官注意力？</a></li>
+<li><a href="#q16">Q16. 问：开头段应如何控制字数和内容以符合要求？</a></li>
+<li><a href="#q17">Q17. 问：主体段写作时如何进行拓展并确保其质量？</a></li>
+<li><a href="#q18">Q18. 问：如何有效地解释逻辑链中的因果关系或B的发生原因？</a></li>
+<li><a href="#q19">Q19. 问：为什么举例论证不能脱离论述而单独存在？</a></li>
+<li><a href="#q20">Q20. 问：在论证过程中，如何确保论述充分并有效使用论据？</a></li>
+<li><a href="#q21">Q21. 问：如何有效拓展论述内容以充实主题段落？</a></li>
+<li><a href="#q22">Q22. 问：对于优缺点类型的题型，其拓展方式是怎样的？</a></li>
+<li><a href="#q23">Q23. 问：如何具体解释机器代替人工产出高有利于经济发展这一观点？</a></li>
+<li><a href="#q24">Q24. 问：机器代替人工这一现象有哪些缺点？</a></li>
+<li><a href="#q25">Q25. 问：主体段拓展时需要注意哪些要素？如何将个人思路转化为符合雅思写作要求的段落？</a></li>
+<li><a href="#q26">Q26. 问：在写作主体段时如何处理因果关系和抽象名词？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -270,8 +270,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -63,14 +63,14 @@
   <div class="topbar-right">
     <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
-    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <a href="writing-qa-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>写作问答（17 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 动态图表（小作文）总览</a></li>
       <li><a href="qa-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
@@ -96,85 +96,85 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第07讲 · 流程图与地图</h1>
-    <div class="abstract"><b>本讲概要：</b>本次课程专注于雅思写作系列中的数据类图表分析，特别强调了流程图和地图的处理方法，尽管这两类图表在考试中出现频率不高，但由于相关教学资源有限，常被考生忽视。讲师通过实例展示了如何分析和描述流程图，包括不同的分段方式和步骤合并技巧，强调了只需按照图表步骤逐一描述的简单性。在写作技巧方面，提供了丰富的例句和连接词，鼓励补充图表外的信息以提升文章质量，并在结尾段总结整个流程。最后，总结了流程图的关键词汇，鼓励课后练习。整堂课旨在帮助学员克服对流程图和地图的恐惧，通过正确的方法和技巧，将其转化为雅思写作中的优势。通过学习，学员将能够更加自信地面对考试中的此类题目。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>很多人认为流程图和地图很难，是因为这类图表在考试中的出现频率低，导致市面上相关课程和资料相对较少。但实际上，流程图和地图因为其结构简单、变化不多，只要方法得当，在考试中遇到它们反而是幸运的。流程图主要分为两种类型，分别是自然流程和生产流程。自然流程通常描述某个生物体如动物的生长或繁殖过程；生产流程则涉及物品加工制造的过程，例如食品（如巧克力、橄榄油）或物品（如小熏鱼）的制作过程。</p></div>
-    </details>
-    <details class="qa">
-      <summary>描述流程图时，如何进行有效的分段？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>流程图的分段方式主要有四种：第一种是根据图表中给出的已知步骤或阶段进行分段；第二种是当图表包含多幅图片时，按照逻辑或生活常识将图片进行合并；第三种是依据不同的加工地点进行分段；最后一种情况是如果图表只有两到三幅图，则可将每幅图作为一个独立步骤对待。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在处理流程图时，为什么每个步骤都不能省略？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在流程图中，每一个小步骤都是不可省略的。因为所见即所得，每个步骤都是流程的重要组成部分，省略任何一步都可能导致理解不完整，从而影响评分。例如，在讲解罐头回收制作流程时，每个步骤如回收、清洗、加热、冷却等都是必不可少的环节。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>因为在流程图中，综述段的信息非常单一且一致，不需要进行总结概括，所以可以放在最后一段。开头段应简单改写原题目，将其转变为一个名词结构，例如将&quot;the process of showed how cans can be recycled&quot;改写为&quot;The profile of cans recycling&quot;。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在撰写主体段时，如何详细描述流程图中的小步骤？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>主体段需要逐一详细描述流程图涉及的小步骤，并掌握一个公式：一个材料发生某种动作（通常为被动语态），并加上介词，最后再加上器具，即“什么材料被什么器具怎么样了”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>图表中的生词对写作有何影响？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>图表中的生词不影响写作，名词直接抄录，动词在其后加ED即可。同时要注意动名词之间的灵活转化。</p></div>
-    </details>
-    <details class="qa">
-      <summary>如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>将相邻的两个小步骤合并在一个长句子中，用诸如where引导的定语从句、before/after分词结构、after which引导的定语从句、until/once状语从句或直接用and进行连接，以使流程图内容更加连贯和生动。使用前面提到的五种句型，如定语从句、分词结构、状语从句以及简单连接词and，将两个小步骤在一个句子中合并描述，以提高表达的流畅性和逻辑性。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在流程图中，每个小步骤可以通过选择不同的句式来描述，如使用&quot;and&quot;连接第一步，&quot;after&quot;引导从句来描述后续步骤。尽管如此，仅完成步骤的描述是不够的，还需要关注句子间的逻辑关系和衔接手段，以使整个流程图看起来条理分明。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>可以采用四种方式来连接流程图中的步骤：第一种是使用介词短语或副词表示顺序（如&quot;firstly&quot;、&quot;next&quot;）；第二种是通过代词&quot;this&quot;加名词进行连接，如果两个句子有相同的主语或宾语；第三种是运用过去分词加名词的形式；最后一种是关键词的重复，以增加句子间的粘性。在总体概述段中，可以使用&quot;go through&quot;或&quot;pass through&quot;表达经历某个阶段，如&quot;go through or pass through three stages&quot;表示经历三个阶段，或者使用&quot;consists of three digits&quot;来说明包含三个部分。而在使用代词时，可以在完成一个步骤后补充说明目的，或者在步骤之间使用&quot;there's a lot of this enable...&quot;这样的结构，以及重复名词&quot;this&quot;来进行衔接。</p></div>
-    </details>
-    <details class="qa">
-      <summary>对于流程图中的不同阶段，有哪些表达方式可以使用？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在描述流程图中的不同阶段时，可以使用多种表达方式，例如直接说&quot;at the first stage&quot;或&quot;the initial phase&quot;代表第一阶段；&quot;at the next or second stage&quot;或&quot;enter or reach the navigation mark or represent the stage&quot;代表第二阶段；&quot;at the final stage&quot;或&quot;the final or last phase&quot;代表最终阶段。</p></div>
-    </details>
-    <details class="qa">
-      <summary>流程图主体段写作时如何增强逻辑性和衔接性？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在流程图主体段写作中，可以通过添加衔接手段（如红色部分所示）来实现内容间的逻辑紧密连接，使文章过渡更加自然，具有更强的逻辑性。</p></div>
-    </details>
-    <details class="qa">
-      <summary>在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>信息补充可以从三个方面进行：首先，填补图表中未标注的部分，例如罐头的填充物及其原因；其次，明确每一步骤的目的，使用目的状语从句（如&quot;to do&quot;或&quot;in order to do&quot;）阐述步骤的目的；最后，增加修饰成分，如对运输工具的规格、大小等进行描述，以增加内容的完整性。</p></div>
-    </details>
-    <details class="qa">
-      <summary>流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>流程图结尾段需明确以下内容：整个生产流程所需步骤总数、涉及的人力和设备数量，以及流程的起始和结束步骤。例如，“整个生产流程包含x个步骤，涉及y个设备，在生产出产品之前，使用了z个设备”以及“流程从A步骤开始，在B步骤结束”。</p></div>
-    </details>
-    <details class="qa">
-      <summary>备考时应重点掌握哪些流程图相关的词汇和表达？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>备考者需掌握流程图中常考的词汇和表达，这部分内容可以在课下学习任务中进行学习和背诵，以确保对流程图相关知识点的全面掌握。同时，课程还提供了课后流程图练习任务，帮助大家巩固所学内容。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>本次课程专注于雅思写作系列中的数据类图表分析，特别强调了流程图和地图的处理方法，尽管这两类图表在考试中出现频率不高，但由于相关教学资源有限，常被考生忽视。讲师通过实例展示了如何分析和描述流程图，包括不同的分段方式和步骤合并技巧，强调了只需按照图表步骤逐一描述的简单性。在写作技巧方面，提供了丰富的例句和连接词，鼓励补充图表外的信息以提升文章质量，并在结尾段总结整个流程。最后，总结了流程图的关键词汇，鼓励课后练习。整堂课旨在帮助学员克服对流程图和地图的恐惧，通过正确的方法和技巧，将其转化为雅思写作中的优势。通过学习，学员将能够更加自信地面对考试中的此类题目。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</td><td>很多人认为流程图和地图很难，是因为这类图表在考试中的出现频率低，导致市面上相关课程和资料相对较少</td></tr>
+      <tr><td><b>Q2</b></td><td>描述流程图时，如何进行有效的分段？</td><td>流程图的分段方式主要有四种：第一种是根据图表中给出的已知步骤或阶段进行分段</td></tr>
+      <tr><td><b>Q3</b></td><td>在处理流程图时，为什么每个步骤都不能省略？</td><td>在流程图中，每一个小步骤都是不可省略的</td></tr>
+      <tr><td><b>Q4</b></td><td>在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</td><td>因为在流程图中，综述段的信息非常单一且一致，不需要进行总结概括，所以可以放在最后一段</td></tr>
+      <tr><td><b>Q5</b></td><td>在撰写主体段时，如何详细描述流程图中的小步骤？</td><td>主体段需要逐一详细描述流程图涉及的小步骤，并掌握一个公式：一个材料发生某种动作（通常为被动语态），并加上介词，最后再加上器具，即“什么材料被什么器具怎么样了”</td></tr>
+      <tr><td><b>Q6</b></td><td>图表中的生词对写作有何影响？</td><td>图表中的生词不影响写作，名词直接抄录，动词在其后加ED即可</td></tr>
+      <tr><td><b>Q7</b></td><td>如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</td><td>将相邻的两个小步骤合并在一个长句子中，用诸如where引导的定语从句、before/after分词结构、after which引导的定语从句、until/once状语从…</td></tr>
+      <tr><td><b>Q8</b></td><td>在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</td><td>在流程图中，每个小步骤可以通过选择不同的句式来描述，如使用"and"连接第一步，"after"引导从句来描述后续步骤</td></tr>
+      <tr><td><b>Q9</b></td><td>在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</td><td>可以采用四种方式来连接流程图中的步骤：第一种是使用介词短语或副词表示顺序（如"firstly"、"next"）</td></tr>
+      <tr><td><b>Q10</b></td><td>对于流程图中的不同阶段，有哪些表达方式可以使用？</td><td>在描述流程图中的不同阶段时，可以使用多种表达方式，例如直接说"at the first stage"或"the initial phase"代表第一阶段</td></tr>
+      <tr><td><b>Q11</b></td><td>流程图主体段写作时如何增强逻辑性和衔接性？</td><td>在流程图主体段写作中，可以通过添加衔接手段（如红色部分所示）来实现内容间的逻辑紧密连接，使文章过渡更加自然，具有更强的逻辑性</td></tr>
+      <tr><td><b>Q12</b></td><td>在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</td><td>信息补充可以从三个方面进行：首先，填补图表中未标注的部分，例如罐头的填充物及其原因</td></tr>
+      <tr><td><b>Q13</b></td><td>流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</td><td>流程图结尾段需明确以下内容：整个生产流程所需步骤总数、涉及的人力和设备数量，以及流程的起始和结束步骤</td></tr>
+      <tr><td><b>Q14</b></td><td>备考时应重点掌握哪些流程图相关的词汇和表达？</td><td>备考者需掌握流程图中常考的词汇和表达，这部分内容可以在课下学习任务中进行学习和背诵，以确保对流程图相关知识点的全面掌握</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</h2>
+    <p class="qakey">很多人认为流程图和地图很难，是因为这类图表在考试中的出现频率低，导致市面上相关课程和资料相对较少。但实际上，流程图和地图因为其结构简单、变化不多，只要方法得当，在考试中遇到它们反而是幸运的。流程图主要分为两种类型，分别是自然流程和生产流程。自然流程通常描述某个生物体如动物的生长或繁殖过程；生产流程则涉及物品加工制造的过程，例如食品（如巧克力、橄榄油）或物品（如小熏鱼）的制作过程。</p>
+    <h2><a id="q2"></a>Q2. 描述流程图时，如何进行有效的分段？</h2>
+    <p class="qakey">流程图的分段方式主要有四种：第一种是根据图表中给出的已知步骤或阶段进行分段；第二种是当图表包含多幅图片时，按照逻辑或生活常识将图片进行合并；第三种是依据不同的加工地点进行分段；最后一种情况是如果图表只有两到三幅图，则可将每幅图作为一个独立步骤对待。</p>
+    <h2><a id="q3"></a>Q3. 在处理流程图时，为什么每个步骤都不能省略？</h2>
+    <p class="qakey">在流程图中，每一个小步骤都是不可省略的。因为所见即所得，每个步骤都是流程的重要组成部分，省略任何一步都可能导致理解不完整，从而影响评分。例如，在讲解罐头回收制作流程时，每个步骤如回收、清洗、加热、冷却等都是必不可少的环节。</p>
+    <h2><a id="q4"></a>Q4. 在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</h2>
+    <p class="qakey">因为在流程图中，综述段的信息非常单一且一致，不需要进行总结概括，所以可以放在最后一段。开头段应简单改写原题目，将其转变为一个名词结构，例如将"the process of showed how cans can be recycled"改写为"The profile of cans recycling"。</p>
+    <h2><a id="q5"></a>Q5. 在撰写主体段时，如何详细描述流程图中的小步骤？</h2>
+    <p class="qakey">主体段需要逐一详细描述流程图涉及的小步骤，并掌握一个公式：一个材料发生某种动作（通常为被动语态），并加上介词，最后再加上器具，即“什么材料被什么器具怎么样了”。</p>
+    <h2><a id="q6"></a>Q6. 图表中的生词对写作有何影响？</h2>
+    <p class="qakey">图表中的生词不影响写作，名词直接抄录，动词在其后加ED即可。同时要注意动名词之间的灵活转化。</p>
+    <h2><a id="q7"></a>Q7. 如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</h2>
+    <p class="qakey">将相邻的两个小步骤合并在一个长句子中，用诸如where引导的定语从句、before/after分词结构、after which引导的定语从句、until/once状语从句或直接用and进行连接，以使流程图内容更加连贯和生动。使用前面提到的五种句型，如定语从句、分词结构、状语从句以及简单连接词and，将两个小步骤在一个句子中合并描述，以提高表达的流畅性和逻辑性。</p>
+    <h2><a id="q8"></a>Q8. 在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</h2>
+    <p class="qakey">在流程图中，每个小步骤可以通过选择不同的句式来描述，如使用"and"连接第一步，"after"引导从句来描述后续步骤。尽管如此，仅完成步骤的描述是不够的，还需要关注句子间的逻辑关系和衔接手段，以使整个流程图看起来条理分明。</p>
+    <h2><a id="q9"></a>Q9. 在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</h2>
+    <p class="qakey">可以采用四种方式来连接流程图中的步骤：第一种是使用介词短语或副词表示顺序（如"firstly"、"next"）；第二种是通过代词"this"加名词进行连接，如果两个句子有相同的主语或宾语；第三种是运用过去分词加名词的形式；最后一种是关键词的重复，以增加句子间的粘性。在总体概述段中，可以使用"go through"或"pass through"表达经历某个阶段，如"go through or pass through three stages"表示经历三个阶段，或者使用"consists of three digits"来说明包含三个部分。而在使用代词时，可以在完成一个步骤后补充说明目的，或者在步骤之间使用"there's a lot of this enable..."这样的结构，以及重复名词"this"来进行衔接。</p>
+    <h2><a id="q10"></a>Q10. 对于流程图中的不同阶段，有哪些表达方式可以使用？</h2>
+    <p class="qakey">在描述流程图中的不同阶段时，可以使用多种表达方式，例如直接说"at the first stage"或"the initial phase"代表第一阶段；"at the next or second stage"或"enter or reach the navigation mark or represent the stage"代表第二阶段；"at the final stage"或"the final or last phase"代表最终阶段。</p>
+    <h2><a id="q11"></a>Q11. 流程图主体段写作时如何增强逻辑性和衔接性？</h2>
+    <p class="qakey">在流程图主体段写作中，可以通过添加衔接手段（如红色部分所示）来实现内容间的逻辑紧密连接，使文章过渡更加自然，具有更强的逻辑性。</p>
+    <h2><a id="q12"></a>Q12. 在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</h2>
+    <p class="qakey">信息补充可以从三个方面进行：首先，填补图表中未标注的部分，例如罐头的填充物及其原因；其次，明确每一步骤的目的，使用目的状语从句（如"to do"或"in order to do"）阐述步骤的目的；最后，增加修饰成分，如对运输工具的规格、大小等进行描述，以增加内容的完整性。</p>
+    <h2><a id="q13"></a>Q13. 流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</h2>
+    <p class="qakey">流程图结尾段需明确以下内容：整个生产流程所需步骤总数、涉及的人力和设备数量，以及流程的起始和结束步骤。例如，“整个生产流程包含x个步骤，涉及y个设备，在生产出产品之前，使用了z个设备”以及“流程从A步骤开始，在B步骤结束”。</p>
+    <h2><a id="q14"></a>Q14. 备考时应重点掌握哪些流程图相关的词汇和表达？</h2>
+    <p class="qakey">备考者需掌握流程图中常考的词汇和表达，这部分内容可以在课下学习任务中进行学习和背诵，以确保对流程图相关知识点的全面掌握。同时，课程还提供了课后流程图练习任务，帮助大家巩固所学内容。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-07.html">精讲逐字稿</a></li>
-      <li><a href="qa-07.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-06.html">上一讲 06</a></li>
-      <li><a href="lesson-08.html">下一讲 08</a></li>
+<li><a href="#q1">Q1. 在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</a></li>
+<li><a href="#q2">Q2. 描述流程图时，如何进行有效的分段？</a></li>
+<li><a href="#q3">Q3. 在处理流程图时，为什么每个步骤都不能省略？</a></li>
+<li><a href="#q4">Q4. 在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</a></li>
+<li><a href="#q5">Q5. 在撰写主体段时，如何详细描述流程图中的小步骤？</a></li>
+<li><a href="#q6">Q6. 图表中的生词对写作有何影响？</a></li>
+<li><a href="#q7">Q7. 如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</a></li>
+<li><a href="#q8">Q8. 在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</a></li>
+<li><a href="#q9">Q9. 在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</a></li>
+<li><a href="#q10">Q10. 对于流程图中的不同阶段，有哪些表达方式可以使用？</a></li>
+<li><a href="#q11">Q11. 流程图主体段写作时如何增强逻辑性和衔接性？</a></li>
+<li><a href="#q12">Q12. 在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</a></li>
+<li><a href="#q13">Q13. 流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</a></li>
+<li><a href="#q14">Q14. 备考时应重点掌握哪些流程图相关的词汇和表达？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -222,8 +222,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');

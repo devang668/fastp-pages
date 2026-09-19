@@ -34,22 +34,22 @@
   .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
   .col-left .back { font-size: 12.5px; color: #4b5563; }
-  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 860px; margin: 0 auto; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
   .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
-  .col-main h2 { font-size: 22px; margin-top: 36px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
   .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
-  .col-main .abstract { background: #f5f7fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; margin: 16px 0 24px; color: #4b5563; font-size: 14.5px; }
-  .col-main .qa { margin: 18px 0; border: 1px solid #e5e7eb; border-radius: 10px; }
-  .col-main .qa summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: #1f2937; font-size: 14.5px; list-style: none; }
-  .col-main .qa summary::-webkit-details-marker { display: none; }
-  .col-main .qa summary:before { content: "Q "; color: #1d4ed8; font-weight: 800; }
-  .col-main .qa .qa-body { padding: 0 18px 16px; color: #374151; font-size: 14px; line-height: 1.75; }
-  .col-main .qa .qa-body .a { margin-top: 8px; }
-  .col-main .qa .qa-body .a b { color: #1d4ed8; }
-  .col-main .tip { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; color: #1e3a8a; font-size: 14px; line-height: 1.7; }
-  .col-right { width: 220px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
   .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
-  .col-right ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
   .col-right li { margin: 6px 0; }
   .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
   .col-right a:hover { color: #1d4ed8; }
@@ -63,14 +63,14 @@
   <div class="topbar-right">
     <a href="../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
     <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
-    <a href="writing-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <a href="writing-qa-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
     <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
     <div id="search-panel"></div>
   </div>
 </header>
 <div class="layout">
   <aside class="col-left">
-    <h3>问答精要</h3>
+    <h3>写作问答（17 讲）</h3>
     <ul>
       <li><a href="qa-01.html">第01讲 · 动态图表（小作文）总览</a></li>
       <li><a href="qa-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
@@ -96,56 +96,57 @@
       <li><a class="back" href="../../../index.html">站点首页</a></li>
     </ul>
   </aside>
-  <main class="col-main">
+    <main class="col-main">
     <h1>第17讲 · 混合类题型</h1>
-    <div class="abstract"><b>本讲概要：</b>讲师欢迎听众加入雅思写作系列课程，特别讲解了混合类题型的写作技巧，这类题目融合了报告和观点的元素。讨论了两种主要的题型组合：探讨现象发生的原因，以及分析该现象带来的积极或消极影响，并提出解决策略。以“人们从农村迁移到城市”为例，阐述了如何构建文章结构，包括原因分析和影响讨论，强调了识别题型和清晰表达个人观点的重要性。最后，鼓励听众通过大量练习提升写作能力，并预祝大家考试成功。</div>
-    <h2>问答精要</h2>
-    <details class="qa">
-      <summary>混合类题型的特点是什么？如何区分混合类题型中的不同问题点？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>混合类题型是报告类和观点类的结合，主要有两种组合形式。第一种是探讨原因（why is the case？）和结果（positive or negative）。第二种则围绕影响（what problem that is）及解决方案（what are the solution to this problem？）进行展开。在混合类题型中，第一个问题通常询问原因，即“为什么这种情况会发生？”而第二个问题可能要求分析影响，即“这一情况会导致什么问题？”或者提出解决方案。例如，在分析人口从农村迁移到城市这一现象时，第一个问题关注的是迁移的原因，第二个问题则探讨这种迁移带来的积极或消极影响。</p></div>
-    </details>
-    <details class="qa">
-      <summary>混合类题型的写作结构应该如何安排？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>对于混合类题型，主体段的写作结构可以采用两段式或三段式。两段式意味着一段讨论原因，另一段讨论影响；三段式则可以将其中一个问题拆分为两段来写。具体结构需要根据题目要求和内容逻辑合理安排。</p></div>
-    </details>
-    <details class="qa">
-      <summary>关于“Many people are moving from rural areas to big cities”这一现象，原因和影响分别是什么？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>原因方面，主要是由于农村地区的就业机会有限以及基础设施落后（如医疗、教育和公共交通等），导致人们为了追求更高的收入和更好的生活品质而选择迁移到城市。影响方面，从负面角度分析，大规模的乡村人口迁入城市会导致城市设施和住房压力增大，房价上涨，同时加剧城乡地区的贫富差距，因为农村地区的劳动力短缺并进一步拉大城市与农村地区的经济差距。</p></div>
-    </details>
-    <details class="qa">
-      <summary>为什么城市能提供更多的就业机会和繁荣的商业环境？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>城市拥有高人口密度，这使得不同产业的公司能够在此集聚并快速发展，以满足游客和消费者的需求。由于城市经济发达，对劳动力的需求较大，导致公司需要雇佣更多员工来完成工作，从而吸引了大量农村地区的劳动力进城就业。</p></div>
-    </details>
-    <details class="qa">
-      <summary>大公司为何会面临人手不足的问题？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>大公司在面对稳健且旺盛的市场需求时，为了保证运营和完成更多的订单，不得不增加人力，即雇佣更多工人。这部分工人往往来自农村社区，通过在城市找到工作机会，他们能够获得稳定的收入，并逐步提升生活质量。</p></div>
-    </details>
-    <details class="qa">
-      <summary>农村地区为何难以吸引并留住劳动力？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>在农村地区，农业通常是唯一谋生手段，但并不足以提供稳定的工作和高收入。因此，年轻人和有雄心壮志的人倾向于涌向大城市寻找教育和工作机会，导致农村地区人口流失，缺乏年轻劳动力及创造力，进而阻碍农村经济的发展。</p></div>
-    </details>
-    <details class="qa">
-      <summary>城市化进程中存在哪些负面影响？</summary>
-      <div class="qa-body"><p class="a"><b>答：</b>随着城市人口的增长，城市的住房及基础设施压力增大，部分城市因容纳不了大量人口而面临严重的住房问题，如房价飙升、房租上涨等。此外，随着人口增长，医院、学校和公共交通等公共服务系统无法及时跟上需求，可能导致一系列社会问题。同时，城乡差距扩大，城市的繁荣吸引了大量农村劳动力进城，农村地区则出现人口不足和经济停滞的恶性循环。</p></div>
-    </details>
+    <blockquote><p><b>本讲定位：</b>讲师欢迎听众加入雅思写作系列课程，特别讲解了混合类题型的写作技巧，这类题目融合了报告和观点的元素。讨论了两种主要的题型组合：探讨现象发生的原因，以及分析该现象带来的积极或消极影响，并提出解决策略。以“人们从农村迁移到城市”为例，阐述了如何构建文章结构，包括原因分析和影响讨论，强调了识别题型和清晰表达个人观点的重要性。最后，鼓励听众通过大量练习提升写作能力，并预祝大家考试成功。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>混合类题型的特点是什么？如何区分混合类题型中的不同问题点？</td><td>混合类题型是报告类和观点类的结合，主要有两种组合形式</td></tr>
+      <tr><td><b>Q2</b></td><td>混合类题型的写作结构应该如何安排？</td><td>对于混合类题型，主体段的写作结构可以采用两段式或三段式</td></tr>
+      <tr><td><b>Q3</b></td><td>关于“Many people are moving from rural areas to big cities”这一现象，原因和影响分别是什么？</td><td>原因方面，主要是由于农村地区的就业机会有限以及基础设施落后（如医疗、教育和公共交通等），导致人们为了追求更高的收入和更好的生活品质而选择迁移到城市</td></tr>
+      <tr><td><b>Q4</b></td><td>为什么城市能提供更多的就业机会和繁荣的商业环境？</td><td>城市拥有高人口密度，这使得不同产业的公司能够在此集聚并快速发展，以满足游客和消费者的需求</td></tr>
+      <tr><td><b>Q5</b></td><td>大公司为何会面临人手不足的问题？</td><td>大公司在面对稳健且旺盛的市场需求时，为了保证运营和完成更多的订单，不得不增加人力，即雇佣更多工人</td></tr>
+      <tr><td><b>Q6</b></td><td>农村地区为何难以吸引并留住劳动力？</td><td>在农村地区，农业通常是唯一谋生手段，但并不足以提供稳定的工作和高收入</td></tr>
+      <tr><td><b>Q7</b></td><td>城市化进程中存在哪些负面影响？</td><td>随着城市人口的增长，城市的住房及基础设施压力增大，部分城市因容纳不了大量人口而面临严重的住房问题，如房价飙升、房租上涨等</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 混合类题型的特点是什么？如何区分混合类题型中的不同问题点？</h2>
+    <p class="qakey">混合类题型是报告类和观点类的结合，主要有两种组合形式。第一种是探讨原因（why is the case？）和结果（positive or negative）。第二种则围绕影响（what problem that is）及解决方案（what are the solution to this problem？）进行展开。在混合类题型中，第一个问题通常询问原因，即“为什么这种情况会发生？”而第二个问题可能要求分析影响，即“这一情况会导致什么问题？”或者提出解决方案。例如，在分析人口从农村迁移到城市这一现象时，第一个问题关注的是迁移的原因，第二个问题则探讨这种迁移带来的积极或消极影响。</p>
+    <h2><a id="q2"></a>Q2. 混合类题型的写作结构应该如何安排？</h2>
+    <p class="qakey">对于混合类题型，主体段的写作结构可以采用两段式或三段式。两段式意味着一段讨论原因，另一段讨论影响；三段式则可以将其中一个问题拆分为两段来写。具体结构需要根据题目要求和内容逻辑合理安排。</p>
+    <h2><a id="q3"></a>Q3. 关于“Many people are moving from rural areas to big cities”这一现象，原因和影响分别是什么？</h2>
+    <p class="qakey">原因方面，主要是由于农村地区的就业机会有限以及基础设施落后（如医疗、教育和公共交通等），导致人们为了追求更高的收入和更好的生活品质而选择迁移到城市。影响方面，从负面角度分析，大规模的乡村人口迁入城市会导致城市设施和住房压力增大，房价上涨，同时加剧城乡地区的贫富差距，因为农村地区的劳动力短缺并进一步拉大城市与农村地区的经济差距。</p>
+    <h2><a id="q4"></a>Q4. 为什么城市能提供更多的就业机会和繁荣的商业环境？</h2>
+    <p class="qakey">城市拥有高人口密度，这使得不同产业的公司能够在此集聚并快速发展，以满足游客和消费者的需求。由于城市经济发达，对劳动力的需求较大，导致公司需要雇佣更多员工来完成工作，从而吸引了大量农村地区的劳动力进城就业。</p>
+    <h2><a id="q5"></a>Q5. 大公司为何会面临人手不足的问题？</h2>
+    <p class="qakey">大公司在面对稳健且旺盛的市场需求时，为了保证运营和完成更多的订单，不得不增加人力，即雇佣更多工人。这部分工人往往来自农村社区，通过在城市找到工作机会，他们能够获得稳定的收入，并逐步提升生活质量。</p>
+    <h2><a id="q6"></a>Q6. 农村地区为何难以吸引并留住劳动力？</h2>
+    <p class="qakey">在农村地区，农业通常是唯一谋生手段，但并不足以提供稳定的工作和高收入。因此，年轻人和有雄心壮志的人倾向于涌向大城市寻找教育和工作机会，导致农村地区人口流失，缺乏年轻劳动力及创造力，进而阻碍农村经济的发展。</p>
+    <h2><a id="q7"></a>Q7. 城市化进程中存在哪些负面影响？</h2>
+    <p class="qakey">随着城市人口的增长，城市的住房及基础设施压力增大，部分城市因容纳不了大量人口而面临严重的住房问题，如房价飙升、房租上涨等。此外，随着人口增长，医院、学校和公共交通等公共服务系统无法及时跟上需求，可能导致一系列社会问题。同时，城乡差距扩大，城市的繁荣吸引了大量农村劳动力进城，农村地区则出现人口不足和经济停滞的恶性循环。</p>
   </main>
   <aside class="col-right">
-    <h4>本讲导航</h4>
+    <h4>本页问答</h4>
     <ul>
-      <li><a href="lesson-17.html">精讲逐字稿</a></li>
-      <li><a href="qa-17.html">问答精要</a></li>
-    </ul>
-    <h4>上下讲</h4>
-    <ul>
-      <li><a href="lesson-16.html">上一讲 16</a></li>
+<li><a href="#q1">Q1. 混合类题型的特点是什么？如何区分混合类题型中的不同问题点？</a></li>
+<li><a href="#q2">Q2. 混合类题型的写作结构应该如何安排？</a></li>
+<li><a href="#q3">Q3. 关于“Many people are moving from rural areas to big cities”这一现象，原因和影响分别是什么？</a></li>
+<li><a href="#q4">Q4. 为什么城市能提供更多的就业机会和繁荣的商业环境？</a></li>
+<li><a href="#q5">Q5. 大公司为何会面临人手不足的问题？</a></li>
+<li><a href="#q6">Q6. 农村地区为何难以吸引并留住劳动力？</a></li>
+<li><a href="#q7">Q7. 城市化进程中存在哪些负面影响？</a></li>
     </ul>
   </aside>
 </div>
 <script>
 (function(){
   var input = document.getElementById('search-input');
-  if (!input) return;
   var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
   var main = document.querySelector('.col-main');
   var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
   var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
@@ -193,8 +194,8 @@
     var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
     rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
     var parts = [];
-    if (leftHits.length){ parts.push('<div class="sp-group">课程目录</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
-    if (rightHits.length){ parts.push('<div class="sp-group">本页章节</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
     if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
     panel.innerHTML = parts.join('');
     panel.classList.add('show');
