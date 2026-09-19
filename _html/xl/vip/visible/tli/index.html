@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>听力 VIP · 问答精要 20 讲</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">听力 VIP<span> · 20 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>听力问答（20 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 导学篇：考试形式与评分标准</a></li>
+      <li><a href="qa-02.html">第02讲 · 听力三大核心能力</a></li>
+      <li><a href="qa-03.html">第03讲 · 精听方法与分层练习</a></li>
+      <li><a href="qa-04.html">第04讲 · Part One 场景与方法论</a></li>
+      <li><a href="qa-05.html">第05讲 · Part One 对话精听：爱尔兰家庭假期</a></li>
+      <li><a href="qa-06.html">第06讲 · Part One 问询类与推荐类场景</a></li>
+      <li><a href="qa-07.html">第07讲 · Part Two 结构与地图题</a></li>
+      <li><a href="qa-08.html">第08讲 · 单选与多选解题策略</a></li>
+      <li><a href="qa-09.html">第09讲 · 配对题：细节配对与分类配对</a></li>
+      <li><a href="qa-10.html">第10讲 · 听力练习：开发项目反馈对话</a></li>
+      <li><a href="qa-11.html">第11讲 · 三篇听力综合练习</a></li>
+      <li><a href="qa-12.html">第12讲 · 理解题目与核心信息</a></li>
+      <li><a href="qa-13.html">第13讲 · Part Three 配对题与流程图题</a></li>
+      <li><a href="qa-14.html">第14讲 · 对话精听：学生表现与行为分析</a></li>
+      <li><a href="qa-15.html">第15讲 · 复盘技巧与重听方法</a></li>
+      <li><a href="qa-16.html">第16讲 · Part Four 填空题要点</a></li>
+      <li><a href="qa-17.html">第17讲 · 科学场景：植物学与动物学</a></li>
+      <li><a href="qa-18.html">第18讲 · Part Four 场景区分与模拟题</a></li>
+      <li><a href="qa-19.html">第19讲 · 研究项目对话精听</a></li>
+      <li><a href="qa-20.html">第20讲 · 时间管理与选题策略</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+  <main class="col-main">
+    <h1>听力 VIP · 问答精要（20 讲）</h1>
+    <p>付费阅读冲刺课程的问答精要。每讲把整讲考点压缩成可速查的 Q&amp;A，并附「本讲问答速览」表格让关键信息一眼可见。点击左侧任一一讲开始查重点。</p>
+    <div class="cards">
+      <a class="card" href="qa-01.html"><h3>第01讲</h3><p>导学篇：考试形式与评分标准</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-02.html"><h3>第02讲</h3><p>听力三大核心能力</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-03.html"><h3>第03讲</h3><p>精听方法与分层练习</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-04.html"><h3>第04讲</h3><p>Part One 场景与方法论</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-05.html"><h3>第05讲</h3><p>Part One 对话精听：爱尔兰家庭假期</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-06.html"><h3>第06讲</h3><p>Part One 问询类与推荐类场景</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-07.html"><h3>第07讲</h3><p>Part Two 结构与地图题</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-08.html"><h3>第08讲</h3><p>单选与多选解题策略</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-09.html"><h3>第09讲</h3><p>配对题：细节配对与分类配对</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-10.html"><h3>第10讲</h3><p>听力练习：开发项目反馈对话</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-11.html"><h3>第11讲</h3><p>三篇听力综合练习</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-12.html"><h3>第12讲</h3><p>理解题目与核心信息</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-13.html"><h3>第13讲</h3><p>Part Three 配对题与流程图题</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-14.html"><h3>第14讲</h3><p>对话精听：学生表现与行为分析</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-15.html"><h3>第15讲</h3><p>复盘技巧与重听方法</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-16.html"><h3>第16讲</h3><p>Part Four 填空题要点</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-17.html"><h3>第17讲</h3><p>科学场景：植物学与动物学</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-18.html"><h3>第18讲</h3><p>Part Four 场景区分与模拟题</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-19.html"><h3>第19讲</h3><p>研究项目对话精听</p><span class="tag">问答精要</span></a>
+      <a class="card" href="qa-20.html"><h3>第20讲</h3><p>时间管理与选题策略</p><span class="tag">问答精要</span></a>
+    </div>
+  </main>
+  <aside class="col-right">
+    <h4>说明</h4>
+    <p class="empty">本区为付费课程内容，仅作个人学习笔记使用。每一讲由课程文稿生成「问答精要」页，配速览表与逐题详解。</p>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+  var col = document.querySelector('.col-left');
+  if (col){ var act = col.querySelector('a.active'); if (act){ var cr = col.getBoundingClientRect(), ar = act.getBoundingClientRect(); if (ar.top < cr.top - 4 || ar.bottom > cr.bottom + 4){ col.scrollTop = Math.max(0, col.scrollTop + (ar.top - cr.top) - 40); } } }
+})();
+</script>
+</body>
+</html>

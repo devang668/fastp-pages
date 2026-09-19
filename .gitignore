@@ -1,3 +1,5 @@
 _mhtml/
 _txt_cache/
 _backup_undated/
+
+__pycache__/

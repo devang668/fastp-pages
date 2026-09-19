@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第07讲 · 流程图与地图 · 问答精要</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1f2328; background: #fff; }
+  a { color: #2c5cdc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid #e5e7eb; background: #fff; z-index: 10; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #111; }
+  .logo span { color: #6b7280; font-weight: 500; }
+  .topbar-right { margin-left: auto; display: flex; gap: 16px; align-items: center; position: relative; }
+  .topbar-right input { border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 240px; background: #f9fafb; }
+  .topbar-right input:focus { outline: none; border-color: #2c5cdc; background: #fff; box-shadow: 0 0 0 3px rgba(44,92,220,0.12); }
+  #search-panel { position: absolute; top: 44px; right: 0; width: 360px; max-height: 70vh; overflow-y: auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 8px 0; z-index: 100; font-size: 13px; display: none; }
+  #search-panel.show { display: block; }
+  #search-panel .sp-group { padding: 8px 14px 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+  #search-panel ul { list-style: none; padding: 0; margin: 0; }
+  #search-panel li a { display: block; padding: 6px 14px; color: #374151; line-height: 1.4; font-size: 12.5px; }
+  #search-panel li a:hover { background: #f3f4f6; color: #1d4ed8; text-decoration: none; }
+  #search-panel .sp-empty { padding: 24px; text-align: center; color: #9ca3af; font-size: 12px; }
+  mark.search-hl { background: #fff3a3; color: inherit; padding: 0 2px; border-radius: 2px; }
+  .layout { display: flex; padding-top: 56px; min-height: 100vh; }
+  .col-left { width: 240px; flex-shrink: 0; border-right: 1px solid #e5e7eb; padding: 20px 14px 40px; overflow-y: auto; height: calc(100vh - 56px); position: sticky; top: 56px; }
+  .col-left ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .col-left li { margin: 2px 0; }
+  .col-left a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13.5px; color: #374151; line-height: 1.4; }
+  .col-left a:hover { background: #f3f4f6; text-decoration: none; }
+  .col-left a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  .col-left h3 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 18px 8px 8px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-left .back { font-size: 12.5px; color: #4b5563; }
+  .col-main { flex: 1; min-width: 0; padding: 40px 56px 80px; max-width: 880px; margin: 0 auto; }
+  .col-main h1 { font-size: 30px; margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; line-height: 1.35; }
+  .col-main h2 { font-size: 21px; margin-top: 34px; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .col-main h3 { font-size: 17px; margin-top: 24px; color: #1f2937; }
+  .col-main p { line-height: 1.8; color: #374151; margin: 10px 0; }
+  .col-main blockquote { border-left: 3px solid #dbeafe; background: #f8fafc; margin: 16px 0; padding: 12px 18px; color: #4b5563; border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.75; }
+  .col-main blockquote p { margin: 0; }
+  .col-main table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 13.5px; }
+  .col-main th, .col-main td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+  .col-main th { background: #f1f5f9; font-weight: 600; color: #1f2937; }
+  .col-main tr:nth-child(even) td { background: #fcfcfd; }
+  .col-main td b, .col-main td strong { color: #1d4ed8; }
+  .col-main .qakey b { color: #1d4ed8; }
+  .col-right { width: 230px; flex-shrink: 0; border-left: 1px solid #e5e7eb; padding: 24px 18px; font-size: 13px; height: calc(100vh - 56px); position: sticky; top: 56px; overflow-y: auto; }
+  .col-right h4 { font-size: 11px; text-transform: uppercase; color: #6b7280; margin: 0 0 12px; letter-spacing: 0.5px; font-weight: 600; }
+  .col-right ul { list-style: none; padding: 0; margin: 0; }
+  .col-right li { margin: 6px 0; }
+  .col-right a { color: #4b5563; line-height: 1.45; font-size: 12.5px; }
+  .col-right a:hover { color: #1d4ed8; }
+  @media (max-width: 1100px) { .col-right { display: none; } }
+  @media (max-width: 800px) { .col-left { display: none; } .col-main { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">写作 VIP<span> · 第 07 讲问答</span></div>
+  <div class="topbar-right">
+    <a href="../../../../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">首页</a>
+    <a href="../index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">VIP 目录</a>
+    <a href="../../writing/writing-qa-index.html" style="font-size:13px;color:#2c5cdc;font-weight:600;white-space:nowrap;">写作目录</a>
+    <input id="search-input" placeholder="搜索 Ctrl K" autocomplete="off">
+    <div id="search-panel"></div>
+  </div>
+</header>
+<div class="layout">
+  <aside class="col-left">
+    <h3>写作问答（17 讲）</h3>
+    <ul>
+      <li><a href="qa-01.html">第01讲 · 动态图表（小作文）总览</a></li>
+      <li><a href="qa-02.html">第02讲 · 动态图主体段构建与趋势词汇</a></li>
+      <li><a href="qa-03.html">第03讲 · 静态图表</a></li>
+      <li><a href="qa-04.html">第04讲 · 复杂静态图表：澳大利亚男女运动参与率</a></li>
+      <li><a href="qa-05.html">第05讲 · 双动态图题目</a></li>
+      <li><a href="qa-06.html">第06讲 · 双镜图（双图）题目</a></li>
+      <li><a class="active" href="qa-07.html">第07讲 · 流程图与地图</a></li>
+      <li><a href="qa-08.html">第08讲 · 地图题：选址比较与历史变迁</a></li>
+      <li><a href="qa-09.html">第09讲 · 大作文先导：考试概述与评分标准</a></li>
+      <li><a href="qa-10.html">第10讲 · 大作文的"正确审美"与常见错误</a></li>
+      <li><a href="qa-11.html">第11讲 · 论述题型（优缺点/利弊讨论）</a></li>
+      <li><a href="qa-12.html">第12讲 · 同意与否题型</a></li>
+      <li><a href="qa-13.html">第13讲 · 双边论述题型</a></li>
+      <li><a href="qa-14.html">第14讲 · 双边论述进阶（对立观点深入）</a></li>
+      <li><a href="qa-15.html">第15讲 · 辩论：广泛科目 vs 有限科目</a></li>
+      <li><a href="qa-16.html">第16讲 · 报告类题型（原因-解决方案）</a></li>
+      <li><a href="qa-17.html">第17讲 · 混合类题型</a></li>
+    </ul>
+    <h3>返回</h3>
+    <ul>
+      <li><a class="back" href="../../index.html">VIP 总目录</a></li>
+      <li><a class="back" href="../../../../index.html">站点首页</a></li>
+    </ul>
+  </aside>
+    <main class="col-main">
+    <h1>第07讲 · 流程图与地图</h1>
+    <blockquote><p><b>本讲定位：</b>本次课程专注于雅思写作系列中的数据类图表分析，特别强调了流程图和地图的处理方法，尽管这两类图表在考试中出现频率不高，但由于相关教学资源有限，常被考生忽视。讲师通过实例展示了如何分析和描述流程图，包括不同的分段方式和步骤合并技巧，强调了只需按照图表步骤逐一描述的简单性。在写作技巧方面，提供了丰富的例句和连接词，鼓励补充图表外的信息以提升文章质量，并在结尾段总结整个流程。最后，总结了流程图的关键词汇，鼓励课后练习。整堂课旨在帮助学员克服对流程图和地图的恐惧，通过正确的方法和技巧，将其转化为雅思写作中的优势。通过学习，学员将能够更加自信地面对考试中的此类题目。</p></blockquote>
+    <h2><a id="overview"></a>本讲问答速览（关键信息）</h2>
+    <table>
+      <thead><tr><th style="width:54px;">编号</th><th style="width:38%;">问题</th><th>核心答案</th></tr></thead>
+      <tbody>
+      <tr><td><b>Q1</b></td><td>在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</td><td>很多人认为流程图和地图很难，是因为这类图表在考试中的出现频率低，导致市面上相关课程和资料相对较少</td></tr>
+      <tr><td><b>Q2</b></td><td>描述流程图时，如何进行有效的分段？</td><td>流程图的分段方式主要有四种：第一种是根据图表中给出的已知步骤或阶段进行分段</td></tr>
+      <tr><td><b>Q3</b></td><td>在处理流程图时，为什么每个步骤都不能省略？</td><td>在流程图中，每一个小步骤都是不可省略的</td></tr>
+      <tr><td><b>Q4</b></td><td>在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</td><td>因为在流程图中，综述段的信息非常单一且一致，不需要进行总结概括，所以可以放在最后一段</td></tr>
+      <tr><td><b>Q5</b></td><td>在撰写主体段时，如何详细描述流程图中的小步骤？</td><td>主体段需要逐一详细描述流程图涉及的小步骤，并掌握一个公式：一个材料发生某种动作（通常为被动语态），并加上介词，最后再加上器具，即“什么材料被什么器具怎么样了”</td></tr>
+      <tr><td><b>Q6</b></td><td>图表中的生词对写作有何影响？</td><td>图表中的生词不影响写作，名词直接抄录，动词在其后加ED即可</td></tr>
+      <tr><td><b>Q7</b></td><td>如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</td><td>将相邻的两个小步骤合并在一个长句子中，用诸如where引导的定语从句、before/after分词结构、after which引导的定语从句、until/once状语从…</td></tr>
+      <tr><td><b>Q8</b></td><td>在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</td><td>在流程图中，每个小步骤可以通过选择不同的句式来描述，如使用"and"连接第一步，"after"引导从句来描述后续步骤</td></tr>
+      <tr><td><b>Q9</b></td><td>在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</td><td>可以采用四种方式来连接流程图中的步骤：第一种是使用介词短语或副词表示顺序（如"firstly"、"next"）</td></tr>
+      <tr><td><b>Q10</b></td><td>对于流程图中的不同阶段，有哪些表达方式可以使用？</td><td>在描述流程图中的不同阶段时，可以使用多种表达方式，例如直接说"at the first stage"或"the initial phase"代表第一阶段</td></tr>
+      <tr><td><b>Q11</b></td><td>流程图主体段写作时如何增强逻辑性和衔接性？</td><td>在流程图主体段写作中，可以通过添加衔接手段（如红色部分所示）来实现内容间的逻辑紧密连接，使文章过渡更加自然，具有更强的逻辑性</td></tr>
+      <tr><td><b>Q12</b></td><td>在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</td><td>信息补充可以从三个方面进行：首先，填补图表中未标注的部分，例如罐头的填充物及其原因</td></tr>
+      <tr><td><b>Q13</b></td><td>流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</td><td>流程图结尾段需明确以下内容：整个生产流程所需步骤总数、涉及的人力和设备数量，以及流程的起始和结束步骤</td></tr>
+      <tr><td><b>Q14</b></td><td>备考时应重点掌握哪些流程图相关的词汇和表达？</td><td>备考者需掌握流程图中常考的词汇和表达，这部分内容可以在课下学习任务中进行学习和背诵，以确保对流程图相关知识点的全面掌握</td></tr>
+      </tbody>
+    </table>
+
+    <h2><a id="detail"></a>逐题详解</h2>
+    <h2><a id="q1"></a>Q1. 在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</h2>
+    <p class="qakey">很多人认为流程图和地图很难，是因为这类图表在考试中的出现频率低，导致市面上相关课程和资料相对较少。但实际上，流程图和地图因为其结构简单、变化不多，只要方法得当，在考试中遇到它们反而是幸运的。流程图主要分为两种类型，分别是自然流程和生产流程。自然流程通常描述某个生物体如动物的生长或繁殖过程；生产流程则涉及物品加工制造的过程，例如食品（如巧克力、橄榄油）或物品（如小熏鱼）的制作过程。</p>
+    <h2><a id="q2"></a>Q2. 描述流程图时，如何进行有效的分段？</h2>
+    <p class="qakey">流程图的分段方式主要有四种：第一种是根据图表中给出的已知步骤或阶段进行分段；第二种是当图表包含多幅图片时，按照逻辑或生活常识将图片进行合并；第三种是依据不同的加工地点进行分段；最后一种情况是如果图表只有两到三幅图，则可将每幅图作为一个独立步骤对待。</p>
+    <h2><a id="q3"></a>Q3. 在处理流程图时，为什么每个步骤都不能省略？</h2>
+    <p class="qakey">在流程图中，每一个小步骤都是不可省略的。因为所见即所得，每个步骤都是流程的重要组成部分，省略任何一步都可能导致理解不完整，从而影响评分。例如，在讲解罐头回收制作流程时，每个步骤如回收、清洗、加热、冷却等都是必不可少的环节。</p>
+    <h2><a id="q4"></a>Q4. 在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</h2>
+    <p class="qakey">因为在流程图中，综述段的信息非常单一且一致，不需要进行总结概括，所以可以放在最后一段。开头段应简单改写原题目，将其转变为一个名词结构，例如将"the process of showed how cans can be recycled"改写为"The profile of cans recycling"。</p>
+    <h2><a id="q5"></a>Q5. 在撰写主体段时，如何详细描述流程图中的小步骤？</h2>
+    <p class="qakey">主体段需要逐一详细描述流程图涉及的小步骤，并掌握一个公式：一个材料发生某种动作（通常为被动语态），并加上介词，最后再加上器具，即“什么材料被什么器具怎么样了”。</p>
+    <h2><a id="q6"></a>Q6. 图表中的生词对写作有何影响？</h2>
+    <p class="qakey">图表中的生词不影响写作，名词直接抄录，动词在其后加ED即可。同时要注意动名词之间的灵活转化。</p>
+    <h2><a id="q7"></a>Q7. 如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</h2>
+    <p class="qakey">将相邻的两个小步骤合并在一个长句子中，用诸如where引导的定语从句、before/after分词结构、after which引导的定语从句、until/once状语从句或直接用and进行连接，以使流程图内容更加连贯和生动。使用前面提到的五种句型，如定语从句、分词结构、状语从句以及简单连接词and，将两个小步骤在一个句子中合并描述，以提高表达的流畅性和逻辑性。</p>
+    <h2><a id="q8"></a>Q8. 在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</h2>
+    <p class="qakey">在流程图中，每个小步骤可以通过选择不同的句式来描述，如使用"and"连接第一步，"after"引导从句来描述后续步骤。尽管如此，仅完成步骤的描述是不够的，还需要关注句子间的逻辑关系和衔接手段，以使整个流程图看起来条理分明。</p>
+    <h2><a id="q9"></a>Q9. 在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</h2>
+    <p class="qakey">可以采用四种方式来连接流程图中的步骤：第一种是使用介词短语或副词表示顺序（如"firstly"、"next"）；第二种是通过代词"this"加名词进行连接，如果两个句子有相同的主语或宾语；第三种是运用过去分词加名词的形式；最后一种是关键词的重复，以增加句子间的粘性。在总体概述段中，可以使用"go through"或"pass through"表达经历某个阶段，如"go through or pass through three stages"表示经历三个阶段，或者使用"consists of three digits"来说明包含三个部分。而在使用代词时，可以在完成一个步骤后补充说明目的，或者在步骤之间使用"there's a lot of this enable..."这样的结构，以及重复名词"this"来进行衔接。</p>
+    <h2><a id="q10"></a>Q10. 对于流程图中的不同阶段，有哪些表达方式可以使用？</h2>
+    <p class="qakey">在描述流程图中的不同阶段时，可以使用多种表达方式，例如直接说"at the first stage"或"the initial phase"代表第一阶段；"at the next or second stage"或"enter or reach the navigation mark or represent the stage"代表第二阶段；"at the final stage"或"the final or last phase"代表最终阶段。</p>
+    <h2><a id="q11"></a>Q11. 流程图主体段写作时如何增强逻辑性和衔接性？</h2>
+    <p class="qakey">在流程图主体段写作中，可以通过添加衔接手段（如红色部分所示）来实现内容间的逻辑紧密连接，使文章过渡更加自然，具有更强的逻辑性。</p>
+    <h2><a id="q12"></a>Q12. 在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</h2>
+    <p class="qakey">信息补充可以从三个方面进行：首先，填补图表中未标注的部分，例如罐头的填充物及其原因；其次，明确每一步骤的目的，使用目的状语从句（如"to do"或"in order to do"）阐述步骤的目的；最后，增加修饰成分，如对运输工具的规格、大小等进行描述，以增加内容的完整性。</p>
+    <h2><a id="q13"></a>Q13. 流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</h2>
+    <p class="qakey">流程图结尾段需明确以下内容：整个生产流程所需步骤总数、涉及的人力和设备数量，以及流程的起始和结束步骤。例如，“整个生产流程包含x个步骤，涉及y个设备，在生产出产品之前，使用了z个设备”以及“流程从A步骤开始，在B步骤结束”。</p>
+    <h2><a id="q14"></a>Q14. 备考时应重点掌握哪些流程图相关的词汇和表达？</h2>
+    <p class="qakey">备考者需掌握流程图中常考的词汇和表达，这部分内容可以在课下学习任务中进行学习和背诵，以确保对流程图相关知识点的全面掌握。同时，课程还提供了课后流程图练习任务，帮助大家巩固所学内容。</p>
+  </main>
+  <aside class="col-right">
+    <h4>本页问答</h4>
+    <ul>
+<li><a href="#q1">Q1. 在雅思写作中，为什么流程图和地图这类图表被认为难，但实际上它们是否真的很难？流程图主要有哪些类型？</a></li>
+<li><a href="#q2">Q2. 描述流程图时，如何进行有效的分段？</a></li>
+<li><a href="#q3">Q3. 在处理流程图时，为什么每个步骤都不能省略？</a></li>
+<li><a href="#q4">Q4. 在写作流程图内容时，为何选择将结尾段放在最后一步？流程图开头段如何进行改写以符合图表要求？</a></li>
+<li><a href="#q5">Q5. 在撰写主体段时，如何详细描述流程图中的小步骤？</a></li>
+<li><a href="#q6">Q6. 图表中的生词对写作有何影响？</a></li>
+<li><a href="#q7">Q7. 如何避免流程图内容过于工序化和像说明书？如何运用句型合并流程图中的两个小步骤？</a></li>
+<li><a href="#q8">Q8. 在流程图中，如何使用不同的句式来描述各个步骤，并确保句子间有逻辑关系和衔接手段？</a></li>
+<li><a href="#q9">Q9. 在流程图中连接各个步骤时，可以采用哪些方式？如何使用总体概述段以及代词来连接各个步骤？</a></li>
+<li><a href="#q10">Q10. 对于流程图中的不同阶段，有哪些表达方式可以使用？</a></li>
+<li><a href="#q11">Q11. 流程图主体段写作时如何增强逻辑性和衔接性？</a></li>
+<li><a href="#q12">Q12. 在流程图写作中，如何进行信息补充以提升内容的丰富性和说服力？</a></li>
+<li><a href="#q13">Q13. 流程图结尾段应包含哪些关键信息以展示整体生产流程情况？</a></li>
+<li><a href="#q14">Q14. 备考时应重点掌握哪些流程图相关的词汇和表达？</a></li>
+    </ul>
+  </aside>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var panel = document.getElementById('search-panel');
+  if (!input || !panel) return;
+  var main = document.querySelector('.col-main');
+  var leftLinks = Array.prototype.slice.call(document.querySelectorAll('.col-left ul li a'));
+  var rightLinks = Array.prototype.slice.call(document.querySelectorAll('.col-right ul li a'));
+  function escHtml(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function clearHighlights(){ if (!main) return; var marks = main.querySelectorAll('mark.search-hl'); for (var i = 0; i < marks.length; i++){ var m = marks[i]; var t = document.createTextNode(m.textContent); m.parentNode.replaceChild(t, m); } main.normalize(); }
+  function highlightInMain(kw){
+    if (!main) return; clearHighlights(); if (!kw) return;
+    var re = new RegExp(escapeRegex(kw), 'gi');
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement; if (!p) return NodeFilter.FILTER_REJECT;
+        var tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('mark.search-hl')) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.toLowerCase().indexOf(kw.toLowerCase()) >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    for (var i = 0; i < nodes.length; i++){
+      var node = nodes[i], src = node.nodeValue, html = '', last = 0, match;
+      re.lastIndex = 0;
+      while ((match = re.exec(src)) !== null){
+        html += escHtml(src.slice(last, match.index));
+        html += '<mark class="search-hl">' + escHtml(match[0]) + '</mark>';
+        last = match.index + match[0].length;
+        if (match[0].length === 0) re.lastIndex++;
+      }
+      html += escHtml(src.slice(last));
+      var tmp = document.createElement('span'); tmp.innerHTML = html;
+      var parent = node.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, node);
+      parent.removeChild(node);
+    }
+  }
+  function search(q){
+    q = (q || '').trim();
+    panel.innerHTML = '';
+    if (!q){ panel.classList.remove('show'); leftLinks.forEach(function(a){ a.parentElement.style.display = ''; }); rightLinks.forEach(function(a){ a.parentElement.style.display = ''; }); clearHighlights(); return; }
+    var qLower = q.toLowerCase();
+    var leftHits = leftLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    leftLinks.forEach(function(a){ a.parentElement.style.display = leftHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var rightHits = rightLinks.filter(function(a){ return a.textContent.toLowerCase().indexOf(qLower) >= 0; });
+    rightLinks.forEach(function(a){ a.parentElement.style.display = rightHits.indexOf(a) >= 0 ? '' : 'none'; });
+    var parts = [];
+    if (leftHits.length){ parts.push('<div class="sp-group">阅读问答</div>'); parts.push('<ul>' + leftHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (rightHits.length){ parts.push('<div class="sp-group">本页问答</div>'); parts.push('<ul>' + rightHits.map(function(a){ return '<li><a href="' + a.getAttribute('href') + '">' + escHtml(a.textContent) + '</a></li>'; }).join('') + '</ul>'); }
+    if (!parts.length) parts.push('<div class="sp-empty">无匹配结果</div>');
+    panel.innerHTML = parts.join('');
+    panel.classList.add('show');
+    highlightInMain(q);
+  }
+  var timer = null;
+  input.addEventListener('input', function(e){ clearTimeout(timer); timer = setTimeout(function(){ search(input.value); }, 80); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ search(''); input.blur(); panel.classList.remove('show'); } });
+  document.addEventListener('click', function(e){ if (panel.contains(e.target) || e.target === input) return; panel.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); input.focus(); input.select(); } });
+  panel.addEventListener('click', function(e){ var a = e.target.closest ? e.target.closest('a') : null; if (a) panel.classList.remove('show'); });
+  var col = document.querySelector('.col-left');
+  if (col){ var act = col.querySelector('a.active'); if (act){ var cr = col.getBoundingClientRect(), ar = act.getBoundingClientRect(); if (ar.top < cr.top - 4 || ar.bottom > cr.bottom + 4){ col.scrollTop = Math.max(0, col.scrollTop + (ar.top - cr.top) - 40); } } }
+})();
+</script>
+</body>
+</html>
