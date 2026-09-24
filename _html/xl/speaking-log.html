@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思口语对话记录</title>
+<style>
+  :root{--teal:#0fb5a6;--teal-d:#0a8c80;--bg:#f4f7f8;--card:#fff;--ink:#1f2d2b;
+        --mut:#6b7d7a;--line:#e2eae9;--ok:#20b486;--warn:#e08a1e}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.65}
+  .wrap{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  h1{font-size:20px;margin:0;color:var(--teal-d)}
+  .sub{color:var(--mut);font-size:13px}
+  .back{font-size:13px;color:var(--teal-d);text-decoration:none;border:1px solid var(--line);
+        background:#fff;border-radius:20px;padding:5px 12px}
+  .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  input[type=search],input[type=text]{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);
+        border-radius:10px;font-size:14px;background:#fff;outline:none}
+  input[type=search]:focus,input[type=text]:focus{border-color:var(--teal)}
+  .chip{font-size:13px;border:1px solid var(--line);background:#fff;color:var(--mut);
+        border-radius:20px;padding:5px 12px;cursor:pointer}
+  .chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+  .stat{font-size:12px;color:var(--mut);margin-left:auto}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+  summary{cursor:pointer;padding:12px 14px;font-weight:600;font-size:14.5px;list-style:none;
+          display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary .meta{font-weight:400;color:var(--mut);font-size:12px}
+  details[open] summary{border-bottom:1px solid var(--line);background:#f7fbfb}
+  .body{padding:4px 16px 14px}
+  .body p{margin:8px 0}
+  .body h3{font-size:15px;margin:14px 0 4px;color:var(--teal-d)}
+  .body h4{font-size:14px;margin:12px 0 4px}
+  .body h5{font-size:13.5px;margin:10px 0 3px;color:var(--mut)}
+  .body hr{border:0;border-top:1px dashed var(--line);margin:12px 0}
+  .body .li{margin:3px 0;padding-left:6px}
+  .body ul,.body ol{margin:6px 0 10px;padding-left:22px}
+  .body li{margin:3px 0}
+  .body blockquote{margin:10px 0;padding:8px 14px;border-left:3px solid var(--teal);
+                   background:#f7fbfb;border-radius:0 8px 8px 0;color:#3c4b49;font-size:13.5px}
+  .body blockquote p{margin:0}
+  .body code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .tw{overflow-x:auto;margin:12px 0}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;
+        border:1px solid var(--line)}
+  th,td{padding:9px 12px;text-align:left;font-size:13.5px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f7fbfb;color:var(--mut);font-weight:600;font-size:12.5px;position:sticky;top:0}
+  tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#fafcfc}
+  td.w{font-weight:700;color:var(--teal-d);cursor:pointer;white-space:nowrap}
+  td.n{color:var(--mut);font-size:12.5px}
+  .src{font-size:11.5px;border-radius:20px;padding:1px 8px;white-space:nowrap}
+  .src.听力{background:#e8f7f4;color:#0a8c80}
+  .src.阅读{background:#eef4ff;color:#3a63c0}
+  .src.口语{background:#fdf1e6;color:#b56a13}
+  .src.通用{background:#f1f2f4;color:#69727a}
+  tr.mastered td{opacity:.42;text-decoration:line-through}
+  .empty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:26px 20px;
+         text-align:center;color:var(--mut);font-size:14px}
+  .empty code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
+  .modal.show{display:flex}
+  .panel{background:#fff;border-radius:16px;padding:26px 22px;max-width:420px;width:100%;text-align:center}
+  .panel .big{font-size:30px;font-weight:800;color:var(--teal-d);margin:6px 0 4px;word-break:break-word}
+  .panel .ans{font-size:17px;margin:14px 0;min-height:30px;color:var(--ink)}
+  .panel .tag{font-size:12px;color:var(--mut);margin-bottom:12px}
+  .panel .btns{display:flex;gap:10px;margin-top:8px}
+  .panel button{flex:1;padding:11px;border:0;border-radius:10px;font-size:14.5px;cursor:pointer}
+  .panel .go{background:var(--teal-d);color:#fff}
+  .panel .no{background:#eef1f1;color:var(--mut)}
+  .panel .cnt{font-size:12px;color:var(--mut);margin-top:12px}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0 6px;
+       display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+  .toc b{font-size:12.5px;color:var(--mut);margin-right:4px}
+  .toc a{font-size:13px;color:var(--teal-d);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .toc a.toc-l3{color:var(--mut);font-size:12.5px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 20px 20px;margin-top:12px}
+  .plan h3{font-size:17px;color:var(--teal-d);margin:22px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+  .plan h3:first-child{border-top:0;margin-top:10px}
+  .plan h4{font-size:14.5px;margin:16px 0 6px}
+  .plan h5{font-size:13.5px;margin:12px 0 4px;color:var(--mut)}
+  .plan p{margin:8px 0;font-size:14px}
+  .plan li{font-size:14px;margin:4px 0}
+  .plan ul,.plan ol{padding-left:22px;margin:6px 0 10px}
+  .plan blockquote{margin:10px 0;padding:9px 14px;border-left:3px solid var(--teal);background:#f7fbfb;
+                   border-radius:0 8px 8px 0;color:#3c4b49;font-size:13.5px}
+  .plan hr{border:0;border-top:1px dashed var(--line);margin:16px 0}
+  .plan code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .plan td,.plan th{font-size:13px}
+  @media(max-width:560px){.plan{padding:4px 12px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>口语对话记录</h1><div class='sub'>手机版 GPT 练习原文 · 按时间倒序 · 点标题展开</div></div><a class='back' href='study-dashboard.html'>← 回仪表盘</a></header><div class='tools'><input type='search' id='q' placeholder='搜索对话内容，比如 hometown / Part 2'><span class='stat' id='stat'>0 次记录</span></div><div class='empty'>还没有口语对话记录。<br><br>把手机版 GPT 的对话整理成 <code>.md</code> 或 <code>.txt</code>，丢进 <code>ielts-data/speaking/</code> 再跑一次脚本就行。<br>文件名建议以日期开头，例如 <code>2026-09-25 口语练习.md</code>。</div>
+<script>
+var q = document.getElementById('q');
+var cards = Array.prototype.slice.call(document.querySelectorAll('details'));
+q.addEventListener('input', function(){
+  var k = q.value.trim().toLowerCase();
+  var shown = 0;
+  cards.forEach(function(c){
+    var hit = !k || c.textContent.toLowerCase().indexOf(k) >= 0;
+    c.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  document.getElementById('stat').textContent = shown + ' / ' + cards.length + ' 次记录';
+});
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思每日学习仪表盘</title>
+<style>
+  :root{
+    --teal:#0fb5a6; --teal-d:#0a8c80; --bg:#f4f7f8; --card:#ffffff;
+    --ink:#1f2d2b; --mut:#6b7d7a; --line:#e2eae9; --ok:#20b486; --warn:#e08a1e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:18px 16px 60px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  h1{font-size:20px;margin:0;color:var(--teal-d)}
+  .sub{color:var(--mut);font-size:13px}
+  .gear{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;font-size:13px;color:var(--mut)}
+  .bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin:6px 0 2px}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-d))}
+  .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--mut)}
+
+  .today{background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;
+         border-radius:14px;padding:16px 18px;margin:14px 0;box-shadow:0 6px 18px rgba(15,181,166,.25)}
+  .today .ph{font-size:13px;opacity:.9}
+  .today .big{font-size:22px;font-weight:700;margin:2px 0}
+  .today .date{font-size:13px;opacity:.9}
+
+  .sec{margin:18px 0}
+  .sec h2{font-size:15px;margin:0 0 8px;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .sec h2 .tag{font-size:11px;background:var(--teal);color:#fff;border-radius:20px;padding:1px 8px}
+
+  .habit{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 4px}
+  .row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px}
+  .row:hover{background:#f7fafa}
+  .row input{width:18px;height:18px;accent-color:var(--teal-d);cursor:pointer;flex:0 0 auto}
+  .row label{flex:1;cursor:pointer}
+  .row .done{color:var(--ok);font-size:12px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .task{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 13px;position:relative}
+  .task .k{font-size:12px;color:var(--teal-d);font-weight:700;letter-spacing:.5px}
+  .task .t{font-size:13.5px;margin:3px 0 8px;min-height:38px}
+  .task .wk{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--mut)}
+  .task .wk .cnt{color:var(--ok);font-weight:700}
+  .task.off{opacity:.55}
+  .task .chk{position:absolute;top:10px;right:10px}
+  .task .chk input{width:18px;height:18px;accent-color:var(--teal-d);cursor:pointer}
+
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .links a{font-size:13px;text-decoration:none;color:var(--teal-d);border:1px solid var(--line);
+           background:#fff;border-radius:20px;padding:5px 12px}
+  .links a:hover{background:#f0fbf9}
+
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.show{display:flex}
+  .panel{background:#fff;border-radius:14px;padding:20px;max-width:360px;width:100%}
+  .panel h3{margin:0 0 12px;font-size:16px}
+  .panel label{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}
+  .panel input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px}
+  .panel .btns{display:flex;gap:8px;margin-top:16px}
+  .panel button{flex:1;padding:9px;border:0;border-radius:8px;font-size:14px;cursor:pointer}
+  .panel .go{background:var(--teal-d);color:#fff}
+  .panel .no{background:#eee;color:var(--mut)}
+  .hint{font-size:12px;color:var(--mut);margin-top:10px}
+  .milestone{font-size:13px;background:#fff7ec;color:var(--warn);border:1px solid #f3e2c4;
+             border-radius:10px;padding:10px 12px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>雅思每日学习仪表盘</h1>
+      <div class="sub">目标 6 / 6.5 · 18 周四阶段 · 数据存在本浏览器</div>
+    </div>
+    <button class="gear" id="gear">⚙ 设置</button>
+  </header>
+
+  <div class="bar"><i id="ovBar"></i></div>
+  <div class="meta"><span id="ovText">总进度</span><span id="ovPct"></span></div>
+
+  <div class="today">
+    <div class="ph" id="tPh"></div>
+    <div class="big" id="tBig"></div>
+    <div class="date" id="tDate"></div>
+  </div>
+
+  <div class="sec">
+    <h2>① 每日地基 <span class="tag">每天必做</span></h2>
+    <div class="habit" id="habit"></div>
+  </div>
+
+  <div class="sec">
+    <h2>② 本周学习任务 <span class="tag" id="wkTag"></span></h2>
+    <div class="grid" id="tasks"></div>
+    <div class="milestone" id="ms"></div>
+  </div>
+
+  <div class="sec">
+    <h2>③ 我的资料 <span class="tag" id="intakeTag"><!--INTAKE_START-->口语 0 次 · 生词 0 个<!--INTAKE_END--></span></h2>
+    <div class="links">
+      <a href="study-plan.html">🗺 学习计划（四阶段）</a>
+      <a href="speaking-log.html">💬 口语对话记录</a>
+      <a href="vocab-book.html">📖 我的生词本</a>
+      <a href="#" id="refreshTip" style="color:#6b7d7a">＋ 怎么添加？</a>
+    </div>
+    <div class="milestone" id="tipBox" style="display:none">
+      把手机版 GPT 的口语对话整理成 <b>.md / .txt</b> 丢进 <code>workspace/default/ielts-data/speaking/</code>；
+      生词丢进 <code>workspace/default/ielts-data/vocab/</code>（一行一个：<code>单词 | 释义 | 听力/阅读 | 例句</code>），
+      然后在 <code>default</code> 目录跑一次 <code>python build_intake.py</code>，
+      本页、学习计划页和这两个页面会一起更新。
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>④ 课程入口</h2>
+    <div class="links">
+      <a href="vip/tli/tli-index.html">听力 VIP</a>
+      <a href="vip/yuedu/yuedu-index.html">阅读 VIP</a>
+      <a href="vip/speaking/speaking-index.html">口语 VIP</a>
+      <a href="vip/writing/writing-index.html">写作 VIP</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="panel">
+    <h3>设置</h3>
+    <label>开课日期（第 1 天）</label>
+    <input type="date" id="startIn">
+    <label>当前学习到的阶段（如已中途开始）</label>
+    <select id="phaseIn" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14px">
+      <option value="0">阶段一 打基础</option>
+      <option value="1">阶段二 全覆盖</option>
+      <option value="2">阶段三 冲 6.5</option>
+      <option value="3">阶段四 冲刺</option>
+    </select>
+    <div class="btns">
+      <button class="no" id="resetBtn">清空进度</button>
+      <button class="go" id="saveBtn">保存</button>
+    </div>
+    <div class="hint">若已学到后面阶段，把“开课日期”设为该阶段第 1 天的日期即可自动定位。</div>
+  </div>
+</div>
+
+<script src="_intake_counts.js"></script>
+<script>
+/* ---------- 我的资料计数（由 build_intake.py 生成，缺失时不报错）---------- */
+(function(){
+  var tag = document.getElementById("intakeTag");
+  var tip = document.getElementById("refreshTip");
+  var box = document.getElementById("tipBox");
+  if(tip) tip.addEventListener("click", function(e){
+    e.preventDefault();
+    box.style.display = (box.style.display === "none") ? "block" : "none";
+  });
+  var d = window.__INTAKE__;
+  if(!tag) return;
+  if(d){
+    tag.textContent = "口语 " + (d.speaking||0) + " 次 · 生词 " + (d.vocab||0) + " 个";
+  } else {
+    tag.textContent = "还没生成";
+  }
+})();
+</script>
+<script>
+/* ---------- 18 周计划数据（来自学习计划 md）---------- */
+const PHASES = [
+  { name:"阶段一 · 打基础", goal:"出口：听6/读6/口5/写5 → 总分5.5", weeks:[
+    {listen:"第1-2讲：规则与精听分层入门", read:"第1-3讲：基础+扫读定位", speak:"第1-3讲：P1必考题开口习惯", write:"第1讲：小作文认知（只看不写）"},
+    {listen:"第3-5讲：填空三原则/时态语态/拼写", read:"第4-6讲：判断题方法", speak:"第4-6讲：P2人/物素材", write:"第2讲：小作文结构（仿写开头段）"},
+    {listen:"第6-7讲：P2一分钟笔记法+P1强化", read:"第7-9讲：判断题三层难度", speak:"第7-9讲：P2事/地素材", write:"第3讲：动态图分段+overview"},
+    {listen:"第1-7讲复盘：剑14 P1/P2精做", read:"第7-9讲收尾：剑14 P1实战", speak:"第1-9讲串素材：九大原因串题", write:"第4讲：静态图仿写完整篇"},
+  ]},
+  { name:"阶段二 · 全覆盖", goal:"出口：听6.5/读6.5/口5.5/写5.5 → 总分6", weeks:[
+    {listen:"第7-8讲：P2地图题+单选多选", read:"第7-9讲：判断题三层难度收尾", speak:"第10讲：地点类素材", write:"第3-4讲：静态图"},
+    {listen:"第9-11讲：配对题+开发项目/三篇综合", read:"第10讲：四类配对总览+特点配对", speak:"第11讲：物品类素材", write:"第5-6讲：双动态图/双饼图"},
+    {listen:"第12-13讲：P3配对题(事实/态度)+流程图", read:"第11-12讲：信息配对+句子结尾配对", speak:"第12讲：节日与有意义的一天", write:"第7-8讲：流程图/地图"},
+    {listen:"第14-15讲：P3对话精听+复盘技巧", read:"第14-15讲：平行阅读法+三篇实操", speak:"第13讲：6.5以下策略自查", write:"第10讲：正确审美+大作文审题"},
+    {listen:"第16-17讲：P4填空要点+科学场景", read:"第17讲平行阅读复杂+第18讲多选题", speak:"第14讲：P3思路链", write:"第11讲：论述题（两正一反）"},
+    {listen:"第18-20讲：场景区分/研究项目/时间管理", read:"第19-22讲：真题实战+策略收束", speak:"第15-16讲：解决类+串讲总结", write:"第12讲：同意与否；每周1篇大作文"},
+  ]},
+  { name:"阶段三 · 冲 6.5", goal:"出口：听7/读7/口6/写6 → 总分6.5", weeks:[
+    {listen:"第18-19讲：P4长讲座抓结构", read:"第19-20讲：真题实战+时间管理", speak:"第14讲：P3思路链深化", write:"第13-14讲：双边讨论+优劣对比"},
+    {listen:"第13/16讲复盘+P4拼写冲刺", read:"第21讲：单选+标题配对", speak:"第8讲：发音/语调地道词", write:"第15讲：问题解决+观点混合"},
+    {listen:"第20讲：时间管理临场", read:"第22讲：策略总结+三篇连做", speak:"第15-16讲：解决类+串讲总复习", write:"第16-17讲：大作文收束+小作文提速"},
+    {listen:"剑17-18 S3/S4专项连刷（每天1套）", read:"剑17-18连做（每周2套）", speak:"全题库P2限时+ P3随机抽问", write:"每周2大1小，严格限时"},
+    {listen:"弱项定点：回看对应讲次", read:"弱项定点：回看对应讲次", speak:"弱项定点：回看对应讲次", write:"弱项定点：回看对应讲次"},
+  ]},
+  { name:"阶段四 · 冲刺", goal:"出口：稳定6.5，冲刺7", weeks:[
+    {listen:"模考3套；错题归因建库", read:"模考3套；每套做错因表", speak:"当季题库每天1套P1+P2+P3录音", write:"每周2大2小，找人/AI批改"},
+    {listen:"模考3套；弱场景回第17-19讲", read:"模考3套；弱题型回第18/21讲", speak:"8-10万能故事覆盖全题库", write:"模板内化+避免重复词清单"},
+    {listen:"隔天1套；只听错题+场景词", read:"隔天1套；只看错题库", speak:"每天开口30min维持语感", write:"背熟2套大作文框架"},
+  ]},
+];
+
+const TOTAL_DAYS = PHASES.reduce((s,p)=>s+p.weeks.length,0)*7; // 126
+const HABITS = [
+  {key:"voc",   label:"词汇 30 min（场景词+同义替换滚动）", fromPhase:0},
+  {key:"listen",label:"听力精听 20 min（P1/P2/P3 对话）",     fromPhase:0},
+  {key:"speak", label:"口语开口 20 min（P1/P2 素材+录音回听）", fromPhase:0},
+  {key:"read",  label:"阅读当日任务（或 1 篇真题）",          fromPhase:0},
+  {key:"write", label:"写作当日任务（仿写/限时成篇）",         fromPhase:1},
+];
+const SUBJECTS = [
+  {key:"listen", name:"听力"},
+  {key:"read",   name:"阅读"},
+  {key:"speak",  name:"口语"},
+  {key:"write",  name:"写作"},
+];
+
+/* ---------- 存储 ---------- */
+const LS = {
+  get start(){ return localStorage.getItem("ielts_start") || "2026-09-24"; },
+  set start(v){ localStorage.setItem("ielts_start", v); },
+  get done(){ try{return JSON.parse(localStorage.getItem("ielts_done")||"{}");}catch(e){return {};} },
+  set done(o){ localStorage.setItem("ielts_done", JSON.stringify(o)); },
+};
+/* 本地日期 yyyy-mm-dd（不能用 toISOString，UTC 偏移会把本地零点推到前一天） */
+function localISO(d){
+  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+}
+function dayKey(d, sub){ return localISO(d) + ":" + sub; }
+function todayDate(){ const d=new Date(); d.setHours(0,0,0,0); return d; }
+function parseDate(s){ const [y,m,dd]=s.split("-").map(Number); const d=new Date(y,m-1,dd); d.setHours(0,0,0,0); return d; }
+function addDays(d,n){ const x=new Date(d); x.setDate(x.getDate()+n); return x; }
+
+/* ---------- 定位当天 ---------- */
+function planForDay(dayIdx){
+  let wi = Math.floor(dayIdx/7);
+  let diw = dayIdx % 7;            // 0..6
+  let acc = 0;
+  for(let pi=0; pi<PHASES.length; pi++){
+    const p = PHASES[pi];
+    if(wi < acc + p.weeks.length){
+      const localWeek = wi - acc;
+      return { pi, phase:p, weekIdx:localWeek, globalWeek:wi, dayInWeek:diw+1 };
+    }
+    acc += p.weeks.length;
+  }
+  return null;
+}
+
+/* ---------- 渲染 ---------- */
+function render(){
+  const start = parseDate(LS.start);
+  const today = todayDate();
+  let dayIdx = Math.floor((today - start)/86400000);
+  dayIdx = Math.max(0, Math.min(dayIdx, TOTAL_DAYS-1));
+  const pf = planForDay(dayIdx);
+  const done = LS.done;
+  const tKey = localISO(today);
+
+  // 总进度
+  document.getElementById("ovBar").style.width = (dayIdx/(TOTAL_DAYS-1)*100).toFixed(1)+"%";
+  document.getElementById("ovText").textContent = "总进度（第 "+(dayIdx+1)+" / "+TOTAL_DAYS+" 天）";
+  document.getElementById("ovPct").textContent = (dayIdx/(TOTAL_DAYS-1)*100).toFixed(0)+"%";
+
+  // 今日头
+  document.getElementById("tPh").textContent = pf.phase.name + " · 第 "+(pf.globalWeek+1)+" 周 / 共 "+PHASES.reduce((s,p)=>s+p.weeks.length,0)+" 周";
+  document.getElementById("tBig").textContent = "今天：第 "+(pf.globalWeek+1)+" 周 · 周 "+pf.dayInWeek+" / 7";
+  const wd = ["周日","周一","周二","周三","周四","周五","周六"][today.getDay()];
+  document.getElementById("tDate").textContent = tKey + " " + wd + "　·　本周目标：" + pf.phase.goal;
+
+  // 每日地基
+  const habitBox = document.getElementById("habit");
+  habitBox.innerHTML = "";
+  HABITS.forEach(h=>{
+    const active = pf.pi >= h.fromPhase;
+    const checked = !!done[dayKey(today, "h_"+h.key)];
+    const row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = `<input type="checkbox" ${checked?"checked":""} ${active?"":"disabled"}>
+      <label>${h.label}${active?"":" · 该阶段暂未开启"}</label>
+      <span class="done">${checked?"✓ 完成":""}</span>`;
+    if(active){
+      row.querySelector("input").addEventListener("change", e=>{
+        const d = LS.done; if(e.target.checked) d[dayKey(today,"h_"+h.key)]=1; else delete d[dayKey(today,"h_"+h.key)];
+        LS.done = d; render();
+      });
+    }
+    habitBox.appendChild(row);
+  });
+
+  // 本周任务
+  document.getElementById("wkTag").textContent = "第 "+(pf.globalWeek+1)+" 周";
+  const wk = pf.phase.weeks[pf.weekIdx];
+  const grid = document.getElementById("tasks");
+  grid.innerHTML = "";
+  // 本周日期范围
+  const weekStart = addDays(start, pf.globalWeek*7);
+  SUBJECTS.forEach(s=>{
+    const task = wk[s.key] || "（本周该科自由安排/模考）";
+    // 本周打卡天数
+    let cnt = 0;
+    for(let i=0;i<7;i++){ const d = addDays(weekStart,i); if(done[dayKey(d, s.key)]) cnt++; }
+    const checked = !!done[dayKey(today, s.key)];
+    const card = document.createElement("div");
+    card.className = "task";
+    card.innerHTML = `
+      <span class="chk"><input type="checkbox" ${checked?"checked":""} title="今天学了这门"></span>
+      <div class="k">${s.name}</div>
+      <div class="t">${task}</div>
+      <div class="wk"><span>本周打卡</span><span class="cnt">${cnt} / 7 天</span></div>`;
+    card.querySelector("input").addEventListener("change", e=>{
+      const d = LS.done; if(e.target.checked) d[dayKey(today,s.key)]=1; else delete d[dayKey(today,s.key)];
+      LS.done = d; render();
+    });
+    grid.appendChild(card);
+  });
+
+  // 里程碑提示
+  const ms = document.getElementById("ms");
+  const exits = ["阶段一出口：听P1 7+/10、P2 6+/10；读P1 10+/13；口P1不卡壳、P2撑满2min；写会开头段+overview",
+                 "阶段二出口：听读全套30+/40；口P2素材全串；写小作文20min成篇、大作文写满3篇",
+                 "阶段三出口：听读32+/40；口P2任意题2min流畅、P3撑1.5min；写大作文不跑题限时250词 → 模考≈6.5",
+                 "阶段四出口：稳定6.5，冲刺7"];
+  ms.textContent = "📌 " + exits[pf.pi];
+}
+
+/* ---------- 设置弹窗 ---------- */
+const modal = document.getElementById("modal");
+document.getElementById("gear").onclick = ()=>{
+  document.getElementById("startIn").value = LS.start;
+  document.getElementById("phaseIn").value = "0";
+  modal.classList.add("show");
+};
+modal.addEventListener("click", e=>{ if(e.target===modal) modal.classList.remove("show"); });
+document.getElementById("saveBtn").onclick = ()=>{
+  LS.start = document.getElementById("startIn").value || "2026-09-24";
+  modal.classList.remove("show"); render();
+};
+document.getElementById("resetBtn").onclick = ()=>{
+  if(confirm("确定清空全部打卡进度？（开课日期保留）")){ LS.done = {}; render(); }
+};
+
+render();
+</script>
+</body>
+</html>

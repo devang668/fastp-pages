@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思生词本</title>
+<style>
+  :root{--teal:#0fb5a6;--teal-d:#0a8c80;--bg:#f4f7f8;--card:#fff;--ink:#1f2d2b;
+        --mut:#6b7d7a;--line:#e2eae9;--ok:#20b486;--warn:#e08a1e}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.65}
+  .wrap{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  h1{font-size:20px;margin:0;color:var(--teal-d)}
+  .sub{color:var(--mut);font-size:13px}
+  .back{font-size:13px;color:var(--teal-d);text-decoration:none;border:1px solid var(--line);
+        background:#fff;border-radius:20px;padding:5px 12px}
+  .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  input[type=search],input[type=text]{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);
+        border-radius:10px;font-size:14px;background:#fff;outline:none}
+  input[type=search]:focus,input[type=text]:focus{border-color:var(--teal)}
+  .chip{font-size:13px;border:1px solid var(--line);background:#fff;color:var(--mut);
+        border-radius:20px;padding:5px 12px;cursor:pointer}
+  .chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+  .stat{font-size:12px;color:var(--mut);margin-left:auto}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+  summary{cursor:pointer;padding:12px 14px;font-weight:600;font-size:14.5px;list-style:none;
+          display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary .meta{font-weight:400;color:var(--mut);font-size:12px}
+  details[open] summary{border-bottom:1px solid var(--line);background:#f7fbfb}
+  .body{padding:4px 16px 14px}
+  .body p{margin:8px 0}
+  .body h3{font-size:15px;margin:14px 0 4px;color:var(--teal-d)}
+  .body h4{font-size:14px;margin:12px 0 4px}
+  .body h5{font-size:13.5px;margin:10px 0 3px;color:var(--mut)}
+  .body hr{border:0;border-top:1px dashed var(--line);margin:12px 0}
+  .body .li{margin:3px 0;padding-left:6px}
+  .body ul,.body ol{margin:6px 0 10px;padding-left:22px}
+  .body li{margin:3px 0}
+  .body blockquote{margin:10px 0;padding:8px 14px;border-left:3px solid var(--teal);
+                   background:#f7fbfb;border-radius:0 8px 8px 0;color:#3c4b49;font-size:13.5px}
+  .body blockquote p{margin:0}
+  .body code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .tw{overflow-x:auto;margin:12px 0}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;
+        border:1px solid var(--line)}
+  th,td{padding:9px 12px;text-align:left;font-size:13.5px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f7fbfb;color:var(--mut);font-weight:600;font-size:12.5px;position:sticky;top:0}
+  tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#fafcfc}
+  td.w{font-weight:700;color:var(--teal-d);cursor:pointer;white-space:nowrap}
+  td.n{color:var(--mut);font-size:12.5px}
+  .src{font-size:11.5px;border-radius:20px;padding:1px 8px;white-space:nowrap}
+  .src.听力{background:#e8f7f4;color:#0a8c80}
+  .src.阅读{background:#eef4ff;color:#3a63c0}
+  .src.口语{background:#fdf1e6;color:#b56a13}
+  .src.通用{background:#f1f2f4;color:#69727a}
+  tr.mastered td{opacity:.42;text-decoration:line-through}
+  .empty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:26px 20px;
+         text-align:center;color:var(--mut);font-size:14px}
+  .empty code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
+  .modal.show{display:flex}
+  .panel{background:#fff;border-radius:16px;padding:26px 22px;max-width:420px;width:100%;text-align:center}
+  .panel .big{font-size:30px;font-weight:800;color:var(--teal-d);margin:6px 0 4px;word-break:break-word}
+  .panel .ans{font-size:17px;margin:14px 0;min-height:30px;color:var(--ink)}
+  .panel .tag{font-size:12px;color:var(--mut);margin-bottom:12px}
+  .panel .btns{display:flex;gap:10px;margin-top:8px}
+  .panel button{flex:1;padding:11px;border:0;border-radius:10px;font-size:14.5px;cursor:pointer}
+  .panel .go{background:var(--teal-d);color:#fff}
+  .panel .no{background:#eef1f1;color:var(--mut)}
+  .panel .cnt{font-size:12px;color:var(--mut);margin-top:12px}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0 6px;
+       display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+  .toc b{font-size:12.5px;color:var(--mut);margin-right:4px}
+  .toc a{font-size:13px;color:var(--teal-d);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .toc a.toc-l3{color:var(--mut);font-size:12.5px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 20px 20px;margin-top:12px}
+  .plan h3{font-size:17px;color:var(--teal-d);margin:22px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+  .plan h3:first-child{border-top:0;margin-top:10px}
+  .plan h4{font-size:14.5px;margin:16px 0 6px}
+  .plan h5{font-size:13.5px;margin:12px 0 4px;color:var(--mut)}
+  .plan p{margin:8px 0;font-size:14px}
+  .plan li{font-size:14px;margin:4px 0}
+  .plan ul,.plan ol{padding-left:22px;margin:6px 0 10px}
+  .plan blockquote{margin:10px 0;padding:9px 14px;border-left:3px solid var(--teal);background:#f7fbfb;
+                   border-radius:0 8px 8px 0;color:#3c4b49;font-size:13.5px}
+  .plan hr{border:0;border-top:1px dashed var(--line);margin:16px 0}
+  .plan code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .plan td,.plan th{font-size:13px}
+  @media(max-width:560px){.plan{padding:4px 12px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>生词本</h1><div class='sub'>听力 / 阅读中遇到的词 · 点单词标记已掌握 · 随机抽查复习</div></div><a class='back' href='study-dashboard.html'>← 回仪表盘</a></header><div class='tools'><input type='search' id='q' placeholder='搜索单词或释义'><span class='chip on' data-s='全部'>全部</span><span class='chip' data-s='听力'>听力</span><span class='chip' data-s='阅读'>阅读</span><span class='chip' data-s='口语'>口语</span><span class='chip' id='hideMastered'>隐藏已掌握</span><span class='chip' id='quiz'>🎲 随机抽 20 个</span><span class='stat' id='stat'></span></div><div class='empty'>生词本还是空的。<br><br>在 <code>ielts-data/vocab/</code> 里放 <code>.md</code> 或 <code>.txt</code>，一行一个词：<br><br><code>abandon | 放弃，抛弃 | 听力 | 原文：abandon the project</code><br><br>分隔符用 <code>|</code> 或 Tab，只写「单词 释义」也行。</div>
+<script>
+var ALL = [];
+var KEY = 'ielts_vocab_mastered';
+var mastered = {};
+try { (JSON.parse(localStorage.getItem(KEY) || '[]')).forEach(function(w){ mastered[w] = 1; }); } catch(e){}
+function save(){ localStorage.setItem(KEY, JSON.stringify(Object.keys(mastered))); }
+
+var tb = document.getElementById('tb');
+var q = document.getElementById('q');
+var stat = document.getElementById('stat');
+var srcFilter = '全部';
+var hideM = false;
+
+function visible(){
+  var k = q.value.trim().toLowerCase();
+  return ALL.filter(function(it){
+    if(srcFilter !== '全部' && it.s !== srcFilter) return false;
+    if(hideM && mastered[it.w.toLowerCase()]) return false;
+    if(!k) return true;
+    return (it.w + ' ' + it.m + ' ' + it.n).toLowerCase().indexOf(k) >= 0;
+  });
+}
+function paint(){
+  var total = ALL.length, done = 0;
+  ALL.forEach(function(it){ if(mastered[it.w.toLowerCase()]) done++; });
+  if(!tb){ if(stat) stat.textContent = total ? (total + ' 个词 · 已掌握 ' + done + ' 个') : ''; return; }
+  var list = visible();
+  tb.innerHTML = list.map(function(it){
+    var m = mastered[it.w.toLowerCase()] ? ' class="mastered"' : '';
+    return '<tr' + m + '><td class="w" data-w="' + it.w + '">' + it.w + '</td><td>' + it.m +
+           '</td><td><span class="src ' + it.s + '">' + it.s + '</span></td><td class="n">' + (it.n || '') + '</td></tr>';
+  }).join('');
+  if(stat) stat.textContent = list.length + ' / ' + total + ' 个词 · 已掌握 ' + done + ' 个';
+}
+if(tb){
+  tb.addEventListener('click', function(e){
+    var td = e.target.closest('td.w');
+    if(!td) return;
+    var w = td.getAttribute('data-w').toLowerCase();
+    if(mastered[w]) delete mastered[w]; else mastered[w] = 1;
+    save(); paint();
+  });
+  q.addEventListener('input', paint);
+  Array.prototype.forEach.call(document.querySelectorAll('.chip[data-s]'), function(c){
+    c.addEventListener('click', function(){
+      srcFilter = c.getAttribute('data-s');
+      Array.prototype.forEach.call(document.querySelectorAll('.chip[data-s]'), function(x){ x.classList.remove('on'); });
+      c.classList.add('on'); paint();
+    });
+  });
+  var hm = document.getElementById('hideMastered');
+  hm.addEventListener('click', function(){
+    hideM = !hideM; hm.classList.toggle('on', hideM); paint();
+  });
+  paint();
+}
+
+var modal = document.createElement('div');
+modal.className = 'modal';
+modal.innerHTML = '<div class="panel"><div class="tag" id="qzTag"></div>' +
+  '<div class="big" id="qzWord"></div><div class="ans" id="qzAns"></div>' +
+  '<div class="btns"><button class="no" id="qzQuit">结束</button>' +
+  '<button class="go" id="qzNext">下一个</button></div>' +
+  '<div class="cnt" id="qzCnt"></div></div>';
+document.body.appendChild(modal);
+var quizList = [], qi = 0;
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function showCard(){
+  if(qi >= quizList.length){ modal.classList.remove('show'); return; }
+  var it = quizList[qi];
+  document.getElementById('qzWord').textContent = it.w;
+  document.getElementById('qzAns').textContent = '';
+  document.getElementById('qzTag').textContent = it.s + (it.n ? ' · ' + it.n : '');
+  document.getElementById('qzNext').textContent = '看释义';
+  document.getElementById('qzCnt').textContent = (qi+1) + ' / ' + quizList.length;
+}
+document.getElementById('quiz').addEventListener('click', function(){
+  var pool = visible();
+  if(!pool.length) return;
+  quizList = shuffle(pool.slice()).slice(0, 20); qi = 0;
+  modal.classList.add('show'); showCard();
+});
+document.getElementById('qzNext').addEventListener('click', function(){
+  var el = document.getElementById('qzAns');
+  if(!el.textContent){ el.textContent = quizList[qi].m || '（没写释义）'; this.textContent = '下一个 →'; return; }
+  qi++; showCard();
+});
+document.getElementById('qzQuit').addEventListener('click', function(){ modal.classList.remove('show'); });
+</script>
+</div>
+</body>
+</html>

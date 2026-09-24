@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思 VIP 四阶段学习计划</title>
+<style>
+  :root{--teal:#0fb5a6;--teal-d:#0a8c80;--bg:#f4f7f8;--card:#fff;--ink:#1f2d2b;
+        --mut:#6b7d7a;--line:#e2eae9;--ok:#20b486;--warn:#e08a1e}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.65}
+  .wrap{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  h1{font-size:20px;margin:0;color:var(--teal-d)}
+  .sub{color:var(--mut);font-size:13px}
+  .back{font-size:13px;color:var(--teal-d);text-decoration:none;border:1px solid var(--line);
+        background:#fff;border-radius:20px;padding:5px 12px}
+  .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  input[type=search],input[type=text]{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);
+        border-radius:10px;font-size:14px;background:#fff;outline:none}
+  input[type=search]:focus,input[type=text]:focus{border-color:var(--teal)}
+  .chip{font-size:13px;border:1px solid var(--line);background:#fff;color:var(--mut);
+        border-radius:20px;padding:5px 12px;cursor:pointer}
+  .chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+  .stat{font-size:12px;color:var(--mut);margin-left:auto}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+  summary{cursor:pointer;padding:12px 14px;font-weight:600;font-size:14.5px;list-style:none;
+          display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary .meta{font-weight:400;color:var(--mut);font-size:12px}
+  details[open] summary{border-bottom:1px solid var(--line);background:#f7fbfb}
+  .body{padding:4px 16px 14px}
+  .body p{margin:8px 0}
+  .body h3{font-size:15px;margin:14px 0 4px;color:var(--teal-d)}
+  .body h4{font-size:14px;margin:12px 0 4px}
+  .body h5{font-size:13.5px;margin:10px 0 3px;color:var(--mut)}
+  .body hr{border:0;border-top:1px dashed var(--line);margin:12px 0}
+  .body .li{margin:3px 0;padding-left:6px}
+  .body ul,.body ol{margin:6px 0 10px;padding-left:22px}
+  .body li{margin:3px 0}
+  .body blockquote{margin:10px 0;padding:8px 14px;border-left:3px solid var(--teal);
+                   background:#f7fbfb;border-radius:0 8px 8px 0;color:#3c4b49;font-size:13.5px}
+  .body blockquote p{margin:0}
+  .body code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .tw{overflow-x:auto;margin:12px 0}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;
+        border:1px solid var(--line)}
+  th,td{padding:9px 12px;text-align:left;font-size:13.5px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f7fbfb;color:var(--mut);font-weight:600;font-size:12.5px;position:sticky;top:0}
+  tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#fafcfc}
+  td.w{font-weight:700;color:var(--teal-d);cursor:pointer;white-space:nowrap}
+  td.n{color:var(--mut);font-size:12.5px}
+  .src{font-size:11.5px;border-radius:20px;padding:1px 8px;white-space:nowrap}
+  .src.听力{background:#e8f7f4;color:#0a8c80}
+  .src.阅读{background:#eef4ff;color:#3a63c0}
+  .src.口语{background:#fdf1e6;color:#b56a13}
+  .src.通用{background:#f1f2f4;color:#69727a}
+  tr.mastered td{opacity:.42;text-decoration:line-through}
+  .empty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:26px 20px;
+         text-align:center;color:var(--mut);font-size:14px}
+  .empty code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
+  .modal.show{display:flex}
+  .panel{background:#fff;border-radius:16px;padding:26px 22px;max-width:420px;width:100%;text-align:center}
+  .panel .big{font-size:30px;font-weight:800;color:var(--teal-d);margin:6px 0 4px;word-break:break-word}
+  .panel .ans{font-size:17px;margin:14px 0;min-height:30px;color:var(--ink)}
+  .panel .tag{font-size:12px;color:var(--mut);margin-bottom:12px}
+  .panel .btns{display:flex;gap:10px;margin-top:8px}
+  .panel button{flex:1;padding:11px;border:0;border-radius:10px;font-size:14.5px;cursor:pointer}
+  .panel .go{background:var(--teal-d);color:#fff}
+  .panel .no{background:#eef1f1;color:var(--mut)}
+  .panel .cnt{font-size:12px;color:var(--mut);margin-top:12px}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0 6px;
+       display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+  .toc b{font-size:12.5px;color:var(--mut);margin-right:4px}
+  .toc a{font-size:13px;color:var(--teal-d);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .toc a.toc-l3{color:var(--mut);font-size:12.5px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 20px 20px;margin-top:12px}
+  .plan h3{font-size:17px;color:var(--teal-d);margin:22px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+  .plan h3:first-child{border-top:0;margin-top:10px}
+  .plan h4{font-size:14.5px;margin:16px 0 6px}
+  .plan h5{font-size:13.5px;margin:12px 0 4px;color:var(--mut)}
+  .plan p{margin:8px 0;font-size:14px}
+  .plan li{font-size:14px;margin:4px 0}
+  .plan ul,.plan ol{padding-left:22px;margin:6px 0 10px}
+  .plan blockquote{margin:10px 0;padding:9px 14px;border-left:3px solid var(--teal);background:#f7fbfb;
+                   border-radius:0 8px 8px 0;color:#3c4b49;font-size:13.5px}
+  .plan hr{border:0;border-top:1px dashed var(--line);margin:16px 0}
+  .plan code{background:#f4f7f8;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .plan td,.plan th{font-size:13px}
+  @media(max-width:560px){.plan{padding:4px 12px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>雅思 VIP 四阶段学习计划</h1><div class='sub'>18 周 · 听 6→7 / 读 6→7 / 口 5→6 / 写 5→6 · 目标 6~6.5</div></div><a class='back' href='study-dashboard.html'>← 回仪表盘</a></header><div class='toc'><b>目录</b><a class='toc-l2' href='#s1'>总原则（贯穿全程）</a><a class='toc-l2' href='#s2'>阶段一：初级打基础（4 周，目标总分 5.5：听 6 / 读 6 / 口 5 / 写 5）</a><a class='toc-l2' href='#s3'>阶段二：题型全覆盖（6 周，承上启下，听读冲 6.5、口写起步）</a><a class='toc-l2' href='#s4'>阶段三：冲 6.5 强化（5 周，目标 听 7 / 读 7 / 口 6 / 写 6）</a><a class='toc-l3' href='#s5'>第 1 周</a><a class='toc-l3' href='#s6'>第 2 周</a><a class='toc-l3' href='#s7'>第 3 周</a><a class='toc-l3' href='#s8'>第 4 周</a><a class='toc-l3' href='#s9'>第 5 周（弱项周）</a><a class='toc-l2' href='#s10'>阶段四：临门一脚 冲刺模考（3 周，稳定 6.5、冲 7）</a><a class='toc-l3' href='#s11'>第 1 周</a><a class='toc-l3' href='#s12'>第 2 周</a><a class='toc-l3' href='#s13'>第 3 周（考前一周）</a><a class='toc-l2' href='#s14'>全程阶段总览</a><a class='toc-l2' href='#s15'>资源索引</a><a class='toc-l2' href='#s16'>使用建议</a></div><div class='plan'><h3 <h3 id='s0' class='sec1'>雅思 VIP 四阶段学习计划（目标 6 / 6.5）</h3>
+<blockquote>适用对象：CET-4 456（刚过 425，词汇量约 4500，长难句是短板）、<b>口语薄弱</b>、<b>作文零练习</b>、想系统提分。</blockquote>
+<blockquote>当前水平估算 ≈ 4.5–5.0，阶段目标总分 5.5，最终按 <b>6 / 6.5</b> 规划。</blockquote>
+<blockquote>总周期：约 <b>18 周（4.5 个月）</b> = 阶段一 4 周 + 阶段二 6 周 + 阶段三 5 周 + 阶段四 3 周。</blockquote>
+<blockquote>配套资源：四门 VIP 课页面（`vip/tli`、`vip/yuedu`、`vip/speaking`、`vip/writing`）、免费阅读课 `yue-du`、四份 XMind 导图（听力/阅读/口语/写作 VIP）、剑桥真题 14–18、阶段四需要的当季口语题库。</blockquote>
+<hr>
+<h3 <h3 id='s1' class='sec2'>总原则（贯穿全程）</h3>
+<ol><li><b>先输入后输出</b>：听力、阅读是输入科，前 4 周靠它们攒词汇和语感，写作第 4 周才动笔仿写，口语前 3 周只开口不纠错。</li><li><b>口语重素材熟练度</b>：按第 13 讲「6.5 以下策略」，重点永远是 P1/P2 素材熟到脱口而出，P3 只求用思路链撑住时长，不追深度。</li><li><b>阅读 P1 必须稳拿 10+/13</b>：这是性价比最高的分数，阶段一就要锁死。</li><li><b>听力从 P1 起步别贪快</b>：P1 词汇是高中以下水平，直接跳 P2 客观题会受挫（听力课原话）。</li><li><b>写作先正确率后速度</b>：小作文先会写对结构，再压缩到 20 分钟内。</li><li><b>每天固定三件套不断</b>：词汇 + 口语开口 + 听力精听，雷打不动，是分数的地基。</li></ol>
+<hr>
+<h3 <h3 id='s2' class='sec2'>阶段一：初级打基础（4 周，目标总分 5.5：听 6 / 读 6 / 口 5 / 写 5）</h3>
+<p><b>每日固定件（约 70 min）</b>：词汇 30 min（四级核心词滚动 + 当天场景词）＋口语开口 20 min（P1 四大必考题：家乡/住所/区域/学习工作，录音回听）＋听力精听 20 min（P1 对话）。</p>
+<div class='tw'><table><thead><tr><th>周</th><th>听力</th><th>阅读</th><th>口语</th><th>写作</th></tr></thead><tbody><tr><td>1</td><td>第 1–2 讲：规则与精听分层入门</td><td>第 1–3 讲：基础 + 扫读定位</td><td>第 1–3 讲：P1 必考题开口习惯</td><td>第 1 讲：小作文认知（只看不写）</td></tr><tr><td>2</td><td>第 3–5 讲：填空三原则 / 时态语态 / 拼写</td><td>第 4–6 讲：判断题方法</td><td>第 4–6 讲：P2 人/物素材</td><td>第 2 讲：小作文结构（仿写开头段）</td></tr><tr><td>3</td><td>第 6–7 讲：P2 一分钟笔记法 + P1 强化</td><td>第 7–9 讲：判断题三层难度</td><td>第 7–9 讲：P2 事/地素材</td><td>第 3 讲：动态图分段 + overview</td></tr><tr><td>4</td><td>第 1–7 讲复盘：剑 14 P1/P2 精做</td><td>第 7–9 讲收尾：剑 14 P1 实战</td><td>第 1–9 讲串素材：九大原因串题</td><td>第 4 讲：静态图仿写完整篇</td></tr></tbody></table></div>
+<p><b>练习配置</b>：剑 14 前两周拆题，第 4 周做 1 套完整 P1/P2 复盘。</p>
+<p><b>阶段一出口标准</b>：</p>
+<ul><li>听力 P1 正确 7+/10、P2 6+/10</li><li>阅读 P1 正确 10+/13</li><li>口语 P1 不卡壳、P2 能撑满 2 分钟</li><li>写作会写开头段 + overview，动态图会分段</li></ul>
+<blockquote>达标后进阶段二。</blockquote>
+<hr>
+<h3 <h3 id='s3' class='sec2'>阶段二：题型全覆盖（6 周，承上启下，听读冲 6.5、口写起步）</h3>
+<p><b>每日固定件（约 60 min）</b>：词汇 30 min（升级为雅思场景词 + 同义替换积累）＋口语开口 20 min（P2 一题 + P3 一题）＋听力精听 20 min（材料升级为 P2/P3 对话）。</p>
+<div class='tw'><table><thead><tr><th>周</th><th>听力</th><th>阅读</th><th>口语</th><th>写作</th></tr></thead><tbody><tr><td>1</td><td>第 7–8 讲：P2 地图题（方位词/路线跟踪）+ 单选多选策略</td><td>第 7–9 讲：判断题三层难度收尾</td><td>第 10 讲：地点类素材</td><td>第 3–4 讲：静态图</td></tr><tr><td>2</td><td>第 9–11 讲：配对题 + 开发项目 / 三篇综合练习</td><td>第 10 讲：四类配对总览 + 特点配对</td><td>第 11 讲：物品类素材（礼物/家居/衣物）</td><td>第 5–6 讲：双动态图 / 双饼图</td></tr><tr><td>3</td><td>第 12–13 讲：P3 配对题（事实/态度）+ 流程图</td><td>第 11–12 讲：信息配对（通读→简化题干→关键词）+ 句子结尾配对</td><td>第 12 讲：节日与有意义的一天</td><td>第 7–8 讲：流程图 / 地图</td></tr><tr><td>4</td><td>第 14–15 讲：P3 对话精听 + 复盘技巧（重听对标/朗读课文）</td><td>第 14–15 讲：平行阅读法概念 + 三篇实操</td><td>第 13 讲：6.5 以下备考策略自查</td><td>第 10 讲：正确审美 + 大作文审题</td></tr><tr><td>5</td><td>第 16–17 讲：P4 填空要点（原文原词/单复数）+ 科学场景</td><td>第 17 讲平行阅读复杂文章 + 第 18 讲多选题</td><td>第 14 讲：P3 思路链（五类七小类，重点原因类）</td><td>第 11 讲：论述题（两正一反）</td></tr><tr><td>6</td><td>第 18–20 讲：场景区分 / 研究项目精听 / 时间管理收束</td><td>第 19–22 讲：真题实战 + 策略与时间管理收束</td><td>第 15–16 讲：解决类话题 + 串讲总结</td><td>第 12 讲：同意与否；每周 1 篇完整大作文</td></tr></tbody></table></div>
+<p><b>练习配置</b>：剑 14–15 轮着用，听力阅读每周各 1 套完整题 + 精做复盘；写作每周 1 篇小作文（20 min 限时）＋ 1 篇大作文（40 min 限时）。</p>
+<p><b>阶段二三个重点</b>：</p>
+<ul><li>听力 P3/P4 是分数分水岭：P3 态度配对（听语气：肯定/否定/犹豫）和 P4 填空（原文原词、单复数、拼写零容错）是明确失分重灾区，第 13、16 讲复盘方法要用起来。</li><li>阅读平行阅读法是质变点：第 14 讲原话「传统逐题型方法效率低下」，学会同时处理多题后速度才上得来——词汇不足者初期会难受，坚持三篇实操（第 15 讲）。</li><li>口语第 13 讲自查：目标 6/6.5 仍按「6.5 以下策略」重点 P1/P2 素材，P3 只求思路链撑时长。</li></ul>
+<p><b>阶段二出口标准</b>：</p>
+<ul><li>听力全套 30+/40，P3、P4 各 6+/10</li><li>阅读全套 30+/40，配对题不拖后腿</li><li>口语 P2 素材库全串（人/物/事/地各一套），P3 用思路链撑 1 分钟</li><li>写作小作文全类型 20 min 内成篇，大作文完整写满 3 篇</li></ul>
+<blockquote>第 6 周末做一次剑桥真题全真模考，拿四科数据进阶段三。</blockquote>
+<hr>
+<h3 <h3 id='s4' class='sec2'>阶段三：冲 6.5 强化（5 周，目标 听 7 / 读 7 / 口 6 / 写 6）</h3>
+<p><b>每日投入 3–3.5 h</b>，四科并重：听读冲 7（分数乘区）、口写稳 6。</p>
+<h4 <h4 id='s5' class='sec3'>第 1 周</h4>
+<ul><li><b>听力</b> 第 18–19 讲：场景区分 + 研究项目精听（P4 长讲座抓结构：背景→问题→方法→结论）</li><li><b>阅读</b> 第 19–20 讲：真实考题实战（剑 16–17）+ 时间管理（20 min/篇纪律）</li><li><b>口语</b> 第 14 讲：P3 思路链深化（原因/对比/预测/利弊五类全用）</li><li><b>写作</b> 第 13–14 讲：双边讨论 + 优劣对比（每种题型各写 1 篇）</li></ul>
+<h4 <h4 id='s6' class='sec3'>第 2 周</h4>
+<ul><li><b>听力</b> 第 13 讲复盘技巧内化 + 第 16 讲 P4 填空复习（拼写零失误冲刺）</li><li><b>阅读</b> 第 21 讲：单选 + 标题配对（7 分必备，定位 + 段落主旨）</li><li><b>口语</b> 第 8 讲（发音/语调）或地道词替换（避免重复词）</li><li><b>写作</b> 第 15 讲：问题解决类 + 观点论述混合</li></ul>
+<h4 <h4 id='s7' class='sec3'>第 3 周</h4>
+<ul><li><b>听力</b> 第 20 讲：时间管理与临场（边听边写、预判空位）</li><li><b>阅读</b> 第 22 讲：策略总结 + 三篇连做（不回看、不纠结）</li><li><b>口语</b> 第 15–16 讲：解决类话题 + 串讲总复习（P1/P2/P3 串成个人体系）</li><li><b>写作</b> 第 16–17 讲：大作文收束（逻辑衔接、审题防跑题）+ 小作文提速（15 min 成篇）</li></ul>
+<h4 <h4 id='s8' class='sec3'>第 4 周</h4>
+<ul><li><b>听力</b>：剑 17–18 P3/P4 专项连刷（每天 1 套，只做 Section 3&amp;4）</li><li><b>阅读</b>：剑 17–18 连做（每周 2 套完整）</li><li><b>口语</b>：全题库轮过 P2（每天 2 题限时 2 min 录音）+ P3 随机抽问</li><li><b>写作</b>：每周 2 篇大作文 + 1 篇小作文，严格限时</li></ul>
+<h4 <h4 id='s9' class='sec3'>第 5 周（弱项周）</h4>
+<ul><li>用第 1–4 周模考数据定位单科最弱小题型集中补：</li><li>听力地图题仍弱 → 回第 7–8 讲；P4 科学弱 → 回第 17–19 讲</li><li>阅读 heading 弱 → 回第 21 讲；多选弱 → 回第 18 讲</li><li>口语某类话题卡 → 回对应素材讲；写作某题型弱 → 回对应讲</li><li>全真模考 2 套</li></ul>
+<p><b>阶段三出口标准</b>：</p>
+<ul><li>听力 32+/40（S3+S4 各 7+/10）</li><li>阅读 32+/40，heading 不拖后腿</li><li>口语 P2 任意题 2 min 流畅，P3 思路链撑 1.5 min</li><li>写作大作文不跑题、有双边、限时 40 min 满 250 词</li><li>模考总分 ≈ 6.5</li></ul>
+<hr>
+<h3 <h3 id='s10' class='sec2'>阶段四：临门一脚 冲刺模考（3 周，稳定 6.5、冲 7）</h3>
+<p><b>每日投入 3.5–4 h</b>，全真模拟为主，从「做题」转向「复盘到秒」。</p>
+<h4 <h4 id='s11' class='sec3'>第 1 周</h4>
+<ul><li>每周 3 套完整剑桥模考（严格计时、答题卡、不暂停）</li><li><b>听力</b>：错题归因（拼写/走神/定位）建立个人错题库</li><li><b>阅读</b>：每套后做「为什么错」表（定位错/单词不认识/时间不够）</li><li><b>口语</b>：当季口语题库每天 1 套 P1+P2+P3 录音，对照范文找差距</li><li><b>写作</b>：每周 2 大 2 小，找人/AI 批改，专攻连贯与词汇</li></ul>
+<h4 <h4 id='s12' class='sec3'>第 2 周</h4>
+<ul><li>继续每周 3 套模考，重点转「复盘到秒」</li><li><b>听力</b>：弱场景（P4 科学/研究）再刷第 17–19 讲</li><li><b>阅读</b>：弱题型（heading/多选）回第 18、21 讲定点突破</li><li><b>口语</b>：串题终极版（P2 素材压缩成 8–10 个万能故事覆盖全题库）</li><li><b>写作</b>：模板内化（开头/过渡/结尾万能句）+ 避免重复词清单</li></ul>
+<h4 <h4 id='s13' class='sec3'>第 3 周（考前一周）</h4>
+<ul><li>隔天 1 套模考保持手感，<b>不做新题</b></li><li><b>听力</b>：只听错题 + 场景词最后过一遍</li><li><b>阅读</b>：只看错题库，不新做</li><li><b>口语</b>：每天开口 30 min 维持语感，P2 故事顺一遍</li><li><b>写作</b>：背熟 2 套大作文框架 + 小作文各类型套路</li><li><b>作息校准</b>：按真实考试时段 9:00 开始做模考；列物资清单</li></ul>
+<p><b>阶段四出口标准</b>：稳定 6.5，冲刺 7。四科均衡：听 7 / 读 7 / 口 6 / 写 6 或更优。</p>
+<hr>
+<h3 <h3 id='s14' class='sec2'>全程阶段总览</h3>
+<div class='tw'><table><thead><tr><th>阶段</th><th>周期</th><th>核心任务</th><th>听</th><th>读</th><th>口</th><th>写</th><th>总分目标</th></tr></thead><tbody><tr><td>一 打基础</td><td>4 周</td><td>规则 + 开口习惯 + P1/P2 起步</td><td>6</td><td>6</td><td>5</td><td>5</td><td>5.5</td></tr><tr><td>二 全覆盖</td><td>6 周</td><td>四科题型全过一遍</td><td>6.5</td><td>6.5</td><td>5.5</td><td>5.5</td><td>6</td></tr><tr><td>三 冲 6.5</td><td>5 周</td><td>听读冲 7、口写稳 6、弱项定点</td><td>7</td><td>7</td><td>6</td><td>6</td><td>6.5</td></tr><tr><td>四 冲刺</td><td>3 周</td><td>全真模考 + 错题归因 + 临场</td><td>7</td><td>7</td><td>6</td><td>6</td><td>6.5（冲 7）</td></tr></tbody></table></div>
+<hr>
+<h3 <h3 id='s15' class='sec2'>资源索引</h3>
+<ul><li><b>听力 VIP</b>：`vip/tli/`（20 讲，P1→P4 全题型）</li><li><b>阅读 VIP</b>：`vip/yuedu/`（22 讲）+ 免费阅读课 `yue-du/`</li><li><b>口语 VIP</b>：`vip/speaking/`（16 讲，P1/P2 素材 + P3 思路链）</li><li><b>写作 VIP</b>：`vip/writing/`（17 讲，小作文 + 大作文题型）</li><li><b>四份 XMind 导图</b>：听力 / 阅读 / 口语 / 写作 VIP（每周过框架，用于复习而非浏览）</li><li><b>剑桥真题</b>：14（阶段一/二入门）→ 15–16（阶段二/三）→ 17–18（阶段三/四模考）</li><li><b>当季口语题库</b>：阶段四第 1 周起使用</li></ul>
+<hr>
+<h3 <h3 id='s16' class='sec2'>使用建议</h3>
+<ul><li>每阶段结束用「出口标准」自测，未达标不进下一阶段（阶段一是硬门槛）。</li><li>每周日花 20 min 对照 XMind 导图复习当周框架，避免「学完就忘」。</li><li>模考数据（正确率 + 错因）是校准后续阶段唯一依据，务必记录。</li><li>口语和写作靠「持续输出+复盘」，断更超过 3 天手感明显下滑，固定件不能停。</li></ul></div></div>
+</body>
+</html>
